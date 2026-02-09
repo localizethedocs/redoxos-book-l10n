@@ -259,7 +259,7 @@ restore_cmake_message_indent()
 
 
 set(UPSTREAM_DOCS   "https://doc.redox-os.org/book")
-set(UPSTREAM_REPO   "https://github.com/redox-os/book")
+set(UPSTREAM_REPO   "https://gitlab.redox-os.org/redox-os/book")
 set(INSERT_POINT    "main")
 
 
