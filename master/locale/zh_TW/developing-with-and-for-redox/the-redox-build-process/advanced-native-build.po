@@ -1,0 +1,587 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: The Redox Operating System\n"
+"POT-Creation-Date: 2026-02-09T03:19:51Z\n"
+"PO-Revision-Date: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: zh_TW\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+#: src/advanced-build.md:1
+msgid "Advanced Build"
+msgstr ""
+
+#: src/advanced-build.md:3
+msgid ""
+"In this section, we provide the gory details that may be handy to know if "
+"you are contributing to or developing for **Redox**."
+msgstr ""
+
+#: src/advanced-build.md:5
+msgid "Before reading through this section, make sure you have already read:"
+msgstr ""
+
+#: src/advanced-build.md:6
+msgid "[Podman Build](./podman-build.md)"
+msgstr ""
+
+#: src/advanced-build.md:7
+msgid "[Native Build](./building-redox.md)"
+msgstr ""
+
+#: src/advanced-build.md:8
+msgid "[Build System Reference](./build-system-reference.md)"
+msgstr ""
+
+#: src/advanced-build.md:10
+msgid "Setup Your Environment"
+msgstr ""
+
+#: src/advanced-build.md:12
+msgid ""
+"Advanced users may accomplish the same as the [**native_bootstrap.sh**]"
+"(https://gitlab.redox-os.org/redox-os/redox/-/blob/master/native_bootstrap."
+"sh) script with the following steps:"
+msgstr ""
+
+#: src/advanced-build.md:14
+msgid "[Clone The Repository](#clone-the-repository)"
+msgstr ""
+
+#: src/advanced-build.md:15
+msgid ""
+"[Install The Necessary Packages](#install-the-necessary-packages-and-"
+"emulators)"
+msgstr ""
+
+#: src/advanced-build.md:16
+msgid "[Install Rust](#install-rust-stable-and-nightly)"
+msgstr ""
+
+#: src/advanced-build.md:17
+msgid "[Adjust Your Configuration Settings](./configuration-settings.md)"
+msgstr ""
+
+#: src/advanced-build.md:18
+msgid "Build the system"
+msgstr ""
+
+#: src/advanced-build.md:20
+msgid "Clone The Repository"
+msgstr ""
+
+#: src/advanced-build.md:22
+msgid "Create a directory and clone the repository"
+msgstr ""
+
+#: src/advanced-build.md:44
+msgid ""
+"Please be patient, this can take minutes to hours depending on the hardware "
+"and network you're using."
+msgstr ""
+
+#: src/advanced-build.md:46
+msgid ""
+"In addition to installing the various packages needed for building Redox, "
+"**native_bootstrap.sh** and **podman_bootstrap.sh** both clone the "
+"repository, so if you used either script, you have completed Step 1."
+msgstr ""
+
+#: src/advanced-build.md:48
+msgid "Install The Necessary Packages and Emulator"
+msgstr ""
+
+#: src/advanced-build.md:50
+msgid ""
+"If you cloned the sources _before_ running **native_bootstrap.sh**, you can "
+"use:"
+msgstr ""
+
+#: src/advanced-build.md:60
+msgid ""
+"If you can't use the `native_bootstrap.sh` script, you need to install at "
+"least:"
+msgstr ""
+
+#: src/advanced-build.md:62
+msgid "Essential compilers: GCC, Rust and Nasm"
+msgstr ""
+
+#: src/advanced-build.md:63
+msgid ""
+"GNU search, text, and build tools: `find`, `grep`, `make`, `patch`, `pkg-"
+"config`, and `sed`"
+msgstr ""
+
+#: src/advanced-build.md:64
+msgid "Other build tools: `autotools`, `cmake`, `meson`, `perl` and `python3`"
+msgstr ""
+
+#: src/advanced-build.md:65
+msgid "Other file tooling: `curl`, `rsync`, `tar` and `wget`"
+msgstr ""
+
+#: src/advanced-build.md:66
+msgid "Libraries to build GCC: `gmp`, `mpfr` and `mpc`"
+msgstr ""
+
+#: src/advanced-build.md:67
+msgid "Rust tooling: `cbindgen` and `just`"
+msgstr ""
+
+#: src/advanced-build.md:68
+msgid "FUSE (to build an image) and QEMU (to run the image)"
+msgstr ""
+
+#: src/advanced-build.md:70
+msgid ""
+"Additional programs or libraries might be needed to build more packages. You "
+"can attempt to install the necessary packages below."
+msgstr ""
+
+#: src/advanced-build.md:72
+msgid "⚠️ **Warning:** The following commands may be outdated"
+msgstr ""
+
+#: src/advanced-build.md:74
+msgid ""
+"📝 **Note:** Always use the latest stable version of the Linux or Unix-like "
+"distribution of your choice, as any outdated tools might result in "
+"unexpected build errors. Redox cross-compilation is guaranteed to work "
+"reliably only in the current Podman environment, which is Debian 13 (Trixie)."
+msgstr ""
+
+#: src/advanced-build.md:76
+msgid "Pop!\\_OS/Ubuntu/Debian Users"
+msgstr ""
+
+#: src/advanced-build.md:78 src/advanced-build.md:104 src/advanced-build.md:127
+#: src/advanced-build.md:151 src/advanced-build.md:169
+#: src/advanced-build.md:247 src/advanced-build.md:275
+#: src/advanced-build.md:306
+msgid "Install the build system dependencies:"
+msgstr ""
+
+#: src/advanced-build.md:90 src/advanced-build.md:117 src/advanced-build.md:137
+#: src/advanced-build.md:161 src/advanced-build.md:175
+#: src/advanced-build.md:257 src/advanced-build.md:286
+#: src/advanced-build.md:317
+msgid "If you want to use QEMU, run:"
+msgstr ""
+
+#: src/advanced-build.md:96 src/advanced-build.md:143 src/advanced-build.md:263
+#: src/advanced-build.md:292 src/advanced-build.md:323
+msgid "If you want to use VirtualBox, run:"
+msgstr ""
+
+#: src/advanced-build.md:102
+msgid "Fedora Users"
+msgstr ""
+
+#: src/advanced-build.md:123 src/advanced-build.md:181
+msgid ""
+"If you want to use VirtualBox, install from the VirtualBox [Linux Downloads]"
+"(https://www.virtualbox.org/wiki/Linux_Downloads) page."
+msgstr ""
+
+#: src/advanced-build.md:125
+msgid "Arch Linux Users"
+msgstr ""
+
+#: src/advanced-build.md:149
+msgid "OpenSUSE Users"
+msgstr ""
+
+#: src/advanced-build.md:167
+msgid "Gentoo Users"
+msgstr ""
+
+#: src/advanced-build.md:183
+msgid "GNU Guix Users"
+msgstr ""
+
+#: src/advanced-build.md:185
+msgid ""
+"Rust nightly isn't packaged in Guix currently, so you need a FHS-enabled "
+"container to use rustup:"
+msgstr ""
+
+#: src/advanced-build.md:191
+msgid ""
+"'curl --proto \"=https\" --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y --"
+"default-toolchain nightly'"
+msgstr ""
+
+#: src/advanced-build.md:195
+msgid ""
+"'export LD_LIBRARY_PATH=$(dirname $(gcc -print-file-name=libgcc_s.so.1)):"
+"$LD_LIBRARY_PATH && source ~/.cargo/env && cargo install cbindgen'"
+msgstr ""
+
+#: src/advanced-build.md:198
+msgid ""
+"Then you will be able to run the actual build except for the part that uses "
+"FUSE to build the root filesystem. Modify `tryredox/redox` in the command "
+"below to match where your sources are:"
+msgstr ""
+
+#: src/advanced-build.md:208
+msgid ""
+"'\n"
+"export LD_LIBRARY_PATH=\"/lib64:/lib:$LD_LIBRARY_PATH\"\n"
+"export CI=1\n"
+"source ~/.cargo/env\n"
+"cd ~/tryredox/redox\n"
+"make all PODMAN_BUILD=0 REPO_BINARY=1\n"
+"'"
+msgstr ""
+
+#: src/advanced-build.md:217
+msgid ""
+"The FUSE portion needs to run outside of a Guix shell container. To do that, "
+"we will patch the Rust executables so they can find `libgcc_s.so.1` under `/"
+"gnu/store` instead of `/lib` :"
+msgstr ""
+
+#: src/advanced-build.md:222
+msgid ""
+"$(guix shell --container --emulate-fhs gcc-toolchain bash coreutils \\\n"
+"  -- bash -c 'dirname $(readlink -f /lib64/libgcc_s.so.1)')"
+msgstr ""
+
+#: src/advanced-build.md:227 src/advanced-build.md:231
+#: src/advanced-build.md:235
+msgid "\"$LIBGCC_DIR\""
+msgstr ""
+
+#: src/advanced-build.md:238
+msgid ""
+"Finally, you can run the image building part outside of a container so that "
+"FUSE works and launch qemu:"
+msgstr ""
+
+#: src/advanced-build.md:245
+msgid "FreeBSD Users"
+msgstr ""
+
+#: src/advanced-build.md:269
+msgid "MacOS Users"
+msgstr ""
+
+#: src/advanced-build.md:271
+msgid ""
+"Please read the MacOS warning in [Advanced Podman Build](./advanced-podman-"
+"build.md#macos). We recommend you to use the Podman Build if you insist on "
+"using MacOS."
+msgstr ""
+
+#: src/advanced-build.md:273
+msgid "MacPorts"
+msgstr ""
+
+#: src/advanced-build.md:298 src/advanced-build.md:329
+msgid "If you have some problem, try to install this Perl module:"
+msgstr ""
+
+#: src/advanced-build.md:304
+msgid "Homebrew"
+msgstr ""
+
+#: src/advanced-build.md:335
+msgid "Install Rust Stable And Nightly"
+msgstr ""
+
+#: src/advanced-build.md:337
+msgid ""
+"Install Rust, make the nightly version your default toolchain, list the "
+"installed toolchains, then install more Rust tooling:"
+msgstr ""
+
+#: src/advanced-build.md:343
+msgid "then"
+msgstr ""
+
+#: src/advanced-build.md:361
+msgid ""
+"The `. \"$HOME/.cargo/env` command (equivalent to `source ~/.cargo/env`) "
+"have been added to your shell start-up file, `~/.bashrc`, but you may wish "
+"to add it elsewhere or modify it according to your own environment."
+msgstr ""
+
+#: src/advanced-build.md:363
+msgid "Customizing C compiler"
+msgstr ""
+
+#: src/advanced-build.md:365
+msgid ""
+"Redox requires a GCC-compatible compiler for the operating system to build "
+"additional host tools. GCC for the host system is searched automatically "
+"from `PATH` environment variable with a binary named as `$GNU_TARGET-gcc` (e."
+"g. `x86_64-linux-gnu-gcc`)."
+msgstr ""
+
+#: src/advanced-build.md:367
+msgid ""
+"If your operating system is not Linux or if you want to use a different "
+"compiler, you can export [more environment variables](https://gitlab.redox-"
+"os.org/redox-os/redoxer#host-specific-customizations) in the `.config` file:"
+msgstr ""
+
+#: src/advanced-build.md:370
+msgid "ar"
+msgstr ""
+
+#: src/advanced-build.md:371
+msgid "as"
+msgstr ""
+
+#: src/advanced-build.md:372
+msgid "cc"
+msgstr ""
+
+#: src/advanced-build.md:373
+msgid "c++"
+msgstr ""
+
+#: src/advanced-build.md:374
+msgid "ld"
+msgstr ""
+
+#: src/advanced-build.md:375
+msgid "nm"
+msgstr ""
+
+#: src/advanced-build.md:376
+msgid "objcopy"
+msgstr ""
+
+#: src/advanced-build.md:377
+msgid "objdump"
+msgstr ""
+
+#: src/advanced-build.md:378
+msgid "pkg-config"
+msgstr ""
+
+#: src/advanced-build.md:379
+msgid "ranlib"
+msgstr ""
+
+#: src/advanced-build.md:380
+msgid "readelf"
+msgstr ""
+
+#: src/advanced-build.md:381
+msgid "strip"
+msgstr ""
+
+#: src/advanced-build.md:384
+msgid ""
+"📝 **Note:** FreeBSD and MacOS default compiler is Clang, so their support "
+"is experimental as also using a GCC version other than 14.x (i.e. the GCC "
+"version in Debian 13). Try to set these environment variables if you find "
+"any issues in any recipe compilation."
+msgstr ""
+
+#: src/advanced-build.md:386
+msgid "Prefix"
+msgstr ""
+
+#: src/advanced-build.md:388
+msgid ""
+"In addition to build tools from the system, building Redox requires "
+"additional compilers and tools bootstrapped from your host compilers:"
+msgstr ""
+
+#: src/advanced-build.md:390
+msgid "GCC"
+msgstr ""
+
+#: src/advanced-build.md:391
+msgid "GNU Binutils"
+msgstr ""
+
+#: src/advanced-build.md:392
+msgid "libtool"
+msgstr ""
+
+#: src/advanced-build.md:393
+msgid "Rust"
+msgstr ""
+
+#: src/advanced-build.md:394
+msgid "Relibc"
+msgstr ""
+
+#: src/advanced-build.md:396
+msgid ""
+"The tools that build Redox are specific to each CPU architecture. These "
+"tools are located in the directory `prefix`, in a subdirectory named for the "
+"architecture, e.g. `prefix/x86_64-unknown-redox`. If you have problems with "
+"these tools, you can remove the subdirectory or even the whole `prefix` "
+"directory, which will cause the tools to be re-downloaded or rebuilt. The "
+"variable `PREFIX_BINARY` in `mk/config.mk` controls whether they are "
+"downloaded or built."
+msgstr ""
+
+#: src/advanced-build.md:398
+msgid "Prebuilt Prefix"
+msgstr ""
+
+#: src/advanced-build.md:400
+msgid ""
+"Redox provides a [prebuilt prefix toolchain](https://static.redox-os.org/"
+"toolchain/) to make building fast. The prebuilt prefix is only suitable for "
+"use inside Podman requiring glibc version 2.41 or newer (as the Podman Build "
+"container is based on Debian 13) and not all CPU compiler targets are "
+"available for ARM-based Linux."
+msgstr ""
+
+#: src/advanced-build.md:402
+msgid ""
+"If your Linux distribution is not using glibc or its version is older than "
+"2.41, you need to set `PREFIX_BINARY=0` and build your own prefix toolchain."
+msgstr ""
+
+#: src/advanced-build.md:404
+msgid "Prefix: GCC"
+msgstr ""
+
+#: src/advanced-build.md:406
+msgid ""
+"Redox compiles its own GCC, GNU Binutils and Libtool to create a cross-"
+"compilation target to Redox. The whole build takes about a half hour or less "
+"if your hardware is relatively powerful. When it's completed it generates "
+"the `gcc-install` directory containing these cross-compilers."
+msgstr ""
+
+#: src/advanced-build.md:408
+msgid "Prefix: Rust"
+msgstr ""
+
+#: src/advanced-build.md:410
+msgid ""
+"Redox OS is listed as both Tier 2 and Tier 3 [platform support](https://doc."
+"rust-lang.org/nightly/rustc/platform-support/redox.html) on Rust. The x86_64 "
+"architecture is listed as Tier 2 target which means that Rust's libstd is "
+"available for this target."
+msgstr ""
+
+#: src/advanced-build.md:412
+msgid ""
+"Redox compiles its own Rust compiler to be able to build Tier 3 libstd. "
+"Fortunately, we can choose to download from rustup instead of building the "
+"Rust compiler using the environment variable: "
+"`PREFIX_USE_UPSTREAM_RUST_COMPILER` in `mk/config.mk`."
+msgstr ""
+
+#: src/advanced-build.md:414
+msgid ""
+"Building Rust takes about 2 hours or more (if your hardware is relatively "
+"powerful) as it's also needed to compile LLVM. If you are building for the "
+"x86_64 target, downloading Rust from rustup (the official Rust binaries) "
+"might be preferable. When it's completed it generates the `rust-install` "
+"directory containing both GCC and Rust compiler."
+msgstr ""
+
+#: src/advanced-build.md:416
+msgid ""
+"Note that there maybe some patches in [Redox Rust fork](https://gitlab.redox-"
+"os.org/redox-os/rust/) that has not been upstreamed, so your experience with "
+"using Rust from rustup might be different than building it."
+msgstr ""
+
+#: src/advanced-build.md:418
+msgid "Prefix: Relibc"
+msgstr ""
+
+#: src/advanced-build.md:420
+msgid ""
+"[Relibc](https://gitlab.redox-os.org/redox-os/relibc) is the [C standard "
+"library](https://en.wikipedia.org/wiki/C_standard_library) written for "
+"Redox. Relibc is needed for both GCC and Rust to compile programs."
+msgstr ""
+
+#: src/advanced-build.md:422
+msgid ""
+"Relibc is very active in development even with `PREFIX_BINARY=1` it will be "
+"compiled anyway so we always have the updated libc. Fortunately, compiling "
+"it is very quick. When it's completed it generates the `relibc-install` "
+"directory containing GCC and Rust bundled with updated relibc."
+msgstr ""
+
+#: src/advanced-build.md:424
+msgid "Cookbook"
+msgstr ""
+
+#: src/advanced-build.md:426
+msgid ""
+"The **Cookbook** system is an essential part of the Redox build system. Each "
+"Redox component package  is built and managed by the Cookbook toolset. The "
+"variable `REPO_BINARY` in `mk/config.mk` controls if the recipes are "
+"compiled from sources or use binary packages from Redox CI server, read the "
+"section [REPO_BINARY](./configuration-settings.md#repo_binary) for more "
+"details. See the [Including Programs in Redox](./including-programs.md) page "
+"for examples of using the Cookbook toolset. If you will be developing "
+"recipes to include in Redox."
+msgstr ""
+
+#: src/advanced-build.md:428
+msgid "Creating a Build Environment Shell"
+msgstr ""
+
+#: src/advanced-build.md:430
+msgid ""
+"If you are working on specific components of the system, and will be using "
+"some of the tools in the `redox` directory and bypassing `make`, you may "
+"wish to create a build environment shell. This shell includes the `prefix` "
+"tools in your `PATH`. You can do this with:"
+msgstr ""
+
+#: src/advanced-build.md:436
+msgid ""
+"This command also works with a Podman Build, creating a shell in Podman and "
+"setting `PATH` to include the necessary build tools."
+msgstr ""
+
+#: src/advanced-build.md:438
+msgid "Updating The Sources"
+msgstr ""
+
+#: src/advanced-build.md:440
+msgid ""
+"If you want to update the build system or if some of the recipes have "
+"changed, you can update those parts of the system with `make pull`. However, "
+"this will not update the sources of the recipes."
+msgstr ""
+
+#: src/advanced-build.md:450
+msgid ""
+"If you want to update the source for the recipes, use `make rebuild`, or "
+"remove the file `$(BUILD)/fetch.tag` and run `make fetch`"
+msgstr ""
+
+#: src/advanced-build.md:452
+msgid "Changing the Filesystem Size and Contents"
+msgstr ""
+
+#: src/advanced-build.md:454
+msgid ""
+"You can modify the size and contents of the filesystem for emulation and "
+"_livedisk_ as described in the [Configuration Settings](./configuration-"
+"settings.md) page."
+msgstr ""
+
+#: src/advanced-build.md:456
+msgid "Next Steps"
+msgstr ""
+
+#: src/advanced-build.md:458
+msgid ""
+"Once this is all set up, we can finally build! See the [Compiling Redox](./"
+"building-redox.md#compiling-redox) section."
+msgstr ""

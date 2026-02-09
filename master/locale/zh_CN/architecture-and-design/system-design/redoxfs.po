@@ -1,0 +1,232 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: The Redox Operating System\n"
+"POT-Creation-Date: 2026-02-09T03:19:51Z\n"
+"PO-Revision-Date: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: zh_CN\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+#: src/redoxfs.md:1
+msgid "RedoxFS"
+msgstr ""
+
+#: src/redoxfs.md:3
+msgid ""
+"This is the default filesystem of Redox OS, inspired by ZFS and adapted to a "
+"microkernel architecture."
+msgstr ""
+
+#: src/redoxfs.md:5
+msgid ""
+"Redox had a read-only ZFS driver but it was abandoned because of the "
+"monolithic nature of ZFS that created problems with the Redox microkernel "
+"design."
+msgstr ""
+
+#: src/redoxfs.md:7
+msgid ""
+"(It's a replacement for [TFS](https://gitlab.redox-os.org/redox-os/tfs))"
+msgstr ""
+
+#: src/redoxfs.md:9
+msgid "Current features:"
+msgstr ""
+
+#: src/redoxfs.md:11
+msgid "Compatible with Redox and Linux (FUSE)"
+msgstr ""
+
+#: src/redoxfs.md:12
+msgid "Copy-on-write"
+msgstr ""
+
+#: src/redoxfs.md:13
+msgid "Data/metadata checksums"
+msgstr ""
+
+#: src/redoxfs.md:14
+msgid "Transparent encryption"
+msgstr ""
+
+#: src/redoxfs.md:15
+msgid "Standard Unix file attributes"
+msgstr ""
+
+#: src/redoxfs.md:16
+msgid "File/directory size limit up to 193TiB (212TB)"
+msgstr ""
+
+#: src/redoxfs.md:17
+msgid ""
+"File/directory quantity limit up to 4 billion per 193TiB (2^32 - 1 = "
+"4294967295)"
+msgstr ""
+
+#: src/redoxfs.md:18
+msgid ""
+"Disk encryption fully supported by the Redox bootloader, letting it load the "
+"kernel off an encrypted partition."
+msgstr ""
+
+#: src/redoxfs.md:19
+msgid "MIT licensed"
+msgstr ""
+
+#: src/redoxfs.md:21
+msgid ""
+"Being MIT licensed, RedoxFS can be bundled on GPL-licensed operating systems "
+"(Linux, for example)."
+msgstr ""
+
+#: src/redoxfs.md:23
+msgid "Tooling"
+msgstr ""
+
+#: src/redoxfs.md:25
+msgid ""
+"RedoxFS tooling can be used to create, mount and edit contents of an `.img` "
+"file containing RedoxFS. It can be installed with:"
+msgstr ""
+
+#: src/redoxfs.md:31
+msgid ""
+"If you found errors while installing it make sure to install the `libfuse` 3."
+"x package for your Unix-like distribution."
+msgstr ""
+
+#: src/redoxfs.md:33
+msgid "Create a disk"
+msgstr ""
+
+#: src/redoxfs.md:35
+msgid ""
+"You can create an empty, non-bootable RedoxFS by allocating an empty file "
+"with `fallocate` then run `redoxfs-mkfs` to initialize the whole image as "
+"`RedoxFS`."
+msgstr ""
+
+#: src/redoxfs.md:45
+msgid ""
+"To create an encrypted disk use the `--encrypt` option, it will ask the "
+"password through a masked prompt:"
+msgstr ""
+
+#: src/redoxfs.md:51
+msgid ""
+"To create a disk with contents from an existing directory use `redoxfs-ar` "
+"(currently the `redoxfs-ar` tool overwrites existing content and have no  `--"
+"encrypt` option)."
+msgstr ""
+
+#: src/redoxfs.md:57
+msgid "Create a bootable disk"
+msgstr ""
+
+#: src/redoxfs.md:59
+msgid ""
+"The second option of `redoxfs-mkfs` and third option of `redoxfs-ar` tools "
+"accepts a file that contains a raw image to be written as reserved disk "
+"space. This is meant to be a bootloader. Redox is booted using [the official "
+"bootloader](https://gitlab.redox-os.org/redox-os/bootloader)."
+msgstr ""
+
+#: src/redoxfs.md:61
+msgid ""
+"First you need to download the bootloader repository and build it, the "
+"following commands will build a BIOS bootloader:"
+msgstr ""
+
+#: src/redoxfs.md:71
+msgid ""
+"Once the bootloader is available at `bootloader/build/bootloader.bin` after "
+"compilation, you can create a new bootable disk using either `redoxfs-mkfs` "
+"or `redoxfs-ar`:"
+msgstr ""
+
+#: src/redoxfs.md:81
+msgid ""
+"You can also convert a non-bootable disk into bootable using `redoxfs-clone`:"
+msgstr ""
+
+#: src/redoxfs.md:87
+msgid ""
+"It's not possible to create a bootable UEFI using this option because it "
+"creates a GPT-partitioned disk, which currently is only implemented in "
+"[redox-installer](https://gitlab.redox-os.org/redox-os/installer/). A dual "
+"boot option in the same disk is also impossible if booting from a BIOS "
+"firmware."
+msgstr ""
+
+#: src/redoxfs.md:89
+msgid ""
+"Note that you need to have `boot/kernel` and `boot/initfs` in the image to "
+"make it actually bootable. You can build those from the [main build system]"
+"(./podman-build.md) or the [kernel](https://gitlab.redox-os.org/redox-os/"
+"kernel) and [base](https://gitlab.redox-os.org/redox-os/base) repositories."
+msgstr ""
+
+#: src/redoxfs.md:91
+msgid "Mount a disk"
+msgstr ""
+
+#: src/redoxfs.md:93
+msgid ""
+"To mount the disk run the `redoxfs [image] [directory]` command, for example:"
+msgstr ""
+
+#: src/redoxfs.md:103
+msgid "It will mount the disk using FUSE underneath."
+msgstr ""
+
+#: src/redoxfs.md:105
+msgid ""
+"The difference is that `redoxfs-ar` overwrites existing disk content. "
+"Mounting a disk through FUSE is the only way to update existing content in "
+"the RedoxFS-formatted image."
+msgstr ""
+
+#: src/redoxfs.md:107
+msgid "Unmount the disk"
+msgstr ""
+
+#: src/redoxfs.md:109
+msgid "Unmount the disk using FUSE unmounting tool:"
+msgstr ""
+
+#: src/redoxfs.md:115
+msgid "Extend the disk"
+msgstr ""
+
+#: src/redoxfs.md:117 src/redoxfs.md:145
+msgid "⚠️ **Warning:** Experimental, please backup before"
+msgstr ""
+
+#: src/redoxfs.md:119
+msgid "To extend an existing disk, you need to extend the file before:"
+msgstr ""
+
+#: src/redoxfs.md:125
+msgid ""
+"Then you can run the `redoxfs-resize [disk] [size]` command. The `[size]` "
+"option can be `max` (the default), `min`, or a fixed size defined in the "
+"[parse-size](https://crates.io/crates/parse-size) library."
+msgstr ""
+
+#: src/redoxfs.md:143
+msgid "Shrink the disk"
+msgstr ""
+
+#: src/redoxfs.md:147
+msgid "To shrink an existing disk you can use the `redoxfs-resize` tool:"
+msgstr ""
+
+#: src/redoxfs.md:165
+msgid ""
+"You can use the value from \"shrinking by ...\" to accurately tell how much "
+"bytes can be shrinked:"
+msgstr ""

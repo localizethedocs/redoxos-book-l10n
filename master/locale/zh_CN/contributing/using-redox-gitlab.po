@@ -1,0 +1,29 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: The Redox Operating System\n"
+"POT-Creation-Date: 2026-02-09T03:19:51Z\n"
+"PO-Revision-Date: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: zh_CN\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+#: src/using-redox-gitlab.md:1
+msgid "Using Redox GitLab"
+msgstr ""
+
+#: src/using-redox-gitlab.md:3
+msgid ""
+"The Redox project is hosted here: [Redox GitLab](https://gitlab.redox-os."
+"org/). You can download or clone the Redox source from there. However, if "
+"you wish to contribute, you will need a Redox Gitlab account."
+msgstr ""
+
+#: src/using-redox-gitlab.md:5
+msgid ""
+"This chapter provides an overview of Redox GitLab, how to get access, and "
+"how to use it as a Redox contributor."
+msgstr ""

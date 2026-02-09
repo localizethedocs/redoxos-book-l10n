@@ -1,0 +1,381 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: The Redox Operating System\n"
+"POT-Creation-Date: 2026-02-09T03:19:51Z\n"
+"PO-Revision-Date: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: zh_CN\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+#: src/boot-process.md:1
+msgid "Boot Process"
+msgstr ""
+
+#: src/boot-process.md:3
+msgid "Boot Loader"
+msgstr ""
+
+#: src/boot-process.md:5
+msgid ""
+"The boot loader source can be found in `cookbook/recipes/bootloader/source` "
+"after a successful build or in the [Boot Loader](https://gitlab.redox-os.org/"
+"redox-os/bootloader) repository."
+msgstr ""
+
+#: src/boot-process.md:7
+msgid "BIOS Boot"
+msgstr ""
+
+#: src/boot-process.md:9
+msgid ""
+"BIOS Boot is a boot process that dates back to the [IBM PC](https://dosdays."
+"co.uk/topics/pc_bios.php). Because of its lengthy history, BIOS starts up in "
+"16-bit mode (Real Mode), and the boot loader needs to load in multiple "
+"stages to move into higher bit environments. The firmware will execute the "
+"boot sector located in the first sector of the main storage device, which is "
+"known as the stage 1 bootloader ([OSDev Wiki](https://wiki.osdev.org/"
+"Boot_Sequence#Master_Boot_Record))."
+msgstr ""
+
+#: src/boot-process.md:11
+msgid ""
+"The stage 1 bootloader is written in Assembly and can be found in `asm/x86-"
+"unknown-none/stage1.asm`. The stage 1 main task is to allow reading of the "
+"whole disk to load stage 2 in another sector of the storage device. The "
+"stage 2 bootloader is also written in Assembly. The main task is "
+"transferring [BIOS functions](https://wiki.osdev.org/BIOS#BIOS_functions) "
+"from real mode to protected mode (32-bit), then switches to protected mode "
+"or long mode (64-bit) and finally loads the Rust-written boot loader, called "
+"stage 3."
+msgstr ""
+
+#: src/boot-process.md:13
+msgid ""
+"These three boot loader stages are combined in one executable written to the "
+"first megabyte of the storage device. The first code that is executed in "
+"Rust-written code is `pub extern \"C\" fn start()` in `src/os/bios/mod.rs`. "
+"At this point, the bootloader follows the same common boot process on all "
+"boot methods, which can be seen in a later section."
+msgstr ""
+
+#: src/boot-process.md:15
+msgid "UEFI Boot"
+msgstr ""
+
+#: src/boot-process.md:17
+msgid ""
+"Redox supports UEFI booting on x86-64, ARM64, and RISC-V 64-bit machines. "
+"UEFI starts up in 64-bit mode; thus, the boot process doesn't need multiple "
+"stages. The firmware will find the EFI System Partition (ESP) on the storage "
+"device, then load and execute PE32+ UEFI programs typically located at `/EFI/"
+"BOOT/BOOTX64.efi` ([OSDev Wiki](https://wiki.osdev.org/"
+"UEFI#Bootable_UEFI_applications))."
+msgstr ""
+
+#: src/boot-process.md:19
+msgid ""
+"In the case of our bootloader, the first code that is executed is `pub "
+"extern \"C\" fn main()` in `src/os/uefi/mod.rs`. At this point, the "
+"bootloader follows the same common boot process on all boot methods, which "
+"can be seen in a later section."
+msgstr ""
+
+#: src/boot-process.md:21
+msgid "Common boot process"
+msgstr ""
+
+#: src/boot-process.md:23
+msgid ""
+"The bootloader initializes the memory map and the display mode, both of "
+"which rely on firmware mechanisms that are not accessible after control is "
+"switched to the kernel. The bootloader then finds the RedoxFS boot partition "
+"on the disk and loads `/boot/kernel` and `/boot/initfs` files into memory."
+msgstr ""
+
+#: src/boot-process.md:25
+msgid ""
+"For a live disk, it does load the whole partition into memory. It then loads "
+"`/boot/kernel` and `/boot/initfs` also at a different location in memory."
+msgstr ""
+
+#: src/boot-process.md:27
+msgid ""
+"After the kernel and initfs have been loaded, it sets up a virtual paging "
+"for kernel and environment variables, including the location of the RedoxFS "
+"boot partition to be passed into it. Then, it maps the kernel to its "
+"expected virtual address and jumps to its entry function."
+msgstr ""
+
+#: src/boot-process.md:29
+msgid "Kernel"
+msgstr ""
+
+#: src/boot-process.md:31
+msgid ""
+"The Redox kernel is a single ELF program in `/boot/kernel`. This kernel "
+"performs (fairly significant) architecture-specific initialization in the "
+"`kstart` function before jumping to the `kmain` function. At this point, the "
+"user-space bootstrap, a specially prepared executable that limits the "
+"required kernel parsing, sets up the `/scheme/initfs` scheme, and loads and "
+"executes the `init` program."
+msgstr ""
+
+#: src/boot-process.md:33
+msgid ""
+"The kernel creates three different namespaces during the bootstrap process. "
+"Each namespace has its schemes that can be accessed by userspace programs, "
+"depending on where it is loaded:"
+msgstr ""
+
+#: src/boot-process.md:35
+msgid "the `null` (0) namespace, a namespace that drivers are running on:"
+msgstr ""
+
+#: src/boot-process.md:36 src/boot-process.md:49
+msgid "`/scheme/memory`"
+msgstr ""
+
+#: src/boot-process.md:37 src/boot-process.md:50
+msgid "`/scheme/pipe`"
+msgstr ""
+
+#: src/boot-process.md:39
+msgid "the `root` (1) namespace, the initial namespace set up during boot:"
+msgstr ""
+
+#: src/boot-process.md:40
+msgid "`/scheme/kernel.acpi`"
+msgstr ""
+
+#: src/boot-process.md:41
+msgid "`/scheme/kernel.dtb`"
+msgstr ""
+
+#: src/boot-process.md:42
+msgid "`/scheme/kernel.proc`"
+msgstr ""
+
+#: src/boot-process.md:43
+msgid "`/scheme/debug`"
+msgstr ""
+
+#: src/boot-process.md:44
+msgid "`/scheme/irq`"
+msgstr ""
+
+#: src/boot-process.md:45
+msgid "`/scheme/serio`"
+msgstr ""
+
+#: src/boot-process.md:47
+msgid ""
+"Additional namespaces requested by user, also loaded for `root` namespace:"
+msgstr ""
+
+#: src/boot-process.md:48
+msgid "`/scheme/event`"
+msgstr ""
+
+#: src/boot-process.md:51
+msgid "`/scheme/sys`"
+msgstr ""
+
+#: src/boot-process.md:52
+msgid "`/scheme/time`"
+msgstr ""
+
+#: src/boot-process.md:54
+msgid "Init"
+msgstr ""
+
+#: src/boot-process.md:56
+msgid ""
+"Redox has a multi-staged init process, designed to allow for the loading of "
+"storage drivers in a modular and configurable fashion. This is commonly "
+"referred to as an init RAMdisk (initfs). The RAMdisk is contained in `/boot/"
+"initfs`, which is a special file format containing the bootstrap code in ELF "
+"format and packed files which was loaded into `/scheme/initfs` by the kernel "
+"program."
+msgstr ""
+
+#: src/boot-process.md:58
+msgid "RAMdisk Init"
+msgstr ""
+
+#: src/boot-process.md:60
+msgid ""
+"The ramdisk init has the job of loading the drivers and daemons required to "
+"access the root filesystem and then transferring control to the filesystem "
+"init. The load order is defined in `/etc/init.rc` in initfs:"
+msgstr ""
+
+#: src/boot-process.md:62
+msgid "Daemons required for `relibc`"
+msgstr ""
+
+#: src/boot-process.md:63
+msgid "`rtcd` loads machine-specific RTC into `/scheme/time`"
+msgstr ""
+
+#: src/boot-process.md:64
+msgid "`nulld` null handler, creates `/scheme/null`"
+msgstr ""
+
+#: src/boot-process.md:65
+msgid "`zero` zero handler, creates `/scheme/zero`"
+msgstr ""
+
+#: src/boot-process.md:66
+msgid "`randd` rand handler, creates `/scheme/rand`"
+msgstr ""
+
+#: src/boot-process.md:67
+msgid "Logging"
+msgstr ""
+
+#: src/boot-process.md:68
+msgid "`logd` system log handler, creates `/scheme/log`"
+msgstr ""
+
+#: src/boot-process.md:69
+msgid "`ramfs` loads in-memory FS handling into `/scheme/memory`"
+msgstr ""
+
+#: src/boot-process.md:70
+msgid "Graphics buffers"
+msgstr ""
+
+#: src/boot-process.md:71
+msgid "`inputd` virtual terminal (VT) handler, creates `/scheme/input`"
+msgstr ""
+
+#: src/boot-process.md:72
+msgid "`vesad` VESA interface handler, creates `/scheme/display.vesa`"
+msgstr ""
+
+#: src/boot-process.md:73
+msgid "`fbbootlogd` forwards log from logd to VT"
+msgstr ""
+
+#: src/boot-process.md:74
+msgid "`fbcond` handles keyboard interaction to VT"
+msgstr ""
+
+#: src/boot-process.md:75
+msgid "Live daemon"
+msgstr ""
+
+#: src/boot-process.md:76
+msgid "`lived` livedisk handler, creates `/scheme/disk.live`"
+msgstr ""
+
+#: src/boot-process.md:77
+msgid "Drivers in `/etc/init_drivers.rc`"
+msgstr ""
+
+#: src/boot-process.md:78
+msgid "`ps2d` loads PS/2 handling into `/scheme/serio`"
+msgstr ""
+
+#: src/boot-process.md:79
+msgid "`acpid` loads ACPI handling into `/scheme/kernel.acpi`"
+msgstr ""
+
+#: src/boot-process.md:80
+msgid "`pcid` PCI handler, creates `/scheme/pci`"
+msgstr ""
+
+#: src/boot-process.md:81
+msgid "`pcid-spawner` spawns drivers depending on available hardware"
+msgstr ""
+
+#: src/boot-process.md:82
+msgid "`ahcid` AHCI storage driver"
+msgstr ""
+
+#: src/boot-process.md:83
+msgid "`ided` IDE storage driver"
+msgstr ""
+
+#: src/boot-process.md:84
+msgid "`nvmed` NVME storage driver"
+msgstr ""
+
+#: src/boot-process.md:85
+msgid "`virtio-blkd` VirtIO BLK storage driver"
+msgstr ""
+
+#: src/boot-process.md:86
+msgid "`virtio-gpud` VirtIO GPU driver"
+msgstr ""
+
+#: src/boot-process.md:88
+msgid ""
+"After loading all drivers and daemons above, the `redoxfs` driver is "
+"executed with `--uuid $REDOXFS_UUID` where `$REDOXFS_UUID` is the partition "
+"chosen by the bootloader and creates `/scheme/file`. The command `set-"
+"default-scheme file` is then executed, so that the default path handler is "
+"set to `/scheme/file`."
+msgstr ""
+
+#: src/boot-process.md:90
+msgid "Filesystem Init"
+msgstr ""
+
+#: src/boot-process.md:92
+msgid ""
+"The filesystem init continues the loading of drivers for all other "
+"functionality. This includes audio, networking, and anything not required "
+"for storage device access. The drivers' init configuration is mainly found "
+"in `/usr/lib/init.d` and `/etc/pcid.d`. In the redox builder repository, "
+"it's configurable in the [config directory](https://gitlab.redox-os.org/"
+"redox-os/redox/-/tree/master/config/base.toml). After this, the login prompt "
+"is shown."
+msgstr ""
+
+#: src/boot-process.md:94
+msgid "If Orbital is enabled, the display server is launched."
+msgstr ""
+
+#: src/boot-process.md:96
+msgid "Login"
+msgstr ""
+
+#: src/boot-process.md:98
+msgid ""
+"After the init processes have set up drivers and daemons, the user can log "
+"in to the system. The login program accepts a username, with a default user "
+"called `user`, prints the `/etc/motd` file, and then executes the user's "
+"login shell, usually `ion`. At this point, the user will now be able to "
+"access the [shell](./shell.md)"
+msgstr ""
+
+#: src/boot-process.md:100
+msgid "Graphical overview"
+msgstr ""
+
+#: src/boot-process.md:102
+msgid ""
+"Here is an overview of the initialization process with scheme creation and "
+"usage. For simplicity's sake, we do not depict all scheme interaction but at "
+"least the major ones. **this is currently out of date, but still "
+"informative**"
+msgstr ""
+
+#: src/boot-process.md:104
+msgid ""
+"![Redox initialization graph](./assets/init.svg \"Redox initialization "
+"graph\")"
+msgstr ""
+
+#: src/boot-process.md:106
+msgid "Boot process documentation"
+msgstr ""
+
+#: src/boot-process.md:108
+msgid "[Boot process documentation](https://wiki.osdev.org/Boot_Sequence)"
+msgstr ""

@@ -1,0 +1,42 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: The Redox Operating System\n"
+"POT-Creation-Date: 2026-02-09T03:19:51Z\n"
+"PO-Revision-Date: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: zh_TW\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+#: src/drivers.md:1
+msgid "Drivers"
+msgstr ""
+
+#: src/drivers.md:3
+msgid ""
+"On Redox the device drivers are user-space daemons, being a common Unix "
+"process they have their own namespace with restricted schemes."
+msgstr ""
+
+#: src/drivers.md:5
+msgid ""
+"In other words, a driver on Redox can't damage other system interfaces, "
+"while on Monolithic kernels a driver could wipe your data because the driver "
+"run on the same memory address space of the filesystem (thus same privilege "
+"level)."
+msgstr ""
+
+#: src/drivers.md:7
+msgid ""
+"You can find the driver documentation on the repository README and drivers "
+"code."
+msgstr ""
+
+#: src/drivers.md:9
+msgid ""
+"[Drivers repository](https://gitlab.redox-os.org/redox-os/base/-/tree/main/"
+"drivers)"
+msgstr ""

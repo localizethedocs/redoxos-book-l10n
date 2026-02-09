@@ -1,0 +1,373 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: The Redox Operating System\n"
+"POT-Creation-Date: 2026-02-09T03:19:51Z\n"
+"PO-Revision-Date: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: zh_TW\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+#: src/including-programs.md:1
+msgid "Including Programs in Redox"
+msgstr ""
+
+#: src/including-programs.md:3
+msgid ""
+"(Before reading this page you must read the [Build System](./build-system-"
+"reference.md) page)"
+msgstr ""
+
+#: src/including-programs.md:5
+msgid ""
+"This page will teach you how to add programs on the Redox image, it's a "
+"simplified version of the [Application Porting](./porting-applications.md) "
+"page."
+msgstr ""
+
+#: src/including-programs.md:7
+msgid "[Existing Recipe](#existing-recipe)"
+msgstr ""
+
+#: src/including-programs.md:8
+msgid "[Setup the Redox Build Environment](#setup-the-redox-build-environment)"
+msgstr ""
+
+#: src/including-programs.md:9
+msgid "[Setup Your Configuration](#setup-your-configuration)"
+msgstr ""
+
+#: src/including-programs.md:10
+msgid "[Build the System](#build-the-system)"
+msgstr ""
+
+#: src/including-programs.md:11
+msgid "[Dependencies](#dependencies)"
+msgstr ""
+
+#: src/including-programs.md:12
+msgid "[Update crates](#update-crates)"
+msgstr ""
+
+#: src/including-programs.md:13
+msgid "[Modifying an Existing Recipe](#modifying-an-existing-recipe)"
+msgstr ""
+
+#: src/including-programs.md:14
+msgid "[Create Your Own Hello World](#create-your-own-hello-world)"
+msgstr ""
+
+#: src/including-programs.md:15
+msgid "[Setting up the recipe](#setting-up-the-recipe)"
+msgstr ""
+
+#: src/including-programs.md:16
+msgid "[Writing the program](#writing-the-program)"
+msgstr ""
+
+#: src/including-programs.md:17
+msgid ""
+"[Adding the program to the Redox image](#adding-the-program-to-the-redox-"
+"image)"
+msgstr ""
+
+#: src/including-programs.md:18
+msgid "[Running your program](#running-your-program)"
+msgstr ""
+
+#: src/including-programs.md:20
+msgid ""
+"The Cookbook system makes the packaging process very simple. First, we will "
+"show how to add an existing program for inclusion. Then we will show how to "
+"create a new program to be included. In the [Coding and Building](./coding-"
+"and-building.md) page, we discuss the development cycle in more detail."
+msgstr ""
+
+#: src/including-programs.md:22
+msgid "Existing Recipe"
+msgstr ""
+
+#: src/including-programs.md:24
+msgid ""
+"Redox has many programs that are available for inclusion. Each program has a "
+"recipe in the directory `recipes/recipe-name`. Adding an existing program to "
+"your build is as simple as adding it to `config/$ARCH/my-config.toml`, or "
+"whatever name you choose for your filesystem configuration. Here we will add "
+"the `games` package, which contains several terminal games."
+msgstr ""
+
+#: src/including-programs.md:26
+msgid "Setup the Redox Build Environment"
+msgstr ""
+
+#: src/including-programs.md:28
+msgid ""
+"Follow the steps in the [Building Redox](./podman-build.md) or [Native Build]"
+"(./building-redox.md) pages to create the Redox Build Environment on your "
+"system."
+msgstr ""
+
+#: src/including-programs.md:29
+msgid ""
+"Build the system as described. This will take quite a while the first time."
+msgstr ""
+
+#: src/including-programs.md:30
+msgid "Run the system in **QEMU**."
+msgstr ""
+
+#: src/including-programs.md:40
+msgid ""
+"Assuming you built the default configuration `desktop` for `x86_64`, none of "
+"the Redox games (e.g. `/usr/bin/minesweeper`) have been included yet."
+msgstr ""
+
+#: src/including-programs.md:42 src/including-programs.md:99
+msgid ""
+"On your Redox emulation, log into the system as user `user` with an empty "
+"password."
+msgstr ""
+
+#: src/including-programs.md:43
+msgid ""
+"Open a `Terminal` window by clicking on the icon in the toolbar at the "
+"bottom of the Redox screen, and type `ls /usr/bin`. You will see that "
+"`minesweeper` **is not** listed."
+msgstr ""
+
+#: src/including-programs.md:44
+msgid ""
+"Type `Ctrl-Alt-G` to regain control of your cursor, and click the upper "
+"right corner of the Redox window to exit QEMU."
+msgstr ""
+
+#: src/including-programs.md:46
+msgid "Setup your Configuration"
+msgstr ""
+
+#: src/including-programs.md:48
+msgid ""
+"Read the [Configuration Settings](./configuration-settings.md) page and "
+"follow the commands below."
+msgstr ""
+
+#: src/including-programs.md:50
+msgid ""
+"From your `redox` base directory, copy an existing configuration and edit it."
+msgstr ""
+
+#: src/including-programs.md:64
+msgid ""
+"Look for the `[packages]` section and add the package to the configuration. "
+"You can add the package anywhere in the `[packages]` section, but by "
+"convention, we add them to the end or to an existing related area of the "
+"section."
+msgstr ""
+
+#: src/including-programs.md:66
+msgid ""
+"```toml\n"
+"...\n"
+"[packages]\n"
+"# Add the item below under the \"[packages]\" section\n"
+"redox-games = {}\n"
+"...\n"
+"```"
+msgstr ""
+
+#: src/including-programs.md:74
+msgid ""
+"Add the `CONFIG_NAME` environment variable on your [.config](./configuration-"
+"settings.md#config) to use the `myfiles.toml` configuration."
+msgstr ""
+
+#: src/including-programs.md:85
+msgid "Save your changes with Ctrl+X and confirm with `y`"
+msgstr ""
+
+#: src/including-programs.md:87
+msgid "Update The System Image"
+msgstr ""
+
+#: src/including-programs.md:89
+msgid ""
+"In your base `redox` folder, e.g. `~/tryredox/redox`, build the system and "
+"run it in **QEMU**."
+msgstr ""
+
+#: src/including-programs.md:100
+msgid ""
+"Open a `Terminal` window by clicking it on the icon in the toolbar at the "
+"bottom of the Redox screen, and type `ls /usr/bin`. You will see that "
+"`minesweeper` **is** listed."
+msgstr ""
+
+#: src/including-programs.md:101
+msgid ""
+"In the terminal window, type `minesweeper`. Play the game using the arrow "
+"keys or `WSAD`,`space` to reveal a spot, `f` to flag a spot when you suspect "
+"a mine is present. When you type `f`, an `F` character will appear."
+msgstr ""
+
+#: src/including-programs.md:103
+msgid ""
+"If you had a problem, use this command to log any possible errors on your "
+"terminal output:"
+msgstr ""
+
+#: src/including-programs.md:109
+msgid "And that's it! Sort of."
+msgstr ""
+
+#: src/including-programs.md:111
+msgid "Dependencies"
+msgstr ""
+
+#: src/including-programs.md:113
+msgid ""
+"Read the [Dependencies](./porting-applications.md#dependencies) section to "
+"learn how to handle recipe dependencies."
+msgstr ""
+
+#: src/including-programs.md:115
+msgid "Update crates"
+msgstr ""
+
+#: src/including-programs.md:117
+msgid ""
+"Read the [Update crates](./porting-applications.md#update-crates) section to "
+"learn how to update crates on Rust programs."
+msgstr ""
+
+#: src/including-programs.md:119
+msgid "Modifying an Existing Recipe"
+msgstr ""
+
+#: src/including-programs.md:121
+msgid ""
+"If you want to make changes to an existing recipe for your own purposes, you "
+"can do your work in the directory `recipes/recipe-name/source`. The Cookbook "
+"process will not download sources if they are already present in that "
+"folder. However, if you intend to do significant work or to contribute "
+"changes to Redox, please read the [Coding and Building](./coding-and-"
+"building.md) page."
+msgstr ""
+
+#: src/including-programs.md:123
+msgid "Create Your Own Hello World"
+msgstr ""
+
+#: src/including-programs.md:125
+msgid ""
+"To create your own program to be included, you will need to create the "
+"recipe. This example walks through adding the \"Hello World\" program that "
+"the `cargo new` command automatically generates to the folder of a Rust "
+"project."
+msgstr ""
+
+#: src/including-programs.md:127
+msgid "This process is largely the same for other Rust programs."
+msgstr ""
+
+#: src/including-programs.md:129
+msgid "Setting Up The Recipe"
+msgstr ""
+
+#: src/including-programs.md:131
+msgid ""
+"The Cookbook will only build programs that have a recipe defined in "
+"`recipes`. To create a recipe for the Hello World program, first create the "
+"directory `recipes/hello-world`. Inside this directory create the \"recipe."
+"toml\" file and add these lines to it:"
+msgstr ""
+
+#: src/including-programs.md:134
+msgid ""
+"```toml\n"
+"[build]\n"
+"template = \"cargo\"\n"
+"```"
+msgstr ""
+
+#: src/including-programs.md:139
+msgid ""
+"The `[build]` section defines how Cookbook should build our project. There "
+"are several templates but `\"cargo\"` should be used for Rust projects."
+msgstr ""
+
+#: src/including-programs.md:142
+msgid ""
+"The `[source]` section of the recipe tells Cookbook how to download the Git "
+"repository/tarball of the program."
+msgstr ""
+
+#: src/including-programs.md:144
+msgid ""
+"This is done if `recipes/recipe-name/source` does not exist, during `make "
+"fetch` or during the fetch step of `make all`. For this example, we will "
+"simply develop in the `source` directory, so no `[source]` section is "
+"necessary."
+msgstr ""
+
+#: src/including-programs.md:146
+msgid "Writing the program"
+msgstr ""
+
+#: src/including-programs.md:148
+msgid ""
+"Since this is a Hello World example, we are going to have Cargo write the "
+"code for us. In `recipes/hello-world`, do the following:"
+msgstr ""
+
+#: src/including-programs.md:159
+msgid "\"hello-world\""
+msgstr ""
+
+#: src/including-programs.md:162
+msgid ""
+"This creates a `Cargo.toml` file and a `src` directory with the Hello World "
+"program."
+msgstr ""
+
+#: src/including-programs.md:164
+msgid "Adding the program to the Redox image"
+msgstr ""
+
+#: src/including-programs.md:166
+msgid ""
+"To be able to run a program inside of Redox, it must be added to the "
+"filesystem. As [above](#existing-package), create a filesystem config "
+"`config/x86_64/myfiles.toml` or similar by copying an existing "
+"configuration, and modify `CONFIG_NAME` in [.config](./configuration-"
+"settings.md#config) to be `myfiles`. Open `config/x86_64/myfiles.toml` and "
+"add `hello-world = {}` below the `[packages]` section."
+msgstr ""
+
+#: src/including-programs.md:168
+msgid ""
+"During the creation of the Redox image, the build system installs those "
+"packages on the image filesystem."
+msgstr ""
+
+#: src/including-programs.md:176
+msgid ""
+"To update the Redox image, including your program, run the following "
+"commands:"
+msgstr ""
+
+#: src/including-programs.md:186
+msgid "Running your program"
+msgstr ""
+
+#: src/including-programs.md:188
+msgid ""
+"Once the rebuild is finished, run `make qemu`, and when the GUI starts, log "
+"in to Redox, open the terminal, and run `helloworld`. It should print"
+msgstr ""
+
+#: src/including-programs.md:194
+msgid "Note that the `hello-world` binary can be found in `/usr/bin` on Redox."
+msgstr ""

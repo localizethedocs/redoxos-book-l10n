@@ -1,0 +1,475 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: The Redox Operating System\n"
+"POT-Creation-Date: 2026-02-09T03:19:51Z\n"
+"PO-Revision-Date: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: zh_TW\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+#: src/porting-case-study.md:1
+msgid "Porting Case Study"
+msgstr ""
+
+#: src/porting-case-study.md:3
+msgid ""
+"As a non-trivial example of porting a Rust app, let's look at what was done "
+"to port [gitoxide](https://github.com/Byron/gitoxide). This port was already "
+"done, so it is now much simpler, but perhaps some of these steps will apply "
+"to you."
+msgstr ""
+
+#: src/porting-case-study.md:6
+msgid ""
+"The goal when porting is to capture all the necessary configuration in "
+"recipes and scripts, and to avoid requiring a fork of the program repository "
+"or upstreaming changes. This is not always feasible, but forking/upstreaming "
+"should be avoided when it can be."
+msgstr ""
+
+#: src/porting-case-study.md:9
+msgid "Build on Linux"
+msgstr ""
+
+#: src/porting-case-study.md:11
+msgid ""
+"Before we start, we need to build the software for our Linux system and make "
+"sure it works. This is not part of the porting, it's just to make sure our "
+"problems are not coming from the Linux version of the software. We follow "
+"the normal build instructions for the software we are porting:"
+msgstr ""
+
+#: src/porting-case-study.md:31
+msgid "Set up the working tree"
+msgstr ""
+
+#: src/porting-case-study.md:33
+msgid ""
+"We start with a fresh clone of the Redox repository. In a Terminal/Console/"
+"Command window:"
+msgstr ""
+
+#: src/porting-case-study.md:47
+msgid ""
+"The new recipe will be part of the `redox` repository, so we need to fork "
+"then branch it. To fork the `redox` repository:"
+msgstr ""
+
+#: src/porting-case-study.md:48
+msgid ""
+"In the browser, go to the [build system](https://gitlab.redox-os.org/redox-"
+"os/redox)"
+msgstr ""
+
+#: src/porting-case-study.md:49
+msgid "Click the `Fork` button in the upper right part of the page"
+msgstr ""
+
+#: src/porting-case-study.md:50
+msgid ""
+"Create a `public` fork under your GitLab user name (it's the only option "
+"that's enabled)"
+msgstr ""
+
+#: src/porting-case-study.md:52
+msgid ""
+"Then we need to set up our local `redox` repository and create the branch:"
+msgstr ""
+
+#: src/porting-case-study.md:74
+msgid "Create a Recipe"
+msgstr ""
+
+#: src/porting-case-study.md:76
+msgid ""
+"To create a recipe, we need to make a new directory in `recipes` with the "
+"name the package will have, in this case `gitoxide`, and create a `recipe."
+"toml` file with a first-draft recipe."
+msgstr ""
+
+#: src/porting-case-study.md:86
+msgid "Start with the following content in the `recipe.toml` file."
+msgstr ""
+
+#: src/porting-case-study.md:88
+msgid ""
+"```toml\n"
+"[source]\n"
+"git = \"https://github.com/Byron/gitoxide\"\n"
+"[build]\n"
+"template = \"cargo\"\n"
+"```"
+msgstr ""
+
+#: src/porting-case-study.md:95
+msgid "First Attempt"
+msgstr ""
+
+#: src/porting-case-study.md:97
+msgid ""
+"Next we attempt to build the recipe. Note that the first attempt may require "
+"the Redox toolchain to be updated, so we run `make prefix`, which may take "
+"quite a while."
+msgstr ""
+
+#: src/porting-case-study.md:111
+msgid "We get our first round of errors (among other messages):"
+msgstr ""
+
+#: src/porting-case-study.md:118
+msgid "Make a Local Copy of libc"
+msgstr ""
+
+#: src/porting-case-study.md:120
+msgid ""
+"We suspect the problem is that these items have not been defined in the "
+"Redox edition of `libc`. `libc` is not a Redox crate, it is a rust-lang "
+"crate, but it has parts that are Redox-specific. We need to work with a "
+"local copy of `libc`, and then later ask someone with authority to upstream "
+"the required changes."
+msgstr ""
+
+#: src/porting-case-study.md:124
+msgid "First, clone `libc` into our `gitoxide` directory."
+msgstr ""
+
+#: src/porting-case-study.md:134
+msgid "Try to find the missing constants."
+msgstr ""
+
+#: src/porting-case-study.md:141 src/porting-case-study.md:155
+msgid "\"POLLRDNORM\""
+msgstr ""
+
+#: src/porting-case-study.md:141 src/porting-case-study.md:145
+#: src/porting-case-study.md:155 src/porting-case-study.md:159
+msgid "\"*.rs\""
+msgstr ""
+
+#: src/porting-case-study.md:145 src/porting-case-study.md:159
+msgid "\"POLLWRBAND\""
+msgstr ""
+
+#: src/porting-case-study.md:148
+msgid ""
+"Looks like the value is not defined for the Redox version of `libc`. Let's "
+"see if it's in `relibc`."
+msgstr ""
+
+#: src/porting-case-study.md:162
+msgid ""
+"Yes, both are already defined in `relibc`, and after a bit of poking around, "
+"it looks like they have an implementation. They just need to get published "
+"in `libc`. Let's do that."
+msgstr ""
+
+#: src/porting-case-study.md:165
+msgid "Make Changes to libc"
+msgstr ""
+
+#: src/porting-case-study.md:167
+msgid ""
+"Let's add our constants to our local `libc`. We are not going to bother with "
+"`git` because these changes are just for debugging purposes. Copy the "
+"constant declarations from `relibc`, and paste them in the appropriate "
+"sections of `libc/src/unix/redox/mod.rs`. In addition to copying the "
+"constants, we have to change the type `c_short` to `::c_short` to conform to "
+"`libc` style."
+msgstr ""
+
+#: src/porting-case-study.md:179
+msgid "We add the following lines to `mod.rs`:"
+msgstr ""
+
+#: src/porting-case-study.md:188
+msgid ""
+"In order to test our changes, we will have to modify our `gitoxide` clone "
+"for now. Once the changes to `libc` are upstreamed, we won't need a modified "
+"`gitoxide` clone. To avoid overwriting our work, we want to turn off future "
+"fetches of the `gitoxide` source during build, so change `recipe.toml` to "
+"comment out the source section: `nano recipe.toml`."
+msgstr ""
+
+#: src/porting-case-study.md:192
+msgid ""
+"```toml\n"
+"#[source]\n"
+"#git = \"https://github.com/Byron/gitoxide\"\n"
+"[build]\n"
+"template = \"cargo\"\n"
+"```"
+msgstr ""
+
+#: src/porting-case-study.md:199
+msgid "We edit `gitoxide`'s `Cargo.toml` so we use our `libc`."
+msgstr ""
+
+#: src/porting-case-study.md:205
+msgid ""
+"After the `[dependencies]` section, but before the `[profile]` sections, add "
+"the following to `Cargo.toml`:"
+msgstr ""
+
+#: src/porting-case-study.md:207
+msgid ""
+"```toml\n"
+"[patch.crates-io]\n"
+"libc = { path = \"../libc\" }\n"
+"```"
+msgstr ""
+
+#: src/porting-case-study.md:212
+msgid "Bump the version number on our `libc`, so it will take priority."
+msgstr ""
+
+#: src/porting-case-study.md:218
+msgid ""
+"```toml\n"
+"version = \"0.2.143\"\n"
+"```"
+msgstr ""
+
+#: src/porting-case-study.md:222
+msgid "Update `gitoxide`'s `Cargo.lock`."
+msgstr ""
+
+#: src/porting-case-study.md:232
+msgid ""
+"Make sure we have saved all the files we just edited, and let's try building."
+msgstr ""
+
+#: src/porting-case-study.md:242
+msgid ""
+"Our `libc` errors are solved! Remember, these changes will need to "
+"upstreamed by someone with the authority to make changes to `libc`. Post a "
+"request on the chat's [Redox OS/MRs](https://matrix.to/#/#redox-mrs:matrix."
+"org) room to add the constants to `libc`."
+msgstr ""
+
+#: src/porting-case-study.md:245
+msgid "Creating a Custom Recipe"
+msgstr ""
+
+#: src/porting-case-study.md:247
+msgid ""
+"In looking at what is included in `gitoxide`, we see that it uses [OpenSSL]"
+"(https://docs.rs/openssl/latest/openssl/), which has some custom build "
+"instructions described in the docs. There is already a Redox fork of "
+"`openssl` to add Redox as a target, so we will set up our environment to use "
+"that."
+msgstr ""
+
+#: src/porting-case-study.md:250
+msgid ""
+"In order to do this, we are going to need a custom recipe. Let's start with "
+"a simple custom recipe, just to get us going. Edit our previously created "
+"recipe, `recipes/gitoxide/recipe.toml`, changing it to look like this."
+msgstr ""
+
+#: src/porting-case-study.md:253
+msgid ""
+"```toml\n"
+"#[source]\n"
+"#git = \"https://github.com/Byron/gitoxide.git\"\n"
+"[build]\n"
+"template = \"custom\"\n"
+"script = \"\"\"\n"
+"printenv\n"
+"\"\"\"\n"
+"```"
+msgstr ""
+
+#: src/porting-case-study.md:263
+msgid ""
+"In this version of our recipe, we are just going to print the environment "
+"variables during `cook`, so we can see what we might make use of in our "
+"custom script. We are not actually attempting to build `gitoxide`. Now, when "
+"we run `make r.gitoxide` in `~/redox-gitoxide/redox`, we see some useful "
+"variables such as `TARGET` and `COOKBOOK_ROOT`."
+msgstr ""
+
+#: src/porting-case-study.md:268
+msgid ""
+"Two key shell functions are provided by the custom script mechanism, "
+"`cookbook_cargo` and `cookbook_configure`. If you need a custom script for "
+"building a Rust program, your script should set up the environment, then "
+"call `cookbook_cargo`, which calls Redox's version of `cargo`. If you need a "
+"custom script for using a `Makefile`, your script should set up the "
+"environment, then call `cookbook_configure`. If you have a custom build "
+"process, or you have a patch-and-build script, you can just include that in "
+"the `script` section and not use either of the above functions. If you are "
+"interested in looking at the code that runs custom scripts, see the function "
+"`build()` in `cookbook`'s [cook.rs](https://gitlab.redox-os.org/redox-os/-/"
+"blob/master/src/bin/cook.rs)."
+msgstr ""
+
+#: src/porting-case-study.md:274
+msgid ""
+"Adding a dependency on `openssl` ensures that the build of `openssl` will "
+"happen before attempting to build `gitoxide`, so we can trust that the "
+"library contents are in the target directory of the ssl package. And we need "
+"to set the environment variables as described in the [OpenSSL bindings]"
+"(https://docs.rs/openssl/latest/openssl/) crate docs."
+msgstr ""
+
+#: src/porting-case-study.md:277
+msgid "Our recipe now looks like this:"
+msgstr ""
+
+#: src/porting-case-study.md:279
+msgid ""
+"```toml\n"
+"#[source]\n"
+"#git = \"https://github.com/Byron/gitoxide.git\"\n"
+"[build]\n"
+"dependencies = [\n"
+"    \"openssl\",\n"
+"]\n"
+"template = \"custom\"\n"
+"script = \"\"\"\n"
+"export OPENSSL_DIR=\"${COOKBOOK_SYSROOT}\"\n"
+"export OPENSSL_STATIC=\"true\"\n"
+"cookbook_cargo\n"
+"\"\"\"\n"
+"```"
+msgstr ""
+
+#: src/porting-case-study.md:294
+msgid "Linker Errors"
+msgstr ""
+
+#: src/porting-case-study.md:296
+msgid ""
+"Now we get to the point where the linker is trying to statically link the "
+"program and libraries into the executable. This program, called `ld`, will "
+"report errors if there are any undefined functions or missing static "
+"variable definitions."
+msgstr ""
+
+#: src/porting-case-study.md:303
+msgid ""
+"In our case we find we are missing `tzset`, which is a timezone function. We "
+"are also missing `cfmakeraw` from `termios`. Both of these functions are "
+"normally part of `libc`. In our case, they are defined in the `libc` crate, "
+"but they are not implemented by Redox's version of `libc`, which is called "
+"`relibc`. We need to add these functions."
+msgstr ""
+
+#: src/porting-case-study.md:305
+msgid "Add Missing Functions to relibc"
+msgstr ""
+
+#: src/porting-case-study.md:307
+msgid ""
+"Let's set up to modify `relibc`. As with `cookbook`, we need a fork of "
+"[relibc](https://gitlab.redox-os.org/redox-os/relibc). Click on the `Fork` "
+"button and add a public fork. Then update our local `relibc` repo and branch."
+msgstr ""
+
+#: src/porting-case-study.md:329
+msgid "Now we need to make our changes to `relibc`..."
+msgstr ""
+
+#: src/porting-case-study.md:331
+msgid ""
+"After a fair bit of work, which we omit here, the functions `tzset` and "
+"`cfmakeraw` are implemented in `relibc`. An important note is that in order "
+"to publish the functions, they need to be preceded with:"
+msgstr ""
+
+#: src/porting-case-study.md:333
+msgid ""
+"```\n"
+"#[no_mangle]\n"
+"extern \"C\" fn tzset() ...\n"
+"```"
+msgstr ""
+
+#: src/porting-case-study.md:338
+msgid "Now let's update the relibc/gitoxide and update the Redox image:"
+msgstr ""
+
+#: src/porting-case-study.md:360
+msgid "Testing in QEMU"
+msgstr ""
+
+#: src/porting-case-study.md:362
+msgid ""
+"Now we need to build a full Redox image and run it in QEMU. Let's make a "
+"configuration file."
+msgstr ""
+
+#: src/porting-case-study.md:376
+msgid ""
+"Note that the prefix \"my\\_\" at the beginning of the config file name "
+"means that it is gitignore'd, so it is preferred that you prefix your config "
+"name with \"my\\_\"."
+msgstr ""
+
+#: src/porting-case-study.md:378
+msgid ""
+"In `my_desktop.toml`, at the end of the list of packages, after `uutils = {}"
+"`, add"
+msgstr ""
+
+#: src/porting-case-study.md:384
+msgid ""
+"Now let's tell `make` about our new config definition, build the system, and "
+"test our new command."
+msgstr ""
+
+#: src/porting-case-study.md:391
+msgid "\"CONFIG_NAME?=my_desktop\""
+msgstr ""
+
+#: src/porting-case-study.md:398
+msgid "Log in to Redox as `user` with no password, and type:"
+msgstr ""
+
+#: src/porting-case-study.md:404
+msgid "We get some errors, but we are making progress."
+msgstr ""
+
+#: src/porting-case-study.md:406
+msgid "Submitting the MRs"
+msgstr ""
+
+#: src/porting-case-study.md:408
+msgid ""
+"Before committing our new recipe, we need to uncomment the `[source]` "
+"section. Edit `~/redox-gitoxide/redox/recipes/gitoxide/recipe.toml` to "
+"remove the `#` from the start of the first two lines."
+msgstr ""
+
+#: src/porting-case-study.md:409
+msgid ""
+"We commit our changes to `redox` to include the new `gitoxide` recipe and "
+"submitted an MR, following the instructions [Creating Proper Pull Requests]"
+"(./creating-proper-pull-requests.md)."
+msgstr ""
+
+#: src/porting-case-study.md:410
+msgid ""
+"We committed our changes to `relibc`. We need to rebuild the system and test "
+"it thoroughly in QEMU, checking anything that might be affected by our "
+"changes. Once we are confident in our changes, we can submit the MR."
+msgstr ""
+
+#: src/porting-case-study.md:411
+msgid ""
+"We post links to both MRs on the [Redox OS/MRs](https://matrix.to/#/#redox-"
+"mrs:matrix.org) room to ensure they get reviewed."
+msgstr ""
+
+#: src/porting-case-study.md:412
+msgid ""
+"After making our changes to `libc` and testing them, we need to request to "
+"have those changes upstreamed by posting a message on the [Redox OS/MRs]"
+"(https://matrix.to/#/#redox-mrs:matrix.org) room. If the changes are "
+"complex, please create an issue on the [build system repository](https://"
+"gitlab.redox-os.org/redox-os/redox) and include a link to it in your post."
+msgstr ""

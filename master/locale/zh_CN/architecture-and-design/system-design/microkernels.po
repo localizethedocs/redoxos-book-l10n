@@ -1,0 +1,383 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: The Redox Operating System\n"
+"POT-Creation-Date: 2026-02-09T03:19:51Z\n"
+"PO-Revision-Date: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: zh_CN\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+#: src/microkernels.md:1
+msgid "Microkernels"
+msgstr ""
+
+#: src/microkernels.md:3
+msgid ""
+"The Redox kernel is a microkernel. Microkernels stand out in their design by "
+"providing minimal abstractions in kernel-space. Microkernels focus on user-"
+"space, unlike Monolithic kernels which focus on kernel-space."
+msgstr ""
+
+#: src/microkernels.md:5
+msgid ""
+"The basic philosophy of microkernels is that any component which _can_ run "
+"in user-space _should_ run in user-space. Kernel-space should only be "
+"utilized for the most essential components (e.g., system calls, process "
+"separation, resource management, IPC, thread management, etc)."
+msgstr ""
+
+#: src/microkernels.md:7
+msgid ""
+"The kernel's main task is to act as a medium for communication and "
+"segregation of processes. The kernel should provide minimal abstraction over "
+"the hardware (that is, drivers, which can and should run in user-space)."
+msgstr ""
+
+#: src/microkernels.md:9
+msgid ""
+"Microkernels are more secure and less prone to crashes and driver bugs than "
+"monolithic kernels. This is because most kernel components are moved to user-"
+"space and use different memory address spaces, and thus can't do damage to "
+"the system. Furthermore, microkernels are extremely maintainable, due to "
+"their small code size the number of bugs in the kernel is reduced a lot."
+msgstr ""
+
+#: src/microkernels.md:11
+msgid "As anything else, microkernels do also have disadvantages."
+msgstr ""
+
+#: src/microkernels.md:13
+msgid "Advantages of microkernels"
+msgstr ""
+
+#: src/microkernels.md:15
+msgid ""
+"There are quite a lot of advantages (and some disadvantages) with "
+"microkernels, a few of which will be covered here."
+msgstr ""
+
+#: src/microkernels.md:17
+msgid "Better Stability"
+msgstr ""
+
+#: src/microkernels.md:19
+msgid ""
+"When compared to microkernels, Monolithic kernels tend to be prone to "
+"crashes and driver bugs. A buggy driver in a Monolithic kernel can crash the "
+"whole system because the driver code is running on the same memory address "
+"space of the kernel, thus the kernel process can't continue to run (to avoid "
+"memory corruption) and crash (kernel panic). Or the bugs in a driver can "
+"spread to other drivers without causing crashes, which is hard to ensure "
+"stability and a headache to investigate the root of the problems."
+msgstr ""
+
+#: src/microkernels.md:21
+msgid ""
+"While in a microkernel the drivers run in different memory address spaces "
+"(separation of concerns) which allows the system to handle any crash safely "
+"and isolate driver bugs."
+msgstr ""
+
+#: src/microkernels.md:23
+msgid ""
+"In Linux we often see errors with drivers dereferencing bad pointers which "
+"ultimately results in kernel panics."
+msgstr ""
+
+#: src/microkernels.md:25
+msgid ""
+"There is very good documentation in the [MINIX documentation](http://wiki."
+"minix3.org/doku.php?id=www:documentation:reliability) about how this can be "
+"addressed by a microkernel."
+msgstr ""
+
+#: src/microkernels.md:27
+msgid "Better Security"
+msgstr ""
+
+#: src/microkernels.md:29
+msgid ""
+"Microkernels are undoubtedly more secure than monolithic kernels. The "
+"minimality principle of microkernels is a direct consequence of the "
+"Principle Of Least Privilege, according to which all components should have "
+"only the privileges absolutely needed to provide the needed functionality."
+msgstr ""
+
+#: src/microkernels.md:31
+msgid ""
+"Many security-critical bugs in monolithic kernels come from services and "
+"drivers running unrestricted in kernel mode, without any form of protection."
+msgstr ""
+
+#: src/microkernels.md:33
+msgid ""
+"In other words: **in monolithic kernels, drivers can do whatever they want, "
+"without restrictions, when running in kernel mode**."
+msgstr ""
+
+#: src/microkernels.md:35
+msgid "Better Modularity and Configuration"
+msgstr ""
+
+#: src/microkernels.md:37
+msgid ""
+"Monolithic kernels are, well, monolithic. They do not allow fine-grained "
+"control like microkernels. This is due to many essential components being "
+"\"hard-coded\" into the kernel, and thus requiring modifications to the "
+"kernel itself (e.g., device drivers)."
+msgstr ""
+
+#: src/microkernels.md:39
+msgid ""
+"Microkernels are very modular by nature. You can add, replace, reload, "
+"modify, change, and remove system components or drivers, on runtime, without "
+"even touching the kernel."
+msgstr ""
+
+#: src/microkernels.md:41
+msgid ""
+"Modern monolithic kernels try to solve this issue using kernel modules but "
+"still often require the system to reboot."
+msgstr ""
+
+#: src/microkernels.md:43
+msgid "Better Expansion"
+msgstr ""
+
+#: src/microkernels.md:45
+msgid ""
+"In microkernels new system components and drivers can be easily added using "
+"daemons, while in monolithic kernels the entire kernel needs to be updated "
+"to add them which can introduce bugs to other system components or drivers."
+msgstr ""
+
+#: src/microkernels.md:47
+msgid "Sane Debugging"
+msgstr ""
+
+#: src/microkernels.md:49
+msgid ""
+"In microkernels most kernel components (drivers, filesystems, etc) are moved "
+"to user-space, thus bugs on them can't crash the kernel (kernel panic)."
+msgstr ""
+
+#: src/microkernels.md:51
+msgid ""
+"The \"component panics\" (where \"component\" is the name of the system "
+"component) are more common in microkernels than kernel panics because the "
+"kernel code size is very small, the log of a component panic can be saved "
+"which ease debugging a lot."
+msgstr ""
+
+#: src/microkernels.md:53
+msgid ""
+"This is very important to debug in real hardware, because if a kernel panic "
+"happens the log can't be saved to find the cause of the bug."
+msgstr ""
+
+#: src/microkernels.md:55
+msgid ""
+"While in monolithic kernels a bug in a system component or driver can cause "
+"a kernel panic and freeze the system (if it happens in real hardware, you "
+"can't debug without serial output support)"
+msgstr ""
+
+#: src/microkernels.md:57
+msgid "(Buggy drivers are the main cause of kernel panics)"
+msgstr ""
+
+#: src/microkernels.md:59
+msgid "Disadvantages of microkernels"
+msgstr ""
+
+#: src/microkernels.md:61
+msgid "Small Performance Overhead"
+msgstr ""
+
+#: src/microkernels.md:63
+msgid ""
+"Any modern operating system needs basic security mechanisms such as memory "
+"isolation and virtualization. Furthermore any process (including the kernel) "
+"has its own stack and variables stored in registers. On [context switch]"
+"(https://en.wikipedia.org/wiki/Context_switch), that is each time a system "
+"call is invoked or any other inter-process communication (IPC) is done, some "
+"tasks have to be done, including:"
+msgstr ""
+
+#: src/microkernels.md:65
+msgid ""
+"Saving caller registers, especially the program counter (caller: process "
+"invoking syscall or IPC)"
+msgstr ""
+
+#: src/microkernels.md:66
+msgid ""
+"Reprogramming the [MMU](https://en.wikipedia.org/wiki/"
+"Memory_management_unit)'s page table (aka [TLB](https://en.wikipedia.org/"
+"wiki/Translation_lookaside_buffer))"
+msgstr ""
+
+#: src/microkernels.md:67
+msgid ""
+"Putting CPU in another mode (kernel mode and user mode, also known as ring 0 "
+"and ring 3)"
+msgstr ""
+
+#: src/microkernels.md:68
+msgid "Restoring callee registers (callee: process invoked by syscall or IPC)"
+msgstr ""
+
+#: src/microkernels.md:70
+msgid ""
+"These are not inherently slower on microkernels, but microkernels need to "
+"perform these operations more frequently. Many of the system functionality "
+"is performed by user-space processes, requiring additional context switches."
+msgstr ""
+
+#: src/microkernels.md:72
+msgid ""
+"The performance difference between monolithic and microkernels has been "
+"marginalized over time, making their performance comparable. This is partly "
+"due to a smaller surface area which can be easier to optimize."
+msgstr ""
+
+#: src/microkernels.md:74
+msgid ""
+"[Context Switch Documentation](https://wiki.osdev.org/Context_Switching)"
+msgstr ""
+
+#: src/microkernels.md:75
+msgid ""
+"[Microkernels Performance Paper](https://os.inf.tu-dresden.de/pubs/sosp97/)"
+msgstr ""
+
+#: src/microkernels.md:77
+msgid ""
+"We are working on exciting performance optimizations to minimize the "
+"overhead of extra context switches."
+msgstr ""
+
+#: src/microkernels.md:79
+msgid "Versus monolithic kernels"
+msgstr ""
+
+#: src/microkernels.md:81
+msgid "Monolithic kernels provide a lot more abstractions than microkernels."
+msgstr ""
+
+#: src/microkernels.md:83
+msgid ""
+"![An illustration](https://upload.wikimedia.org/wikipedia/commons/6/67/OS-"
+"structure.svg)"
+msgstr ""
+
+#: src/microkernels.md:85
+msgid ""
+"The above illustration from [Wikimedia](https://commons.wikimedia.org/wiki/"
+"File:OS-structure.svg), by Wooptoo, License: Public domain) shows how they "
+"differ."
+msgstr ""
+
+#: src/microkernels.md:87
+msgid "Documentation about the kernel/user-space separation"
+msgstr ""
+
+#: src/microkernels.md:89
+msgid ""
+"[Dual Mode Operations in OS](https://www.geeksforgeeks.org/dual-mode-"
+"operations-os/)"
+msgstr ""
+
+#: src/microkernels.md:90
+msgid ""
+"[User Mode and Kernel Mode Switching](https://www.geeksforgeeks.org/user-"
+"mode-and-kernel-mode-switching/)"
+msgstr ""
+
+#: src/microkernels.md:92
+msgid "Documentation about microkernels"
+msgstr ""
+
+#: src/microkernels.md:94
+msgid "[OSDev Technical Wiki](https://wiki.osdev.org/Microkernel)"
+msgstr ""
+
+#: src/microkernels.md:95
+msgid "[Message Passing Documentation](https://wiki.osdev.org/Message_Passing)"
+msgstr ""
+
+#: src/microkernels.md:96
+msgid ""
+"[Minix Documentation](https://wiki.minix3.org/doku.php?id=www:documentation:"
+"start)"
+msgstr ""
+
+#: src/microkernels.md:97
+msgid ""
+"[Minix Features](https://wiki.minix3.org/doku.php?id=www:documentation:"
+"features)"
+msgstr ""
+
+#: src/microkernels.md:98
+msgid ""
+"[Minix Reliability](https://wiki.minix3.org/doku.php?id=www:documentation:"
+"reliability)"
+msgstr ""
+
+#: src/microkernels.md:99
+msgid ""
+"[GNU Hurd Documentation](https://www.gnu.org/software/hurd/hurd/"
+"documentation.html)"
+msgstr ""
+
+#: src/microkernels.md:100
+msgid ""
+"[Fuchsia Documentation](https://fuchsia.dev/fuchsia-src/get-started/learn/"
+"intro)"
+msgstr ""
+
+#: src/microkernels.md:101
+msgid "[HelenOS FAQ](http://www.helenos.org/wiki/FAQ)"
+msgstr ""
+
+#: src/microkernels.md:102
+msgid "[Minix Paper](http://www.minix3.org/docs/jorrit-herder/osr-jul06.pdf)"
+msgstr ""
+
+#: src/microkernels.md:103
+msgid "[seL4 Whitepaper](https://sel4.systems/About/seL4-whitepaper.pdf)"
+msgstr ""
+
+#: src/microkernels.md:104
+msgid ""
+"[Tanenbaum-Torvalds Debate](https://en.wikipedia.org/wiki/"
+"Tanenbaum%E2%80%93Torvalds_debate)"
+msgstr ""
+
+#: src/microkernels.md:106
+msgid "A Note On The Current State"
+msgstr ""
+
+#: src/microkernels.md:108
+msgid ""
+"Redox has less than 40,000 Rust lines of kernel code. For comparison Minix "
+"has around 6,000 C lines of kernel code."
+msgstr ""
+
+#: src/microkernels.md:110
+msgid ""
+"(The above comparison can't be used to argue that Minix is more stable or "
+"safe than Redox due to a less amount of source code lines, because Redox is "
+"more advanced than Minix in features, thus more lines of code are expected "
+"and a 1:1 comparison can't be made)"
+msgstr ""
+
+#: src/microkernels.md:112
+msgid ""
+"We would like to move more parts of Redox to user-space to get an even more "
+"stable and secure kernel."
+msgstr ""

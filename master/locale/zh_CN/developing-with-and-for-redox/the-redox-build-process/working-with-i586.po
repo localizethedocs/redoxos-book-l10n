@@ -1,0 +1,246 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: The Redox Operating System\n"
+"POT-Creation-Date: 2026-02-09T03:19:51Z\n"
+"PO-Revision-Date: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: zh_CN\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+#: src/i686.md:1
+msgid "Working with i586"
+msgstr ""
+
+#: src/i686.md:3
+msgid ""
+"The build system supports building for multiple CPU architectures in the "
+"same directory tree. Building for `i586` or `aarch64` only requires that you "
+"set the `ARCH` Make variable to the correct value. Normally, you would do "
+"this in the [.config](./configuration-settings.md#config) section, but you "
+"can also do this temporarily with the `make ARCH=i586` command, in the shell "
+"environment (`export ARCH=i586`) or with the [build.sh](./configuration-"
+"settings.md#buildsh) script."
+msgstr ""
+
+#: src/i686.md:5
+msgid "First Time Build"
+msgstr ""
+
+#: src/i686.md:7
+msgid "Bootstrap Pre-Requisites And Download Sources"
+msgstr ""
+
+#: src/i686.md:9
+msgid ""
+"Follow the instructions for running **bootstrap.sh** to setup your "
+"environment on the [Building Redox](./podman-build.md) or [Native Build](./"
+"building-redox.md) pages."
+msgstr ""
+
+#: src/i686.md:11
+msgid "Install QEMU"
+msgstr ""
+
+#: src/i686.md:13
+msgid ""
+"The **i386** emulator is not installed by `bootstrap.sh`. You can add it "
+"like this:  \n"
+"(Pop!\\_OS/Ubuntu/Debian)"
+msgstr ""
+
+#: src/i686.md:20
+msgid "Configuration Values"
+msgstr ""
+
+#: src/i686.md:22
+msgid ""
+"Before your first build, be sure to set the `ARCH` variable in [.config](./"
+"configuration-settings.md#config) to your architecture type, in this case "
+"`i586`. You can change several other configurable settings, such as the "
+"filesystem contents, etc. See [Configuration Settings](./configuration-"
+"settings.md)."
+msgstr ""
+
+#: src/i686.md:24
+msgid "Add packages to the filesystem."
+msgstr ""
+
+#: src/i686.md:26
+msgid ""
+"You can add programs to the filesystem by following the instructions [here]"
+"(./including-programs.md)."
+msgstr ""
+
+#: src/i686.md:28
+msgid "Advanced Users"
+msgstr ""
+
+#: src/i686.md:30
+msgid ""
+"For more details on the build process, please read [Advanced Build](./"
+"advanced-build.md)."
+msgstr ""
+
+#: src/i686.md:32
+msgid "Compiling Redox"
+msgstr ""
+
+#: src/i686.md:34
+msgid "Now we have:"
+msgstr ""
+
+#: src/i686.md:36
+msgid "Downloaded the sources"
+msgstr ""
+
+#: src/i686.md:37
+msgid "Set the `ARCH` environment variable to `i586`"
+msgstr ""
+
+#: src/i686.md:38
+msgid "Selected a filesystem configuration, e.g. `desktop`"
+msgstr ""
+
+#: src/i686.md:39
+msgid "Tweaked the settings to our liking"
+msgstr ""
+
+#: src/i686.md:40
+msgid "Probably added our recipes to the filesystem"
+msgstr ""
+
+#: src/i686.md:42
+msgid "We are ready to build a Redox image."
+msgstr ""
+
+#: src/i686.md:44
+msgid "Building an image for emulation"
+msgstr ""
+
+#: src/i686.md:50
+msgid ""
+"This command will create the image, e.g. `build/i586/desktop/harddrive.img`, "
+"which you can run with an emulator. See [Running Redox](#running-redox)."
+msgstr ""
+
+#: src/i686.md:56
+msgid "Building A Bootable Redox Image"
+msgstr ""
+
+#: src/i686.md:62
+msgid ""
+"The following command will create the file `build/i586/desktop/livedisk."
+"iso`, which can be copied to a USB device or CD for testing or installation. "
+"See [Running Redox on real hardware](./real-hardware.md)."
+msgstr ""
+
+#: src/i686.md:68
+msgid "Give it a while. Redox is big."
+msgstr ""
+
+#: src/i686.md:70
+msgid "Cleaning Previous Build Cycles"
+msgstr ""
+
+#: src/i686.md:72
+msgid "Cleaning Intended For Rebuilding Core Packages And Entire System"
+msgstr ""
+
+#: src/i686.md:74
+msgid ""
+"When you need to rebuild core-packages like relibc, gcc and related tools, "
+"clean the entire previous build cycle with:"
+msgstr ""
+
+#: src/i686.md:84
+msgid "Cleaning Intended For Only Rebuilding Non-Core Package(s)"
+msgstr ""
+
+#: src/i686.md:86
+msgid ""
+"If you're only rebuilding a non-core package, you can partially clean the "
+"previous build cycle just enough to force the rebuilding of the Non-Core "
+"Package:"
+msgstr ""
+
+#: src/i686.md:96
+msgid "Running Redox"
+msgstr ""
+
+#: src/i686.md:98
+msgid "Running The Redox Desktop"
+msgstr ""
+
+#: src/i686.md:100
+msgid "To open QEMU, run:"
+msgstr ""
+
+#: src/i686.md:106
+msgid "This should open up a QEMU window, booting to Redox."
+msgstr ""
+
+#: src/i686.md:108
+msgid "If it does not work, disable KVM with:"
+msgstr ""
+
+#: src/i686.md:114
+msgid "or:"
+msgstr ""
+
+#: src/i686.md:120
+msgid "If this doesn't work either, you should go open an issue."
+msgstr ""
+
+#: src/i686.md:122
+msgid "Running The Redox Console Only"
+msgstr ""
+
+#: src/i686.md:124
+msgid ""
+"We disable to GUI desktop by passing the `gpu=no` option.  The following "
+"disables the graphics support and welcomes you with the Redox console:"
+msgstr ""
+
+#: src/i686.md:130
+msgid ""
+"It's useful to run the console in order to capture the output from the non-"
+"GUI programs."
+msgstr ""
+
+#: src/i686.md:132
+msgid ""
+"It helps to debug applications and share the console captured logs with "
+"other developers in the Redox community."
+msgstr ""
+
+#: src/i686.md:134
+msgid "QEMU Tap For Network Testing"
+msgstr ""
+
+#: src/i686.md:136
+msgid ""
+"Expose Redox to other computers within a LAN. Configure QEMU with a \"TAP\" "
+"which will allow other computers to test Redox client/server/networking "
+"capabilities."
+msgstr ""
+
+#: src/i686.md:138
+msgid ""
+"Join the [chat](./chat.md) if this is something you are interested in "
+"pursuing."
+msgstr ""
+
+#: src/i686.md:140
+msgid "Note"
+msgstr ""
+
+#: src/i686.md:142
+msgid ""
+"If you encounter any bugs, errors, obstructions, or other annoying things, "
+"please send a message in the [chat](./chat.md) or [report the issue on "
+"GitLab](./creating-proper-bug-reports.md). Thanks!"
+msgstr ""

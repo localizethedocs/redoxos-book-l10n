@@ -1,0 +1,323 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: The Redox Operating System\n"
+"POT-Creation-Date: 2026-02-09T03:19:51Z\n"
+"PO-Revision-Date: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: zh_TW\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+#: src/example.md:1
+msgid "An Example"
+msgstr ""
+
+#: src/example.md:3
+msgid "Enough theory! Time for an example."
+msgstr ""
+
+#: src/example.md:5
+msgid ""
+"We will implement a scheme which holds a vector. The scheme will push "
+"elements to the vector when it receives writes, and pop them when it is "
+"read. Let's call it `vec`."
+msgstr ""
+
+#: src/example.md:9
+msgid ""
+"The complete source for this example can be found at [redox-os/"
+"vec_scheme_example](https://gitlab.redox-os.org/redox-os/vec_scheme_example)."
+msgstr ""
+
+#: src/example.md:12
+msgid "TODO: the example has not been saved to the repo."
+msgstr ""
+
+#: src/example.md:14
+msgid "Setup"
+msgstr ""
+
+#: src/example.md:16
+msgid ""
+"In order to build and run this example in a Redox environment, you'll need "
+"to be set up to compile the OS from source. The process for getting a "
+"program included in a local Redox build is laid out in the [Including "
+"Programs in Redox](./including-programs.md) page. Pause here and follow the "
+"`helloworld` example in that guide if you want to get this example running."
+msgstr ""
+
+#: src/example.md:18
+msgid ""
+"This example assumes that `vec` was used as the name of the crate instead of "
+"`helloworld`. The crate should therefore be located at `cookbook/recipes/vec/"
+"source`"
+msgstr ""
+
+#: src/example.md:22
+msgid ""
+"Modify the `Cargo.toml` for the `vec` crate so that it looks something like "
+"this:"
+msgstr ""
+
+#: src/example.md:25
+msgid ""
+"```toml\n"
+"[package]\n"
+"name = \"vec\"\n"
+"version = \"0.1.0\"\n"
+"edition = \"2018\"\n"
+"\n"
+"[[bin]]\n"
+"name = \"vec_scheme\"\n"
+"path = \"src/scheme.rs\"\n"
+"\n"
+"[[bin]]\n"
+"name = \"vec\"\n"
+"path = \"src/client.rs\"\n"
+"\n"
+"[dependencies]\n"
+"redox_syscall = \"^0.2.6\"\n"
+"```"
+msgstr ""
+
+#: src/example.md:43
+msgid ""
+"Notice that there are two binaries here. We'll need another program to "
+"interact with our scheme, since CLI tools like `cat` use more operations "
+"than we strictly need to implement for our scheme. The client uses only the "
+"standard library."
+msgstr ""
+
+#: src/example.md:47
+msgid "The Scheme Daemon"
+msgstr ""
+
+#: src/example.md:49
+msgid ""
+"Create `src/scheme.rs` in the crate. Start by `use`ing a couple of symbols."
+msgstr ""
+
+#: src/example.md:61
+msgid ""
+"We start by defining our mutable scheme struct, which will implement the "
+"`SchemeMut` trait and hold the state of the scheme."
+msgstr ""
+
+#: src/example.md:78
+msgid ""
+"Before implementing the scheme operations on our scheme struct, let's "
+"breifly discuss the way that this struct will be used. Our program "
+"(`vec_scheme`) will create the `vec` scheme by opening the corresponding "
+"scheme handler in the root scheme (`:vec`).  Let's implement a `main()` that "
+"intializes our scheme struct and registers the new scheme:"
+msgstr ""
+
+#: src/example.md:88
+msgid "\":vec\""
+msgstr ""
+
+#: src/example.md:89
+msgid "\"Failed to create the vec scheme\""
+msgstr ""
+
+#: src/example.md:93
+msgid ""
+"When other programs open/read/write/etc against our scheme, the Redox kernel "
+"will make those requests available to our program via this scheme handler. "
+"Our scheme will read that data, handle the requests, and send responses back "
+"to the kernel by writing to the scheme handler. The kernel will then pass "
+"the results of operations back to the caller."
+msgstr ""
+
+#: src/example.md:101 src/example.md:161 src/example.md:197
+msgid "// ...\n"
+msgstr ""
+
+#: src/example.md:106
+msgid "// Wait for the kernel to send us requests\n"
+msgstr ""
+
+#: src/example.md:108
+msgid "\"vec: failed to read event from vec scheme handler\""
+msgstr ""
+
+#: src/example.md:111
+msgid "// Exit cleanly\n"
+msgstr ""
+
+#: src/example.md:115
+msgid ""
+"// Scheme::handle passes off the info from the packet to the individual\n"
+"        // scheme methods and writes back to it any information returned by\n"
+"        // those methods.\n"
+msgstr ""
+
+#: src/example.md:121
+msgid "\"vec: failed to write response to vec scheme handler\""
+msgstr ""
+
+#: src/example.md:126
+msgid ""
+"Now let's deal with the specific operations on our scheme. The `scheme."
+"handle(...)` call dispatches requests to these methods, so that we don't "
+"need to worry about the gory details of the `Packet` struct."
+msgstr ""
+
+#: src/example.md:130
+msgid ""
+"In most Unix systems (Redox included!), a program needs to open a file "
+"before it can do very much with it. Since our scheme is just a \"virtual "
+"filesystem\", programs call `open` with the path to the \"file\" they want "
+"to interact with when they want to start a conversation with our scheme."
+msgstr ""
+
+#: src/example.md:135
+msgid "For our vec scheme, let's push whatever path we're given to the vec:"
+msgstr ""
+
+#: src/example.md:146
+msgid ""
+"Say a program calls `open(\"vec:/hello\")`. That call will work its way "
+"through the kernel and end up being dispatched to this function through our "
+"`Scheme::handle` call."
+msgstr ""
+
+#: src/example.md:150
+msgid ""
+"The `usize` we return here will be passed back to us as the `id` parameter "
+"of the other scheme operations. This way we can keep track of different open "
+"files. In this case, we won't make a distinction between two different "
+"programs talking to us and simply return zero."
+msgstr ""
+
+#: src/example.md:155
+msgid ""
+"Similarly, when a process opens a file, the kernel returns a number (the "
+"file descriptor) that the process can use to read and write to that file. "
+"Now let's implement the read and write operations for `VecScheme`:"
+msgstr ""
+
+#: src/example.md:163
+msgid ""
+"// Fill up buf with the contents of self.vec, starting from self.buf[0].\n"
+"    // Note that this reverses the contents of the Vec.\n"
+msgstr ""
+
+#: src/example.md:179
+msgid "// Simply push any bytes we are given to self.vec\n"
+msgstr ""
+
+#: src/example.md:190
+msgid ""
+"Note that each of the methods of the `SchemeMut` trait provide a default "
+"implementation. These will all return errors since they are essentially "
+"unimplemented. There's one more method we need to implement in order to "
+"prevent errors for users of our scheme:"
+msgstr ""
+
+#: src/example.md:205
+msgid ""
+"Most languages' standard libraries call `close` automatically when a file "
+"object is destroyed, and Rust is no exception."
+msgstr ""
+
+#: src/example.md:208
+msgid ""
+"To see all the possible operations on schemes, check out the [API docs]"
+"(https://docs.rs/redox_syscall/)."
+msgstr ""
+
+#: src/example.md:211
+msgid "TODO: there is no scheme documentation at this link."
+msgstr ""
+
+#: src/example.md:213
+msgid "A Simple Client"
+msgstr ""
+
+#: src/example.md:215
+msgid ""
+"As mentioned earlier, we need to create a very simple client in order to use "
+"our scheme, since some command line tools (like `cat`) use operations other "
+"than open, read, write, and close. Put this code into `src/client.rs`:"
+msgstr ""
+
+#: src/example.md:224
+msgid "\"/scheme/vec/hi\""
+msgstr ""
+
+#: src/example.md:225
+msgid "\"Failed to open vec file\""
+msgstr ""
+
+#: src/example.md:227
+msgid "b\" Hello\""
+msgstr ""
+
+#: src/example.md:228
+msgid "\"Failed to write to vec\""
+msgstr ""
+
+#: src/example.md:232
+msgid "\"Failed to read from vec\""
+msgstr ""
+
+#: src/example.md:234
+msgid "\"{}\""
+msgstr ""
+
+#: src/example.md:234
+msgid "// olleH ih/\n"
+msgstr ""
+
+#: src/example.md:238
+msgid ""
+"We simply open some \"file\" in our scheme, write some bytes to it, read "
+"some bytes from it, and then spit those bytes out on stdout. Remember, it "
+"doesn't matter what path we use, since all our scheme does is add that path "
+"to the vec. In this sense, the vec scheme implements a global vector."
+msgstr ""
+
+#: src/example.md:243
+msgid "Running the Scheme"
+msgstr ""
+
+#: src/example.md:245
+msgid ""
+"Since we've already set up the program to build and run in QEMU, simply run:"
+msgstr ""
+
+#: src/example.md:252
+msgid ""
+"We'll need multiple terminal windows open in the QEMU window for this step. "
+"Notice that both binaries we defined in our `Cargo.toml` can now be found in "
+"`/usr/bin` (`vec_scheme` and `vec`). In one terminal window, run `sudo "
+"vec_scheme`. A program needs to run as root in order to register a new "
+"scheme. In another terminal, run `vec` and observe the output."
+msgstr ""
+
+#: src/example.md:258
+msgid "Exercises for the Reader"
+msgstr ""
+
+#: src/example.md:260
+msgid ""
+"Make the `vec` scheme print out something whenever it gets events. For "
+"example, print out the user and group IDs of the user who tries to open a "
+"file in the scheme."
+msgstr ""
+
+#: src/example.md:263
+msgid ""
+"Create a unique `vec` for each opened file in your scheme. You might find a "
+"hashmap useful for this."
+msgstr ""
+
+#: src/example.md:265
+msgid ""
+"Write a scheme that can run code for your favorite esoteric programming "
+"language."
+msgstr ""

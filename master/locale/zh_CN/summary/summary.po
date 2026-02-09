@@ -1,0 +1,380 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: The Redox Operating System\n"
+"POT-Creation-Date: 2026-02-09T03:19:51Z\n"
+"PO-Revision-Date: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: zh_CN\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+#: src/SUMMARY.md:1
+msgid "The Redox Operating-System"
+msgstr ""
+
+#: src/SUMMARY.md:3 src/SUMMARY.md:5
+msgid "Introduction"
+msgstr ""
+
+#: src/SUMMARY.md:7
+msgid "Introducing Redox"
+msgstr ""
+
+#: src/SUMMARY.md:8
+msgid "Our Goals"
+msgstr ""
+
+#: src/SUMMARY.md:9
+msgid "Our Philosophy"
+msgstr ""
+
+#: src/SUMMARY.md:10
+msgid "Why a New OS?"
+msgstr ""
+
+#: src/SUMMARY.md:11
+msgid "Why Rust?"
+msgstr ""
+
+#: src/SUMMARY.md:12
+msgid "Redox Use Cases"
+msgstr ""
+
+#: src/SUMMARY.md:13
+msgid "Comparing Redox to Other OSes"
+msgstr ""
+
+#: src/SUMMARY.md:14
+msgid "Influences"
+msgstr ""
+
+#: src/SUMMARY.md:15
+msgid "Hardware Support"
+msgstr ""
+
+#: src/SUMMARY.md:16
+msgid "Important Programs"
+msgstr ""
+
+#: src/SUMMARY.md:17
+msgid "Side Projects"
+msgstr ""
+
+#: src/SUMMARY.md:19
+msgid "Architecture and Design"
+msgstr ""
+
+#: src/SUMMARY.md:21
+msgid "System Design"
+msgstr ""
+
+#: src/SUMMARY.md:22
+msgid "Microkernels"
+msgstr ""
+
+#: src/SUMMARY.md:23
+msgid "Boot Process"
+msgstr ""
+
+#: src/SUMMARY.md:24
+msgid "Redox kernel"
+msgstr ""
+
+#: src/SUMMARY.md:25
+msgid "System Services in User Space"
+msgstr ""
+
+#: src/SUMMARY.md:26
+msgid "Communication"
+msgstr ""
+
+#: src/SUMMARY.md:27
+msgid "Memory Management"
+msgstr ""
+
+#: src/SUMMARY.md:28
+msgid "Scheduling"
+msgstr ""
+
+#: src/SUMMARY.md:29
+msgid "Drivers"
+msgstr ""
+
+#: src/SUMMARY.md:30
+msgid "RedoxFS"
+msgstr ""
+
+#: src/SUMMARY.md:31
+msgid "Graphics and Windowing"
+msgstr ""
+
+#: src/SUMMARY.md:32
+msgid "Security"
+msgstr ""
+
+#: src/SUMMARY.md:33
+msgid "Features"
+msgstr ""
+
+#: src/SUMMARY.md:34
+msgid "Package Management"
+msgstr ""
+
+#: src/SUMMARY.md:36
+msgid "Schemes and Resources"
+msgstr ""
+
+#: src/SUMMARY.md:37
+msgid "Scheme-rooted Paths"
+msgstr ""
+
+#: src/SUMMARY.md:38
+msgid "Resources"
+msgstr ""
+
+#: src/SUMMARY.md:39
+msgid "Schemes"
+msgstr ""
+
+#: src/SUMMARY.md:40
+msgid "\"Everything is a File\""
+msgstr ""
+
+#: src/SUMMARY.md:41
+msgid "Stitching It All Together"
+msgstr ""
+
+#: src/SUMMARY.md:42
+msgid "Scheme Operation"
+msgstr ""
+
+#: src/SUMMARY.md:43
+msgid "Event Scheme"
+msgstr ""
+
+#: src/SUMMARY.md:44
+msgid "An Example"
+msgstr ""
+
+#: src/SUMMARY.md:46
+msgid "Programs and Libraries"
+msgstr ""
+
+#: src/SUMMARY.md:47
+msgid "Components"
+msgstr ""
+
+#: src/SUMMARY.md:48
+msgid "GUI"
+msgstr ""
+
+#: src/SUMMARY.md:49
+msgid "Shell"
+msgstr ""
+
+#: src/SUMMARY.md:50
+msgid "System Tools"
+msgstr ""
+
+#: src/SUMMARY.md:52
+msgid "Getting Started"
+msgstr ""
+
+#: src/SUMMARY.md:54
+msgid "Getting started"
+msgstr ""
+
+#: src/SUMMARY.md:55
+msgid "Running Redox in a Virtual Machine"
+msgstr ""
+
+#: src/SUMMARY.md:56
+msgid "Running Redox on Real Hardware"
+msgstr ""
+
+#: src/SUMMARY.md:57
+msgid "Installing Redox on a Drive"
+msgstr ""
+
+#: src/SUMMARY.md:58
+msgid "Trying Out Redox"
+msgstr ""
+
+#: src/SUMMARY.md:59
+msgid "Tasks"
+msgstr ""
+
+#: src/SUMMARY.md:60
+msgid "Downloading Packages with pkg"
+msgstr ""
+
+#: src/SUMMARY.md:62 src/SUMMARY.md:64
+msgid "Contributing"
+msgstr ""
+
+#: src/SUMMARY.md:65
+msgid "Chat"
+msgstr ""
+
+#: src/SUMMARY.md:67
+msgid "Best practices and guidelines"
+msgstr ""
+
+#: src/SUMMARY.md:68
+msgid "Literate programming"
+msgstr ""
+
+#: src/SUMMARY.md:69
+msgid "Writing docs correctly"
+msgstr ""
+
+#: src/SUMMARY.md:70
+msgid "Style"
+msgstr ""
+
+#: src/SUMMARY.md:71
+msgid "Rusting properly"
+msgstr ""
+
+#: src/SUMMARY.md:72
+msgid "Avoiding Panics"
+msgstr ""
+
+#: src/SUMMARY.md:73
+msgid "Testing"
+msgstr ""
+
+#: src/SUMMARY.md:75
+msgid "Using Redox GitLab"
+msgstr ""
+
+#: src/SUMMARY.md:76
+msgid "Signing in to GitLab"
+msgstr ""
+
+#: src/SUMMARY.md:77
+msgid "Repository Structure"
+msgstr ""
+
+#: src/SUMMARY.md:78
+msgid "Creating Proper Bug Reports"
+msgstr ""
+
+#: src/SUMMARY.md:79
+msgid "Creating Proper Pull Requests"
+msgstr ""
+
+#: src/SUMMARY.md:80
+msgid "Filing Issues"
+msgstr ""
+
+#: src/SUMMARY.md:82
+msgid "Developing with and for Redox"
+msgstr ""
+
+#: src/SUMMARY.md:84
+msgid "The Redox Build Process"
+msgstr ""
+
+#: src/SUMMARY.md:85
+msgid "Building Redox"
+msgstr ""
+
+#: src/SUMMARY.md:86
+msgid "Native Build"
+msgstr ""
+
+#: src/SUMMARY.md:87
+msgid "From Nothing To Hello World"
+msgstr ""
+
+#: src/SUMMARY.md:88
+msgid "Configuration Settings"
+msgstr ""
+
+#: src/SUMMARY.md:89
+msgid "Build System Reference"
+msgstr ""
+
+#: src/SUMMARY.md:90
+msgid "Advanced Podman Build"
+msgstr ""
+
+#: src/SUMMARY.md:91
+msgid "Advanced Native Build"
+msgstr ""
+
+#: src/SUMMARY.md:92
+msgid "Working with i586"
+msgstr ""
+
+#: src/SUMMARY.md:93
+msgid "Working with ARM64"
+msgstr ""
+
+#: src/SUMMARY.md:94
+msgid "Raspberry Pi"
+msgstr ""
+
+#: src/SUMMARY.md:95
+msgid "Troubleshooting the Build"
+msgstr ""
+
+#: src/SUMMARY.md:96
+msgid "Build Process"
+msgstr ""
+
+#: src/SUMMARY.md:98
+msgid "Developing for Redox"
+msgstr ""
+
+#: src/SUMMARY.md:99
+msgid "Developer FAQ"
+msgstr ""
+
+#: src/SUMMARY.md:100
+msgid "References"
+msgstr ""
+
+#: src/SUMMARY.md:101
+msgid "Libraries and APIs"
+msgstr ""
+
+#: src/SUMMARY.md:102
+msgid "Coding and Building"
+msgstr ""
+
+#: src/SUMMARY.md:103
+msgid "Including Programs in Redox"
+msgstr ""
+
+#: src/SUMMARY.md:104
+msgid "Application Porting"
+msgstr ""
+
+#: src/SUMMARY.md:105
+msgid "Porting Case Study"
+msgstr ""
+
+#: src/SUMMARY.md:106
+msgid "Continuous Integration"
+msgstr ""
+
+#: src/SUMMARY.md:107
+msgid "Performance"
+msgstr ""
+
+#: src/SUMMARY.md:108
+msgid "System Call Tracing"
+msgstr ""
+
+#: src/SUMMARY.md:109
+msgid "Quick Workflow"
+msgstr ""
+
+#: src/SUMMARY.md:110
+msgid "Questions and Feedback"
+msgstr ""

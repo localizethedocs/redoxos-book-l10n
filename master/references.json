@@ -13,22 +13,22 @@
     },
     "zh_CN" : 
     {
-      "branch" : "",
+      "branch" : "master",
       "commit" : 
       {
-        "date" : "",
-        "hash" : "",
-        "title" : ""
+        "date" : "2026-02-08 01:38:51 -0300",
+        "hash" : "1350c2afdc7abb443d05ae4aa612889080ad93d4",
+        "title" : "Improve the Quick Recipe Template usage speed"
       }
     },
     "zh_TW" : 
     {
-      "branch" : "",
+      "branch" : "master",
       "commit" : 
       {
-        "date" : "",
-        "hash" : "",
-        "title" : ""
+        "date" : "2026-02-08 01:38:51 -0300",
+        "hash" : "1350c2afdc7abb443d05ae4aa612889080ad93d4",
+        "title" : "Improve the Quick Recipe Template usage speed"
       }
     }
   },

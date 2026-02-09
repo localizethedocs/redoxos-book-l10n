@@ -1,0 +1,42 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: The Redox Operating System\n"
+"POT-Creation-Date: 2026-02-09T03:19:51Z\n"
+"PO-Revision-Date: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: zh_CN\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+#: src/asking-questions.md:1
+msgid "Questions, Feedback, Reporting Issues"
+msgstr ""
+
+#: src/asking-questions.md:3
+msgid ""
+"Most common high-level questions are answered in the [General FAQ](https://"
+"www.redox-os.org/faq/)."
+msgstr ""
+
+#: src/asking-questions.md:4
+msgid ""
+"More complex high-level or low-level questions are answered in the "
+"[Developer FAQ](./developer-faq.md)."
+msgstr ""
+
+#: src/asking-questions.md:6
+msgid ""
+"If your question is not answered by the General or Developer FAQs please "
+"join and ask in the [Redox Chat](./chat.md). It is the best method to **chat "
+"with the Redox Team**."
+msgstr ""
+
+#: src/asking-questions.md:8
+msgid ""
+"If you would like to report issues, send a message on the Support room of "
+"the chat or create an issue [here](https://gitlab.redox-os.org/redox-os/"
+"redox/-/issues) and click in the \"New Issue\" button."
+msgstr ""

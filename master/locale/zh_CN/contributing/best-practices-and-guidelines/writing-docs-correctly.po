@@ -1,0 +1,51 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: The Redox Operating System\n"
+"POT-Creation-Date: 2026-02-09T03:19:51Z\n"
+"PO-Revision-Date: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: zh_CN\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+#: src/writing-docs-correctly.md:1
+msgid "Writing Documentation Correctly (TM)"
+msgstr ""
+
+#: src/writing-docs-correctly.md:3
+msgid "Documentation for Redox appears in two places:"
+msgstr ""
+
+#: src/writing-docs-correctly.md:5
+msgid "In the source code"
+msgstr ""
+
+#: src/writing-docs-correctly.md:6
+msgid "On the website (the Redox Book and online API documentation)"
+msgstr ""
+
+#: src/writing-docs-correctly.md:8
+msgid ""
+"Redox functions and modules should use `rustdoc` annotations where possible, "
+"as they can be used to generate online API documentation - this ensures "
+"uniform documentation between those two halves. In particular, this is more "
+"strictly required for public APIs; internal functions can generally eschew "
+"them (though having explanations for any code can still help newcomers to "
+"understand the codebase). When in doubt, making code more literate is "
+"better, so long as it doesn't negatively affect the functionality. Run "
+"`rustdoc` against any added documentation of this type before submitting "
+"them to check for correctness, errors, or odd formatting."
+msgstr ""
+
+#: src/writing-docs-correctly.md:10
+msgid ""
+"Documentation for the Redox Book generally should not include API "
+"documentation directly, but rather cover higher-level overviews of the "
+"entire codebase, project, and community. It is better to have information in "
+"the Book than not to have it, so long as it is accurate, relevant, and well-"
+"written. When writing documentation for the Book, be sure to run `mdbook` "
+"against any changes to test the results before submitting them."
+msgstr ""

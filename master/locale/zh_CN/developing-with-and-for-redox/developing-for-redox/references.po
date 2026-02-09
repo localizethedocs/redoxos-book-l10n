@@ -1,0 +1,423 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: The Redox Operating System\n"
+"POT-Creation-Date: 2026-02-09T03:19:51Z\n"
+"PO-Revision-Date: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: zh_CN\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+#: src/references.md:1
+msgid "References"
+msgstr ""
+
+#: src/references.md:3
+msgid ""
+"This page contain a list of references for Rust programming, OS development, "
+"ideas, porting and computer science to help developers."
+msgstr ""
+
+#: src/references.md:5
+msgid "The sections are ordered by knowledge importance."
+msgstr ""
+
+#: src/references.md:7
+msgid "Computer Science"
+msgstr ""
+
+#: src/references.md:9
+msgid ""
+"[Putting the \"You\" in CPU](https://cpu.land/) - This website explains how "
+"a program works, from a Linux system call until the CPU."
+msgstr ""
+
+#: src/references.md:10
+msgid ""
+"[GeeksforGeeks](https://www.geeksforgeeks.org/) - A computer science portal "
+"with many articles for several areas and tasks."
+msgstr ""
+
+#: src/references.md:11
+msgid ""
+"[computer-science](https://github.com/ossu/computer-science) - A list for "
+"computer science education."
+msgstr ""
+
+#: src/references.md:12
+msgid ""
+"[freeCodeCamp: Harvard CS50](https://www.youtube.com/watch?v=8mAITcNt710)"
+msgstr ""
+
+#: src/references.md:13
+msgid ""
+"[Developer Roadmaps - Computer Science](https://roadmap.sh/computer-science) "
+"- A guide to learn computer science."
+msgstr ""
+
+#: src/references.md:14
+msgid ""
+"[Minix](https://minix3.org/) - You can find great papers and articles about "
+"the microkernel architecture and reliable systems."
+msgstr ""
+
+#: src/references.md:15
+msgid ""
+"[Plan 9](https://plan9.io/plan9/) - You can find papers and documentation "
+"about distributed systems."
+msgstr ""
+
+#: src/references.md:16
+msgid ""
+"[seL4](https://sel4.systems/) - You can find papers and documentation about "
+"a secure and fast microkernel design."
+msgstr ""
+
+#: src/references.md:17
+msgid ""
+"[The Coded Message - Computing/Programming articles](https://www."
+"thecodedmessage.com/tags/computers)"
+msgstr ""
+
+#: src/references.md:19
+msgid "OS development"
+msgstr ""
+
+#: src/references.md:21
+msgid ""
+"[OSDev Wiki](https://wiki.osdev.org/Expanded_Main_Page) - The best wiki "
+"about OS development of the world."
+msgstr ""
+
+#: src/references.md:22
+msgid ""
+"[Writing an OS in Rust](https://os.phil-opp.com/) - Blog series to write an "
+"operating system in Rust."
+msgstr ""
+
+#: src/references.md:23
+msgid ""
+"[Rust OSDev](https://rust-osdev.com/) - Monthly reports with updates on the "
+"Rust low-level ecosystem libraries and operating systems."
+msgstr ""
+
+#: src/references.md:25
+msgid "Rust"
+msgstr ""
+
+#: src/references.md:27
+msgid ""
+"[Rust Book](https://doc.rust-lang.org/stable/book/) - The most important "
+"source of information on the Rust programming language."
+msgstr ""
+
+#: src/references.md:28
+msgid ""
+"[Rust By Example](https://doc.rust-lang.org/stable/rust-by-example/) - Learn "
+"Rust with examples."
+msgstr ""
+
+#: src/references.md:29
+msgid ""
+"[Rustlings](https://github.com/rust-lang/rustlings) - Learn Rust with "
+"exercises."
+msgstr ""
+
+#: src/references.md:30
+msgid ""
+"[Awesome Rust](https://github.com/rust-unofficial/awesome-rust) - Curated "
+"list of Rust programs, libraries and resources."
+msgstr ""
+
+#: src/references.md:31
+msgid ""
+"[No Boilerplate - Rust playlist](https://www.youtube.com/playlist?"
+"list=PLZaoyhMXgBzoM9bfb5pyUOT3zjnaDdSEP) - Amazing short documentaries about "
+"special things on Rust."
+msgstr ""
+
+#: src/references.md:32
+msgid ""
+"[Developer Roadmaps - Rust](https://roadmap.sh/rust) - A guide to learn Rust."
+msgstr ""
+
+#: src/references.md:33
+msgid ""
+"[rust-learning](https://github.com/ctjhoa/rust-learning) - A list with "
+"articles and videos to learn Rust."
+msgstr ""
+
+#: src/references.md:34
+msgid ""
+"[Rust Playground](https://play.rust-lang.org/) - Test your Rust code on the "
+"web browser."
+msgstr ""
+
+#: src/references.md:35
+msgid ""
+"[This Week in Rust](https://this-week-in-rust.org/) - Weekly updates on the "
+"Rust ecosystem, it covers language improvements, organization updates, "
+"community updates and articles."
+msgstr ""
+
+#: src/references.md:36
+msgid ""
+"[The Coded Message - Rust articles](https://www.thecodedmessage.com/tags/"
+"rust/)"
+msgstr ""
+
+#: src/references.md:37
+msgid "[fasterthanlime - Rust articles](https://fasterthanli.me/tags/rust)"
+msgstr ""
+
+#: src/references.md:38
+msgid ""
+"[Learn Rust With Entirely Too Many Linked Lists](https://rust-unofficial."
+"github.io/too-many-lists/) - How to implement a linked list in Rust."
+msgstr ""
+
+#: src/references.md:39
+msgid ""
+"[Rust Design Patterns](https://rust-unofficial.github.io/patterns/intro."
+"html) - About idioms, design patterns, and anti-pattern in Rust."
+msgstr ""
+
+#: src/references.md:40
+msgid ""
+"[Rust Reference Book](https://doc.rust-lang.org/reference/index.html) - "
+"References for people with background familiarity with Rust."
+msgstr ""
+
+#: src/references.md:41
+msgid ""
+"[Rustonomicon](https://doc.rust-lang.org/nomicon/) - To learn about unsafe "
+"Rust."
+msgstr ""
+
+#: src/references.md:42
+msgid ""
+"[Rust 101 - Exercises](https://101-rs.tweede.golf/) - A Rust university "
+"course (but lacking answers for exercises)."
+msgstr ""
+
+#: src/references.md:43
+msgid ""
+"[teach-rs](https://teach-rs.tweede.golf/) - An university course to learn "
+"Rust."
+msgstr ""
+
+#: src/references.md:44
+msgid ""
+"[Rust Security Handbook](https://yevh.github.io/rust-security-handbook/) - "
+"Helpful security related practices when coding in Rust."
+msgstr ""
+
+#: src/references.md:46
+msgid "Porting"
+msgstr ""
+
+#: src/references.md:48
+msgid ""
+"If you don't know how to port some program or library, you can see the build "
+"system documentation or software ports of other operating systems."
+msgstr ""
+
+#: src/references.md:50
+msgid ""
+"[Cargo](https://doc.rust-lang.org/cargo/) - The project and dependency "
+"manager of the Rust programming language."
+msgstr ""
+
+#: src/references.md:51
+msgid ""
+"[GNU Autotools](https://www.gnu.org/software/automake/) - The GNU build "
+"system, used by most old POSIX programs."
+msgstr ""
+
+#: src/references.md:52
+msgid ""
+"[Meson](https://mesonbuild.com/) - A build system used by many Linux/POSIX "
+"programs."
+msgstr ""
+
+#: src/references.md:53
+msgid ""
+"[GNU Make](https://www.gnu.org/software/make/) - The GNU's command runner, "
+"used to build projects with many source code files."
+msgstr ""
+
+#: src/references.md:54
+msgid ""
+"[FreeBSD - Software Ports (cgit)](https://cgit.freebsd.org/ports/) - The "
+"official web interface for the software ports of FreeBSD."
+msgstr ""
+
+#: src/references.md:55
+msgid ""
+"[FreeBSD - Software Ports (GitHub mirror)](https://github.com/freebsd/"
+"freebsd-ports) - GitHub mirror for the software ports of FreeBSD."
+msgstr ""
+
+#: src/references.md:56
+msgid ""
+"[NetBSD - Software Ports (GitHub mirror)](https://github.com/NetBSD/pkgsrc) "
+"- GitHub mirror for the software ports of NetBSD."
+msgstr ""
+
+#: src/references.md:57
+msgid ""
+"[Gentoo Packages](https://packages.gentoo.org/) - It contains advanced "
+"information about the port configuration."
+msgstr ""
+
+#: src/references.md:58
+msgid "[Nix Packages](https://github.com/NixOS/nixpkgs)"
+msgstr ""
+
+#: src/references.md:59
+msgid "[Guix Packages](https://git.savannah.gnu.org/cgit/guix.git)"
+msgstr ""
+
+#: src/references.md:61
+msgid "Manual Pages"
+msgstr ""
+
+#: src/references.md:63
+msgid ""
+"[Unix Manual Sections](https://en.wikipedia.org/wiki/"
+"Man_page#Manual_sections)"
+msgstr ""
+
+#: src/references.md:64
+msgid ""
+"[FreeBSD Manual Pages](https://man.freebsd.org/cgi/man.cgi) - Powerful "
+"source for Unix/BSD documentation."
+msgstr ""
+
+#: src/references.md:65
+msgid ""
+"[Linux Manual Pages (man7)](https://www.man7.org/linux/man-pages/) - Very "
+"popular source for Linux documentation."
+msgstr ""
+
+#: src/references.md:66
+msgid ""
+"[Linux Manual Pages (die.net)](https://linux.die.net/man/) - Another popular "
+"source for Linux documentation."
+msgstr ""
+
+#: src/references.md:67
+msgid ""
+"[OpenGroup Specification (POSIX and C Standard Library)](https://pubs."
+"opengroup.org/onlinepubs/9699919799/basedefs/contents.html) - This is "
+"important to improve the support for Linux/BSD programs written in C/C++."
+msgstr ""
+
+#: src/references.md:68
+msgid "[POSIX errors](https://en.wikipedia.org/wiki/Errno.h#POSIX_errors)"
+msgstr ""
+
+#: src/references.md:69
+msgid ""
+"[Linux FHS Directory Structure](https://en.wikipedia.org/wiki/"
+"Filesystem_Hierarchy_Standard#Directory_structure)"
+msgstr ""
+
+#: src/references.md:71
+msgid "Source Code"
+msgstr ""
+
+#: src/references.md:73
+msgid ""
+"If you want to implement something (drivers, hardware interfaces, fix bugs, "
+"etc) but the documentation is not good or not available, you can verify the "
+"implementation of other operating systems."
+msgstr ""
+
+#: src/references.md:75
+msgid ""
+"[Linux - cgit](https://git.kernel.org/) - Official web interface for the "
+"Linux kernel source code."
+msgstr ""
+
+#: src/references.md:76
+msgid ""
+"[Linux - GitHub mirror](https://github.com/torvalds/linux) - GitHub mirror "
+"for the Linux kernel source code, it contain more features to read the files."
+msgstr ""
+
+#: src/references.md:77
+msgid ""
+"[FreeBSD - cgit](https://cgit.freebsd.org/) - Official web interface for the "
+"FreeBSD source code."
+msgstr ""
+
+#: src/references.md:78
+msgid "[FreeBSD - GitHub mirror](https://github.com/freebsd/freebsd-src)"
+msgstr ""
+
+#: src/references.md:79
+msgid ""
+"[NetBSD - CVSWeb](http://cvsweb.netbsd.org/) - Official web interface for "
+"the NetBSD source code."
+msgstr ""
+
+#: src/references.md:80
+msgid "[NetBSD - GitHub mirror](https://github.com/NetBSD/src)"
+msgstr ""
+
+#: src/references.md:81
+msgid ""
+"[OpenBSD - CVSWeb](https://cvsweb.openbsd.org/) - Official web interface for "
+"the OpenBSD source code."
+msgstr ""
+
+#: src/references.md:82
+msgid "[OpenBSD - GitHub mirror](https://github.com/openbsd/src)"
+msgstr ""
+
+#: src/references.md:83
+msgid ""
+"[Minix](https://git.minix3.org/index.cgi?p=minix.git) - Official web "
+"interface for the Minix source code."
+msgstr ""
+
+#: src/references.md:84
+msgid "[seL4](https://github.com/seL4/seL4)"
+msgstr ""
+
+#: src/references.md:86
+msgid "Ideas"
+msgstr ""
+
+#: src/references.md:88
+msgid ""
+"[Linux](https://www.kernel.org/) - The Linux kernel contain lots of ideas "
+"that improved the Unix design (POSIX) and system engineering."
+msgstr ""
+
+#: src/references.md:89
+msgid ""
+"[Android](https://developer.android.com/) - Android created many ideas to "
+"improve the system security and power efficiency."
+msgstr ""
+
+#: src/references.md:90
+msgid ""
+"[FreeBSD - Ideas](https://wiki.freebsd.org/IdeasPage) - The future ideas of "
+"FreeBSD."
+msgstr ""
+
+#: src/references.md:91
+msgid "[FreeBSD - Documentation](https://docs.freebsd.org/en/)"
+msgstr ""
+
+#: src/references.md:92
+msgid ""
+"[Fedora - Change Proposals](https://fedoraproject.org/wiki/Changes) - For "
+"years the Fedora Linux distribution tested and implemented new technologies "
+"for the Linux ecosystem."
+msgstr ""

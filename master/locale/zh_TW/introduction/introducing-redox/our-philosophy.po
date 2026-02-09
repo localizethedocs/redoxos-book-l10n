@@ -1,0 +1,90 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: The Redox Operating System\n"
+"POT-Creation-Date: 2026-02-09T03:19:51Z\n"
+"PO-Revision-Date: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: zh_TW\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+#: src/philosophy.md:1
+msgid "Our Philosophy"
+msgstr ""
+
+#: src/philosophy.md:3
+msgid ""
+"Redox OS is predominately MIT X11-style licensed, including all software, "
+"documentation, and fonts. There are only a few exceptions to this, which are "
+"all licensed under other compatible open-source licenses."
+msgstr ""
+
+#: src/philosophy.md:5
+msgid "The MIT X11-style license has the following properties:"
+msgstr ""
+
+#: src/philosophy.md:6
+msgid ""
+"It gives you, the user of the software, complete and unrestrained access to "
+"the software, such that you may _inspect_, _modify_, and _redistribute_ your "
+"changes"
+msgstr ""
+
+#: src/philosophy.md:7
+msgid ""
+"_Inspection_ Anyone may inspect the software for security vulnerabilities"
+msgstr ""
+
+#: src/philosophy.md:8
+msgid ""
+"_Modification_ Anyone may modify the software to fix security vulnerabilities"
+msgstr ""
+
+#: src/philosophy.md:9
+msgid ""
+"_Redistribution_ Anyone may redistribute the software to patch the security "
+"vulnerabilities"
+msgstr ""
+
+#: src/philosophy.md:10
+msgid ""
+"It is compatible with GPL licenses - Projects licensed as GPL can be "
+"distributed with Redox OS"
+msgstr ""
+
+#: src/philosophy.md:11
+msgid ""
+"It allows for the incorporation of GPL-incompatible free software, such as "
+"OpenZFS, which is CDDL licensed"
+msgstr ""
+
+#: src/philosophy.md:13
+msgid ""
+"The license does not restrict the software that may run on Redox, however -- "
+"and thanks to the microkernel architecture, even traditionally tightly-"
+"coupled components such as drivers can be distributed separately, so "
+"maintainers are free to choose whatever license they like for their projects."
+msgstr ""
+
+#: src/philosophy.md:15
+msgid ""
+"This license was chosen to allow Redox to be used everywhere with minimum "
+"restrictions."
+msgstr ""
+
+#: src/philosophy.md:17
+msgid ""
+"Redox intends to be free forever, because we aim to be a foundational piece "
+"in creating secure and resilient systems."
+msgstr ""
+
+#: src/philosophy.md:19
+msgid ""
+"Programs running on top of Redox don't have to be MIT X11-style licensed, "
+"just like how other OSes do (e.g. proprietary programs and drivers on top of "
+"Linux). But all of officially ported programs so far is only OSI and GNU "
+"licensing compliant software."
+msgstr ""

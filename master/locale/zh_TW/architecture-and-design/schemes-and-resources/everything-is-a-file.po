@@ -1,0 +1,81 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: The Redox Operating System\n"
+"POT-Creation-Date: 2026-02-09T03:19:51Z\n"
+"PO-Revision-Date: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: zh_TW\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+#: src/everything-is-a-file.md:1
+msgid "\"Everything is a file\""
+msgstr ""
+
+#: src/everything-is-a-file.md:3
+msgid ""
+"Unix has a concept of using file paths to represent \"special files\" that "
+"have some meaning beyond a regular file. For example, a [device file]"
+"(https://en.wikipedia.org/wiki/Device_file) is a reference to a device "
+"resource that looks like a file path."
+msgstr ""
+
+#: src/everything-is-a-file.md:6
+msgid ""
+"With the \"Everything is a file\" concept provided by Unix-like systems, all "
+"sorts of devices, processes, and kernel parameters can be accessed as files "
+"in a regular filesystem. If you are on a Linux computer, you should try to "
+"`cd` to `/proc`, and see what's going on there."
+msgstr ""
+
+#: src/everything-is-a-file.md:10
+msgid ""
+"Redox extends this concept to a much more powerful one. Since each \"scheme "
+"provider\" is free to interpret the path in its own way, new schemes can be "
+"created as needed for each type of resource. This way USB devices don't end "
+"up in a \"filesystem\", but a protocol-based scheme like `EHCI`. It is not "
+"necessary for the file system software to understand the meaning of a "
+"particular path, or to give a special file some special properties that then "
+"become a fixed file system convention."
+msgstr ""
+
+#: src/everything-is-a-file.md:16
+msgid ""
+"Redox schemes are flexible enough to be used in many circumstances, with "
+"each scheme provider having full flexibility to define its own path "
+"conventions and meanings, and only the programs that wish to take advantage "
+"of those meanings need to understand them."
+msgstr ""
+
+#: src/everything-is-a-file.md:20
+msgid ""
+"Redox does not go as far as [Plan 9](http://doc.cat-v.org/plan_9/4th_edition/"
+"papers/net/), in that there are not separate paths for data and control of "
+"resources. In this case, Redox is more like Unix, where resources can "
+"potentially have a control interface."
+msgstr ""
+
+#: src/everything-is-a-file.md:24
+msgid "Documentation about this design"
+msgstr ""
+
+#: src/everything-is-a-file.md:26
+msgid ""
+"[Drew DeVault - In praise of Plan 9](https://drewdevault.com/2022/11/12/In-"
+"praise-of-Plan-9.html)"
+msgstr ""
+
+#: src/everything-is-a-file.md:27
+msgid "[Plan 9 documentation](https://plan9.io/sys/doc/)"
+msgstr ""
+
+#: src/everything-is-a-file.md:28
+msgid "[Plan 9 wiki](https://plan9.io/wiki/plan9/plan_9_wiki/)"
+msgstr ""
+
+#: src/everything-is-a-file.md:29
+msgid "[9P documentation](http://9p.cat-v.org/documentation/)"
+msgstr ""

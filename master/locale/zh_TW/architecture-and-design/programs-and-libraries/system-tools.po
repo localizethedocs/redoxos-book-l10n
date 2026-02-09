@@ -1,0 +1,364 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: The Redox Operating System\n"
+"POT-Creation-Date: 2026-02-09T03:19:51Z\n"
+"PO-Revision-Date: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: zh_TW\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+#: src/system-tools.md:1
+msgid "System Tools"
+msgstr ""
+
+#: src/system-tools.md:3
+msgid "coreutils"
+msgstr ""
+
+#: src/system-tools.md:5
+msgid ""
+"Coreutils is a collection of basic command line utilities included with "
+"Redox (or with Linux, BSD, etc.). This includes programs like `ls`, `cp`, "
+"`cat` and various other tools necessary for basic command line interaction."
+msgstr ""
+
+#: src/system-tools.md:7
+msgid ""
+"Redox use the Rust implementation of the GNU Coreutils, [uutils](https://"
+"github.com/uutils/coreutils)."
+msgstr ""
+
+#: src/system-tools.md:9 src/system-tools.md:47 src/system-tools.md:66
+#: src/system-tools.md:91
+msgid "Available programs:"
+msgstr ""
+
+#: src/system-tools.md:11
+msgid "`ls` - Show the files and folders of the current directory."
+msgstr ""
+
+#: src/system-tools.md:12
+msgid "`cp` - Copy and paste some file or folder."
+msgstr ""
+
+#: src/system-tools.md:13
+msgid "`cat` - Show the output of some text file."
+msgstr ""
+
+#: src/system-tools.md:14
+msgid "`chmod` - Change the permissions of some file or directory."
+msgstr ""
+
+#: src/system-tools.md:15
+msgid "`clear` - Clean the terminal output."
+msgstr ""
+
+#: src/system-tools.md:16
+msgid "`dd` - Copies and converts a file."
+msgstr ""
+
+#: src/system-tools.md:17
+msgid "`df` - Show the disk partitions information."
+msgstr ""
+
+#: src/system-tools.md:18
+msgid "`du` - Shows disk usage on file systems."
+msgstr ""
+
+#: src/system-tools.md:19
+msgid "`env` - Displays and modifies environment variables."
+msgstr ""
+
+#: src/system-tools.md:20
+msgid "`free` - Show the RAM usage."
+msgstr ""
+
+#: src/system-tools.md:21
+msgid "`kill` - Kill a process."
+msgstr ""
+
+#: src/system-tools.md:22
+msgid "`ln` - Creates a link to a file."
+msgstr ""
+
+#: src/system-tools.md:23
+msgid "`mkdir` - Create a directory."
+msgstr ""
+
+#: src/system-tools.md:24
+msgid "`ps` - Show all running processes."
+msgstr ""
+
+#: src/system-tools.md:25
+msgid "`reset` - Restart the terminal to allow the command-line input."
+msgstr ""
+
+#: src/system-tools.md:26
+msgid "`shutdown` - Shutdown the system."
+msgstr ""
+
+#: src/system-tools.md:27
+msgid "`sort` - Sort, merge, or sequence check text files."
+msgstr ""
+
+#: src/system-tools.md:28
+msgid "`stat` - Returns data about an inode."
+msgstr ""
+
+#: src/system-tools.md:29
+msgid "`tail` - Copy the last part of a file."
+msgstr ""
+
+#: src/system-tools.md:30
+msgid "`tee` - Duplicate the standard output."
+msgstr ""
+
+#: src/system-tools.md:31
+msgid "`test` - Evaluate expression."
+msgstr ""
+
+#: src/system-tools.md:32
+msgid ""
+"`time` - Count the time that some command takes to finish it's operation."
+msgstr ""
+
+#: src/system-tools.md:33
+msgid "`touch` - Update the timestamp of some file or folder."
+msgstr ""
+
+#: src/system-tools.md:34
+msgid ""
+"`uname` - Show the system information, like kernel version and architecture "
+"type."
+msgstr ""
+
+#: src/system-tools.md:35
+msgid "`uptime` - Show how much time your system is running."
+msgstr ""
+
+#: src/system-tools.md:36
+msgid "`which` - Show the path where some program is located."
+msgstr ""
+
+#: src/system-tools.md:38
+msgid "userutils"
+msgstr ""
+
+#: src/system-tools.md:40
+msgid ""
+"Userutils contains the utilities for dealing with users and groups in Redox "
+"OS."
+msgstr ""
+
+#: src/system-tools.md:42
+msgid ""
+"They are heavily influenced by Unix and are, when needed, tailored to "
+"specific Redox use cases."
+msgstr ""
+
+#: src/system-tools.md:44
+msgid ""
+"These implementations strive to be as simple as possible drawing particular "
+"inspiration by BSD systems. They are indeed small, by choice."
+msgstr ""
+
+#: src/system-tools.md:49
+msgid ""
+"`getty` - Used by `init(8)` to open and initialize the TTY line, read a "
+"login name and invoke `login(1)`."
+msgstr ""
+
+#: src/system-tools.md:50
+msgid "`id` - Displays user identity."
+msgstr ""
+
+#: src/system-tools.md:51
+msgid "`login` - Allows users to login into the system"
+msgstr ""
+
+#: src/system-tools.md:52
+msgid "`passwd` - Allows users to modify their passwords."
+msgstr ""
+
+#: src/system-tools.md:53
+msgid "`su` - Allows users to substitute identity."
+msgstr ""
+
+#: src/system-tools.md:54
+msgid "`sudo` - Enables users to execute a command as another user."
+msgstr ""
+
+#: src/system-tools.md:55
+msgid "`useradd` - Add a user"
+msgstr ""
+
+#: src/system-tools.md:56
+msgid "`usermod` - Modify user information"
+msgstr ""
+
+#: src/system-tools.md:57
+msgid "`userdel` - Delete a user"
+msgstr ""
+
+#: src/system-tools.md:58
+msgid "`groupadd` - Add a user group"
+msgstr ""
+
+#: src/system-tools.md:59
+msgid "`groupmod` - Modify group information"
+msgstr ""
+
+#: src/system-tools.md:60
+msgid "`groupdel` - Remove a user group"
+msgstr ""
+
+#: src/system-tools.md:62
+msgid "extrautils"
+msgstr ""
+
+#: src/system-tools.md:64
+msgid ""
+"Some additional command line tools are included in extrautils, such as "
+"`less`, `grep`, and `dmesg`."
+msgstr ""
+
+#: src/system-tools.md:68
+msgid "`calc` - Do math operations."
+msgstr ""
+
+#: src/system-tools.md:69
+msgid "`cur` - Move terminal cursor keys using `vi` keybindings."
+msgstr ""
+
+#: src/system-tools.md:70
+msgid "`dmesg` - Show the kernel message buffer."
+msgstr ""
+
+#: src/system-tools.md:71
+msgid "`grep` - Search all text matches in some text file."
+msgstr ""
+
+#: src/system-tools.md:72
+msgid "`gunzip` - Decompress `tar.gz` archives."
+msgstr ""
+
+#: src/system-tools.md:73
+msgid "`gzip` - Compress files into `tar.gz` archives."
+msgstr ""
+
+#: src/system-tools.md:74
+msgid "`info` - Read Markdown files with help pages."
+msgstr ""
+
+#: src/system-tools.md:75
+msgid "`keymap` - Change the keyboard map."
+msgstr ""
+
+#: src/system-tools.md:76
+msgid "`less` - Show the text file content one page at a time."
+msgstr ""
+
+#: src/system-tools.md:77
+msgid "`man` - Show the program manual."
+msgstr ""
+
+#: src/system-tools.md:78
+msgid "`mdless` - Pager with Markdown support."
+msgstr ""
+
+#: src/system-tools.md:79
+msgid "`mtxt` - Various text conversions, like lowercase to uppercase."
+msgstr ""
+
+#: src/system-tools.md:80
+msgid "`rem` - Countdown tool."
+msgstr ""
+
+#: src/system-tools.md:81
+msgid ""
+"`resize` - Print the size of the terminal in the form of shell commands to "
+"export the `COLUMNS` and `LINES` environment variables."
+msgstr ""
+
+#: src/system-tools.md:82
+msgid "`screenfetch` - Show system information."
+msgstr ""
+
+#: src/system-tools.md:83
+msgid "`tar` - Manipulate `tar` archives."
+msgstr ""
+
+#: src/system-tools.md:84
+msgid "`unzip` - Manipulate `zip` archives."
+msgstr ""
+
+#: src/system-tools.md:85
+msgid "`watch` - Repeat a command every 2 seconds."
+msgstr ""
+
+#: src/system-tools.md:87
+msgid "binutils"
+msgstr ""
+
+#: src/system-tools.md:89
+msgid "Binutils contains utilities for manipulating binary files."
+msgstr ""
+
+#: src/system-tools.md:93
+msgid "`hex` - Filter and show files in hexadecimal format."
+msgstr ""
+
+#: src/system-tools.md:94
+msgid ""
+"`hexdump` - Filter and show files in hexadecimal format (better output "
+"formatting)."
+msgstr ""
+
+#: src/system-tools.md:95
+msgid "`strings` - Find printable strings in files."
+msgstr ""
+
+#: src/system-tools.md:97
+msgid "contain"
+msgstr ""
+
+#: src/system-tools.md:99
+msgid "This program provides containers (namespaces) on Redox."
+msgstr ""
+
+#: src/system-tools.md:101
+msgid "[Repository](https://gitlab.redox-os.org/redox-os/contain)"
+msgstr ""
+
+#: src/system-tools.md:103
+msgid "acid"
+msgstr ""
+
+#: src/system-tools.md:105
+msgid ""
+"The general-purpose test suite of Redox to detect crashes, regressions and "
+"race conditions."
+msgstr ""
+
+#: src/system-tools.md:107
+msgid "[Repository](https://gitlab.redox-os.org/redox-os/acid)"
+msgstr ""
+
+#: src/system-tools.md:109
+msgid "resist"
+msgstr ""
+
+#: src/system-tools.md:111
+msgid ""
+"The POSIX test suite of Redox to see how much % the system is compliant to "
+"the [POSIX](https://en.wikipedia.org/wiki/POSIX) specification (more means "
+"better compatibility)."
+msgstr ""
+
+#: src/system-tools.md:113
+msgid "[Repository](https://gitlab.redox-os.org/redox-os/resist)"
+msgstr ""

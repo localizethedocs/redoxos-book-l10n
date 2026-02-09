@@ -1,0 +1,37 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: The Redox Operating System\n"
+"POT-Creation-Date: 2026-02-09T03:19:51Z\n"
+"PO-Revision-Date: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: zh_TW\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+#: src/contributing.md:1
+msgid "Contributing"
+msgstr ""
+
+#: src/contributing.md:3
+msgid ""
+"Now that you are ready to contribute to Redox, read our [CONTRIBUTING]"
+"(https://gitlab.redox-os.org/redox-os/redox/-/blob/master/CONTRIBUTING.md) "
+"document to guide you."
+msgstr ""
+
+#: src/contributing.md:5
+msgid ""
+"Please follow our guidelines for [Using Redox GitLab](./using-redox-gitlab."
+"md) and our [Best Practices](./best-practices.md)."
+msgstr ""
+
+#: src/contributing.md:7
+msgid ""
+"If you are contributing to Redox, it's important to join us on [Chat](./chat."
+"md). Merge Requests are only reviewed if you post a link in the MRs room on "
+"Chat. It's also important to join so you can align with our current efforts "
+"and avoid unnecessary work."
+msgstr ""

@@ -1,0 +1,194 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: The Redox Operating System\n"
+"POT-Creation-Date: 2026-02-09T03:19:51Z\n"
+"PO-Revision-Date: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: zh_CN\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+#: src/creating-proper-bug-reports.md:1
+msgid "Creating Proper Bug Reports"
+msgstr ""
+
+#: src/creating-proper-bug-reports.md:3
+msgid ""
+"If you identify a problem with the system that has not been identified "
+"previously, please create a GitLab Issue. In general, we prefer that you are "
+"able to reproduce your problem with the latest build of the system."
+msgstr ""
+
+#: src/creating-proper-bug-reports.md:5
+msgid ""
+"Make sure the code you are seeing the issue with is up to date with "
+"`upstream/master`. This helps to weed out reports for bugs that have already "
+"been addressed."
+msgstr ""
+
+#: src/creating-proper-bug-reports.md:6
+msgid ""
+"Search Redox Issues to see if a similar problem has been reported before. "
+"Then search outstanding merge requests to see if a fix is pending."
+msgstr ""
+
+#: src/creating-proper-bug-reports.md:7
+msgid ""
+"Make sure the issue is reproducible (trigger it several times). Try to "
+"identify the minimum number of steps to reproduce it. If the issue happens "
+"inconsistently, it may still be worth filing a bug report for it, but "
+"indicate approximately how often the bug occurs."
+msgstr ""
+
+#: src/creating-proper-bug-reports.md:8
+msgid ""
+"Explain if your problem happens in a virtual machine, real hardware or both. "
+"Also say your configuration (default options or customized), if you had the "
+"problem on real hardware say your computer model."
+msgstr ""
+
+#: src/creating-proper-bug-reports.md:9
+msgid ""
+"If it is a significant problem, join us on the [chat](./chat.md) and ask if "
+"it is a known problem, or if someone plans to address it in the short term."
+msgstr ""
+
+#: src/creating-proper-bug-reports.md:10
+msgid ""
+"Identify the recipe that is causing the issue. If a particular command is "
+"the source of the problem, look for a repository on Redox GitLab with the "
+"same name. Or, for certain programs such as `games` or command line "
+"utilities, you can search for the package containing the command with `grep -"
+"rnw COMMAND --include Cargo.toml`, where `COMMAND` is the name of the "
+"command causing the problem. The location of the `Cargo.toml` file can help "
+"indicate which recipe contains the command. This is where you should expect "
+"to report the issue."
+msgstr ""
+
+#: src/creating-proper-bug-reports.md:11
+msgid ""
+"If the problem involves multiple recipes, kernel interactions with other "
+"programs, or general build problems, then you should plan to log the issue "
+"against the `redox` repository."
+msgstr ""
+
+#: src/creating-proper-bug-reports.md:12
+msgid ""
+"If the problem occurs during build, record the build log using `script` or "
+"`tee`, e.g."
+msgstr ""
+
+#: src/creating-proper-bug-reports.md:18
+msgid ""
+"If the problem occurs while using the Redox command line, use `script` in "
+"combination with your Terminal window."
+msgstr ""
+
+#: src/creating-proper-bug-reports.md:28
+msgid "Wait for Redox to start, then in this window:"
+msgstr ""
+
+#: src/creating-proper-bug-reports.md:34
+msgid "Execute the commands to demonstrate the bug"
+msgstr ""
+
+#: src/creating-proper-bug-reports.md:35
+msgid "Terminate QEMU"
+msgstr ""
+
+#: src/creating-proper-bug-reports.md:41
+msgid "If shutdown does not work (there are known bugs) then"
+msgstr ""
+
+#: src/creating-proper-bug-reports.md:42
+msgid "Use the QEMU menu to quit"
+msgstr ""
+
+#: src/creating-proper-bug-reports.md:43
+msgid "Then exit the shell created by script"
+msgstr ""
+
+#: src/creating-proper-bug-reports.md:49
+msgid "Join us in the chat."
+msgstr ""
+
+#: src/creating-proper-bug-reports.md:51
+msgid "Record build information like:"
+msgstr ""
+
+#: src/creating-proper-bug-reports.md:53
+msgid "The rust toolchain you used to build Redox"
+msgstr ""
+
+#: src/creating-proper-bug-reports.md:54
+msgid "`rustc -V` and/or `rustup show` from your Redox project folder"
+msgstr ""
+
+#: src/creating-proper-bug-reports.md:55
+msgid "The commit hash of the code you used"
+msgstr ""
+
+#: src/creating-proper-bug-reports.md:56
+msgid "`git rev-parse HEAD`"
+msgstr ""
+
+#: src/creating-proper-bug-reports.md:57
+msgid "The environment you are running Redox in (the \"target\")"
+msgstr ""
+
+#: src/creating-proper-bug-reports.md:58
+msgid ""
+"`qemu-system-x86_64 -version` or your current hardware configuration, if "
+"applicable"
+msgstr ""
+
+#: src/creating-proper-bug-reports.md:59
+msgid "The operating system you used to build Redox"
+msgstr ""
+
+#: src/creating-proper-bug-reports.md:60
+msgid "`uname -a` or an alternative format"
+msgstr ""
+
+#: src/creating-proper-bug-reports.md:62
+msgid ""
+"Format your log on the message in Markdown syntax to avoid a flood on the "
+"chat, you can see how to do it on the [GitHub documentation](https://docs."
+"github.com/en/get-started/writing-on-github/getting-started-with-writing-and-"
+"formatting-on-github/basic-writing-and-formatting-syntax#quoting-code)."
+msgstr ""
+
+#: src/creating-proper-bug-reports.md:64
+msgid ""
+"Make sure that your bug doesn't already have an issue on GitLab. Feel free "
+"to ask in the Redox [Chat](./chat.md) if you're uncertain as to whether your "
+"issue is new."
+msgstr ""
+
+#: src/creating-proper-bug-reports.md:66
+msgid ""
+"Create a GitLab issue following the template. Non-bug report issues may "
+"ignore this template."
+msgstr ""
+
+#: src/creating-proper-bug-reports.md:68
+msgid ""
+"Once you create the issue don't forget to post the link on the Dev or "
+"Support rooms of the chat, because the GitLab email notifications have "
+"distractions (service messages or spam) and most developers don't left their "
+"GitLab pages open to receive desktop notifications from the web browser "
+"(which require a custom setting to receive issue notifications)."
+msgstr ""
+
+#: src/creating-proper-bug-reports.md:70
+msgid ""
+"By doing this you help us to pay attention to your issues and avoid them to "
+"be accidentally forgotten."
+msgstr ""
+
+#: src/creating-proper-bug-reports.md:72
+msgid "Watch the issue and be available for questions."
+msgstr ""
