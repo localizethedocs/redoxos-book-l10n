@@ -1,0 +1,124 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: The Redox Operating System\n"
+"POT-Creation-Date: 2026-02-09T03:19:51Z\n"
+"PO-Revision-Date: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: zh_TW\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+#: src/components.md:1
+msgid "Components of Redox"
+msgstr ""
+
+#: src/components.md:3
+msgid "Redox is made up of several discrete components."
+msgstr ""
+
+#: src/components.md:5
+msgid "Core"
+msgstr ""
+
+#: src/components.md:7
+msgid "bootloader - Kernel bootstrap"
+msgstr ""
+
+#: src/components.md:8
+msgid "kernel - System manager"
+msgstr ""
+
+#: src/components.md:9
+msgid "bootstrap - User-space bootstrap"
+msgstr ""
+
+#: src/components.md:10
+msgid "init"
+msgstr ""
+
+#: src/components.md:11
+msgid "initfs"
+msgstr ""
+
+#: src/components.md:12
+msgid "drivers - Device drivers"
+msgstr ""
+
+#: src/components.md:13
+msgid "redoxfS - Filesystem"
+msgstr ""
+
+#: src/components.md:14
+msgid "audiod - Audio daemon"
+msgstr ""
+
+#: src/components.md:15
+msgid "netstack - TCP/UDP stack"
+msgstr ""
+
+#: src/components.md:16
+msgid "ps2d - PS/2 driver"
+msgstr ""
+
+#: src/components.md:17
+msgid "relibc - Redox C library"
+msgstr ""
+
+#: src/components.md:18
+msgid "randd"
+msgstr ""
+
+#: src/components.md:19
+msgid "zerod"
+msgstr ""
+
+#: src/components.md:20
+msgid "ion - Terminal shell"
+msgstr ""
+
+#: src/components.md:21
+msgid "orbital - Desktop environment"
+msgstr ""
+
+#: src/components.md:23
+msgid "Orbital"
+msgstr ""
+
+#: src/components.md:25
+msgid "orblogin - Login manager"
+msgstr ""
+
+#: src/components.md:26
+msgid "launcher - App panel"
+msgstr ""
+
+#: src/components.md:27
+msgid "background - Wallpaper program"
+msgstr ""
+
+#: src/components.md:28
+msgid "viewer - Image viewer"
+msgstr ""
+
+#: src/components.md:29
+msgid "calculator - Math program"
+msgstr ""
+
+#: src/components.md:30
+msgid "COSMIC Files - File manager"
+msgstr ""
+
+#: src/components.md:31
+msgid "COSMIC Editor - Text editor"
+msgstr ""
+
+#: src/components.md:32
+msgid "COSMIC Terminal - Terminal emulator"
+msgstr ""
+
+#: src/components.md:33
+msgid "COSMIC Reader - Document viewer"
+msgstr ""

@@ -1,0 +1,124 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: The Redox Operating System\n"
+"POT-Creation-Date: 2026-02-09T03:19:51Z\n"
+"PO-Revision-Date: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: zh_CN\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+#: src/raspi.md:1
+msgid "Raspberry Pi"
+msgstr ""
+
+#: src/raspi.md:3
+msgid "Build and run device-specific images"
+msgstr ""
+
+#: src/raspi.md:5
+msgid ""
+"Most ARM motherboards do not use the default image for booting, which "
+"requires us to do some extra steps with building images."
+msgstr ""
+
+#: src/raspi.md:7
+msgid "Raspberry Pi 3 Model B+"
+msgstr ""
+
+#: src/raspi.md:9
+msgid ""
+"It is easy to port Raspberry Pi 3 Model B+ (raspi3b+) since the bootloader "
+"of Raspberry Pi family uses the similar filesystem (FAT32) for booting."
+msgstr ""
+
+#: src/raspi.md:12
+msgid "In order to build a RasPi3B+ image:"
+msgstr ""
+
+#: src/raspi.md:14
+msgid "Add `BOARD?=raspi3bp` and `CONFIG_NAME?=minimal`to `.config`"
+msgstr ""
+
+#: src/raspi.md:15
+msgid "Run `make all`"
+msgstr ""
+
+#: src/raspi.md:16
+msgid "Download the firmware"
+msgstr ""
+
+#: src/raspi.md:26
+msgid "Run in QEMU"
+msgstr ""
+
+#: src/raspi.md:28
+msgid ""
+"Assume that we are using the `server-minimal` configuration and built the "
+"image successfully, run:"
+msgstr ""
+
+#: src/raspi.md:30
+msgid "Add two additional dtb files to EFI system partition:"
+msgstr ""
+
+#: src/raspi.md:68
+msgid "Run `make qemu_raspi live=no`"
+msgstr ""
+
+#: src/raspi.md:70
+msgid "Booting from USB"
+msgstr ""
+
+#: src/raspi.md:72
+msgid ""
+"Assume that we are using the `server-minimal` configuration and access "
+"serial console using GPIOs 14 and 15 (pins 8 and 10 on the 40-pin header). "
+"Do the following:"
+msgstr ""
+
+#: src/raspi.md:74
+msgid "Run `make live`"
+msgstr ""
+
+#: src/raspi.md:75
+msgid ""
+"Download the firmware from [official repository](https://github.com/"
+"raspberrypi/firmware/tree/master/boot)"
+msgstr ""
+
+#: src/raspi.md:85
+msgid "Copy all required firmware to EFI system partition"
+msgstr ""
+
+#: src/raspi.md:138
+msgid "Run:"
+msgstr ""
+
+#: src/raspi.md:144
+msgid "(`/dev/sdX` is your USB device.)"
+msgstr ""
+
+#: src/raspi.md:146
+msgid "Booting from SD Card"
+msgstr ""
+
+#: src/raspi.md:148
+msgid ""
+"This process is similar to that of \"Booting from USB\", but has some "
+"differences:"
+msgstr ""
+
+#: src/raspi.md:150
+msgid "Use `harddrive.img` instead of `livedisk.iso`"
+msgstr ""
+
+#: src/raspi.md:151
+msgid ""
+"After `dd` command, try to make the EFI system partition of the SD card "
+"become a hybrid MBR. See [this post](https://www.eisfunke.com/posts/2023/"
+"uefi-boot-on-raspberry-pi-3.html) for more details"
+msgstr ""

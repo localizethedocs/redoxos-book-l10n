@@ -1,0 +1,82 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: The Redox Operating System\n"
+"POT-Creation-Date: 2026-02-09T03:19:51Z\n"
+"PO-Revision-Date: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: zh_TW\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+#: src/pkg.md:1
+msgid "Downloading packages with pkg"
+msgstr ""
+
+#: src/pkg.md:3
+msgid ""
+"[pkg](https://gitlab.redox-os.org/redox-os/pkgutils) is the Redox package "
+"manager installing binary packages to a running system. If you want to build "
+"packages, or include binary packages during the build, please see the "
+"[Including Programs in Redox](./including-programs.md) page."
+msgstr ""
+
+#: src/pkg.md:5
+msgid ""
+"Due to limited device support, you may get better results in an virtual "
+"machine than on real hardware."
+msgstr ""
+
+#: src/pkg.md:7
+msgid "The most commonly used `pkg` commands are show below:"
+msgstr ""
+
+#: src/pkg.md:9
+msgid "Install a package:"
+msgstr ""
+
+#: src/pkg.md:15
+msgid "Upgrade all installed packages:"
+msgstr ""
+
+#: src/pkg.md:21
+msgid "List package contents:"
+msgstr ""
+
+#: src/pkg.md:27
+msgid "Get a file signature:"
+msgstr ""
+
+#: src/pkg.md:33
+msgid "Download a package:"
+msgstr ""
+
+#: src/pkg.md:39
+msgid "Clean an extracted package:"
+msgstr ""
+
+#: src/pkg.md:45
+msgid "Create a package:"
+msgstr ""
+
+#: src/pkg.md:51
+msgid "Extract a package:"
+msgstr ""
+
+#: src/pkg.md:57
+msgid "Get detailed information about one of the above options:"
+msgstr ""
+
+#: src/pkg.md:63
+msgid ""
+"📝 **Note:** Some `pkg` commands must be run with `sudo` because they "
+"manipulate the contents of protected folders: `/usr/bin` and `/pkg`."
+msgstr ""
+
+#: src/pkg.md:65
+msgid ""
+"The available packages can be found on the [build server list](https://"
+"static.redox-os.org/pkg/)."
+msgstr ""

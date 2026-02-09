@@ -1,0 +1,109 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: The Redox Operating System\n"
+"POT-Creation-Date: 2026-02-09T03:19:51Z\n"
+"PO-Revision-Date: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: zh_TW\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+#: src/scheme-rooted-paths.md:1
+msgid "Scheme-rooted Paths"
+msgstr ""
+
+#: src/scheme-rooted-paths.md:3
+msgid "Scheme-rooted paths are the way that resources are identified on Redox."
+msgstr ""
+
+#: src/scheme-rooted-paths.md:5
+msgid "What is a Resource"
+msgstr ""
+
+#: src/scheme-rooted-paths.md:7
+msgid ""
+"A [resource](./resources.md) is anything that a program might wish to "
+"access, usually referenced by some name."
+msgstr ""
+
+#: src/scheme-rooted-paths.md:9
+msgid "What is a Scheme"
+msgstr ""
+
+#: src/scheme-rooted-paths.md:11
+msgid ""
+"A [scheme](./schemes.md) identifies the starting point for finding a "
+"resource."
+msgstr ""
+
+#: src/scheme-rooted-paths.md:13
+msgid "What is a Scheme-rooted Path"
+msgstr ""
+
+#: src/scheme-rooted-paths.md:15
+msgid ""
+"A scheme-rooted path takes the following form, with text in **bold** being "
+"literal."
+msgstr ""
+
+#: src/scheme-rooted-paths.md:17
+msgid "**/scheme/**_scheme-name_**/**_resource-name_"
+msgstr ""
+
+#: src/scheme-rooted-paths.md:19
+msgid ""
+"_scheme-name_ is the name of the kind of resource, and it also identifies "
+"the name used by the manager **daemon** for that kind."
+msgstr ""
+
+#: src/scheme-rooted-paths.md:22
+msgid ""
+"_resource-name_ is the specific resource of that kind. Typically in Redox, "
+"the _resource-name_ is a path with elements separated by slashes, but the "
+"resource manager is free to interpret the _resource-name_ how it chooses, "
+"allowing other formats to be used if required."
+msgstr ""
+
+#: src/scheme-rooted-paths.md:27
+msgid "Differences from Unix"
+msgstr ""
+
+#: src/scheme-rooted-paths.md:29
+msgid ""
+"Unix systems have some special file types, such as \"block special file\" or "
+"\"character special file\". These special files use [major/minor](https://en."
+"wikipedia.org/wiki/Device_file#Unix_and_Unix-like_systems) numbers to "
+"identify the driver and the specific resource within the driver. There are "
+"also pseudo-filesystems, for example [procfs](https://en.wikipedia.org/wiki/"
+"Procfs) that provide access to resources using paths."
+msgstr ""
+
+#: src/scheme-rooted-paths.md:34
+msgid ""
+"Redox's scheme-rooted paths provide a consistent approach to resource "
+"naming, compared with Unix."
+msgstr ""
+
+#: src/scheme-rooted-paths.md:36
+msgid "Regular Files"
+msgstr ""
+
+#: src/scheme-rooted-paths.md:38
+msgid ""
+"For Redox, a path that does not begin with `/scheme/` is a reference to the "
+"the root filesystem, which is managed by the `file` scheme. Thus `/home/"
+"user/.bashrc` is interpreted as `/scheme/file/home/user/.bashrc`."
+msgstr ""
+
+#: src/scheme-rooted-paths.md:41
+msgid ""
+"In this case, the scheme is `file` and the resource is `home/user/.bashrc` "
+"within that scheme."
+msgstr ""
+
+#: src/scheme-rooted-paths.md:44
+msgid "This makes paths for regular files feel as natural as Unix file paths."
+msgstr ""

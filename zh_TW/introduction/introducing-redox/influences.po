@@ -1,0 +1,128 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: The Redox Operating System\n"
+"POT-Creation-Date: 2026-02-09T03:19:51Z\n"
+"PO-Revision-Date: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: zh_TW\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+#: src/influences.md:1
+msgid "Influences"
+msgstr "影響"
+
+#: src/influences.md:3
+msgid "This page explains how Redox was influenced by other operating systems."
+msgstr ""
+
+#: src/influences.md:5
+msgid "(The list is ordered by influence level)"
+msgstr ""
+
+#: src/influences.md:7
+msgid "[Minix](https://minix3.org/)"
+msgstr ""
+
+#: src/influences.md:9
+msgid ""
+"The most influential Unix-like system with a microkernel. It has advanced "
+"features such as system modularity, [kernel panic](https://en.wikipedia.org/"
+"wiki/Kernel_panic) resistence, driver reincarnation, protection against bad "
+"drivers and secure interfaces for [process comunication](https://en."
+"wikipedia.org/wiki/Inter-process_communication)."
+msgstr ""
+
+#: src/influences.md:11
+msgid ""
+"Redox is largely influenced by Minix - it has a similar architecture but "
+"with a feature set written in Rust."
+msgstr ""
+
+#: src/influences.md:13
+msgid "[How Minix influenced the Redox design](./microkernels.md)"
+msgstr ""
+
+#: src/influences.md:15
+msgid "[seL4](https://sel4.systems/)"
+msgstr ""
+
+#: src/influences.md:17
+msgid "The most performant and simplest microkernel of the world."
+msgstr ""
+
+#: src/influences.md:19
+msgid ""
+"Redox follow the same principle, trying to make the kernel-space small as "
+"possible (moving components to user-space and reducing the number of system "
+"calls, passing the complexity to user-space) and keeping the overall "
+"performance good (reducing the context switch cost)."
+msgstr ""
+
+#: src/influences.md:21
+msgid "[Plan 9](http://9p.io/plan9/index.html)"
+msgstr ""
+
+#: src/influences.md:23
+msgid ""
+"This Bell Labs OS brings the concept of \"Everything is a File\" to the "
+"highest level, doing all the system communication from the filesystem."
+msgstr ""
+
+#: src/influences.md:25
+msgid ""
+"[Drew DeVault explains the Plan 9](https://drewdevault.com/2022/11/12/In-"
+"praise-of-Plan-9.html)"
+msgstr ""
+
+#: src/influences.md:26
+msgid "[Plan 9's influence on Redox](./schemes-resources.md)"
+msgstr ""
+
+#: src/influences.md:28
+msgid "[Linux](https://www.kernel.org/)"
+msgstr ""
+
+#: src/influences.md:30
+msgid ""
+"The most advanced monolithic kernel and biggest open-source project of the "
+"world. It brought several improvements and optimizations to the Unix-like "
+"world."
+msgstr ""
+
+#: src/influences.md:32
+msgid ""
+"Redox tries to implement the Linux performance improvements in a microkernel "
+"design."
+msgstr ""
+
+#: src/influences.md:34
+msgid "[BSD](https://en.wikipedia.org/wiki/Berkeley_Software_Distribution)"
+msgstr ""
+
+#: src/influences.md:36
+msgid ""
+"This Unix [family](https://en.wikipedia.org/wiki/Research_Unix) included "
+"several improvements on Unix systems and the open-source variants of BSD "
+"added many improvements to the original system (like Linux did)."
+msgstr ""
+
+#: src/influences.md:38
+msgid ""
+"[FreeBSD](https://www.freebsd.org/) - The [Capsicum](https://man.freebsd.org/"
+"cgi/man.cgi?capsicum(4)) (a capability-based system) and [jails](https://en."
+"wikipedia.org/wiki/Freebsd_jail) (a sandbox technology) influenced the Redox "
+"namespaces implementation."
+msgstr ""
+
+#: src/influences.md:40
+msgid ""
+"[OpenBSD](https://www.openbsd.org/) - The [system call](https://man.openbsd."
+"org/pledge.2), [filesystem](https://man.openbsd.org/unveil.2), [display "
+"server](https://www.xenocara.org/) and [audio server](https://man.openbsd."
+"org/sndiod.8) sandbox and [others](https://www.openbsd.org/innovations.html) "
+"influenced the Redox security."
+msgstr ""

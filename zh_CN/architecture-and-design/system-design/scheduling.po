@@ -1,0 +1,35 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: The Redox Operating System\n"
+"POT-Creation-Date: 2026-02-09T03:19:51Z\n"
+"PO-Revision-Date: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: zh_CN\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+#: src/scheduling.md:1
+msgid "Scheduling on Redox"
+msgstr ""
+
+#: src/scheduling.md:4
+msgid ""
+"The Redox kernel uses a scheduling algorithm called [Round Robin](https://"
+"wiki.osdev.org/Scheduling_Algorithms#Round_Robin)."
+msgstr ""
+
+#: src/scheduling.md:6
+msgid ""
+"The kernel registers a function called an [interrupt handler](https://wiki."
+"osdev.org/Interrupts) that the CPU calls periodically. This function keeps "
+"track of how many times it is called, and will schedule the next process "
+"ready for scheduling every 10 \"ticks\"."
+msgstr ""
+
+#: src/scheduling.md:8
+msgid ""
+"[Scheduling documentation](https://wiki.osdev.org/Scheduling_Algorithms)"
+msgstr ""
