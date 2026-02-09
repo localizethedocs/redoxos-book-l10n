@@ -322,7 +322,7 @@ msgstr ""
 
 #: src/schemes.md:66
 msgid "Network configuration"
-msgstr ""
+msgstr "網路組態"
 
 #: src/schemes.md:67 src/schemes.md:123
 msgid "display.vesa"

@@ -27,7 +27,7 @@ msgstr ""
 
 #: src/references.md:7
 msgid "Computer Science"
-msgstr ""
+msgstr "計算機科學"
 
 #: src/references.md:9
 msgid ""
@@ -84,7 +84,7 @@ msgstr ""
 
 #: src/references.md:19
 msgid "OS development"
-msgstr ""
+msgstr "作業系統開發"
 
 #: src/references.md:21
 msgid ""
