@@ -1,0 +1,116 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: The Redox Operating System\n"
+"POT-Creation-Date: 2026-02-09T03:19:51Z\n"
+"PO-Revision-Date: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: en\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+#: src/repository-structure.md:1
+msgid "Repository Structure"
+msgstr ""
+
+#: src/repository-structure.md:3
+msgid ""
+"The [Redox GitLab](https://gitlab.redox-os.org/) consists of a large number "
+"of **Projects**, you will find the projects organized as a very large, flat "
+"alphabetical list. This is not indicative of the role or importance of the "
+"various projects."
+msgstr ""
+
+#: src/repository-structure.md:5
+msgid "The Redox Project"
+msgstr ""
+
+#: src/repository-structure.md:7
+msgid ""
+"The `redox` project is actually just the root of the build system. It does "
+"not contain any of the code that the final Redox image will include. It "
+"includes the Makefiles, configuration files, package system and a few "
+"scripts to simplify setup and building. The `redox` project can be found on "
+"the [GitLab repository](https://gitlab.redox-os.org/redox-os/redox)."
+msgstr ""
+
+#: src/repository-structure.md:9
+msgid "Recipes"
+msgstr ""
+
+#: src/repository-structure.md:11
+msgid ""
+"The many **recipes** that are added into the Redox image are built from the "
+"corresponding software sources. The name of a Redox package almost always "
+"matches the name of its program or library, although this is not enforced."
+msgstr ""
+
+#: src/repository-structure.md:13
+msgid ""
+"The **recipe** contains the instructions to download and build a program, "
+"for its inclusion in the Redox image."
+msgstr ""
+
+#: src/repository-structure.md:15
+msgid "Cookbook"
+msgstr ""
+
+#: src/repository-structure.md:17
+msgid ""
+"The `cookbook` system contains the infrastructure for building the Redox "
+"recipes, you can find its source code in the `src` folder and recipes under "
+"the `recipes` folder."
+msgstr ""
+
+#: src/repository-structure.md:19
+msgid "Crates"
+msgstr ""
+
+#: src/repository-structure.md:21
+msgid ""
+"Some Redox projects are built as Rust crates, and included in Redox recipes "
+"using Cargo's dependency management system. Updates to a crate must be "
+"pushed to the crate repository in order for it to be included in your build."
+msgstr ""
+
+#: src/repository-structure.md:23
+msgid "Forks, Tarballs and Other Sources"
+msgstr ""
+
+#: src/repository-structure.md:25
+msgid ""
+"Some recipes obtain their source code from places other than Redox GitLab. "
+"The Cookbook system can pull in source from any Git repository URL. It can "
+"also obtain tarballs which is most used by C/C++ programs."
+msgstr ""
+
+#: src/repository-structure.md:27
+msgid ""
+"In some cases, the Redox GitLab has a fork of another repository, in order "
+"to add Redox-specific patches. Where possible, we try to push these changes "
+"upstream, but there are some reasons why this might not be feasible."
+msgstr ""
+
+#: src/repository-structure.md:29
+msgid "Personal Forks"
+msgstr ""
+
+#: src/repository-structure.md:31
+msgid ""
+"When you are contributing to Redox, you are expected to make your changes in "
+"a personal fork of the relevant project, then create a Merge Request (PR) to "
+"have your changes pulled from your fork into the `master` or `main` "
+"branches. Note that your personal fork is required to have public visibility."
+msgstr ""
+
+#: src/repository-structure.md:33
+msgid ""
+"In some rare situations, e.g. for experimental features or projects with "
+"licensing that is not compatible with Redox, a recipe may download sources "
+"located in a personal repository. Before using one of these recipes, please "
+"check with us on the [chat](./chat.md) to understand why the project is set "
+"up this way, and do not commit a Redox configuration file containing such a "
+"recipe without permission."
+msgstr ""

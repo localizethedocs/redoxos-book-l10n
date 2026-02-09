@@ -1,0 +1,302 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: The Redox Operating System\n"
+"POT-Creation-Date: 2026-02-09T03:19:51Z\n"
+"PO-Revision-Date: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: en\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+#: src/chat.md:1
+msgid "Chat"
+msgstr ""
+
+#: src/chat.md:3
+msgid ""
+"The best way to communicate with the Redox team is on Matrix Chat, to join "
+"our chat, you must request an invitation in the [Join Requests room](https://"
+"matrix.to/#/#redox-join:matrix.org) (this room acts as a guard against spam "
+"and bots)"
+msgstr ""
+
+#: src/chat.md:5
+msgid ""
+"When your invitation is sent, you will receive a notification on Matrix."
+msgstr ""
+
+#: src/chat.md:7
+msgid ""
+"After you accept the invitation, you can open the [Redox Matrix space]"
+"(https://matrix.to/#/#redox:matrix.org) and see the rooms that are available."
+msgstr ""
+
+#: src/chat.md:9
+msgid ""
+"These rooms are English-only, we cannot offer support in other languages "
+"because the maintainers will not be able to verify the correctness of your "
+"responses. But if you post translator-generated messages, we will do our "
+"best to understand them."
+msgstr ""
+
+#: src/chat.md:11
+msgid "About Matrix"
+msgstr ""
+
+#: src/chat.md:13
+msgid ""
+"[Matrix](https://en.wikipedia.org/wiki/Matrix_(protocol)) is an open chat "
+"protocol and has several different [clients](https://matrix.org/ecosystem/"
+"clients/). [Element](https://element.io/) is a commonly used choice, it "
+"works on web browsers, Linux, MacOSX, Windows, Android and iOS."
+msgstr ""
+
+#: src/chat.md:15
+msgid "Rules"
+msgstr ""
+
+#: src/chat.md:17
+msgid ""
+"We follow the [Rust Code Of Conduct](https://www.rust-lang.org/policies/code-"
+"of-conduct) as rules of the chat rooms."
+msgstr ""
+
+#: src/chat.md:19
+msgid "Threads"
+msgstr ""
+
+#: src/chat.md:21
+msgid ""
+"If you want to have a big discussion in our Matrix space you should use a "
+"thread."
+msgstr ""
+
+#: src/chat.md:22
+msgid "A thread is a list of messages, like a forum topic."
+msgstr ""
+
+#: src/chat.md:23
+msgid ""
+"A thread is linked to the original message, but displayed to the side to "
+"help improve the visibility of new questions in the main message area."
+msgstr ""
+
+#: src/chat.md:25
+msgid ""
+"Not all Matrix clients support threads, so if you are not able to see "
+"threads in your client, try a different client."
+msgstr ""
+
+#: src/chat.md:27
+msgid ""
+"If you are unable to use a client that supports threads, let us know when "
+"you ask a question, and we will try to accommodate you as best we can."
+msgstr ""
+
+#: src/chat.md:29
+msgid ""
+"To start a thread on Element, hover your mouse cursor over the desired "
+"message and click on the button with the message icon (a rectangular speech "
+"bubble)."
+msgstr ""
+
+#: src/chat.md:30
+msgid ""
+"To see all threads in a room click on the top-right button with a message "
+"icon."
+msgstr ""
+
+#: src/chat.md:32
+msgid ""
+"We mostly use Element threads but there are other Matrix clients with "
+"threads support, like nheko."
+msgstr ""
+
+#: src/chat.md:34
+msgid "The Redox Space"
+msgstr ""
+
+#: src/chat.md:36
+msgid "All rooms available on the Redox space:"
+msgstr ""
+
+#: src/chat.md:38
+msgid ""
+"[\\#redox-join:matrix.org](https://matrix.to/#/#redox-join:matrix.org) - A "
+"room to be invited to Redox space."
+msgstr ""
+
+#: src/chat.md:39
+msgid ""
+"[\\#redox-announcements:matrix.org](https://matrix.to/#/#redox-announcements:"
+"matrix.org) - A room for important announcements."
+msgstr ""
+
+#: src/chat.md:40
+msgid ""
+"[\\#redox-general:matrix.org](https://matrix.to/#/#redox-general:matrix.org) "
+"- A room for Redox-related discussions (questions, suggestions, porting, "
+"etc)."
+msgstr ""
+
+#: src/chat.md:41
+msgid ""
+"[\\#redox-dev:matrix.org](https://matrix.to/#/#redox-dev:matrix.org) - A "
+"room for the development, here you can talk about anything development-"
+"related (code, proposals, achievements, styling, bugs, etc)."
+msgstr ""
+
+#: src/chat.md:42
+msgid ""
+"[\\#redox-gitlab-updates:matrix.org](https://matrix.to/#/#redox-gitlab-"
+"updates:matrix.org) - GitLab activity notifications room"
+msgstr ""
+
+#: src/chat.md:43
+msgid ""
+"[\\#redox-rfcs:matrix.org](https://matrix.to/#/#redox-rfcs:matrix.org) - A "
+"room for system architecture design discussions and brainstorming for RFCs."
+msgstr ""
+
+#: src/chat.md:44
+msgid ""
+"[\\#redox-support:matrix.org](https://matrix.to/#/#redox-support:matrix.org) "
+"- A room for testing and building support (problems, errors, questions)."
+msgstr ""
+
+#: src/chat.md:45
+msgid ""
+"[\\#redox-mrs:matrix.org](https://matrix.to/#/#redox-mrs:matrix.org) - A "
+"room to send all ready merge requests without conflicts  (if you have a "
+"ready MR to merge, send there)."
+msgstr ""
+
+#: src/chat.md:46
+msgid ""
+"[\\#redox-gitlab:matrix.org](https://matrix.to/#/#redox-gitlab:matrix.org) - "
+"A room to send new GitLab accounts for approval."
+msgstr ""
+
+#: src/chat.md:47
+msgid ""
+"[\\#redox-soc:matrix.org](https://matrix.to/#/#redox-soc:matrix.org) - A "
+"room for the Redox Summer Of Code program."
+msgstr ""
+
+#: src/chat.md:48
+msgid ""
+"[\\#redox-board:matrix.org](https://matrix.to/#/#redox-board:matrix.org) - A "
+"room for meetings of the Board of Directors."
+msgstr ""
+
+#: src/chat.md:49
+msgid ""
+"[\\#redox-voip:matrix.org](https://matrix.to/#/#redox-voip:matrix.org) - A "
+"room for voice chat discussions."
+msgstr ""
+
+#: src/chat.md:50
+msgid ""
+"[\\#redox-random:matrix.org](https://matrix.to/#/#redox-random:matrix.org) - "
+"A room for off-topic discussions."
+msgstr ""
+
+#: src/chat.md:51
+msgid ""
+"[\\#redox-memes:matrix.org](https://matrix.to/#/#redox-memes:matrix.org) - A "
+"room for memes."
+msgstr ""
+
+#: src/chat.md:53
+msgid "Troubleshooting"
+msgstr ""
+
+#: src/chat.md:55
+msgid ""
+"If you don't to deal with the Element problems, try [Nheko](https://nheko-"
+"reborn.github.io/) or [Fractal](https://gitlab.gnome.org/World/fractal)."
+msgstr ""
+
+#: src/chat.md:57
+msgid ""
+"If you have connection problems see [this](https://status.matrix.org/) "
+"website to see if the `matrix.org` homeserver is normal."
+msgstr ""
+
+#: src/chat.md:59
+msgid "Element"
+msgstr ""
+
+#: src/chat.md:61
+msgid ""
+"Threads on Element have some bugs, typically marking messages as still "
+"unread, even after you have read them."
+msgstr ""
+
+#: src/chat.md:63
+msgid ""
+"Element in the web browser does not show new messages in a thread as part of "
+"its new message count. It only shows a green or red dot over the Threads "
+"icon on the lower left of the display. A red dot means that the message is a "
+"reply to you. Click the Threads icon to see which rooms have new thread "
+"messages."
+msgstr ""
+
+#: src/chat.md:65
+msgid ""
+"To display all threads in a room on Element in the web browser, click on the "
+"Threads icon on the top right of the display."
+msgstr ""
+
+#: src/chat.md:67
+msgid ""
+"If the Threads button on the top right has a dot, you may have unread "
+"messages on some thread, but this could be wrong."
+msgstr ""
+
+#: src/chat.md:69
+msgid ""
+"If a thread has a dot to the right, you have unread messages in that thread. "
+"Click on the thread to read it."
+msgstr ""
+
+#: src/chat.md:71
+msgid ""
+"When entering a room where you have previously received replies in a thread, "
+"you may hear a notification bell, even though there is no new message."
+msgstr ""
+
+#: src/chat.md:73
+msgid ""
+"Due to bugs, a thread you have previously read can show a dot and possibly "
+"count as unread messages. Click on the thread and make sure you have read "
+"it, and  to clear it. If it is still not cleared, click on the \"Thread "
+"options\" `...` button on the top right and select \"Show in room\". This "
+"will often clear it."
+msgstr ""
+
+#: src/chat.md:75
+msgid ""
+"You can also mark an entire room as \"Read\" by mousing over the room name "
+"and selecting \"Mark as read\" from the \"Room options\" `...` button."
+msgstr ""
+
+#: src/chat.md:77
+msgid ""
+"After doing the steps above, if you still have problems, try reloading the "
+"page."
+msgstr ""
+
+#: src/chat.md:79
+msgid ""
+"Element uses a cache, but clearing the cache sometimes causes problems, if "
+"you have encrypted rooms, like DM rooms, save your encryption keys before "
+"clearing your cache or you may lose the room history."
+msgstr ""
+
+#: src/chat.md:81
+msgid "Read the Element documentation to learn more about encryption keys."
+msgstr ""

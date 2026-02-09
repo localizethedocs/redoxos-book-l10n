@@ -1,0 +1,302 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: The Redox Operating System\n"
+"POT-Creation-Date: 2026-02-09T03:19:51Z\n"
+"PO-Revision-Date: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: en\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+#: src/real-hardware.md:1
+msgid "Running Redox on Real Hardware"
+msgstr ""
+
+#: src/real-hardware.md:3
+msgid "(You need to use the `*livedisk.iso` image variant for real hardware)"
+msgstr ""
+
+#: src/real-hardware.md:5
+msgid ""
+"Since version 0.8.0, Redox can now be installed on certain hard drives and "
+"internal SSDs, including some vintage systems. USB devices are not yet "
+"supported during run-time, although they can be used for installation and "
+"_livedisk_ boot. Check the release notes for additional details on supported "
+"hardware. Systems with unsupported devices can still use the _livedisk_ "
+"method described below. Ensure you backup your data before trying Redox on "
+"your hardware."
+msgstr ""
+
+#: src/real-hardware.md:7
+msgid ""
+"Hardware support is limited at the moment, so your milage may vary. Only USB "
+"input devices (HID) work. There is a PS/2 driver, which works with the "
+"keyboards and touchpads in many (but not all) laptops. For networking, the "
+"Realtek and Intel ethernet controllers are currently supported."
+msgstr ""
+
+#: src/real-hardware.md:9
+msgid ""
+"On some computers, hardware incompatibilities, e.g. disk driver issues, can "
+"slow down Redox performance. This is not reflective of Redox in general, so "
+"if you find that Redox is slow on your computer, please try it on a "
+"different model for a better experience."
+msgstr ""
+
+#: src/real-hardware.md:11
+msgid ""
+"The current ISO image uses a bootloader to load the filesystem into memory "
+"(_livedisk_) and emulates a hard drive. You can use the system in this mode "
+"without installing. Although its use of memory is inefficient, it is fully "
+"functional and does not require changes to your device. The ISO image is a "
+"great way to try out Redox on real hardware."
+msgstr ""
+
+#: src/real-hardware.md:13
+msgid "Creating a Bootable USB Drive"
+msgstr ""
+
+#: src/real-hardware.md:15
+msgid "Download an Compressed ISO Image"
+msgstr ""
+
+#: src/real-hardware.md:17
+msgid ""
+"You can obtain a _livedisk_ ISO image either by downloading the [latest "
+"release](https://static.redox-os.org/releases/0.9.0/x86_64/), or by "
+"[building one](./building-redox.md). The [demo ISO](https://static.redox-os."
+"org/releases/0.9.0/x86_64/redox_demo_x86_64_2024-09-07_1225_livedisk.iso."
+"zst) is recommended for most laptops. After downloading completes, check the "
+"[SHA256 sum](https://static.redox-os.org/releases/0.9.0/x86_64/SHA256SUM):"
+msgstr ""
+
+#: src/real-hardware.md:23
+msgid ""
+"If you have more than one demo image in the `Downloads` directory, you may "
+"need to replace the `*` symbol with the date of your file."
+msgstr ""
+
+#: src/real-hardware.md:25
+msgid ""
+"If the `demo` variant doesn't boot on your computer, try the [`desktop`]"
+"(https://static.redox-os.org/releases/0.9.0/x86_64/"
+"redox_desktop_x86_64_2024-09-07_1225_livedisk.iso.zst) and [`server`]"
+"(https://static.redox-os.org/releases/0.9.0/x86_64/"
+"redox_server_x86_64_2024-09-07_1225_livedisk.iso.zst) variants."
+msgstr ""
+
+#: src/real-hardware.md:27
+msgid ""
+"If even the `desktop` and `server` variants don't work, use the daily images "
+"below."
+msgstr ""
+
+#: src/real-hardware.md:29
+msgid "Daily Images"
+msgstr ""
+
+#: src/real-hardware.md:31
+msgid ""
+"If you want to test the latest Redox changes you can use our bootable images "
+"created each day by opening the [build server images](https://static.redox-"
+"os.org/img) and downloading your preferred variant."
+msgstr ""
+
+#: src/real-hardware.md:33
+msgid ""
+"(Sometimes our daily images can be one week old or more because of breaking "
+"changes) Once the download is complete, check the [SHA256 sum](https://"
+"static.redox-os.org/img/x86_64/SHA256SUM)."
+msgstr ""
+
+#: src/real-hardware.md:36
+msgid "Decompress the ISO Image"
+msgstr ""
+
+#: src/real-hardware.md:38
+msgid ""
+"Downloaded Redox images are compressed using the [Zstd](https://github.com/"
+"facebook/zstd) algorithm. To decompress an image, follow the appropriate "
+"steps below for your system:"
+msgstr ""
+
+#: src/real-hardware.md:40
+msgid "Linux (GUI)"
+msgstr ""
+
+#: src/real-hardware.md:42
+msgid ""
+"Install [GNOME File Roller](https://gitlab.gnome.org/GNOME/file-roller) or "
+"[KDE Ark](https://apps.kde.org/ark/) (both can be installed from [Flathub]"
+"(https://flathub.org/))"
+msgstr ""
+
+#: src/real-hardware.md:43
+msgid "Open the Redox image and click on the \"Extract\" button"
+msgstr ""
+
+#: src/real-hardware.md:45
+msgid ""
+"If you are using the GNOME Nautilus or KDE Dolphin file manager, right-click "
+"the file and select the option to extract the file."
+msgstr ""
+
+#: src/real-hardware.md:47
+msgid "Linux (Terminal)"
+msgstr ""
+
+#: src/real-hardware.md:49
+msgid "Install the Zstd tool and run:"
+msgstr ""
+
+#: src/real-hardware.md:55
+msgid "Windows (GUI)"
+msgstr ""
+
+#: src/real-hardware.md:57
+msgid "Install [7-Zip](https://www.7-zip.org/)"
+msgstr ""
+
+#: src/real-hardware.md:58
+msgid ""
+"Right-click the Redox image, hover the 7-Zip section and click on the option "
+"to extract the file or open the file on 7-Zip and extract"
+msgstr ""
+
+#: src/real-hardware.md:60
+msgid "Flash the ISO Image"
+msgstr ""
+
+#: src/real-hardware.md:62
+msgid "Linux Instructions"
+msgstr ""
+
+#: src/real-hardware.md:64
+msgid ""
+"We recommend using the [Popsicle](https://github.com/pop-os/popsicle) tool "
+"to flash ISO images to USB devices on Linux. To flash an image, follow the "
+"steps below:"
+msgstr ""
+
+#: src/real-hardware.md:66
+msgid ""
+"Open the [Releases](https://github.com/pop-os/popsicle/releases/latest) "
+"section to open the Popsicle releases page and download the `.AppImage` file."
+msgstr ""
+
+#: src/real-hardware.md:67
+msgid ""
+"Open your file manager, click with the right-button of your mouse on the `."
+"AppImage` file and open the \"Properties\", find the \"Permissions\" section "
+"and mark it as executable."
+msgstr ""
+
+#: src/real-hardware.md:68
+msgid ""
+"Open the Popsicle `.AppImage` file, select the downloaded Redox image and "
+"your USB device."
+msgstr ""
+
+#: src/real-hardware.md:69
+msgid ""
+"Confirm the flash process and wait until the progress bar reach 100%. If the "
+"flashing process completes with no errors, the flash was successful."
+msgstr ""
+
+#: src/real-hardware.md:71
+msgid "You can now restart your Linux machine and boot into Redox."
+msgstr ""
+
+#: src/real-hardware.md:73
+msgid "Windows Instructions"
+msgstr ""
+
+#: src/real-hardware.md:75
+msgid ""
+"We recommend using the [balenaEtcher](https://etcher.balena.io/) tool on "
+"Windows to flash your USB device, follow the steps below:"
+msgstr ""
+
+#: src/real-hardware.md:77
+msgid ""
+"Open the [balenaEtcher website](https://etcher.balena.io/), click on the "
+"\"Download Etcher\" button and download the \"Etcher for Windows\" asset."
+msgstr ""
+
+#: src/real-hardware.md:78
+msgid ""
+"Install and open balenaEtcher, select the ISO image of Redox, select the USB "
+"device and click on \"Flash!\""
+msgstr ""
+
+#: src/real-hardware.md:79
+msgid ""
+"Confirm the permission to erase the data of your device and wait until the "
+"progress bar reach 100%"
+msgstr ""
+
+#: src/real-hardware.md:81
+msgid "Now you can now restart your Windows system and boot into Redox."
+msgstr ""
+
+#: src/real-hardware.md:83
+msgid "Booting the System"
+msgstr ""
+
+#: src/real-hardware.md:85
+msgid ""
+"Some computers don't come with USB booting enabled, to enable it press the "
+"keyboard key to open your UEFI or BIOS setup and allow the booting from USB "
+"devices (the name varies from firmware to firmware)."
+msgstr ""
+
+#: src/real-hardware.md:87
+msgid ""
+"If you don't know the keyboard keys to open your UEFI/BIOS setup or boot "
+"menu, press the Esc or F keys (from 1 until 12), if you press the wrong key "
+"or got the wrong timing, don't stop your operating system boot process to "
+"try again, as it could corrupt your data."
+msgstr ""
+
+#: src/real-hardware.md:89
+msgid ""
+"Once the ISO image boots, the system will display the Orbital GUI. Log in as "
+"the user named `user` with no password. The password for `root` is "
+"`password`."
+msgstr ""
+
+#: src/real-hardware.md:91
+msgid "See [Trying Out Redox](./trying-out-redox.md) for things to try."
+msgstr ""
+
+#: src/real-hardware.md:93
+msgid "To switch between Orbital and the console, use the following keys:"
+msgstr ""
+
+#: src/real-hardware.md:95
+msgid "F1: Display the console log messages"
+msgstr ""
+
+#: src/real-hardware.md:96
+msgid "F2: Open a text-only terminal"
+msgstr ""
+
+#: src/real-hardware.md:97
+msgid "F3: Return to the Orbital GUI"
+msgstr ""
+
+#: src/real-hardware.md:99
+msgid ""
+"If you want to be able to boot Redox from your HDD or SSD, follow the "
+"[Installation](./installing.md) instructions."
+msgstr ""
+
+#: src/real-hardware.md:101
+msgid ""
+"Redox isn't currently going to replace your existing operating system, but "
+"testing is important to help us fix bugs and add features: boot Redox on "
+"your computer, and see what works."
+msgstr ""

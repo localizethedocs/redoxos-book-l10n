@@ -1,0 +1,201 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: The Redox Operating System\n"
+"POT-Creation-Date: 2026-02-09T03:19:51Z\n"
+"PO-Revision-Date: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: en\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+#: src/hardware-support.md:1
+msgid "Hardware Support"
+msgstr ""
+
+#: src/hardware-support.md:3
+msgid ""
+"There are billions of devices with hundreds of models and architectures in "
+"the world. We try to write drivers for the most used devices to support more "
+"people. Support depends on the specific hardware, since some drivers are "
+"device-specific and others are architecture-specific."
+msgstr ""
+
+#: src/hardware-support.md:5
+msgid ""
+"Have a look at the [HARDWARE.md](https://gitlab.redox-os.org/redox-os/"
+"redox/-/blob/master/HARDWARE.md) document to see all tested computers."
+msgstr ""
+
+#: src/hardware-support.md:7
+msgid "CPU Requirements"
+msgstr ""
+
+#: src/hardware-support.md:9
+msgid ""
+"The following requirements are mandatory to make Redox work, non-x86 CPUs "
+"have equivalents for them."
+msgstr ""
+
+#: src/hardware-support.md:11
+msgid ""
+"[MMU](https://en.wikipedia.org/wiki/Memory_management_unit) : Introduced by "
+"the Intel 8086 CPU line in 1978 and present in all CPUs since then"
+msgstr ""
+
+#: src/hardware-support.md:12
+msgid ""
+"[FPU](https://en.wikipedia.org/wiki/Floating-point_unit) : Introduced by the "
+"Intel 8087 coprocessor in 1980 for the Intel 8086 CPU line and present in "
+"almost all CPUs since then"
+msgstr ""
+
+#: src/hardware-support.md:13
+msgid "FXSAVE extension or non-x86 CPU equivalent"
+msgstr ""
+
+#: src/hardware-support.md:14
+msgid ""
+"[Page Size Extension](https://en.wikipedia.org/wiki/Page_Size_Extension) or "
+"non-x86 CPU equivalent"
+msgstr ""
+
+#: src/hardware-support.md:15
+msgid "Paging global extension or non-x86 CPU equivalent"
+msgstr ""
+
+#: src/hardware-support.md:17
+msgid "I have a low-end computer, would Redox work on it?"
+msgstr ""
+
+#: src/hardware-support.md:19
+msgid ""
+"A CPU is the most complex machine of the world: even the oldest processors "
+"are powerful for some tasks but not for others."
+msgstr ""
+
+#: src/hardware-support.md:21
+msgid ""
+"The main problem with old computers is the amount of DRAM memory available "
+"(they were sold in a era where RAM chips were expensive) and the lack of SSE/"
+"AVX extensions (programs use them to speed up the algorithms). Because of "
+"this some modern programs may not work or require a lot of RAM to perform "
+"complex tasks."
+msgstr ""
+
+#: src/hardware-support.md:23
+msgid ""
+"Redox itself will work normally if the CPU architecture is supported by the "
+"system, but the performance and stability may vary per program."
+msgstr ""
+
+#: src/hardware-support.md:25
+msgid "Why choosing i586 as the minimal supported x86 CPU?"
+msgstr ""
+
+#: src/hardware-support.md:27
+msgid ""
+"i686 ([Pentium Pro](https://en.wikipedia.org/wiki/Pentium_Pro)) introduced "
+"MMX, SSE, and SSE2 [extensions](https://en.wikipedia.org/wiki/"
+"P6_(microarchitecture)). Fortunately the kernel and other critical system "
+"components don't use them."
+msgstr ""
+
+#: src/hardware-support.md:28
+msgid ""
+"i586 ([Original Pentium](https://en.wikipedia.org/wiki/Pentium_(original))) "
+"introduced a more efficient FPU and MMX extension which are critical for "
+"programs, also the most minimal CPU architecture supported by [Rust](https://"
+"doc.rust-lang.org/beta/rustc/platform-support.html) and perhaps most Rust "
+"packages."
+msgstr ""
+
+#: src/hardware-support.md:29
+msgid ""
+"[i486](https://en.wikipedia.org/wiki/I486) introduced FPU and atomic "
+"operations, which are used by the kernel and other critical system "
+"components. It would be possible to go all the way back to i486, but Redox "
+"will run with much less programs."
+msgstr ""
+
+#: src/hardware-support.md:30
+msgid ""
+"[i386](https://en.wikipedia.org/wiki/I386) has no atomics and floating "
+"instructions (at all), which makes it not a target for both the kernel and "
+"other critical system components."
+msgstr ""
+
+#: src/hardware-support.md:32
+msgid "Compatibility Table"
+msgstr ""
+
+#: src/hardware-support.md:34
+msgid "**Category**"
+msgstr ""
+
+#: src/hardware-support.md:34
+msgid "**Items**"
+msgstr ""
+
+#: src/hardware-support.md:36
+msgid "CPU"
+msgstr ""
+
+#: src/hardware-support.md:36
+msgid ""
+"\\- Intel 64-bit (x86_64) <br>\\- Intel 32-bit (i586) from Pentium II and "
+"after with limitations <br>\\- AMD 32/64-bit <br>\\- ARM 64-bit (aarch64) "
+"with limitations <br>\\- RISC-V 64-bit (riscv64gc) with limitations"
+msgstr ""
+
+#: src/hardware-support.md:37
+msgid "Hardware Interfaces"
+msgstr ""
+
+#: src/hardware-support.md:37
+msgid "\\- ACPI, PCI, USB"
+msgstr ""
+
+#: src/hardware-support.md:38
+msgid "Storage"
+msgstr ""
+
+#: src/hardware-support.md:38
+msgid "\\- IDE (PATA), SATA (AHCI), NVMe"
+msgstr ""
+
+#: src/hardware-support.md:39
+msgid "Video"
+msgstr ""
+
+#: src/hardware-support.md:39
+msgid "\\- BIOS VESA, UEFI GOP, Intel GPU"
+msgstr ""
+
+#: src/hardware-support.md:40
+msgid "Sound"
+msgstr ""
+
+#: src/hardware-support.md:40
+msgid "\\- Intel, Realtek chipsets"
+msgstr ""
+
+#: src/hardware-support.md:41
+msgid "Input"
+msgstr ""
+
+#: src/hardware-support.md:41
+msgid ""
+"\\- PS/2 keyboards, mouse, and touchpad <br> - USB keyboards, mouse and "
+"touchpad"
+msgstr ""
+
+#: src/hardware-support.md:42
+msgid "Ethernet"
+msgstr ""
+
+#: src/hardware-support.md:42
+msgid "\\- Intel Gigabit and 10 Gigabit ethernet <br>\\- Realtek ethernet"
+msgstr ""

@@ -1,0 +1,360 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: The Redox Operating System\n"
+"POT-Creation-Date: 2026-02-09T03:19:51Z\n"
+"PO-Revision-Date: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: en\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+#: src/quick-workflow.md:1
+msgid "Quick Workflow"
+msgstr ""
+
+#: src/quick-workflow.md:3
+msgid ""
+"This page contains the most quick testing/development workflow for people "
+"that want an direct list to do things."
+msgstr ""
+
+#: src/quick-workflow.md:5
+msgid ""
+"**You need to fully understand the build system to use this workflow, as it "
+"don't give a detailed explanation of each command to save time and space**"
+msgstr ""
+
+#: src/quick-workflow.md:7
+msgid "[Install Rust Nightly](#install-rust-nightly)"
+msgstr ""
+
+#: src/quick-workflow.md:8
+msgid "[Update Rust](#update-rust)"
+msgstr ""
+
+#: src/quick-workflow.md:9
+msgid ""
+"[Download a new build system copy without the bootstrap script](#download-a-"
+"new-build-system-copy-without-the-bootstrap-script)"
+msgstr ""
+
+#: src/quick-workflow.md:10
+msgid ""
+"[Install the required dependencies for the build system](#install-the-"
+"required-dependencies-for-the-build-system)"
+msgstr ""
+
+#: src/quick-workflow.md:11
+msgid ""
+"[Download and run the \"podman_bootstrap.sh\" script](#download-and-run-the-"
+"podman_bootstrapsh-script)"
+msgstr ""
+
+#: src/quick-workflow.md:12
+msgid "[Build the system](#build-the-system)"
+msgstr ""
+
+#: src/quick-workflow.md:13
+msgid ""
+"[Update the build system and its submodules](#update-the-build-system-and-"
+"its-submodules)"
+msgstr ""
+
+#: src/quick-workflow.md:14
+msgid "[Update the toolchain and relibc](#update-the-toolchain-and-relibc)"
+msgstr ""
+
+#: src/quick-workflow.md:15
+msgid "[Update recipes and Redox image](#update-recipes-and-redox-image)"
+msgstr ""
+
+#: src/quick-workflow.md:16
+msgid "[Update everything](#update-everything)"
+msgstr ""
+
+#: src/quick-workflow.md:17
+msgid ""
+"[Wipe the toolchain and download again](#wipe-the-toolchain-and-download-"
+"again)"
+msgstr ""
+
+#: src/quick-workflow.md:18
+msgid ""
+"[Wipe the toolchain/recipe binaries and download/build them again](#wipe-the-"
+"toolchainrecipe-binaries-and-downloadbuild-them-again)"
+msgstr ""
+
+#: src/quick-workflow.md:19
+msgid ""
+"[Wipe toolchain/recipe binaries and Podman container, update build system "
+"source and rebuild the system](#wipe-toolchainrecipe-binaries-and-podman-"
+"container-update-build-system-source-and-rebuild-the-system)"
+msgstr ""
+
+#: src/quick-workflow.md:20
+msgid ""
+"[Wipe all recipe sources/binaries and download/build them again](#wipe-all-"
+"recipe-sourcesbinaries-and-downloadbuild-them-again)"
+msgstr ""
+
+#: src/quick-workflow.md:21
+msgid ""
+"[Use the \"myfiles\" recipe to insert your files on Redox image](#use-the-"
+"myfiles-recipe-to-insert-your-files-on-redox-image)"
+msgstr ""
+
+#: src/quick-workflow.md:22
+msgid ""
+"[Disable a recipe on the filesystem configuration](#disable-a-recipe-on-the-"
+"filesystem-configuration)"
+msgstr ""
+
+#: src/quick-workflow.md:23
+msgid "[Create logs](#create-logs)"
+msgstr ""
+
+#: src/quick-workflow.md:24
+msgid ""
+"[Temporarily build the toolchain from source](#temporarily-build-the-"
+"toolchain-from-source)"
+msgstr ""
+
+#: src/quick-workflow.md:25
+msgid ""
+"[Build some filesystem configuration for some CPU architecture](#build-some-"
+"filesystem-configuration-for-some-cpu-architecture)"
+msgstr ""
+
+#: src/quick-workflow.md:26
+msgid ""
+"[Build some filesystem configuration for some CPU architecture (using pre-"
+"built packages from the build server)](#build-some-filesystem-configuration-"
+"for-some-cpu-architecture-using-pre-built-packages-from-the-build-server)"
+msgstr ""
+
+#: src/quick-workflow.md:27
+msgid ""
+"[Boot Redox on QEMU from a NVMe device](#boot-redox-on-qemu-from-a-nvme-"
+"device)"
+msgstr ""
+
+#: src/quick-workflow.md:28
+msgid ""
+"[Boot Redox on QEMU from a NVMe device with a custom number of CPU threads]"
+"(#boot-redox-on-qemu-from-a-nvme-device-with-a-custom-number-of-cpu-threads)"
+msgstr ""
+
+#: src/quick-workflow.md:29
+msgid ""
+"[Boot Redox on QEMU from a NVMe device, a custom number of CPU threads and "
+"memory](#boot-redox-on-qemu-from-a-nvme-device-a-custom-number-of-cpu-"
+"threads-and-memory)"
+msgstr ""
+
+#: src/quick-workflow.md:31
+msgid "Install Rust Nightly"
+msgstr ""
+
+#: src/quick-workflow.md:37
+msgid ""
+"Use Case: Configure the host system without the build system bootstrap "
+"scripts."
+msgstr ""
+
+#: src/quick-workflow.md:39
+msgid "Update Rust"
+msgstr ""
+
+#: src/quick-workflow.md:45
+msgid "Use Case: Try to fix Rust problems."
+msgstr ""
+
+#: src/quick-workflow.md:47
+msgid "Download a new build system copy without the bootstrap script"
+msgstr ""
+
+#: src/quick-workflow.md:53
+msgid ""
+"Use Case: Commonly used when a big build system breakage was not prevented "
+"before an update or wipe leftovers."
+msgstr ""
+
+#: src/quick-workflow.md:55
+msgid "Install the required dependencies for the build system"
+msgstr ""
+
+#: src/quick-workflow.md:65
+msgid "Use Case: Install new build tools or update the existing ones."
+msgstr ""
+
+#: src/quick-workflow.md:67
+msgid "Download and run the \"podman_bootstrap.sh\" script"
+msgstr ""
+
+#: src/quick-workflow.md:77
+msgid ""
+"Use Case: Commonly used when a big build system breakage was not prevented "
+"before an update and install new build tools or update the existing ones."
+msgstr ""
+
+#: src/quick-workflow.md:79
+msgid "Build the system"
+msgstr ""
+
+#: src/quick-workflow.md:89
+msgid "Use Case: Build the system from a clean build system copy."
+msgstr ""
+
+#: src/quick-workflow.md:91
+msgid "Update the build system and its submodules"
+msgstr ""
+
+#: src/quick-workflow.md:97
+msgid "Use Case: Keep the build system up-to-date."
+msgstr ""
+
+#: src/quick-workflow.md:99
+msgid "Update the toolchain and relibc"
+msgstr ""
+
+#: src/quick-workflow.md:105
+msgid "Use Case: Keep the toolchain up-to-date."
+msgstr ""
+
+#: src/quick-workflow.md:107
+msgid "Update recipes and Redox image"
+msgstr ""
+
+#: src/quick-workflow.md:113
+msgid "Use Case: Keep the Redox image up-to-date."
+msgstr ""
+
+#: src/quick-workflow.md:115
+msgid "Update everything"
+msgstr ""
+
+#: src/quick-workflow.md:117
+msgid ""
+"Install the `topgrade` tool to update your system packages (you can install "
+"it with `cargo install topgrade`)"
+msgstr ""
+
+#: src/quick-workflow.md:131
+msgid ""
+"Use Case: Try to fix most problems caused by outdated recipes, toolchain and "
+"build system configuration."
+msgstr ""
+
+#: src/quick-workflow.md:133
+msgid "Wipe the toolchain and download again"
+msgstr ""
+
+#: src/quick-workflow.md:143
+msgid "Use Case: Commonly used to fix problems."
+msgstr ""
+
+#: src/quick-workflow.md:145
+msgid "Wipe the toolchain/recipe binaries and download/build them again"
+msgstr ""
+
+#: src/quick-workflow.md:151
+msgid "Use Case: Commonly used to fix breaking changes on recipes."
+msgstr ""
+
+#: src/quick-workflow.md:153
+msgid ""
+"Wipe toolchain/recipe binaries and Podman container, update build system "
+"source and rebuild the system"
+msgstr ""
+
+#: src/quick-workflow.md:159
+msgid ""
+"Use Case: Full build system binary cleanup and update to avoid most "
+"configuration breaking changes"
+msgstr ""
+
+#: src/quick-workflow.md:161
+msgid "Wipe all recipe sources/binaries and download/build them again"
+msgstr ""
+
+#: src/quick-workflow.md:167
+msgid "Use Case: Fix source/binary breaking changes on recipes or save space."
+msgstr ""
+
+#: src/quick-workflow.md:169
+msgid "Use the \"myfiles\" recipe to insert your files on Redox image"
+msgstr ""
+
+#: src/quick-workflow.md:188
+msgid ""
+"Use Case: Quickly insert files on the Redox image or keep files between "
+"rebuilds."
+msgstr ""
+
+#: src/quick-workflow.md:190
+msgid "Disable a recipe on the filesystem configuration"
+msgstr ""
+
+#: src/quick-workflow.md:200
+msgid "Use Case: Mostly used if some default recipe is broken."
+msgstr ""
+
+#: src/quick-workflow.md:202
+msgid "Create logs"
+msgstr ""
+
+#: src/quick-workflow.md:208
+msgid "Use Case: Report errors."
+msgstr ""
+
+#: src/quick-workflow.md:210
+msgid "Temporarily build the toolchain from source"
+msgstr ""
+
+#: src/quick-workflow.md:216
+msgid "Use Case: Test toolchain fixes."
+msgstr ""
+
+#: src/quick-workflow.md:218
+msgid "Build some filesystem configuration for some CPU architecture"
+msgstr ""
+
+#: src/quick-workflow.md:224
+msgid ""
+"Use Case: Quickly build Redox variants without manual intervention on "
+"configuration files."
+msgstr ""
+
+#: src/quick-workflow.md:226
+msgid ""
+"Build some filesystem configuration for some CPU architecture (using pre-"
+"built packages from the build server)"
+msgstr ""
+
+#: src/quick-workflow.md:228
+msgid "(Much faster than the option above)"
+msgstr ""
+
+#: src/quick-workflow.md:234
+msgid ""
+"Use Case: Quickly build Redox variants without system compilation and manual "
+"intervention on configuration files."
+msgstr ""
+
+#: src/quick-workflow.md:236
+msgid "Boot Redox on QEMU from a NVMe device"
+msgstr ""
+
+#: src/quick-workflow.md:242
+msgid ""
+"Boot Redox on QEMU from a NVMe device with a custom number of CPU threads"
+msgstr ""
+
+#: src/quick-workflow.md:248
+msgid ""
+"Boot Redox on QEMU from a NVMe device, a custom number of CPU threads and "
+"memory"
+msgstr ""

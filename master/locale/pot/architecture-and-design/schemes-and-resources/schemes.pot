@@ -1,0 +1,746 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: The Redox Operating System\n"
+"POT-Creation-Date: 2026-02-09T03:19:51Z\n"
+"PO-Revision-Date: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: en\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+#: src/schemes.md:1
+msgid "Schemes"
+msgstr ""
+
+#: src/schemes.md:3
+msgid ""
+"The **scheme**, which takes its name from [URI schemes](https://en.wikipedia."
+"org/wiki/List_of_URI_schemes), identifies the type of resource, and "
+"identifies the manager daemon responsible for that resource."
+msgstr ""
+
+#: src/schemes.md:6
+msgid ""
+"Within Redox, a scheme may be thought of in a few ways. It is all of these "
+"things:"
+msgstr ""
+
+#: src/schemes.md:8
+msgid ""
+"The **type** of a resource, such as \"file\", \"NVMe drive\", \"TCP "
+"connection\", etc. (Note that these are not valid scheme names, they are "
+"just given by way of example.)"
+msgstr ""
+
+#: src/schemes.md:9
+msgid ""
+"The starting point for locating the resource, i.e. it is the root of the "
+"path to the resource, which the system can then use in establishing a "
+"connection to the resource."
+msgstr ""
+
+#: src/schemes.md:10
+msgid ""
+"A **uniquely named service** that is provided by some driver or daemon "
+"program, with the full path identifying a specific resource accessed via "
+"that service."
+msgstr ""
+
+#: src/schemes.md:12
+msgid "Scheme Daemons"
+msgstr ""
+
+#: src/schemes.md:14
+msgid ""
+"A scheme is typically provided by a **daemon**. A daemon is a program that "
+"runs as a process in userspace; it is typically started by the system during "
+"boot. When the process starts, it registers with kernel using the name of "
+"the scheme that it manages."
+msgstr ""
+
+#: src/schemes.md:19
+msgid "Kernel vs. Userspace Schemes"
+msgstr ""
+
+#: src/schemes.md:21
+msgid ""
+"A [userspace scheme](#userspace-schemes) is implemented by a scheme daemon, "
+"described above. A [kernel scheme](#kernel-schemes) is implemented within "
+"the kernel, and manages critical resources not easily managed with a "
+"userspace daemon. When possible, schemes should be implemented in userspace."
+msgstr ""
+
+#: src/schemes.md:27
+msgid "Accessing Resources"
+msgstr ""
+
+#: src/schemes.md:29
+msgid ""
+"In order to provide \"virtual file\" behavior, schemes generally implement "
+"file-like operations. However, it is up to the scheme provider to determine "
+"what each file-like operation means. For example, `seek` to an SSD driver "
+"scheme might simply add to a file offset, but to a floppy disk controller "
+"scheme, it might cause the physical movement of disk read-write heads."
+msgstr ""
+
+#: src/schemes.md:34
+msgid "Typical scheme operations include:"
+msgstr ""
+
+#: src/schemes.md:36
+msgid ""
+"`open` - Create a **handle** (file descriptor) to a resource provided by the "
+"scheme. e.g. `File::create(\"/scheme/tcp/127.0.0.1/3000\")` in a regular "
+"program would be converted by the kernel into `open(\"127.0.0.1/3000\")` and "
+"sent to the \"tcp\" scheme provider. The \"tcp\" scheme provider would parse "
+"the name, establish a connection to Internet address \"127.0.0.1\", port "
+"\"3000\", and return a handle that represents that connection."
+msgstr ""
+
+#: src/schemes.md:37
+msgid ""
+"`read` - get some data from the thing represented by the handle, normally "
+"consuming that data so the next `read` will return new data."
+msgstr ""
+
+#: src/schemes.md:38
+msgid ""
+"`write` - send some data to the thing represented by the handle to be saved, "
+"sent or written."
+msgstr ""
+
+#: src/schemes.md:39
+msgid ""
+"`seek` - change the logical location where the next `read` or `write` will "
+"occur. This may or may not cause some action by the scheme provider."
+msgstr ""
+
+#: src/schemes.md:41
+msgid ""
+"Schemes may choose to provide other standard operations, such as `mkdir`, "
+"but the meaning of the operation is up to the scheme. `mkdir` might create a "
+"directory entry, or it might create some type of substructure or container "
+"relevant to that particular scheme."
+msgstr ""
+
+#: src/schemes.md:43
+msgid ""
+"Some schemes implement `fmap`, which creates a memory-mapped area that is "
+"shared between the scheme resource and the scheme user. It allows direct "
+"memory operations on the resource, rather than reading and writing to a file "
+"descriptor. The most common use case for `fmap` is for a device driver to "
+"access the physical addresses of a memory-mapped device, using the `memory:` "
+"kernel scheme. It is also used for frame buffers in the graphics subsystem."
+msgstr ""
+
+#: src/schemes.md:45
+msgid "TODO: add F-operations."
+msgstr ""
+
+#: src/schemes.md:47
+msgid "TODO: explain file-like vs. socket-like schemes."
+msgstr ""
+
+#: src/schemes.md:49
+msgid "Userspace Schemes"
+msgstr ""
+
+#: src/schemes.md:51
+msgid ""
+"Redox creates user-space schemes during initialization, starting various "
+"daemon-style programs, each of which can provide one or more schemes."
+msgstr ""
+
+#: src/schemes.md:53
+msgid "**Scheme**"
+msgstr ""
+
+#: src/schemes.md:53
+msgid "**Daemon**"
+msgstr ""
+
+#: src/schemes.md:53 src/schemes.md:88
+msgid "**Description**"
+msgstr ""
+
+#: src/schemes.md:55 src/schemes.md:111
+msgid "disk.\\*"
+msgstr ""
+
+#: src/schemes.md:55
+msgid "ided, ahcid, nvmed"
+msgstr ""
+
+#: src/schemes.md:55
+msgid "Storage drivers"
+msgstr ""
+
+#: src/schemes.md:56 src/schemes.md:112
+msgid "disk.live"
+msgstr ""
+
+#: src/schemes.md:56
+msgid "lived"
+msgstr ""
+
+#: src/schemes.md:56
+msgid "RAM-disk driver that loads the bootable USB data into RAM"
+msgstr ""
+
+#: src/schemes.md:57 src/schemes.md:113
+msgid "disk.usb-{id}+{port}-scsi"
+msgstr ""
+
+#: src/schemes.md:57
+msgid "usbscsid"
+msgstr ""
+
+#: src/schemes.md:57
+msgid "USB SCSI driver"
+msgstr ""
+
+#: src/schemes.md:58 src/schemes.md:114
+msgid "logging"
+msgstr ""
+
+#: src/schemes.md:58
+msgid ""
+"[ramfs](https://gitlab.redox-os.org/redox-os/base/-/tree/main/ramfs?"
+"ref_type=heads)"
+msgstr ""
+
+#: src/schemes.md:58
+msgid "Error logging scheme, using an in-memory temporary filesystem"
+msgstr ""
+
+#: src/schemes.md:59 src/schemes.md:115
+msgid "initfs"
+msgstr ""
+
+#: src/schemes.md:59
+msgid ""
+"[bootstrap](https://gitlab.redox-os.org/redox-os/base/-/tree/main/bootstrap?"
+"ref_type=heads)"
+msgstr ""
+
+#: src/schemes.md:59
+msgid "Startup filesystem"
+msgstr ""
+
+#: src/schemes.md:60 src/schemes.md:116
+msgid "file"
+msgstr ""
+
+#: src/schemes.md:60
+msgid "[redoxfs](https://gitlab.redox-os.org/redox-os/redoxfs)"
+msgstr ""
+
+#: src/schemes.md:60
+msgid "Main filesystem"
+msgstr ""
+
+#: src/schemes.md:61 src/schemes.md:117
+msgid "network"
+msgstr ""
+
+#: src/schemes.md:61
+msgid "e1000d, rtl8168d"
+msgstr ""
+
+#: src/schemes.md:61
+msgid "Link-level network send/receive"
+msgstr ""
+
+#: src/schemes.md:62 src/schemes.md:118
+msgid "ip"
+msgstr ""
+
+#: src/schemes.md:62
+msgid ""
+"[smolnetd](https://gitlab.redox-os.org/redox-os/base/-/blob/master/netstack/"
+"src/smolnetd/scheme/ip.rs?ref_type=heads)"
+msgstr ""
+
+#: src/schemes.md:62
+msgid "Raw IP packet send/receive"
+msgstr ""
+
+#: src/schemes.md:63 src/schemes.md:119
+msgid "tcp"
+msgstr ""
+
+#: src/schemes.md:63
+msgid ""
+"[smolnetd](https://gitlab.redox-os.org/redox-os/base/-/blob/master/netstack/"
+"src/smolnetd/scheme/tcp.rs?ref_type=heads)"
+msgstr ""
+
+#: src/schemes.md:63
+msgid "TCP sockets"
+msgstr ""
+
+#: src/schemes.md:64 src/schemes.md:120
+msgid "udp"
+msgstr ""
+
+#: src/schemes.md:64
+msgid ""
+"[smolnetd](https://gitlab.redox-os.org/redox-os/base/-/blob/master/netstack/"
+"src/smolnetd/scheme/udp.rs?ref_type=heads)"
+msgstr ""
+
+#: src/schemes.md:64
+msgid "UDP sockets"
+msgstr ""
+
+#: src/schemes.md:65 src/schemes.md:121
+msgid "icmp"
+msgstr ""
+
+#: src/schemes.md:65
+msgid ""
+"[smolnetd](https://gitlab.redox-os.org/redox-os/base/-/blob/master/netstack/"
+"src/smolnetd/scheme/icmp.rs?ref_type=heads)"
+msgstr ""
+
+#: src/schemes.md:65
+msgid "ICMP protocol"
+msgstr ""
+
+#: src/schemes.md:66 src/schemes.md:122
+msgid "netcfg"
+msgstr ""
+
+#: src/schemes.md:66
+msgid ""
+"[smolnetd](https://gitlab.redox-os.org/redox-os/base/-/tree/master/netstack/"
+"src/smolnetd/scheme/netcfg?ref_type=heads)"
+msgstr ""
+
+#: src/schemes.md:66
+msgid "Network configuration"
+msgstr ""
+
+#: src/schemes.md:67 src/schemes.md:123
+msgid "display.vesa"
+msgstr ""
+
+#: src/schemes.md:67
+msgid "vesad"
+msgstr ""
+
+#: src/schemes.md:67
+msgid "VESA driver"
+msgstr ""
+
+#: src/schemes.md:68 src/schemes.md:124
+msgid "display.virtio-gpu"
+msgstr ""
+
+#: src/schemes.md:68
+msgid "virtio-gpud"
+msgstr ""
+
+#: src/schemes.md:68
+msgid "VirtIO GPU driver"
+msgstr ""
+
+#: src/schemes.md:69 src/schemes.md:125
+msgid "orbital"
+msgstr ""
+
+#: src/schemes.md:69
+msgid "[orbital](https://gitlab.redox-os.org/redox-os/orbital)"
+msgstr ""
+
+#: src/schemes.md:69
+msgid "Windowing system (window manager and virtual driver)"
+msgstr ""
+
+#: src/schemes.md:70 src/schemes.md:126
+msgid "pty"
+msgstr ""
+
+#: src/schemes.md:70
+msgid ""
+"[ptyd](https://gitlab.redox-os.org/redox-os/base/-/tree/main/ptyd?"
+"ref_type=heads)"
+msgstr ""
+
+#: src/schemes.md:70
+msgid "Pseudoterminals, used by terminal emulators"
+msgstr ""
+
+#: src/schemes.md:71 src/schemes.md:127
+msgid "audiorw"
+msgstr ""
+
+#: src/schemes.md:71
+msgid "sb16d, ac97d, ihdad"
+msgstr ""
+
+#: src/schemes.md:71
+msgid "Sound drivers"
+msgstr ""
+
+#: src/schemes.md:72 src/schemes.md:128
+msgid "audio"
+msgstr ""
+
+#: src/schemes.md:72
+msgid ""
+"[audiod](https://gitlab.redox-os.org/redox-os/base/-/tree/main/audiod?"
+"ref_type=heads)"
+msgstr ""
+
+#: src/schemes.md:72
+msgid "Audio manager and virtual device"
+msgstr ""
+
+#: src/schemes.md:73 src/schemes.md:129
+msgid "usb.\\*"
+msgstr ""
+
+#: src/schemes.md:73
+msgid "usb\\*d"
+msgstr ""
+
+#: src/schemes.md:73
+msgid "USB drivers"
+msgstr ""
+
+#: src/schemes.md:74 src/schemes.md:131
+msgid "acpi"
+msgstr ""
+
+#: src/schemes.md:74
+msgid "acpid"
+msgstr ""
+
+#: src/schemes.md:74
+msgid "ACPI driver"
+msgstr ""
+
+#: src/schemes.md:75 src/schemes.md:132
+msgid "input"
+msgstr ""
+
+#: src/schemes.md:75
+msgid "inputd"
+msgstr ""
+
+#: src/schemes.md:75
+msgid "Virtual device"
+msgstr ""
+
+#: src/schemes.md:76 src/schemes.md:130
+msgid "sudo"
+msgstr ""
+
+#: src/schemes.md:76
+msgid "Privilege manager"
+msgstr ""
+
+#: src/schemes.md:77 src/schemes.md:133
+msgid "chan"
+msgstr ""
+
+#: src/schemes.md:77 src/schemes.md:78
+msgid ""
+"[ipcd](https://gitlab.redox-os.org/redox-os/base/-/tree/main/ipcd?"
+"ref_type=heads)"
+msgstr ""
+
+#: src/schemes.md:77
+msgid "Inter-process communication"
+msgstr ""
+
+#: src/schemes.md:78 src/schemes.md:134
+msgid "shm"
+msgstr ""
+
+#: src/schemes.md:78
+msgid "Shared memory manager"
+msgstr ""
+
+#: src/schemes.md:79 src/schemes.md:135
+msgid "log"
+msgstr ""
+
+#: src/schemes.md:79
+msgid ""
+"[logd](https://gitlab.redox-os.org/redox-os/base/-/tree/main/logd?"
+"ref_type=heads)"
+msgstr ""
+
+#: src/schemes.md:79
+msgid "Logging"
+msgstr ""
+
+#: src/schemes.md:80 src/schemes.md:136
+msgid "rand"
+msgstr ""
+
+#: src/schemes.md:80
+msgid ""
+"[randd](https://gitlab.redox-os.org/redox-os/base/-/tree/main/randd?"
+"ref_type=heads)"
+msgstr ""
+
+#: src/schemes.md:80
+msgid "Pseudo-random number generator"
+msgstr ""
+
+#: src/schemes.md:81 src/schemes.md:137
+msgid "zero"
+msgstr ""
+
+#: src/schemes.md:81
+msgid ""
+"[zerod](https://gitlab.redox-os.org/redox-os/base/-/tree/main/zerod?"
+"ref_type=heads)"
+msgstr ""
+
+#: src/schemes.md:81
+msgid "Discard all writes, and always fill read buffers with zeroes"
+msgstr ""
+
+#: src/schemes.md:82 src/schemes.md:138
+msgid "null"
+msgstr ""
+
+#: src/schemes.md:82
+msgid ""
+"[nulld](https://gitlab.redox-os.org/redox-os/base/-/tree/main/nulld?"
+"ref_type=heads)"
+msgstr ""
+
+#: src/schemes.md:82
+msgid "Discard all writes, and read no bytes"
+msgstr ""
+
+#: src/schemes.md:84
+msgid "Kernel Schemes"
+msgstr ""
+
+#: src/schemes.md:86
+msgid ""
+"The kernel provides a small number of schemes in order to support userspace."
+msgstr ""
+
+#: src/schemes.md:88
+msgid "**Name**"
+msgstr ""
+
+#: src/schemes.md:88
+msgid "**Documentation**"
+msgstr ""
+
+#: src/schemes.md:90 src/schemes.md:142
+msgid "namespace"
+msgstr ""
+
+#: src/schemes.md:90
+msgid ""
+"[root.rs](https://gitlab.redox-os.org/redox-os/kernel/-/blob/master/src/"
+"scheme/root.rs)"
+msgstr ""
+
+#: src/schemes.md:90
+msgid "Namespace manager"
+msgstr ""
+
+#: src/schemes.md:91 src/schemes.md:143
+msgid "user"
+msgstr ""
+
+#: src/schemes.md:91
+msgid ""
+"[user.rs](https://gitlab.redox-os.org/redox-os/kernel/-/blob/master/src/"
+"scheme/user.rs)"
+msgstr ""
+
+#: src/schemes.md:91
+msgid "Dispatch for user-space schemes"
+msgstr ""
+
+#: src/schemes.md:92 src/schemes.md:144
+msgid "debug"
+msgstr ""
+
+#: src/schemes.md:92
+msgid ""
+"[debug.rs](https://gitlab.redox-os.org/redox-os/kernel/-/blob/master/src/"
+"scheme/debug.rs)"
+msgstr ""
+
+#: src/schemes.md:92
+msgid "Debug messages that can't use the `log:` scheme"
+msgstr ""
+
+#: src/schemes.md:93 src/schemes.md:145
+msgid "event"
+msgstr ""
+
+#: src/schemes.md:93
+msgid ""
+"[event.rs](https://gitlab.redox-os.org/redox-os/kernel/-/blob/master/src/"
+"scheme/event.rs)"
+msgstr ""
+
+#: src/schemes.md:93
+msgid "epoll-like file descriptor read/write \"ready\" events"
+msgstr ""
+
+#: src/schemes.md:94 src/schemes.md:146
+msgid "irq"
+msgstr ""
+
+#: src/schemes.md:94
+msgid ""
+"[irq.rs](https://gitlab.redox-os.org/redox-os/kernel/-/blob/master/src/"
+"scheme/irq.rs)"
+msgstr ""
+
+#: src/schemes.md:94
+msgid "Interrupt manager (converts interrupts to messages)"
+msgstr ""
+
+#: src/schemes.md:95 src/schemes.md:147
+msgid "pipe"
+msgstr ""
+
+#: src/schemes.md:95
+msgid ""
+"[pipe.rs](https://gitlab.redox-os.org/redox-os/kernel/-/blob/master/src/"
+"scheme/pipe.rs)"
+msgstr ""
+
+#: src/schemes.md:95
+msgid "Kernel manager for pipes"
+msgstr ""
+
+#: src/schemes.md:96 src/schemes.md:148
+msgid "proc"
+msgstr ""
+
+#: src/schemes.md:96 src/schemes.md:97
+msgid ""
+"[proc.rs](https://gitlab.redox-os.org/redox-os/kernel/-/blob/master/src/"
+"scheme/proc.rs)"
+msgstr ""
+
+#: src/schemes.md:96 src/schemes.md:97
+msgid "Process context manager"
+msgstr ""
+
+#: src/schemes.md:97 src/schemes.md:149
+msgid "thisproc"
+msgstr ""
+
+#: src/schemes.md:98 src/schemes.md:150
+msgid "sys"
+msgstr ""
+
+#: src/schemes.md:98
+msgid ""
+"[mod.rs](https://gitlab.redox-os.org/redox-os/kernel/-/blob/master/src/"
+"scheme/sys/mod.rs)"
+msgstr ""
+
+#: src/schemes.md:98
+msgid "System hardware resources information"
+msgstr ""
+
+#: src/schemes.md:99 src/schemes.md:151
+msgid "kernel.acpi"
+msgstr ""
+
+#: src/schemes.md:99
+msgid ""
+"[acpi.rs](https://gitlab.redox-os.org/redox-os/kernel/-/blob/master/src/"
+"scheme/acpi.rs)"
+msgstr ""
+
+#: src/schemes.md:99
+msgid "Read the CPU configuration (number of cores, etc)"
+msgstr ""
+
+#: src/schemes.md:100 src/schemes.md:152
+msgid "memory"
+msgstr ""
+
+#: src/schemes.md:100
+msgid ""
+"[memory.rs](https://gitlab.redox-os.org/redox-os/kernel/-/blob/master/src/"
+"scheme/memory.rs)"
+msgstr ""
+
+#: src/schemes.md:100
+msgid "Physical memory mapping manager"
+msgstr ""
+
+#: src/schemes.md:101 src/schemes.md:153
+msgid "time"
+msgstr ""
+
+#: src/schemes.md:101
+msgid ""
+"[time.rs](https://gitlab.redox-os.org/redox-os/kernel/-/blob/master/src/"
+"scheme/time.rs)"
+msgstr ""
+
+#: src/schemes.md:101
+msgid "Real-time clock timer"
+msgstr ""
+
+#: src/schemes.md:102 src/schemes.md:154
+msgid "itimer"
+msgstr ""
+
+#: src/schemes.md:102
+msgid ""
+"[time.rs](https://gitlab.redox-os.org/redox-os/kernel/-/blob/master/src/"
+"scheme/itimer.rs)"
+msgstr ""
+
+#: src/schemes.md:102
+msgid "Interval timer"
+msgstr ""
+
+#: src/schemes.md:103 src/schemes.md:155
+msgid "serio"
+msgstr ""
+
+#: src/schemes.md:103
+msgid ""
+"[serio.rs](https://gitlab.redox-os.org/redox-os/kernel/-/blob/master/src/"
+"scheme/serio.rs)"
+msgstr ""
+
+#: src/schemes.md:103
+msgid ""
+"Serial I/O (PS/2) driver (must stay in the kernel due to PS/2 protocol "
+"issues)"
+msgstr ""
+
+#: src/schemes.md:105
+msgid "Scheme List"
+msgstr ""
+
+#: src/schemes.md:107
+msgid ""
+"This section has all Redox schemes in a list format to improve organization, "
+"coordination and focus."
+msgstr ""
+
+#: src/schemes.md:109
+msgid "Userspace"
+msgstr ""
+
+#: src/schemes.md:140
+msgid "Kernel"
+msgstr ""
