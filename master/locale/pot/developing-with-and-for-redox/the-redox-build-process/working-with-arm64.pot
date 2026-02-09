@@ -1,0 +1,217 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: The Redox Operating System\n"
+"POT-Creation-Date: 2026-02-09T03:19:51Z\n"
+"PO-Revision-Date: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: en\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+#: src/aarch64.md:1
+msgid "ARM64"
+msgstr ""
+
+#: src/aarch64.md:3
+msgid ""
+"The build system supports building for multiple CPU architectures in the "
+"same directory tree. Building for `aarch64` only requires that you set the "
+"`ARCH` environment variable to the correct value. Normally, you would do "
+"this in [.config](./configuration-settings.md#config), but you can also do "
+"this temporarily with the `make ARCH=aarch64` command, in the shell "
+"environment (`export ARCH=aarch64`) or with the [build.sh](./configuration-"
+"settings.md#buildsh) script."
+msgstr ""
+
+#: src/aarch64.md:5
+msgid "(ARM64 has limited support)"
+msgstr ""
+
+#: src/aarch64.md:7
+msgid "First Time Build"
+msgstr ""
+
+#: src/aarch64.md:9
+msgid "Bootstrap Pre-Requisites and Download Sources"
+msgstr ""
+
+#: src/aarch64.md:11
+msgid ""
+"Follow the instructions for running **bootstrap.sh** to setup your "
+"environment, read the [Building Redox](./building-redox.md) page or the "
+"[Podman Build](./podman-build.md) page."
+msgstr ""
+
+#: src/aarch64.md:13
+msgid "Install QEMU"
+msgstr ""
+
+#: src/aarch64.md:15
+msgid ""
+"The **ARM64** emulator is not installed by `bootstrap.sh`. You can add it "
+"like this:"
+msgstr ""
+
+#: src/aarch64.md:17
+msgid "(Pop!\\_OS/Ubuntu/Debian)"
+msgstr ""
+
+#: src/aarch64.md:23
+msgid "Install Additional Tools To Build And Run ARM 64-bit Redox OS Image"
+msgstr ""
+
+#: src/aarch64.md:29
+msgid "Configuration Values"
+msgstr ""
+
+#: src/aarch64.md:31
+msgid ""
+"Before your first build, be sure to set the `ARCH` variable in [.config](./"
+"configuration-settings.md#config) to your CPU architecture type, in this "
+"case `aarch64`. You can change several other configurable settings, such as "
+"the filesystem contents, etc. See [Configuration Settings](./configuration-"
+"settings.md)."
+msgstr ""
+
+#: src/aarch64.md:33
+msgid "Add packages to the filesystem."
+msgstr ""
+
+#: src/aarch64.md:35
+msgid ""
+"You can add programs to the filesystem by following the instructions on the "
+"[Including Programs in Redox](./including-programs.md) page."
+msgstr ""
+
+#: src/aarch64.md:37
+msgid "Advanced Users"
+msgstr ""
+
+#: src/aarch64.md:39
+msgid ""
+"For more details on the build process, please read the [Advanced Build](./"
+"advanced-build.md) page."
+msgstr ""
+
+#: src/aarch64.md:41
+msgid "Compiling Redox"
+msgstr ""
+
+#: src/aarch64.md:43
+msgid "Now we have:"
+msgstr ""
+
+#: src/aarch64.md:45
+msgid "Downloaded the sources"
+msgstr ""
+
+#: src/aarch64.md:46
+msgid "Set the `ARCH` to `aarch64`"
+msgstr ""
+
+#: src/aarch64.md:47
+msgid "Selected a filesystem config, e.g. `desktop`"
+msgstr ""
+
+#: src/aarch64.md:48
+msgid "Tweaked the settings to our liking"
+msgstr ""
+
+#: src/aarch64.md:49
+msgid "Probably added our recipe to the filesystem"
+msgstr ""
+
+#: src/aarch64.md:51
+msgid "We are ready to build the a Redox image."
+msgstr ""
+
+#: src/aarch64.md:53
+msgid "Building an image for emulation"
+msgstr ""
+
+#: src/aarch64.md:59
+msgid ""
+"This command will create the image, e.g. `build/aarch64/desktop/harddrive."
+"img`, which you can run with an emulator. See the [Running Redox](#running-"
+"redox) page."
+msgstr ""
+
+#: src/aarch64.md:65
+msgid "Give it a while. Redox is big."
+msgstr ""
+
+#: src/aarch64.md:67
+msgid ""
+"Read the [make all (first run)](./build-phases.md#make-all-first-run) "
+"section to know what the command above does."
+msgstr ""
+
+#: src/aarch64.md:69
+msgid "Cleaning Previous Build Cycles"
+msgstr ""
+
+#: src/aarch64.md:71
+msgid "Cleaning Intended For Rebuilding Core Packages And Entire System"
+msgstr ""
+
+#: src/aarch64.md:73
+msgid ""
+"When you need to rebuild core-packages like relibc, gcc and related tools, "
+"clean the entire previous build cycle with:"
+msgstr ""
+
+#: src/aarch64.md:83
+msgid "Cleaning Intended For Only Rebuilding Non-Core Package(s)"
+msgstr ""
+
+#: src/aarch64.md:85
+msgid ""
+"If you're only rebuilding a non-core package, you can partially clean the "
+"previous build cycle just enough to force the rebuilding of the Non-Core "
+"Package:"
+msgstr ""
+
+#: src/aarch64.md:95
+msgid "Running Redox"
+msgstr ""
+
+#: src/aarch64.md:97
+msgid "To open QEMU, run:"
+msgstr ""
+
+#: src/aarch64.md:103
+msgid ""
+"This should boot to Redox. The desktop GUI will be disabled, but you will be "
+"prompted to login to the Redox console."
+msgstr ""
+
+#: src/aarch64.md:105
+msgid "QEMU Tap For Network Testing"
+msgstr ""
+
+#: src/aarch64.md:107
+msgid ""
+"Expose Redox to other computers within a LAN. Configure QEMU with a \"TAP\" "
+"which will allow other computers to test Redox client/server/networking "
+"capabilities."
+msgstr ""
+
+#: src/aarch64.md:109
+msgid ""
+"Join the [Chat](./chat.md) if this is something you are interested in "
+"pursuing."
+msgstr ""
+
+#: src/aarch64.md:111
+msgid "Note"
+msgstr ""
+
+#: src/aarch64.md:113
+msgid ""
+"If you encounter any bugs, errors, obstructions, or other annoying things, "
+"please send a message in the [Chat](./chat.md) or [report the issue on "
+"GitLab](./creating-proper-bug-reports.md). Thanks!"
+msgstr ""

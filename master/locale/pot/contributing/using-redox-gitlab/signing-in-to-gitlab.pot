@@ -1,0 +1,262 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: The Redox Operating System\n"
+"POT-Creation-Date: 2026-02-09T03:19:51Z\n"
+"PO-Revision-Date: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: en\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+#: src/signing-in-to-gitlab.md:1
+msgid "Signing in to GitLab"
+msgstr ""
+
+#: src/signing-in-to-gitlab.md:3
+msgid "Joining Redox GitLab"
+msgstr ""
+
+#: src/signing-in-to-gitlab.md:5
+msgid ""
+"You don't need to join our GitLab to build Redox, but you will if you want "
+"to contribute. Obtaining a Redox account requires approval from a GitLab "
+"administrator, because of the high number of spam accounts (bots) that are "
+"created on this type of project. To join, first, go to [Redox GitLab]"
+"(https://gitlab.redox-os.org/) and click the Sign In/Register button. Create "
+"your User ID and Password. Then, send an message to the [GitLab Approvals]"
+"(https://matrix.to/#/#redox-gitlab:matrix.org) room indicating your GitLab "
+"User ID and requesting that your account be approved. Please give a brief "
+"statement about what you intend to use the account for. This is mainly to "
+"ensure that you are a genuine user."
+msgstr ""
+
+#: src/signing-in-to-gitlab.md:7
+msgid ""
+"The approval of your GitLab account may take some minutes or hours, in the "
+"meantime, join us on the [chat](./chat.md) and let us know what you are "
+"working on."
+msgstr ""
+
+#: src/signing-in-to-gitlab.md:9
+msgid "Setting up 2FA"
+msgstr ""
+
+#: src/signing-in-to-gitlab.md:11
+msgid ""
+"Your new GitLab account will not require 2 Factor Authentication at the "
+"beginning, but it will eventually insist. Some details and options are "
+"described in detail [below](#2fa-apps)."
+msgstr ""
+
+#: src/signing-in-to-gitlab.md:13
+msgid "2FA Apps"
+msgstr ""
+
+#: src/signing-in-to-gitlab.md:15
+msgid "Requirements Before Logging Into GitLab"
+msgstr ""
+
+#: src/signing-in-to-gitlab.md:17
+msgid "Before logging-in, you'll need:"
+msgstr ""
+
+#: src/signing-in-to-gitlab.md:18
+msgid ""
+"your web browser open at [Redox GitLab](https://gitlab.redox-os.org/redox-"
+"os/)"
+msgstr ""
+
+#: src/signing-in-to-gitlab.md:19
+msgid "your phone"
+msgstr ""
+
+#: src/signing-in-to-gitlab.md:20
+msgid "your 2FA App installed on your phone."
+msgstr ""
+
+#: src/signing-in-to-gitlab.md:21
+msgid ""
+"to add https://gitlab.redox-os.org/redox-os/ as a site in your 2FA App.  "
+"Once added and the site listed, underneath you'll see 2 sets of 3 digits, 6 "
+"digits in all. i.e. **258 687**. That's the 2FA Verification Code.  It "
+"changes every so often around every minute."
+msgstr ""
+
+#: src/signing-in-to-gitlab.md:23
+msgid "Available 2FA Apps for Android"
+msgstr ""
+
+#: src/signing-in-to-gitlab.md:25
+msgid "On Android, you may use:"
+msgstr ""
+
+#: src/signing-in-to-gitlab.md:26
+msgid ""
+"Aegis Authenticator - [F-Droid](https://f-droid.org/en/packages/com."
+"beemdevelopment.aegis)/[Play Store](https://play.google.com/store/apps/"
+"details?id=com.beemdevelopment.aegis)"
+msgstr ""
+
+#: src/signing-in-to-gitlab.md:27
+msgid ""
+"[Google Authenticator](https://play.google.com/store/apps/details?id=com."
+"google.android.apps.authenticator2&hl=en_CA&gl=US)"
+msgstr ""
+
+#: src/signing-in-to-gitlab.md:29
+msgid "Available 2FA Apps for iPhone"
+msgstr ""
+
+#: src/signing-in-to-gitlab.md:31
+msgid "On iPhone iOS, you may use:"
+msgstr ""
+
+#: src/signing-in-to-gitlab.md:32
+msgid ""
+"[Google Authenticator](https://apps.apple.com/us/app/google-authenticator/"
+"id388497605)"
+msgstr ""
+
+#: src/signing-in-to-gitlab.md:33
+msgid ""
+"[Tofu Authenticator (open-source)](https://apps.apple.com/us/app/tofu-"
+"authenticator/id1082229305)"
+msgstr ""
+
+#: src/signing-in-to-gitlab.md:34
+msgid ""
+"[iOS built-in authenticator](https://support.apple.com/guide/iphone/"
+"automatically-fill-in-verification-codes-ipha6173c19f/ios)"
+msgstr ""
+
+#: src/signing-in-to-gitlab.md:36
+msgid "Logging-In With An Android Phone"
+msgstr ""
+
+#: src/signing-in-to-gitlab.md:38 src/signing-in-to-gitlab.md:48
+msgid "Here are the steps:"
+msgstr ""
+
+#: src/signing-in-to-gitlab.md:39 src/signing-in-to-gitlab.md:49
+msgid ""
+"From your computer web browser, open the [Redox GitLab](https://gitlab.redox-"
+"os.org/redox-os/)"
+msgstr ""
+
+#: src/signing-in-to-gitlab.md:40 src/signing-in-to-gitlab.md:50
+msgid "Click the Sign In button"
+msgstr ""
+
+#: src/signing-in-to-gitlab.md:41 src/signing-in-to-gitlab.md:51
+msgid "Enter your username/email"
+msgstr ""
+
+#: src/signing-in-to-gitlab.md:42 src/signing-in-to-gitlab.md:52
+msgid "Enter your password"
+msgstr ""
+
+#: src/signing-in-to-gitlab.md:43 src/signing-in-to-gitlab.md:53
+msgid "Click the Submit button"
+msgstr ""
+
+#: src/signing-in-to-gitlab.md:44
+msgid ""
+"Finally you will be prompted for a 2FA verification code from your phone. Go "
+"to your Android phone, go to Google/Aegis Authenticator, find the site "
+"gitlab redox and underneith those 6 digits in looking something like **258 "
+"687** that's your 2FA code.  Enter those 6 digits into the prompt on your "
+"computer.  Click Verify.  Done.  You're logged into Gitlab."
+msgstr ""
+
+#: src/signing-in-to-gitlab.md:46
+msgid "Logging-In With An iPhone"
+msgstr ""
+
+#: src/signing-in-to-gitlab.md:54
+msgid ""
+"Finally you will be prompted for a 2FA verification code from your phone. Go "
+"to your iPhone, go to 2stable/Tofu Authenticator or to your Settings-"
+">Passwords for iOS Authenticator, find the site gitlab redox and underneath "
+"those 6 digits in looking something like **258 687** that's your 2FA code.  "
+"Enter those 6 digits into the prompt on your computer.  Click Verify.  "
+"Done.  You're logged into Gitlab."
+msgstr ""
+
+#: src/signing-in-to-gitlab.md:56
+msgid "Setting up PAT"
+msgstr ""
+
+#: src/signing-in-to-gitlab.md:58
+msgid ""
+"Personal Access Token (PAT) is a replacement for passwords when "
+"authenticating via Git clients. When pushing code to GitLab, you need to "
+"create one."
+msgstr ""
+
+#: src/signing-in-to-gitlab.md:60
+msgid "Here are the steps needed to create a PAT after logging in to GitLab:"
+msgstr ""
+
+#: src/signing-in-to-gitlab.md:61
+msgid ""
+"Open [Personal access tokens in User settings](https://gitlab.redox-os.org/-/"
+"user_settings/personal_access_tokens)"
+msgstr ""
+
+#: src/signing-in-to-gitlab.md:62
+msgid "Click \"Add new Token\" at the top right of the page"
+msgstr ""
+
+#: src/signing-in-to-gitlab.md:63
+msgid ""
+"Enter the token name (can be anything) and expiration date (max is 1 year "
+"from today)"
+msgstr ""
+
+#: src/signing-in-to-gitlab.md:64
+msgid "Check `read_repository` and `write_repository` scopes"
+msgstr ""
+
+#: src/signing-in-to-gitlab.md:65
+msgid "Click \"Create Token\""
+msgstr ""
+
+#: src/signing-in-to-gitlab.md:66
+msgid ""
+"Copy the PAT (displayed as masked password) under the section \"Your Token\""
+msgstr ""
+
+#: src/signing-in-to-gitlab.md:67
+msgid "Save the PAT somewhere safe, like your password manager"
+msgstr ""
+
+#: src/signing-in-to-gitlab.md:69
+msgid ""
+"When doing `git push`, you'll be asked for username and password. Enter the "
+"password from the PAT token you've created. This will happen every time you "
+"run `git push`. To remember it forever, run the command below to store it "
+"later in `~/.git-credentials`:"
+msgstr ""
+
+#: src/signing-in-to-gitlab.md:75
+msgid ""
+"If you don't like to store it as plain text, it's also possible to save it "
+"only in RAM cache:"
+msgstr ""
+
+#: src/signing-in-to-gitlab.md:78
+msgid ""
+"# <timeout> is how long it will be preserved in memory, defaults to 900 "
+"(seconds)\n"
+msgstr ""
+
+#: src/signing-in-to-gitlab.md:79
+msgid "'cache --timeout=<timeout>'"
+msgstr ""
+
+#: src/signing-in-to-gitlab.md:82
+msgid "If you have lost your PAT, it's OK to create another one."
+msgstr ""
