@@ -5,15 +5,15 @@ msgstr ""
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
+"Language: zh_TW\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: zh_TW\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 
 #: src/introduction.md:1
 msgid "Introduction"
-msgstr ""
+msgstr "介紹"
 
 #: src/introduction.md:5
 msgid ""
@@ -21,6 +21,8 @@ msgid ""
 "about Redox: design, philosophy, how it works, how you can contribute, how "
 "to deploy Redox, and much more."
 msgstr ""
+"這是 **Redox OS** 的手冊，將涵蓋（幾乎）所有有關 Redox 的內容：設計、理念、如"
+"何運作、如何貢獻、如何部署 Redox，以及更多其他內容。"
 
 #: src/introduction.md:7
 msgid ""
@@ -73,7 +75,7 @@ msgstr ""
 
 #: src/introduction.md:22
 msgid "📝 **Note**"
-msgstr ""
+msgstr "📝 **備註**"
 
 #: src/introduction.md:22
 msgid "Provides information to enhance understanding."
@@ -89,7 +91,7 @@ msgstr ""
 
 #: src/introduction.md:24
 msgid "⚠️ **Warning**"
-msgstr ""
+msgstr "⚠️ **警告**"
 
 #: src/introduction.md:24
 msgid "Highlights potential risks or mistakes."
@@ -97,7 +99,7 @@ msgstr ""
 
 #: src/introduction.md:26
 msgid "What is Redox?"
-msgstr ""
+msgstr "什麼是 Redox？"
 
 #: src/introduction.md:28
 msgid ""
@@ -129,7 +131,7 @@ msgstr ""
 
 #: src/introduction.md:36
 msgid "Origin Story"
-msgstr ""
+msgstr "起源故事"
 
 #: src/introduction.md:38
 msgid ""

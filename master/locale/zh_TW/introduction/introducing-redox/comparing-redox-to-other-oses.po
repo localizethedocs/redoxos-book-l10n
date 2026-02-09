@@ -5,10 +5,10 @@ msgstr ""
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
+"Language: zh_TW\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: zh_TW\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 
 #: src/how-redox-compares.md:1
@@ -21,7 +21,7 @@ msgstr ""
 
 #: src/how-redox-compares.md:5
 msgid "System Calls"
-msgstr ""
+msgstr "系統呼叫"
 
 #: src/how-redox-compares.md:7
 msgid ""
@@ -68,7 +68,7 @@ msgstr ""
 msgid ""
 "Redox's kernel is a microkernel. The architecture is largely inspired by "
 "MINIX and seL4."
-msgstr ""
+msgstr "Redox 的內核是一個微內核。其架構主要受 MINIX 與 seL4 的啟發。"
 
 #: src/how-redox-compares.md:24
 msgid ""

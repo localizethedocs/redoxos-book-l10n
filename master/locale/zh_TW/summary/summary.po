@@ -5,10 +5,10 @@ msgstr ""
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
+"Language: zh_TW\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: zh_TW\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 
 #: src/SUMMARY.md:1
@@ -17,7 +17,7 @@ msgstr ""
 
 #: src/SUMMARY.md:3 src/SUMMARY.md:5
 msgid "Introduction"
-msgstr ""
+msgstr "介紹"
 
 #: src/SUMMARY.md:7
 msgid "Introducing Redox"
@@ -25,11 +25,11 @@ msgstr ""
 
 #: src/SUMMARY.md:8
 msgid "Our Goals"
-msgstr ""
+msgstr "我們的目標"
 
 #: src/SUMMARY.md:9
 msgid "Our Philosophy"
-msgstr ""
+msgstr "我們的理念"
 
 #: src/SUMMARY.md:10
 msgid "Why a New OS?"
@@ -37,7 +37,7 @@ msgstr ""
 
 #: src/SUMMARY.md:11
 msgid "Why Rust?"
-msgstr ""
+msgstr "為什麼使用 Rust？"
 
 #: src/SUMMARY.md:12
 msgid "Redox Use Cases"
@@ -49,11 +49,11 @@ msgstr ""
 
 #: src/SUMMARY.md:14
 msgid "Influences"
-msgstr ""
+msgstr "影響"
 
 #: src/SUMMARY.md:15
 msgid "Hardware Support"
-msgstr ""
+msgstr "硬體支援"
 
 #: src/SUMMARY.md:16
 msgid "Important Programs"
@@ -65,7 +65,7 @@ msgstr ""
 
 #: src/SUMMARY.md:19
 msgid "Architecture and Design"
-msgstr ""
+msgstr "架構與設計"
 
 #: src/SUMMARY.md:21
 msgid "System Design"
@@ -73,7 +73,7 @@ msgstr ""
 
 #: src/SUMMARY.md:22
 msgid "Microkernels"
-msgstr ""
+msgstr "微內核"
 
 #: src/SUMMARY.md:23
 msgid "Boot Process"
@@ -81,11 +81,11 @@ msgstr ""
 
 #: src/SUMMARY.md:24
 msgid "Redox kernel"
-msgstr ""
+msgstr "Redox 內核"
 
 #: src/SUMMARY.md:25
 msgid "System Services in User Space"
-msgstr ""
+msgstr "使用者空間的系統服務"
 
 #: src/SUMMARY.md:26
 msgid "Communication"
@@ -93,7 +93,7 @@ msgstr ""
 
 #: src/SUMMARY.md:27
 msgid "Memory Management"
-msgstr ""
+msgstr "記憶體管理"
 
 #: src/SUMMARY.md:28
 msgid "Scheduling"
@@ -121,7 +121,7 @@ msgstr ""
 
 #: src/SUMMARY.md:34
 msgid "Package Management"
-msgstr ""
+msgstr "軟體包管理"
 
 #: src/SUMMARY.md:36
 msgid "Schemes and Resources"
@@ -177,7 +177,7 @@ msgstr ""
 
 #: src/SUMMARY.md:50
 msgid "System Tools"
-msgstr ""
+msgstr "系統工具"
 
 #: src/SUMMARY.md:52
 msgid "Getting Started"
@@ -293,7 +293,7 @@ msgstr ""
 
 #: src/SUMMARY.md:88
 msgid "Configuration Settings"
-msgstr ""
+msgstr "組態設定"
 
 #: src/SUMMARY.md:89
 msgid "Build System Reference"
