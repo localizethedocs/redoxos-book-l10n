@@ -85,7 +85,7 @@ set(BRANCH_OF_WORKTREE "l10n"
 set(REMOTE_URL_OF_L10N "https://github.com/localizethedocs/redoxos-book-l10n.git"
     CACHE STRING "The remote URL of the 'l10n' repository.")
 
-set(REMOTE_URL_OF_DOCS "https://github.com/redox-os/book.git"
+set(REMOTE_URL_OF_DOCS "https://gitlab.redox-os.org/redox-os/book.git"
     CACHE STRING "The remote URL of the 'docs' repository.")
 
 set(BASEURL_HREF "file://${PROJECT_SOURCE_DIR}/out/$CACHE{MDBOOK_RENDERER}"
