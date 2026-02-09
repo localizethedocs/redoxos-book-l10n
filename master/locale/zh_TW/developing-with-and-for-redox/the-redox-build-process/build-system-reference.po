@@ -13,7 +13,7 @@ msgstr ""
 
 #: src/build-system-reference.md:1
 msgid "Build System Reference"
-msgstr ""
+msgstr "建置系統參考"
 
 #: src/build-system-reference.md:3
 msgid ""
@@ -25,23 +25,23 @@ msgstr ""
 
 #: src/build-system-reference.md:5
 msgid "[Build System Organization](#build-system-organization)"
-msgstr ""
+msgstr "[建置系統組織結構](#build-system-organization)"
 
 #: src/build-system-reference.md:6
 msgid "[Root Folder](#root-folder)"
-msgstr ""
+msgstr "[根目錄資料夾](#root-folder)"
 
 #: src/build-system-reference.md:7
 msgid "[GNU Make Configuration](#gnu-make-configuration)"
-msgstr ""
+msgstr "[GNU Make 組態](#gnu-make-configuration)"
 
 #: src/build-system-reference.md:8
 msgid "[Podman Configuration](#podman-configuration)"
-msgstr ""
+msgstr "[Podman 組態](#podman-configuration)"
 
 #: src/build-system-reference.md:9
 msgid "[Filesystem Configuration](#filesystem-configuration)"
-msgstr ""
+msgstr "[檔案系統組態](#filesystem-configuration)"
 
 #: src/build-system-reference.md:10
 msgid "[Cookbook](#cookbook)"
@@ -49,31 +49,31 @@ msgstr ""
 
 #: src/build-system-reference.md:11
 msgid "[Build System Files](#build-system-files)"
-msgstr ""
+msgstr "[建置系統檔案](#build-system-files)"
 
 #: src/build-system-reference.md:12
 msgid "[GNU Make Commands](#gnu-make-commands)"
-msgstr ""
+msgstr "[GNU Make 命令](#gnu-make-commands)"
 
 #: src/build-system-reference.md:13
 msgid "[Build System](#build-system-1)"
-msgstr ""
+msgstr "[建置系統](#build-system-1)"
 
 #: src/build-system-reference.md:14
 msgid "[Podman](#podman)"
-msgstr ""
+msgstr "[Podman](#podman)"
 
 #: src/build-system-reference.md:15
 msgid "[QEMU/VirtualBox](#qemuvirtualbox)"
-msgstr ""
+msgstr "[QEMU/VirtualBox](#qemuvirtualbox)"
 
 #: src/build-system-reference.md:16
 msgid "[Environment Variables](#environment-variables)"
-msgstr ""
+msgstr "[環境變數](#environment-variables)"
 
 #: src/build-system-reference.md:17
 msgid "[Scripts](#scripts)"
-msgstr ""
+msgstr "[腳本](#scripts)"
 
 #: src/build-system-reference.md:18
 msgid "[Git Auto-checkout](#git-auto-checkout)"
@@ -81,7 +81,7 @@ msgstr ""
 
 #: src/build-system-reference.md:19
 msgid "[Update The Build System](#update-the-build-system)"
-msgstr ""
+msgstr "[更新建置系統](#update-the-build-system)"
 
 #: src/build-system-reference.md:20
 msgid "[Fix Breaking Changes](#fix-breaking-changes)"
@@ -97,7 +97,7 @@ msgstr ""
 
 #: src/build-system-reference.md:23
 msgid "[Configuration](#configuration)"
-msgstr ""
+msgstr "[組態](#configuration)"
 
 #: src/build-system-reference.md:24
 msgid "[Format](#format)"
@@ -145,7 +145,7 @@ msgstr ""
 
 #: src/build-system-reference.md:38
 msgid "GNU Make Configuration"
-msgstr ""
+msgstr "GNU Make 組態"
 
 #: src/build-system-reference.md:40
 msgid ""
@@ -161,7 +161,7 @@ msgstr ""
 
 #: src/build-system-reference.md:43
 msgid "Podman Configuration"
-msgstr ""
+msgstr "Podman 組態"
 
 #: src/build-system-reference.md:45
 msgid ""
@@ -174,7 +174,7 @@ msgstr ""
 
 #: src/build-system-reference.md:47
 msgid "Filesystem Configuration"
-msgstr ""
+msgstr "檔案系統組態"
 
 #: src/build-system-reference.md:49
 msgid "`config` - This folder contains all filesystem configurations."

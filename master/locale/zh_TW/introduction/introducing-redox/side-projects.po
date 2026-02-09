@@ -145,7 +145,7 @@ msgstr ""
 
 #: src/side-projects.md:31
 msgid "What tools are fitting for the Redox distribution?"
-msgstr ""
+msgstr "哪些工具適合用於 Redox 散佈版？"
 
 #: src/side-projects.md:33
 msgid ""

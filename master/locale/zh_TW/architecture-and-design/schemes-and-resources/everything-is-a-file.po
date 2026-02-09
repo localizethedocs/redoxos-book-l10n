@@ -13,7 +13,7 @@ msgstr ""
 
 #: src/everything-is-a-file.md:1
 msgid "\"Everything is a file\""
-msgstr ""
+msgstr "「一切皆檔案」"
 
 #: src/everything-is-a-file.md:3
 msgid ""

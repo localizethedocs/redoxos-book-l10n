@@ -90,7 +90,7 @@ msgstr ""
 
 #: src/redox-use-cases.md:23
 msgid "Embedded and IoT"
-msgstr ""
+msgstr "嵌入式與物連網"
 
 #: src/redox-use-cases.md:25
 msgid ""

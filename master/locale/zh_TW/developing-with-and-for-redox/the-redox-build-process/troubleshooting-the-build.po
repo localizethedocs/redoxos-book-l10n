@@ -35,7 +35,7 @@ msgstr ""
 
 #: src/troubleshooting.md:9
 msgid "[Podman](#podman)"
-msgstr ""
+msgstr "[Podman](#podman)"
 
 #: src/troubleshooting.md:10
 msgid "[Manual Configuration](#manual-configuration)"

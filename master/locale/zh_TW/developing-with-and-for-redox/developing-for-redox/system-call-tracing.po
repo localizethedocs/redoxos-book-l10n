@@ -29,7 +29,7 @@ msgstr ""
 
 #: src/syscall-debug.md:7
 msgid "Modifying the Kernel"
-msgstr ""
+msgstr "修改內核"
 
 #: src/syscall-debug.md:9
 msgid ""

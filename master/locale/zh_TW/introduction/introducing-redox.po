@@ -13,7 +13,7 @@ msgstr ""
 
 #: src/introducing-redox.md:1
 msgid "Introducing Redox OS"
-msgstr ""
+msgstr "介紹 Redox OS"
 
 #: src/introducing-redox.md:3
 msgid ""
@@ -25,15 +25,15 @@ msgstr ""
 
 #: src/introducing-redox.md:5
 msgid "[Our Goals](our-goals.md)"
-msgstr ""
+msgstr "[我們的目標](our-goals.md)"
 
 #: src/introducing-redox.md:6
 msgid "[Our Philosophy](philosophy.md)"
-msgstr ""
+msgstr "[我們的理念](philosophy.md)"
 
 #: src/introducing-redox.md:7
 msgid "[Why a New OS?](why-a-new-os.md)"
-msgstr ""
+msgstr "[為什麼需要新的作業系統？](why-a-new-os.md)"
 
 #: src/introducing-redox.md:8
 msgid "[Redox Use Cases](redox-use-cases.md)"
@@ -41,7 +41,7 @@ msgstr ""
 
 #: src/introducing-redox.md:9
 msgid "[Comparing Redox to Other OSes](how-redox-compares.md)"
-msgstr ""
+msgstr "[Redox 與其他作業系統的比較](how-redox-compares.md)"
 
 #: src/introducing-redox.md:10
 msgid "[Why Rust?](why-rust.md)"
@@ -57,8 +57,8 @@ msgstr ""
 
 #: src/introducing-redox.md:13
 msgid "[Hardware Support](hardware-support.md)"
-msgstr ""
+msgstr "[硬體支援](hardware-support.md)"
 
 #: src/introducing-redox.md:14
 msgid "[Important Programs](important-programs.md)"
-msgstr ""
+msgstr "[重要程式](important-programs.md)"

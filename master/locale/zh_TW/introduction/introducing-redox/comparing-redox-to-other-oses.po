@@ -13,11 +13,11 @@ msgstr ""
 
 #: src/how-redox-compares.md:1
 msgid "How Redox Compares to Other Operating Systems"
-msgstr ""
+msgstr "Redox 與其他作業系統的比較"
 
 #: src/how-redox-compares.md:3
 msgid "We share quite a lot with other operating systems."
-msgstr ""
+msgstr "我們與其他作業系統有許多共同之處。"
 
 #: src/how-redox-compares.md:5
 msgid "System Calls"
@@ -43,11 +43,11 @@ msgstr ""
 
 #: src/how-redox-compares.md:11
 msgid "For example, the `open` POSIX function is called `SYS_OPEN` on relibc."
-msgstr ""
+msgstr "例如，`open` 這個 POSIX 函式在 relibc 中被稱為 `SYS_OPEN`。"
 
 #: src/how-redox-compares.md:13
 msgid "\"Everything is a File\""
-msgstr ""
+msgstr "「一切皆檔案」"
 
 #: src/how-redox-compares.md:15
 msgid ""
@@ -62,7 +62,7 @@ msgstr ""
 
 #: src/how-redox-compares.md:20
 msgid "The kernel"
-msgstr ""
+msgstr "內核"
 
 #: src/how-redox-compares.md:22
 msgid ""

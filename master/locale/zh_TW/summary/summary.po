@@ -21,7 +21,7 @@ msgstr "介紹"
 
 #: src/SUMMARY.md:7
 msgid "Introducing Redox"
-msgstr ""
+msgstr "介紹 Redox"
 
 #: src/SUMMARY.md:8
 msgid "Our Goals"
@@ -33,7 +33,7 @@ msgstr "我們的理念"
 
 #: src/SUMMARY.md:10
 msgid "Why a New OS?"
-msgstr ""
+msgstr "為什麼需要新的作業系統？"
 
 #: src/SUMMARY.md:11
 msgid "Why Rust?"
@@ -45,7 +45,7 @@ msgstr ""
 
 #: src/SUMMARY.md:13
 msgid "Comparing Redox to Other OSes"
-msgstr ""
+msgstr "Redox 與其他作業系統的比較"
 
 #: src/SUMMARY.md:14
 msgid "Influences"
@@ -57,7 +57,7 @@ msgstr "硬體支援"
 
 #: src/SUMMARY.md:16
 msgid "Important Programs"
-msgstr ""
+msgstr "重要程式"
 
 #: src/SUMMARY.md:17
 msgid "Side Projects"
@@ -141,7 +141,7 @@ msgstr ""
 
 #: src/SUMMARY.md:40
 msgid "\"Everything is a File\""
-msgstr ""
+msgstr "「一切皆檔案」"
 
 #: src/SUMMARY.md:41
 msgid "Stitching It All Together"
@@ -297,7 +297,7 @@ msgstr "組態設定"
 
 #: src/SUMMARY.md:89
 msgid "Build System Reference"
-msgstr ""
+msgstr "建置系統參考"
 
 #: src/SUMMARY.md:90
 msgid "Advanced Podman Build"

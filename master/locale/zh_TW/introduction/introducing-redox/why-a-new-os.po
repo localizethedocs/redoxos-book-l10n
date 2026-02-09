@@ -13,7 +13,7 @@ msgstr ""
 
 #: src/why-a-new-os.md:1
 msgid "Why a New OS?"
-msgstr ""
+msgstr "為什麼需要新的作業系統？"
 
 #: src/why-a-new-os.md:3
 msgid ""
@@ -51,11 +51,11 @@ msgstr ""
 
 #: src/why-a-new-os.md:13
 msgid "The following items summarize the Rust benefits:"
-msgstr ""
+msgstr "以下項目總結了 Rust 的優點："
 
 #: src/why-a-new-os.md:15
 msgid "Memory-Safety"
-msgstr ""
+msgstr "記憶體安全"
 
 #: src/why-a-new-os.md:17
 msgid "All memory allocations are verified by the compiler to prevent bugs."
@@ -79,7 +79,7 @@ msgstr ""
 
 #: src/why-a-new-os.md:27
 msgid "Microkernel Architecture"
-msgstr ""
+msgstr "微內核架構"
 
 #: src/why-a-new-os.md:29
 msgid ""

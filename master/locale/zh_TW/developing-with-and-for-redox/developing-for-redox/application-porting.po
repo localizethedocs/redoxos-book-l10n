@@ -223,7 +223,7 @@ msgstr ""
 
 #: src/porting-applications.md:54
 msgid "[Configuration](#configuration)"
-msgstr ""
+msgstr "[組態](#configuration)"
 
 #: src/porting-applications.md:55
 msgid "[Arch Linux and AUR](#arch-linux-and-aur)"

@@ -13,7 +13,7 @@ msgstr ""
 
 #: src/important-programs.md:1
 msgid "Important Programs"
-msgstr ""
+msgstr "重要程式"
 
 #: src/important-programs.md:3
 msgid ""
@@ -186,7 +186,7 @@ msgstr ""
 
 #: src/important-programs.md:35
 msgid "GUI Libraries"
-msgstr ""
+msgstr "GUI 程式庫"
 
 #: src/important-programs.md:37
 msgid ""
@@ -234,17 +234,17 @@ msgstr ""
 
 #: src/important-programs.md:50
 msgid "COSMIC Editor"
-msgstr ""
+msgstr "COSMIC 編輯器"
 
 #: src/important-programs.md:50 src/important-programs.md:51
 #: src/important-programs.md:52 src/important-programs.md:53
 #: src/important-programs.md:54
 msgid "winit"
-msgstr ""
+msgstr "winit"
 
 #: src/important-programs.md:51
 msgid "COSMIC Files"
-msgstr ""
+msgstr "COSMIC 檔案"
 
 #: src/important-programs.md:52
 msgid "COSMIC Reader"
@@ -263,7 +263,7 @@ msgstr ""
 
 #: src/important-programs.md:54
 msgid "COSMIC Terminal"
-msgstr ""
+msgstr "COSMIC 終端機"
 
 #: src/important-programs.md:55
 msgid "Netsurf"
