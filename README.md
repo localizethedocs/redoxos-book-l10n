@@ -1,4 +1,12 @@
 <div align="center">
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="https://cdn.jsdelivr.net/gh/localizethedocs/static/logo/redoxos-white.svg">
+  <source media="(prefers-color-scheme: light)" srcset="https://cdn.jsdelivr.net/gh/localizethedocs/static/logo/redoxos-black.svg">
+  <img height="100" src="https://cdn.jsdelivr.net/gh/localizethedocs/static/logo/redoxos-black.svg">
+</picture>
+</div>
+
+<div align="center">
 <h1 id="localization-of-the-redoxos-book">Localization of The Redox OS Book</h1>
 </div>
 
@@ -57,10 +65,10 @@
 
 <p></p>
 
-The goal of this project is to translate The Redox OS Book into multiple languages. Translations are contributed via the Crowdin platform, automatically synchronized with the GitHub repository, and can be previewed on GitHub Pages.
+The goal of this project is to translate The Redox OS<a href="https://gitlab.redox-os.org/redox-os/redox/-/blob/master/TRADEMARK.md"><sup>TM</sup></a> Book into multiple languages. Translations are contributed via the Crowdin platform, automatically synchronized with the GitHub repository, and can be previewed on GitHub Pages.
 
 > [!NOTE]
-> The translation is <strong>unofficial</strong> and <strong>community-driven</strong>. If you find any inaccuracies, always refer to the <a href="https://doc.redox-os.org/book">official documentation</a> or the <a href="https://gitlab.redox-os.org/redox-os/book">source repository</a> of the upstream project for the most reliable information.
+> The translation is <strong>unofficial</strong> and <strong>community-driven</strong>. <strong>No endorsement</strong> by the Redox OS nonprofit is intended. If you find any inaccuracies, always refer to the <a href="https://doc.redox-os.org/book">official documentation</a> or the <a href="https://gitlab.redox-os.org/redox-os/book">source repository</a> of the upstream project for the most reliable information.
 
 <div align="center">
 <table>
