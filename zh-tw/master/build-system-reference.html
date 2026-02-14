@@ -1,0 +1,596 @@
+<!DOCTYPE HTML>
+<html lang="zh_TW" class="light sidebar-visible" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>建置系統參考 - The Redox Operating System</title>
+
+
+        <!-- Custom HTML head -->
+        <style>
+        .light .redox-logo {
+            content: url("assets/redox_light_512.png");
+        }
+        .rust .redox-logo {
+            content: url("assets/redox_light_512.png");
+        }
+        .coal .redox-logo {
+            content: url("assets/redox_dark_512.png");
+        }
+        .navy .redox-logo {
+            content: url("assets/redox_dark_512.png");
+        }
+        .ayu .redox-logo {
+            content: url("assets/redox_dark_512.png");
+        }
+        </style>
+        <script type="text/javascript" src="ltd-provenance.js"></script>
+        <script type="text/javascript" src="ltd-current.js"></script>
+        <script type="text/javascript" src="../../ltd-config.js"></script>
+        <script type="text/javascript" src="../../ltd-flyout.js"></script>
+
+        <meta name="description" content="This book carefully describes the design, implementation, direction, and structure of Redox, the operating system.">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="shortcut icon" href="favicon.png">
+        <link rel="stylesheet" href="css/variables.css">
+        <link rel="stylesheet" href="css/general.css">
+        <link rel="stylesheet" href="css/chrome.css">
+        <link rel="stylesheet" href="css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" id="highlight-css" href="highlight.css">
+        <link rel="stylesheet" id="tomorrow-night-css" href="tomorrow-night.css">
+        <link rel="stylesheet" id="ayu-highlight-css" href="ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+
+        <!-- Provide site root and default themes to javascript -->
+        <script>
+            const path_to_root = "";
+            const default_light_theme = "light";
+            const default_dark_theme = "navy";
+            window.path_to_searchindex_js = "searchindex.js";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="toc.js"></script>
+    </head>
+    <body>
+    <div id="mdbook-help-container">
+        <div id="mdbook-help-popup">
+            <h2 class="mdbook-help-title">Keyboard shortcuts</h2>
+            <div>
+                <p>Press <kbd>←</kbd> or <kbd>→</kbd> to navigate between chapters</p>
+                <p>Press <kbd>S</kbd> or <kbd>/</kbd> to search in the book</p>
+                <p>Press <kbd>?</kbd> to show this help</p>
+                <p>Press <kbd>Esc</kbd> to hide this help</p>
+            </div>
+        </div>
+    </div>
+    <div id="body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                let theme = localStorage.getItem('mdbook-theme');
+                let sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            const default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? default_dark_theme : default_light_theme;
+            let theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            let sidebar = null;
+            const sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+                sidebar_toggle.checked = false;
+            }
+            if (sidebar === 'visible') {
+                sidebar_toggle.checked = true;
+            } else {
+                html.classList.remove('sidebar-visible');
+            }
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="default_theme">Auto</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search (`/`)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="/ s" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">The Redox Operating System</h1>
+
+                    <div class="right-buttons">
+                        <a href="print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <div class="search-wrapper">
+                            <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                            <div class="spinner-wrapper">
+                                <i class="fa fa-spinner fa-spin"></i>
+                            </div>
+                        </div>
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1 id="建置系統參考"><a class="header" href="#建置系統參考">建置系統參考</a></h1>
+<p>The build system downloads and creates several files that you may want to know about. There are also several <code>make</code> commands mentioned below, and a few extras that you may find useful. Here's a quick summary. All file paths are relative to your <code>redox</code> base directory.</p>
+<ul>
+<li><a href="#build-system-organization">建置系統組織結構</a>
+<ul>
+<li><a href="#root-folder">根目錄資料夾</a></li>
+<li><a href="#gnu-make-configuration">GNU Make 組態</a></li>
+<li><a href="#podman-configuration">Podman 組態</a></li>
+<li><a href="#filesystem-configuration">檔案系統組態</a></li>
+<li><a href="#cookbook">Cookbook</a></li>
+<li><a href="#build-system-files">建置系統檔案</a></li>
+</ul>
+</li>
+<li><a href="#gnu-make-commands">GNU Make 命令</a>
+<ul>
+<li><a href="#build-system-1">建置系統</a></li>
+<li><a href="#podman">Podman</a></li>
+<li><a href="#qemuvirtualbox">QEMU/VirtualBox</a></li>
+</ul>
+</li>
+<li><a href="#environment-variables">環境變數</a></li>
+<li><a href="#scripts">腳本</a></li>
+<li><a href="#git-auto-checkout">Git Auto-checkout</a></li>
+<li><a href="#update-the-build-system">更新建置系統</a></li>
+<li><a href="#fix-breaking-changes">Fix Breaking Changes</a>
+<ul>
+<li><a href="#all-recipes">All Recipes</a></li>
+<li><a href="#one-recipe">One Recipe</a></li>
+</ul>
+</li>
+<li><a href="#configuration">組態</a>
+<ul>
+<li><a href="#format">Format</a></li>
+<li><a href="#filesystem-customization">Filesystem Customization</a></li>
+</ul>
+</li>
+<li><a href="#cross-compilation">Cross-Compilation</a></li>
+<li><a href="#build-phases">Build Phases</a></li>
+</ul>
+<h2 id="build-system-organization"><a class="header" href="#build-system-organization">Build System Organization</a></h2>
+<h3 id="root-folder"><a class="header" href="#root-folder">Root Folder</a></h3>
+<ul>
+<li><code>podman_bootstrap.sh</code> - The script used to configure the Podman build</li>
+<li><code>native_bootstrap.sh</code> - The script used to configure the Native build</li>
+<li><code>Makefile</code> - The main Makefile of the build system, it loads all the other Makefiles.</li>
+<li><code>.config</code> - Where you override your build system settings. It is loaded by the Makefile (it is ignored by <code>git</code>).</li>
+</ul>
+<h3 id="gnu-make-組態"><a class="header" href="#gnu-make-組態">GNU Make 組態</a></h3>
+<ul>
+<li><code>mk/config.mk</code> - The build system settings are here. You can override these settings in your <code>.config</code>, don't change them here to avoid conflicts in the <code>make pull</code> command.</li>
+<li><code>mk/*.mk</code> - The rest of the Makefiles. You should not need to change them.</li>
+</ul>
+<h3 id="podman-組態"><a class="header" href="#podman-組態">Podman 組態</a></h3>
+<ul>
+<li><code>podman/redox-base-containerfile</code> - The file used to create the image used by the Podman build. The installation of Ubuntu packages needed for the build is done here. See the <a href="./advanced-podman-build.html#adding-packages-to-the-build">Adding Packages to the Build</a> section if you need to add additional Ubuntu packages.</li>
+</ul>
+<h3 id="檔案系統組態"><a class="header" href="#檔案系統組態">檔案系統組態</a></h3>
+<ul>
+<li><code>config</code> - This folder contains all filesystem configurations.</li>
+<li><code>config/*.toml</code> - Filesystem templates used by the CPU target configurations (a template can use other template to reduce duplication)</li>
+<li><code>config/your-cpu-arch/your-config.toml</code> - The filesystem configuration of the QEMU image to be built, e.g. <code>config/x86_64/desktop.toml</code></li>
+<li><code>config/your-cpu-arch/server.toml</code> - The variant with system components (without Orbital) and some important tools. Aimed for servers, low-end computers, testers and developers (try this config if you have boot problems on QEMU or real hardware).</li>
+<li><code>config/your-cpu-arch/desktop.toml</code> - The variant with system components, the Orbital desktop environment and some important programs (this is the default configuration of the build system). Aimed for end-users, gamers, testers and developers.</li>
+<li><code>config/your-cpu-arch/dev.toml</code> - The variant with development tools included. Aimed for developers.</li>
+<li><code>config/your-cpu-arch/demo.toml</code> - The variant with a complete system and optional programs and games. Aimed for end-users, gamers, testers and developers.</li>
+<li><code>config/your-cpu-arch/desktop-minimal.toml</code> - The minimal <code>desktop</code> variant for low-end computers and embedded hardware. Aimed for servers, low-end computers, embedded hardware and developers.</li>
+<li><code>config/your-cpu-arch/minimal.toml</code> - The variant without network support and Orbital. Aimed for low-end computers, embedded hardware, testers and developers.</li>
+<li><code>config/your-cpu-arch/minimal-net.toml</code> - The variant without Orbital and tools. Aimed for low-end computers, embedded hardware, testers and developers.</li>
+<li><code>config/your-cpu-arch/resist.toml</code> - The variant with the <code>resist</code> POSIX test suite. Aimed for developers.</li>
+<li><code>config/your-cpu-arch/acid.toml</code> - The variant with the <code>acid</code> general-purpose test suite. Aimed for developers.</li>
+<li><code>config/your-cpu-arch/ci.toml</code> - The continuous integration variant, recipes added here become packages on the <a href="https://static.redox-os.org/pkg/">build server</a>. Aimed for packagers and developers.</li>
+<li><code>config/your-cpu-arch/jeremy.toml</code> - The build of <a href="https://soller.dev/">Jeremy Soller</a> (creator/BDFL of Redox) with the recipes that he is testing at the moment.</li>
+</ul>
+<h3 id="build-system-files"><a class="header" href="#build-system-files">Build System Files</a></h3>
+<ul>
+<li><code>build</code> - The directory where the build system will place the final image. Usually <code>build/$(ARCH)/$(CONFIG_NAME)</code>, e.g. <code>build/x86_64/desktop</code></li>
+<li><code>build/your-cpu-arch/your-config/harddrive.img</code> - The Redox image file, to be used by QEMU or VirtualBox for virtual machine execution on a Unix-like host.</li>
+<li><code>build/your-cpu-arch/your-config/redox-live.iso</code> - The Redox bootable image file, to be used on real hardware for testing and possible installation.</li>
+<li><code>build/your-cpu-arch/your-config/fetch.tag</code> - An empty file that, if present, tells the build system that the downloading of recipe sources is done.</li>
+<li><code>build/your-cpu-arch/your-config/repo.tag</code> - An empty file that, if present, tells the build system that all recipes required for the Redox image have been successfully built. <strong>The build system will not check for changes to your code when this file is present.</strong> Use <code>make rebuild</code> to force the build system to check for changes.</li>
+<li><code>build/podman</code> - The directory where Podman Build places the container user's home directory, including the container's Rust installation. Use <code>make container_clean</code> to remove it. In some situations, you may need to remove this directory manually, possibly with root privileges.</li>
+<li><code>build/container.tag</code> - An empty file, created during the first Podman build, so a Podman build knows when a reusable Podman image is available. Use <code>make container_clean</code> to force a rebuild of the Podman image on your next <code>make rebuild</code> run.</li>
+</ul>
+<h3 id="cookbook"><a class="header" href="#cookbook">Cookbook</a></h3>
+<ul>
+<li><code>prefix/*</code> - Tools used by the Cookbook system. They are normally downloaded during the first system build (if you are having a problem with the build system, you can remove the <code>prefix</code> directory and it will be recreated during the next build).</li>
+<li><code>repo</code> - Contains all packaged recipes.</li>
+<li><code>recipes/recipe-name</code> - A recipe (software port) directory (represented as <code>recipe-name</code>), this directory holds the <code>recipe.toml</code> file.</li>
+<li><code>recipes/recipe-name/recipe.toml</code> - The recipe configuration file, this configuration contains instructions for downloading Git repositories or tarballs, then creating executables or other files to include in the Redox filesystem. Note that a recipe can contain dependencies that cause other recipes to be built, even if the dependencies are not otherwise part of your Redox build.</li>
+</ul>
+<p>(To learn more about the recipe system read the <a href="./porting-applications.html">Porting Applications using Recipes</a> page)</p>
+<ul>
+<li><code>recipes/recipe-name/recipe.sh</code> - The old recipe configuration format (can't be used as dependency of a recipe with a TOML syntax).</li>
+<li><code>recipes/recipe-name/source.tar</code> - The tarball of the recipe (renamed).</li>
+<li><code>recipes/recipe-name/source</code> - The directory where the recipe source is extracted or downloaded.</li>
+<li><code>recipes/recipe-name/target</code> - The directory where the recipe binaries are stored.</li>
+<li><code>recipes/recipe-name/target/${TARGET}</code> - The directory for the recipes binaries of the CPU architecture (<code>${TARGET}</code> is the environment variable of your CPU architecture).</li>
+<li><code>recipes/recipe-name/target/${TARGET}/build</code> - The directory where the recipe build system run its commands.</li>
+<li><code>recipes/recipe-name/target/${TARGET}/stage</code> - The directory where recipe binaries go before the packaging, after <code>make all</code>, <code>make rebuild</code> and <code>make image</code> the <a href="https://gitlab.redox-os.org/redox-os/installer">installer</a> will extract the recipe package on the QEMU image, generally at <code>/usr/bin</code> or <code>/usr/lib</code> in a Redox filesystem hierarchy.</li>
+<li><code>recipes/recipe-name/target/${TARGET}/sysroot</code> - The folder where recipe build dependencies (libraries) goes, for example: <code>library-name/src/example.c</code></li>
+<li><code>recipes/recipe-name/target/${TARGET}/stage.pkgar</code> - Redox package file.</li>
+<li><code>recipes/recipe-name/target/${TARGET}/stage.sig</code> - Signature for the <code>tar</code> package format.</li>
+<li><code>recipes/recipe-name/target/${TARGET}/stage.tar.gz</code> - Legacy <code>tar</code> package format, produced for compatibility reasons as we are working to make the package manager use the <code>pkgar</code> format.</li>
+<li><code>recipes/recipe-name/target/${TARGET}/stage.toml</code> - Contains the runtime dependencies of the package and is part of both package formats.</li>
+</ul>
+<h2 id="gnu-make-commands"><a class="header" href="#gnu-make-commands">GNU Make Commands</a></h2>
+<p>You can combine <code>make</code> commands, but order is significant. For example, <code>make r.games image</code> will build the <code>games</code> recipe and create a new Redox image, but <code>make image r.games</code> will make the Redox image before the recipe building, thus the new recipe binary will not be included on your Redox filesystem.</p>
+<h3 id="build-system"><a class="header" href="#build-system">Build System</a></h3>
+<ul>
+<li><code>make pull</code> - Update the source code of the build system without building.</li>
+<li><code>make all</code> - Builds the entire system, checking for changes and only building as required. Only use this for the first build. If the system was successfully built previously, this command may report <code>Nothing to be done for 'all'</code>, even if some recipes have changed. Use <code>make rebuild</code> instead.</li>
+<li><code>make rebuild</code> - Update all binaries from recipes with source code changes (it don't detect changes on the Redox toolchain), it should be your normal <code>make</code> target.</li>
+<li><code>make prefix</code> - Download the Rust/GCC forks and build relibc.</li>
+<li><code>make fstools</code> - Build the Redox image builder (installer), Cookbook and RedoxFS.</li>
+<li><code>make fetch</code> - Update recipe sources, according to each recipe, without building them. Only the recipes that are included in your <code>(CONFIG_NAME).toml</code> are downloaded. Does nothing if <code>$(BUILD)/fetch.tag</code> is present. You won't need this.</li>
+<li><code>make cook</code> - Build recipes enabled in the active filesystem configuration</li>
+<li><code>make repo</code> - Package the recipe binaries, according to each recipe. Does nothing if <code>$(BUILD)/repo.tag</code> is present. You won't need this.</li>
+<li><code>make find</code> - Show the recipe packages location</li>
+<li><code>make tree</code> - Show the filesystem configuration recipes and recipe dependencies tree</li>
+<li><code>make image</code> - Builds a new QEMU image, <code>build/harddrive.img</code>, without checking if any recipes have changed. It can save you some time if you are just updating one recipe with <code>make r.recipe-name</code></li>
+<li><code>make push</code> - Only install recipes with new changes in an existing Redox image</li>
+<li><code>make mount</code> - Mounts the Redox image as a filesystem at <code>$(BUILD)/filesystem</code>. <strong>Do not use this if QEMU is running</strong>, and remember to use <code>make unmount</code> as soon as you are done. This is not recommended, but if you need to get a large file onto or off of your Redox image, this is available as a workaround.</li>
+<li><code>make unmount</code> - Unmounts the Redox image filesystem. Use this as soon as you are done with <code>make mount</code>, and <strong>do not start QEMU</strong> until this is done.</li>
+<li><code>make live</code> - Creates a bootable image, <code>build/livedisk.iso</code>. Recipes are not usually rebuilt.</li>
+<li><code>make popsicle</code> - Flash the Redox bootable image on your USB device using the <a href="https://github.com/pop-os/popsicle">Popsicle</a> tool (the program executable must be present on your shell <code>$PATH</code> environment variable, you can get the executable by extracting the AppImage, installing from the package manager or building from source)</li>
+<li><code>make mount_live</code> - Mount the live disk ISO</li>
+<li><code>make env</code> - Creates a shell with a build environment configured to use the Redox toolchain. If you are using Podman Build it will change your current terminal shell to the container shell, you can use it to update crates of Rust programs or debug build issues such as missing packages (if you are using the Podman Build you can only use this command in one terminal shell, because it will block the build system directory access from other Podman shell)</li>
+<li><code>make fstools_clean</code> - Clean the image builder, Cookbook and RedoxFS binaries.</li>
+<li><code>make clean</code> - Clean all recipe binaries (Note that <code>make clean</code> may require some tools to be built).</li>
+<li><code>make unfetch</code> - Clean all recipe sources.</li>
+<li><code>make distclean</code> - Clean all recipe sources and binaries (<strong>please backup or submit your source changes before the execution of this command</strong>).</li>
+</ul>
+<h3 id="podman"><a class="header" href="#podman">Podman</a></h3>
+<ul>
+<li><code>make container_shell</code> - Open the GNU Bash shell of the Podman container as the active shell of your terminal, it's logged as the <code>podman</code> user without <code>root</code> privileges (don't use this command to replace the <code>make env</code> command because it don't setup the Redox toolchain in the Podman container shell)</li>
+<li><code>make container_clean</code> - This will discard images and other files created by Podman.</li>
+<li><code>make container_touch</code> - If you have removed the file <code>build/container.tag</code>, but the container image is still usable, this will recreate the <code>container.tag</code> file and avoid rebuilding the container image.</li>
+<li><code>make container_kill</code> - If you have started a build using Podman Build, and you want to stop it, <code>Ctrl-C</code> may not be sufficient. Use this command to terminate the most recently created container.</li>
+</ul>
+<h3 id="recipe"><a class="header" href="#recipe">Recipe</a></h3>
+<ul>
+<li>
+<p><code>make f.recipe-name</code> - Download the recipe source</p>
+</li>
+<li>
+<p><code>make r.recipe-name</code> - Build a single recipe, checking if the recipe source has changed, and creating the executable, etc. e.g. <code>make r.games</code> (you can't use this command to replace the <code>make all</code>, <code>make fstools</code> and <code>make prefix</code> commands because it don't trigger them, make sure to run them before to avoid errors)</p>
+<p>The package is built even if it is not in your filesystem configuration.</p>
+<p>(This command will continue where you stopped the build process, it's useful to save time if you had a compilation error and patched a crate)</p>
+</li>
+<li>
+<p><code>make p.recipe-name</code> - Install the recipe binaries to an existing Redox image</p>
+</li>
+<li>
+<p><code>make c.recipe-name</code> - Clean the recipe binaries.</p>
+</li>
+<li>
+<p><code>make u.recipe-name</code> - Clean the recipe source code and binaries (<strong>please backup or submit your source changes before the execution of this command</strong>).</p>
+</li>
+<li>
+<p><code>make cr.recipe-name</code> - A shortcut for <code>make c.recipe r.recipe</code></p>
+</li>
+<li>
+<p><code>make ur.recipe-name</code> - A shortcut for <code>make u.recipe r.recipe</code> (<strong>please backup or submit your source changes before the execution of this command</strong>).</p>
+</li>
+<li>
+<p><code>make rp.recipe-name</code> - A shortcut for <code>make r.recipe p.recipe</code></p>
+</li>
+<li>
+<p><code>make crp.recipe-name</code> - A shortcut for <code>make c.recipe r.recipe p.recipe</code></p>
+</li>
+<li>
+<p><code>make static_clean</code> - Clean all statically linked recipe binaries</p>
+</li>
+<li>
+<p><code>make repo_clean</code> - Clean all recipe binaries (alternative to <code>make c.--all</code>)</p>
+</li>
+<li>
+<p><code>make fetch_clean</code> - Clean all recipe binaries and sources (alternative to <code>make u.--all</code>)</p>
+</li>
+<li>
+<p><code>make x.--all</code> - Any recipe target (x) can be run in all recipes at <code>recipes</code> (like <code>make c.--all</code> which clean all recipe binaries, for example)</p>
+</li>
+<li>
+<p><code>make x.--category-folder-name</code> - Any recipe target (x) can be run in all recipes of some category folder at <code>recipes</code> (like <code>make u.--category-wip</code> which clean all recipe sources and binaries from the <code>wip</code> folder, for example), if you need to use a sub-category use <code>--category-folder-name/subfolder</code></p>
+</li>
+</ul>
+<p>All recipe targets also support multiple recipe entries by separating each recipe name with a comma. for example: <code>make f.recipe1,recipe2</code> will download the sources of <code>recipe1</code> and <code>recipe2</code></p>
+<h3 id="qemuvirtualbox"><a class="header" href="#qemuvirtualbox">QEMU/VirtualBox</a></h3>
+<ul>
+<li><code>make qemu</code> - Boot Redox in QEMU, if a <code>build/harddrive.img</code> file exists QEMU will run using that image. If you want to force a rebuild first, run the <code>make rebuild qemu</code> command. Sometimes <code>make qemu</code> will detect changes and rebuild, but this is not typical. If you are interested in a particular combination of QEMU command line options, have a look through <code>mk/qemu.mk</code></li>
+<li><code>make qemu gpu=no</code> - Start QEMU without a GUI (disables Orbital).</li>
+<li><code>make qemu gpu=virtio</code> - Start QEMU with the VirtIO GPU driver.</li>
+<li><code>make qemu audio=no</code> - Disable all sound drivers.</li>
+<li><code>make qemu usb=no</code> - Disable all USB drivers.</li>
+<li><code>make qemu uefi=yes</code> - Enable the UEFI boot loader (it supports more screen resolutions).</li>
+<li><code>make qemu live=yes</code> - Fully load the Redox image to RAM.</li>
+<li><code>make qemu disk=nvme</code> - Boot Redox from a NVMe interface (high-performance SSD emulation).</li>
+<li><code>make qemu disk=usb</code> - Boot Redox from a virtual USB device.</li>
+<li><code>make qemu disk=cdrom</code> - Boot Redox from a virtual CD-ROM disk.</li>
+<li><code>make qemu kvm=no</code> - Start QEMU without the <a href="https://en.wikipedia.org/wiki/Kernel-based_Virtual_Machine">Linux KVM</a> acceleration if it's not supported.</li>
+<li><code>make qemu iommu=yes</code> - Start QEMU with <a href="https://en.wikipedia.org/wiki/Input-output_memory_management_unit">IOMMU</a> enabled.</li>
+<li><code>make qemu gdb=yes</code> - Start QEMU with the GDB configuration enabled, you need to run the <code>make rp.gdbserver</code> command before to install the GDB server in the Redox image (persist until the next image creation) or add the <code>gdbserver</code> recipe on your filesystem configuration (<code>gdbserver = {}</code>) to persist in new images, then run the <code>make gdb</code> command in another shell to connect the GDB processes.</li>
+<li><code>make gdb</code> - Connects the host system GDB to the GDB server (<code>gdbserver</code> recipe) running inside of Redox in QEMU.</li>
+<li><code>make qemu option1=value option2=value</code> - Cumulative QEMU options are supported.</li>
+<li><code>make virtualbox</code> - Boot Redox in VirtualBox, it requires the VirtualBox service to be running, run <code>systemctl status vboxdrv.service</code> to verify or <code>akmods; systemctl restart vboxdrv.service</code> to enable on systems using systemd.</li>
+</ul>
+<h2 id="environment-variables"><a class="header" href="#environment-variables">Environment Variables</a></h2>
+<ul>
+<li><code>$(BUILD)</code> - Represents the <code>build</code> folder.</li>
+<li><code>$(ARCH)</code> - Represents the CPU architecture folder at <code>build</code></li>
+<li><code>${TARGET}</code> - Represents the CPU architecture folder at the <code>recipes/recipe-name/target</code> folder</li>
+<li><code>$(CONFIG_NAME)</code> - Represents your filesystem configuration folder at <code>build/your-cpu-arch</code></li>
+</ul>
+<p>We recommend that you use these variables with the <code>"</code> symbol to clean any spaces on the path, spaces are interpreted as command separators and will break the commands.</p>
+<p>Example:</p>
+<pre><code>"${VARIABLE_NAME}"
+</code></pre>
+<p>If you have a folder inside the variable folder you can call it with:</p>
+<pre><code>"${VARIABLE_NAME}"/folder-name
+</code></pre>
+<p>Or</p>
+<pre><code>"${VARIABLE_NAME}/folder-name"
+</code></pre>
+<h2 id="scripts"><a class="header" href="#scripts">Scripts</a></h2>
+<p>You can use these scripts to perform actions not implemented as <code>make</code> commands in the build system.</p>
+<ul>
+<li>To run a script use the following command:</li>
+</ul>
+<pre><code class="language-sh">scripts/script-name.sh input-text
+</code></pre>
+<p>The "input-text" is the word used by the script.</p>
+<h3 id="changelog"><a class="header" href="#changelog">Changelog</a></h3>
+<ul>
+<li><code>scripts/changelog.sh</code> - Show the changelog of all Redox components.</li>
+</ul>
+<h3 id="recipe-files"><a class="header" href="#recipe-files">Recipe Files</a></h3>
+<p>Show all files installed by a recipe.</p>
+<pre><code class="language-sh">scripts/find-recipe.sh recipe-name
+</code></pre>
+<h3 id="recipe-categories"><a class="header" href="#recipe-categories">Recipe Categories</a></h3>
+<p>Run <code>make</code> options on some recipe category.</p>
+<pre><code class="language-sh">scripts/category.sh -x category-name
+</code></pre>
+<p>Where <code>x</code> is your <code>make</code> option, it can be <code>f</code>, <code>r</code>, <code>c</code>, <code>u</code>, <code>cr</code>, <code>ur</code> or <code>uf</code></p>
+<h3 id="include-recipes"><a class="header" href="#include-recipes">Include Recipes</a></h3>
+<p>Create a list with <code>recipe-name = {} #TODO</code> for quick testing of WIP recipes.</p>
+<pre><code class="language-sh">scripts/include-recipes.sh "TODO.text"
+</code></pre>
+<p>You will insert the text after the <code>#TODO</code> in the <code>text</code> part, it can be found on the <code>recipe.toml</code> file of the recipe.</p>
+<p>If you want to add recipes to the <code>ci.toml</code> filesystem configuration to be available on the package build server, the recipe names must be sorted in alphabetical order, to do this from the output of this script use the following command:</p>
+<pre><code class="language-sh">scripts/include-recipes.sh "TODO.text" | sort
+</code></pre>
+<h3 id="recipe-analysis"><a class="header" href="#recipe-analysis">Recipe Analysis</a></h3>
+<p>Show the folders and files on the <code>stage</code> and <code>sysroot</code> folders of some recipe (to identify packaging issues or violations).</p>
+<pre><code class="language-sh">scripts/show-package.sh recipe-name
+</code></pre>
+<h3 id="recipe-commit-hash"><a class="header" href="#recipe-commit-hash">Recipe Commit Hash</a></h3>
+<p>Show the current Git branch and commit of the recipe source.</p>
+<pre><code class="language-sh">scripts/commit-hash.sh recipe-name
+</code></pre>
+<h3 id="package-size"><a class="header" href="#package-size">Package Size</a></h3>
+<p>Show the package size of the recipes (<code>stage.pkgar</code> and <code>stage.tar.gz</code>), it must be used by package maintainers to enforce the <a href="https://gitlab.redox-os.org/redox-os/cookbook#library-linking">library linking size policy</a>.</p>
+<pre><code class="language-sh">scripts/pkg-size.sh recipe-name
+</code></pre>
+<h3 id="recipe-location"><a class="header" href="#recipe-location">Recipe Location</a></h3>
+<p>Show the location of the written recipe.</p>
+<pre><code class="language-sh">scripts/recipe-path.sh recipe-name
+</code></pre>
+<h3 id="recipe-match"><a class="header" href="#recipe-match">Recipe Match</a></h3>
+<p>Search some text inside the <code>recipe.toml</code> of all recipes and show their content.</p>
+<p>(Require <code>bat</code> and <code>ripgrep</code> installed, run <code>cargo install bat ripgrep</code> to install)</p>
+<pre><code class="language-sh">scripts/recipe-match.sh "text"
+</code></pre>
+<h3 id="print-recipe"><a class="header" href="#print-recipe">Print Recipe</a></h3>
+<p>Show the content of the recipe configuration.</p>
+<pre><code class="language-sh">scripts/print-recipe.sh recipe-name
+</code></pre>
+<h3 id="recipe-executables"><a class="header" href="#recipe-executables">Recipe Executables</a></h3>
+<p>List the recipe executables to find duplicates and conflicts.</p>
+<ul>
+<li>By default the script will only verify duplicates, if the <code>-a</code> option is used it will print the executable names of all compiled recipes</li>
+<li>The <code>-arm64</code> option will show the ARM64 recipe executables</li>
+<li>The <code>-i586</code> option will show the i586 recipe executables</li>
+</ul>
+<pre><code class="language-sh">scripts/executables.sh
+</code></pre>
+<h3 id="cargo-update"><a class="header" href="#cargo-update">Cargo Update</a></h3>
+<p>Download the recipe source and run <code>cargo update</code></p>
+<pre><code class="language-sh">scripts/cargo-update.sh recipe-name
+</code></pre>
+<h3 id="dual-boot"><a class="header" href="#dual-boot">Dual Boot</a></h3>
+<ul>
+<li><code>scripts/dual-boot.sh</code> - Install Redox in the free space of your storage device and add a boot entry (if you are using the <a href="https://www.freedesktop.org/wiki/Software/systemd/systemd-boot/">systemd-boot</a> boot loader).</li>
+</ul>
+<h3 id="ventoy"><a class="header" href="#ventoy">Ventoy</a></h3>
+<ul>
+<li><code>scripts/ventoy.sh</code> - Create and copy the Redox bootable image to an <a href="https://www.ventoy.net/en/index.html">Ventoy</a>-formatted device.</li>
+</ul>
+<h3 id="recipe-debugging-rust"><a class="header" href="#recipe-debugging-rust">Recipe Debugging (Rust)</a></h3>
+<ul>
+<li><code>scripts/backtrace.sh</code> - Allow the user to copy a Rust backtrace from Redox and retrieve the symbols (use the <code>-h</code> option to show the "Usage" message).</li>
+</ul>
+<h2 id="git-auto-checkout"><a class="header" href="#git-auto-checkout">Git Auto-checkout</a></h2>
+<p>The <code>make rebuild</code> and <code>make r.recipe</code> commands will Git checkout (change the active branch) of the recipe source to <code>master</code> (only recipes that fetch Git repositories are affected, thus all Redox components).</p>
+<p>If you are working in a separated branch on the recipe source you can't build your changes, to avoid this comment out the <code>[source]</code> and <code>git =</code> fields from your <code>recipe.toml</code> :</p>
+<pre><code>#[source]
+#git = "some-repository-link"
+</code></pre>
+<h2 id="update-the-build-system"><a class="header" href="#update-the-build-system">Update The Build System</a></h2>
+<p>This is the recommended way to update your build system/recipe sources and binaries.</p>
+<pre><code class="language-sh">make pull rebuild
+</code></pre>
+<p>Sometimes you need to update the statically linked recipes manually with the <code>make static_clean rebuild</code> command or also rebuild all dynamically linked recipes with the <code>make repo_clean all</code> command.</p>
+<p>(The Podman container is updated automatically if upstream add new packages to the Containerfile, but you can also force the container image to be updated with the <code>make container_clean</code> command)</p>
+<h2 id="fix-breaking-changes"><a class="header" href="#fix-breaking-changes">Fix Breaking Changes</a></h2>
+<p>To learn how to fix breaking changes before and after build system updates read <a href="./troubleshooting.html#fix-breaking-changes">this</a> section.</p>
+<h3 id="all-recipes"><a class="header" href="#all-recipes">All recipes</a></h3>
+<p>To pass the new relibc changes for all recipes (programs are the most common case) you will need to rebuild all recipes, unfortunately it's not possible to use <code>make rebuild</code> because it can't detect the relibc changes to trigger a complete rebuild.</p>
+<p>To clean all recipe binaries and trigger a complete rebuild, run:</p>
+<pre><code class="language-sh">make clean all
+</code></pre>
+<h3 id="one-recipe"><a class="header" href="#one-recipe">One Recipe</a></h3>
+<p>To pass the new relibc changes to one recipe, run:</p>
+<pre><code class="language-sh">make cr.recipe-name
+</code></pre>
+<h2 id="configuration"><a class="header" href="#configuration">Configuration</a></h2>
+<p>You can find the global settings on the <a href="./configuration-settings.html">Configuration Settings</a> page.</p>
+<h3 id="format"><a class="header" href="#format">Format</a></h3>
+<p>The Redox configuration files use the <a href="https://toml.io/en/">TOML</a> format, it has a very easy syntax and is very flexbile.</p>
+<p>You can see what the format supports on the <a href="https://toml.io/en/v1.0.0">TOML</a> website.</p>
+<h3 id="filesystem-customization"><a class="header" href="#filesystem-customization">Filesystem Customization</a></h3>
+<p>Read the <a href="./configuration-settings.html#filesystem-customization">Filesystem Customization</a> section.</p>
+<h2 id="cross-compilation"><a class="header" href="#cross-compilation">Cross-Compilation</a></h2>
+<p>The Redox build system is an example of <a href="https://en.wikipedia.org/wiki/Cross_compiler">cross-compilation</a>. The Redox <a href="https://static.redox-os.org/toolchain/">toolchain</a> runs on Linux, and produces Redox executables. Anything that is installed with your package manager is just part of the toolchain and does not go on Redox.</p>
+<p>In the background, the <code>make all</code> command downloads the Redox toolchain to build all recipes (patched forks of rustc, GCC and LLVM).</p>
+<p>If you are using Podman, the <code>podman_bootstrap.sh</code> script will download an Ubuntu container and <code>make all</code> will install the Redox toolchain, all recipes will be compiled in the container.</p>
+<p>The recipes produce Redox-specific executables. At the end of the build process, these executables are installed inside the QEMU image.</p>
+<p>The <code>relibc</code> (Redox C Library) provides the Redox <a href="https://docs.rs/redox_syscall/latest/syscall/">system calls</a> to any software.</p>
+<ul>
+<li><a href="https://wiki.osdev.org/Why_do_I_need_a_Cross_Compiler%3F">OSDev article about cross-compilation</a></li>
+</ul>
+<h2 id="build-phases"><a class="header" href="#build-phases">Build Phases</a></h2>
+<p>Every build system command/script has phases, read this page to know them.</p>
+<ul>
+<li><a href="./build-phases.html">Build Phases</a></li>
+</ul>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="configuration-settings.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="advanced-podman-build.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="configuration-settings.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="advanced-podman-build.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="elasticlunr.min.js"></script>
+        <script src="mark.min.js"></script>
+        <script src="searcher.js"></script>
+
+        <script src="clipboard.min.js"></script>
+        <script src="highlight.js"></script>
+        <script src="book.js"></script>
+
+        <!-- Custom JS scripts -->
+
+
+
+    </div>
+    </body>
+</html>

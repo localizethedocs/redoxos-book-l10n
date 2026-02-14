@@ -1,0 +1,1436 @@
+<!DOCTYPE HTML>
+<html lang="en_US" class="light sidebar-visible" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Application Porting - The Redox Operating System</title>
+
+
+        <!-- Custom HTML head -->
+        <style>
+        .light .redox-logo {
+            content: url("assets/redox_light_512.png");
+        }
+        .rust .redox-logo {
+            content: url("assets/redox_light_512.png");
+        }
+        .coal .redox-logo {
+            content: url("assets/redox_dark_512.png");
+        }
+        .navy .redox-logo {
+            content: url("assets/redox_dark_512.png");
+        }
+        .ayu .redox-logo {
+            content: url("assets/redox_dark_512.png");
+        }
+        </style>
+        <script type="text/javascript" src="ltd-provenance.js"></script>
+        <script type="text/javascript" src="ltd-current.js"></script>
+        <script type="text/javascript" src="../../ltd-config.js"></script>
+        <script type="text/javascript" src="../../ltd-flyout.js"></script>
+
+        <meta name="description" content="This book carefully describes the design, implementation, direction, and structure of Redox, the operating system.">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="shortcut icon" href="favicon.png">
+        <link rel="stylesheet" href="css/variables.css">
+        <link rel="stylesheet" href="css/general.css">
+        <link rel="stylesheet" href="css/chrome.css">
+        <link rel="stylesheet" href="css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" id="highlight-css" href="highlight.css">
+        <link rel="stylesheet" id="tomorrow-night-css" href="tomorrow-night.css">
+        <link rel="stylesheet" id="ayu-highlight-css" href="ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+
+        <!-- Provide site root and default themes to javascript -->
+        <script>
+            const path_to_root = "";
+            const default_light_theme = "light";
+            const default_dark_theme = "navy";
+            window.path_to_searchindex_js = "searchindex.js";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="toc.js"></script>
+    </head>
+    <body>
+    <div id="mdbook-help-container">
+        <div id="mdbook-help-popup">
+            <h2 class="mdbook-help-title">Keyboard shortcuts</h2>
+            <div>
+                <p>Press <kbd>←</kbd> or <kbd>→</kbd> to navigate between chapters</p>
+                <p>Press <kbd>S</kbd> or <kbd>/</kbd> to search in the book</p>
+                <p>Press <kbd>?</kbd> to show this help</p>
+                <p>Press <kbd>Esc</kbd> to hide this help</p>
+            </div>
+        </div>
+    </div>
+    <div id="body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                let theme = localStorage.getItem('mdbook-theme');
+                let sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            const default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? default_dark_theme : default_light_theme;
+            let theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            let sidebar = null;
+            const sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+                sidebar_toggle.checked = false;
+            }
+            if (sidebar === 'visible') {
+                sidebar_toggle.checked = true;
+            } else {
+                html.classList.remove('sidebar-visible');
+            }
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="default_theme">Auto</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search (`/`)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="/ s" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">The Redox Operating System</h1>
+
+                    <div class="right-buttons">
+                        <a href="print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <div class="search-wrapper">
+                            <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                            <div class="spinner-wrapper">
+                                <i class="fa fa-spinner fa-spin"></i>
+                            </div>
+                        </div>
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1 id="application-porting"><a class="header" href="#application-porting">Application Porting</a></h1>
+<p>The <a href="./including-programs.html">Including Programs in Redox</a> page gives an example to port/modify a pure Rust program, in this page we explain the advanced way to port pure Rust programs, mixed Rust programs (Rust and C/C++ libraries, for example), C/C++ programs and others.</p>
+<p>(Before reading this page you must read the <a href="./build-system-reference.html">Build System</a> page)</p>
+<ul>
+<li><a href="#recipe">Recipe</a>
+<ul>
+<li><a href="#recipe-configuration-example">Recipe Configuration Example</a></li>
+<li><a href="#quick-recipe-template">Quick Recipe Template</a></li>
+</ul>
+</li>
+<li><a href="#cookbook">Cookbook</a>
+<ul>
+<li><a href="#cross-compiler">Cross Compiler</a></li>
+<li><a href="#cross-compilation">Cross Compilation</a></li>
+<li><a href="#templates">Templates</a></li>
+<li><a href="#metapackages">Metapackages</a></li>
+</ul>
+</li>
+<li><a href="#cookbook-custom-template">Cookbook - Custom Template</a>
+<ul>
+<li><a href="#functions">Functions</a></li>
+<li><a href="#environment-variables">Environment Variables</a>
+<ul>
+<li><a href="#quick-template">Quick Template</a></li>
+</ul>
+</li>
+<li><a href="#packaging-behavior">Packaging Behavior</a></li>
+<li><a href="#gnu-autotools-script">GNU Autotools script</a></li>
+<li><a href="#gnu-autotools-configuration-script">GNU Autotools configuration script</a></li>
+<li><a href="#cmake-script">CMake script</a></li>
+<li><a href="#meson-script">Meson script</a></li>
+<li><a href="#cargo-script">Cargo script</a></li>
+<li><a href="#analyze-the-source-code-of-a-rust-program">Analyze the source code of a Rust program</a></li>
+<li><a href="#cargo-packages-command-example">Cargo packages command example</a>
+<ul>
+<li><a href="#cargo-package-with-flags">Cargo package with flags</a></li>
+</ul>
+</li>
+<li><a href="#cargo-bins-script-example">Cargo bins script example</a></li>
+<li><a href="#cargo-flags-command-example">Cargo flags command example</a></li>
+<li><a href="#disable-the-default-cargo-flags">Disable the default Cargo flags</a></li>
+<li><a href="#enable-all-cargo-flags">Enable all Cargo flags</a></li>
+<li><a href="#cargo-profiles-command-example">Cargo profiles command example</a></li>
+<li><a href="#cargo-examples-command-example">Cargo examples command example</a>
+<ul>
+<li><a href="#cargo-examples-with-flags">Cargo examples with flags</a></li>
+</ul>
+</li>
+<li><a href="#rename-binaries">Rename binaries</a></li>
+<li><a href="#change-the-active-source-code-folder">Change the active source code folder</a></li>
+<li><a href="#configuration-files">Configuration files</a></li>
+<li><a href="#script-based-programs">Script-based programs</a>
+<ul>
+<li><a href="#adapted-scripts">Adapted scripts</a></li>
+<li><a href="#non-adapted-scripts">Non-adapted scripts</a></li>
+</ul>
+</li>
+<li><a href="#dynamically-linked-programs">Dynamically Linked Programs</a>
+<ul>
+<li><a href="#debugging">Debugging</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#sources">Sources</a>
+<ul>
+<li><a href="#tarballs">Tarballs</a>
+<ul>
+<li><a href="#build-system">Build System</a></li>
+<li><a href="#links">Links</a></li>
+</ul>
+</li>
+<li><a href="#git-repositories">Git Repositories</a>
+<ul>
+<li><a href="#github-release-commit-hash">GitHub release commit hash</a></li>
+<li><a href="#gitlab-release-commit-hash">GitLab release commit hash</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#dependencies">Dependencies</a>
+<ul>
+<li><a href="#bundled-libraries">Bundled Libraries</a></li>
+<li><a href="#submodules">Submodules</a></li>
+<li><a href="#environment-variables-1">Environment Variables</a></li>
+<li><a href="#configuration">Configuration</a>
+<ul>
+<li><a href="#arch-linux-and-aur">Arch Linux and AUR</a></li>
+<li><a href="#gentoo">Gentoo</a></li>
+</ul>
+</li>
+<li><a href="#build-tools">Build Tools</a></li>
+</ul>
+</li>
+<li><a href="#feature-flags">Feature Flags</a></li>
+<li><a href="#buildingtesting-the-program">Building/Testing The Program</a></li>
+<li><a href="#update-crates">Update crates</a>
+<ul>
+<li><a href="#one-or-more-crates">One or more crates</a></li>
+<li><a href="#all-crates">All crates</a></li>
+<li><a href="#verify-the-dependency-tree">Verify the dependency tree</a></li>
+</ul>
+</li>
+<li><a href="#patch-crates">Patch crates</a>
+<ul>
+<li><a href="#redox-forks">Redox forks</a></li>
+<li><a href="#local-patches">Local patches</a></li>
+</ul>
+</li>
+<li><a href="#cleanup">Cleanup</a></li>
+<li><a href="#search-text-on-recipes">Search Text On Recipes</a></li>
+<li><a href="#search-for-functions-on-relibc">Search for functions on relibc</a></li>
+<li><a href="#create-a-blake3-hash-for-your-recipe">Create a BLAKE3 hash for your recipe</a></li>
+<li><a href="#verify-the-size-of-your-package">Verify the size of your package</a></li>
+<li><a href="#submitting-mrs">Submitting MRs</a></li>
+<li><a href="#package-policy">Package Policy</a></li>
+</ul>
+<h2 id="recipe"><a class="header" href="#recipe">Recipe</a></h2>
+<p>A recipe is how we call a software port on Redox, this section explain the recipe configuration and details to consider.</p>
+<p>Create a folder at <code>recipes/program-category</code> with a file named as <code>recipe.toml</code> inside, we will modify this file to fit the program needs.</p>
+<ul>
+<li>Recipe creation from terminal with GNU Nano:</li>
+</ul>
+<pre><code class="language-sh">cd ~/tryredox/redox
+</code></pre>
+<pre><code class="language-sh">mkdir recipes/program-category/program-name
+</code></pre>
+<pre><code class="language-sh">nano recipes/program-category/program-name/recipe.toml
+</code></pre>
+<h3 id="recipe-configuration-example"><a class="header" href="#recipe-configuration-example">Recipe Configuration Example</a></h3>
+<p>The recipe configuration (<code>recipe.toml</code>) example below contain all supported recipe options. Adapt for your script, program, library or data files.</p>
+<p>TOML sections and data types can also be mentioned using the <code>section-name.data-type-name</code> format for easier explanation and better explanation writing.</p>
+<pre><code class="language-toml">[source]
+git = "repository-link" # source.git data type
+upstream = "repository-link" # source.upstream data type
+branch = "branch-name" # source.branch data type
+rev = "version-tag" # source.rev data type
+shallow_clone = true # source.shallow_clone data type
+tar = "tarball-link.tar.gz" # source.tar data type
+blake3 = "source-hash" # source.blake3 data type
+patches = [ # source.patches data type
+    "patch1.patch",
+    "patch2.patch",
+]
+same_as = "../program-name" # source.same_as data type
+script = """ # source.script data type
+insert your script here
+"""
+[build]
+template = "build-system" # build.template data type
+cargoflags = "--option-name" # build.cargoflags data type
+configureflags = [ # build.configureflags data type
+    "OPTION1=value",
+    "OPTION2=value",
+]
+cmakeflags = [ # build.cmakeflags data type
+    "-DOPTION1=value",
+    "-DOPTION2=value",
+]
+mesonflags = [ # build.mesonflags data type
+    "-Doption1=value",
+    "-Doption2=value",
+]
+dev-dependencies = [ # build.dev-dependencies data type
+    "host:tool1",
+    "host:tool2",
+]
+dependencies = [ # build.dependencies data type
+    "library1",
+    "library2",
+]
+script = """ # build.script data type
+# Uncomment the following if the package can be dynamically linked
+#DYNAMIC_INIT
+insert your script here
+"""
+[package]
+dependencies = [ # package.dependencies data type
+    "runtime-dependency1",
+    "runtime-dependency2",
+]
+</code></pre>
+<ul>
+<li><code>[source]</code> : Section for data types that manage the program source (only remove it if you have a <code>source</code> folder)</li>
+<li><code>source.git</code> : Git repository of the program (can be removed if a Git repository is not used), you can comment out it to not allow Cookbook to force a <code>git pull</code> or change the active branch to <code>master</code> or <code>main</code>. Read the <a href="#git-repositories">Git Repositories</a> section for more details.</li>
+<li><code>source.upstream</code> : If you are using a fork of the program source with patches add the program upstream source here (can be removed if the upstream source is being used on the <code>git</code> data type)</li>
+<li><code>source.branch</code> : Program version Git branch or patched Git branch (can be removed if using a tarball or the <code>master</code> or <code>main</code> Git branches are being used)</li>
+<li><code>source.rev</code> : Git tag or commit hash of the latest stable version or last working commit of the program (can be removed if you are using a tarball or waiting Rust library version updates)</li>
+<li><code>source.shallow_clone</code> : Boolean data type to only download the current commit of source files (Git <a href="https://github.blog/open-source/git/get-up-to-speed-with-partial-clone-and-shallow-clone/">shallow clone</a>), which can reduce the download/delta processing time a lot and save many storage space (insert <code>shallow_clone = true</code>). Read the note in the <a href="#git-repositories">Git Repositories</a> section if you are doing heavy development in a fork</li>
+<li><code>source.tar</code> : Program source tarball (can be removed if a tarball is not used), read the <a href="#tarballs">Tarballs</a> section for more details.</li>
+<li><code>source.blake3</code> : Program source tarball BLAKE3 hash, can be generated using the <code>b3sum</code> tool, install with the <code>cargo install b3sum</code> command (can be removed if using a Git repository or under porting)</li>
+<li><code>source.patches</code> : Data type to load <code>.patch</code> files (can be removed if patch files aren't used)</li>
+<li><code>"patch1.patch",</code> : The patch file name (can be removed if the <code>patches</code> data type above is not present)</li>
+<li><code>source.same_as</code> : Insert the folder of other recipe to make a symbolic link to the <code>source</code> folder of other recipe, useful if you want modularity with synchronization</li>
+<li><code>source.script</code> : Data type used when you need to change the build system configuration (to regenerate the GNU Autotools configuration, for example)</li>
+<li><code>[build]</code> : Section for data types that manage the program compilation and packaging</li>
+<li><code>build.template</code> : Insert the program build system, read the <a href="#templates">Templates</a> section for more details.</li>
+<li><code>build.cargoflags</code> : Data type for Cargo flags (string)</li>
+<li><code>build.configureflags</code> : Data type for GNU Autotools flags (array)</li>
+<li><code>build.cmakeflags</code> : Data type for CMake flags (array)</li>
+<li><code>build.mesonflags</code> : Data type for Meson flags (array)</li>
+<li><code>build.dev-dependencies</code> : Data type to add the build tools needed by the program or library</li>
+<li><code>build.dev-dependencies = ["host:tool1",]</code> : Build tool recipe name (can be removed if the <code>build.dev-dependencies</code> data type is not present)</li>
+<li><code>build.dependencies</code> : Data type to add dynamically or statically linked library dependencies, read the <a href="#dependencies">Dependencies</a> section for more details.</li>
+<li><code>build.dependencies = ["library1",]</code> : Library recipe name (can be removed if the <code>build.dependencies</code> data type is not present)</li>
+<li><code>build.script</code> : Data type to load the custom commands for compilation and packaging</li>
+<li><code>[package]</code> : Section for data types that manage the program package</li>
+<li><code>package.dependencies</code> : Data type to add tools, interpreters or "data files" recipes to be installed by the package manager or build system installer</li>
+<li><code>package.dependencies = ["runtime-dependency1",]</code> : Tool, interpreter or data recipe names (can be removed if the <code>package.dependencies</code> data type above is not present)</li>
+</ul>
+<h3 id="quick-recipe-template"><a class="header" href="#quick-recipe-template">Quick Recipe Template</a></h3>
+<p>This is a recipe template for a quick porting workflow.</p>
+<pre><code class="language-toml">#TODO not compiled or tested
+[source]
+git = "repository-link"
+rev = "version-tag"
+branch = "version-branch"
+tar = "tarball-link"
+shallow_clone = true
+[build]
+template = "build-system"
+dependencies = [
+    "library1",
+]
+</code></pre>
+<p>You can quickly copy and paste this template on each <code>recipe.toml</code>, that way you spent less time writting and has less chances for typos.</p>
+<ul>
+<li>If your program use a tarball, you can quickly remove the <code>git</code> and <code>rev</code> data types.</li>
+<li>If your program use a Git repository, you can quickly remove the <code>tar</code> data type.</li>
+<li>If you don't need to pin a Git tag or commit hash for the latest stable release or last working commit, you can quickly remove the <code>rev</code> data type.</li>
+<li>If the program don't need C, C++ or patched Rust dependencies, you can quickly remove the <code>dependencies = []</code> section.</li>
+</ul>
+<p>After the <code>#TODO</code> comment you will write your current porting status.</p>
+<h2 id="cookbook"><a class="header" href="#cookbook">Cookbook</a></h2>
+<p>The GCC and LLVM compiler frontends on Linux use the Linux target triplet by default, it will create Linux ELF binaries that don't work on Redox because it can't undertstand them.</p>
+<p>Part of this process is to use <code>glibc</code> (GNU C Standard Library) which don't support Redox system calls, to make the compiler use <code>relibc</code> (Redox C Standard Library) Cookbook need to tell the build system of the program or library to use it, it's done with environment variables and target/platform flags for the Redox target.</p>
+<p>Cookbook have build system templates to avoid custom commands for cross-compilation, but it's not always possible because some build systems or programs aren't standardized or adapted for cross-compilation.</p>
+<p>(Build systems have different methods to enable cross-compilation and pass a different C standard library to the compiler, you will need to read their documentation, program/library specific configuration or hack them)</p>
+<h3 id="cross-compiler"><a class="header" href="#cross-compiler">Cross Compiler</a></h3>
+<p>Cookbook use Rust/GCC forks to do cross-compilation of recipes (programs) with <code>relibc</code> to any supported CPU architecture, you can check our cross-compilers on GitLab (<a href="https://gitlab.redox-os.org/redox-os/gcc">GCC</a>, <a href="https://gitlab.redox-os.org/redox-os/llvm-project">LLVM</a>, <a href="https://gitlab.redox-os.org/redox-os/rust">Rust</a> and their <a href="https://static.redox-os.org/toolchain/">pre-compiled binaries</a>).</p>
+<h3 id="cross-compilation"><a class="header" href="#cross-compilation">Cross Compilation</a></h3>
+<p>The Cookbook default compilation type is cross-compilation because it reduces the requirements to run programs on Redox and allow us to do Redox development from Linux and other Unix-like systems.</p>
+<p>By default Cookbook use the CPU architecture of your host system but you can change it easily on your <code>.config</code> file (<code>ARCH?</code> environment variable).</p>
+<ul>
+<li>Don't use a hardcoded CPU architecture in the <code>script</code> data types of your <code>recipe.toml</code>, it breaks cross-compilation with a different CPU architecture is used by the build system.</li>
+<li>All recipes must use our cross-compilers, a Cookbook template does this automatically but it's not always possible, read the build system configuration of your program/library to find these options or patch the configuration files.</li>
+</ul>
+<h3 id="templates"><a class="header" href="#templates">Templates</a></h3>
+<p>A recipe template is the build system of the program or library supported by Cookbook.</p>
+<ul>
+<li><code>template = "cargo"</code> - Build with Cargo using cross-compilation and static linking (Rust programs with one package in the Cargo workspace).</li>
+<li><code>template = "configure"</code> - Build with GNU Autotools/GNU Make using cross-compilation and dynamic linking.</li>
+<li><code>template = "cmake"</code> - Build with CMake using cross-compilation and dynamic linking.</li>
+<li><code>template = "meson"</code> - Build with Meson using cross-compilation and dynamic linking.</li>
+<li><code>template = "remote"</code> - Download the remote Redox package of the recipe if available in the <a href="https://static.redox-os.org/pkg/">package server</a></li>
+<li><code>template = "custom"</code> - Run your commands on the <code>script =</code> field and build (Any build system or installation process).</li>
+</ul>
+<p>Keep in mind that some recipes may need build tools that aren't provided by the build system templates or not installed in the Podman container or your system and will need to be added in the <code>dev.dependencies</code> data type of the recipe, don't add build tools or compilers already provided by the templates.</p>
+<p>The <code>script =</code> field runs any terminal command supported by GNU Bash, it's important if the build system of the program don't support cross-compilation or need custom options to work on Redox (you can't use the <code>build.script</code> data type if the <code>custom</code> template is not used).</p>
+<p>Each template (except <code>custom</code>) script supports build flags, you can add flags as an array of strings:</p>
+<ul>
+<li><code>cargoflags = "foo"</code></li>
+<li><code>configureflags = [ "foo" ]</code></li>
+<li><code>cmakeflags = [ "foo" ]</code></li>
+<li><code>mesonflags = [ "foo" ]</code></li>
+</ul>
+<p>To find the supported Cookbook Bash functions, look the recipes using a <code>script =</code> field on their <code>recipe.toml</code> or read the <a href="https://gitlab.redox-os.org/redox-os/redox/-/tree/master/src">source code</a>.</p>
+<ul>
+<li><a href="https://gitlab.redox-os.org/redox-os/redox/-/tree/master/recipes">Recipes</a></li>
+</ul>
+<h4 id="cases"><a class="header" href="#cases">Cases</a></h4>
+<ul>
+<li>Programs using the Cargo build system have a <code>Cargo.toml</code> file</li>
+<li>Programs using the GNU Autotools build system have a <code>configure</code> or <code>autogen.sh</code> file in the source tarball</li>
+<li>Programs using the CMake build system have a <code>CMakeLists.txt</code> file</li>
+<li>Programs using the Meson build system have a <code>meson.build</code> file</li>
+</ul>
+<h3 id="metapackages"><a class="header" href="#metapackages">Metapackages</a></h3>
+<p>Metapackages are packages without any files, just dependencies. Use the following recipe example to create a metapackage:</p>
+<pre><code class="language-toml">[package]
+dependencies = [
+    "package1",
+    "package2",
+]
+</code></pre>
+<h2 id="cookbook---custom-template"><a class="header" href="#cookbook---custom-template">Cookbook - Custom Template</a></h2>
+<p>The <code>custom</code> template enable the <code>build.script =</code> data type to be used, this data type will run any command supported by the <a href="https://www.gnu.org/software/bash/">GNU Bash</a> shell. The shell script will be wrapped with Bash functions and variables to aid the build script. The wrapper can be found in <a href="https://gitlab.redox-os.org/redox-os/-/blob/master/src/bin/cook.rs">this Cookbook source file</a>.</p>
+<ul>
+<li>Script example</li>
+</ul>
+<pre><code class="language-toml">[build]
+script = """
+first-command
+second-command
+"""
+</code></pre>
+<p>The script section starts at the location of the <code>${COOKBOOK_BUILD}</code> environment variable (<code>recipe-name/target/$TARGET/build</code>). This <code>${COOKBOOK_BUILD}</code> will be an empty folder, while recipe sources are in <code>${COOKBOOK_SOURCE}</code>. It is expected that the build script will not modify anything in <code>${COOKBOOK_SOURCE}</code>, otherwise, please use the <code>source.script = </code> data type.</p>
+<h3 id="functions"><a class="header" href="#functions">Functions</a></h3>
+<p>Each template has a Bash function to be used in the <code>script</code> data type when you need to customize the template configuration to fix the program compilation or enable/disable features.</p>
+<ul>
+<li><code>cookbook_cargo</code> - Bash function of the <code>cargo</code> template</li>
+<li><code>cookbook_configure</code> - Bash function of the <code>configure</code> template</li>
+<li><code>cookbook_cmake</code> - Bash function of the <code>cmake</code> template</li>
+<li><code>cookbook_meson</code> - Bash function of the <code>meson</code> template</li>
+<li><code>DYNAMIC_INIT</code> - Bash function to configure the recipe to be dynamically linked</li>
+<li><code>DYNAMIC_STATIC_INIT</code> - Bash function to configure the recipe to be both statically and dynamically linked (library recipe only)</li>
+</ul>
+<h3 id="environment-variables"><a class="header" href="#environment-variables">Environment Variables</a></h3>
+<p>These variables available in the script:</p>
+<ul>
+<li>
+<p><code>${TARGET}</code> - Redox compiler triple target (<code>$ARCH-unknown-redox</code>)</p>
+</li>
+<li>
+<p><code>${GNU_TARGET}</code> - Redox compiler triple target (GNU variant)</p>
+</li>
+<li>
+<p><code>${COOKBOOK_MAKE_JOBS}</code> - Total CPU threads available</p>
+</li>
+<li>
+<p><code>${COOKBOOK_RECIPE}</code> - Recipe folder.</p>
+</li>
+<li>
+<p><code>${COOKBOOK_ROOT}</code> - The Cookbook directory.</p>
+</li>
+<li>
+<p><code>${COOKBOOK_SOURCE}</code> - The <code>source</code> folder at <code>recipe-name/source</code> (program source).</p>
+</li>
+<li>
+<p><code>${COOKBOOK_SYSROOT}</code> - The <code>sysroot</code> folder at <code>recipe-name/target/$TARGET/sysroot</code> (library sources).</p>
+</li>
+<li>
+<p><code>${COOKBOOK_BUILD}</code> - The <code>build</code> folder at <code>recipe-name/target/$TARGET/build</code> (recipe build system).</p>
+</li>
+<li>
+<p><code>${COOKBOOK_STAGE}</code> - The <code>stage</code> folder at <code>recipe-name/target/$TARGET/stage</code> (recipe binaries).</p>
+</li>
+<li>
+<p>For RISC-V, <code>${TARGET}</code> and <code>${GNU_TARGET}</code> is <code>riscv64gc-unknown-redox</code> and <code>riscv64-unknown-redox</code>, usually you want <code>${TARGET}</code> unless the script requires a GNU target triple.</p>
+</li>
+<li>
+<p>To get <code>$ARCH</code>, you need to add <code>ARCH="${TARGET%%-*}"</code> to the beginning of the script.</p>
+</li>
+</ul>
+<p>There are more variables depending on the build script that you are using.</p>
+<p>We recommend that you use path environment variables with the <code>"</code> symbol to clean any invalid characters (like spaces) on the path, spaces are interpreted as command separators and will break the path.</p>
+<p>Example:</p>
+<pre><code class="language-sh">"${VARIABLE_NAME}"
+</code></pre>
+<p>If you have a folder inside the variable folder you can call it with:</p>
+<pre><code class="language-sh">"${VARIABLE_NAME}"/folder-name
+</code></pre>
+<p>Or</p>
+<pre><code class="language-sh">"${VARIABLE_NAME}/folder-name"
+</code></pre>
+<h4 id="quick-template"><a class="header" href="#quick-template">Quick Template</a></h4>
+<p>You can quickly copy these environment variables from this section.</p>
+<pre><code class="language-sh">"${COOKBOOK_SOURCE}/"
+</code></pre>
+<pre><code class="language-sh">"${COOKBOOK_BUILD}/"
+</code></pre>
+<pre><code class="language-sh">"${COOKBOOK_SYSROOT}/"
+</code></pre>
+<pre><code class="language-sh">"${COOKBOOK_STAGE}/"
+</code></pre>
+<h3 id="packaging-behavior"><a class="header" href="#packaging-behavior">Packaging Behavior</a></h3>
+<p>Cookbook download the recipe sources on the <code>source</code> folder (<code>recipe-name/source</code>), copy the contents of this folder to the <code>build</code> folder (<code>recipe-name/target/$TARGET/build</code>), build the sources and move the binaries to the <code>stage</code> folder (<code>recipe-name/target/$TARGET/stage</code>).</p>
+<p>If your recipe has library dependencies, it will copy the library source and linker objects to the <code>sysroot</code> folder to be used by the <code>build</code> folder.</p>
+<ul>
+<li>Moving the program files to the Redox filesystem</li>
+</ul>
+<p>The <code>"${COOKBOOK_STAGE}"/</code> path is used to specify where the recipe files will be stored in the Redox filesystem, in most cases <code>/usr/bin</code> and <code>/usr/lib</code>.</p>
+<p>You can see path examples for most customized recipes below:</p>
+<pre><code class="language-sh">"${COOKBOOK_STAGE}"/ # The root of the Redox build system
+"${COOKBOOK_STAGE}"/usr/bin # System-wide executables directory
+"${COOKBOOK_STAGE}"/usr/lib # System-wide shared and static library objects directory
+"${COOKBOOK_STAGE}"/usr/share # System-wide application static data files
+"${COOKBOOK_STAGE}"/etc # System-wide application static configuration files
+</code></pre>
+<h3 id="gnu-autotools-script"><a class="header" href="#gnu-autotools-script">GNU Autotools script</a></h3>
+<p>Use this script if the program or library needs to be compiled with custom options</p>
+<ul>
+<li>Configure with dynamic linking</li>
+</ul>
+<pre><code class="language-toml">script = """
+DYNAMIC_INIT
+COOKBOOK_CONFIGURE_FLAGS+=(
+    --option1
+    --option2
+)
+cookbook_configure
+"""
+</code></pre>
+<ul>
+<li>GNU Make without Configure</li>
+</ul>
+<pre><code class="language-toml">script = """
+DYNAMIC_INIT
+COOKBOOK_CONFIGURE_FLAGS+=(
+    --option1
+    --option2
+)
+COOKBOOK_CONFIGURE="true"
+
+rsync -av --delete "${COOKBOOK_SOURCE}/" ./
+cookbook_configure
+"""
+</code></pre>
+<p>Definition of <code>cookbook_configure</code> is roughly:</p>
+<pre><code class="language-sh">function cookbook_configure {
+    "${COOKBOOK_CONFIGURE}" "${COOKBOOK_CONFIGURE_FLAGS[@]}" "$@"
+    "${COOKBOOK_MAKE}" -j "${COOKBOOK_MAKE_JOBS}"
+    "${COOKBOOK_MAKE}" install DESTDIR="${COOKBOOK_STAGE}"
+}
+</code></pre>
+<h3 id="gnu-autotools-configuration-script"><a class="header" href="#gnu-autotools-configuration-script">GNU Autotools configuration script</a></h3>
+<p>Sometimes the program tarball or repository is lacking the <code>configure</code> script or it need to be recreated for dynamic linking, so you will need to generate this script.</p>
+<ul>
+<li>Add the following code below the <code>[source]</code> section</li>
+</ul>
+<pre><code class="language-toml">script = """
+autotools_recursive_regenerate
+"""
+</code></pre>
+<h3 id="cmake-script"><a class="header" href="#cmake-script">CMake script</a></h3>
+<p>Use this script for programs using the CMake build system, more CMake options can be added with a <code>-D</code> before them, the customization of CMake compilation is very easy.</p>
+<ul>
+<li>CMake using dynamic linking</li>
+</ul>
+<pre><code class="language-toml">script = """
+DYNAMIC_INIT
+COOKBOOK_CMAKE_FLAGS+=(
+    -DOPTION1=value
+    -DOPTION2=value
+)
+cookbook_cmake
+"""
+</code></pre>
+<ul>
+<li>CMake inside a subfolder</li>
+</ul>
+<pre><code class="language-toml">script = """
+DYNAMIC_INIT
+COOKBOOK_CMAKE_FLAGS+=(
+    -DOPTION1=value
+    -DOPTION2=value
+)
+cookbook_cmake "${COOKBOOK_SOURCE}"/subfolder
+"""
+</code></pre>
+<p>Definition of <code>cookbook_cmake</code> is roughly:</p>
+<pre><code class="language-sh">function cookbook_cmake {
+    "${COOKBOOK_CMAKE}" "${COOKBOOK_SOURCE}" \
+        "${COOKBOOK_CMAKE_FLAGS[@]}" \
+        "$@"
+
+    "${COOKBOOK_NINJA}" -j"${COOKBOOK_MAKE_JOBS}"
+    DESTDIR="${COOKBOOK_STAGE}" "${COOKBOOK_NINJA}" install -j"${COOKBOOK_MAKE_JOBS}"
+}
+</code></pre>
+<h3 id="meson-script"><a class="header" href="#meson-script">Meson script</a></h3>
+<p>Use this script for programs using the Meson build system, more Meson options can be added with a <code>-D</code> before them, the customization of Meson compilation is very easy.</p>
+<p>Keep in mind that some programs and libraries need more configuration to work.</p>
+<ul>
+<li>Meson using dynamic linking</li>
+</ul>
+<pre><code class="language-toml">script = """
+DYNAMIC_INIT
+COOKBOOK_MESON_FLAGS+=(
+    -Doption1=value
+    -Doption2=value
+)
+cookbook_meson
+"""
+</code></pre>
+<ul>
+<li>Meson inside a subfolder</li>
+</ul>
+<pre><code class="language-toml">script = """
+DYNAMIC_INIT
+COOKBOOK_MESON_FLAGS+=(
+    -Doption1=value
+    -Doption2=value
+)
+cookbook_meson "${COOKBOOK_SOURCE}"/subfolder
+"""
+</code></pre>
+<h3 id="cargo-script"><a class="header" href="#cargo-script">Cargo script</a></h3>
+<p>Use this script if you need to customize the <code>cookbook_cargo</code> function.</p>
+<pre><code class="language-toml">script = """
+DYNAMIC_INIT
+COOKBOOK_CARGO_FLAGS=(
+    --bin foo
+)
+PACKAGE_PATH="subfolder" cookbook_cargo "${COOKBOOK_CARGO_FLAGS[@]}"
+"""
+</code></pre>
+<p>If the project is roughly a simple Cargo project then <code>cookbook_cargo</code> is all that you need.</p>
+<pre><code class="language-toml">script = """
+DYNAMIC_INIT
+cookbook_cargo
+"""
+</code></pre>
+<h3 id="analyze-the-source-code-of-a-rust-program"><a class="header" href="#analyze-the-source-code-of-a-rust-program">Analyze the source code of a Rust program</a></h3>
+<p>Rust programs and libraries use the <code>Cargo.toml</code> configuration file to configure the build system and source code.</p>
+<p>While packaging Rust programs you need to know where the main executable is located in the Cargo project, to do this you need to verify the <code>Cargo.toml</code> files of the project.</p>
+<p>A Rust program can have one or more Cargo packages to build, read the common assumptions below:</p>
+<ul>
+<li>Most Rust programs with a <code>src</code> folder use one Cargo package, thus you can use the <code>cargo</code> template.</li>
+<li>Most Rust programs with multiple Cargo packages name the main package with the name of the program.</li>
+</ul>
+<p>Beyond these common source code organization, there are special cases.</p>
+<ul>
+<li>In some Rust programs the <code>Cargo.toml</code> file contains one of these data types:</li>
+</ul>
+<pre><code class="language-toml">[[bin]]
+name = "executable-name"
+[[lib]]
+name = "library-object-name"
+</code></pre>
+<p>The <code>[[bin]]</code> is what you need, the program executable is built by this Cargo package.</p>
+<p>But some programs don't have the <code>[[bin]]</code> and <code>[[lib]]</code> data types, for these cases you need to see the source code files, in most cases at the <code>src</code> folder.</p>
+<ul>
+<li>The file named <code>main.rs</code> contains the program executable code.</li>
+<li>The file named <code>lib.rs</code> contains the library object code (ignore it).</li>
+</ul>
+<p>(Some Rust programs use packages instead of example files for examples, to discover that see if the "examples" folder has <code>.rs</code> files (examples files) or folders with <code>Cargo.toml</code> files inside (packages) )</p>
+<h3 id="cargo-packages-command-example"><a class="header" href="#cargo-packages-command-example">Cargo packages command example</a></h3>
+<p>This command is used for Rust programs that use package folders inside the repository for compilation, you need to use the name on the <code>name</code> field below the <code>[package]</code> section of the <code>Cargo.toml</code> file inside the package folder (generally using the same name of the program).</p>
+<p>(This will fix the "found virtual manifest instead of package manifest" error)</p>
+<pre><code class="language-toml">script = """
+DYNAMIC_INIT
+cookbook_cargo_packages program-name
+"""
+</code></pre>
+<p>(You can use <code>cookbook_cargo_packages program1 program2</code> if it's more than one package)</p>
+<h4 id="cargo-package-with-flags"><a class="header" href="#cargo-package-with-flags">Cargo package with flags</a></h4>
+<p>If you need a script for a package with flags (customization), you can use this script:</p>
+<pre><code class="language-toml">script = """
+DYNAMIC_INIT
+package=package-name
+"${COOKBOOK_CARGO}" build \
+            --manifest-path "${COOKBOOK_SOURCE}/Cargo.toml" \
+            --package "${package}" \
+            --release \
+            --add-your-flag-here
+        mkdir -pv "${COOKBOOK_STAGE}/usr/bin"
+        cp -v \
+            "target/${TARGET}/release/${package}" \
+            "${COOKBOOK_STAGE}/usr/bin/${package}"
+"""
+</code></pre>
+<ul>
+<li>The <code>package-name</code> after <code>package=</code> is where you will insert the Cargo package name of your program.</li>
+<li>The <code>--add-your-flag-here</code> will be replaced by the program flag.</li>
+</ul>
+<h3 id="cargo-bins-script-example"><a class="header" href="#cargo-bins-script-example">Cargo bins script example</a></h3>
+<p>Some Rust programs use bins instead of packages to build, to build them you can use this script:</p>
+<pre><code class="language-toml">script = """
+DYNAMIC_INIT
+binary=bin-name
+"${COOKBOOK_CARGO}" build \
+            --manifest-path "${COOKBOOK_SOURCE}/Cargo.toml" \
+            --bin "${binary}" \
+            --release \
+            --add-your-flag-here
+        mkdir -pv "${COOKBOOK_STAGE}/usr/bin"
+        cp -v \
+            "target/${TARGET}/release/${binary}" \
+            "${COOKBOOK_STAGE}/usr/bin/${binary}"
+"""
+</code></pre>
+<ul>
+<li>The <code>bin-name</code> after <code>binary=</code> is where you will insert the Cargo package name of your program.</li>
+<li>The <code>--add-your-flag-here</code> will be replaced by the program flags.</li>
+</ul>
+<h3 id="cargo-flags-command-example"><a class="header" href="#cargo-flags-command-example">Cargo flags command example</a></h3>
+<p>Some Rust programs have flags for customization, you can find them below the <code>[features]</code> section in the <code>Cargo.toml</code> file.</p>
+<pre><code class="language-toml">script = """
+DYNAMIC_INIT
+cookbook_cargo --features flag-name
+"""
+</code></pre>
+<h3 id="disable-the-default-cargo-flags"><a class="header" href="#disable-the-default-cargo-flags">Disable the default Cargo flags</a></h3>
+<p>It's common that some flag of the program doesn't work on Redox, if you don't want to spend much time testing flags that work and don't work, you can disable all of them to see if the most basic featureset of the program works with this script:</p>
+<pre><code class="language-toml">script = """
+DYNAMIC_INIT
+cookbook_cargo --no-default-features
+"""
+</code></pre>
+<h3 id="enable-all-cargo-flags"><a class="header" href="#enable-all-cargo-flags">Enable all Cargo flags</a></h3>
+<p>If you want to enable all flags of the program, use:</p>
+<pre><code class="language-toml">script = """
+DYNAMIC_INIT
+cookbook_cargo --all-features
+"""
+</code></pre>
+<h3 id="cargo-profiles-command-example"><a class="header" href="#cargo-profiles-command-example">Cargo profiles command example</a></h3>
+<p>This script is used for Rust programs using Cargo profiles.</p>
+<pre><code class="language-toml">script = """
+DYNAMIC_INIT
+cookbook_cargo --profile profile-name
+"""
+</code></pre>
+<h3 id="cargo-examples-command-example"><a class="header" href="#cargo-examples-command-example">Cargo examples command example</a></h3>
+<p>This script is used for examples on Rust programs.</p>
+<pre><code class="language-toml">script = """
+DYNAMIC_INIT
+cookbook_cargo_examples example-name
+"""
+</code></pre>
+<p>(You can use <code>cookbook_cargo_examples example1 example2</code> if it's more than one example)</p>
+<h4 id="cargo-examples-with-flags"><a class="header" href="#cargo-examples-with-flags">Cargo examples with flags</a></h4>
+<p>This script is used for Cargo examples with flags.</p>
+<pre><code class="language-toml">script = """
+DYNAMIC_INIT
+recipe="$(basename "${COOKBOOK_RECIPE}")"
+    for example in example1 example2
+    do
+        "${COOKBOOK_CARGO}" build \
+            --manifest-path "${COOKBOOK_SOURCE}/${PACKAGE_PATH}/Cargo.toml" \
+            --example "${example}" \
+            --release \
+            --add-your-flag-here
+        mkdir -pv "${COOKBOOK_STAGE}/usr/bin"
+        cp -v \
+            "target/${TARGET}/${build_type}/examples/${example}" \
+            "${COOKBOOK_STAGE}/usr/bin/${recipe}_${example}"
+    done
+"""
+</code></pre>
+<p>(Replace the <code>example1</code> item and others with the example names, if the program has only one example you can remove the <code>example2</code> item)</p>
+<h3 id="rename-binaries"><a class="header" href="#rename-binaries">Rename binaries</a></h3>
+<p>Some programs or examples use generic names for their executable files which could cause conflicts in the package installation process, to avoid this use the following command after the compilation or installation commands:</p>
+<pre><code class="language-sh">mv "${COOKBOOK_STAGE}/usr/bin/binary-name" "${COOKBOOK_STAGE}/usr/bin/new-binary-name"
+</code></pre>
+<ul>
+<li>Duplicated names</li>
+</ul>
+<p>Some recipes for Rust programs can duplicate the program name in the executable (<code>name_name</code>), you can also use the command above to fix these cases.</p>
+<h3 id="change-the-active-source-code-folder"><a class="header" href="#change-the-active-source-code-folder">Change the active source code folder</a></h3>
+<p>Sometimes a program don't store the source code on the root of the Git repository, but in a subfolder.</p>
+<p>For these cases you need to change the directory of the <code>${COOKBOOK_SOURCE}</code> environment variable in the beginning of the <code>build.script</code> data type, to do this add the following command on your recipe script:</p>
+<pre><code class="language-sh">COOKBOOK_SOURCE="${COOKBOOK_SOURCE}/subfolder-name"
+</code></pre>
+<ul>
+<li>An example for a Rust program:</li>
+</ul>
+<pre><code class="language-toml">script = """
+DYNAMIC_INIT
+COOKBOOK_SOURCE="${COOKBOOK_SOURCE}/subfolder-name"
+cookbook_cargo
+"""
+</code></pre>
+<h3 id="configuration-files"><a class="header" href="#configuration-files">Configuration Files</a></h3>
+<p>Some programs require to setup configuration files from the source code or tarball, to setup them use the following script example:</p>
+<pre><code class="language-toml">[build]
+template = "custom"
+script = """
+DYNAMIC_INIT
+cookbook build system function or custom build system commands
+mkdir -pv "${COOKBOOK_STAGE}"/usr/share # create the /usr/share folder inside the package
+cp -rv "${COOKBOOK_SOURCE}"/configuration-file "${COOKBOOK_STAGE}"/usr/share # copy the configuration file from the program source code to the package
+"""
+</code></pre>
+<p>Modify the script above to your needs.</p>
+<h3 id="script-based-programs"><a class="header" href="#script-based-programs">Script-based programs</a></h3>
+<p>Read the following scripts to package interpreted programs.</p>
+<h4 id="adapted-scripts"><a class="header" href="#adapted-scripts">Adapted scripts</a></h4>
+<p>This script is for scripts adapted to be packaged, they contain shebangs and renamed the file to remove the script extension.</p>
+<p>(Some programs and libraries need more configuration to work)</p>
+<ul>
+<li>One script</li>
+</ul>
+<pre><code class="language-toml">script = """
+mkdir -pv "${COOKBOOK_STAGE}"/usr/bin
+cp "${COOKBOOK_SOURCE}"/script-name "${COOKBOOK_STAGE}"/usr/bin/script-name
+chmod a+x "${COOKBOOK_STAGE}"/usr/bin/script-name
+"""
+</code></pre>
+<p>This script will move the script from the <code>source</code> folder to the <code>stage</code> folder and mark it as executable to be packaged.</p>
+<p>(Probably you need to mark it as executable, we don't know if all scripts carry executable permission)</p>
+<ul>
+<li>Multiple scripts</li>
+</ul>
+<pre><code class="language-toml">script = """
+mkdir -pv "${COOKBOOK_STAGE}"/usr/bin
+cp "${COOKBOOK_SOURCE}"/* "${COOKBOOK_STAGE}"/usr/bin
+chmod a+x "${COOKBOOK_STAGE}"/usr/bin/*
+"""
+</code></pre>
+<p>This script will move the scripts from the <code>source</code> folder to the <code>stage</code> folder and mark them as executable to be packaged.</p>
+<h4 id="non-adapted-scripts"><a class="header" href="#non-adapted-scripts">Non-adapted scripts</a></h4>
+<p>You need to use the following script examples for scripts not adapted for packaging, you need to add shebangs, rename the file to remove the script extension (<code>.py</code>) and mark as executable (<code>chmod a+x</code>).</p>
+<p>(Some programs and libraries need more configuration to work)</p>
+<ul>
+<li>Python script example</li>
+</ul>
+<pre><code class="language-toml">script = """
+mkdir -pv "${COOKBOOK_STAGE}"/usr/bin
+cp "${COOKBOOK_SOURCE}"/script-name.py "${COOKBOOK_STAGE}"/usr/bin/script-name
+chmod a+x "${COOKBOOK_STAGE}"/usr/bin/script-name
+"""
+</code></pre>
+<p>(Rename the "script-name" parts with your script name and the <code>.py</code> extension for your script programming language extension if needed)</p>
+<p>This script will rename your script name, make it executable and package.</p>
+<ul>
+<li>Multiple scripts</li>
+</ul>
+<pre><code class="language-toml">script = """
+mkdir -pv "${COOKBOOK_STAGE}"/usr/bin
+for script in "${COOKBOOK_SOURCE}"/*
+do
+  shortname=`basename "$script" ".py"`
+  cp -v "$script" "${COOKBOOK_STAGE}"/usr/bin/"$shortname"
+  chmod a+x "${COOKBOOK_STAGE}"/usr/bin/"$shortname"
+done
+"""
+</code></pre>
+<p>This script will rename all scripts to remove the <code>.py</code> extension, mark all scripts as executable and package.</p>
+<ul>
+<li>Shebang</li>
+</ul>
+<p>It's the magic behind executable scripts as it make the system interpret the script as an common executable, if your script doesn't have a shebang on the beginning it can't be launched like an conventional compiled program executable.</p>
+<p>To allow this use the following script:</p>
+<pre><code class="language-toml">script = """
+mkdir -pv "${COOKBOOK_STAGE}"/usr/bin
+cp "${COOKBOOK_SOURCE}"/script-name.py "${COOKBOOK_STAGE}"/usr/bin/script-name
+sed -i '1 i\#!/usr/bin/env python3' "${COOKBOOK_STAGE}"/usr/bin/script-name
+chmod a+x "${COOKBOOK_STAGE}"/usr/bin/script-name
+"""
+</code></pre>
+<p>The <code>sed -i '1 i\#!/usr/bin/env python3' "${COOKBOOK_STAGE}"/usr/bin/script-name</code> command will add the shebang on the beginning of your script.</p>
+<p>The <code>python3</code> is the script interpreter in this case, use <code>bash</code> or <code>lua</code> or whatever interpreter is appropriate for your case.</p>
+<p>There are many combinations for these script examples: you can download scripts without the <code>[source]</code> section, make customized installations, etc.</p>
+<h3 id="dynamically-linked-programs"><a class="header" href="#dynamically-linked-programs">Dynamically Linked Programs</a></h3>
+<p>The <code>DYNAMIC_INIT</code> acts as a marker that indicates the recipe can be
+dynamically linked. It automatically sets <code>LDFLAGS</code> and <code>RUSTFLAGS</code> based on
+the preferred linkage. See the environment variables section under
+configuration settings for more information.</p>
+<p>In most cases if you want to use dynamic linking for a recipe just prepend
+<code>DYNAMIC_INIT</code> in the recipe script. Depending on the recipe,
+this <em>should</em> suffice. However, sometimes you <em>may</em> need to regenerate the GNU Autotools configuration,
+which you can do by invoking the <code>autotools_recursive_regenerate</code> helper function
+after <code>DYNAMIC_INIT</code> (See the examples below). This is to make sure the build
+system uses our <code>libtool</code> fork. In other cases, more
+recipe-specific modification may be required.</p>
+<h4 id="example"><a class="header" href="#example">Example</a></h4>
+<pre><code class="language-diff"># &lt;...snip...&gt;
+
+[build]
+template = "custom"
+script = """
++DYNAMIC_INIT
+cookbook_configure
+"""
+</code></pre>
+<pre><code class="language-diff"># &lt;...snip...&gt;
+[source]
++script = """
++DYNAMIC_INIT
++autotools_recursive_regenerate
++"""
+
+[build]
+template = "custom"
+script = """
++DYNAMIC_INIT
++cookbook_configure
+"""
+</code></pre>
+<p>Dynamically linked programs depend on shared libraries at runtime. To
+include these libraries, you must add them in the <code>build.dependencies</code> data type.</p>
+<h4 id="example-1"><a class="header" href="#example-1">Example</a></h4>
+<pre><code class="language-toml"># &lt;...snip...&gt;
+
+[build]
+dependencies = [
+    "libmpc",
+    "libgmp",
+]
+</code></pre>
+<h3 id="troubleshooting"><a class="header" href="#troubleshooting">Troubleshooting</a></h3>
+<ul>
+<li>Why the dynamic linker (<code>ld.so</code>) is not finding my library?</li>
+</ul>
+<p>Set <code>LD_DEBUG=all</code> and re-run the program. It will show you where library objects are
+being found and loaded, as well as the library search paths. You probably
+forgot to add a library in the <code>build.dependencies</code> list. You can also use
+<code>patchelf</code> on your host or on Redox to display all <code>DT_NEEDED</code> entries of an
+object (<code>patchelf --print-needed &lt;path&gt;</code>). It is available by default in the
+<code>desktop</code> variant.</p>
+<h2 id="sources"><a class="header" href="#sources">Sources</a></h2>
+<h3 id="tarballs"><a class="header" href="#tarballs">Tarballs</a></h3>
+<p>Tarballs are the most easy way to build a C/C++ program or library because the build system is already configured (GNU Autotools is the most used), while being more fast to download and process than big Git repositories if shallow clone is not used (the system don't need to process many Git deltas).</p>
+<p>Your <code>recipe.toml</code> will have the following content:</p>
+<pre><code class="language-toml">[source]
+tar = "tarball-link"
+</code></pre>
+<p>Copy the tarball link and paste in the <code>tarball-link</code> field.</p>
+<p><strong>Only use official tarballs</strong>, GitHub auto-generate tarballs for each new release or tag of the program, but they <a href="https://github.blog/changelog/2023-01-30-git-archive-checksums-may-change/">aren't static</a> (break the checksum) and <a href="https://github.blog/2023-02-21-update-on-the-future-stability-of-source-code-archives-and-hashes/">don't verify the archive integrity</a>.</p>
+<p>You can find the official tarballs in the release announcement assets with the program name and ending with <code>tar.gz</code> or <code>tar.xz</code> (their URLs contain "releases" instead of "archive"), while unstable tarballs can be found on the "Source code" buttons (their URLs contain "archive").</p>
+<ul>
+<li>In most cases they are created using the <a href="https://www.gnu.org/software/tar/">GNU Tar</a> tool.</li>
+<li>Avoid files containing the names "linux" and "x86_64" on GitHub, they are pre-built binaries for some operating system and CPU architecture, not source code.</li>
+<li>Some programs require Git submodules to work, you can't use tarballs if the official tarball don't bundle the submodules.</li>
+<li>Archives with <code>tar.xz</code> and <code>tar.bz2</code> are preferred as they tend to have a higher compression level, thus smaller file size.</li>
+</ul>
+<h4 id="build-system"><a class="header" href="#build-system">Build System</a></h4>
+<p>In most cases the tarballs use GNU Autotools to build, it's common that the tarball method of compilation is not well documented, causing confusion on new packagers.</p>
+<p>To investigate, you can do the following things:</p>
+<ul>
+<li>Build with the <code>configure</code> template and see if it works (sometimes you need to use some flag or customize)</li>
+<li>Search the Git repository of the program or library for <code>autogen.sh</code> and <code>configure.ac</code> files, it means that support for GNU Autotools is available, when some tarball is created, it comes with a <code>configure</code> file inside, this file doesn't exist on the Git repository and you need to create it by running the <code>autogen.sh</code> script.</li>
+<li>Sometimes these files are available but GNU Autotools is deprecated (because it's old), we recommend that you use the supported build system (CMake or Meson in most cases).</li>
+</ul>
+<h4 id="links"><a class="header" href="#links">Links</a></h4>
+<p>Sometimes it's hard to find the official tarball of some software, as each project website organization is different.</p>
+<p>To help on this process, the <a href="https://archlinux.org/packages/">Arch Linux packages</a> and <a href="https://aur.archlinux.org/">AUR</a> are the most easy repositories to find tarball links in the configuration of packages.</p>
+<ul>
+<li>Arch Linux packages: Search for your program, open the program page, see the "Package Actions" category on the top right position and click on the "Source Files" button, a GitLab page will open, open the <code>.SRCINFO</code> and search for the tarball link on the "source" fields of the file.</li>
+</ul>
+<p>See the <a href="https://gitlab.archlinux.org/archlinux/packaging/packages/nano/-/blob/main/.SRCINFO?ref_type=heads#L12">nano package</a> example.</p>
+<ul>
+<li>AUR: Search for your program, open the program page, go to the "Sources" section on the end of the package details.</li>
+</ul>
+<h3 id="git-repositories"><a class="header" href="#git-repositories">Git Repositories</a></h3>
+<p>Some programs don't offer official tarballs for releases, thus you need to use their Git repository and the branch of the latest stable version (if available) or pin the tag or commit hash of the latest stable version or last working commit.</p>
+<p>Your <code>recipe.toml</code> will have the following content:</p>
+<pre><code class="language-toml">[source]
+git = "repository-link"
+branch = "version-branch"
+rev = "version-tag"
+shallow_clone = true
+</code></pre>
+<ul>
+<li>Shallow clone is not recommended if you forked the repository and is doing heavy development to port, if you don't want to change the recipe configuration after source fetch run the following command to disable shallow clone temporarily:</li>
+</ul>
+<pre><code>git fetch --unshallow
+</code></pre>
+<h4 id="github-release"><a class="header" href="#github-release">GitHub release</a></h4>
+<p>Each GitHub release has a tag or commit hash, you will use it to pin the lastest stable version of the program to keep code stability.</p>
+<p>Example:</p>
+<ul>
+<li>Open the <a href="https://github.com/rust-lang/rust/releases/tag/1.74.0">Rust 1.74 release announcement</a></li>
+<li>The tag is <code>1.74.0</code> and the commit hash is <code>79e9716c980570bfd1f666e3b16ac583f0168962</code> and is shortened as <code>79e9716</code></li>
+</ul>
+<h4 id="gitlab-release-commit-hash"><a class="header" href="#gitlab-release-commit-hash">GitLab release commit hash</a></h4>
+<p>Each GitLab release has a tag or commit hash, you will use it to pin the lastest stable version of the program to keep code stability.</p>
+<p>Example:</p>
+<ul>
+<li>Open the <a href="https://gitlab.redox-os.org/redox-os/redox/-/releases/0.8.0">Redox 0.8.0 release announcement</a></li>
+<li>The tag is <code>0.8.0</code> and the commit hash is <code>c8634bd9890afdac4438d1ff99631d600d469264</code> and is shortened as <code>c8634bd9</code></li>
+</ul>
+<h2 id="dependencies"><a class="header" href="#dependencies">Dependencies</a></h2>
+<p>A program dependency can be a library (a program that offer functions to some program), a runtime (a program that satisfy some program dependency when it's executed) or a build tool (a program to configure/build some program).</p>
+<p>Most C, C++ and Rust programs place build tools/runtime together with development libraries (packages with <code>-dev</code> suffix) in their build instructions documentation.</p>
+<p>Example:</p>
+<pre><code class="language-sh">sudo apt-get install cmake libssl-dev
+</code></pre>
+<p>The <code>cmake</code> package is the build system (build tool) while the <code>libssl-dev</code> package is the library (OpenSSL) linker objects (<code>.a</code> and <code>.so</code> files), the Debian package system bundle shared/static objects on their <code>-dev</code> packages (other Linux distributions just bundle shared objects).</p>
+<p>You would need to create a recipe of the <code>libssl-dev</code> package and add in the <code>build.dependencies</code> data type of your <code>recipe.toml</code> file, while the <code>cmake</code> package would need the <code>cmake</code> Cookbook template.</p>
+<p>Dependencies added in the <code>build.dependencies</code> data type can be dynamically linked (if the <code>DYNAMIC_INIT</code> function is used) or statically linked (if the <code>DYNAMIC_INIT</code> function is not used), while dependencies added in the <code>package.dependencies</code> data type will be installed by the build system installer or package manager.</p>
+<p>Mixed Rust programs have crates ending with <code>-sys</code> to use bundled or system C/C++ libraries.</p>
+<p>If you want an easy way to find dependencies, see the Debian stable <a href="https://packages.debian.org/stable/allpackages">packages list</a>.</p>
+<p>You can search them with Ctrl+F, all package names are clickable and their websites is available on the right-side of the package description/details.</p>
+<ul>
+<li>We recommend to use the FreeBSD dependencies of the program if available because Linux dependencies tend to contain Linux-specific kernel features not available on Redox (unfortunately the FreeBSD package naming policy don't separate library objects/interpreters from build tools in all cases, thus you need to know or search each item to know if it's a library, interpreter or build tool)</li>
+<li>Debian packages are the most easy way to find dependencies because they are the most used by software developers to describe "Build Instructions" dependencies.</li>
+<li>Don't use the <code>.deb</code> packages to create recipes, they are adapted for the Debian environment.</li>
+<li>The Debian naming policy use dashes as separators in packages with custom options (program or library variant) enabled (program-variant), check the source package to be sure</li>
+<li>The recipe <code>PATH</code> environment variable only read build tool recipes declared in the <code>build.dev-dependencies</code> data type or the host system's <code>/usr/bin</code> directory, it can't read the <code>/usr/lib</code> and <code>/include</code> folders because the Linux library objects don't work on Redox.</li>
+<li>The recipe support recursive dependencies, thus you don't need to specify a dependency two times if some dependency already provide it</li>
+<li>Don't add build tools in the <code>build.dependencies</code> data type, check the <a href="https://packages.debian.org/stable/build-essential">Debian</a> and <a href="https://archlinux.org/packages/core/any/base-devel/">Arch Linux</a> meta-packages for a common reference of build tools.</li>
+<li>The compiler will build the development libraries as <code>.a</code> files (objects for static linking) or <code>.so</code> files (objects for dynamic linking), the <code>.a</code> files will be mixed in the final binary while the <code>.so</code> files will be installed out of the binary (stored on the <code>/lib</code> directory of the system).</li>
+<li>Linux distributions add a number after the <code>.so</code> files to avoid conflicts on the <code>/usr/lib</code> folder when packages use different API versions of the same library, for example: <code>library-name.so.6</code>.</li>
+<li>You need to know this information because each software is different, the major reason is the "Build Instructions" organization of each program.</li>
+</ul>
+<p>If you have questions about program dependencies, feel free to ask us on the <a href="./chat.html">Chat</a>.</p>
+<h3 id="bundled-libraries"><a class="header" href="#bundled-libraries">Bundled Libraries</a></h3>
+<p>Some programs have bundled libraries, using CMake or a Python script, the most common case is using CMake (emulators do this in most cases).</p>
+<p>The reason for this can be control over library versions to avoid compilation/runtime errors or a patched library with optimizations for specific tasks of the program.</p>
+<p>In some cases some bundled library needs a Redox patch, if not it will give a compilation or runtime error.</p>
+<p>Most programs using CMake will try to detect the system libraries on the build environment, if not they will use the bundled libraries.</p>
+<p>The "system libraries" on this case is the recipes specified on the <code>build.dependencies = []</code> section of your <code>recipe.toml</code>.</p>
+<p>To determine if you need to use a Redox recipe as dependency check if you find a <code>.patch</code> file on the recipe folder or if the <code>recipe.toml</code> has a <code>git =</code> field pointing to the Redox GitLab, if not you can probably use the bundled libraries without problems.</p>
+<p>Generally programs with CMake use a <code>-DUSE_SYSTEM</code> flag to enable the "system libraries" behavior.</p>
+<h3 id="environment-variables-1"><a class="header" href="#environment-variables-1">Environment Variables</a></h3>
+<p>Sometimes specify the library recipe on the <code>dependencies = []</code> section is not enough, some build systems have environment variables to receive a custom path for external libraries.</p>
+<p>When you add a library on your <code>recipe.toml</code> the Cookbook will copy the library source code to the <code>sysroot</code> folder at <code>recipes/your-category/recipe-name/target/your-target</code>, this folder has an environment variable that can be used inside the <code>script =</code> field on your <code>recipe.toml</code>.</p>
+<p>Example:</p>
+<pre><code class="language-toml">script = """
+export OPENSSL_DIR="${COOKBOOK_SYSROOT}"
+cookbook_cargo
+"""
+</code></pre>
+<p>The <code>export</code> will active the <code>OPENSSL_DIR</code> variable on the environment, this variable is implemented by the program build system, it's a way to specify the custom OpenSSL path to the program's build system, as you can see, when the <code>òpenssl</code> recipe is added to the <code>dependencies = []</code> section its sources go to the <code>sysroot</code> folder.</p>
+<p>Now the program build system is satisfied with the OpenSSL sources, the <code>cookbook_cargo</code> function calls Cargo to build it.</p>
+<p>Programs using CMake don't use environment variables but an option, see this example:</p>
+<pre><code class="language-toml">script = """
+COOKBOOK_CMAKE_FLAGS+=(
+    -DOPENSSL_ROOT_DIR="${COOKBOOK_SYSROOT}"
+)
+cookbook_cmake
+"""
+</code></pre>
+<p>On this example the <code>-DOPENSSL_ROOT_DIR</code> option will have the custom OpenSSL path.</p>
+<h3 id="submodules"><a class="header" href="#submodules">Submodules</a></h3>
+<p>In some programs or libraries you can't use tarballs because they don't carry the necessary Git submodules of the program (most common in GitHub generated tarballs), on these cases you will need to use the Git repository or the commit of the last stable release (Cookbook download the submodules automatically).</p>
+<p>To identify if the program use Git submodules, check if it have external folders to other repository (they appear with a commit hash on the right side) or the existence of a <code>.gitmodules</code> file.</p>
+<p>Follow these steps to use the last stable version of the program when Git submodules are necessary:</p>
+<ul>
+<li>Open the program/library Git repository.</li>
+<li>Check the "Releases" or "Tags" buttons, in most cases the program have a stable release at "Releases".</li>
+<li>In both pages the commit hash of the stable release will be the first item of the announcement below the version number.</li>
+<li>Copy the repository link/version branch or tag and paste on your <code>recipe.toml</code>, for example:</li>
+</ul>
+<pre><code class="language-toml">git = "repository-link"
+branch = "version-branch"
+rev = "version-tag"
+</code></pre>
+<p>If the last stable release is too old or lack important fixes due to low maintenance we recommend that you ignore it and use the Git repository to download/build bug fixes sent after this old version, if you are concerned about the program upstream breaking the recipe, you can use the commit of the last successful CI test.</p>
+<h3 id="configuration"><a class="header" href="#configuration">Configuration</a></h3>
+<p>The determine the program dependencies you can use Arch Linux and Gentoo as reference.</p>
+<ul>
+<li>The build instructions of C/C++ programs tend to mix necessary and optional dependencies together.</li>
+<li>Most Rust programs have build instructions focused on Linux and force some dependencies, some crates could not need them to work, investigate which crates the program is using.</li>
+<li>Some programs and libraries have bad documentation, lack build instructions or explain the dependencies, for these cases you will need to read third-party sources or examine the build system.</li>
+</ul>
+<p>Arch Linux and AUR are the most simple references because they separate the build tools from runtimes and build dependencies, thus you make less mistakes.</p>
+<p>They also have less expanded packages, while on Debian is common to have highly expanded programs and libraries, sometimes causing confusion.</p>
+<p>(An expanded package is when most or all optional dependencies are enabled)</p>
+<p>But Arch Linux is not clear about the optional feature flags and minimum dependencies to build and execute a program.</p>
+<p>Using Gentoo as reference you can learn how to make the most minimum Redox port and increase your chances to make it work on Redox.</p>
+<p>But Gentoo modify the feature flags of their packages to be used by their package system, thus you should use the FreeBSD Ports.</p>
+<h4 id="arch-linux-and-aur"><a class="header" href="#arch-linux-and-aur">Arch Linux and AUR</a></h4>
+<p>Each package page of some program has a "Dependencies" section on the package details, see the items below:</p>
+<ul>
+<li><code>dependency-name</code> - Build or runtime dependencies, they lack the <code>()</code> symbol (required to make the program build and execute)</li>
+<li><code>dependency-name (make)</code> - Build tools (required to build the program)</li>
+<li><code>dependency-name (optional)</code> - Programs or libraries to expand the program functionality</li>
+</ul>
+<p>See the <a href="https://archlinux.org/packages/extra/x86_64/firefox/">firefox package</a>, for example.</p>
+<ul>
+<li><a href="https://archlinux.org/packages/">Arch Linux Packages</a></li>
+<li><a href="https://aur.archlinux.org/">AUR</a></li>
+</ul>
+<h4 id="gentoo"><a class="header" href="#gentoo">Gentoo</a></h4>
+<p>The <a href="https://gentoo.org">Gentoo</a> distribution does a wonderful job to document many programs and libraries, like source code location, dependencies, feature flags, cross-compilation and context.</p>
+<p>It's the most complete reference for advanced packaging of programs, you can search the Gentoo packages on the <a href="https://packages.gentoo.org/">Gentoo Packages</a> website.</p>
+<p>To start you need to read the <a href="https://devmanual.gentoo.org/general-concepts/dependencies/">Gentoo documentation</a> page to learn advanced packaging and some problems.</p>
+<p>The "Dependencies" section of a Gentoo package will show a table with the following categories:</p>
+<ul>
+<li><code>BDEPEND</code> - Host build tools (don't add them on the <code>dependencies = []</code> section of your <code>recipe.toml</code>)</li>
+<li><code>DEPEND</code> - These dependencies are necessary to build the program</li>
+<li><code>RDEPEND</code> - These dependencies are necessary to execute the program, can be mandatory or optional</li>
+<li><code>PDEPEND</code> - Optional dependencies (customization)</li>
+</ul>
+<p>The complex classification of Gentoo allow the packager to easily make a minimum build of a program on Redox, it's important because some optional dependencies can use APIs from the Linux kernel not present on Redox.</p>
+<p>Thus the best approach is to know the minimum necessary to make the program work on Redox and expand from that.</p>
+<h3 id="build-tools"><a class="header" href="#build-tools">Build Tools</a></h3>
+<p>Add missing recipe build tools in the <a href="https://gitlab.redox-os.org/redox-os/redox/-/blob/master/podman/redox-base-containerfile">podman/redox-base-containerfile</a> file (for Podman builds) or install them on your system (for Native builds).</p>
+<p>The <code>podman/redox-base-containerfile</code> file and <code>native_bootstrap.sh</code> script covers the build tools required by recipes on the <a href="https://gitlab.redox-os.org/redox-os/redox/-/blob/master/config/x86_64/demo.toml">demo.toml</a> filesystem configuration.</p>
+<h2 id="feature-flags"><a class="header" href="#feature-flags">Feature Flags</a></h2>
+<p>The program/library build systems offer flags to enable/disable features, it will increase the chance to make them work on Redox by disabling Linux-specific or unsupported features/libraries.</p>
+<p>Sometimes you need to read the build system configuration to find important or all flags that weren't documented by the program.</p>
+<h3 id="cargo"><a class="header" href="#cargo">Cargo</a></h3>
+<p>You can find the feature flags below the <code>[features]</code> section in the <code>Cargo.toml</code> file.</p>
+<h3 id="gnu-autotools"><a class="header" href="#gnu-autotools">GNU Autotools</a></h3>
+<p>You can find the feature flags in the <code>INSTALL</code>, <code>README</code> or <code>configure</code> files.</p>
+<h3 id="cmake"><a class="header" href="#cmake">CMake</a></h3>
+<p>You can find the feature flags in the <code>CMakeLists.txt</code> file.</p>
+<h3 id="meson"><a class="header" href="#meson">Meson</a></h3>
+<p>You can find the feature flags in the <code>meson_options</code> file.</p>
+<h3 id="freebsd-reference"><a class="header" href="#freebsd-reference">FreeBSD Reference</a></h3>
+<p>If you can't find the program build system flags the FreeBSD port Makefiles are the best reference for feature flags to Redox as they tend to disable Linux-specific features and are adapted to cross-compilation, increasing the program/library compatiblity with non-Linux systems.</p>
+<p>(You need to disable the program/library's build system tests to make cross-compilation work)</p>
+<ul>
+<li><a href="https://github.com/freebsd/freebsd-ports">FreeBSD Ports GitHub Mirror</a></li>
+</ul>
+<p>(Use the "Go to file" button to search for the software name)</p>
+<h2 id="buildingtesting-the-program"><a class="header" href="#buildingtesting-the-program">Building/Testing The Program</a></h2>
+<p>Tip: If you want to avoid problems not related to Redox install the program dependencies and build to your system first (if packages for your Unix-like distribution aren't available search for Debian/Ubuntu equivalents).</p>
+<p>To build your recipe, run:</p>
+<pre><code class="language-sh">make r.recipe-name
+</code></pre>
+<p>If you get an error read the log and determine if it is one of the following problems:</p>
+<ul>
+<li>Missing build tools</li>
+<li>Cross-compilation configuration problem</li>
+<li>Lack of Redox patches</li>
+<li>Missing C, POSIX or Linux library functions in relibc</li>
+</ul>
+<p>Use this command to log any possible errors on your terminal output:</p>
+<pre><code class="language-sh">make r.recipe-name 2&gt;&amp;1 | tee recipe-name.log
+</code></pre>
+<p>If the compilation was successful the recipe can be installed in the QEMU image and tested inside of Redox to find possible runtime errors or crashes.</p>
+<ul>
+<li>To temporarily install the recipe to your QEMU image run <code>make p.recipe-name</code></li>
+<li>To permanently install the recipe to your QEMU image add your recipe name (<code>recipe-name = {}</code>) below the last item in the <code>[packages]</code> section of your TOML config at <code>config/your-cpu-arch/your-config.toml</code> and run <code>make image</code></li>
+</ul>
+<p>To test your recipe inside of Redox with Orbital, run:</p>
+<pre><code class="language-sh">make qemu
+</code></pre>
+<p>If you only want to test in the Redox terminal interface, run:</p>
+<pre><code class="language-sh">make qemu gpu=no
+</code></pre>
+<h2 id="update-crates"><a class="header" href="#update-crates">Update crates</a></h2>
+<p>Sometimes the <code>Cargo.toml</code> and <code>Cargo.lock</code> of some Rust programs can hold a crate versions lacking Redox support or a broken Redox code path (changes on code that make the target OS fail), this will give you an error during the recipe compilation.</p>
+<ul>
+<li>The reason of fixed crate versions is explained on the <a href="https://doc.rust-lang.org/cargo/faq.html#why-do-binaries-have-cargolock-in-version-control-but-not-libraries">Cargo FAQ</a>.</li>
+</ul>
+<p>To fix this you will need to update the crates of your recipe after the first compilation and build it again, see the ways to do it below.</p>
+<p>(Bump a crate version on <code>Cargo.toml</code> can break some part of the source code, on this case the program needs a source code patch to use the updated API of the crate)</p>
+<h3 id="one-or-more-crates"><a class="header" href="#one-or-more-crates">One or more crates</a></h3>
+<p>In maintained Rust programs you just need to update some crates to have Redox support (because they frequently update the crate versions), this will avoid random breaks on the dependency chain of the program (due to ABI changes) thus you can update one or more crates to reduce the chance of breaks.</p>
+<p>We recommend that you do this based on the errors you get during the compilation, this method is recommended for maintained programs.</p>
+<ul>
+<li>Expose the Redox build system environment variables to the current shell, go to the <code>source</code> folder of your recipe and update the crates, example:</li>
+</ul>
+<pre><code class="language-sh">make env
+</code></pre>
+<pre><code class="language-sh">cd recipes/your-category/recipe-name/source
+</code></pre>
+<pre><code class="language-sh">cargo update -p crate1 crate2
+</code></pre>
+<pre><code class="language-sh">cd -
+</code></pre>
+<pre><code class="language-sh">make r.recipe-name
+</code></pre>
+<p>If you still get the error, run:</p>
+<pre><code class="language-sh">make cr.recipe-name
+</code></pre>
+<h3 id="all-crates"><a class="header" href="#all-crates">All crates</a></h3>
+<p>Most unmaintained Rust programs carry very old crate versions with lacking/broken Redox support, this method will update all crates of the dependency chain to the latest possible version based on the <code>Cargo.toml</code> configuration.</p>
+<p>Be aware that some crates break the API stability frequently and make the programs stop to work, that's why you must try the "One crate" method first.</p>
+<ul>
+<li>This method can fix locked crate versions on the dependency tree, if these locked crate versions don't change you need to bump the version of the crates locking the crate version, you will edit them in the <code>Cargo.toml</code> and run <code>cargo update</code> again (API breaks are expected).</li>
+</ul>
+<p>(Also good to test the latest improvements of the libraries)</p>
+<ul>
+<li>Expose the Redox build system environment variables to the current shell, go to the <code>source</code> folder of your recipe and update the crates, example:</li>
+</ul>
+<pre><code class="language-sh">make env
+</code></pre>
+<pre><code class="language-sh">cd recipes/your-category/recipe-name/source
+</code></pre>
+<pre><code class="language-sh">cargo update
+</code></pre>
+<pre><code class="language-sh">cd -
+</code></pre>
+<pre><code class="language-sh">make r.recipe-name
+</code></pre>
+<p>If you still get the error, run:</p>
+<pre><code class="language-sh">make cr.recipe-name
+</code></pre>
+<h3 id="verify-the-dependency-tree"><a class="header" href="#verify-the-dependency-tree">Verify the dependency tree</a></h3>
+<p>If you use the above methods but the program is still using old crate versions, see this section:</p>
+<ul>
+<li><a href="./troubleshooting.html#verify-the-dependency-tree">Verify the dependency tree</a></li>
+</ul>
+<h2 id="patch-crates"><a class="header" href="#patch-crates">Patch crates</a></h2>
+<h3 id="redox-forks"><a class="header" href="#redox-forks">Redox forks</a></h3>
+<p>It's possible that some not ported crate have a Redox fork with patches, you can search the crate name on the <a href="https://gitlab.redox-os.org/">Redox GitLab</a>, generally the Redox patches stay in the <code>redox</code> branch or <code>redox-version</code> branch that follow the crate version.</p>
+<p>To use this Redox fork on your Rust program, add this text on the end of the <code>Cargo.toml</code> in the program source code:</p>
+<pre><code class="language-toml">[patch.crates-io]
+crate-name = { git = "repository-link", branch = "redox" }
+</code></pre>
+<p>It will make Cargo replace the patched crate in the entire dependency chain, after that, run:</p>
+<pre><code class="language-sh">make r.recipe-name
+</code></pre>
+<p>Or (if the above doesn't work)</p>
+<pre><code class="language-sh">make cr.recipe-name
+</code></pre>
+<p>Or</p>
+<pre><code class="language-sh">make env
+</code></pre>
+<pre><code class="language-sh">cd recipes/your-category/recipe-name/source
+</code></pre>
+<pre><code class="language-sh">cargo update -p crate-name
+</code></pre>
+<pre><code class="language-sh">cd -
+</code></pre>
+<pre><code class="language-sh">make r.recipe-name
+</code></pre>
+<p>If you still get the error, run:</p>
+<pre><code class="language-sh">make cr.recipe-name
+</code></pre>
+<h3 id="local-patches"><a class="header" href="#local-patches">Local patches</a></h3>
+<p>If you want to patch some crate offline with your patches, add this text on the <code>Cargo.toml</code> of the program:</p>
+<pre><code class="language-toml">[patch.crates-io]
+crate-name = { path = "patched-crate-folder" }
+</code></pre>
+<p>It will make Cargo replace the crate based on this folder in the program source code - <code>recipes/your-category/your-recipe/source/patched-crate-folder</code> (you don't need to manually create this folder if you <code>git clone</code> the crate source code on the program source directory)</p>
+<p>Inside this folder you will apply the patches on the crate source and rebuild the recipe.</p>
+<h2 id="cleanup"><a class="header" href="#cleanup">Cleanup</a></h2>
+<p>If you have some problems (outdated recipe), try to run these commands:</p>
+<ul>
+<li>This command will delete your old recipe source/binary.</li>
+</ul>
+<pre><code class="language-sh">make u.recipe-name
+</code></pre>
+<ul>
+<li>This command will delete your recipe binary/source and build (fresh build).</li>
+</ul>
+<pre><code class="language-sh">make ur.recipe-name
+</code></pre>
+<h2 id="search-text-on-recipes"><a class="header" href="#search-text-on-recipes">Search Text on Recipes</a></h2>
+<p>To speed up your porting workflow you can use the <code>grep</code> tool to search the recipe configuration:</p>
+<pre><code class="language-sh">cd recipes
+</code></pre>
+<pre><code class="language-sh">grep -rnwi "text" --include "recipe.toml"
+</code></pre>
+<p>This command will search all match texts in the <code>recipe.toml</code> files of each recipe folder.</p>
+<h2 id="search-for-functions-on-relibc"><a class="header" href="#search-for-functions-on-relibc">Search for functions on relibc</a></h2>
+<p>Sometimes your program is not building because relibc lack the necessary functions, to verify if they are implemented run the following commands:</p>
+<pre><code class="language-sh">cd relibc
+</code></pre>
+<pre><code class="language-sh">grep -nrw "function-name" --include "*.rs"
+</code></pre>
+<p>You will insert the function name in <code>function-name</code></p>
+<h2 id="create-a-blake3-hash-for-your-recipe"><a class="header" href="#create-a-blake3-hash-for-your-recipe">Create a BLAKE3 hash for your recipe</a></h2>
+<p>You need to create a BLAKE3 hash of your recipe tarball if you want to merge it on upstream, to do this you can use the <code>b3sum</code> tool that can be installed from <code>crates.io</code> with the <code>cargo install b3sum</code> command.</p>
+<p>After the first run of the <code>make r.recipe-name</code> command, run these commands:</p>
+<pre><code class="language-sh">b3sum recipes/your-category/recipe-name/source.tar
+</code></pre>
+<p>It will print the generated BLAKE3 hash, copy and paste on the <code>blake3 =</code> field of your <code>recipe.toml</code></p>
+<h2 id="verify-the-size-of-your-package"><a class="header" href="#verify-the-size-of-your-package">Verify the size of your package</a></h2>
+<p>To verify the size of your package use this command:</p>
+<pre><code class="language-sh">ls -1sh recipes/your-category/recipe-name/target/your-target
+</code></pre>
+<p>See the size of the <code>stage.pkgar</code> and <code>stage.tar.gz</code> files.</p>
+<h2 id="submitting-mrs"><a class="header" href="#submitting-mrs">Submitting MRs</a></h2>
+<p>If you want to add your recipe on the <a href="https://gitlab.redox-os.org/redox-os/redox">build system</a> to become a Redox package on the <a href="https://static.redox-os.org/pkg/">build server</a>, read the <a href="#package-policy">package policy</a> below.</p>
+<p>After this you can submit your merge request with proper category, dependencies and comments.</p>
+<h3 id="package-policy"><a class="header" href="#package-policy">Package Policy</a></h3>
+<p>Before sending your recipe to upstream (to become a public package), you must follow these rules:</p>
+<h4 id="naming"><a class="header" href="#naming">Naming</a></h4>
+<ul>
+<li>The recipe name can't have dots, backslashes, and NULs</li>
+</ul>
+<h4 id="cross-compilation-1"><a class="header" href="#cross-compilation-1">Cross-Compilation</a></h4>
+<ul>
+<li>All recipes must use our cross-compilers, a Cookbook <a href="#templates">template</a> does this automatically but it's not always possible, study the build system of your program or library to find these options or patch the configuration files.</li>
+<li>Don't hardcode the CPU architecture on the recipe script (this would break the multi-arch support).</li>
+</ul>
+<h4 id="tarballs-1"><a class="header" href="#tarballs-1">Tarballs</a></h4>
+<ul>
+<li>Don't use the auto-generated tarballs from GitHub, they aren't static and don't verify the archive integrity.</li>
+</ul>
+<h4 id="api-compatibility"><a class="header" href="#api-compatibility">API Compatibility</a></h4>
+<ul>
+<li>Respect the API compatibility of C/C++ libraries, for example: if <code>openssl1</code> is available and some program need <code>openssl3</code>, you will create a recipe for <code>openssl3</code> and not rename the <code>openssl1</code>, as it will break the dependent packages.</li>
+</ul>
+<p>(Read <a href="./developer-faq.html#why-cc-programs-and-libraries-are-hard-and-time-consuming-to-port">this</a> section to know why it's needed)</p>
+<h4 id="checksum"><a class="header" href="#checksum">Checksum</a></h4>
+<ul>
+<li>If your recipe download a tarball, you will need to create a BLAKE3 hash for it. You can learn how to do it <a href="#create-a-blake3-hash-for-your-recipe">here</a>.</li>
+</ul>
+<h4 id="license"><a class="header" href="#license">License</a></h4>
+<ul>
+<li>Don't package programs or libraries lacking a license.</li>
+<li>Verify if the program has some license violation, in case of doubt ask us on the <a href="https://doc.redox-os.org/book/chat.html">chat</a>.</li>
+<li>Non-free programs and assets should go to a subcategory of the <code>nonfree</code> category and be approved per license.</li>
+</ul>
+<h3 id="testing-area"><a class="header" href="#testing-area">Testing Area</a></h3>
+<p>Work-in-progress software ports goes to the <code>wip</code> category, be aware of these items during your packaging process:</p>
+<ul>
+<li>A recipe is considered ready if it's mostly working inside of Redox.</li>
+<li>All WIP recipes must have a <code>#TODO</code> on the beginning of the <code>recipe.toml</code> and explain what is missing.</li>
+<li>BLAKE3 hashes for tarballs are optional (quick testing workflow)</li>
+<li>Try to keep the recipe with the latest stable version of the program (the porting process can take months).</li>
+<li>Once the recipe is ready, add the BLAKE3 hash if needed and move the folder to the appropriate category.</li>
+</ul>
+<h4 id="suggestions-for-todos"><a class="header" href="#suggestions-for-todos">Suggestions for TODOs</a></h4>
+<p>These TODOs improve the packagers cooperation and understanding.</p>
+<ul>
+<li><code>not compiled or tested</code> - It means that your recipe may be fully or partially configured and with necessary dependencies.</li>
+<li><code>missing script for x: insert-the-link-for-build-instructions-here</code> - It means that your recipe is lacking the cross-compilation script for some build system, where <code>x</code> is the build system name. After <code>:</code> you will insert the link for the build instructions of the program or library, it will help other packagers to create the script for you.</li>
+<li><code>missing dependencies: insert-the-link-for-required-dependencies-here</code> - It means that the <code>build.dependencies</code> or <code>package.dependencies</code> data types are incomplete.</li>
+<li><code>probably wrong script: insert-the-link-for-build-instructions-here</code> - It means that you don't know yet if your script is working.</li>
+<li><code>probably wrong template: insert-the-link-for-build-instructions-here</code> - It means that you don't know yet if the Cookbook template is working.</li>
+<li><code>probably missing dependencies: insert-the-link-for-required-dependencies-here</code> - It means that you don't know yet if the required dependencies are satisfied.</li>
+<li><code>promote</code> - It means that the recipe is working and should be moved to the equivalent category at <code>recipes/*</code></li>
+</ul>
+<p>Other TODOs are specific and won't be covered on this list.</p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="including-programs.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="porting-case-study.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="including-programs.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="porting-case-study.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="elasticlunr.min.js"></script>
+        <script src="mark.min.js"></script>
+        <script src="searcher.js"></script>
+
+        <script src="clipboard.min.js"></script>
+        <script src="highlight.js"></script>
+        <script src="book.js"></script>
+
+        <!-- Custom JS scripts -->
+
+
+
+    </div>
+    </body>
+</html>

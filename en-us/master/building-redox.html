@@ -1,0 +1,334 @@
+<!DOCTYPE HTML>
+<html lang="en_US" class="light sidebar-visible" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Native Build - The Redox Operating System</title>
+
+
+        <!-- Custom HTML head -->
+        <style>
+        .light .redox-logo {
+            content: url("assets/redox_light_512.png");
+        }
+        .rust .redox-logo {
+            content: url("assets/redox_light_512.png");
+        }
+        .coal .redox-logo {
+            content: url("assets/redox_dark_512.png");
+        }
+        .navy .redox-logo {
+            content: url("assets/redox_dark_512.png");
+        }
+        .ayu .redox-logo {
+            content: url("assets/redox_dark_512.png");
+        }
+        </style>
+        <script type="text/javascript" src="ltd-provenance.js"></script>
+        <script type="text/javascript" src="ltd-current.js"></script>
+        <script type="text/javascript" src="../../ltd-config.js"></script>
+        <script type="text/javascript" src="../../ltd-flyout.js"></script>
+
+        <meta name="description" content="This book carefully describes the design, implementation, direction, and structure of Redox, the operating system.">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="shortcut icon" href="favicon.png">
+        <link rel="stylesheet" href="css/variables.css">
+        <link rel="stylesheet" href="css/general.css">
+        <link rel="stylesheet" href="css/chrome.css">
+        <link rel="stylesheet" href="css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" id="highlight-css" href="highlight.css">
+        <link rel="stylesheet" id="tomorrow-night-css" href="tomorrow-night.css">
+        <link rel="stylesheet" id="ayu-highlight-css" href="ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+
+        <!-- Provide site root and default themes to javascript -->
+        <script>
+            const path_to_root = "";
+            const default_light_theme = "light";
+            const default_dark_theme = "navy";
+            window.path_to_searchindex_js = "searchindex.js";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="toc.js"></script>
+    </head>
+    <body>
+    <div id="mdbook-help-container">
+        <div id="mdbook-help-popup">
+            <h2 class="mdbook-help-title">Keyboard shortcuts</h2>
+            <div>
+                <p>Press <kbd>←</kbd> or <kbd>→</kbd> to navigate between chapters</p>
+                <p>Press <kbd>S</kbd> or <kbd>/</kbd> to search in the book</p>
+                <p>Press <kbd>?</kbd> to show this help</p>
+                <p>Press <kbd>Esc</kbd> to hide this help</p>
+            </div>
+        </div>
+    </div>
+    <div id="body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                let theme = localStorage.getItem('mdbook-theme');
+                let sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            const default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? default_dark_theme : default_light_theme;
+            let theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            let sidebar = null;
+            const sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+                sidebar_toggle.checked = false;
+            }
+            if (sidebar === 'visible') {
+                sidebar_toggle.checked = true;
+            } else {
+                html.classList.remove('sidebar-visible');
+            }
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="default_theme">Auto</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search (`/`)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="/ s" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">The Redox Operating System</h1>
+
+                    <div class="right-buttons">
+                        <a href="print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <div class="search-wrapper">
+                            <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                            <div class="spinner-wrapper">
+                                <i class="fa fa-spinner fa-spin"></i>
+                            </div>
+                        </div>
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1 id="native-build"><a class="header" href="#native-build">Native Build</a></h1>
+<p>This page explains how to build Redox in your operating system's native environment, without Podman.</p>
+<blockquote>
+<p>⚠️ <strong>Warning:</strong> Building outside Podman is not guaranteed to succeed. Unless you have problems using Podman, we recommend you to use the <a href="./podman-build.html">Podman Build</a> before trying the Native Build to avoid build environment bugs.</p>
+</blockquote>
+<blockquote>
+<p>📝 <strong>Note:</strong> Read the <a href="./build-system-reference.html">Build System Reference</a> page after installation for an explanation of the build system's organization and functionality.</p>
+</blockquote>
+<h2 id="supported-unix-like-distributions-and-podman-build"><a class="header" href="#supported-unix-like-distributions-and-podman-build">Supported Unix-like Distributions and Podman Build</a></h2>
+<p>The following Unix-like systems are supported:</p>
+<ul>
+<li>Pop_OS!</li>
+<li>Ubuntu</li>
+<li>Debian</li>
+<li>Fedora</li>
+<li>Arch Linux</li>
+<li>OpenSUSE</li>
+<li>Gentoo</li>
+<li>FreeBSD (experimental)</li>
+<li>MacOS (experimental, require <a href="./advanced-build.html#macos-users">workarounds</a>)</li>
+<li>Nix (experimental)</li>
+<li>Solus (not maintained)</li>
+</ul>
+<p>If you encounter a weird or difficult-to-fix problem, test the <a href="./podman-build.html">Podman Build</a> to determine if the problem occurs there as well.</p>
+<h2 id="preparing-the-build"><a class="header" href="#preparing-the-build">Preparing the Build</a></h2>
+<h3 id="bootstrap-prerequisites-and-fetch-sources"><a class="header" href="#bootstrap-prerequisites-and-fetch-sources">Bootstrap Prerequisites and Fetch Sources</a></h3>
+<p>On supported Linux distributions, build system preparation can be performed automatically via the build system's bootstrap script:</p>
+<ol>
+<li>
+<p>Ensure you have the <code>curl</code> program installed. e.g., for Pop!_OS/Ubuntu/Debian:</p>
+<pre><code class="language-sh">which curl || sudo apt-get install curl
+</code></pre>
+</li>
+<li>
+<p>Create a new directory and run the <code>native_bootstrap.sh</code> script in it.</p>
+<pre><code class="language-sh">mkdir -p ~/tryredox
+</code></pre>
+<pre><code class="language-sh">cd ~/tryredox
+</code></pre>
+<pre><code class="language-sh">curl -sf https://gitlab.redox-os.org/redox-os/redox/raw/master/native_bootstrap.sh -o native_bootstrap.sh
+</code></pre>
+<pre><code class="language-sh">time bash -e native_bootstrap.sh
+</code></pre>
+<p>You will be asked to confirm some steps: answer with <code>y</code> or <code>1</code>.</p>
+<p>For an explanation of what the <code>native_bootstrap.sh</code> script does, read <a href="./build-phases.html#native_bootstrapsh">this</a> section.</p>
+<p>Note that <code>curl -sf</code> operates silently, so if there are errors, you may get an empty or incorrect version of <code>native_bootstrap.sh</code>. Check for typos in the command and try again. If you continue to have problems, join the <a href="./chat.html">chat</a> and let us know.</p>
+<p>Please be patient. The bootstrapping process can take anywhere from 5 minutes to an hour depending on the hardware and network it's being run on.</p>
+<p>If the <code>native_bootstrap.sh</code> script does not work for you, please try reading the <a href="./advanced-build.html">Advanced Build</a> page to install the right packages for your operating system.</p>
+</li>
+<li>
+<p>After bootstrapping is completed, update the <code>PATH</code> environment variable for the current shell:</p>
+<pre><code class="language-sh">source ~/.cargo/env
+</code></pre>
+</li>
+</ol>
+<h3 id="setting-configuration-values"><a class="header" href="#setting-configuration-values">Setting Configuration Values</a></h3>
+<p>The build system uses several configuration files, which contain settings that you may wish to change. These are detailed in the <a href="./configuration-settings.html">Configuration Settings</a> page. For the Native Build we recommend setting these in the <code>.config</code> file:</p>
+<ul>
+<li><code>ARCH=x86_64</code></li>
+<li><code>CONFIG_NAME=desktop</code></li>
+<li><code>PODMAN_BUILD=0</code> to disable Podman Build</li>
+<li><code>PREFIX_BINARY=0</code> to disable <a href="./advanced-build.html#prefix">prebuilt prefix binary</a></li>
+<li><code>PREFIX_USE_UPSTREAM_RUST_COMPILER=1</code> to <a href="./advanced-build.html#prefix-rust">avoid compiling Rust compiler</a></li>
+</ul>
+<p>The <a href="./configuration-settings.html#buildsh">build.sh</a> script also allows the user to specify the CPU architecture and filesystem contents to be used in the build, although these settings needs to be written again every time the script is executed.</p>
+<h2 id="compiling-redox"><a class="header" href="#compiling-redox">Compiling Redox</a></h2>
+<p>At this point we have:</p>
+<ul>
+<li>Downloaded the sources</li>
+<li>Tweaked the settings to our liking</li>
+<li>Probably added our recipe to the filesystem</li>
+</ul>
+<p>We are ready to build the Redox operating system image. Skip ahead to <a href="./configuration-settings.html">Configuration Settings</a> if you want to build for a different CPU architecture or with different filesystem contents.</p>
+<h3 id="build-all-system-components-and-programs"><a class="header" href="#build-all-system-components-and-programs">Build all system components and programs</a></h3>
+<p>To build all the components and packages to be included in the filesystem.</p>
+<pre><code class="language-sh">cd ~/tryredox/redox
+</code></pre>
+<pre><code class="language-sh">time make all
+</code></pre>
+<p>This will build the target <code>build/x86_64/desktop/harddrive.img</code>, which can be run in a virtual machine.</p>
+<p>Give it a while. Redox is big. Read the <a href="./build-phases.html#make-all-first-run"><code>make all</code> (first run)</a> section for an explanation of what the <code>make all</code> command does.</p>
+<blockquote>
+<p>💡 <strong>Tip:</strong> the filesystem parts are merged into the final system image using the <a href="https://github.com/libfuse/libfuse">FUSE</a> library. The <code>bootstrap.sh</code> script installs <code>libfuse</code> automatically. If you encounter problems with the final Redox image, verify <code>libfuse</code> is installed and that you are able to use it.</p>
+</blockquote>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="podman-build.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="nothing-to-hello-world.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="podman-build.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="nothing-to-hello-world.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="elasticlunr.min.js"></script>
+        <script src="mark.min.js"></script>
+        <script src="searcher.js"></script>
+
+        <script src="clipboard.min.js"></script>
+        <script src="highlight.js"></script>
+        <script src="book.js"></script>
+
+        <!-- Custom JS scripts -->
+
+
+
+    </div>
+    </body>
+</html>

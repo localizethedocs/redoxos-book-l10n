@@ -1,0 +1,708 @@
+<!DOCTYPE HTML>
+<html lang="en_US" class="light sidebar-visible" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Coding and Building - The Redox Operating System</title>
+
+
+        <!-- Custom HTML head -->
+        <style>
+        .light .redox-logo {
+            content: url("assets/redox_light_512.png");
+        }
+        .rust .redox-logo {
+            content: url("assets/redox_light_512.png");
+        }
+        .coal .redox-logo {
+            content: url("assets/redox_dark_512.png");
+        }
+        .navy .redox-logo {
+            content: url("assets/redox_dark_512.png");
+        }
+        .ayu .redox-logo {
+            content: url("assets/redox_dark_512.png");
+        }
+        </style>
+        <script type="text/javascript" src="ltd-provenance.js"></script>
+        <script type="text/javascript" src="ltd-current.js"></script>
+        <script type="text/javascript" src="../../ltd-config.js"></script>
+        <script type="text/javascript" src="../../ltd-flyout.js"></script>
+
+        <meta name="description" content="This book carefully describes the design, implementation, direction, and structure of Redox, the operating system.">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="shortcut icon" href="favicon.png">
+        <link rel="stylesheet" href="css/variables.css">
+        <link rel="stylesheet" href="css/general.css">
+        <link rel="stylesheet" href="css/chrome.css">
+        <link rel="stylesheet" href="css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" id="highlight-css" href="highlight.css">
+        <link rel="stylesheet" id="tomorrow-night-css" href="tomorrow-night.css">
+        <link rel="stylesheet" id="ayu-highlight-css" href="ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+
+        <!-- Provide site root and default themes to javascript -->
+        <script>
+            const path_to_root = "";
+            const default_light_theme = "light";
+            const default_dark_theme = "navy";
+            window.path_to_searchindex_js = "searchindex.js";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="toc.js"></script>
+    </head>
+    <body>
+    <div id="mdbook-help-container">
+        <div id="mdbook-help-popup">
+            <h2 class="mdbook-help-title">Keyboard shortcuts</h2>
+            <div>
+                <p>Press <kbd>←</kbd> or <kbd>→</kbd> to navigate between chapters</p>
+                <p>Press <kbd>S</kbd> or <kbd>/</kbd> to search in the book</p>
+                <p>Press <kbd>?</kbd> to show this help</p>
+                <p>Press <kbd>Esc</kbd> to hide this help</p>
+            </div>
+        </div>
+    </div>
+    <div id="body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                let theme = localStorage.getItem('mdbook-theme');
+                let sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            const default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? default_dark_theme : default_light_theme;
+            let theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            let sidebar = null;
+            const sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+                sidebar_toggle.checked = false;
+            }
+            if (sidebar === 'visible') {
+                sidebar_toggle.checked = true;
+            } else {
+                html.classList.remove('sidebar-visible');
+            }
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="default_theme">Auto</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search (`/`)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="/ s" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">The Redox Operating System</h1>
+
+                    <div class="right-buttons">
+                        <a href="print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <div class="search-wrapper">
+                            <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                            <div class="spinner-wrapper">
+                                <i class="fa fa-spinner fa-spin"></i>
+                            </div>
+                        </div>
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1 id="coding-and-building"><a class="header" href="#coding-and-building">Coding and Building</a></h1>
+<p>(Before reading this page you must read the <a href="./build-system-reference.html">Build System</a> page)</p>
+<p>This page explain common development tasks on the Redox build system.</p>
+<ul>
+<li><a href="#visual-studio-code-configuration">Visual Studio Code Configuration</a></li>
+<li><a href="#vs-code-tips-and-tricks">VS Code Tips and Tricks</a></li>
+<li><a href="#working-with-git">Working with Git</a>
+<ul>
+<li><a href="#anonymous-commits">Anonymous commits</a></li>
+</ul>
+</li>
+<li><a href="#using-multiple-windows">Using Multiple Windows</a></li>
+<li><a href="#setup-your-configuration">Setup your Configuration</a></li>
+<li><a href="#the-recipe">The Recipe</a></li>
+<li><a href="#git-clone">Git Clone</a></li>
+<li><a href="#edit-your-code">Edit your Code</a></li>
+<li><a href="#verify-your-code-on-linux">Verify Your Code on Linux</a></li>
+<li><a href="#update-the-redox-image">Update The Redox Image</a></li>
+<li><a href="#test-your-changes">Test Your Changes</a>
+<ul>
+<li><a href="#test-your-changes-out-of-the-redox-build-system">Test Your Changes (out of the Redox build system)</a></li>
+<li><a href="#testing-on-real-hardware">Testing On Real Hardware</a>
+<ul>
+<li><a href="#full-bootable-image-creation">Full bootable image creation</a></li>
+<li><a href="#partial-bootable-image-creation">Partial bootable image creation</a></li>
+<li><a href="#flash-the-bootable-image-on-your-usb-device">Flash the bootable image on your USB device</a></li>
+<li><a href="#burn-your-cddvd-with-the-bootable-image">Burn your CD/DVD with the bootable image</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#update-crates">Update crates</a></li>
+<li><a href="#search-text-on-files">Search Text On Files</a></li>
+<li><a href="#redox-image">Redox Image</a>
+<ul>
+<li><a href="#build-your-recipe-for-redox">Build Your Recipe for Redox</a></li>
+<li><a href="#make-a-new-redox-image">Make A New Redox Image</a></li>
+<li><a href="#most-quick-way-to-test-your-changes">Most Quick Way To Test Your Changes</a></li>
+<li><a href="#insert-text-files-on-qemu-quickest-method">Insert Text Files On QEMU (quickest method)</a></li>
+<li><a href="#insert-files-in-the-redox-image-using-a-recipe">Insert Files In The Redox image Using a Recipe</a></li>
+<li><a href="#insert-files-in-the-qemu-image">Insert Files In The QEMU Image</a></li>
+</ul>
+</li>
+<li><a href="#working-with-an-unpublished-version-of-a-crate">Working with an unpublished version of a crate</a></li>
+<li><a href="#how-to-update-initfs">How to update initfs</a></li>
+</ul>
+<h2 id="visual-studio-code-configuration"><a class="header" href="#visual-studio-code-configuration">Visual Studio Code Configuration</a></h2>
+<p>Before you start the VS Code IDE to do Redox development you need to run the following command on your terminal:</p>
+<pre><code class="language-sh">rustup target add x86_64-unknown-redox
+</code></pre>
+<p>(If you aren't building Redox to x86_64 change <code>x86_64</code> in <code>x86_64-unknown-redox</code> to the CPU code that you are using)</p>
+<p>If the code that you are working on includes directives like <code>#[cfg(target_os = "redox)]</code>, that code will be disabled by default. To enable live syntax and compiler warnings for that code, add the following line to your VS Code config file (<code>.vscode/settings.json</code>):</p>
+<pre><code class="language-json">"rust-analyzer.cargo.target": "x86_64-unknown-redox"
+</code></pre>
+<p>If you are browsing a codebase that contains native dependencies (e.g. the kernel repository), you might get analyzer errors because of lacking GCC toolchain. To fix it, install <a href="https://gitlab.redox-os.org/redox-os/redoxer">Redoxer</a> and its toolchain <code>redoxer toolchain</code>, then add the GCC toolchain to your <code>PATH</code> configuration (e.g. in <code>~/.bashrc</code>):</p>
+<pre><code class="language-sh">export PATH="$PATH:$HOME/.redoxer/toolchain/bin"
+</code></pre>
+<p>The Redoxer toolchain is added as the last item of the <code>PATH</code> environment variable list to make sure it's not replacing the Rust toolchain that you're using.</p>
+<h2 id="vs-code-tips-and-tricks"><a class="header" href="#vs-code-tips-and-tricks">VS Code Tips and Tricks</a></h2>
+<p>Although not for every Rust developer, <strong>VS Code</strong> is helpful for those who are working with unfamiliar code. We don't get the benefit of all its features, but the Rust support in VS Code is very good.</p>
+<p>If you have not used VS Code with Rust, here's an <a href="https://code.visualstudio.com/docs/languages/rust">overview</a>. VS Code installation instructions are <a href="https://code.visualstudio.com/docs/setup/linux">here</a>.</p>
+<p>After installing the <code>rust-analyzer</code> extension as described in the overview, you get access to several useful features:</p>
+<ul>
+<li>Inferred types and parameter names as inline hints</li>
+<li>Peeking at definitions and references</li>
+<li>Refactoring support</li>
+<li>Autoformat and Clippy on Save (optional)</li>
+<li>Visual Debugger (if your code can run on Linux)</li>
+<li>Compare/Revert against the repository with the Git extension</li>
+</ul>
+<p>Using VS Code on recipes works pretty well, although it sometimes take a couple of minutes to kick in. Here are some things to know:</p>
+<h3 id="start-in-the-source-folder"><a class="header" href="#start-in-the-source-folder">Start in the "source" folder</a></h3>
+<p>In your "Coding" shell, start VS Code specifying the <code>source</code> directory:</p>
+<pre><code class="language-sh">code ~/tryredox/redox/recipes/games/source
+</code></pre>
+<p>Or if you are in the <code>source</code> directory, just write <code>code .</code> with the period meaning the <code>source</code> directory.</p>
+<h3 id="add-it-to-your-favorites-bar"><a class="header" href="#add-it-to-your-favorites-bar">Add it to your "Favorites" bar</a></h3>
+<p>VS Code remembers the last project you used it on, so typing <code>code</code> with no directory or starting it from your Applications window or Favorites bar will go back to that project.</p>
+<p>After starting VS Code, right click on the icon and select "Add to Favorites"</p>
+<h3 id="wait-a-couple-of-minutes"><a class="header" href="#wait-a-couple-of-minutes">Wait a Couple of Minutes</a></h3>
+<p>You can start working right away, but after a minute or two, you will notice extra text appear in your Rust code with inferred types and parameter names filled in. This additional text is just <em>hints</em>, and is not permanently added to your code.</p>
+<h3 id="save-often"><a class="header" href="#save-often">Save Often</a></h3>
+<p>If you have made significant changes <code>rust-analyzer</code> can get confused, but this can usually be fixed by clicking on "Save All"</p>
+<h3 id="dont-use-for-the-whole-redox-build-system"><a class="header" href="#dont-use-for-the-whole-redox-build-system">Don't Use For The Whole Redox Build System</a></h3>
+<p>VS Code cannot grok the gestalt of Redox, so it doesn't work very well if you start it in your <code>redox</code> base directory. It can be handy for editing recipes, configuration and GNU Make files. And if you want to see what you have changed in the Redox project, click on the "Source Control" icon on the left side, then select the file you want to compare against the repository.</p>
+<h3 id="dont-build-the-system-in-a-vs-code-terminal"><a class="header" href="#dont-build-the-system-in-a-vs-code-terminal">Don't Build the System in a VS Code Terminal</a></h3>
+<p>In general, it's not recommended to do a system build from within VS Code. Use your "Build" window. This gives you the flexibility to exit Code without terminating the build.</p>
+<h2 id="working-with-git"><a class="header" href="#working-with-git">Working with Git</a></h2>
+<p>Before starting the development, read the <a href="./creating-proper-pull-requests.html">Creating Proper Pull Requests</a> page, which describes how Redox developers uses Git.</p>
+<p>In this example, we will discuss how to create a <strong>fork</strong> of the <code>games</code> recipe, pretending you are going to create a <code>Merge Request</code> for your changes. <strong>Don't actually do this</strong>. Only create a fork when you have changes that you want to send to Redox upstream.</p>
+<h3 id="anonymous-commits"><a class="header" href="#anonymous-commits">Anonymous commits</a></h3>
+<p>If you are new to Git it request your username and email before the first commit on some offline repository, if you don't want to insert your personal information, run:</p>
+<ul>
+<li>One repository</li>
+</ul>
+<p>The following commands will make you anonymous only on this repository.</p>
+<pre><code class="language-sh">cd your-repository-folder
+</code></pre>
+<pre><code class="language-sh">git config user.name 'Anonymous'
+</code></pre>
+<pre><code class="language-sh">git config user.email '&lt;&gt;'
+</code></pre>
+<ul>
+<li>Global</li>
+</ul>
+<p>The following commands will make you anonymous in any repository.</p>
+<pre><code class="language-sh">git config --global user.name 'Anonymous'
+</code></pre>
+<pre><code class="language-sh">git config --global user.email '&lt;&gt;'
+</code></pre>
+<h2 id="using-multiple-windows"><a class="header" href="#using-multiple-windows">Using Multiple Windows</a></h2>
+<p>For clarity and easy usage, we will be using two terminal tabs on the example below, each running a different GNU Bash shell instance.</p>
+<ol>
+<li>The "Build" shell, normally at <code>~/tryredox/redox</code> or where your base <code>redox</code> directory is.</li>
+<li>The "Coding" shell, at <code>recipes/games/redox-games/source</code></li>
+</ol>
+<h2 id="setup-your-configuration"><a class="header" href="#setup-your-configuration">Setup Your Configuration</a></h2>
+<p>To get started, follow the steps in the <a href="./including-programs.html">Including Programs in Redox</a> page to include the <code>games</code> package on your <code>my-config</code> configuration file. In your terminal window, go to your <code>redox</code> base directory and run:</p>
+<pre><code class="language-sh">make qemu
+</code></pre>
+<p>On Redox, run <code>minesweeper</code> as described in the link above. Type the letter <code>f</code> and you will see <code>F</code> appear on your screen. Use <code>Ctrl-Alt-G</code> to regain control of your cursor, and click the upper right corner to exit QEMU.</p>
+<p>Keep the terminal window open. That will be your "Build" shell.</p>
+<h2 id="the-recipe"><a class="header" href="#the-recipe">The Recipe</a></h2>
+<p>Let's walk through contributing to the recipe <code>redox-games</code>, which is a collection of terminal games. We are going to modify <code>minesweeper</code> to display <strong>P</strong> instead of <strong>F</strong> on flagged spots.</p>
+<p>The <code>redox-games</code> recipe is built at: <code>recipes/games/redox-games</code>. When you download the <code>redox</code> repository it includes a file <code>recipes/games/redox-games/recipe.toml</code>. The recipe tells the build system how to get the source and build it.</p>
+<p>When you build the system and include the <code>redox-games</code> recipe, the toolchain does a <code>git clone</code> into the directory: <code>recipes/games/redox-games/source</code>. Then it builds the recipe in the directory: <code>recipes/games/redox-games/target</code></p>
+<p>Edit the recipe so it does not try to automatically download the sources.</p>
+<ul>
+<li>Create a <code>Terminal</code> window running <code>bash</code> on your system, which we will call your "Coding" shell</li>
+<li>Change to the <code>redox-games</code> directory</li>
+<li>Open the <code>recipe.toml</code> file in a text editor:</li>
+</ul>
+<pre><code class="language-sh">cd ~/tryredox/redox/recipes/games/redox-games
+</code></pre>
+<pre><code class="language-sh">nano recipe.toml
+</code></pre>
+<ul>
+<li>Comment out the <code>[source]</code> section at the top of the file:</li>
+</ul>
+<pre><code># [source]
+# git = "https://gitlab.redox-os.org/redox-os/games.git"
+</code></pre>
+<ul>
+<li>Save your changes</li>
+</ul>
+<h2 id="git-clone"><a class="header" href="#git-clone">Git Clone</a></h2>
+<p>To setup this recipe for contributing, do the following in your "Coding" shell.</p>
+<ul>
+<li>Delete the <code>source</code> and <code>target</code> directories in <code>recipes/games/redox-games</code></li>
+<li>Clone the package into the <code>source</code> directory, either specifying it in the <code>git clone</code> or by moving it after <code>clone</code></li>
+</ul>
+<pre><code class="language-sh">rm -rf source target
+</code></pre>
+<pre><code class="language-sh">git clone https://gitlab.redox-os.org/redox-os/games.git --origin upstream
+</code></pre>
+<pre><code class="language-sh">mv games source
+</code></pre>
+<ul>
+<li>
+<p>If you are making a change that you want to contribute (if not <strong>don't actually do this</strong>), at this point you should follow the instructions in <a href="./creating-proper-pull-requests.html">Creating Proper Pull Requests</a>, replacing <code>redox.git</code> with <code>games.git</code>. Make sure you fork the correct repository, in this case <a href="https:/gitlab.redox-os.org/redox-os/games">redox-os/games</a>. Remember to create a new branch before you make any changes.</p>
+</li>
+<li>
+<p>If you want to Git Clone a remote repository (main repository/your fork), you can add these sections on your <code>recipe.toml</code>:</p>
+</li>
+</ul>
+<pre><code class="language-toml">[source]
+git = "your-git-link"
+branch = "your-branch" # optional
+</code></pre>
+<h2 id="edit-your-code"><a class="header" href="#edit-your-code">Edit Your Code</a></h2>
+<ul>
+<li>Using your favorite code editor, make your changes. We used GNU Nano in this example from your "Coding" shell. You can also use <a href="#vs-code-tips-and-tricks">VS Code</a>.</li>
+</ul>
+<pre><code class="language-sh">cd source
+</code></pre>
+<pre><code class="language-sh">nano src/minesweeper/main.rs
+</code></pre>
+<ul>
+<li>Search for the line containing the definition of the <code>FLAGGED</code> constant (around line 36), and change it to <code>P</code></li>
+</ul>
+<pre><code>const FLAGGED: &amp;'static str = "P";
+</code></pre>
+<h2 id="verify-your-code-on-linux"><a class="header" href="#verify-your-code-on-linux">Verify Your Code on Linux</a></h2>
+<p>Most Redox programs are source-compatible with Linux without being modified. You can (and should) build and test your program on Linux.</p>
+<ul>
+<li>From within the "Coding" shell go to the <code>source</code> directory and use the Linux version of <code>cargo</code> to check for errors:</li>
+</ul>
+<pre><code class="language-sh">cargo check
+</code></pre>
+<p>(Since much of the code in <code>redox-games</code> is older (pre-2018 Rust), you will get several warnings. They can be ignored)</p>
+<p>You could also use <code>cargo clippy</code>, but <code>minesweeper</code> is not clean enough to pass.</p>
+<ul>
+<li>The <code>redox-games</code> recipe creates more than one executable, so to test <code>minesweeper</code> on Linux, you need to specify it to <code>cargo</code>. In the <code>source</code> directory, run:</li>
+</ul>
+<pre><code class="language-sh">cargo run --bin minesweeper
+</code></pre>
+<h2 id="update-the-redox-image"><a class="header" href="#update-the-redox-image">Update The Redox Image</a></h2>
+<p>After making changes to your recipe you can use the <code>make rp.redox-games</code> command, which will check for any changes in the recipe, rebuilt it and update the existing Redox image. The <code>make all</code> and <code>make qemu</code> commands do not check for recipes that need to be rebuilt, so if you use them, your changes may not be included in the system.</p>
+<ul>
+<li>Within your "Build" shell, in your <code>redox</code> directory, run:</li>
+</ul>
+<pre><code class="language-sh">make rebuild 2&gt;&amp;1 | tee build.log
+</code></pre>
+<ul>
+<li>You can now scan through <code>build.log</code> to check for errors. The file is large and contains many ANSI Escape Sequences, so it can be hard to read. However, if you encountered a fatal build error, it will be at the end of the log, so skip to the bottom and scan upwards.</li>
+</ul>
+<h2 id="test-your-changes"><a class="header" href="#test-your-changes">Test Your Changes</a></h2>
+<p>In the Redox instance started by the <code>make qemu</code> command, test your changes to <code>minesweeper</code></p>
+<ul>
+<li>Log in with user: <code>user</code> and no password</li>
+<li>Open a <code>Terminal</code> window</li>
+<li>Type <code>minesweeper</code></li>
+<li>Use your arrow keys or <code>WSAD</code> to move to a square and type <code>f</code> to set a flag. The character <code>P</code> will appear</li>
+</ul>
+<p>Congratulations! You have modified a program and built the system! Next, create a bootable image with your change.</p>
+<ul>
+<li>If you are still running QEMU, type <code>Ctrl-Alt-G</code> and click the upper right corner of the Redox window to exit.</li>
+<li>In your "Build" shell, in the <code>redox</code> directory, run:</li>
+</ul>
+<pre><code class="language-sh">make live
+</code></pre>
+<p>In the directory <code>build/x86_64/my-config</code>, you will find the file <code>redox-live.iso</code>. Follow the instructions on the <a href="#testing-on-real-hardware">Testing on Real Hardware</a> section and test out your change.</p>
+<h3 id="test-your-changes-out-of-the-redox-build-system"><a class="header" href="#test-your-changes-out-of-the-redox-build-system">Test Your Changes (out of the Redox build system)</a></h3>
+<p><a href="https://gitlab.redox-os.org/redox-os/redoxer">Redoxer</a> is the tool used to quickly build and run Rust, C and C++ programs for Redox, it downloads the Redox toolchain, build the program and ru inside of a Redox VM.</p>
+<h4 id="commands"><a class="header" href="#commands">Commands</a></h4>
+<ul>
+<li>Install the tool</li>
+</ul>
+<pre><code class="language-sh">cargo install redoxer
+</code></pre>
+<ul>
+<li>Install the Redox toolchain</li>
+</ul>
+<pre><code class="language-sh">redoxer toolchain
+</code></pre>
+<ul>
+<li>Build the Rust, C or C++ program or library</li>
+</ul>
+<pre><code class="language-sh">redoxer build
+</code></pre>
+<ul>
+<li>Run the Rust, C or C++ program on Redox</li>
+</ul>
+<pre><code class="language-sh">redoxer run
+</code></pre>
+<ul>
+<li>Test the Rust, C or C++ program or library</li>
+</ul>
+<pre><code class="language-sh">redoxer test
+</code></pre>
+<ul>
+<li>Run an arbitrary executable (<code>echo hello</code>)</li>
+</ul>
+<pre><code class="language-sh">redoxer exec echo hello
+</code></pre>
+<h3 id="testing-on-real-hardware"><a class="header" href="#testing-on-real-hardware">Testing On Real Hardware</a></h3>
+<p>You can use the <code>make live</code> command to create bootable images, it will be used instead of <code>make image</code></p>
+<p>This command will create the file <code>build/your-cpu-arch/your-config/redox-live.iso</code>, you will write this image on your USB, SSD or HDD drives and CD or DVD disks (if you have an USB device, <a href="https://github.com/pop-os/popsicle">Popsicle</a> is the recommended method to flash your device).</p>
+<h4 id="full-bootable-image-creation"><a class="header" href="#full-bootable-image-creation">Full bootable image creation</a></h4>
+<ul>
+<li>Update your system/programs and create a bootable image:</li>
+</ul>
+<pre><code class="language-sh">make rebuild live
+</code></pre>
+<h4 id="partial-bootable-image-creation"><a class="header" href="#partial-bootable-image-creation">Partial bootable image creation</a></h4>
+<ul>
+<li>Build your source changes on some recipe and create a bootable image (no QEMU image creation):</li>
+</ul>
+<pre><code class="language-sh">make cr.recipe-name live
+</code></pre>
+<ul>
+<li>Manually update multiple recipes and create a bootable image (more quick than <code>make rebuild</code>):</li>
+</ul>
+<pre><code class="language-sh">make r.recipe1,recipe2 live
+</code></pre>
+<h4 id="flash-the-bootable-image-on-your-usb-device"><a class="header" href="#flash-the-bootable-image-on-your-usb-device">Flash the bootable image on your USB device</a></h4>
+<p>If you can't use Popsicle, you can use the <code>dd</code> tool, follow the steps below:</p>
+<ul>
+<li>Go to the files of your Cookbook configuration:</li>
+</ul>
+<pre><code class="language-sh">cd build/your-cpu-arch/your-config
+</code></pre>
+<ul>
+<li>Flash your device with <code>dd</code></li>
+</ul>
+<p>First you need to find your USB, SSD or HDD drive device ID, use this command to show the IDs of all connected disks on your computer:</p>
+<pre><code class="language-sh">ls /dev/disk/by-id
+</code></pre>
+<p>Search for the items beginning with <code>usb</code> and find your USB device model, you will copy and paste this ID on the <code>dd</code> command below (don't use the IDs with <code>part-x</code> in the end).</p>
+<pre><code class="language-sh">sudo dd if=redox-live.iso of=/dev/disk/by-id/usb-your-device-model oflag=sync bs=4M status=progress
+</code></pre>
+<p>In the <code>/dev/disk/by-id/usb-your-device-model</code> path you will replace the <code>usb-your-device-model</code> part with your USB device ID obtained before.</p>
+<p><strong>Double-check the "of=/dev/disk/by-id/usb-your-device-model" part to avoid data loss</strong></p>
+<h4 id="burn-your-cddvd-with-the-bootable-image"><a class="header" href="#burn-your-cddvd-with-the-bootable-image">Burn your CD/DVD with the bootable image</a></h4>
+<ul>
+<li>Go to the files of your Cookbook configuration:</li>
+</ul>
+<pre><code class="language-sh">cd build/your-cpu-arch/your-config
+</code></pre>
+<ul>
+<li>Verify if your optical disk device can write on CD/DVD</li>
+</ul>
+<pre><code class="language-sh">cat /proc/sys/dev/cdrom/info
+</code></pre>
+<p>Check if the items "Can write" has <code>1</code> (Yes) or <code>0</code> (No), it also show the optical disk devices on the computer: <code>/dev/srX</code></p>
+<ul>
+<li>Burn the disk with <a href="https://www.gnu.org/software/xorriso/">xorriso</a></li>
+</ul>
+<pre><code class="language-sh">xorriso -as cdrecord -v -sao dev=/dev/srX redox-live.iso
+</code></pre>
+<p>In the <code>/dev/srX</code> part, where <code>x</code> is your optical device number.</p>
+<h2 id="update-crates"><a class="header" href="#update-crates">Update crates</a></h2>
+<p>Read <a href="./porting-applications.html#update-crates">this</a> page to learn how to update crates.</p>
+<h2 id="search-text-on-files"><a class="header" href="#search-text-on-files">Search Text On Files</a></h2>
+<p>To find which file contains a particular command, crate or function call, you can use the <code>grep</code> command.</p>
+<p>This will speed up your development workflow.</p>
+<ul>
+<li>Command examples</li>
+</ul>
+<pre><code class="language-sh">grep -rnw "redox-syscall" --include "Cargo.toml"
+</code></pre>
+<p>This command will show any "Cargo.toml" file that contains the text "redox-syscall". Helpful for finding which recipe contains a command or uses a crate.</p>
+<pre><code class="language-sh">grep -rni "physmap" --include "*.rs"
+</code></pre>
+<p>This command will find any ".rs" file that contains the text "physmap". Helpful for finding where a function is used or defined.</p>
+<p>Options context:</p>
+<ul>
+<li>
+<p><code>-n</code> : display the line number of the specified text on each file.</p>
+</li>
+<li>
+<p><code>-r</code> : Search directories recursively.</p>
+</li>
+<li>
+<p><code>-w</code> : Match only whole words.</p>
+</li>
+<li>
+<p><code>-i</code> : Ignore case distinctions in patterns and data.</p>
+</li>
+<li>
+<p><a href="https://www.geeksforgeeks.org/grep-command-in-unixlinux/">GeeksforGeeks - grep command</a> : Great article explaining how to use the <code>grep</code> tool</p>
+</li>
+</ul>
+<h2 id="redox-image"><a class="header" href="#redox-image">Redox Image</a></h2>
+<p>This section explain how to update recipes, create and change the Redox image.</p>
+<h3 id="build-your-recipe-for-redox"><a class="header" href="#build-your-recipe-for-redox">Build Your Recipe For Redox</a></h3>
+<p>You can rebuild just the <code>redox-games</code> recipe, rather than having <code>make rebuild</code> verifying each enabled recipe for changes. This can help shorten the build time if you are trying to resolve issues such as compilation errors or linking to libraries.</p>
+<ul>
+<li>In your "Build" shell, in the <code>redox</code> directory, run:</li>
+</ul>
+<pre><code class="language-sh">make r.redox-games
+</code></pre>
+<p>The build system Makefiles have a rule for the <code>r.recipe</code> recipe target, where <code>recipe</code> is the name of a recipe. It will make that recipe ready to load into the Redox filesystem.</p>
+<p>Once your Redox recipe has been successfully built, you can run the <code>make p.redox-games</code> command to install the recipe in the existing Redox image.</p>
+<p>If you had a problem, use this command to log any possible errors on your terminal output:</p>
+<pre><code class="language-sh">make cr.recipe-name 2&gt;&amp;1 | tee recipe-name.log
+</code></pre>
+<h3 id="make-a-new-redox-image"><a class="header" href="#make-a-new-redox-image">Make A New Redox Image</a></h3>
+<p>If the <code>make p.redox-games</code> command didn't work you need to create a new Redox image.</p>
+<ul>
+<li>In your "Build" shell, in the <code>redox</code> directory, run:</li>
+</ul>
+<pre><code class="language-sh">make image
+</code></pre>
+<p>The <code>make image</code> command skips building any recipes (if the last full recipe rebuild was successful), but it ensures a new image is created, which should include the recipe changes that you built in the previous step.</p>
+<h3 id="most-quick-way-to-test-your-changes"><a class="header" href="#most-quick-way-to-test-your-changes">Most Quick Way To Test Your Changes</a></h3>
+<p>Run:</p>
+<pre><code class="language-sh">make rp.recipe-name qemu
+</code></pre>
+<p>Or (if your change don't allow incremental compilation)</p>
+<pre><code class="language-sh">make crp.recipe-name qemu
+</code></pre>
+<p>This command will <a href="#build-your-recipe-for-redox">build just your modified recipe</a>, then <a href="#make-a-new-redox-image">update your Redox image with your modified recipe</a> and run QEMU with Orbital.</p>
+<h3 id="insert-text-files-on-qemu-quickest-method"><a class="header" href="#insert-text-files-on-qemu-quickest-method">Insert Text Files On QEMU (quickest method)</a></h3>
+<p>If you need to move text files, such as command output, logs or scripts, from or to your Redox instance running on QEMU, use your Terminal window that you used to start QEMU. To capture the output of a Redox command, run <code>script</code> before starting QEMU.</p>
+<pre><code class="language-sh">tee qemu.log
+</code></pre>
+<pre><code class="language-sh">make qemu gpu=no
+</code></pre>
+<pre><code>redox login: user
+# execute your commands, with output to the terminal
+# exit QEMU
+# exit the shell started by script
+</code></pre>
+<pre><code class="language-sh">exit
+</code></pre>
+<p>The command output will now be in the file <code>qemu.log</code>. Note that if you did not exit the <code>script</code> shell the output may not be complete.</p>
+<p>To transfer a text file (such as a log) onto Redox, use the Terminal window with clipboard copy/paste.</p>
+<pre><code>redox login: user
+</code></pre>
+<pre><code class="language-sh">cat &gt; mylog.log &lt;&lt; EOF
+# Copy the text to the clipboard and use the Terminal window clipboard paste
+  EOF
+</code></pre>
+<p>If your file is large, or non-ASCII, or you have many files to copy, you can use the process described in the <a href="#insert-files-on-qemu-image">Insert Files On QEMU Image</a> section. However, there's a risk of data corruption.</p>
+<p>Files that you create while running QEMU remain in the Redox image, while you don't rebuild the image (the same applies to files that you add in the Redox image).</p>
+<p>Make sure you are <strong>not running QEMU</strong> and run the <code>make mount</code> command. You can now use your file manager to navigate to <code>build/x86_64/my-config/filesystem</code>. Copy your files into or out of the Redox filesystem as required. Make sure to exit your file browser window, and run <code>make unmount</code> before running <code>make qemu</code></p>
+<p>Note that in some circumstances, <code>make qemu</code> may trigger a rebuild (e.g. <code>make</code> detects files with timestamp changes). If that happen the files you copied into the Redox image will be lost.</p>
+<h3 id="insert-files-on-the-redox-image-using-a-recipe"><a class="header" href="#insert-files-on-the-redox-image-using-a-recipe">Insert files on the Redox image using a recipe</a></h3>
+<p>You can use a Redox recipe to put your files inside the Redox image, in this example we will use the recipe <code>myfiles</code> for this:</p>
+<ul>
+<li>Create the <code>source</code> folder inside the <code>myfiles</code> recipe directory and copy or move your files to it:</li>
+</ul>
+<pre><code class="language-sh">mkdir recipes/other/myfiles/source
+</code></pre>
+<ul>
+<li>Build the recipe and add on the Redox image:</li>
+</ul>
+<pre><code class="language-sh">make rp.myfiles
+</code></pre>
+<ul>
+<li>Add the <code>myfiles</code> recipe below the <code>[packages]</code> section of your filesystem configuration at: <code>config/your-cpu-arch/your-config.toml</code> (if you want your files to be automatically added to new images):</li>
+</ul>
+<pre><code>[packages]
+...
+myfiles = {}
+...
+</code></pre>
+<ul>
+<li>Open QEMU to verify your files:</li>
+</ul>
+<pre><code class="language-sh">make qemu
+</code></pre>
+<p>This recipe will make Cookbook package all files in the <code>source</code> folder to be installed in the <code>/home/user</code> directory on your Redox filesystem.</p>
+<h3 id="insert-files-in-the-qemu-image"><a class="header" href="#insert-files-in-the-qemu-image">Insert Files In The QEMU Image</a></h3>
+<p>If you feel the need to skip creating a new image, and you want to directly add a file to the existing Redox image, it is possible to do so. However, this is not recommended. You should use a recipe to make the process repeatable. You can see below how to access the Redox image as if it were a Linux filesystem.</p>
+<p><strong>Redox can't be running on QEMU while you do this</strong></p>
+<ul>
+<li>In your "Build" shell, in the <code>redox</code> directory, run:</li>
+</ul>
+<pre><code class="language-sh">make mount
+</code></pre>
+<p>The Redox image is now mounted as a directory at: <code>build/x86_64/your-config/filesystem</code></p>
+<ul>
+<li>Unmount the filesystem and test your image. <strong>You must unmount before you start QEMU</strong></li>
+</ul>
+<pre><code class="language-sh">cd ~/tryredox/redox
+</code></pre>
+<pre><code class="language-sh">make unmount
+</code></pre>
+<pre><code class="language-sh">make qemu
+</code></pre>
+<h2 id="working-with-an-unpublished-version-of-a-crate"><a class="header" href="#working-with-an-unpublished-version-of-a-crate">Working with an unpublished version of a crate</a></h2>
+<p>Most Redox libraries use versioning and are downloaded from <a href="https://crates.io/">crates.io</a>, if you are making a change to one of these crates your merged changes could take a while to appear on crates.io as we publish to there instead of using a local crate.</p>
+<p>To test your changes quickly, follow the following tutorials on Cargo documentation:</p>
+<ul>
+<li><a href="https://doc.rust-lang.org/cargo/reference/overriding-dependencies.html">Overriding Dependencies</a></li>
+<li><a href="https://doc.rust-lang.org/cargo/reference/overriding-dependencies.html#working-with-an-unpublished-minor-version">Working with an unpublished minor version</a></li>
+</ul>
+<h2 id="how-to-update-initfs"><a class="header" href="#how-to-update-initfs">How to update initfs</a></h2>
+<p>The <code>base</code> and <code>base-initfs</code> recipes share the <code>source</code> folder, thus your changes on the <code>base</code> recipe source code will be added on the <code>base-initfs</code> recipe automatically.</p>
+<p>(The <code>recipe.toml</code> of the <code>base-initfs</code> recipe use the <code>same_as</code> data type to symlink the source, you can read the second line of the <a href="https://gitlab.redox-os.org/redox-os/redox/-/blob/master/recipes/core/base-initfs/recipe.toml#L2">base-initfs recipe</a>)</p>
+<p>When you are about to test a change on the <code>base</code> recipe, double check if you're applying for daemons in <code>base-initfs</code> by checking its recipe file in the former link. If you do, you need to trigger build changes for <code>base-initfs</code> manually so it can save <code>initfs</code> daemons into <code>base-initfs</code>:</p>
+<pre><code class="language-sh">make rp.base,base-initfs
+</code></pre>
+<p>RedoxFS is also included in the <code>base-initfs</code> recipe, to update them with your changes run the following command:</p>
+<pre><code class="language-sh">make rp.redoxfs,base-initfs
+</code></pre>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="libraries-apis.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="including-programs.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="libraries-apis.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="including-programs.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="elasticlunr.min.js"></script>
+        <script src="mark.min.js"></script>
+        <script src="searcher.js"></script>
+
+        <script src="clipboard.min.js"></script>
+        <script src="highlight.js"></script>
+        <script src="book.js"></script>
+
+        <!-- Custom JS scripts -->
+
+
+
+    </div>
+    </body>
+</html>
