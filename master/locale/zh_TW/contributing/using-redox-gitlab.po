@@ -13,7 +13,7 @@ msgstr ""
 
 #: src/using-redox-gitlab.md:1
 msgid "Using Redox GitLab"
-msgstr ""
+msgstr "使用 Redox GitLab"
 
 #: src/using-redox-gitlab.md:3
 msgid ""

@@ -27,7 +27,7 @@ msgstr ""
 
 #: src/nothing-to-hello-world.md:7
 msgid "Create the `tryredox` folder."
-msgstr ""
+msgstr "建立 `tryredox` 資料夾。"
 
 #: src/nothing-to-hello-world.md:13
 msgid "Navigate to the `tryredox` folder."
@@ -36,15 +36,15 @@ msgstr ""
 #: src/nothing-to-hello-world.md:19
 msgid ""
 "Download the script to configure Podman and download the Redox build system."
-msgstr ""
+msgstr "下載用於組態 Podman 的腳本，並下載 Redox 建置系統。"
 
 #: src/nothing-to-hello-world.md:25
 msgid "Execute the downloaded script."
-msgstr ""
+msgstr "執行下載的腳本。"
 
 #: src/nothing-to-hello-world.md:31
 msgid "Enable the Rust toolchain in the current shell."
-msgstr ""
+msgstr "在當前外殼中啟用 Rust 工具鏈。"
 
 #: src/nothing-to-hello-world.md:37
 msgid "Navigate to the Redox build system directory."
@@ -54,15 +54,15 @@ msgstr ""
 msgid ""
 "Create the `.config` file and add the `REPO_BINARY` environment variable to "
 "download the pre-compiled packages."
-msgstr ""
+msgstr "建立 `.config` 檔案，並增添 `REPO_BINARY` 環境變數來下載預編譯軟體包。"
 
 #: src/nothing-to-hello-world.md:46
 msgid "\"REPO_BINARY?=1 \\n CONFIG_NAME?=my-config\""
-msgstr ""
+msgstr "\"REPO_BINARY?=1 \\n CONFIG_NAME?=my-config\""
 
 #: src/nothing-to-hello-world.md:49
 msgid "Create the `hello-world` recipe folder."
-msgstr ""
+msgstr "建立 `hello-world` 配方資料夾。"
 
 #: src/nothing-to-hello-world.md:55
 msgid "Create the `source` folder for the recipe."
@@ -95,10 +95,14 @@ msgid ""
 "template = \"cargo\"\n"
 "```"
 msgstr ""
+"```toml\n"
+"[build]\n"
+"template = \"cargo\"\n"
+"```"
 
 #: src/nothing-to-hello-world.md:90
 msgid "Create the `my-config` filesystem configuration."
-msgstr ""
+msgstr "建立 `my-config` 檔案系統組態。"
 
 #: src/nothing-to-hello-world.md:96
 msgid ""
@@ -117,7 +121,7 @@ msgstr ""
 
 #: src/nothing-to-hello-world.md:104
 msgid "Build the Hello World program and updae the Redox image."
-msgstr ""
+msgstr "編譯 Hello World 程式並更新 Redox 映像檔。"
 
 #: src/nothing-to-hello-world.md:110
 msgid "Start the Redox virtual machine without a GUI."
@@ -126,12 +130,12 @@ msgstr ""
 #: src/nothing-to-hello-world.md:116
 msgid ""
 "At the Redox login screen, write \"user\" for the user name and press Enter."
-msgstr ""
+msgstr "在 Redox 登入畫面，於使用者名稱欄位輸入「user」並按下 Enter。"
 
 #: src/nothing-to-hello-world.md:118
 msgid "Run the \"Hello World\" program."
-msgstr ""
+msgstr "執行「Hello World」程式。"
 
 #: src/nothing-to-hello-world.md:124
 msgid "Shut down the Redox virtual machine."
-msgstr ""
+msgstr "關閉 Redox 虛擬機。"

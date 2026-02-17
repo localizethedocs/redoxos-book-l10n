@@ -373,7 +373,7 @@ msgstr ""
 
 #: src/troubleshooting.md:118
 msgid "Git"
-msgstr ""
+msgstr "Git"
 
 #: src/troubleshooting.md:120
 msgid ""

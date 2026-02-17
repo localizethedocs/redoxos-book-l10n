@@ -13,7 +13,7 @@ msgstr ""
 
 #: src/filing-issues.md:1
 msgid "GitLab Issues"
-msgstr ""
+msgstr "GitLab 議題"
 
 #: src/filing-issues.md:3
 msgid ""

@@ -17,7 +17,7 @@ msgstr ""
 
 #: src/writing-docs-correctly.md:3
 msgid "Documentation for Redox appears in two places:"
-msgstr ""
+msgstr "Redox 的文件出現在兩個地方："
 
 #: src/writing-docs-correctly.md:5
 msgid "In the source code"

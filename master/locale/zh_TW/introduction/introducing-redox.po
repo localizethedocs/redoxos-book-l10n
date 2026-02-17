@@ -22,6 +22,8 @@ msgid ""
 "application environment. In this chapter, we will discuss the goals, "
 "philosophy and scope of Redox."
 msgstr ""
+"Redox OS 是一款基於微內核的作業系統，支援大量的程式與組件，為了打造一個功能完"
+"備的使用者與應用程式環境。在本章中，我們將討論 Redox 的目標、理念與作用範圍。"
 
 #: src/introducing-redox.md:5
 msgid "[Our Goals](our-goals.md)"

@@ -13,7 +13,7 @@ msgstr ""
 
 #: src/signing-in-to-gitlab.md:1
 msgid "Signing in to GitLab"
-msgstr ""
+msgstr "登入 GitLab"
 
 #: src/signing-in-to-gitlab.md:3
 msgid "Joining Redox GitLab"
@@ -39,6 +39,8 @@ msgid ""
 "meantime, join us on the [chat](./chat.md) and let us know what you are "
 "working on."
 msgstr ""
+"您的 GitLab 帳號審核可能需要幾分鐘或幾小時的時間，在此期間，歡迎加入我們的[聊"
+"天室](./chat.md)，讓我們知道您正在進行的工作。"
 
 #: src/signing-in-to-gitlab.md:9
 msgid "Setting up 2FA"
@@ -61,7 +63,7 @@ msgstr ""
 
 #: src/signing-in-to-gitlab.md:17
 msgid "Before logging-in, you'll need:"
-msgstr ""
+msgstr "在登入之前，您需要："
 
 #: src/signing-in-to-gitlab.md:18
 msgid ""
@@ -75,7 +77,7 @@ msgstr ""
 
 #: src/signing-in-to-gitlab.md:20
 msgid "your 2FA App installed on your phone."
-msgstr ""
+msgstr "您手機上安裝的 2FA 應用程式。"
 
 #: src/signing-in-to-gitlab.md:21
 msgid ""
@@ -148,7 +150,7 @@ msgstr ""
 
 #: src/signing-in-to-gitlab.md:40 src/signing-in-to-gitlab.md:50
 msgid "Click the Sign In button"
-msgstr ""
+msgstr "點擊登入按鈕"
 
 #: src/signing-in-to-gitlab.md:41 src/signing-in-to-gitlab.md:51
 msgid "Enter your username/email"
@@ -160,7 +162,7 @@ msgstr "輸入您的密碼"
 
 #: src/signing-in-to-gitlab.md:43 src/signing-in-to-gitlab.md:53
 msgid "Click the Submit button"
-msgstr ""
+msgstr "點擊提交按鈕"
 
 #: src/signing-in-to-gitlab.md:44
 msgid ""
@@ -173,7 +175,7 @@ msgstr ""
 
 #: src/signing-in-to-gitlab.md:46
 msgid "Logging-In With An iPhone"
-msgstr ""
+msgstr "使用 iPhone 登入"
 
 #: src/signing-in-to-gitlab.md:54
 msgid ""

@@ -62,7 +62,7 @@ msgstr ""
 
 #: src/graphics-windowing.md:19
 msgid "Software Rendering"
-msgstr ""
+msgstr "軟體算繪"
 
 #: src/graphics-windowing.md:21
 msgid ""
@@ -82,7 +82,7 @@ msgstr ""
 
 #: src/graphics-windowing.md:27
 msgid "Comparison with X11/Wayland"
-msgstr ""
+msgstr "與 X11/Wayland 的比較"
 
 #: src/graphics-windowing.md:29
 msgid ""
@@ -111,11 +111,11 @@ msgstr ""
 
 #: src/graphics-windowing.md:37
 msgid "File Manager"
-msgstr ""
+msgstr "檔案總管"
 
 #: src/graphics-windowing.md:38
 msgid "Text Editor"
-msgstr ""
+msgstr "文字編輯器"
 
 #: src/graphics-windowing.md:39
 msgid "Calculator"
@@ -133,7 +133,7 @@ msgstr ""
 
 #: src/graphics-windowing.md:44
 msgid "Libraries"
-msgstr ""
+msgstr "程式庫"
 
 #: src/graphics-windowing.md:46
 msgid "The programs using these libraries can work on Orbital."
@@ -149,11 +149,11 @@ msgstr ""
 
 #: src/graphics-windowing.md:50
 msgid "Slint (through winit and softbuffer)"
-msgstr ""
+msgstr "Slint（透過 winit 與 softbuffer）"
 
 #: src/graphics-windowing.md:51
 msgid "Iced (through winit and softbuffer)"
-msgstr ""
+msgstr "Iced（透過 winit 與 softbuffer）"
 
 #: src/graphics-windowing.md:52
 msgid "egui (winit or SDL2 can be used)"

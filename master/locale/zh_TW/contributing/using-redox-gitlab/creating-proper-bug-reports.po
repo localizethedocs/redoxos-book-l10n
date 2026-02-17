@@ -13,7 +13,7 @@ msgstr ""
 
 #: src/creating-proper-bug-reports.md:1
 msgid "Creating Proper Bug Reports"
-msgstr ""
+msgstr "建立合適的臭蟲報告"
 
 #: src/creating-proper-bug-reports.md:3
 msgid ""
@@ -105,7 +105,7 @@ msgstr ""
 
 #: src/creating-proper-bug-reports.md:42
 msgid "Use the QEMU menu to quit"
-msgstr ""
+msgstr "使用 QEMU 選單退出"
 
 #: src/creating-proper-bug-reports.md:43
 msgid "Then exit the shell created by script"

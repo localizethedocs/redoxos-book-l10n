@@ -26,33 +26,43 @@ msgid ""
 "[RedoxFS](https://gitlab.redox-os.org/redox-os/redoxfs) - Redox file system "
 "inspired by ZFS."
 msgstr ""
+"[RedoxFS](https://gitlab.redox-os.org/redox-os/redoxfs) - 受 ZFS 啟發的 "
+"Redox 檔案系統。"
 
 #: src/side-projects.md:6
 msgid "[Ion](https://gitlab.redox-os.org/redox-os/ion) - The Redox shell."
-msgstr ""
+msgstr "[Ion](https://gitlab.redox-os.org/redox-os/ion) - Redox 外殼。"
 
 #: src/side-projects.md:7
 msgid ""
 "[Orbital](https://gitlab.redox-os.org/redox-os/orbital) - The desktop "
 "environment/display server of Redox."
 msgstr ""
+"[Orbital](https://gitlab.redox-os.org/redox-os/orbital) - Redox 的桌面環境與"
+"顯示伺服器。"
 
 #: src/side-projects.md:8
 msgid ""
 "[Orbclient](https://gitlab.redox-os.org/redox-os/orbclient) - Orbital client "
 "library for Rust programs."
 msgstr ""
+"[Orbclient](https://gitlab.redox-os.org/redox-os/orbclient) - 供 Rust 程式使"
+"用的 Orbital 客戶端程式庫。"
 
 #: src/side-projects.md:9
 msgid ""
 "[pkgutils](https://gitlab.redox-os.org/redox-os/pkgutils) - Redox package "
 "manager, with a command-line frontend and library."
 msgstr ""
+"[pkgutils](https://gitlab.redox-os.org/redox-os/pkgutils) - Redox 的軟體包管"
+"理器，包含命令行介面與程式庫。"
 
 #: src/side-projects.md:10
 msgid ""
 "[relibc](https://gitlab.redox-os.org/redox-os/relibc) - Redox C library."
 msgstr ""
+"[relibc](https://gitlab.redox-os.org/redox-os/relibc) - Redox 的 C 語言標準"
+"庫。"
 
 #: src/side-projects.md:11
 msgid ""

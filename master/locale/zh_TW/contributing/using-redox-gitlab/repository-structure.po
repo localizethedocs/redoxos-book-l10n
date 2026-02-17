@@ -13,7 +13,7 @@ msgstr ""
 
 #: src/repository-structure.md:1
 msgid "Repository Structure"
-msgstr ""
+msgstr "儲存庫結構"
 
 #: src/repository-structure.md:3
 msgid ""
@@ -25,7 +25,7 @@ msgstr ""
 
 #: src/repository-structure.md:5
 msgid "The Redox Project"
-msgstr ""
+msgstr "Redox 專案"
 
 #: src/repository-structure.md:7
 msgid ""

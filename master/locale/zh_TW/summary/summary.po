@@ -41,7 +41,7 @@ msgstr "為什麼使用 Rust？"
 
 #: src/SUMMARY.md:12
 msgid "Redox Use Cases"
-msgstr ""
+msgstr "Redox 使用案例"
 
 #: src/SUMMARY.md:13
 msgid "Comparing Redox to Other OSes"
@@ -69,7 +69,7 @@ msgstr "架構與設計"
 
 #: src/SUMMARY.md:21
 msgid "System Design"
-msgstr ""
+msgstr "系統設計"
 
 #: src/SUMMARY.md:22
 msgid "Microkernels"
@@ -133,7 +133,7 @@ msgstr ""
 
 #: src/SUMMARY.md:38
 msgid "Resources"
-msgstr ""
+msgstr "資源"
 
 #: src/SUMMARY.md:39
 msgid "Schemes"
@@ -153,7 +153,7 @@ msgstr ""
 
 #: src/SUMMARY.md:43
 msgid "Event Scheme"
-msgstr ""
+msgstr "Event 方案"
 
 #: src/SUMMARY.md:44
 msgid "An Example"
@@ -249,23 +249,23 @@ msgstr ""
 
 #: src/SUMMARY.md:75
 msgid "Using Redox GitLab"
-msgstr ""
+msgstr "使用 Redox GitLab"
 
 #: src/SUMMARY.md:76
 msgid "Signing in to GitLab"
-msgstr ""
+msgstr "登入 GitLab"
 
 #: src/SUMMARY.md:77
 msgid "Repository Structure"
-msgstr ""
+msgstr "儲存庫結構"
 
 #: src/SUMMARY.md:78
 msgid "Creating Proper Bug Reports"
-msgstr ""
+msgstr "建立合適的臭蟲報告"
 
 #: src/SUMMARY.md:79
 msgid "Creating Proper Pull Requests"
-msgstr ""
+msgstr "建立合適的拉取請求"
 
 #: src/SUMMARY.md:80
 msgid "Filing Issues"

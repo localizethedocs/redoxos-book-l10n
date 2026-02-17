@@ -53,7 +53,7 @@ msgstr ""
 
 #: src/tasks.md:27
 msgid "Show CPU information"
-msgstr ""
+msgstr "顯示 CPU 資訊"
 
 #: src/tasks.md:33
 msgid "System"

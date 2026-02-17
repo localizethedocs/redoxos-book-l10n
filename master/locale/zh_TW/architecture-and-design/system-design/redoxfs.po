@@ -20,6 +20,7 @@ msgid ""
 "This is the default filesystem of Redox OS, inspired by ZFS and adapted to a "
 "microkernel architecture."
 msgstr ""
+"這是 Redox OS 的預設檔案系統，靈感源自 ZFS，並針對微內核架構進行了調整。"
 
 #: src/redoxfs.md:5
 msgid ""
@@ -43,7 +44,7 @@ msgstr ""
 
 #: src/redoxfs.md:12
 msgid "Copy-on-write"
-msgstr ""
+msgstr "寫入時複製"
 
 #: src/redoxfs.md:13
 msgid "Data/metadata checksums"
@@ -85,7 +86,7 @@ msgstr ""
 
 #: src/redoxfs.md:23
 msgid "Tooling"
-msgstr ""
+msgstr "工具"
 
 #: src/redoxfs.md:25
 msgid ""
@@ -101,7 +102,7 @@ msgstr ""
 
 #: src/redoxfs.md:33
 msgid "Create a disk"
-msgstr ""
+msgstr "建立磁碟"
 
 #: src/redoxfs.md:35
 msgid ""
@@ -172,7 +173,7 @@ msgstr ""
 
 #: src/redoxfs.md:91
 msgid "Mount a disk"
-msgstr ""
+msgstr "掛載磁碟"
 
 #: src/redoxfs.md:93
 msgid ""
@@ -192,7 +193,7 @@ msgstr ""
 
 #: src/redoxfs.md:107
 msgid "Unmount the disk"
-msgstr ""
+msgstr "解除掛載磁碟"
 
 #: src/redoxfs.md:109
 msgid "Unmount the disk using FUSE unmounting tool:"
@@ -200,7 +201,7 @@ msgstr ""
 
 #: src/redoxfs.md:115
 msgid "Extend the disk"
-msgstr ""
+msgstr "擴充磁碟"
 
 #: src/redoxfs.md:117 src/redoxfs.md:145
 msgid "⚠️ **Warning:** Experimental, please backup before"

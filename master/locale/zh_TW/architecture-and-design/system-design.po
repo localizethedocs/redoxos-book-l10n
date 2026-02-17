@@ -13,7 +13,7 @@ msgstr ""
 
 #: src/system-design.md:1
 msgid "System Design"
-msgstr ""
+msgstr "系統設計"
 
 #: src/system-design.md:3
 msgid "This chapter will discuss the design of Redox."

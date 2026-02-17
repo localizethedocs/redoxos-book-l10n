@@ -44,7 +44,7 @@ msgstr ""
 
 #: src/chat.md:11
 msgid "About Matrix"
-msgstr ""
+msgstr "關於 Matrix"
 
 #: src/chat.md:13
 msgid ""
@@ -56,17 +56,19 @@ msgstr ""
 
 #: src/chat.md:15
 msgid "Rules"
-msgstr ""
+msgstr "規則"
 
 #: src/chat.md:17
 msgid ""
 "We follow the [Rust Code Of Conduct](https://www.rust-lang.org/policies/code-"
 "of-conduct) as rules of the chat rooms."
 msgstr ""
+"我們遵循 [Rust 行為守則](https://www.rust-lang.org/policies/code-of-conduct)"
+"作為聊天室的規則。"
 
 #: src/chat.md:19
 msgid "Threads"
-msgstr ""
+msgstr "討論串"
 
 #: src/chat.md:21
 msgid ""
@@ -212,7 +214,7 @@ msgstr ""
 
 #: src/chat.md:53
 msgid "Troubleshooting"
-msgstr ""
+msgstr "疑難排解"
 
 #: src/chat.md:55
 msgid ""

@@ -51,7 +51,7 @@ msgstr ""
 
 #: src/trying-out-redox.md:11
 msgid "Programs"
-msgstr ""
+msgstr "程式"
 
 #: src/trying-out-redox.md:13
 msgid "FFMPEG"
@@ -59,36 +59,36 @@ msgstr ""
 
 #: src/trying-out-redox.md:15
 msgid "The most advanced multimedia library of the world."
-msgstr ""
+msgstr "世界上最先進的多媒體程式庫。"
 
 #: src/trying-out-redox.md:17
 msgid "Run the following command to play an audio file:"
-msgstr ""
+msgstr "執行以下命令來播放音訊檔："
 
 #: src/trying-out-redox.md:23
 msgid "(Change the audio format according to your file)"
-msgstr ""
+msgstr "（根據您的檔案變更音訊格式）"
 
 #: src/trying-out-redox.md:25
 msgid "Run the following command to play a video file:"
-msgstr ""
+msgstr "執行以下命令來播放視訊檔："
 
 #: src/trying-out-redox.md:31
 msgid "(Change the video format according to your file)"
-msgstr ""
+msgstr "（根據您的檔案變更影訊格式）"
 
 #: src/trying-out-redox.md:33
 msgid "COSMIC Files"
-msgstr ""
+msgstr "COSMIC 檔案"
 
 #: src/trying-out-redox.md:35
 msgid ""
 "An advanced file manager written in Rust, similar to GNOME Nautilus or Files."
-msgstr ""
+msgstr "一款以 Rust 編寫的進階檔案管理器，類似於 GNOME Nautilus 或 Files。"
 
 #: src/trying-out-redox.md:37
 msgid "COSMIC Editor"
-msgstr ""
+msgstr "COSMIC 編輯器"
 
 #: src/trying-out-redox.md:39
 msgid "An advanced text editor written in Rust, similar to KDE KWrite."
@@ -96,15 +96,15 @@ msgstr ""
 
 #: src/trying-out-redox.md:41
 msgid "Git"
-msgstr ""
+msgstr "Git"
 
 #: src/trying-out-redox.md:43
 msgid "Git is a tool used for source code management."
-msgstr ""
+msgstr "Git 是一款用於來源碼管理的工具。"
 
 #: src/trying-out-redox.md:45
 msgid "Run the following command to download a Git repository:"
-msgstr ""
+msgstr "執行以下命令下載 Git 儲存庫："
 
 #: src/trying-out-redox.md:51
 msgid "(Replace the \"repository-link\" part with your repository URL)"
@@ -112,11 +112,11 @@ msgstr ""
 
 #: src/trying-out-redox.md:53
 msgid "RustPython"
-msgstr ""
+msgstr "RustPython"
 
 #: src/trying-out-redox.md:55
 msgid "RustPython is a Python 3.11+ interpreter written in Rust."
-msgstr ""
+msgstr "RustPython 是一款以 Rust 編寫的 Python 3.11+ 直譯器。"
 
 #: src/trying-out-redox.md:57
 msgid "Run the following command to run your Python script:"
@@ -128,17 +128,18 @@ msgstr ""
 
 #: src/trying-out-redox.md:65
 msgid "Periodic Table"
-msgstr ""
+msgstr "週期表"
 
 #: src/trying-out-redox.md:67
 msgid ""
 "The Periodic Table `/usr/bin/periodictable` is a demonstration of the "
 "**OrbTk** user interface toolkit."
 msgstr ""
+"週期表 `/usr/bin/periodictable` 是 **OrbTk** 使用者介面工具組的一個示範。"
 
 #: src/trying-out-redox.md:69
 msgid "Kibi"
-msgstr ""
+msgstr "Kibi"
 
 #: src/trying-out-redox.md:71
 msgid ""
@@ -148,7 +149,7 @@ msgstr ""
 
 #: src/trying-out-redox.md:73
 msgid "Rusthello"
-msgstr ""
+msgstr "Rusthello"
 
 #: src/trying-out-redox.md:75
 msgid ""
@@ -160,7 +161,7 @@ msgstr ""
 
 #: src/trying-out-redox.md:77
 msgid "In a Terminal window, type `rusthello`."
-msgstr ""
+msgstr "在終端機視窗中，輸入 `rusthello`。"
 
 #: src/trying-out-redox.md:79
 msgid ""

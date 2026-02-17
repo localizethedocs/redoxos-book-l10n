@@ -291,6 +291,10 @@ msgid ""
 "template = \"cargo\"\n"
 "```"
 msgstr ""
+"```toml\n"
+"[build]\n"
+"template = \"cargo\"\n"
+"```"
 
 #: src/including-programs.md:139
 msgid ""

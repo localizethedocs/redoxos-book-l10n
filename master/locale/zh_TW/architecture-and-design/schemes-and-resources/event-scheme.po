@@ -13,7 +13,7 @@ msgstr ""
 
 #: src/event-scheme.md:1
 msgid "Event Scheme"
-msgstr ""
+msgstr "Event 方案"
 
 #: src/event-scheme.md:3
 msgid ""

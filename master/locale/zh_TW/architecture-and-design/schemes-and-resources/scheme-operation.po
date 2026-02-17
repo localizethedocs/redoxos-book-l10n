@@ -46,7 +46,7 @@ msgstr ""
 
 #: src/scheme-operation.md:15
 msgid "Event Scheme"
-msgstr ""
+msgstr "Event 方案"
 
 #: src/scheme-operation.md:17
 msgid ""

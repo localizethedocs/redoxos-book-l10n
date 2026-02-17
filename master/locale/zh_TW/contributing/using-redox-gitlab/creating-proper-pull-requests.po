@@ -13,7 +13,7 @@ msgstr ""
 
 #: src/creating-proper-pull-requests.md:1
 msgid "Creating Proper Pull Requests"
-msgstr ""
+msgstr "建立合適的拉取請求"
 
 #: src/creating-proper-pull-requests.md:3
 msgid ""
@@ -56,7 +56,7 @@ msgstr ""
 
 #: src/creating-proper-pull-requests.md:16
 msgid "Preparing your branch"
-msgstr ""
+msgstr "準備您的分支"
 
 #: src/creating-proper-pull-requests.md:18
 msgid ""
@@ -175,7 +175,7 @@ msgstr ""
 
 #: src/creating-proper-pull-requests.md:103
 msgid "Submitting a merge request"
-msgstr ""
+msgstr "提交合併請求"
 
 #: src/creating-proper-pull-requests.md:105
 msgid ""

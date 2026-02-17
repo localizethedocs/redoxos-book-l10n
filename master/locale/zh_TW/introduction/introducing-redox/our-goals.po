@@ -21,6 +21,8 @@ msgid ""
 "operating system with a focus on safety, freedom, stabillity, correctness, "
 "and pragmatism."
 msgstr ""
+"Redox 致力於打造一個完整、功能齊全且通用的作業系統，並專注於安全性、自由度、"
+"穩定性、正確性與實用性。"
 
 #: src/our-goals.md:5
 msgid ""
@@ -28,6 +30,8 @@ msgid ""
 "alternative to Linux/BSD in our computers. It should be able to run most "
 "Linux/BSD programs with minimal modifications."
 msgstr ""
+"我們希望能在電腦上無障礙地使用它，將其作為 Linux/BSD 的完整替代方案。它應該能"
+"夠在僅需極少修改的情況下，執行大多數的 Linux/BSD 程式。"
 
 #: src/our-goals.md:7
 msgid ""
@@ -45,7 +49,7 @@ msgstr ""
 
 #: src/our-goals.md:11
 msgid "Complete Alternative to Linux/BSD"
-msgstr ""
+msgstr "Linux/BSD 的完整替代方案"
 
 #: src/our-goals.md:13
 msgid ""

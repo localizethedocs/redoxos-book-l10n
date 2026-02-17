@@ -13,7 +13,7 @@ msgstr ""
 
 #: src/redox-use-cases.md:1
 msgid "Redox Use Cases"
-msgstr ""
+msgstr "Redox 使用案例"
 
 #: src/redox-use-cases.md:3
 msgid ""
@@ -33,6 +33,9 @@ msgid ""
 "to be done on support for important server technologies such as databases "
 "and web servers, as well as compatibility with high-end server hardware."
 msgstr ""
+"Redox 有潛力成為雲端服務與網頁託管的安全伺服器平台。隨著 Redox 逐漸成熟，其所"
+"能提供的安全性與可靠性提升，使其非常適合伺服器領域。目前仍需在支援重要伺服器"
+"技術（例如：資料庫與網頁伺服器）以及高階伺服器硬體相容性方面持續努力。"
 
 #: src/redox-use-cases.md:9
 msgid ""
@@ -107,7 +110,7 @@ msgstr ""
 
 #: src/redox-use-cases.md:27
 msgid "Mission-Critical Applications"
-msgstr ""
+msgstr "關鍵任務應用"
 
 #: src/redox-use-cases.md:29
 msgid ""
@@ -117,3 +120,6 @@ msgid ""
 "software improve, it may be possible to create a version of Redox that is "
 "proven correct, within some practical limits."
 msgstr ""
+"雖然目前尚無計劃將 Redox 用於衛星或航空安全系統等關鍵任務應用，但這並非不可"
+"能。隨著 Rust 軟體正確性證明工具的進步，未來或許能在某些實際限制內，開發出經"
+"證明為正確的 Redox 版本。"

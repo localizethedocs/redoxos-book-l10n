@@ -71,11 +71,11 @@ msgstr ""
 
 #: src/why-a-new-os.md:23
 msgid "NULL-Safety"
-msgstr ""
+msgstr "NULL 安全性"
 
 #: src/why-a-new-os.md:25
 msgid "NULLs can't cause undefined behavior."
-msgstr ""
+msgstr "NULL 不會導致未定義行為。"
 
 #: src/why-a-new-os.md:27
 msgid "Microkernel Architecture"
@@ -245,7 +245,7 @@ msgstr ""
 
 #: src/why-a-new-os.md:79
 msgid "Advanced Filesystem"
-msgstr ""
+msgstr "進階檔案系統"
 
 #: src/why-a-new-os.md:81
 msgid ""
@@ -261,7 +261,7 @@ msgstr ""
 
 #: src/why-a-new-os.md:85
 msgid "Unix-like Tools and API"
-msgstr ""
+msgstr "類 Unix 工具與 API"
 
 #: src/why-a-new-os.md:87
 msgid ""

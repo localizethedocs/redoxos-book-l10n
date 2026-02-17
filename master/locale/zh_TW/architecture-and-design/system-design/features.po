@@ -17,15 +17,15 @@ msgstr ""
 
 #: src/features.md:3
 msgid "[Desktop](#desktop)"
-msgstr ""
+msgstr "[桌面裝置](#desktop)"
 
 #: src/features.md:4
 msgid "[Mobile](#mobile)"
-msgstr ""
+msgstr "[移動裝置](#mobile)"
 
 #: src/features.md:5
 msgid "[External References](#external-references)"
-msgstr ""
+msgstr "[外部參考](#external-references)"
 
 #: src/features.md:7
 msgid ""
@@ -88,7 +88,7 @@ msgstr ""
 
 #: src/features.md:15
 msgid "Full Disk Encryption"
-msgstr ""
+msgstr "全磁碟加密"
 
 #: src/features.md:16
 msgid "Exploit Mitigations"
@@ -108,27 +108,27 @@ msgstr ""
 
 #: src/features.md:19
 msgid "[IDE](https://en.wikipedia.org/wiki/Parallel_ATA)"
-msgstr ""
+msgstr "[IDE](https://en.wikipedia.org/wiki/Parallel_ATA)"
 
 #: src/features.md:20
 msgid "[SATA](https://en.wikipedia.org/wiki/SATA)"
-msgstr ""
+msgstr "[SATA](https://en.wikipedia.org/wiki/SATA)"
 
 #: src/features.md:21
 msgid "[NVMe](https://en.wikipedia.org/wiki/NVM_Express)"
-msgstr ""
+msgstr "[NVMe](https://en.wikipedia.org/wiki/NVM_Express)"
 
 #: src/features.md:22
 msgid "[PCI](https://en.wikipedia.org/wiki/Peripheral_Component_Interconnect)"
-msgstr ""
+msgstr "[PCI](https://en.wikipedia.org/wiki/Peripheral_Component_Interconnect)"
 
 #: src/features.md:23
 msgid "[PCIe](https://en.wikipedia.org/wiki/PCI_Express)"
-msgstr ""
+msgstr "[PCIe](https://en.wikipedia.org/wiki/PCI_Express)"
 
 #: src/features.md:24
 msgid "[USB](https://en.wikipedia.org/wiki/USB)"
-msgstr ""
+msgstr "[USB](https://en.wikipedia.org/wiki/USB)"
 
 #: src/features.md:24
 msgid "Yes (incomplete)"
@@ -194,7 +194,7 @@ msgstr ""
 
 #: src/features.md:41
 msgid "External References"
-msgstr ""
+msgstr "外部參考"
 
 #: src/features.md:43
 msgid ""

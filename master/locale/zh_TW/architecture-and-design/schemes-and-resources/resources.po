@@ -13,7 +13,7 @@ msgstr ""
 
 #: src/resources.md:1
 msgid "Resources"
-msgstr ""
+msgstr "資源"
 
 #: src/resources.md:3
 msgid ""
@@ -39,7 +39,7 @@ msgstr ""
 
 #: src/resources.md:13
 msgid "Resource Examples"
-msgstr ""
+msgstr "資源範例"
 
 #: src/resources.md:15
 msgid "Some examples of resources are:"

@@ -56,7 +56,7 @@ msgstr ""
 
 #: src/gui.md:13
 msgid "Programs"
-msgstr ""
+msgstr "程式"
 
 #: src/gui.md:15
 msgid ""

@@ -35,6 +35,8 @@ msgid ""
 "If you want to skip straight to trying out Redox, see the [Getting started]"
 "(./getting-started.md) page."
 msgstr ""
+"如果您想直接跳到嘗試 Redox 的階段，請參見[開始使用](./getting-started.md)頁"
+"面。"
 
 #: src/introduction.md:11
 msgid ""
@@ -107,6 +109,9 @@ msgid ""
 "rust-lang.org). Our aim is to provide a fully functioning Unix-like "
 "microkernel-based operating system, that is secure, reliable and free."
 msgstr ""
+"Redox OS 是一款以 [Rust](https://www.rust-lang.org) 語言編寫的通用作業系統。"
+"我們的目標是提供一個功能完備、類 Unix 且基於微內核的作業系統，並確保其安全"
+"性、可靠性與自由免費。"
 
 #: src/introduction.md:30
 msgid ""
@@ -122,6 +127,11 @@ msgid ""
 "org). Redox aims to synthesize years of research and hard won experience "
 "into a system that feels modern and familiar."
 msgstr ""
+"我們從 [Plan 9](http://9p.io/plan9/index.html)、[Minix](http://www.minix3."
+"org/)、[seL4](https://sel4.systems/)、[Linux](https://www.kernel.org/)、"
+"[OpenBSD](https://openbsd.org) 和 [FreeBSD](https://freebsd.org) 中獲得靈感。"
+"Redox 致力於將多年的研究成果與得來不易的經驗結合，打造出一個既現代又讓人感到"
+"熟悉的系統。"
 
 #: src/introduction.md:34
 msgid ""
@@ -140,6 +150,9 @@ msgid ""
 "started as an unikernel (without a hypervisor) and gathered the "
 "contributions of many Rust developers."
 msgstr ""
+"Redox OS 創立於 2015 年，當時 Rust 編譯器的第一個穩定版本 (1.0) 尚未發布，它"
+"是首批以 Rust 編寫的作業系統之一。它最初是以獨核作業系統（unikernel，且不含虛"
+"擬機器監視器）的形式起步，並匯集了許多 Rust 開發者的貢獻。"
 
 #: src/introduction.md:41
 msgid ""
@@ -147,9 +160,11 @@ msgid ""
 "focused on stability and security. To achieve that, Redox was redesigned to "
 "adopt a microkernel architecture and a unified system API for resources."
 msgstr ""
+"隨著專案的進展，Jeremy Soller 決定將作業系統的重點放在穩定性與安全性上。為了"
+"達成這個目標，Redox 經過重新設計，採用了微內核架構以及統一的資源系統 API。"
 
 #: src/introduction.md:44
 msgid ""
 "Minix and Plan 9 were the main inspirations for the system design in the "
 "beginning."
-msgstr ""
+msgstr "Minix 與 Plan 9 是該系統初期設計的主要靈感來源。"

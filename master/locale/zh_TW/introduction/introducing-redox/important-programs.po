@@ -434,7 +434,7 @@ msgstr "文字編輯器"
 
 #: src/important-programs.md:111
 msgid "Kibi"
-msgstr ""
+msgstr "Kibi"
 
 #: src/important-programs.md:112
 msgid "GNU Nano"
@@ -474,7 +474,7 @@ msgstr "開發工具"
 
 #: src/important-programs.md:128
 msgid "Git"
-msgstr ""
+msgstr "Git"
 
 #: src/important-programs.md:129
 msgid "GNU Autotools"

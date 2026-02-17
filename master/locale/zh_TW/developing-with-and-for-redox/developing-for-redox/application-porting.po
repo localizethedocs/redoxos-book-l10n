@@ -2005,7 +2005,7 @@ msgstr ""
 
 #: src/porting-applications.md:911
 msgid "Troubleshooting"
-msgstr ""
+msgstr "疑難排解"
 
 #: src/porting-applications.md:913
 msgid "Why the dynamic linker (`ld.so`) is not finding my library?"

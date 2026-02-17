@@ -137,6 +137,8 @@ msgid ""
 "modify, change, and remove system components or drivers, on runtime, without "
 "even touching the kernel."
 msgstr ""
+"微內核在本質上具有極高的模組化特性。您可以在系統執行時，在完全不更動內核的情"
+"況下，增添、取代、重新載入、修改、變更或移除系統組件與驅動程式。"
 
 #: src/microkernels.md:41
 msgid ""

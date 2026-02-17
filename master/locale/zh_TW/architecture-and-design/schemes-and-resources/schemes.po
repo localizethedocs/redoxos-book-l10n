@@ -21,6 +21,9 @@ msgid ""
 "org/wiki/List_of_URI_schemes), identifies the type of resource, and "
 "identifies the manager daemon responsible for that resource."
 msgstr ""
+"**方案（Scheme）**的名稱源自 [URI 方案](https://en.wikipedia.org/wiki/"
+"List_of_URI_schemes)，用於識別資源的類型，並識別負責該資源的管理守護進程"
+"（daemon）。"
 
 #: src/schemes.md:6
 msgid ""

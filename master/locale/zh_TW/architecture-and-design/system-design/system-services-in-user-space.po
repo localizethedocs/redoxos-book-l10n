@@ -20,6 +20,8 @@ msgid ""
 "As any microkernel-based operating system, most kernel components are moved "
 "to user-space and adapted to work on it."
 msgstr ""
+"如同任何基於微內核的作業系統，大多數的內核組件都已移至使用者空間，並經過調整"
+"以在其中運作。"
 
 #: src/user-space.md:5
 msgid ""
@@ -28,12 +30,17 @@ msgid ""
 "components), not to mention the number of sub-syscalls provided by ioctl and "
 "e.g. procfs/sysfs. Microkernels on the other hand, only have dozens of them."
 msgstr ""
+"一般而言，整體內核（Monolithic kernel）由於內核組件數量龐大，擁有數百個系統呼"
+"叫（system calls，即這些組件的介面），更不用說透過 ioctl 以及例如 procfs/"
+"sysfs 所提供的子系統呼叫數量。相較之下，微內核則僅有數十個系統呼叫。"
 
 #: src/user-space.md:7
 msgid ""
 "This happens because the non-core kernel components are moved to user-space, "
 "thereby relying on IPC instead, which we will later explain."
 msgstr ""
+"這是因為非核心的內核組件被移至使用者空間，進而改為依賴 IPC，我們稍後會對此進"
+"行解釋。"
 
 #: src/user-space.md:9
 msgid ""
@@ -91,3 +98,5 @@ msgid ""
 "[Kernel and User-Space Separation Policy](https://gitlab.redox-os.org/redox-"
 "os/redox/-/issues/1412)"
 msgstr ""
+"[内核與使用者空間分離方針]( https://gitlab.redox-os.org/redox-os/redox/-/"
+"issues/1412)"

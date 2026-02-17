@@ -39,15 +39,15 @@ msgstr ""
 
 #: src/system-tools.md:11
 msgid "`ls` - Show the files and folders of the current directory."
-msgstr ""
+msgstr "`ls` - 顯示當前目錄的檔案與資料夾。"
 
 #: src/system-tools.md:12
 msgid "`cp` - Copy and paste some file or folder."
-msgstr ""
+msgstr "`cp` - 複製並貼上檔案或資料夾。"
 
 #: src/system-tools.md:13
 msgid "`cat` - Show the output of some text file."
-msgstr ""
+msgstr "`cat` - 顯示文字檔的輸出。"
 
 #: src/system-tools.md:14
 msgid "`chmod` - Change the permissions of some file or directory."
@@ -55,7 +55,7 @@ msgstr ""
 
 #: src/system-tools.md:15
 msgid "`clear` - Clean the terminal output."
-msgstr ""
+msgstr "`clear` - 清理終端機輸出。"
 
 #: src/system-tools.md:16
 msgid "`dd` - Copies and converts a file."
@@ -79,19 +79,19 @@ msgstr ""
 
 #: src/system-tools.md:21
 msgid "`kill` - Kill a process."
-msgstr ""
+msgstr "`kill` - 殺死進程。"
 
 #: src/system-tools.md:22
 msgid "`ln` - Creates a link to a file."
-msgstr ""
+msgstr "`ln` - 建立檔案連結。"
 
 #: src/system-tools.md:23
 msgid "`mkdir` - Create a directory."
-msgstr ""
+msgstr "`mkdir` - 建立目錄。"
 
 #: src/system-tools.md:24
 msgid "`ps` - Show all running processes."
-msgstr ""
+msgstr "`ps` - 顯示所有執行中的進程。"
 
 #: src/system-tools.md:25
 msgid "`reset` - Restart the terminal to allow the command-line input."
@@ -198,11 +198,11 @@ msgstr ""
 
 #: src/system-tools.md:56
 msgid "`usermod` - Modify user information"
-msgstr ""
+msgstr "`usermod` - 修改使用者資訊"
 
 #: src/system-tools.md:57
 msgid "`userdel` - Delete a user"
-msgstr ""
+msgstr "`userdel` - 刪除使用者"
 
 #: src/system-tools.md:58
 msgid "`groupadd` - Add a user group"
@@ -210,15 +210,15 @@ msgstr ""
 
 #: src/system-tools.md:59
 msgid "`groupmod` - Modify group information"
-msgstr ""
+msgstr "`groupmod` - 修改群組資訊"
 
 #: src/system-tools.md:60
 msgid "`groupdel` - Remove a user group"
-msgstr ""
+msgstr "`groupdel` - 移除使用者群組"
 
 #: src/system-tools.md:62
 msgid "extrautils"
-msgstr ""
+msgstr "extrautils"
 
 #: src/system-tools.md:64
 msgid ""
@@ -256,7 +256,7 @@ msgstr ""
 
 #: src/system-tools.md:75
 msgid "`keymap` - Change the keyboard map."
-msgstr ""
+msgstr "`keymap` - 建立鍵盤映射。"
 
 #: src/system-tools.md:76
 msgid "`less` - Show the text file content one page at a time."
@@ -264,7 +264,7 @@ msgstr ""
 
 #: src/system-tools.md:77
 msgid "`man` - Show the program manual."
-msgstr ""
+msgstr "`man` - 顯示程式的手冊。"
 
 #: src/system-tools.md:78
 msgid "`mdless` - Pager with Markdown support."
@@ -286,15 +286,15 @@ msgstr ""
 
 #: src/system-tools.md:82
 msgid "`screenfetch` - Show system information."
-msgstr ""
+msgstr "`screenfetch` - 顯示系統資訊。"
 
 #: src/system-tools.md:83
 msgid "`tar` - Manipulate `tar` archives."
-msgstr ""
+msgstr "`tar` - 操縱 `tar` 封存檔。"
 
 #: src/system-tools.md:84
 msgid "`unzip` - Manipulate `zip` archives."
-msgstr ""
+msgstr "`unzip` - 操縱 `zip` 封存檔。"
 
 #: src/system-tools.md:85
 msgid "`watch` - Repeat a command every 2 seconds."
@@ -332,7 +332,7 @@ msgstr ""
 
 #: src/system-tools.md:101
 msgid "[Repository](https://gitlab.redox-os.org/redox-os/contain)"
-msgstr ""
+msgstr "[儲存庫](https://gitlab.redox-os.org/redox-os/contain)"
 
 #: src/system-tools.md:103
 msgid "acid"
@@ -346,7 +346,7 @@ msgstr ""
 
 #: src/system-tools.md:107
 msgid "[Repository](https://gitlab.redox-os.org/redox-os/acid)"
-msgstr ""
+msgstr "[儲存庫](https://gitlab.redox-os.org/redox-os/acid)"
 
 #: src/system-tools.md:109
 msgid "resist"
@@ -361,4 +361,4 @@ msgstr ""
 
 #: src/system-tools.md:113
 msgid "[Repository](https://gitlab.redox-os.org/redox-os/resist)"
-msgstr ""
+msgstr "[儲存庫](https://gitlab.redox-os.org/redox-os/resist)"

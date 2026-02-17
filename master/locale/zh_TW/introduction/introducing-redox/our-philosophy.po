@@ -21,6 +21,8 @@ msgid ""
 "documentation, and fonts. There are only a few exceptions to this, which are "
 "all licensed under other compatible open-source licenses."
 msgstr ""
+"Redox OS 主要採用 MIT X11 風格的授權條款，包含所有軟體、文件與字型。僅有少數"
+"例外，而這些例外皆採用其他相容的開源授權條款。"
 
 #: src/philosophy.md:5
 msgid "The MIT X11-style license has the following properties:"
@@ -73,7 +75,7 @@ msgstr ""
 msgid ""
 "This license was chosen to allow Redox to be used everywhere with minimum "
 "restrictions."
-msgstr ""
+msgstr "選擇該授權條款是為了讓 Redox 能在限制最少的情況下被廣泛使用。"
 
 #: src/philosophy.md:17
 msgid ""
