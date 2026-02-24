@@ -66,7 +66,7 @@ msgstr ""
 
 #: src/schemes.md:19
 msgid "Kernel vs. Userspace Schemes"
-msgstr ""
+msgstr "內核與使用者空間方案"
 
 #: src/schemes.md:21
 msgid ""
@@ -149,7 +149,7 @@ msgstr ""
 
 #: src/schemes.md:49
 msgid "Userspace Schemes"
-msgstr ""
+msgstr "使用者空間方案"
 
 #: src/schemes.md:51
 msgid ""
@@ -742,7 +742,7 @@ msgstr ""
 
 #: src/schemes.md:109
 msgid "Userspace"
-msgstr ""
+msgstr "使用者空間"
 
 #: src/schemes.md:140
 msgid "Kernel"
