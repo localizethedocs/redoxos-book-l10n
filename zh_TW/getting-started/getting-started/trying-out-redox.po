@@ -1,0 +1,325 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: The Redox Operating System\n"
+"POT-Creation-Date: 2026-02-09T03:19:51Z\n"
+"PO-Revision-Date: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: zh_TW\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+#: src/trying-out-redox.md:1
+msgid "Trying Out Redox"
+msgstr ""
+
+#: src/trying-out-redox.md:3
+msgid ""
+"There are several programs, games, demos and other things to try on Redox. "
+"Most of these are not included in the regular Redox build, so you will need "
+"to run the `demo` variant from the list of available Redox images. "
+"Currently, Redox does not have Wi-Fi support, so if you need Wi-Fi for some "
+"of the things you want to do, you are best to use an Ethernet cable or [run "
+"Redox in a virtual machine](./running-vm.md). Most of the suggestions below "
+"do not require Internet access."
+msgstr ""
+
+#: src/trying-out-redox.md:5
+msgid ""
+"On the `demo` variant, click on the Redox symbol in the bottom left corner "
+"of the screen. This brings up a menu, which, for the `demo` variant, "
+"includes some games. Feel free to give them a try!"
+msgstr ""
+
+#: src/trying-out-redox.md:7
+msgid ""
+"Many of the available commands are in the folders `/usr/bin` and `/ui/bin`, "
+"which are included in your command path. Open a Terminal window and type "
+"`ls /usr/bin` (or `ls /scheme/file/usr/bin`) to see some of the available "
+"commands."
+msgstr ""
+
+#: src/trying-out-redox.md:9
+msgid ""
+"💡 **Note:** some of the games listed below are installed in the `/usr/"
+"games` directory, which is not detected in the terminal shell by default. To "
+"run these games from the terminal, you may have to specify the path of their "
+"executables."
+msgstr ""
+
+#: src/trying-out-redox.md:11
+msgid "Programs"
+msgstr "程式"
+
+#: src/trying-out-redox.md:13
+msgid "FFMPEG"
+msgstr ""
+
+#: src/trying-out-redox.md:15
+msgid "The most advanced multimedia library of the world."
+msgstr "世界上最先進的多媒體程式庫。"
+
+#: src/trying-out-redox.md:17
+msgid "Run the following command to play an audio file:"
+msgstr "執行以下命令來播放音訊檔："
+
+#: src/trying-out-redox.md:23
+msgid "(Change the audio format according to your file)"
+msgstr "（根據您的檔案變更音訊格式）"
+
+#: src/trying-out-redox.md:25
+msgid "Run the following command to play a video file:"
+msgstr "執行以下命令來播放視訊檔："
+
+#: src/trying-out-redox.md:31
+msgid "(Change the video format according to your file)"
+msgstr "（根據您的檔案變更影訊格式）"
+
+#: src/trying-out-redox.md:33
+msgid "COSMIC Files"
+msgstr "COSMIC 檔案"
+
+#: src/trying-out-redox.md:35
+msgid ""
+"An advanced file manager written in Rust, similar to GNOME Nautilus or Files."
+msgstr "一款以 Rust 編寫的進階檔案管理器，類似於 GNOME Nautilus 或 Files。"
+
+#: src/trying-out-redox.md:37
+msgid "COSMIC Editor"
+msgstr "COSMIC 編輯器"
+
+#: src/trying-out-redox.md:39
+msgid "An advanced text editor written in Rust, similar to KDE KWrite."
+msgstr ""
+
+#: src/trying-out-redox.md:41
+msgid "Git"
+msgstr "Git"
+
+#: src/trying-out-redox.md:43
+msgid "Git is a tool used for source code management."
+msgstr "Git 是一款用於來源碼管理的工具。"
+
+#: src/trying-out-redox.md:45
+msgid "Run the following command to download a Git repository:"
+msgstr "執行以下命令下載 Git 儲存庫："
+
+#: src/trying-out-redox.md:51
+msgid "(Replace the \"repository-link\" part with your repository URL)"
+msgstr ""
+
+#: src/trying-out-redox.md:53
+msgid "RustPython"
+msgstr "RustPython"
+
+#: src/trying-out-redox.md:55
+msgid "RustPython is a Python 3.11+ interpreter written in Rust."
+msgstr "RustPython 是一款以 Rust 編寫的 Python 3.11+ 直譯器。"
+
+#: src/trying-out-redox.md:57
+msgid "Run the following command to run your Python script:"
+msgstr ""
+
+#: src/trying-out-redox.md:63
+msgid "(The [PyPI](https://pypi.org/) dependency manager is supported)"
+msgstr ""
+
+#: src/trying-out-redox.md:65
+msgid "Periodic Table"
+msgstr "週期表"
+
+#: src/trying-out-redox.md:67
+msgid ""
+"The Periodic Table `/usr/bin/periodictable` is a demonstration of the "
+"**OrbTk** user interface toolkit."
+msgstr ""
+"週期表 `/usr/bin/periodictable` 是 **OrbTk** 使用者介面工具組的一個示範。"
+
+#: src/trying-out-redox.md:69
+msgid "Kibi"
+msgstr "Kibi"
+
+#: src/trying-out-redox.md:71
+msgid ""
+"Kibi is the default terminal text editor inpisred on GNU Nano but with more "
+"features, run the `kibi` command to use it."
+msgstr ""
+
+#: src/trying-out-redox.md:73
+msgid "Rusthello"
+msgstr "Rusthello"
+
+#: src/trying-out-redox.md:75
+msgid ""
+"Rusthello is an advanced Reversi AI, made by [HenryTheCat](https://github."
+"com/HenryTheCat). It is highly concurrent, so this acts as a demonstration "
+"of Redox's multithreading capabilities. It supports various AIs, such as "
+"brute force, minimax, local optimizations, and hybrid AIs."
+msgstr ""
+
+#: src/trying-out-redox.md:77
+msgid "In a Terminal window, type `rusthello`."
+msgstr "在終端機視窗中，輸入 `rusthello`。"
+
+#: src/trying-out-redox.md:79
+msgid ""
+"Then you will get prompted for various things, such as difficulty, AI setup, "
+"and so on. When this is done, Rusthello interactively starts the battle "
+"between you and an AI or an AI and an AI."
+msgstr ""
+
+#: src/trying-out-redox.md:81
+msgid "Games"
+msgstr ""
+
+#: src/trying-out-redox.md:83
+msgid "Freedoom"
+msgstr ""
+
+#: src/trying-out-redox.md:85
+msgid ""
+"Freedoom is a first-person shooter in the form of content for a Doom engine. "
+"For Redox, we have included the PrBoom engine to run Freedoom. You can read "
+"more about Freedoom on the [Freedoom website](https://freedoom.github.io/). "
+"PrBoom can be found on the [PrBoom website](https://prboom.sourceforge.net/)."
+msgstr ""
+
+#: src/trying-out-redox.md:87
+msgid ""
+"Freedoom can be run by selecting its entry from the \"Games\" section of the "
+"Orbital system menu, or by running either `/usr/games/freedoom1` or `/usr/"
+"games/freedoom2` from a terminal."
+msgstr ""
+
+#: src/trying-out-redox.md:89
+msgid ""
+"Hit `Esc` and use the arrow keys to select Options->Setup->Key Bindings for "
+"keyboard help."
+msgstr ""
+
+#: src/trying-out-redox.md:91
+msgid "Neverball and Nevergolf"
+msgstr ""
+
+#: src/trying-out-redox.md:93
+msgid ""
+"Neverball and Nevergolf are 3D pinball and golf games, respectively. Both "
+"can be run from the Orbital system menu, under \"Games\"."
+msgstr ""
+
+#: src/trying-out-redox.md:95
+msgid "Sopwith"
+msgstr ""
+
+#: src/trying-out-redox.md:97
+msgid ""
+"Sopwith is a game which allows players to pilot a small, virtual plane. The "
+"original game was written in 1984 and used PC graphics, but it is now "
+"presented to users using the SDL library. To play it, run the `sopwith` "
+"command from a terminal."
+msgstr ""
+
+#: src/trying-out-redox.md:99
+msgid "Control Key"
+msgstr ""
+
+#: src/trying-out-redox.md:99
+msgid "Description"
+msgstr ""
+
+#: src/trying-out-redox.md:101
+msgid "Comma (`,`)"
+msgstr ""
+
+#: src/trying-out-redox.md:101
+msgid "Pull back"
+msgstr ""
+
+#: src/trying-out-redox.md:102
+msgid "Slash (`/`)"
+msgstr ""
+
+#: src/trying-out-redox.md:102
+msgid "Push forward"
+msgstr ""
+
+#: src/trying-out-redox.md:103
+msgid "Dot (`.`)"
+msgstr ""
+
+#: src/trying-out-redox.md:103
+msgid "Flip aircraft"
+msgstr ""
+
+#: src/trying-out-redox.md:104
+msgid "Space"
+msgstr ""
+
+#: src/trying-out-redox.md:104
+msgid "Fire gun"
+msgstr ""
+
+#: src/trying-out-redox.md:105
+msgid "`b`"
+msgstr ""
+
+#: src/trying-out-redox.md:105
+msgid "Drop bomb"
+msgstr ""
+
+#: src/trying-out-redox.md:107
+msgid "Syobon Action"
+msgstr ""
+
+#: src/trying-out-redox.md:109
+msgid ""
+"Syobon Action is 2D side-scrolling platformer that you _won't_ enjoy. To "
+"play it, run `syobonaction` from a terminal window. It's recommended that "
+"you read the [GitHub page](https://github.com/angelXwind/OpenSyobonAction) "
+"so you don't blame us."
+msgstr ""
+
+#: src/trying-out-redox.md:111
+msgid "Terminal Games Written in Rust"
+msgstr ""
+
+#: src/trying-out-redox.md:113
+msgid ""
+"Also check out some games that have been written in Rust, and use the "
+"Terminal Window for simple graphics. In a Terminal window, enter one of the "
+"following commands:"
+msgstr ""
+
+#: src/trying-out-redox.md:115
+msgid "`baduk` - Baduk/Go"
+msgstr ""
+
+#: src/trying-out-redox.md:116
+msgid "`dem` - Democracy"
+msgstr ""
+
+#: src/trying-out-redox.md:117
+msgid "`flappy` - Flappy Bird clone"
+msgstr ""
+
+#: src/trying-out-redox.md:118
+msgid "`ice` - Ice Sliding Puzzle"
+msgstr ""
+
+#: src/trying-out-redox.md:119
+msgid "`minesweeper` - Minesweeper but it wraps"
+msgstr ""
+
+#: src/trying-out-redox.md:120
+msgid "`reblox` - Tetris-like falling blocks"
+msgstr ""
+
+#: src/trying-out-redox.md:121
+msgid "`redoku` - Sudoku"
+msgstr ""
+
+#: src/trying-out-redox.md:122
+msgid "`snake` - Snake"
+msgstr ""

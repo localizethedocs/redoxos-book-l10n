@@ -1,0 +1,193 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: The Redox Operating System\n"
+"POT-Creation-Date: 2026-02-09T03:19:51Z\n"
+"PO-Revision-Date: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: zh_TW\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+#: src/side-projects.md:1
+msgid "Side Projects"
+msgstr ""
+
+#: src/side-projects.md:3
+msgid ""
+"Redox is a complete Rust operating system. In addition to the Redox kernel, "
+"our team is developing several side projects, including:"
+msgstr ""
+
+#: src/side-projects.md:5
+msgid ""
+"[RedoxFS](https://gitlab.redox-os.org/redox-os/redoxfs) - Redox file system "
+"inspired by ZFS."
+msgstr ""
+"[RedoxFS](https://gitlab.redox-os.org/redox-os/redoxfs) - 受 ZFS 啟發的 "
+"Redox 檔案系統。"
+
+#: src/side-projects.md:6
+msgid "[Ion](https://gitlab.redox-os.org/redox-os/ion) - The Redox shell."
+msgstr "[Ion](https://gitlab.redox-os.org/redox-os/ion) - Redox 外殼。"
+
+#: src/side-projects.md:7
+msgid ""
+"[Orbital](https://gitlab.redox-os.org/redox-os/orbital) - The desktop "
+"environment/display server of Redox."
+msgstr ""
+"[Orbital](https://gitlab.redox-os.org/redox-os/orbital) - Redox 的桌面環境與"
+"顯示伺服器。"
+
+#: src/side-projects.md:8
+msgid ""
+"[Orbclient](https://gitlab.redox-os.org/redox-os/orbclient) - Orbital client "
+"library for Rust programs."
+msgstr ""
+"[Orbclient](https://gitlab.redox-os.org/redox-os/orbclient) - 供 Rust 程式使"
+"用的 Orbital 客戶端程式庫。"
+
+#: src/side-projects.md:9
+msgid ""
+"[pkgutils](https://gitlab.redox-os.org/redox-os/pkgutils) - Redox package "
+"manager, with a command-line frontend and library."
+msgstr ""
+"[pkgutils](https://gitlab.redox-os.org/redox-os/pkgutils) - Redox 的軟體包管"
+"理器，包含命令行介面與程式庫。"
+
+#: src/side-projects.md:10
+msgid ""
+"[relibc](https://gitlab.redox-os.org/redox-os/relibc) - Redox C library."
+msgstr ""
+"[relibc](https://gitlab.redox-os.org/redox-os/relibc) - Redox 的 C 語言標準"
+"庫。"
+
+#: src/side-projects.md:11
+msgid ""
+"[audiod](https://gitlab.redox-os.org/redox-os/audiod) - Redox audio server."
+msgstr ""
+
+#: src/side-projects.md:12
+msgid ""
+"[bootloader](https://gitlab.redox-os.org/redox-os/bootloader) - Redox boot "
+"loader."
+msgstr ""
+
+#: src/side-projects.md:13
+msgid ""
+"[base](https://gitlab.redox-os.org/redox-os/base) - Redox essential system "
+"services and drivers."
+msgstr ""
+
+#: src/side-projects.md:14
+msgid ""
+"[installer](https://gitlab.redox-os.org/redox-os/installer) - Redox "
+"buildsystem builder."
+msgstr ""
+
+#: src/side-projects.md:15
+msgid ""
+"[redoxer](https://gitlab.redox-os.org/redox-os/redoxer) - A tool to run/test "
+"Rust programs inside of a Redox VM."
+msgstr ""
+
+#: src/side-projects.md:16
+msgid ""
+"[games](https://gitlab.redox-os.org/redox-os/games) - A collection of mini-"
+"games for Redox (alike BSD-games)."
+msgstr ""
+
+#: src/side-projects.md:17
+msgid ""
+"and a few other exciting projects you can explore on the [redox-os group]"
+"(https://gitlab.redox-os.org/redox-os)."
+msgstr ""
+
+#: src/side-projects.md:19
+msgid ""
+"We also have some in-house tools, which are collections of small, useful "
+"command-line programs:"
+msgstr ""
+
+#: src/side-projects.md:21
+msgid ""
+"[coreutils](https://gitlab.redox-os.org/redox-os/coreutils) -  Redox-"
+"specific core utilities such as `free`, `ps`, `shutdown`, and so on."
+msgstr ""
+
+#: src/side-projects.md:22
+msgid ""
+"[extrautils](https://gitlab.redox-os.org/redox-os/extrautils) -  Redox-"
+"specific extra utilities such as `dmesg`, `less`, `which`, and so on."
+msgstr ""
+
+#: src/side-projects.md:23
+msgid ""
+"[binutils](https://gitlab.redox-os.org/redox-os/binutils) - Utilities for "
+"working with binary files."
+msgstr ""
+
+#: src/side-projects.md:25
+msgid ""
+"We also actively contribute to third-party projects that are heavily used in "
+"Redox."
+msgstr ""
+
+#: src/side-projects.md:27
+msgid ""
+"[uutils/coreutils](https://github.com/uutils/coreutils) - Cross-platform "
+"Rust rewrite of the GNU Coreutils."
+msgstr ""
+
+#: src/side-projects.md:28
+msgid ""
+"[smoltcp](https://github.com/m-labs/smoltcp) - The TCP/IP stack used by "
+"Redox."
+msgstr ""
+
+#: src/side-projects.md:29
+msgid ""
+"[winit](https://github.com/rust-windowing/winit) - The window handling "
+"library for Rust programs."
+msgstr ""
+
+#: src/side-projects.md:31
+msgid "What tools are fitting for the Redox distribution?"
+msgstr "哪些工具適合用於 Redox 散佈版？"
+
+#: src/side-projects.md:33
+msgid ""
+"The necessary tools for a usable system, we offer variants with fewer "
+"programs."
+msgstr ""
+
+#: src/side-projects.md:35
+msgid "The listed tools fall into three categories:"
+msgstr ""
+
+#: src/side-projects.md:37
+msgid ""
+"**Critical**, which are needed for a full functioning and usable system."
+msgstr ""
+
+#: src/side-projects.md:38
+msgid ""
+"**Ecosystem-friendly**, which are there for establishing consistency within "
+"the ecosystem."
+msgstr ""
+
+#: src/side-projects.md:39
+msgid "**Fun**, which are \"nice\" to have and are inherently simple."
+msgstr ""
+
+#: src/side-projects.md:41
+msgid ""
+"The first category should be obvious: an OS without certain core tools is a "
+"useless OS. The second category contains the tools which are likely to be "
+"non-default in the future, but nonetheless are in the official distribution "
+"right now, for the charm. The third category is there for convenience: "
+"namely for making sure that the Redox infrastructure is consistent and "
+"integrated."
+msgstr ""

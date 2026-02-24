@@ -1,0 +1,105 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: The Redox Operating System\n"
+"POT-Creation-Date: 2026-02-09T03:19:51Z\n"
+"PO-Revision-Date: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: zh_CN\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+#: src/communication.md:1
+msgid "Communication"
+msgstr ""
+
+#: src/communication.md:3
+msgid ""
+"This page explains how a program communicates with the system components."
+msgstr ""
+
+#: src/communication.md:5
+msgid "Context"
+msgstr ""
+
+#: src/communication.md:7
+msgid "A scheme is a system service"
+msgstr ""
+
+#: src/communication.md:8
+msgid "SQE means \"Submission Queue Entry\""
+msgstr ""
+
+#: src/communication.md:9
+msgid "CQE means \"Completion Queue Entry\""
+msgstr ""
+
+#: src/communication.md:10
+msgid ""
+"POSIX and Linux functions are implemented by relibc using Redox services "
+"provided by schemes, they work with the appropriate schemes to implement the "
+"function. It might involve opening a scheme, maybe writing to a scheme, or "
+"maybe calling `mmap` on the scheme after opening (this is pretty common)."
+msgstr ""
+
+#: src/communication.md:11
+msgid ""
+"relibc and redox-rt talk to the scheme via a system call - open, read, "
+"write, mmap, etc."
+msgstr ""
+
+#: src/communication.md:12
+msgid ""
+"A system component (userspace daemon) uses the Scheme API (from the `redox-"
+"scheme` library) to implement the system service. The Scheme API also is "
+"doing system calls like `open`, `read` and `write`, but the message format "
+"for reading and writing is a special format. The latest version of the "
+"Scheme API reads SQE messages and writes CQE messages. SQE is basically the "
+"parameters to the system call that the caller originally did, packaged into "
+"a message. CQE is the response that the daemon sends back."
+msgstr ""
+
+#: src/communication.md:13
+msgid ""
+"The kernel is responsible for creating the SQE messages, and for unpacking "
+"the CQE messages."
+msgstr ""
+
+#: src/communication.md:15
+msgid "Example"
+msgstr ""
+
+#: src/communication.md:17
+msgid "The program calls some POSIX or Linux function from relibc"
+msgstr ""
+
+#: src/communication.md:18
+msgid "relibc/redox-rt convert it to system calls"
+msgstr ""
+
+#: src/communication.md:19
+msgid "The kernel converts the system calls to SQE"
+msgstr ""
+
+#: src/communication.md:20
+msgid ""
+"The userspace daemon calls read on a \"scheme socket\" and gets an SQE "
+"message"
+msgstr ""
+
+#: src/communication.md:21
+msgid ""
+"The userspace daemon calls write on the scheme socket and sends a CQE message"
+msgstr ""
+
+#: src/communication.md:22
+msgid "The kernel converts the CQE message to the result of the system call"
+msgstr ""
+
+#: src/communication.md:23
+msgid ""
+"relibc/redox-rt gets the result from the system call and uses that to "
+"calculate the result of the POSIX or Linux function call"
+msgstr ""

@@ -1,0 +1,475 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: The Redox Operating System\n"
+"POT-Creation-Date: 2026-02-09T03:19:51Z\n"
+"PO-Revision-Date: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: zh_TW\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+#: src/running-vm.md:1
+msgid "Running Redox in a Virtual Machine"
+msgstr ""
+
+#: src/running-vm.md:3
+msgid "[VirtualBox Instructions](#virtualbox-instructions)"
+msgstr ""
+
+#: src/running-vm.md:4
+msgid "[QEMU Instructions](#qemu-instructions)"
+msgstr ""
+
+#: src/running-vm.md:6
+msgid "Download the bootable images"
+msgstr ""
+
+#: src/running-vm.md:8
+msgid "This section will guide you to download the Redox images."
+msgstr ""
+
+#: src/running-vm.md:10
+msgid ""
+"(You need to use the `harddrive.img` image variant for QEMU or VirtualBox)"
+msgstr ""
+
+#: src/running-vm.md:12
+msgid "Stable Releases"
+msgstr ""
+
+#: src/running-vm.md:14
+msgid ""
+"The bootable images for the 0.9.0 release are located on the [build server "
+"release folder](https://static.redox-os.org/releases/0.9.0/x86_64/). To try "
+"Redox using a virtual machine such as QEMU or VirtualBox, download the [demo]"
+"(https://static.redox-os.org/releases/0.9.0/x86_64/"
+"redox_demo_x86_64_2024-09-07_1225_harddrive.img.zst) variant, check the "
+"[SHA256 sum](https://static.redox-os.org/releases/0.9.0/x86_64/SHA256SUM) to "
+"ensure it has downloaded correctly."
+msgstr ""
+
+#: src/running-vm.md:20
+msgid ""
+"If you have more than one demo image in the `Downloads` directory, you may "
+"need to replace the `*` symbol with the date of your file."
+msgstr ""
+
+#: src/running-vm.md:22
+msgid ""
+"If the demo variant doesn't boot on your computer, try the [desktop](https://"
+"static.redox-os.org/releases/0.9.0/x86_64/"
+"redox_desktop_x86_64_2024-09-07_1225_harddrive.img.zst) and [server](https://"
+"static.redox-os.org/releases/0.9.0/x86_64/"
+"redox_server_x86_64_2024-09-07_1225_harddrive.img.zst) variants."
+msgstr ""
+
+#: src/running-vm.md:24
+msgid ""
+"Even if the `desktop` and `server` variants doesn't work, use the daily "
+"images below."
+msgstr ""
+
+#: src/running-vm.md:26
+msgid "Daily Images"
+msgstr ""
+
+#: src/running-vm.md:28
+msgid ""
+"If you want to test the latest Redox changes you can use our bootable images "
+"created each day by opening the [build server images](https://static.redox-"
+"os.org/img) and downloading your preferred variant. Once the download is "
+"complete, check the [SHA256 sum](https://static.redox-os.org/img/x86_64/"
+"SHA256SUM)."
+msgstr ""
+
+#: src/running-vm.md:31
+msgid ""
+"(Sometimes our daily images can be one week old or more because of breaking "
+"changes)"
+msgstr ""
+
+#: src/running-vm.md:33
+msgid "Decompression"
+msgstr ""
+
+#: src/running-vm.md:35
+msgid ""
+"The Redox images are compressed using the [Zstd](https://github.com/facebook/"
+"zstd) algorithm, to decompress follow the steps below:"
+msgstr ""
+
+#: src/running-vm.md:37 src/running-vm.md:134
+msgid "Linux"
+msgstr ""
+
+#: src/running-vm.md:39 src/running-vm.md:56
+msgid "GUI"
+msgstr ""
+
+#: src/running-vm.md:41
+msgid ""
+"Install [GNOME File Roller](https://gitlab.gnome.org/GNOME/file-roller) or "
+"[KDE Ark](https://apps.kde.org/ark/) (both can be installed from [Flathub]"
+"(https://flathub.org/))"
+msgstr ""
+
+#: src/running-vm.md:42
+msgid "Open the Redox image and click on the \"Extract\" button"
+msgstr ""
+
+#: src/running-vm.md:44
+msgid ""
+"If you are using the GNOME Nautilus or KDE Dolphin file manager, right-click "
+"the file and select the option to extract the file."
+msgstr ""
+
+#: src/running-vm.md:46
+msgid "Terminal"
+msgstr ""
+
+#: src/running-vm.md:48
+msgid "Install the Zstd tool and run:"
+msgstr ""
+
+#: src/running-vm.md:54 src/running-vm.md:226
+msgid "Windows"
+msgstr ""
+
+#: src/running-vm.md:58
+msgid "Install [7-Zip](https://www.7-zip.org/)"
+msgstr ""
+
+#: src/running-vm.md:59
+msgid ""
+"Right-click the Redox image, hover the 7-Zip section and click on the option "
+"to extract the file or open the file on 7-Zip and extract"
+msgstr ""
+
+#: src/running-vm.md:61
+msgid "VirtualBox Instructions"
+msgstr ""
+
+#: src/running-vm.md:63
+msgid ""
+"To run Redox in a VirtualBox virtual machine you need to do the following "
+"steps:"
+msgstr ""
+
+#: src/running-vm.md:65
+msgid ""
+"Create a VM with 2048 MB of RAM memory (or less if using a simpler Redox "
+"image variant) and 32MB of VRAM (video memory)"
+msgstr ""
+
+#: src/running-vm.md:66
+msgid "Enable Nested Paging"
+msgstr ""
+
+#: src/running-vm.md:67
+msgid "Change the keyboard and mouse interface to PS/2"
+msgstr ""
+
+#: src/running-vm.md:68
+msgid "Change the audio controller to Intel HDA"
+msgstr ""
+
+#: src/running-vm.md:69
+msgid "Disable USB support"
+msgstr ""
+
+#: src/running-vm.md:70
+msgid ""
+"Go to the network settings of the VM and change the NIC model to 82540EM"
+msgstr ""
+
+#: src/running-vm.md:71
+msgid ""
+"Go to the storage settings of the VM, create an IDE controller and add the "
+"Redox bootable image on it"
+msgstr ""
+
+#: src/running-vm.md:72
+msgid "Start the VM!"
+msgstr ""
+
+#: src/running-vm.md:74
+msgid ""
+"If you want to install Redox on the VM create a VDI disk of 5GB (or less if "
+"you are using a simplier Redox image variant)."
+msgstr ""
+
+#: src/running-vm.md:76
+msgid "Command for the pre-installed image"
+msgstr ""
+
+#: src/running-vm.md:78
+msgid ""
+"If you want to do this using the command-line, run the following commands:"
+msgstr ""
+
+#: src/running-vm.md:106
+msgid "Command for the Live ISO image"
+msgstr ""
+
+#: src/running-vm.md:108
+msgid ""
+"If you want to use the [Live ISO](https://static.redox-os.org/releases/0.9.0/"
+"x86_64/redox_demo_x86_64_2024-09-07_1225_livedisk.iso.zst) run the following "
+"commands:"
+msgstr ""
+
+#: src/running-vm.md:132
+msgid "QEMU Instructions"
+msgstr ""
+
+#: src/running-vm.md:136
+msgid ""
+"If you don't have QEMU installed use one of the following commands on "
+"Ubuntu, Debian or PopOS based on the image that you want:"
+msgstr ""
+
+#: src/running-vm.md:138
+msgid "x86-32 (i586) and x86-64 images"
+msgstr ""
+
+#: src/running-vm.md:144
+msgid "ARM64 images"
+msgstr ""
+
+#: src/running-vm.md:150
+msgid "RISC-V images"
+msgstr ""
+
+#: src/running-vm.md:156 src/running-vm.md:230
+msgid ""
+"Use one of the following commands to run QEMU with a Redox-compatible "
+"configuration:"
+msgstr ""
+
+#: src/running-vm.md:158
+msgid ""
+"💡 **Tip:** if you encounter an error with the file name, verify that the "
+"name passed into the previous command (i.e., `$HOME/Downloads/"
+"redox_demo_x86_64_*_harddrive.img`) matches the file you downloaded."
+msgstr ""
+
+#: src/running-vm.md:160 src/running-vm.md:232
+msgid "x86-32 (i586) image"
+msgstr ""
+
+#: src/running-vm.md:162 src/running-vm.md:174 src/running-vm.md:186
+#: src/running-vm.md:214 src/running-vm.md:234 src/running-vm.md:248
+#: src/running-vm.md:262 src/running-vm.md:277
+msgid "Run QEMU"
+msgstr ""
+
+#: src/running-vm.md:164
+msgid ""
+"```\n"
+"SDL_VIDEO_X11_DGAMOUSE=0 qemu-system-i386 -d cpu_reset,guest_errors -smp 1 -"
+"m 2048 \\\n"
+"    -chardev stdio,id=debug,signal=off,mux=on,\"\" -serial chardev:debug -"
+"mon chardev=debug \\\n"
+"    -machine pc -cpu pentium2 -device AC97 -netdev user,id=net0 \\\n"
+"    -device e1000,netdev=net0 -device nec-usb-xhci,id=xhci \\\n"
+"    -drive file=`echo $HOME/Downloads/redox_demo_i586_*_harddrive.img`,"
+"format=raw\n"
+"```"
+msgstr ""
+
+#: src/running-vm.md:172 src/running-vm.md:246
+msgid "x86-64 image"
+msgstr ""
+
+#: src/running-vm.md:176
+msgid ""
+"```\n"
+"SDL_VIDEO_X11_DGAMOUSE=0 qemu-system-x86_64 -d cpu_reset,guest_errors -"
+"enable-kvm -smp 4 -m 2048 \\\n"
+"    -chardev stdio,id=debug,signal=off,mux=on,\"\" -serial chardev:debug -"
+"mon chardev=debug \\\n"
+"    -machine q35 -cpu host -device ich9-intel-hda -device hda-duplex -netdev "
+"user,id=net0 \\\n"
+"    -device e1000,netdev=net0 -device nec-usb-xhci,id=xhci \\\n"
+"    -drive file=`echo $HOME/Downloads/redox_demo_x86_64_*_harddrive.img`,"
+"format=raw\n"
+"```"
+msgstr ""
+
+#: src/running-vm.md:184 src/running-vm.md:260
+msgid "ARM64 image"
+msgstr ""
+
+#: src/running-vm.md:188
+msgid ""
+"```\n"
+"SDL_VIDEO_X11_DGAMOUSE=0 qemu-system-aarch64 -d cpu_reset,guest_errors -smp "
+"4 -m 2048 \\\n"
+"    -chardev stdio,id=debug,signal=off,mux=on,\"\" -serial chardev:debug -"
+"mon chardev=debug \\\n"
+"    -bios /usr/share/AAVMF/AAVMF_CODE.fd -machine virt -cpu max -vga none -"
+"device ramfb -netdev user,id=net0 \\\n"
+"    -device e1000,netdev=net0 -device nec-usb-xhci,id=xhci \\\n"
+"    -drive file=`echo $HOME/Downloads/redox_demo_aarch64_*_harddrive.img`,"
+"format=raw\n"
+"```"
+msgstr ""
+
+#: src/running-vm.md:196 src/running-vm.md:275
+msgid "RISC-V image"
+msgstr ""
+
+#: src/running-vm.md:198
+msgid "Verify if the QEMU UEFI firmware is installed"
+msgstr ""
+
+#: src/running-vm.md:200
+msgid "PFLASH0"
+msgstr ""
+
+#: src/running-vm.md:206
+msgid "PFLASH1"
+msgstr ""
+
+#: src/running-vm.md:212
+msgid ""
+"At least one of each `PFLASH` command must be present, if the file location "
+"present on your system is different from the one used in the command you "
+"need to change it."
+msgstr ""
+
+#: src/running-vm.md:216
+msgid "TODO: fix not enough space for firmware error"
+msgstr ""
+
+#: src/running-vm.md:218
+msgid ""
+"```\n"
+"SDL_VIDEO_X11_DGAMOUSE=0 qemu-system-riscv64 -d cpu_reset,guest_errors -smp "
+"4 -m 2048 \\\n"
+"    -chardev stdio,id=debug,signal=off,mux=on,\"\" -serial chardev:debug -"
+"mon chardev=debug \\\n"
+"    -drive if=pflash,format=raw,unit=0,file=/usr/share/qemu-efi-riscv64/"
+"RISCV_VIRT_CODE.fd,readonly=on -drive if=pflash,format=raw,unit=1,file=/usr/"
+"share/qemu-efi-riscv64/RISCV_VIRT_VARS.fd -machine virt,acpi=off -cpu max -"
+"vga none -device ramfb -audio none -netdev user,id=net0 \\\n"
+"    -device e1000,netdev=net0 -device nec-usb-xhci,id=xhci \\\n"
+"    -drive file=`echo $HOME/Downloads/redox_demo_riscv64gc_*_harddrive.img`,"
+"format=raw\n"
+"```"
+msgstr ""
+
+#: src/running-vm.md:228
+msgid ""
+"To install **QEMU** on Windows, follow the instructions [here](https://www."
+"qemu.org/download/#windows). The installation of **QEMU** will probably not "
+"update your command path, so the necessary QEMU command needs to be "
+"specified using its full path. Or, you can add the installation folder to "
+"your `PATH` environment variable if you will be using it regularly."
+msgstr ""
+
+#: src/running-vm.md:236 src/running-vm.md:250 src/running-vm.md:264
+#: src/running-vm.md:279
+msgid "TODO: test"
+msgstr ""
+
+#: src/running-vm.md:238
+msgid ""
+"```\n"
+"\"C:\\Program Files\\qemu\\qemu-system-x86.exe\" -d cpu_reset,guest_errors -"
+"smp 1 -m 2048\n"
+"-chardev stdio,id=debug,signal=off,mux=on,\"\" -serial chardev:debug -mon "
+"chardev=debug\n"
+"-machine pc -cpu pentium2 -device AC97 -netdev user,id=net0\n"
+"-device e1000,netdev=net0 -device nec-usb-xhci,id=xhci -device usb-tablet\n"
+"-drive file=redox_demo_i586_*_harddrive.img,format=raw\n"
+"```"
+msgstr ""
+
+#: src/running-vm.md:252
+msgid ""
+"```\n"
+"\"C:\\Program Files\\qemu\\qemu-system-x86_64.exe\" -d cpu_reset,"
+"guest_errors -smp 4 -m 2048\n"
+"-chardev stdio,id=debug,signal=off,mux=on,\"\" -serial chardev:debug -mon "
+"chardev=debug\n"
+"-machine pc -cpu host -device ich9-intel-hda -device hda-duplex -netdev user,"
+"id=net0\n"
+"-device e1000,netdev=net0 -device nec-usb-xhci,id=xhci -device usb-tablet\n"
+"-drive file=redox_demo_x86_64_2024-09-07_1225_harddrive.img,format=raw\n"
+"```"
+msgstr ""
+
+#: src/running-vm.md:266
+msgid ""
+"```\n"
+"\"C:\\Program Files\\qemu\\qemu-system-aarch64.exe\" -d cpu_reset,"
+"guest_errors -smp 4 -m 2048\n"
+"-chardev stdio,id=debug,signal=off,mux=on,\"\" -serial chardev:debug -mon "
+"chardev=debug\n"
+"-drive -bios \"C:\\Program Files\\qemu\\share\\edk2-aarch64-code.fd\" \n"
+"-machine virt -cpu max -vga none -device ramfb -netdev user,id=net0\n"
+"-device e1000,netdev=net0 -device nec-usb-xhci,id=xhci -device usb-tablet\n"
+"-drive file=redox_demo_aarch64_*_harddrive.img,format=raw\n"
+"```"
+msgstr ""
+
+#: src/running-vm.md:281
+msgid ""
+"```\n"
+"\"C:\\Program Files\\qemu\\qemu-system-riscv64.exe\" -d cpu_reset,"
+"guest_errors -smp 4 -m 2048\n"
+"-chardev stdio,id=debug,signal=off,mux=on,\"\" -serial chardev:debug -mon "
+"chardev=debug\n"
+"-drive -bios \"C:\\Program Files\\qemu\\share\\edk2-riscv-code.fd\"\n"
+"-machine virt,acpi=off -cpu max -vga none -device ramfb -audio none -netdev "
+"riscv,id=net0\n"
+"-device e1000,netdev=net0 -device nec-usb-xhci,id=xhci -device usb-tablet\n"
+"-drive file=redox_demo_riscv64gc_*_harddrive.img,format=raw\n"
+"```"
+msgstr ""
+
+#: src/running-vm.md:290
+msgid ""
+"💡 **Tip:** if you get a filename error, change "
+"`redox_demo_x86_64_*_harddrive.img` to the name of the file you downloaded."
+msgstr ""
+
+#: src/running-vm.md:292
+msgid ""
+"💡 **Tip:** if necessary, change `\"C:\\Program Files\\qemu\\qemu-system-"
+"x86_64.exe\"` to reflect where **QEMU** was installed. The quotes are needed "
+"if the path contains spaces."
+msgstr ""
+
+#: src/running-vm.md:294
+msgid "Using the QEMU emulation"
+msgstr ""
+
+#: src/running-vm.md:296
+msgid ""
+"As the system boots, it will ask you for a screen resolution to use, for "
+"example `1024x768`. After selecting a screen size, the system will complete "
+"the boot, start the **Orbital** GUI, and display a Redox login screen. Login "
+"as user `user` with no password. The password for `root` is `password`. Use "
+"**Ctrl+Alt+G** to toggle the mouse behavior if you need to zoom out or exit "
+"the emulation. If your emulated cursor is out of alignment with your mouse "
+"position, type **Ctrl+Alt+G** to regain full cursor control, then click on "
+"your emulated cursor. **Ctrl+Alt+F** toggles between full screen and window "
+"views."
+msgstr ""
+
+#: src/running-vm.md:298
+msgid "See [Trying Out Redox](./trying-out-redox.md) for things to try."
+msgstr ""
+
+#: src/running-vm.md:300
+msgid ""
+"If you want to try Redox in **server** mode, add `-nographic -vga none` to "
+"the command line above. You may wish to switch to the `redox_server` "
+"edition. There are also i586 editions available, although these are not part "
+"of the release."
+msgstr ""

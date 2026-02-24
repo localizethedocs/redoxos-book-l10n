@@ -1,0 +1,1177 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: The Redox Operating System\n"
+"POT-Creation-Date: 2026-02-09T03:19:51Z\n"
+"PO-Revision-Date: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: zh_TW\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+#: src/coding-and-building.md:1
+msgid "Coding and Building"
+msgstr ""
+
+#: src/coding-and-building.md:3
+msgid ""
+"(Before reading this page you must read the [Build System](./build-system-"
+"reference.md) page)"
+msgstr ""
+
+#: src/coding-and-building.md:5
+msgid "This page explain common development tasks on the Redox build system."
+msgstr ""
+
+#: src/coding-and-building.md:7
+msgid "[Visual Studio Code Configuration](#visual-studio-code-configuration)"
+msgstr ""
+
+#: src/coding-and-building.md:8
+msgid "[VS Code Tips and Tricks](#vs-code-tips-and-tricks)"
+msgstr ""
+
+#: src/coding-and-building.md:9
+msgid "[Working with Git](#working-with-git)"
+msgstr ""
+
+#: src/coding-and-building.md:10
+msgid "[Anonymous commits](#anonymous-commits)"
+msgstr ""
+
+#: src/coding-and-building.md:11
+msgid "[Using Multiple Windows](#using-multiple-windows)"
+msgstr ""
+
+#: src/coding-and-building.md:12
+msgid "[Setup your Configuration](#setup-your-configuration)"
+msgstr ""
+
+#: src/coding-and-building.md:13
+msgid "[The Recipe](#the-recipe)"
+msgstr ""
+
+#: src/coding-and-building.md:14
+msgid "[Git Clone](#git-clone)"
+msgstr ""
+
+#: src/coding-and-building.md:15
+msgid "[Edit your Code](#edit-your-code)"
+msgstr ""
+
+#: src/coding-and-building.md:16
+msgid "[Verify Your Code on Linux](#verify-your-code-on-linux)"
+msgstr ""
+
+#: src/coding-and-building.md:17
+msgid "[Update The Redox Image](#update-the-redox-image)"
+msgstr ""
+
+#: src/coding-and-building.md:18
+msgid "[Test Your Changes](#test-your-changes)"
+msgstr ""
+
+#: src/coding-and-building.md:19
+msgid ""
+"[Test Your Changes (out of the Redox build system)](#test-your-changes-out-"
+"of-the-redox-build-system)"
+msgstr ""
+
+#: src/coding-and-building.md:20
+msgid "[Testing On Real Hardware](#testing-on-real-hardware)"
+msgstr ""
+
+#: src/coding-and-building.md:21
+msgid "[Full bootable image creation](#full-bootable-image-creation)"
+msgstr ""
+
+#: src/coding-and-building.md:22
+msgid "[Partial bootable image creation](#partial-bootable-image-creation)"
+msgstr ""
+
+#: src/coding-and-building.md:23
+msgid ""
+"[Flash the bootable image on your USB device](#flash-the-bootable-image-on-"
+"your-usb-device)"
+msgstr ""
+
+#: src/coding-and-building.md:24
+msgid ""
+"[Burn your CD/DVD with the bootable image](#burn-your-cddvd-with-the-"
+"bootable-image)"
+msgstr ""
+
+#: src/coding-and-building.md:25
+msgid "[Update crates](#update-crates)"
+msgstr ""
+
+#: src/coding-and-building.md:26
+msgid "[Search Text On Files](#search-text-on-files)"
+msgstr ""
+
+#: src/coding-and-building.md:27
+msgid "[Redox Image](#redox-image)"
+msgstr ""
+
+#: src/coding-and-building.md:28
+msgid "[Build Your Recipe for Redox](#build-your-recipe-for-redox)"
+msgstr ""
+
+#: src/coding-and-building.md:29
+msgid "[Make A New Redox Image](#make-a-new-redox-image)"
+msgstr ""
+
+#: src/coding-and-building.md:30
+msgid ""
+"[Most Quick Way To Test Your Changes](#most-quick-way-to-test-your-changes)"
+msgstr ""
+
+#: src/coding-and-building.md:31
+msgid ""
+"[Insert Text Files On QEMU (quickest method)](#insert-text-files-on-qemu-"
+"quickest-method)"
+msgstr ""
+
+#: src/coding-and-building.md:32
+msgid ""
+"[Insert Files In The Redox image Using a Recipe](#insert-files-in-the-redox-"
+"image-using-a-recipe)"
+msgstr ""
+
+#: src/coding-and-building.md:33
+msgid "[Insert Files In The QEMU Image](#insert-files-in-the-qemu-image)"
+msgstr ""
+
+#: src/coding-and-building.md:34
+msgid ""
+"[Working with an unpublished version of a crate](#working-with-an-"
+"unpublished-version-of-a-crate)"
+msgstr ""
+
+#: src/coding-and-building.md:35
+msgid "[How to update initfs](#how-to-update-initfs)"
+msgstr ""
+
+#: src/coding-and-building.md:37
+msgid "Visual Studio Code Configuration"
+msgstr ""
+
+#: src/coding-and-building.md:39
+msgid ""
+"Before you start the VS Code IDE to do Redox development you need to run the "
+"following command on your terminal:"
+msgstr ""
+
+#: src/coding-and-building.md:45
+msgid ""
+"(If you aren't building Redox to x86_64 change `x86_64` in `x86_64-unknown-"
+"redox` to the CPU code that you are using)"
+msgstr ""
+
+#: src/coding-and-building.md:47
+msgid ""
+"If the code that you are working on includes directives like "
+"`#[cfg(target_os = \"redox)]`, that code will be disabled by default. To "
+"enable live syntax and compiler warnings for that code, add the following "
+"line to your VS Code config file (`.vscode/settings.json`):"
+msgstr ""
+
+#: src/coding-and-building.md:50
+msgid "\"rust-analyzer.cargo.target\""
+msgstr ""
+
+#: src/coding-and-building.md:50
+msgid "\"x86_64-unknown-redox\""
+msgstr ""
+
+#: src/coding-and-building.md:53
+msgid ""
+"If you are browsing a codebase that contains native dependencies (e.g. the "
+"kernel repository), you might get analyzer errors because of lacking GCC "
+"toolchain. To fix it, install [Redoxer](https://gitlab.redox-os.org/redox-os/"
+"redoxer) and its toolchain `redoxer toolchain`, then add the GCC toolchain "
+"to your `PATH` configuration (e.g. in `~/.bashrc`):"
+msgstr ""
+
+#: src/coding-and-building.md:56
+msgid "\"$PATH:$HOME/.redoxer/toolchain/bin\""
+msgstr ""
+
+#: src/coding-and-building.md:59
+msgid ""
+"The Redoxer toolchain is added as the last item of the `PATH` environment "
+"variable list to make sure it's not replacing the Rust toolchain that you're "
+"using."
+msgstr ""
+
+#: src/coding-and-building.md:61
+msgid "VS Code Tips and Tricks"
+msgstr ""
+
+#: src/coding-and-building.md:63
+msgid ""
+"Although not for every Rust developer, **VS Code** is helpful for those who "
+"are working with unfamiliar code. We don't get the benefit of all its "
+"features, but the Rust support in VS Code is very good."
+msgstr ""
+
+#: src/coding-and-building.md:65
+msgid ""
+"If you have not used VS Code with Rust, here's an [overview](https://code."
+"visualstudio.com/docs/languages/rust). VS Code installation instructions are "
+"[here](https://code.visualstudio.com/docs/setup/linux)."
+msgstr ""
+
+#: src/coding-and-building.md:67
+msgid ""
+"After installing the `rust-analyzer` extension as described in the overview, "
+"you get access to several useful features:"
+msgstr ""
+
+#: src/coding-and-building.md:69
+msgid "Inferred types and parameter names as inline hints"
+msgstr ""
+
+#: src/coding-and-building.md:70
+msgid "Peeking at definitions and references"
+msgstr ""
+
+#: src/coding-and-building.md:71
+msgid "Refactoring support"
+msgstr ""
+
+#: src/coding-and-building.md:72
+msgid "Autoformat and Clippy on Save (optional)"
+msgstr ""
+
+#: src/coding-and-building.md:73
+msgid "Visual Debugger (if your code can run on Linux)"
+msgstr ""
+
+#: src/coding-and-building.md:74
+msgid "Compare/Revert against the repository with the Git extension"
+msgstr ""
+
+#: src/coding-and-building.md:76
+msgid ""
+"Using VS Code on recipes works pretty well, although it sometimes take a "
+"couple of minutes to kick in. Here are some things to know:"
+msgstr ""
+
+#: src/coding-and-building.md:78
+msgid "Start in the \"source\" folder"
+msgstr ""
+
+#: src/coding-and-building.md:80
+msgid ""
+"In your \"Coding\" shell, start VS Code specifying the `source` directory:"
+msgstr ""
+
+#: src/coding-and-building.md:86
+msgid ""
+"Or if you are in the `source` directory, just write `code .` with the period "
+"meaning the `source` directory."
+msgstr ""
+
+#: src/coding-and-building.md:88
+msgid "Add it to your \"Favorites\" bar"
+msgstr ""
+
+#: src/coding-and-building.md:90
+msgid ""
+"VS Code remembers the last project you used it on, so typing `code` with no "
+"directory or starting it from your Applications window or Favorites bar will "
+"go back to that project."
+msgstr ""
+
+#: src/coding-and-building.md:92
+msgid ""
+"After starting VS Code, right click on the icon and select \"Add to "
+"Favorites\""
+msgstr ""
+
+#: src/coding-and-building.md:94
+msgid "Wait a Couple of Minutes"
+msgstr ""
+
+#: src/coding-and-building.md:96
+msgid ""
+"You can start working right away, but after a minute or two, you will notice "
+"extra text appear in your Rust code with inferred types and parameter names "
+"filled in. This additional text is just _hints_, and is not permanently "
+"added to your code."
+msgstr ""
+
+#: src/coding-and-building.md:98
+msgid "Save Often"
+msgstr ""
+
+#: src/coding-and-building.md:100
+msgid ""
+"If you have made significant changes `rust-analyzer` can get confused, but "
+"this can usually be fixed by clicking on \"Save All\""
+msgstr ""
+
+#: src/coding-and-building.md:102
+msgid "Don't Use For The Whole Redox Build System"
+msgstr ""
+
+#: src/coding-and-building.md:104
+msgid ""
+"VS Code cannot grok the gestalt of Redox, so it doesn't work very well if "
+"you start it in your `redox` base directory. It can be handy for editing "
+"recipes, configuration and GNU Make files. And if you want to see what you "
+"have changed in the Redox project, click on the \"Source Control\" icon on "
+"the left side, then select the file you want to compare against the "
+"repository."
+msgstr ""
+
+#: src/coding-and-building.md:106
+msgid "Don't Build the System in a VS Code Terminal"
+msgstr ""
+
+#: src/coding-and-building.md:108
+msgid ""
+"In general, it's not recommended to do a system build from within VS Code. "
+"Use your \"Build\" window. This gives you the flexibility to exit Code "
+"without terminating the build."
+msgstr ""
+
+#: src/coding-and-building.md:110
+msgid "Working with Git"
+msgstr ""
+
+#: src/coding-and-building.md:112
+msgid ""
+"Before starting the development, read the [Creating Proper Pull Requests](./"
+"creating-proper-pull-requests.md) page, which describes how Redox developers "
+"uses Git."
+msgstr ""
+
+#: src/coding-and-building.md:114
+msgid ""
+"In this example, we will discuss how to create a **fork** of the `games` "
+"recipe, pretending you are going to create a `Merge Request` for your "
+"changes. **Don't actually do this**. Only create a fork when you have "
+"changes that you want to send to Redox upstream."
+msgstr ""
+
+#: src/coding-and-building.md:116
+msgid "Anonymous commits"
+msgstr ""
+
+#: src/coding-and-building.md:118
+msgid ""
+"If you are new to Git it request your username and email before the first "
+"commit on some offline repository, if you don't want to insert your personal "
+"information, run:"
+msgstr ""
+
+#: src/coding-and-building.md:120
+msgid "One repository"
+msgstr ""
+
+#: src/coding-and-building.md:122
+msgid "The following commands will make you anonymous only on this repository."
+msgstr ""
+
+#: src/coding-and-building.md:129 src/coding-and-building.md:141
+msgid "'Anonymous'"
+msgstr ""
+
+#: src/coding-and-building.md:133 src/coding-and-building.md:145
+msgid "'<>'"
+msgstr ""
+
+#: src/coding-and-building.md:136
+msgid "Global"
+msgstr ""
+
+#: src/coding-and-building.md:138
+msgid "The following commands will make you anonymous in any repository."
+msgstr ""
+
+#: src/coding-and-building.md:148
+msgid "Using Multiple Windows"
+msgstr ""
+
+#: src/coding-and-building.md:150
+msgid ""
+"For clarity and easy usage, we will be using two terminal tabs on the "
+"example below, each running a different GNU Bash shell instance."
+msgstr ""
+
+#: src/coding-and-building.md:152
+msgid ""
+"The \"Build\" shell, normally at `~/tryredox/redox` or where your base "
+"`redox` directory is."
+msgstr ""
+
+#: src/coding-and-building.md:153
+msgid "The \"Coding\" shell, at `recipes/games/redox-games/source`"
+msgstr ""
+
+#: src/coding-and-building.md:155
+msgid "Setup Your Configuration"
+msgstr ""
+
+#: src/coding-and-building.md:157
+msgid ""
+"To get started, follow the steps in the [Including Programs in Redox](./"
+"including-programs.md) page to include the `games` package on your `my-"
+"config` configuration file. In your terminal window, go to your `redox` base "
+"directory and run:"
+msgstr ""
+
+#: src/coding-and-building.md:163
+msgid ""
+"On Redox, run `minesweeper` as described in the link above. Type the letter "
+"`f` and you will see `F` appear on your screen. Use `Ctrl-Alt-G` to regain "
+"control of your cursor, and click the upper right corner to exit QEMU."
+msgstr ""
+
+#: src/coding-and-building.md:165
+msgid "Keep the terminal window open. That will be your \"Build\" shell."
+msgstr ""
+
+#: src/coding-and-building.md:167
+msgid "The Recipe"
+msgstr ""
+
+#: src/coding-and-building.md:169
+msgid ""
+"Let's walk through contributing to the recipe `redox-games`, which is a "
+"collection of terminal games. We are going to modify `minesweeper` to "
+"display **P** instead of **F** on flagged spots."
+msgstr ""
+
+#: src/coding-and-building.md:171
+msgid ""
+"The `redox-games` recipe is built at: `recipes/games/redox-games`. When you "
+"download the `redox` repository it includes a file `recipes/games/redox-"
+"games/recipe.toml`. The recipe tells the build system how to get the source "
+"and build it."
+msgstr ""
+
+#: src/coding-and-building.md:173
+msgid ""
+"When you build the system and include the `redox-games` recipe, the "
+"toolchain does a `git clone` into the directory: `recipes/games/redox-games/"
+"source`. Then it builds the recipe in the directory: `recipes/games/redox-"
+"games/target`"
+msgstr ""
+
+#: src/coding-and-building.md:175
+msgid ""
+"Edit the recipe so it does not try to automatically download the sources."
+msgstr ""
+
+#: src/coding-and-building.md:177
+msgid ""
+"Create a `Terminal` window running `bash` on your system, which we will call "
+"your \"Coding\" shell"
+msgstr ""
+
+#: src/coding-and-building.md:178
+msgid "Change to the `redox-games` directory"
+msgstr ""
+
+#: src/coding-and-building.md:179
+msgid "Open the `recipe.toml` file in a text editor:"
+msgstr ""
+
+#: src/coding-and-building.md:189
+msgid "Comment out the `[source]` section at the top of the file:"
+msgstr ""
+
+#: src/coding-and-building.md:191
+msgid ""
+"```\n"
+"# [source]\n"
+"# git = \"https://gitlab.redox-os.org/redox-os/games.git\"\n"
+"```"
+msgstr ""
+
+#: src/coding-and-building.md:196
+msgid "Save your changes"
+msgstr ""
+
+#: src/coding-and-building.md:198
+msgid "Git Clone"
+msgstr ""
+
+#: src/coding-and-building.md:200
+msgid ""
+"To setup this recipe for contributing, do the following in your \"Coding\" "
+"shell."
+msgstr ""
+
+#: src/coding-and-building.md:202
+msgid ""
+"Delete the `source` and `target` directories in `recipes/games/redox-games`"
+msgstr ""
+
+#: src/coding-and-building.md:203
+msgid ""
+"Clone the package into the `source` directory, either specifying it in the "
+"`git clone` or by moving it after `clone`"
+msgstr ""
+
+#: src/coding-and-building.md:217
+msgid ""
+"If you are making a change that you want to contribute (if not **don't "
+"actually do this**), at this point you should follow the instructions in "
+"[Creating Proper Pull Requests](./creating-proper-pull-requests.md), "
+"replacing `redox.git` with `games.git`. Make sure you fork the correct "
+"repository, in this case [redox-os/games](https:/gitlab.redox-os.org/redox-"
+"os/games). Remember to create a new branch before you make any changes."
+msgstr ""
+
+#: src/coding-and-building.md:219
+msgid ""
+"If you want to Git Clone a remote repository (main repository/your fork), "
+"you can add these sections on your `recipe.toml`:"
+msgstr ""
+
+#: src/coding-and-building.md:221
+msgid ""
+"```toml\n"
+"[source]\n"
+"git = \"your-git-link\"\n"
+"branch = \"your-branch\" # optional\n"
+"```"
+msgstr ""
+
+#: src/coding-and-building.md:227
+msgid "Edit Your Code"
+msgstr ""
+
+#: src/coding-and-building.md:229
+msgid ""
+"Using your favorite code editor, make your changes. We used GNU Nano in this "
+"example from your \"Coding\" shell. You can also use [VS Code](#vs-code-tips-"
+"and-tricks)."
+msgstr ""
+
+#: src/coding-and-building.md:239
+msgid ""
+"Search for the line containing the definition of the `FLAGGED` constant "
+"(around line 36), and change it to `P`"
+msgstr ""
+
+#: src/coding-and-building.md:241
+msgid ""
+"```\n"
+"const FLAGGED: &'static str = \"P\";\n"
+"```"
+msgstr ""
+
+#: src/coding-and-building.md:245
+msgid "Verify Your Code on Linux"
+msgstr ""
+
+#: src/coding-and-building.md:247
+msgid ""
+"Most Redox programs are source-compatible with Linux without being modified. "
+"You can (and should) build and test your program on Linux."
+msgstr ""
+
+#: src/coding-and-building.md:249
+msgid ""
+"From within the \"Coding\" shell go to the `source` directory and use the "
+"Linux version of `cargo` to check for errors:"
+msgstr ""
+
+#: src/coding-and-building.md:255
+msgid ""
+"(Since much of the code in `redox-games` is older (pre-2018 Rust), you will "
+"get several warnings. They can be ignored)"
+msgstr ""
+
+#: src/coding-and-building.md:257
+msgid ""
+"You could also use `cargo clippy`, but `minesweeper` is not clean enough to "
+"pass."
+msgstr ""
+
+#: src/coding-and-building.md:258
+msgid ""
+"The `redox-games` recipe creates more than one executable, so to test "
+"`minesweeper` on Linux, you need to specify it to `cargo`. In the `source` "
+"directory, run:"
+msgstr ""
+
+#: src/coding-and-building.md:264
+msgid "Update The Redox Image"
+msgstr ""
+
+#: src/coding-and-building.md:266
+msgid ""
+"After making changes to your recipe you can use the `make rp.redox-games` "
+"command, which will check for any changes in the recipe, rebuilt it and "
+"update the existing Redox image. The `make all` and `make qemu` commands do "
+"not check for recipes that need to be rebuilt, so if you use them, your "
+"changes may not be included in the system."
+msgstr ""
+
+#: src/coding-and-building.md:268
+msgid "Within your \"Build\" shell, in your `redox` directory, run:"
+msgstr ""
+
+#: src/coding-and-building.md:274
+msgid ""
+"You can now scan through `build.log` to check for errors. The file is large "
+"and contains many ANSI Escape Sequences, so it can be hard to read. However, "
+"if you encountered a fatal build error, it will be at the end of the log, so "
+"skip to the bottom and scan upwards."
+msgstr ""
+
+#: src/coding-and-building.md:276
+msgid "Test Your Changes"
+msgstr ""
+
+#: src/coding-and-building.md:278
+msgid ""
+"In the Redox instance started by the `make qemu` command, test your changes "
+"to `minesweeper`"
+msgstr ""
+
+#: src/coding-and-building.md:280
+msgid "Log in with user: `user` and no password"
+msgstr ""
+
+#: src/coding-and-building.md:281
+msgid "Open a `Terminal` window"
+msgstr ""
+
+#: src/coding-and-building.md:282
+msgid "Type `minesweeper`"
+msgstr ""
+
+#: src/coding-and-building.md:283
+msgid ""
+"Use your arrow keys or `WSAD` to move to a square and type `f` to set a "
+"flag. The character `P` will appear"
+msgstr ""
+
+#: src/coding-and-building.md:286
+msgid ""
+"Congratulations! You have modified a program and built the system! Next, "
+"create a bootable image with your change."
+msgstr ""
+
+#: src/coding-and-building.md:288
+msgid ""
+"If you are still running QEMU, type `Ctrl-Alt-G` and click the upper right "
+"corner of the Redox window to exit."
+msgstr ""
+
+#: src/coding-and-building.md:289 src/coding-and-building.md:460
+#: src/coding-and-building.md:480 src/coding-and-building.md:588
+msgid "In your \"Build\" shell, in the `redox` directory, run:"
+msgstr ""
+
+#: src/coding-and-building.md:295
+msgid ""
+"In the directory `build/x86_64/my-config`, you will find the file `redox-"
+"live.iso`. Follow the instructions on the [Testing on Real Hardware]"
+"(#testing-on-real-hardware) section and test out your change."
+msgstr ""
+
+#: src/coding-and-building.md:297
+msgid "Test Your Changes (out of the Redox build system)"
+msgstr ""
+
+#: src/coding-and-building.md:299
+msgid ""
+"[Redoxer](https://gitlab.redox-os.org/redox-os/redoxer) is the tool used to "
+"quickly build and run Rust, C and C++ programs for Redox, it downloads the "
+"Redox toolchain, build the program and ru inside of a Redox VM."
+msgstr ""
+
+#: src/coding-and-building.md:301
+msgid "Commands"
+msgstr ""
+
+#: src/coding-and-building.md:303
+msgid "Install the tool"
+msgstr ""
+
+#: src/coding-and-building.md:309
+msgid "Install the Redox toolchain"
+msgstr ""
+
+#: src/coding-and-building.md:315
+msgid "Build the Rust, C or C++ program or library"
+msgstr ""
+
+#: src/coding-and-building.md:321
+msgid "Run the Rust, C or C++ program on Redox"
+msgstr ""
+
+#: src/coding-and-building.md:327
+msgid "Test the Rust, C or C++ program or library"
+msgstr ""
+
+#: src/coding-and-building.md:333
+msgid "Run an arbitrary executable (`echo hello`)"
+msgstr ""
+
+#: src/coding-and-building.md:339
+msgid "Testing On Real Hardware"
+msgstr ""
+
+#: src/coding-and-building.md:341
+msgid ""
+"You can use the `make live` command to create bootable images, it will be "
+"used instead of `make image`"
+msgstr ""
+
+#: src/coding-and-building.md:343
+msgid ""
+"This command will create the file `build/your-cpu-arch/your-config/redox-"
+"live.iso`, you will write this image on your USB, SSD or HDD drives and CD "
+"or DVD disks (if you have an USB device, [Popsicle](https://github.com/pop-"
+"os/popsicle) is the recommended method to flash your device)."
+msgstr ""
+
+#: src/coding-and-building.md:345
+msgid "Full bootable image creation"
+msgstr ""
+
+#: src/coding-and-building.md:347
+msgid "Update your system/programs and create a bootable image:"
+msgstr ""
+
+#: src/coding-and-building.md:353
+msgid "Partial bootable image creation"
+msgstr ""
+
+#: src/coding-and-building.md:355
+msgid ""
+"Build your source changes on some recipe and create a bootable image (no "
+"QEMU image creation):"
+msgstr ""
+
+#: src/coding-and-building.md:361
+msgid ""
+"Manually update multiple recipes and create a bootable image (more quick "
+"than `make rebuild`):"
+msgstr ""
+
+#: src/coding-and-building.md:367
+msgid "Flash the bootable image on your USB device"
+msgstr ""
+
+#: src/coding-and-building.md:369
+msgid ""
+"If you can't use Popsicle, you can use the `dd` tool, follow the steps below:"
+msgstr ""
+
+#: src/coding-and-building.md:371 src/coding-and-building.md:397
+msgid "Go to the files of your Cookbook configuration:"
+msgstr ""
+
+#: src/coding-and-building.md:377
+msgid "Flash your device with `dd`"
+msgstr ""
+
+#: src/coding-and-building.md:379
+msgid ""
+"First you need to find your USB, SSD or HDD drive device ID, use this "
+"command to show the IDs of all connected disks on your computer:"
+msgstr ""
+
+#: src/coding-and-building.md:385
+msgid ""
+"Search for the items beginning with `usb` and find your USB device model, "
+"you will copy and paste this ID on the `dd` command below (don't use the IDs "
+"with `part-x` in the end)."
+msgstr ""
+
+#: src/coding-and-building.md:391
+msgid ""
+"In the `/dev/disk/by-id/usb-your-device-model` path you will replace the "
+"`usb-your-device-model` part with your USB device ID obtained before."
+msgstr ""
+
+#: src/coding-and-building.md:393
+msgid ""
+"**Double-check the \"of=/dev/disk/by-id/usb-your-device-model\" part to "
+"avoid data loss**"
+msgstr ""
+
+#: src/coding-and-building.md:395
+msgid "Burn your CD/DVD with the bootable image"
+msgstr ""
+
+#: src/coding-and-building.md:403
+msgid "Verify if your optical disk device can write on CD/DVD"
+msgstr ""
+
+#: src/coding-and-building.md:409
+msgid ""
+"Check if the items \"Can write\" has `1` (Yes) or `0` (No), it also show the "
+"optical disk devices on the computer: `/dev/srX`"
+msgstr ""
+
+#: src/coding-and-building.md:411
+msgid "Burn the disk with [xorriso](https://www.gnu.org/software/xorriso/)"
+msgstr ""
+
+#: src/coding-and-building.md:417
+msgid "In the `/dev/srX` part, where `x` is your optical device number."
+msgstr ""
+
+#: src/coding-and-building.md:419
+msgid "Update crates"
+msgstr ""
+
+#: src/coding-and-building.md:421
+msgid ""
+"Read [this](./porting-applications.md#update-crates) page to learn how to "
+"update crates."
+msgstr ""
+
+#: src/coding-and-building.md:423
+msgid "Search Text On Files"
+msgstr ""
+
+#: src/coding-and-building.md:425
+msgid ""
+"To find which file contains a particular command, crate or function call, "
+"you can use the `grep` command."
+msgstr ""
+
+#: src/coding-and-building.md:427
+msgid "This will speed up your development workflow."
+msgstr ""
+
+#: src/coding-and-building.md:429
+msgid "Command examples"
+msgstr ""
+
+#: src/coding-and-building.md:432
+msgid "\"redox-syscall\""
+msgstr ""
+
+#: src/coding-and-building.md:432
+msgid "\"Cargo.toml\""
+msgstr ""
+
+#: src/coding-and-building.md:435
+msgid ""
+"This command will show any \"Cargo.toml\" file that contains the text "
+"\"redox-syscall\". Helpful for finding which recipe contains a command or "
+"uses a crate."
+msgstr ""
+
+#: src/coding-and-building.md:438
+msgid "\"physmap\""
+msgstr ""
+
+#: src/coding-and-building.md:438
+msgid "\"*.rs\""
+msgstr ""
+
+#: src/coding-and-building.md:441
+msgid ""
+"This command will find any \".rs\" file that contains the text \"physmap\". "
+"Helpful for finding where a function is used or defined."
+msgstr ""
+
+#: src/coding-and-building.md:443
+msgid "Options context:"
+msgstr ""
+
+#: src/coding-and-building.md:445
+msgid "`-n` : display the line number of the specified text on each file."
+msgstr ""
+
+#: src/coding-and-building.md:446
+msgid "`-r` : Search directories recursively."
+msgstr ""
+
+#: src/coding-and-building.md:447
+msgid "`-w` : Match only whole words."
+msgstr ""
+
+#: src/coding-and-building.md:448
+msgid "`-i` : Ignore case distinctions in patterns and data."
+msgstr ""
+
+#: src/coding-and-building.md:450
+msgid ""
+"[GeeksforGeeks - grep command](https://www.geeksforgeeks.org/grep-command-in-"
+"unixlinux/) : Great article explaining how to use the `grep` tool"
+msgstr ""
+
+#: src/coding-and-building.md:452
+msgid "Redox Image"
+msgstr ""
+
+#: src/coding-and-building.md:454
+msgid ""
+"This section explain how to update recipes, create and change the Redox "
+"image."
+msgstr ""
+
+#: src/coding-and-building.md:456
+msgid "Build Your Recipe For Redox"
+msgstr ""
+
+#: src/coding-and-building.md:458
+msgid ""
+"You can rebuild just the `redox-games` recipe, rather than having `make "
+"rebuild` verifying each enabled recipe for changes. This can help shorten "
+"the build time if you are trying to resolve issues such as compilation "
+"errors or linking to libraries."
+msgstr ""
+
+#: src/coding-and-building.md:466
+msgid ""
+"The build system Makefiles have a rule for the `r.recipe` recipe target, "
+"where `recipe` is the name of a recipe. It will make that recipe ready to "
+"load into the Redox filesystem."
+msgstr ""
+
+#: src/coding-and-building.md:468
+msgid ""
+"Once your Redox recipe has been successfully built, you can run the `make p."
+"redox-games` command to install the recipe in the existing Redox image."
+msgstr ""
+
+#: src/coding-and-building.md:470
+msgid ""
+"If you had a problem, use this command to log any possible errors on your "
+"terminal output:"
+msgstr ""
+
+#: src/coding-and-building.md:476
+msgid "Make A New Redox Image"
+msgstr ""
+
+#: src/coding-and-building.md:478
+msgid ""
+"If the `make p.redox-games` command didn't work you need to create a new "
+"Redox image."
+msgstr ""
+
+#: src/coding-and-building.md:486
+msgid ""
+"The `make image` command skips building any recipes (if the last full recipe "
+"rebuild was successful), but it ensures a new image is created, which should "
+"include the recipe changes that you built in the previous step."
+msgstr ""
+
+#: src/coding-and-building.md:488
+msgid "Most Quick Way To Test Your Changes"
+msgstr ""
+
+#: src/coding-and-building.md:490
+msgid "Run:"
+msgstr ""
+
+#: src/coding-and-building.md:496
+msgid "Or (if your change don't allow incremental compilation)"
+msgstr ""
+
+#: src/coding-and-building.md:502
+msgid ""
+"This command will [build just your modified recipe](#build-your-recipe-for-"
+"redox), then [update your Redox image with your modified recipe](#make-a-new-"
+"redox-image) and run QEMU with Orbital."
+msgstr ""
+
+#: src/coding-and-building.md:504
+msgid "Insert Text Files On QEMU (quickest method)"
+msgstr ""
+
+#: src/coding-and-building.md:506
+msgid ""
+"If you need to move text files, such as command output, logs or scripts, "
+"from or to your Redox instance running on QEMU, use your Terminal window "
+"that you used to start QEMU. To capture the output of a Redox command, run "
+"`script` before starting QEMU."
+msgstr ""
+
+#: src/coding-and-building.md:527
+msgid ""
+"The command output will now be in the file `qemu.log`. Note that if you did "
+"not exit the `script` shell the output may not be complete."
+msgstr ""
+
+#: src/coding-and-building.md:529
+msgid ""
+"To transfer a text file (such as a log) onto Redox, use the Terminal window "
+"with clipboard copy/paste."
+msgstr ""
+
+#: src/coding-and-building.md:536
+msgid ""
+"<< EOF\n"
+"# Copy the text to the clipboard and use the Terminal window clipboard "
+"paste\n"
+msgstr ""
+
+#: src/coding-and-building.md:541
+msgid ""
+"If your file is large, or non-ASCII, or you have many files to copy, you can "
+"use the process described in the [Insert Files On QEMU Image](#insert-files-"
+"on-qemu-image) section. However, there's a risk of data corruption."
+msgstr ""
+
+#: src/coding-and-building.md:543
+msgid ""
+"Files that you create while running QEMU remain in the Redox image, while "
+"you don't rebuild the image (the same applies to files that you add in the "
+"Redox image)."
+msgstr ""
+
+#: src/coding-and-building.md:545
+msgid ""
+"Make sure you are **not running QEMU** and run the `make mount` command. You "
+"can now use your file manager to navigate to `build/x86_64/my-config/"
+"filesystem`. Copy your files into or out of the Redox filesystem as "
+"required. Make sure to exit your file browser window, and run `make unmount` "
+"before running `make qemu`"
+msgstr ""
+
+#: src/coding-and-building.md:547
+msgid ""
+"Note that in some circumstances, `make qemu` may trigger a rebuild (e.g. "
+"`make` detects files with timestamp changes). If that happen the files you "
+"copied into the Redox image will be lost."
+msgstr ""
+
+#: src/coding-and-building.md:549
+msgid "Insert files on the Redox image using a recipe"
+msgstr ""
+
+#: src/coding-and-building.md:551
+msgid ""
+"You can use a Redox recipe to put your files inside the Redox image, in this "
+"example we will use the recipe `myfiles` for this:"
+msgstr ""
+
+#: src/coding-and-building.md:553
+msgid ""
+"Create the `source` folder inside the `myfiles` recipe directory and copy or "
+"move your files to it:"
+msgstr ""
+
+#: src/coding-and-building.md:559
+msgid "Build the recipe and add on the Redox image:"
+msgstr ""
+
+#: src/coding-and-building.md:565
+msgid ""
+"Add the `myfiles` recipe below the `[packages]` section of your filesystem "
+"configuration at: `config/your-cpu-arch/your-config.toml` (if you want your "
+"files to be automatically added to new images):"
+msgstr ""
+
+#: src/coding-and-building.md:574
+msgid "Open QEMU to verify your files:"
+msgstr ""
+
+#: src/coding-and-building.md:580
+msgid ""
+"This recipe will make Cookbook package all files in the `source` folder to "
+"be installed in the `/home/user` directory on your Redox filesystem."
+msgstr ""
+
+#: src/coding-and-building.md:582
+msgid "Insert Files In The QEMU Image"
+msgstr ""
+
+#: src/coding-and-building.md:584
+msgid ""
+"If you feel the need to skip creating a new image, and you want to directly "
+"add a file to the existing Redox image, it is possible to do so. However, "
+"this is not recommended. You should use a recipe to make the process "
+"repeatable. You can see below how to access the Redox image as if it were a "
+"Linux filesystem."
+msgstr ""
+
+#: src/coding-and-building.md:586
+msgid "**Redox can't be running on QEMU while you do this**"
+msgstr ""
+
+#: src/coding-and-building.md:594
+msgid ""
+"The Redox image is now mounted as a directory at: `build/x86_64/your-config/"
+"filesystem`"
+msgstr ""
+
+#: src/coding-and-building.md:596
+msgid ""
+"Unmount the filesystem and test your image. **You must unmount before you "
+"start QEMU**"
+msgstr ""
+
+#: src/coding-and-building.md:610
+msgid "Working with an unpublished version of a crate"
+msgstr ""
+
+#: src/coding-and-building.md:612
+msgid ""
+"Most Redox libraries use versioning and are downloaded from [crates.io]"
+"(https://crates.io/), if you are making a change to one of these crates your "
+"merged changes could take a while to appear on crates.io as we publish to "
+"there instead of using a local crate."
+msgstr ""
+
+#: src/coding-and-building.md:614
+msgid ""
+"To test your changes quickly, follow the following tutorials on Cargo "
+"documentation:"
+msgstr ""
+
+#: src/coding-and-building.md:616
+msgid ""
+"[Overriding Dependencies](https://doc.rust-lang.org/cargo/reference/"
+"overriding-dependencies.html)"
+msgstr ""
+
+#: src/coding-and-building.md:617
+msgid ""
+"[Working with an unpublished minor version](https://doc.rust-lang.org/cargo/"
+"reference/overriding-dependencies.html#working-with-an-unpublished-minor-"
+"version)"
+msgstr ""
+
+#: src/coding-and-building.md:619
+msgid "How to update initfs"
+msgstr ""
+
+#: src/coding-and-building.md:621
+msgid ""
+"The `base` and `base-initfs` recipes share the `source` folder, thus your "
+"changes on the `base` recipe source code will be added on the `base-initfs` "
+"recipe automatically."
+msgstr ""
+
+#: src/coding-and-building.md:623
+msgid ""
+"(The `recipe.toml` of the `base-initfs` recipe use the `same_as` data type "
+"to symlink the source, you can read the second line of the [base-initfs "
+"recipe](https://gitlab.redox-os.org/redox-os/redox/-/blob/master/recipes/"
+"core/base-initfs/recipe.toml#L2))"
+msgstr ""
+
+#: src/coding-and-building.md:625
+msgid ""
+"When you are about to test a change on the `base` recipe, double check if "
+"you're applying for daemons in `base-initfs` by checking its recipe file in "
+"the former link. If you do, you need to trigger build changes for `base-"
+"initfs` manually so it can save `initfs` daemons into `base-initfs`:"
+msgstr ""
+
+#: src/coding-and-building.md:631
+msgid ""
+"RedoxFS is also included in the `base-initfs` recipe, to update them with "
+"your changes run the following command:"
+msgstr ""

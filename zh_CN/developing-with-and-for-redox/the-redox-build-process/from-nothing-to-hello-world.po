@@ -1,0 +1,137 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: The Redox Operating System\n"
+"POT-Creation-Date: 2026-02-09T03:19:51Z\n"
+"PO-Revision-Date: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: zh_CN\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+#: src/nothing-to-hello-world.md:1
+msgid "From Nothing To Hello World"
+msgstr ""
+
+#: src/nothing-to-hello-world.md:3
+msgid ""
+"This page explain the quickest way to test a program on Redox. This tutorial "
+"doesn't build Redox from source."
+msgstr ""
+
+#: src/nothing-to-hello-world.md:5
+msgid "In this example we will use a \"Hello World\" program written in Rust."
+msgstr ""
+
+#: src/nothing-to-hello-world.md:7
+msgid "Create the `tryredox` folder."
+msgstr ""
+
+#: src/nothing-to-hello-world.md:13
+msgid "Navigate to the `tryredox` folder."
+msgstr ""
+
+#: src/nothing-to-hello-world.md:19
+msgid ""
+"Download the script to configure Podman and download the Redox build system."
+msgstr ""
+
+#: src/nothing-to-hello-world.md:25
+msgid "Execute the downloaded script."
+msgstr ""
+
+#: src/nothing-to-hello-world.md:31
+msgid "Enable the Rust toolchain in the current shell."
+msgstr ""
+
+#: src/nothing-to-hello-world.md:37
+msgid "Navigate to the Redox build system directory."
+msgstr ""
+
+#: src/nothing-to-hello-world.md:43
+msgid ""
+"Create the `.config` file and add the `REPO_BINARY` environment variable to "
+"download the pre-compiled packages."
+msgstr ""
+
+#: src/nothing-to-hello-world.md:46
+msgid "\"REPO_BINARY?=1 \\n CONFIG_NAME?=my-config\""
+msgstr ""
+
+#: src/nothing-to-hello-world.md:49
+msgid "Create the `hello-world` recipe folder."
+msgstr ""
+
+#: src/nothing-to-hello-world.md:55
+msgid "Create the `source` folder for the recipe."
+msgstr ""
+
+#: src/nothing-to-hello-world.md:61
+msgid "Navigate to the recipe's `source` folder."
+msgstr ""
+
+#: src/nothing-to-hello-world.md:67
+msgid "Initialize a Cargo project with the \"Hello World\" string."
+msgstr ""
+
+#: src/nothing-to-hello-world.md:70
+msgid "\"hello-world\""
+msgstr ""
+
+#: src/nothing-to-hello-world.md:73
+msgid "Create the `hello-world` recipe configuration."
+msgstr ""
+
+#: src/nothing-to-hello-world.md:83
+msgid "Add the following to the recipe configuration:"
+msgstr ""
+
+#: src/nothing-to-hello-world.md:85
+msgid ""
+"```toml\n"
+"[build]\n"
+"template = \"cargo\"\n"
+"```"
+msgstr ""
+
+#: src/nothing-to-hello-world.md:90
+msgid "Create the `my-config` filesystem configuration."
+msgstr ""
+
+#: src/nothing-to-hello-world.md:96
+msgid ""
+"Open the `my-config` filesystem configuration file (i.e., `config/x86_64/my-"
+"config.toml`) and add the `hello-world` package to it."
+msgstr ""
+
+#: src/nothing-to-hello-world.md:98
+msgid ""
+"```toml\n"
+"[packages]\n"
+"# Add the item below\n"
+"hello-world = \"source\"\n"
+"```"
+msgstr ""
+
+#: src/nothing-to-hello-world.md:104
+msgid "Build the Hello World program and updae the Redox image."
+msgstr ""
+
+#: src/nothing-to-hello-world.md:110
+msgid "Start the Redox virtual machine without a GUI."
+msgstr ""
+
+#: src/nothing-to-hello-world.md:116
+msgid ""
+"At the Redox login screen, write \"user\" for the user name and press Enter."
+msgstr ""
+
+#: src/nothing-to-hello-world.md:118
+msgid "Run the \"Hello World\" program."
+msgstr ""
+
+#: src/nothing-to-hello-world.md:124
+msgid "Shut down the Redox virtual machine."
+msgstr ""

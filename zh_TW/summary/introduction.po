@@ -1,0 +1,170 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: The Redox Operating System\n"
+"POT-Creation-Date: 2026-02-09T03:19:51Z\n"
+"PO-Revision-Date: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: zh_TW\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+#: src/introduction.md:1
+msgid "Introduction"
+msgstr "介紹"
+
+#: src/introduction.md:5
+msgid ""
+"This is the **Redox OS** book, which will go through (almost) everything "
+"about Redox: design, philosophy, how it works, how you can contribute, how "
+"to deploy Redox, and much more."
+msgstr ""
+"這是 **Redox OS** 的手冊，將涵蓋（幾乎）所有有關 Redox 的內容：設計、理念、如"
+"何運作、如何貢獻、如何部署 Redox，以及更多其他內容。"
+
+#: src/introduction.md:7
+msgid ""
+"**Please keep in mind that this book is work-in-progress and sometimes can "
+"be outdated, any help to improve it is important.**"
+msgstr ""
+
+#: src/introduction.md:9
+msgid ""
+"If you want to skip straight to trying out Redox, see the [Getting started]"
+"(./getting-started.md) page."
+msgstr ""
+"如果您想直接跳到嘗試 Redox 的階段，請參見[開始使用](./getting-started.md)頁"
+"面。"
+
+#: src/introduction.md:11
+msgid ""
+"If you want to contribute to Redox, read the following guides: [CONTRIBUTING]"
+"(https://gitlab.redox-os.org/redox-os/redox/-/blob/master/CONTRIBUTING.md) "
+"and [Developing for Redox](./developing-for-redox.md)."
+msgstr ""
+
+#: src/introduction.md:13
+msgid "Conventions"
+msgstr ""
+
+#: src/introduction.md:15
+msgid "Notices"
+msgstr ""
+
+#: src/introduction.md:17
+msgid ""
+"The following notices are commonly used throughout the book to convey "
+"noteworthy information:"
+msgstr ""
+
+#: src/introduction.md:19
+msgid "Notice"
+msgstr ""
+
+#: src/introduction.md:19
+msgid "Meaning"
+msgstr ""
+
+#: src/introduction.md:21
+msgid "🛈 **Info**"
+msgstr ""
+
+#: src/introduction.md:21
+msgid "Provides neutral information to deliver key facts."
+msgstr ""
+
+#: src/introduction.md:22
+msgid "📝 **Note**"
+msgstr "📝 **備註**"
+
+#: src/introduction.md:22
+msgid "Provides information to enhance understanding."
+msgstr ""
+
+#: src/introduction.md:23
+msgid "💡 **Tip**"
+msgstr ""
+
+#: src/introduction.md:23
+msgid "Offers suggestions to optimize an experience."
+msgstr ""
+
+#: src/introduction.md:24
+msgid "⚠️ **Warning**"
+msgstr "⚠️ **警告**"
+
+#: src/introduction.md:24
+msgid "Highlights potential risks or mistakes."
+msgstr ""
+
+#: src/introduction.md:26
+msgid "What is Redox?"
+msgstr "什麼是 Redox？"
+
+#: src/introduction.md:28
+msgid ""
+"Redox OS is a general-purpose operating system written in [Rust](https://www."
+"rust-lang.org). Our aim is to provide a fully functioning Unix-like "
+"microkernel-based operating system, that is secure, reliable and free."
+msgstr ""
+"Redox OS 是一款以 [Rust](https://www.rust-lang.org) 語言編寫的通用作業系統。"
+"我們的目標是提供一個功能完備、類 Unix 且基於微內核的作業系統，並確保其安全"
+"性、可靠性與自由免費。"
+
+#: src/introduction.md:30
+msgid ""
+"We have modest compatibility with [POSIX](https://en.wikipedia.org/wiki/"
+"POSIX), allowing Redox to run many programs without porting."
+msgstr ""
+
+#: src/introduction.md:32
+msgid ""
+"We take inspiration from [Plan 9](http://9p.io/plan9/index.html), [Minix]"
+"(http://www.minix3.org/), [seL4](https://sel4.systems/), [Linux](https://www."
+"kernel.org/), [OpenBSD](https://openbsd.org) and [FreeBSD](https://freebsd."
+"org). Redox aims to synthesize years of research and hard won experience "
+"into a system that feels modern and familiar."
+msgstr ""
+"我們從 [Plan 9](http://9p.io/plan9/index.html)、[Minix](http://www.minix3."
+"org/)、[seL4](https://sel4.systems/)、[Linux](https://www.kernel.org/)、"
+"[OpenBSD](https://openbsd.org) 和 [FreeBSD](https://freebsd.org) 中獲得靈感。"
+"Redox 致力於將多年的研究成果與得來不易的經驗結合，打造出一個既現代又讓人感到"
+"熟悉的系統。"
+
+#: src/introduction.md:34
+msgid ""
+"This book is written in a way that you doesn't require any prior knowledge "
+"of Rust or OS development."
+msgstr ""
+
+#: src/introduction.md:36
+msgid "Origin Story"
+msgstr "起源故事"
+
+#: src/introduction.md:38
+msgid ""
+"Redox OS was created in 2015 before the first stable version (1.0) of the "
+"Rust compiler and was one of the first operating systems written in Rust. It "
+"started as an unikernel (without a hypervisor) and gathered the "
+"contributions of many Rust developers."
+msgstr ""
+"Redox OS 創立於 2015 年，當時 Rust 編譯器的第一個穩定版本 (1.0) 尚未發布，它"
+"是首批以 Rust 編寫的作業系統之一。它最初是以獨核作業系統（unikernel，且不含虛"
+"擬機器監視器）的形式起步，並匯集了許多 Rust 開發者的貢獻。"
+
+#: src/introduction.md:41
+msgid ""
+"As the project progressed, Jeremy Soller decided that the OS should be "
+"focused on stability and security. To achieve that, Redox was redesigned to "
+"adopt a microkernel architecture and a unified system API for resources."
+msgstr ""
+"隨著專案的進展，Jeremy Soller 決定將作業系統的重點放在穩定性與安全性上。為了"
+"達成這個目標，Redox 經過重新設計，採用了微內核架構以及統一的資源系統 API。"
+
+#: src/introduction.md:44
+msgid ""
+"Minix and Plan 9 were the main inspirations for the system design in the "
+"beginning."
+msgstr "Minix 與 Plan 9 是該系統初期設計的主要靈感來源。"

@@ -1,0 +1,422 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: The Redox Operating System\n"
+"POT-Creation-Date: 2026-02-09T03:19:51Z\n"
+"PO-Revision-Date: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: zh_CN\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+#: src/tasks.md:1
+msgid "Tasks"
+msgstr ""
+
+#: src/tasks.md:3
+msgid "This page contain commands used for common and specific tasks on Redox."
+msgstr ""
+
+#: src/tasks.md:5
+msgid "[Hardware](#hardware)"
+msgstr ""
+
+#: src/tasks.md:6
+msgid "[System](#system)"
+msgstr ""
+
+#: src/tasks.md:7
+msgid "[Networking](#networking)"
+msgstr ""
+
+#: src/tasks.md:8
+msgid "[User](#user)"
+msgstr ""
+
+#: src/tasks.md:9
+msgid "[Files and Folders](#files-and-folders)"
+msgstr ""
+
+#: src/tasks.md:10
+msgid "[Media](#media)"
+msgstr ""
+
+#: src/tasks.md:11
+msgid "[Graphics](#graphics)"
+msgstr ""
+
+#: src/tasks.md:25
+msgid "Hardware"
+msgstr ""
+
+#: src/tasks.md:27
+msgid "Show CPU information"
+msgstr ""
+
+#: src/tasks.md:33
+msgid "System"
+msgstr ""
+
+#: src/tasks.md:35
+msgid "Change current keyboard layout (map)"
+msgstr ""
+
+#: src/tasks.md:37
+msgid "Show all available layouts"
+msgstr ""
+
+#: src/tasks.md:43
+msgid "Change current layout"
+msgstr ""
+
+#: src/tasks.md:49
+msgid "Show system information"
+msgstr ""
+
+#: src/tasks.md:55 src/tasks.md:109 src/tasks.md:275 src/tasks.md:341
+msgid "Or"
+msgstr ""
+
+#: src/tasks.md:61
+msgid "Show memory (RAM) information"
+msgstr ""
+
+#: src/tasks.md:67
+msgid "Show storage information"
+msgstr ""
+
+#: src/tasks.md:73
+msgid "Shutdown the computer"
+msgstr ""
+
+#: src/tasks.md:79
+msgid "Show all running processes"
+msgstr ""
+
+#: src/tasks.md:85
+msgid "Show system-wide common programs"
+msgstr ""
+
+#: src/tasks.md:91
+msgid "Show all schemes"
+msgstr ""
+
+#: src/tasks.md:97
+msgid "Show all scheme resources"
+msgstr ""
+
+#: src/tasks.md:103
+msgid "Show the system log"
+msgstr ""
+
+#: src/tasks.md:115
+msgid "Networking"
+msgstr ""
+
+#: src/tasks.md:117
+msgid "Show system DNS name"
+msgstr ""
+
+#: src/tasks.md:123
+msgid "Show all network addresses of your system"
+msgstr ""
+
+#: src/tasks.md:129
+msgid "Ping a website or IP"
+msgstr ""
+
+#: src/tasks.md:135
+msgid "Show website information"
+msgstr ""
+
+#: src/tasks.md:141
+msgid "Download a Git repository"
+msgstr ""
+
+#: src/tasks.md:147
+msgid "Download a Git repository to the specified directory"
+msgstr ""
+
+#: src/tasks.md:153
+msgid "Download a file with wget"
+msgstr ""
+
+#: src/tasks.md:159
+msgid "Resume an incomplete download"
+msgstr ""
+
+#: src/tasks.md:165
+msgid "Download from multiple links in a text file"
+msgstr ""
+
+#: src/tasks.md:171
+msgid "Download an entire website and convert it to work locally (offline)"
+msgstr ""
+
+#: src/tasks.md:177
+msgid "Download a file with curl"
+msgstr ""
+
+#: src/tasks.md:183
+msgid "Download files from multiple websites at once"
+msgstr ""
+
+#: src/tasks.md:189
+msgid ""
+"Host a website with [Simple HTTP Server](https://github.com/TheWaWaR/simple-"
+"http-server)"
+msgstr ""
+
+#: src/tasks.md:191
+msgid "Point the program to the website folder"
+msgstr ""
+
+#: src/tasks.md:192
+msgid ""
+"The Home page of the website should be available on the root of the folder"
+msgstr ""
+
+#: src/tasks.md:193
+msgid "The Home page should be named as `index.html`"
+msgstr ""
+
+#: src/tasks.md:199
+msgid ""
+"This command will use the port 80 (the certified port for HTTP servers), you "
+"can change as you wish."
+msgstr ""
+
+#: src/tasks.md:201
+msgid "User"
+msgstr ""
+
+#: src/tasks.md:203
+msgid "Clean the terminal content"
+msgstr ""
+
+#: src/tasks.md:209
+msgid "Exit the terminal session, current shell or root privileges"
+msgstr ""
+
+#: src/tasks.md:215
+msgid "Current user on the shell"
+msgstr ""
+
+#: src/tasks.md:221
+msgid "Show the default terminal shell"
+msgstr ""
+
+#: src/tasks.md:227
+msgid "Show your current terminal shell"
+msgstr ""
+
+#: src/tasks.md:233
+msgid "Show your installed terminal shells (active on $PATH)"
+msgstr ""
+
+#: src/tasks.md:239
+msgid ""
+"Change your default terminal shell permanently (common path is `/usr/bin`)"
+msgstr ""
+
+#: src/tasks.md:245
+msgid "Add an abbreviation for a command on the Ion shell"
+msgstr ""
+
+#: src/tasks.md:248
+msgid "'command'"
+msgstr ""
+
+#: src/tasks.md:251
+msgid "Change the user password"
+msgstr ""
+
+#: src/tasks.md:257
+msgid "Show the commands history"
+msgstr ""
+
+#: src/tasks.md:263
+msgid "Show the commands with the name specified in history"
+msgstr ""
+
+#: src/tasks.md:269
+msgid ""
+"Change the ownership of a file, folder, device and mounted-partition "
+"(recursively)"
+msgstr ""
+
+#: src/tasks.md:281
+msgid "Show system-wide configuration files"
+msgstr ""
+
+#: src/tasks.md:287
+msgid "Show the user configuration files of programs"
+msgstr ""
+
+#: src/tasks.md:293
+msgid "Print a text on terminal"
+msgstr ""
+
+#: src/tasks.md:299
+msgid "Show the directory paths in the `PATH` environment variable"
+msgstr ""
+
+#: src/tasks.md:305
+msgid "Show the dynamically linked libraries used by a program"
+msgstr ""
+
+#: src/tasks.md:311
+msgid "Add a new directory on the `PATH` environment variable of the Ion shell"
+msgstr ""
+
+#: src/tasks.md:317
+msgid "Restore the shell variables to default values"
+msgstr ""
+
+#: src/tasks.md:323
+msgid "Measure the time spent by a program to run a command"
+msgstr ""
+
+#: src/tasks.md:329
+msgid "Run a executable file on the current directory"
+msgstr ""
+
+#: src/tasks.md:335
+msgid "Run a non-executable shell script"
+msgstr ""
+
+#: src/tasks.md:347
+msgid "Files and Folders"
+msgstr ""
+
+#: src/tasks.md:349
+msgid "Show files and folders in the current directory"
+msgstr ""
+
+#: src/tasks.md:355
+msgid "Print some text file"
+msgstr ""
+
+#: src/tasks.md:361
+msgid "Edit a text file"
+msgstr ""
+
+#: src/tasks.md:367
+msgid "Save your changes by pressing Ctrl+S"
+msgstr ""
+
+#: src/tasks.md:369
+msgid "Show the current directory"
+msgstr ""
+
+#: src/tasks.md:375
+msgid "Change the active directory to the specified folder"
+msgstr ""
+
+#: src/tasks.md:381
+msgid "Change to the previous directory"
+msgstr ""
+
+#: src/tasks.md:387
+msgid "Change to the upper directory"
+msgstr ""
+
+#: src/tasks.md:393
+msgid "Change the current directory to the user folder"
+msgstr ""
+
+#: src/tasks.md:399
+msgid "Show files and folders (including the hidden ones)"
+msgstr ""
+
+#: src/tasks.md:405
+msgid "Show the files, folders and subfolders"
+msgstr ""
+
+#: src/tasks.md:411
+msgid "Show advanced information about the files/folders of the directory"
+msgstr ""
+
+#: src/tasks.md:417
+msgid "Create a new folder"
+msgstr ""
+
+#: src/tasks.md:423
+msgid "Copy a file"
+msgstr ""
+
+#: src/tasks.md:429
+msgid "Copy a folder"
+msgstr ""
+
+#: src/tasks.md:435
+msgid "Move a folder"
+msgstr ""
+
+#: src/tasks.md:440
+msgid "Remove a file"
+msgstr ""
+
+#: src/tasks.md:446
+msgid "Remove a folder"
+msgstr ""
+
+#: src/tasks.md:448
+msgid ""
+"(Use with caution if you called the command with `su`, `sudo` or `doas`)"
+msgstr ""
+
+#: src/tasks.md:454
+msgid "Add text in a text file"
+msgstr ""
+
+#: src/tasks.md:457
+msgid "\"text\""
+msgstr ""
+
+#: src/tasks.md:460
+msgid "Search for files"
+msgstr ""
+
+#: src/tasks.md:466
+msgid ""
+"(Run with `sudo` or `su` if these directories are under root permissions)"
+msgstr ""
+
+#: src/tasks.md:468
+msgid "Search for folders"
+msgstr ""
+
+#: src/tasks.md:474
+msgid "(Run with `sudo` or `su` if the directories are under root permissions)"
+msgstr ""
+
+#: src/tasks.md:476
+msgid "Show files/folders in a tree"
+msgstr ""
+
+#: src/tasks.md:482
+msgid "Media"
+msgstr ""
+
+#: src/tasks.md:484
+msgid "Play a video"
+msgstr ""
+
+#: src/tasks.md:490
+msgid "Play a music"
+msgstr ""
+
+#: src/tasks.md:496
+msgid "Show an image"
+msgstr ""
+
+#: src/tasks.md:502
+msgid "Graphics"
+msgstr ""
+
+#: src/tasks.md:504
+msgid "Show the OpenGL information"
+msgstr ""

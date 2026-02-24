@@ -1,0 +1,29 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: The Redox Operating System\n"
+"POT-Creation-Date: 2026-02-09T03:19:51Z\n"
+"PO-Revision-Date: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: zh_TW\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+#: src/avoiding-panics.md:1
+msgid "Avoiding Panics"
+msgstr ""
+
+#: src/avoiding-panics.md:3
+msgid ""
+"Panics should be avoided in kernel, and should only occur in drivers and "
+"other services when correct operation is not possible, in which case it "
+"should be a call to `panic!()`."
+msgstr ""
+
+#: src/avoiding-panics.md:5
+msgid ""
+"Please also read the kernel [README](https://gitlab.redox-os.org/redox-os/"
+"kernel/-/blob/master/README.md) for kernel-specific suggestions."
+msgstr ""

@@ -1,0 +1,88 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: The Redox Operating System\n"
+"POT-Creation-Date: 2026-02-09T03:19:51Z\n"
+"PO-Revision-Date: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: zh_CN\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+#: src/rusting-properly.md:1
+msgid "Rusting Properly"
+msgstr ""
+
+#: src/rusting-properly.md:3
+msgid "Some general guidelines:"
+msgstr ""
+
+#: src/rusting-properly.md:5
+msgid "Use `std::mem::replace` and `std::mem::swap` when you can."
+msgstr ""
+
+#: src/rusting-properly.md:6
+msgid "Use `.into()` and `.to_owned()` over `.to_string()`."
+msgstr ""
+
+#: src/rusting-properly.md:7
+msgid ""
+"Prefer passing references to the data over owned data. (Don't take `String`, "
+"take `&str`. Don't take `Vec<T>` take `&[T]`)."
+msgstr ""
+
+#: src/rusting-properly.md:8
+msgid "Use generics, traits, and other abstractions Rust provides."
+msgstr ""
+
+#: src/rusting-properly.md:9
+msgid ""
+"Avoid using lossy conversions (for example: don't do `my_u32 as u16 == "
+"my_u16`, prefer `my_u32 == my_u16 as u32`)."
+msgstr ""
+
+#: src/rusting-properly.md:10
+msgid "Prefer in place (`box` keyword) when doing heap allocations."
+msgstr ""
+
+#: src/rusting-properly.md:11
+msgid ""
+"Prefer platform independently sized integer over pointer sized integer "
+"(`u32` over `usize`, for example)."
+msgstr ""
+
+#: src/rusting-properly.md:12
+msgid ""
+"Follow the usual idioms of programming, such as \"composition over "
+"inheritance\", \"let your program be divided in smaller pieces\", and "
+"\"resource acquisition is initialization\"."
+msgstr ""
+
+#: src/rusting-properly.md:13
+msgid ""
+"When `unsafe` is unnecessary, don't use it. 10 lines longer safe code is "
+"better than more compact unsafe code!"
+msgstr ""
+
+#: src/rusting-properly.md:14
+msgid ""
+"Be sure to mark parts that need work with `TODO`, `FIXME`, `BUG`, "
+"`UNOPTIMIZED`, `REWRITEME`, `DOCME`, and `PRETTYFYME`."
+msgstr ""
+
+#: src/rusting-properly.md:15
+msgid ""
+"Use the compiler hint attributes, such as `#[inline]`, `#[cold]`, etc. when "
+"it makes sense to do so."
+msgstr ""
+
+#: src/rusting-properly.md:16
+msgid ""
+"Try to banish `unwrap()` and `expect()` from your code in order to manage "
+"errors properly. Panicking must indicate a bug in the program (not an error "
+"you didn't want to manage). If you cannot recover from an error, print a "
+"nice error to stderr and exit. Check Rust's book about [Error Handling]"
+"(https://doc.rust-lang.org/book/error-handling.html)."
+msgstr ""

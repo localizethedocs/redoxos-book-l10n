@@ -1,0 +1,228 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: The Redox Operating System\n"
+"POT-Creation-Date: 2026-02-09T03:19:51Z\n"
+"PO-Revision-Date: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: zh_CN\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+#: src/graphics-windowing.md:1
+msgid "Graphics and Windowing"
+msgstr ""
+
+#: src/graphics-windowing.md:3
+msgid "Drivers"
+msgstr ""
+
+#: src/graphics-windowing.md:5
+msgid "VESA (vesad)"
+msgstr ""
+
+#: src/graphics-windowing.md:7
+msgid ""
+"vesad is not really a driver, it writes to a framebuffer given by firmware "
+"(via UEFI or BIOS software interrupts)."
+msgstr ""
+
+#: src/graphics-windowing.md:9
+msgid ""
+"Because we don't have GPU drivers yet, we rely on what firmware gives to us."
+msgstr ""
+
+#: src/graphics-windowing.md:11
+msgid "GPUs"
+msgstr ""
+
+#: src/graphics-windowing.md:13
+msgid ""
+"On Linux/BSDs, the GPU communication with the kernel is done by the DRM "
+"system (Direct Rendering Manager, `libdrm` library), that Mesa3D drivers use "
+"to work (Mesa3D implement OpenGL/Vulkan drivers, DRM expose the hardware "
+"interfaces)."
+msgstr ""
+
+#: src/graphics-windowing.md:15
+msgid ""
+"Said this, in Redox a \"DRM driver\" needs to be an user-space driver which "
+"use the system calls/schemes to communicate with the hardware."
+msgstr ""
+
+#: src/graphics-windowing.md:17
+msgid ""
+"The last step is to implement the Redox backend in our Mesa3D [fork](https://"
+"gitlab.redox-os.org/redox-os/mesa)/[recipe](https://gitlab.redox-os.org/"
+"redox-os/cookbook/-/blob/master/recipes/mesa/recipe.toml) to use these user-"
+"space drivers."
+msgstr ""
+
+#: src/graphics-windowing.md:19
+msgid "Software Rendering"
+msgstr ""
+
+#: src/graphics-windowing.md:21
+msgid ""
+"We don't have GPU drivers yet but [LLVMpipe](https://docs.mesa3d.org/drivers/"
+"llvmpipe.html) (OpenGL CPU emulation) is working."
+msgstr ""
+
+#: src/graphics-windowing.md:23
+msgid "Orbital"
+msgstr ""
+
+#: src/graphics-windowing.md:25
+msgid ""
+"The Orbital desktop environment provides a display server, window manager "
+"and compositor."
+msgstr ""
+
+#: src/graphics-windowing.md:27
+msgid "Comparison with X11/Wayland"
+msgstr ""
+
+#: src/graphics-windowing.md:29
+msgid ""
+"This display server is more simple than X11 and Wayland making the porting "
+"task more quick and easy, it's not advanced like X11 and Wayland yet but "
+"enough to port most Linux/BSD programs."
+msgstr ""
+
+#: src/graphics-windowing.md:31
+msgid ""
+"Compared to Wayland, Orbital has one server implementation, while Wayland "
+"provide protocols for compositors."
+msgstr ""
+
+#: src/graphics-windowing.md:33
+msgid "Features"
+msgstr ""
+
+#: src/graphics-windowing.md:35
+msgid "Custom Resolutions"
+msgstr ""
+
+#: src/graphics-windowing.md:36
+msgid "App Launcher (bottom bar)"
+msgstr ""
+
+#: src/graphics-windowing.md:37
+msgid "File Manager"
+msgstr ""
+
+#: src/graphics-windowing.md:38
+msgid "Text Editor"
+msgstr ""
+
+#: src/graphics-windowing.md:39
+msgid "Calculator"
+msgstr ""
+
+#: src/graphics-windowing.md:40
+msgid "Terminal Emulator"
+msgstr ""
+
+#: src/graphics-windowing.md:42
+msgid ""
+"If you hold the **Super** key (generally the key with a Windows logo) it "
+"will show all keyboard shortcuts in a pop-up."
+msgstr ""
+
+#: src/graphics-windowing.md:44
+msgid "Libraries"
+msgstr ""
+
+#: src/graphics-windowing.md:46
+msgid "The programs using these libraries can work on Orbital."
+msgstr ""
+
+#: src/graphics-windowing.md:48
+msgid "winit"
+msgstr ""
+
+#: src/graphics-windowing.md:49
+msgid "softbuffer"
+msgstr ""
+
+#: src/graphics-windowing.md:50
+msgid "Slint (through winit and softbuffer)"
+msgstr ""
+
+#: src/graphics-windowing.md:51
+msgid "Iced (through winit and softbuffer)"
+msgstr ""
+
+#: src/graphics-windowing.md:52
+msgid "egui (winit or SDL2 can be used)"
+msgstr ""
+
+#: src/graphics-windowing.md:53
+msgid "SDL1.2"
+msgstr ""
+
+#: src/graphics-windowing.md:54
+msgid "SDL2"
+msgstr ""
+
+#: src/graphics-windowing.md:55
+msgid "Mesa3D's OSMesa"
+msgstr ""
+
+#: src/graphics-windowing.md:57
+msgid "Security"
+msgstr ""
+
+#: src/graphics-windowing.md:59
+msgid ""
+"In Orbital a GUI program cannot read input events or the content "
+"(framebuffer) from windows of other GUI programs, like Wayland."
+msgstr ""
+
+#: src/graphics-windowing.md:61
+msgid "Clients"
+msgstr ""
+
+#: src/graphics-windowing.md:63
+msgid ""
+"Apps (or 'clients') create a window and draw to it by using the [orbclient]"
+"(https://gitlab.redox-os.org/redox-os/orbclient) client."
+msgstr ""
+
+#: src/graphics-windowing.md:66
+msgid "Client Examples"
+msgstr ""
+
+#: src/graphics-windowing.md:68
+msgid ""
+"If you wish to see examples of client apps that use [orbclient](https://"
+"gitlab.redox-os.org/redox-os/orbclient) to \"talk\" to Orbital and create "
+"windows and draw to them, then you can find some in [orbclient/examples]"
+"(https://gitlab.redox-os.org/redox-os/orbclient/-/tree/master/examples) "
+"folder."
+msgstr ""
+
+#: src/graphics-windowing.md:72
+msgid "Porting"
+msgstr ""
+
+#: src/graphics-windowing.md:74
+msgid "If you want to port a program to Orbital, see below:"
+msgstr ""
+
+#: src/graphics-windowing.md:76
+msgid ""
+"If the program is written in Rust probably it works on Orbital because the "
+"`winit` crate is used in most places, but there are programs that access X11 "
+"or Wayland directly. You need to port these programs to `winit` and merge on "
+"upstream."
+msgstr ""
+
+#: src/graphics-windowing.md:78
+msgid ""
+"If the program is written in C or C++ and access X11 or Wayland directly, it "
+"must be ported to the [Orbital library](https://gitlab.redox-os.org/redox-os/"
+"liborbital)."
+msgstr ""
