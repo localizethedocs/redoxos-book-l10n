@@ -1,0 +1,318 @@
+<!DOCTYPE HTML>
+<html lang="en_US" class="light sidebar-visible" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Why a New OS? - The Redox Operating System</title>
+
+
+        <!-- Custom HTML head -->
+        <style>
+        .light .redox-logo {
+            content: url("assets/redox_light_512.png");
+        }
+        .rust .redox-logo {
+            content: url("assets/redox_light_512.png");
+        }
+        .coal .redox-logo {
+            content: url("assets/redox_dark_512.png");
+        }
+        .navy .redox-logo {
+            content: url("assets/redox_dark_512.png");
+        }
+        .ayu .redox-logo {
+            content: url("assets/redox_dark_512.png");
+        }
+        </style>
+        <script type="text/javascript" src="ltd-provenance.js"></script>
+        <script type="text/javascript" src="ltd-current.js"></script>
+        <script type="text/javascript" src="../../ltd-config.js"></script>
+        <script type="text/javascript" src="../../ltd-flyout.js"></script>
+
+        <meta name="description" content="This book carefully describes the design, implementation, direction, and structure of Redox, the operating system.">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="shortcut icon" href="favicon.png">
+        <link rel="stylesheet" href="css/variables.css">
+        <link rel="stylesheet" href="css/general.css">
+        <link rel="stylesheet" href="css/chrome.css">
+        <link rel="stylesheet" href="css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" id="highlight-css" href="highlight.css">
+        <link rel="stylesheet" id="tomorrow-night-css" href="tomorrow-night.css">
+        <link rel="stylesheet" id="ayu-highlight-css" href="ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+
+        <!-- Provide site root and default themes to javascript -->
+        <script>
+            const path_to_root = "";
+            const default_light_theme = "light";
+            const default_dark_theme = "navy";
+            window.path_to_searchindex_js = "searchindex.js";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="toc.js"></script>
+    </head>
+    <body>
+    <div id="mdbook-help-container">
+        <div id="mdbook-help-popup">
+            <h2 class="mdbook-help-title">Keyboard shortcuts</h2>
+            <div>
+                <p>Press <kbd>←</kbd> or <kbd>→</kbd> to navigate between chapters</p>
+                <p>Press <kbd>S</kbd> or <kbd>/</kbd> to search in the book</p>
+                <p>Press <kbd>?</kbd> to show this help</p>
+                <p>Press <kbd>Esc</kbd> to hide this help</p>
+            </div>
+        </div>
+    </div>
+    <div id="body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                let theme = localStorage.getItem('mdbook-theme');
+                let sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            const default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? default_dark_theme : default_light_theme;
+            let theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            let sidebar = null;
+            const sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+                sidebar_toggle.checked = false;
+            }
+            if (sidebar === 'visible') {
+                sidebar_toggle.checked = true;
+            } else {
+                html.classList.remove('sidebar-visible');
+            }
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="default_theme">Auto</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search (`/`)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="/ s" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">The Redox Operating System</h1>
+
+                    <div class="right-buttons">
+                        <a href="print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <div class="search-wrapper">
+                            <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                            <div class="spinner-wrapper">
+                                <i class="fa fa-spinner fa-spin"></i>
+                            </div>
+                        </div>
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1 id="why-a-new-os"><a class="header" href="#why-a-new-os">Why a New OS?</a></h1>
+<p>The essential goal of the Redox project is to build a robust, reliable and safe general-purpose operating system. To that end, the following key design choices have been made.</p>
+<h2 id="written-in-rust"><a class="header" href="#written-in-rust">Written in Rust</a></h2>
+<p>Wherever possible, Redox code is written in <a href="https://www.rust-lang.org/">Rust</a>. Rust enforces a set of rules and checks on the use, sharing and deallocation of memory references. This almost entirely eliminates the potential for memory leaks, buffer overruns, use after free, and other <a href="https://en.wikipedia.org/wiki/Memory_safety#Types_of_memory_errors">memory errors</a> that arise during development. The vast majority of security vulnerabilities in operating systems originate from memory errors. The Rust compiler prevents this type of error before the developer attempts to add it to the code base.</p>
+<p>It allows us to unlock the full Rust potential by dropping legacy C and C++ code.</p>
+<h3 id="benefits"><a class="header" href="#benefits">Benefits</a></h3>
+<p>The following items summarize the Rust benefits:</p>
+<ul>
+<li>
+<p>Memory-Safety</p>
+<p>All memory allocations are verified by the compiler to prevent bugs.</p>
+</li>
+<li>
+<p>Thread-Safety</p>
+<p>Concurrent code in programs is immune to data races.</p>
+</li>
+<li>
+<p>NULL-Safety</p>
+<p>NULLs can't cause undefined behavior.</p>
+</li>
+</ul>
+<h2 id="microkernel-architecture"><a class="header" href="#microkernel-architecture">Microkernel Architecture</a></h2>
+<p>The <a href="https://en.wikipedia.org/wiki/Microkernel">Microkernel Architecture</a> moves as much system components as possible out of the operating system kernel. Drivers, subsystems and other operating system functionality are excuted as independent processes on user-space (daemons). The kernel's main responsibility is the coordination of these processes, and the management of system resources to the processes.</p>
+<p>Most kernels, other than some real-time operating systems, use an event-handler design. Hardware interrupts and application system calls, each one trigger an event invoking the appropriate handler. The kernel runs in supervisor-mode, with access to all system's resources. In <a href="https://en.wikipedia.org/wiki/Monolithic_kernel">Monolithic Kernels</a>, the operating system's entire response to an event must be completed in supervisor mode. A bug in the kernel, drivers or hardware, can cause the system to enter a state where it can't to respond to <em>any</em> event. And because of the large amount of code in the kernel, the potential for vulnerabilities while in supervisor mode is vastly greater than for a microkernel design.</p>
+<p>Beyond monolithic kernels being much more vulnerable to bugs there's also the much higher complexity of post-Internet modern hardware and drivers that didn't existed when monolithic kernels were adopted, but since the adoption of Internet and the implementation of the <a href="https://en.wikipedia.org/wiki/Internet_protocol_suite">TCP/IP</a> network stack in <a href="https://en.wikipedia.org/wiki/Berkeley_Software_Distribution">BSD Unix</a> the complexity grew fast. This growth has caused a epidemic of bugs that are hard or invisible to debug due to all monolithic kernel components sharing the same memory address space.</p>
+<p>In Redox, drivers and many system services can run in user-mode, similar to user programs, and the system can restrict them so they can only access the resources that they require for their designated purpose. If a driver fails or panics, it could be ignored or restarted with no impact on the rest of the system. A misbehaving piece of hardware might impact system performance or cause the loss of a service with a small chance of data corruption, but the kernel and maybe the essential system components will continue to function and to provide whatever services remain available.</p>
+<p>Thus Redox is an unique opportunity to show the microkernel potential for the mainstream operating systems universe with the features and comodity that you would expect from them.</p>
+<h3 id="benefits-1"><a class="header" href="#benefits-1">Benefits</a></h3>
+<p>The following items summarize the microkernel benefits:</p>
+<ul>
+<li>
+<p>More stable and secure</p>
+<p>The very small size of the kernel allow the system to be more stable and secure because most system components are isolated in user-space, reducing the chance of a <a href="https://en.wikipedia.org/wiki/Kernel_panic">kernel panic</a> and the severity of security bugs.</p>
+</li>
+<li>
+<p>Bug isolation</p>
+<p>Most system components run in user-space on a microkernel system. Because of this some types of bugs in most system components and drivers can't spread to other system components or drivers.</p>
+</li>
+<li>
+<p>More stable long execution</p>
+<p>When an operating system is left running for a long time (days, months or even years) it will activate many bugs and it's hard to know when they were activated, at some point these bugs can cause security issues, data corruption or crash the system.</p>
+<p>In a microkernel most system components are isolated and some bug types can't spread to other system components, thus the long execution tend to enable less bugs reducing the security issues, data corruption and downtime on servers.</p>
+<p>Also some system components can be restarted on-the-fly (without a full system restart) to disable the bugs of a long execution.</p>
+</li>
+<li>
+<p>Restartless design</p>
+<p>A mature microkernel changes very little (except for bug fixes), so you won't need to restart your system very often to update it.</p>
+<p>Since most system components are in userspace they can be restarted/updated on-the-fly, reducing the downtime of servers a lot.</p>
+</li>
+<li>
+<p>Easy to develop and debug</p>
+<p>Most system components run in userspace, simplifying the testing and debugging.</p>
+</li>
+<li>
+<p>Easy and quick to expand</p>
+<p>New system components and drivers are easily and quickly added as userspace daemons.</p>
+</li>
+<li>
+<p>True modularity</p>
+<p>You can enable/disable/update most system components without a system restart, similar to but safer than some modules on monolithic kernels and <a href="https://en.wikipedia.org/wiki/Kpatch">livepatching</a>.</p>
+</li>
+</ul>
+<p>You can read more about the above benefits on the <a href="./microkernels.html">Microkernels</a> page.</p>
+<h2 id="advanced-filesystem"><a class="header" href="#advanced-filesystem">Advanced Filesystem</a></h2>
+<p>Redox provides an advanced filesystem, <a href="https://gitlab.redox-os.org/redox-os/redoxfs">RedoxFS</a>. It includes many of the features in <a href="https://en.wikipedia.org/wiki/OpenZFS">ZFS</a>, but in a more modular design.</p>
+<p>More details on RedoxFS can be found on the <a href="./redoxfs.html">RedoxFS</a> page.</p>
+<h2 id="unix-like-tools-and-api"><a class="header" href="#unix-like-tools-and-api">Unix-like Tools and API</a></h2>
+<p>Redox provides a Unix-like command interface, with many everyday tools written in Rust but with familiar names and options. As well, Redox system services include a programming interface that is a subset of the <a href="https://en.wikipedia.org/wiki/POSIX">POSIX</a> API, via <a href="https://gitlab.redox-os.org/redox-os/relibc">relibc</a>. This means that many Linux/POSIX programs can run on Redox with only recompilation. While the Redox team has a strong preference for having essential programs written in Rust, we are agnostic about the programming language for programs of the user's choice. This means an easy migration path for systems and programs previously developed for a Unix-like platform.</p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="philosophy.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="why-rust.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="philosophy.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="why-rust.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="elasticlunr.min.js"></script>
+        <script src="mark.min.js"></script>
+        <script src="searcher.js"></script>
+
+        <script src="clipboard.min.js"></script>
+        <script src="highlight.js"></script>
+        <script src="book.js"></script>
+
+        <!-- Custom JS scripts -->
+
+
+
+    </div>
+    </body>
+</html>

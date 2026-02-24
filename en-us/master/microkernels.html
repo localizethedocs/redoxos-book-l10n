@@ -1,0 +1,322 @@
+<!DOCTYPE HTML>
+<html lang="en_US" class="light sidebar-visible" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Microkernels - The Redox Operating System</title>
+
+
+        <!-- Custom HTML head -->
+        <style>
+        .light .redox-logo {
+            content: url("assets/redox_light_512.png");
+        }
+        .rust .redox-logo {
+            content: url("assets/redox_light_512.png");
+        }
+        .coal .redox-logo {
+            content: url("assets/redox_dark_512.png");
+        }
+        .navy .redox-logo {
+            content: url("assets/redox_dark_512.png");
+        }
+        .ayu .redox-logo {
+            content: url("assets/redox_dark_512.png");
+        }
+        </style>
+        <script type="text/javascript" src="ltd-provenance.js"></script>
+        <script type="text/javascript" src="ltd-current.js"></script>
+        <script type="text/javascript" src="../../ltd-config.js"></script>
+        <script type="text/javascript" src="../../ltd-flyout.js"></script>
+
+        <meta name="description" content="This book carefully describes the design, implementation, direction, and structure of Redox, the operating system.">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="shortcut icon" href="favicon.png">
+        <link rel="stylesheet" href="css/variables.css">
+        <link rel="stylesheet" href="css/general.css">
+        <link rel="stylesheet" href="css/chrome.css">
+        <link rel="stylesheet" href="css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" id="highlight-css" href="highlight.css">
+        <link rel="stylesheet" id="tomorrow-night-css" href="tomorrow-night.css">
+        <link rel="stylesheet" id="ayu-highlight-css" href="ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+
+        <!-- Provide site root and default themes to javascript -->
+        <script>
+            const path_to_root = "";
+            const default_light_theme = "light";
+            const default_dark_theme = "navy";
+            window.path_to_searchindex_js = "searchindex.js";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="toc.js"></script>
+    </head>
+    <body>
+    <div id="mdbook-help-container">
+        <div id="mdbook-help-popup">
+            <h2 class="mdbook-help-title">Keyboard shortcuts</h2>
+            <div>
+                <p>Press <kbd>←</kbd> or <kbd>→</kbd> to navigate between chapters</p>
+                <p>Press <kbd>S</kbd> or <kbd>/</kbd> to search in the book</p>
+                <p>Press <kbd>?</kbd> to show this help</p>
+                <p>Press <kbd>Esc</kbd> to hide this help</p>
+            </div>
+        </div>
+    </div>
+    <div id="body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                let theme = localStorage.getItem('mdbook-theme');
+                let sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            const default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? default_dark_theme : default_light_theme;
+            let theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            let sidebar = null;
+            const sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+                sidebar_toggle.checked = false;
+            }
+            if (sidebar === 'visible') {
+                sidebar_toggle.checked = true;
+            } else {
+                html.classList.remove('sidebar-visible');
+            }
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="default_theme">Auto</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search (`/`)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="/ s" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">The Redox Operating System</h1>
+
+                    <div class="right-buttons">
+                        <a href="print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <div class="search-wrapper">
+                            <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                            <div class="spinner-wrapper">
+                                <i class="fa fa-spinner fa-spin"></i>
+                            </div>
+                        </div>
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1 id="microkernels"><a class="header" href="#microkernels">Microkernels</a></h1>
+<p>The Redox kernel is a microkernel. Microkernels stand out in their design by providing minimal abstractions in kernel-space. Microkernels focus on user-space, unlike Monolithic kernels which focus on kernel-space.</p>
+<p>The basic philosophy of microkernels is that any component which <em>can</em> run in user-space <em>should</em> run in user-space. Kernel-space should only be utilized for the most essential components (e.g., system calls, process separation, resource management, IPC, thread management, etc).</p>
+<p>The kernel's main task is to act as a medium for communication and segregation of processes. The kernel should provide minimal abstraction over the hardware (that is, drivers, which can and should run in user-space).</p>
+<p>Microkernels are more secure and less prone to crashes and driver bugs than monolithic kernels. This is because most kernel components are moved to user-space and use different memory address spaces, and thus can't do damage to the system. Furthermore, microkernels are extremely maintainable, due to their small code size the number of bugs in the kernel is reduced a lot.</p>
+<p>As anything else, microkernels do also have disadvantages.</p>
+<h2 id="advantages-of-microkernels"><a class="header" href="#advantages-of-microkernels">Advantages of microkernels</a></h2>
+<p>There are quite a lot of advantages (and some disadvantages) with microkernels, a few of which will be covered here.</p>
+<h3 id="better-stability"><a class="header" href="#better-stability">Better Stability</a></h3>
+<p>When compared to microkernels, Monolithic kernels tend to be prone to crashes and driver bugs. A buggy driver in a Monolithic kernel can crash the whole system because the driver code is running on the same memory address space of the kernel, thus the kernel process can't continue to run (to avoid memory corruption) and crash (kernel panic). Or the bugs in a driver can spread to other drivers without causing crashes, which is hard to ensure stability and a headache to investigate the root of the problems.</p>
+<p>While in a microkernel the drivers run in different memory address spaces (separation of concerns) which allows the system to handle any crash safely and isolate driver bugs.</p>
+<p>In Linux we often see errors with drivers dereferencing bad pointers which ultimately results in kernel panics.</p>
+<p>There is very good documentation in the <a href="http://wiki.minix3.org/doku.php?id=www:documentation:reliability">MINIX documentation</a> about how this can be addressed by a microkernel.</p>
+<h3 id="better-security"><a class="header" href="#better-security">Better Security</a></h3>
+<p>Microkernels are undoubtedly more secure than monolithic kernels. The minimality principle of microkernels is a direct consequence of the Principle Of Least Privilege, according to which all components should have only the privileges absolutely needed to provide the needed functionality.</p>
+<p>Many security-critical bugs in monolithic kernels come from services and drivers running unrestricted in kernel mode, without any form of protection.</p>
+<p>In other words: <strong>in monolithic kernels, drivers can do whatever they want, without restrictions, when running in kernel mode</strong>.</p>
+<h3 id="better-modularity-and-configuration"><a class="header" href="#better-modularity-and-configuration">Better Modularity and Configuration</a></h3>
+<p>Monolithic kernels are, well, monolithic. They do not allow fine-grained control like microkernels. This is due to many essential components being "hard-coded" into the kernel, and thus requiring modifications to the kernel itself (e.g., device drivers).</p>
+<p>Microkernels are very modular by nature. You can add, replace, reload, modify, change, and remove system components or drivers, on runtime, without even touching the kernel.</p>
+<p>Modern monolithic kernels try to solve this issue using kernel modules but still often require the system to reboot.</p>
+<h3 id="better-expansion"><a class="header" href="#better-expansion">Better Expansion</a></h3>
+<p>In microkernels new system components and drivers can be easily added using daemons, while in monolithic kernels the entire kernel needs to be updated to add them which can introduce bugs to other system components or drivers.</p>
+<h3 id="sane-debugging"><a class="header" href="#sane-debugging">Sane Debugging</a></h3>
+<p>In microkernels most kernel components (drivers, filesystems, etc) are moved to user-space, thus bugs on them can't crash the kernel (kernel panic).</p>
+<p>The "component panics" (where "component" is the name of the system component) are more common in microkernels than kernel panics because the kernel code size is very small, the log of a component panic can be saved which ease debugging a lot.</p>
+<p>This is very important to debug in real hardware, because if a kernel panic happens the log can't be saved to find the cause of the bug.</p>
+<p>While in monolithic kernels a bug in a system component or driver can cause a kernel panic and freeze the system (if it happens in real hardware, you can't debug without serial output support)</p>
+<p>(Buggy drivers are the main cause of kernel panics)</p>
+<h2 id="disadvantages-of-microkernels"><a class="header" href="#disadvantages-of-microkernels">Disadvantages of microkernels</a></h2>
+<h3 id="small-performance-overhead"><a class="header" href="#small-performance-overhead">Small Performance Overhead</a></h3>
+<p>Any modern operating system needs basic security mechanisms such as memory isolation and virtualization. Furthermore any process (including the kernel) has its own stack and variables stored in registers. On <a href="https://en.wikipedia.org/wiki/Context_switch">context switch</a>, that is each time a system call is invoked or any other inter-process communication (IPC) is done, some tasks have to be done, including:</p>
+<ul>
+<li>Saving caller registers, especially the program counter (caller: process invoking syscall or IPC)</li>
+<li>Reprogramming the <a href="https://en.wikipedia.org/wiki/Memory_management_unit">MMU</a>'s page table (aka <a href="https://en.wikipedia.org/wiki/Translation_lookaside_buffer">TLB</a>)</li>
+<li>Putting CPU in another mode (kernel mode and user mode, also known as ring 0 and ring 3)</li>
+<li>Restoring callee registers (callee: process invoked by syscall or IPC)</li>
+</ul>
+<p>These are not inherently slower on microkernels, but microkernels need to perform these operations more frequently. Many of the system functionality is performed by user-space processes, requiring additional context switches.</p>
+<p>The performance difference between monolithic and microkernels has been marginalized over time, making their performance comparable. This is partly due to a smaller surface area which can be easier to optimize.</p>
+<ul>
+<li><a href="https://wiki.osdev.org/Context_Switching">Context Switch Documentation</a></li>
+<li><a href="https://os.inf.tu-dresden.de/pubs/sosp97/">Microkernels Performance Paper</a></li>
+</ul>
+<p>We are working on exciting performance optimizations to minimize the overhead of extra context switches.</p>
+<h2 id="versus-monolithic-kernels"><a class="header" href="#versus-monolithic-kernels">Versus monolithic kernels</a></h2>
+<p>Monolithic kernels provide a lot more abstractions than microkernels.</p>
+<p><img src="https://upload.wikimedia.org/wikipedia/commons/6/67/OS-structure.svg" alt="An illustration" /></p>
+<p>The above illustration from <a href="https://commons.wikimedia.org/wiki/File:OS-structure.svg">Wikimedia</a>, by Wooptoo, License: Public domain) shows how they differ.</p>
+<h2 id="documentation-about-the-kerneluser-space-separation"><a class="header" href="#documentation-about-the-kerneluser-space-separation">Documentation about the kernel/user-space separation</a></h2>
+<ul>
+<li><a href="https://www.geeksforgeeks.org/dual-mode-operations-os/">Dual Mode Operations in OS</a></li>
+<li><a href="https://www.geeksforgeeks.org/user-mode-and-kernel-mode-switching/">User Mode and Kernel Mode Switching</a></li>
+</ul>
+<h2 id="documentation-about-microkernels"><a class="header" href="#documentation-about-microkernels">Documentation about microkernels</a></h2>
+<ul>
+<li><a href="https://wiki.osdev.org/Microkernel">OSDev Technical Wiki</a></li>
+<li><a href="https://wiki.osdev.org/Message_Passing">Message Passing Documentation</a></li>
+<li><a href="https://wiki.minix3.org/doku.php?id=www:documentation:start">Minix Documentation</a></li>
+<li><a href="https://wiki.minix3.org/doku.php?id=www:documentation:features">Minix Features</a></li>
+<li><a href="https://wiki.minix3.org/doku.php?id=www:documentation:reliability">Minix Reliability</a></li>
+<li><a href="https://www.gnu.org/software/hurd/hurd/documentation.html">GNU Hurd Documentation</a></li>
+<li><a href="https://fuchsia.dev/fuchsia-src/get-started/learn/intro">Fuchsia Documentation</a></li>
+<li><a href="http://www.helenos.org/wiki/FAQ">HelenOS FAQ</a></li>
+<li><a href="http://www.minix3.org/docs/jorrit-herder/osr-jul06.pdf">Minix Paper</a></li>
+<li><a href="https://sel4.systems/About/seL4-whitepaper.pdf">seL4 Whitepaper</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Tanenbaum%E2%80%93Torvalds_debate">Tanenbaum-Torvalds Debate</a></li>
+</ul>
+<h2 id="a-note-on-the-current-state"><a class="header" href="#a-note-on-the-current-state">A Note On The Current State</a></h2>
+<p>Redox has less than 40,000 Rust lines of kernel code. For comparison Minix has around 6,000 C lines of kernel code.</p>
+<p>(The above comparison can't be used to argue that Minix is more stable or safe than Redox due to a less amount of source code lines, because Redox is more advanced than Minix in features, thus more lines of code are expected and a 1:1 comparison can't be made)</p>
+<p>We would like to move more parts of Redox to user-space to get an even more stable and secure kernel.</p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="system-design.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="boot-process.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="system-design.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="boot-process.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="elasticlunr.min.js"></script>
+        <script src="mark.min.js"></script>
+        <script src="searcher.js"></script>
+
+        <script src="clipboard.min.js"></script>
+        <script src="highlight.js"></script>
+        <script src="book.js"></script>
+
+        <!-- Custom JS scripts -->
+
+
+
+    </div>
+    </body>
+</html>

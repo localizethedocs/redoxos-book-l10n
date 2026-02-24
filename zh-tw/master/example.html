@@ -1,0 +1,429 @@
+<!DOCTYPE HTML>
+<html lang="zh_TW" class="light sidebar-visible" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>An Example - The Redox Operating System</title>
+
+
+        <!-- Custom HTML head -->
+        <style>
+        .light .redox-logo {
+            content: url("assets/redox_light_512.png");
+        }
+        .rust .redox-logo {
+            content: url("assets/redox_light_512.png");
+        }
+        .coal .redox-logo {
+            content: url("assets/redox_dark_512.png");
+        }
+        .navy .redox-logo {
+            content: url("assets/redox_dark_512.png");
+        }
+        .ayu .redox-logo {
+            content: url("assets/redox_dark_512.png");
+        }
+        </style>
+        <script type="text/javascript" src="ltd-provenance.js"></script>
+        <script type="text/javascript" src="ltd-current.js"></script>
+        <script type="text/javascript" src="../../ltd-config.js"></script>
+        <script type="text/javascript" src="../../ltd-flyout.js"></script>
+
+        <meta name="description" content="This book carefully describes the design, implementation, direction, and structure of Redox, the operating system.">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="shortcut icon" href="favicon.png">
+        <link rel="stylesheet" href="css/variables.css">
+        <link rel="stylesheet" href="css/general.css">
+        <link rel="stylesheet" href="css/chrome.css">
+        <link rel="stylesheet" href="css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" id="highlight-css" href="highlight.css">
+        <link rel="stylesheet" id="tomorrow-night-css" href="tomorrow-night.css">
+        <link rel="stylesheet" id="ayu-highlight-css" href="ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+
+        <!-- Provide site root and default themes to javascript -->
+        <script>
+            const path_to_root = "";
+            const default_light_theme = "light";
+            const default_dark_theme = "navy";
+            window.path_to_searchindex_js = "searchindex.js";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="toc.js"></script>
+    </head>
+    <body>
+    <div id="mdbook-help-container">
+        <div id="mdbook-help-popup">
+            <h2 class="mdbook-help-title">Keyboard shortcuts</h2>
+            <div>
+                <p>Press <kbd>←</kbd> or <kbd>→</kbd> to navigate between chapters</p>
+                <p>Press <kbd>S</kbd> or <kbd>/</kbd> to search in the book</p>
+                <p>Press <kbd>?</kbd> to show this help</p>
+                <p>Press <kbd>Esc</kbd> to hide this help</p>
+            </div>
+        </div>
+    </div>
+    <div id="body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                let theme = localStorage.getItem('mdbook-theme');
+                let sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            const default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? default_dark_theme : default_light_theme;
+            let theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            let sidebar = null;
+            const sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+                sidebar_toggle.checked = false;
+            }
+            if (sidebar === 'visible') {
+                sidebar_toggle.checked = true;
+            } else {
+                html.classList.remove('sidebar-visible');
+            }
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="default_theme">Auto</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search (`/`)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="/ s" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">The Redox Operating System</h1>
+
+                    <div class="right-buttons">
+                        <a href="print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <div class="search-wrapper">
+                            <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                            <div class="spinner-wrapper">
+                                <i class="fa fa-spinner fa-spin"></i>
+                            </div>
+                        </div>
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1 id="an-example"><a class="header" href="#an-example">An Example</a></h1>
+<p>Enough theory! Time for an example.</p>
+<p>We will implement a scheme which holds a vector. The scheme will push elements to the vector when it receives writes, and pop them when it is read. Let's call it <code>vec</code>.</p>
+<p>The complete source for this example can be found at <a href="https://gitlab.redox-os.org/redox-os/vec_scheme_example">redox-os/vec_scheme_example</a>.</p>
+<blockquote>
+<p>TODO: the example has not been saved to the repo.</p>
+</blockquote>
+<h2 id="setup"><a class="header" href="#setup">Setup</a></h2>
+<p>In order to build and run this example in a Redox environment, you'll need to be set up to compile the OS from source. The process for getting a program included in a local Redox build is laid out in the <a href="./including-programs.html">Including Programs in Redox</a> page. Pause here and follow the <code>helloworld</code> example in that guide if you want to get this example running.</p>
+<p>This example assumes that <code>vec</code> was used as the name of the crate instead of <code>helloworld</code>. The crate should therefore be located at <code>cookbook/recipes/vec/source</code></p>
+<p>Modify the <code>Cargo.toml</code> for the <code>vec</code> crate so that it looks something like this:</p>
+<pre><code class="language-toml">[package]
+name = "vec"
+version = "0.1.0"
+edition = "2018"
+
+[[bin]]
+name = "vec_scheme"
+path = "src/scheme.rs"
+
+[[bin]]
+name = "vec"
+path = "src/client.rs"
+
+[dependencies]
+redox_syscall = "^0.2.6"
+</code></pre>
+<p>Notice that there are two binaries here. We'll need another program to interact with our scheme, since CLI tools like <code>cat</code> use more operations than we strictly need to implement for our scheme. The client uses only the standard library.</p>
+<h2 id="the-scheme-daemon"><a class="header" href="#the-scheme-daemon">The Scheme Daemon</a></h2>
+<p>Create <code>src/scheme.rs</code> in the crate. Start by <code>use</code>ing a couple of symbols.</p>
+<pre><pre class="playground"><code class="language-rust"><span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>use std::cmp::min;
+use std::fs::File;
+use std::io::{Read, Write};
+
+use syscall::Packet;
+use syscall::scheme::SchemeMut;
+use syscall::error::Result;
+<span class="boring">}</span></code></pre></pre>
+<p>We start by defining our mutable scheme struct, which will implement the <code>SchemeMut</code> trait and hold the state of the scheme.</p>
+<pre><pre class="playground"><code class="language-rust"><span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>struct VecScheme {
+    vec: Vec&lt;u8&gt;,
+}
+
+impl VecScheme {
+    fn new() -&gt; VecScheme {
+        VecScheme {
+            vec: Vec::new(),
+        }
+    }
+}
+<span class="boring">}</span></code></pre></pre>
+<p>Before implementing the scheme operations on our scheme struct, let's breifly discuss the way that this struct will be used. Our program (<code>vec_scheme</code>) will create the <code>vec</code> scheme by opening the corresponding scheme handler in the root scheme (<code>:vec</code>).  Let's implement a <code>main()</code> that intializes our scheme struct and registers the new scheme:</p>
+<pre><pre class="playground"><code class="language-rust">fn main() {
+    let mut scheme = VecScheme::new();
+
+    let mut handler = File::create(":vec")
+        .expect("Failed to create the vec scheme");
+}</code></pre></pre>
+<p>When other programs open/read/write/etc against our scheme, the Redox kernel will make those requests available to our program via this scheme handler. Our scheme will read that data, handle the requests, and send responses back to the kernel by writing to the scheme handler. The kernel will then pass the results of operations back to the caller.</p>
+<pre><pre class="playground"><code class="language-rust">fn main() {
+    // ...
+
+    let mut packet = Packet::default();
+
+    loop {
+        // Wait for the kernel to send us requests
+        let read_bytes = handler.read(&amp;mut packet)
+            .expect("vec: failed to read event from vec scheme handler");
+
+        if read_bytes == 0 {
+            // Exit cleanly
+            break;
+        }
+
+        // Scheme::handle passes off the info from the packet to the individual
+        // scheme methods and writes back to it any information returned by
+        // those methods.
+        scheme.handle(&amp;mut packet);
+
+        handler.write(&amp;packet)
+            .expect("vec: failed to write response to vec scheme handler");
+    }
+}</code></pre></pre>
+<p>Now let's deal with the specific operations on our scheme. The <code>scheme.handle(...)</code> call dispatches requests to these methods, so that we don't need to worry about the gory details of the <code>Packet</code> struct.</p>
+<p>In most Unix systems (Redox included!), a program needs to open a file before it can do very much with it. Since our scheme is just a "virtual filesystem", programs call <code>open</code> with the path to the "file" they want to interact with when they want to start a conversation with our scheme.</p>
+<p>For our vec scheme, let's push whatever path we're given to the vec:</p>
+<pre><pre class="playground"><code class="language-rust"><span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>impl SchemeMut for VecScheme {
+    fn open(&amp;mut self, path: &amp;str, _flags: usize, _uid: u32, _gid: u32) -&gt; Result&lt;usize&gt; {
+        self.vec.extend_from_slice(path.as_bytes());
+        Ok(0)
+    }
+}
+<span class="boring">}</span></code></pre></pre>
+<p>Say a program calls <code>open("vec:/hello")</code>. That call will work its way through the kernel and end up being dispatched to this function through our <code>Scheme::handle</code> call.</p>
+<p>The <code>usize</code> we return here will be passed back to us as the <code>id</code> parameter of the other scheme operations. This way we can keep track of different open files. In this case, we won't make a distinction between two different programs talking to us and simply return zero.</p>
+<p>Similarly, when a process opens a file, the kernel returns a number (the file descriptor) that the process can use to read and write to that file. Now let's implement the read and write operations for <code>VecScheme</code>:</p>
+<pre><pre class="playground"><code class="language-rust"><span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>impl SchemeMut for VecScheme {
+    // ...
+
+    // Fill up buf with the contents of self.vec, starting from self.buf[0].
+    // Note that this reverses the contents of the Vec.
+    fn read(&amp;mut self, _id: usize, buf: &amp;mut [u8]) -&gt; Result&lt;usize&gt; {
+        let num_written = min(buf.len(), self.vec.len());
+
+        for b in buf {
+            if let Some(x) = self.vec.pop() {
+                *b = x;
+            } else {
+                break;
+            }
+        }
+
+        Ok(num_written)
+    }
+
+    // Simply push any bytes we are given to self.vec
+    fn write(&amp;mut self, _id: usize, buf: &amp;[u8]) -&gt; Result&lt;usize&gt; {
+        for i in buf {
+            self.vec.push(*i);
+        }
+
+        Ok(buf.len())
+    }
+}
+<span class="boring">}</span></code></pre></pre>
+<p>Note that each of the methods of the <code>SchemeMut</code> trait provide a default implementation. These will all return errors since they are essentially unimplemented. There's one more method we need to implement in order to prevent errors for users of our scheme:</p>
+<pre><pre class="playground"><code class="language-rust"><span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>impl SchemeMut for VecScheme {
+    // ...
+
+    fn close(&amp;mut self, _id: usize) -&gt; Result&lt;usize&gt; {
+        Ok(0)
+    }
+}
+<span class="boring">}</span></code></pre></pre>
+<p>Most languages' standard libraries call <code>close</code> automatically when a file object is destroyed, and Rust is no exception.</p>
+<p>To see all the possible operations on schemes, check out the <a href="https://docs.rs/redox_syscall/">API docs</a>.</p>
+<blockquote>
+<p>TODO: there is no scheme documentation at this link.</p>
+</blockquote>
+<h2 id="a-simple-client"><a class="header" href="#a-simple-client">A Simple Client</a></h2>
+<p>As mentioned earlier, we need to create a very simple client in order to use our scheme, since some command line tools (like <code>cat</code>) use operations other than open, read, write, and close. Put this code into <code>src/client.rs</code>:</p>
+<pre><pre class="playground"><code class="language-rust">use std::fs::File;
+use std::io::{Read, Write};
+
+fn main() {
+    let mut vec_file = File::open("/scheme/vec/hi")
+        .expect("Failed to open vec file");
+
+    vec_file.write(b" Hello")
+        .expect("Failed to write to vec");
+
+    let mut read_into = String::new();
+    vec_file.read_to_string(&amp;mut read_into)
+        .expect("Failed to read from vec");
+
+    println!("{}", read_into); // olleH ih/
+}</code></pre></pre>
+<p>We simply open some "file" in our scheme, write some bytes to it, read some bytes from it, and then spit those bytes out on stdout. Remember, it doesn't matter what path we use, since all our scheme does is add that path to the vec. In this sense, the vec scheme implements a global vector.</p>
+<h2 id="running-the-scheme"><a class="header" href="#running-the-scheme">Running the Scheme</a></h2>
+<p>Since we've already set up the program to build and run in QEMU, simply run:</p>
+<pre><code class="language-sh">make r.scheme-name image qemu
+</code></pre>
+<p>We'll need multiple terminal windows open in the QEMU window for this step. Notice that both binaries we defined in our <code>Cargo.toml</code> can now be found in <code>/usr/bin</code> (<code>vec_scheme</code> and <code>vec</code>). In one terminal window, run <code>sudo vec_scheme</code>. A program needs to run as root in order to register a new scheme. In another terminal, run <code>vec</code> and observe the output.</p>
+<h2 id="exercises-for-the-reader"><a class="header" href="#exercises-for-the-reader">Exercises for the Reader</a></h2>
+<ul>
+<li>Make the <code>vec</code> scheme print out something whenever it gets events. For example, print out the user and group IDs of the user who tries to open a file in the scheme.</li>
+<li>Create a unique <code>vec</code> for each opened file in your scheme. You might find a hashmap useful for this.</li>
+<li>Write a scheme that can run code for your favorite esoteric programming language.</li>
+</ul>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="event-scheme.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="programs-libraries.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="event-scheme.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="programs-libraries.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="elasticlunr.min.js"></script>
+        <script src="mark.min.js"></script>
+        <script src="searcher.js"></script>
+
+        <script src="clipboard.min.js"></script>
+        <script src="highlight.js"></script>
+        <script src="book.js"></script>
+
+        <!-- Custom JS scripts -->
+
+
+
+    </div>
+    </body>
+</html>

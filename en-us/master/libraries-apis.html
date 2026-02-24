@@ -1,0 +1,391 @@
+<!DOCTYPE HTML>
+<html lang="en_US" class="light sidebar-visible" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Libraries and APIs - The Redox Operating System</title>
+
+
+        <!-- Custom HTML head -->
+        <style>
+        .light .redox-logo {
+            content: url("assets/redox_light_512.png");
+        }
+        .rust .redox-logo {
+            content: url("assets/redox_light_512.png");
+        }
+        .coal .redox-logo {
+            content: url("assets/redox_dark_512.png");
+        }
+        .navy .redox-logo {
+            content: url("assets/redox_dark_512.png");
+        }
+        .ayu .redox-logo {
+            content: url("assets/redox_dark_512.png");
+        }
+        </style>
+        <script type="text/javascript" src="ltd-provenance.js"></script>
+        <script type="text/javascript" src="ltd-current.js"></script>
+        <script type="text/javascript" src="../../ltd-config.js"></script>
+        <script type="text/javascript" src="../../ltd-flyout.js"></script>
+
+        <meta name="description" content="This book carefully describes the design, implementation, direction, and structure of Redox, the operating system.">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="shortcut icon" href="favicon.png">
+        <link rel="stylesheet" href="css/variables.css">
+        <link rel="stylesheet" href="css/general.css">
+        <link rel="stylesheet" href="css/chrome.css">
+        <link rel="stylesheet" href="css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" id="highlight-css" href="highlight.css">
+        <link rel="stylesheet" id="tomorrow-night-css" href="tomorrow-night.css">
+        <link rel="stylesheet" id="ayu-highlight-css" href="ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+
+        <!-- Provide site root and default themes to javascript -->
+        <script>
+            const path_to_root = "";
+            const default_light_theme = "light";
+            const default_dark_theme = "navy";
+            window.path_to_searchindex_js = "searchindex.js";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="toc.js"></script>
+    </head>
+    <body>
+    <div id="mdbook-help-container">
+        <div id="mdbook-help-popup">
+            <h2 class="mdbook-help-title">Keyboard shortcuts</h2>
+            <div>
+                <p>Press <kbd>←</kbd> or <kbd>→</kbd> to navigate between chapters</p>
+                <p>Press <kbd>S</kbd> or <kbd>/</kbd> to search in the book</p>
+                <p>Press <kbd>?</kbd> to show this help</p>
+                <p>Press <kbd>Esc</kbd> to hide this help</p>
+            </div>
+        </div>
+    </div>
+    <div id="body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                let theme = localStorage.getItem('mdbook-theme');
+                let sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            const default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? default_dark_theme : default_light_theme;
+            let theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            let sidebar = null;
+            const sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+                sidebar_toggle.checked = false;
+            }
+            if (sidebar === 'visible') {
+                sidebar_toggle.checked = true;
+            } else {
+                html.classList.remove('sidebar-visible');
+            }
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="default_theme">Auto</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search (`/`)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="/ s" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">The Redox Operating System</h1>
+
+                    <div class="right-buttons">
+                        <a href="print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <div class="search-wrapper">
+                            <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                            <div class="spinner-wrapper">
+                                <i class="fa fa-spinner fa-spin"></i>
+                            </div>
+                        </div>
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1 id="libraries-and-apis"><a class="header" href="#libraries-and-apis">Libraries and APIs</a></h1>
+<p>This page covers the context of the libraries and APIs on Redox.</p>
+<ul>
+<li><a href="#versions">Versions</a>
+<ul>
+<li><a href="#redox">Redox</a></li>
+<li><a href="#providing-a-stable-abi">Providing a Stable ABI</a></li>
+</ul>
+</li>
+<li><a href="#interfaces">Interfaces</a>
+<ul>
+<li><a href="#relibc">relibc</a></li>
+<li><a href="#libredox">libredox</a></li>
+<li><a href="#redox_syscall">redox_syscall</a></li>
+</ul>
+</li>
+<li><a href="#crates">Crates</a></li>
+<li><a href="#code-porting">Code Porting</a>
+<ul>
+<li><a href="#rust-std-crate">Rust std crate</a></li>
+</ul>
+</li>
+<li><a href="#compiling-for-redox">Compiling for Redox</a>
+<ul>
+<li><a href="#porting-method">Porting Method</a></li>
+</ul>
+</li>
+</ul>
+<h2 id="terms"><a class="header" href="#terms">Terms</a></h2>
+<div class="table-wrapper"><table><thead><tr><th><strong>Interface</strong></th><th><strong>Explanation</strong></th></tr></thead><tbody>
+<tr><td><a href="https://en.wikipedia.org/wiki/API">API</a></td><td>The interface of the library <strong>source code</strong> (the programs use the API to obtain the library functions)</td></tr>
+<tr><td><a href="https://en.wikipedia.org/wiki/Application_binary_interface">ABI</a></td><td>The interface of the program <strong>binary</strong> and system services (normally the system call interface)</td></tr>
+</tbody></table>
+</div>
+<h2 id="versions"><a class="header" href="#versions">Versions</a></h2>
+<p>The Redox crates follow the SemVer model from Cargo for version numbers (except <code>redox_syscall</code>), you can read more about it below:</p>
+<ul>
+<li><a href="https://semver.org/">SemVer</a></li>
+<li><a href="https://doc.rust-lang.org/cargo/reference/resolver.html">Cargo SemVer</a></li>
+<li><a href="https://doc.rust-lang.org/cargo/reference/semver.html">Cargo SemVer compatibility</a></li>
+</ul>
+<h3 id="redox"><a class="header" href="#redox">Redox</a></h3>
+<p>This section covers the versioning system of Redox and important components.</p>
+<ul>
+<li>Redox OS: <code>x.y.z</code></li>
+</ul>
+<p><code>x</code> is ABI version, <code>y</code> is API updates with backward compatibility and <code>z</code> is fixes with backward compatiblity.</p>
+<ul>
+<li>
+<p>libredox: Currently it don't follow the SemVer model but will in the future</p>
+</li>
+<li>
+<p>redox_syscall: <code>x.y.z</code></p>
+</li>
+</ul>
+<p><code>x</code> is the ABI version (it will remain 0 for a while), <code>y</code> is the API updates and <code>z</code> is fixes (no backward compatibility).</p>
+<h3 id="providing-a-stable-abi"><a class="header" href="#providing-a-stable-abi">Providing a Stable ABI</a></h3>
+<p>The implementation of a stable ABI is important to avoid frequent recompilation when an operating system is under heavy development, thus improving the development speed.</p>
+<p>A stable ABI typically <strong>reduces</strong> development speed for the ABI <strong>provider</strong> (because it needs to uphold backward compatibility), whereas it <strong>improves</strong> development speed for the ABI <strong>user</strong>. Because relibc will be smaller than the rest of Redox, this is a good tradeoff, and improves development speed in general</p>
+<p>It also offer backward compatibility for binaries compiled with old API versions.</p>
+<p>Currently only libredox will have a stable ABI, relibc will be unstable only as long as it's under heavy development and redox_syscall will remain unstable even after the 1.0 version of Redox.</p>
+<p>Our final goal is to keep the Redox ABI stable in all <code>1.x</code> versions, if an ABI break happens, the next versions will be <code>2.x</code></p>
+<p>A program compiled with an old API <strong>version</strong> will continue to work with a new API version, in most cases statically linked library updates or program updates will require recompilation, while in others a new ABI version will add performance and security improvements that would recommend a recompilation of the program.</p>
+<p>If the dynamic linker can't resolve the references of the program binary, a recompilation is required.</p>
+<h2 id="interfaces"><a class="header" href="#interfaces">Interfaces</a></h2>
+<p>Redox uses different mechanisms, compared to Linux, to implement system capabilities.</p>
+<h3 id="relibc"><a class="header" href="#relibc">relibc</a></h3>
+<p><a href="https://gitlab.redox-os.org/redox-os/relibc">relibc</a> is an implementation of the <a href="https://en.wikipedia.org/wiki/C_standard_library">C Standard Library</a> (libc) and POSIX in Rust.</p>
+<p>relibc knows if it's compiled for Linux or Redox ahead-of-time (if the target is Redox relibc calls functions in libredox), the goal is to organize platform-specific functionality into clean modules.</p>
+<p>Since Redox and Linux executables look so similar and can accidentally be executed on the other platform, it checks that it's running on the same platform it was compiled for, at runtime.</p>
+<h3 id="libredox"><a class="header" href="#libredox">libredox</a></h3>
+<p><a href="https://gitlab.redox-os.org/redox-os/libredox">libredox</a> is a system library for Redox components and Rust programs/libraries, it will allow Rust programs to limit their need to use C-style APIs (the relibc API and ABI).</p>
+<p>It's both a crate (calling the ABI functions) and an ABI, the ABI is provided from relibc while the crate (library) is a wrapper above the libredox ABI.</p>
+<p>(Redox components, Rust programs and libraries use this library)</p>
+<p>You can see Rust crates using it on the <a href="https://crates.io/crates/libredox/reverse_dependencies">Reverse Dependencies</a> category.</p>
+<h3 id="redox_syscall"><a class="header" href="#redox_syscall">redox_syscall</a></h3>
+<p><a href="https://gitlab.redox-os.org/redox-os/syscall">redox_syscall</a> contain the system call numbers and Rust API wrappers for the inline Assembly code of system calls to be used with low-level components and libraries.</p>
+<p>(redox_syscall should not be used directly by programs, use libredox instead)</p>
+<h2 id="crates"><a class="header" href="#crates">Crates</a></h2>
+<p>Some Redox projects have crates on <code>crates.io</code> thus they use a version-based SemVer development, if some change is sent to their repository they need to release a new version on <code>crates.io</code></p>
+<ul>
+<li><a href="https://crates.io/crates/libredox">libredox</a></li>
+<li><a href="https://crates.io/crates/redox_syscall">redox_syscall</a></li>
+<li><a href="https://crates.io/crates/redox-path">redox-path</a></li>
+<li><a href="https://crates.io/crates/redox-scheme">redox-scheme</a></li>
+<li><a href="https://crates.io/crates/redoxfs">redoxfs</a></li>
+<li><a href="https://crates.io/crates/redoxer">redoxer</a></li>
+<li><a href="https://crates.io/crates/redox_installer">redox_installer</a></li>
+<li><a href="https://crates.io/crates/redox-kprofiling">redox-kprofiling</a></li>
+<li><a href="https://crates.io/crates/redox_users">redox-users</a></li>
+<li><a href="https://crates.io/crates/redox-buffer-pool">redox-buffer-pool</a></li>
+<li><a href="https://crates.io/crates/redox-log">redox_log</a></li>
+<li><a href="https://crates.io/crates/redox_termios">redox_termios</a></li>
+<li><a href="https://crates.io/crates/redox-daemon">redox-daemon</a></li>
+<li><a href="https://crates.io/crates/redox_event">redox_event</a></li>
+<li><a href="https://crates.io/crates/redox_event_update">redox_event_update</a></li>
+<li><a href="https://crates.io/crates/redox_pkgutils">redox_pkgutils</a></li>
+<li><a href="https://crates.io/crates/redox_uefi">redox_uefi</a></li>
+<li><a href="https://crates.io/crates/redox_uefi_alloc">redox_uefi_alloc</a></li>
+<li><a href="https://crates.io/crates/redox_dmi">redox_dmi</a></li>
+<li><a href="https://crates.io/crates/redox_hwio">redox_hwio</a></li>
+<li><a href="https://crates.io/crates/redox_intelflash">redox_intelflash</a></li>
+<li><a href="https://crates.io/crates/redox_liner">redox_liner</a></li>
+<li><a href="https://crates.io/crates/redox_uefi_std">redox_uefi_std</a></li>
+<li><a href="https://crates.io/crates/ralloc">ralloc</a></li>
+<li><a href="https://crates.io/crates/orbclient">orbclient</a></li>
+<li><a href="https://crates.io/crates/orbclient_window_shortcuts">orbclient_window_shortcuts</a></li>
+<li><a href="https://crates.io/crates/orbfont">orbfont</a></li>
+<li><a href="https://crates.io/crates/orbimage">orbimage</a></li>
+<li><a href="https://crates.io/crates/orbterm">orbterm</a></li>
+<li><a href="https://crates.io/crates/orbutils">orbutils</a></li>
+<li><a href="https://crates.io/crates/slint_orbclient">slint_orbclient</a></li>
+<li><a href="https://crates.io/crates/ralloc_shim">ralloc_shim</a></li>
+<li><a href="https://crates.io/crates/ransid">ransid</a></li>
+<li><a href="https://crates.io/crates/gitrepoman">gitrepoman</a></li>
+<li><a href="https://crates.io/crates/pkgar">pkgar</a></li>
+<li><a href="https://crates.io/crates/pkgar-core">pkgar-core</a></li>
+<li><a href="https://crates.io/crates/pkgar-repo">pkgar-repo</a></li>
+<li><a href="https://crates.io/crates/termion">termion</a></li>
+<li><a href="https://crates.io/crates/reagent">reagent</a></li>
+<li><a href="https://crates.io/crates/gdb-protocol">gdb-protocol</a></li>
+<li><a href="https://crates.io/crates/orbtk">orbtk</a></li>
+<li><a href="https://crates.io/crates/orbtk_orbclient">orbtk_orbclient</a></li>
+<li><a href="https://crates.io/crates/orbtk-render">orbtk-render</a></li>
+<li><a href="https://crates.io/crates/orbtk-shell">orbtk-shell</a></li>
+<li><a href="https://crates.io/crates/orbtk-tinyskia">orbtk-tinyskia</a></li>
+</ul>
+<h3 id="manual-patching"><a class="header" href="#manual-patching">Manual Patching</a></h3>
+<p>If you don't want to wait a new release on <code>crates.io</code>, you can patch the crate temporarily by fetching the version you need from GitLab and changing the crate version in <code>Cargo.toml</code> to <code>crate-name = { path = "path/to/crate" }</code></p>
+<h2 id="code-porting"><a class="header" href="#code-porting">Code Porting</a></h2>
+<h3 id="rust-std-crate"><a class="header" href="#rust-std-crate">Rust std crate</a></h3>
+<p>Most <strong>Rust</strong> programs include the <a href="https://doc.rust-lang.org/std/">std</a> (libstd) crate, In addition to implementing standard Rust abstractions, this crate provides a safe Rust interface to system functionality in libc, which it invokes via a <a href="https://doc.rust-lang.org/rust-by-example/std_misc/ffi.html">FFI</a> to libc.</p>
+<p><code>std</code> has mechanisms to enable operating system variants of certain parts of the library, the file <a href="https://github.com/rust-lang/rust/blob/master/library/std/src/sys/mod.rs">sys/mod.rs</a> selects the appropriate variant to include, programs use the <code>std::</code> prefix to call this crate.</p>
+<p>To ensure portability of programs, Redox supports the Rust <code>std</code> crate, for Redox, <code>std::sys</code> refers to <code>std::sys::unix</code></p>
+<p>Redox-specific code can be found on the <a href="https://github.com/rust-lang/rust/tree/master/library/std/src/os/redox">std source tree</a>.</p>
+<p>For most functionality, Redox uses <code>#[cfg(unix)]</code> and <a href="https://github.com/rust-lang/rust/tree/master/library/std/src/sys/pal/unix">sys/unix</a>.</p>
+<p>Some Redox-specific functionality is enabled by <code>#[cfg(target_os = "redox")]</code></p>
+<h2 id="compiling-for-redox"><a class="header" href="#compiling-for-redox">Compiling for Redox</a></h2>
+<p>The Redox toolchain automatically links programs with relibc in place of the libc you would find on Linux.</p>
+<h3 id="porting-method"><a class="header" href="#porting-method">Porting Method</a></h3>
+<p>You can use <code>#[cfg(unix)]</code> and <code>#[cfg(target_os = "redox")]</code> to guard platform specific code.</p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="references.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="coding-and-building.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="references.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="coding-and-building.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="elasticlunr.min.js"></script>
+        <script src="mark.min.js"></script>
+        <script src="searcher.js"></script>
+
+        <script src="clipboard.min.js"></script>
+        <script src="highlight.js"></script>
+        <script src="book.js"></script>
+
+        <!-- Custom JS scripts -->
+
+
+
+    </div>
+    </body>
+</html>

@@ -1,0 +1,517 @@
+<!DOCTYPE HTML>
+<html lang="zh_TW" class="light sidebar-visible" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>組態設定 - The Redox Operating System</title>
+
+
+        <!-- Custom HTML head -->
+        <style>
+        .light .redox-logo {
+            content: url("assets/redox_light_512.png");
+        }
+        .rust .redox-logo {
+            content: url("assets/redox_light_512.png");
+        }
+        .coal .redox-logo {
+            content: url("assets/redox_dark_512.png");
+        }
+        .navy .redox-logo {
+            content: url("assets/redox_dark_512.png");
+        }
+        .ayu .redox-logo {
+            content: url("assets/redox_dark_512.png");
+        }
+        </style>
+        <script type="text/javascript" src="ltd-provenance.js"></script>
+        <script type="text/javascript" src="ltd-current.js"></script>
+        <script type="text/javascript" src="../../ltd-config.js"></script>
+        <script type="text/javascript" src="../../ltd-flyout.js"></script>
+
+        <meta name="description" content="This book carefully describes the design, implementation, direction, and structure of Redox, the operating system.">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="shortcut icon" href="favicon.png">
+        <link rel="stylesheet" href="css/variables.css">
+        <link rel="stylesheet" href="css/general.css">
+        <link rel="stylesheet" href="css/chrome.css">
+        <link rel="stylesheet" href="css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" id="highlight-css" href="highlight.css">
+        <link rel="stylesheet" id="tomorrow-night-css" href="tomorrow-night.css">
+        <link rel="stylesheet" id="ayu-highlight-css" href="ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+
+        <!-- Provide site root and default themes to javascript -->
+        <script>
+            const path_to_root = "";
+            const default_light_theme = "light";
+            const default_dark_theme = "navy";
+            window.path_to_searchindex_js = "searchindex.js";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="toc.js"></script>
+    </head>
+    <body>
+    <div id="mdbook-help-container">
+        <div id="mdbook-help-popup">
+            <h2 class="mdbook-help-title">Keyboard shortcuts</h2>
+            <div>
+                <p>Press <kbd>←</kbd> or <kbd>→</kbd> to navigate between chapters</p>
+                <p>Press <kbd>S</kbd> or <kbd>/</kbd> to search in the book</p>
+                <p>Press <kbd>?</kbd> to show this help</p>
+                <p>Press <kbd>Esc</kbd> to hide this help</p>
+            </div>
+        </div>
+    </div>
+    <div id="body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                let theme = localStorage.getItem('mdbook-theme');
+                let sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            const default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? default_dark_theme : default_light_theme;
+            let theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            let sidebar = null;
+            const sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+                sidebar_toggle.checked = false;
+            }
+            if (sidebar === 'visible') {
+                sidebar_toggle.checked = true;
+            } else {
+                html.classList.remove('sidebar-visible');
+            }
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="default_theme">Auto</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search (`/`)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="/ s" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">The Redox Operating System</h1>
+
+                    <div class="right-buttons">
+                        <a href="print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <div class="search-wrapper">
+                            <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                            <div class="spinner-wrapper">
+                                <i class="fa fa-spinner fa-spin"></i>
+                            </div>
+                        </div>
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1 id="組態設定"><a class="header" href="#組態設定">組態設定</a></h1>
+<p>The Redox build system applies configuration settings from various places to determine the final Redox image. Most of these settings ultimately come from the build system's <a href="#environment-variables">environment variables</a> (or similarly-named Make variables) and the contents of the chosen <a href="#filesystem-configuration">filesystem configuration</a> file.</p>
+<ul>
+<li><a href="#environment-variables">環境變數</a>
+<ul>
+<li><a href="#config">.config</a></li>
+<li><a href="#cookbook-configuration">Cookbook Configuration</a></li>
+<li><a href="#command-line">Command Line</a></li>
+<li><a href="#mkconfigmk">mk/config.mk</a></li>
+<li><a href="#buildsh">build.sh</a></li>
+</ul>
+</li>
+<li><a href="#filesystem-configuration">檔案系統組態</a>
+<ul>
+<li><a href="#cpu-architecture-codenames">CPU Architecture Codenames</a></li>
+<li><a href="#filesystem-size">Filesystem Size</a></li>
+<li><a href="#filesystem-customization">Filesystem Customization</a>
+<ul>
+<li><a href="#creating-a-custom-filesystem-configuration">Creating a custom filesystem configuration</a></li>
+<li><a href="#adding-a-package-to-the-filesystem-configuration">Adding a package to the filesystem configuration</a></li>
+</ul>
+</li>
+<li><a href="#binary-packages">Binary Packages</a>
+<ul>
+<li><a href="#repo_binary">REPO_BINARY</a></li>
+</ul>
+</li>
+<li><a href="#local-recipe-changes">Local Recipe Changes</a></li>
+<li><a href="#cookbook-offline-mode">Cookbook Offline Mode</a></li>
+</ul>
+</li>
+</ul>
+<h2 id="environment-variables"><a class="header" href="#environment-variables">Environment Variables</a></h2>
+<p>The default values for the build system's environment variables are mostly defined in the <code>mk</code> directory—particularly in <a href="#mkconfigmk"><code>mk/config.mk</code></a>. Local changes from the default values, however, should be applied in the <a href="#config"><code>.config</code></a> file, or temporarily on the <code>make</code> <a href="#command-line">command line</a>.</p>
+<p>The build system uses GNU Make and Cookbook to coordinate the build system in order. The <a href="./build-system-reference.html#cookbook">build system reference</a> and <a href="./porting-applications.html#cookbook">porting application guide</a> have more information about Cookbook.</p>
+<p>Three important variables of interest are <code>ARCH</code>, <code>CONFIG_NAME</code>, and <code>BOARD</code>, as they specify the system to be built. These, and other important environment variables, can be seen in the following table:</p>
+<div class="table-wrapper"><table><thead><tr><th style="text-align: left">Variable</th><th style="text-align: left">Definition</th></tr></thead><tbody>
+<tr><td style="text-align: left"><code>ARCH</code></td><td style="text-align: left">Specifies the <a href="#architecture-names">CPU architecture</a> that the system is to be built for. The default value is <code>x86_64</code>.</td></tr>
+<tr><td style="text-align: left"><code>CONFIG_NAME</code></td><td style="text-align: left">Determines the name of the filesystem configuration, and is normally used to construct the <code>FILESYSTEM_CONFIG</code> name (the <code>desktop</code> variant is used by default).</td></tr>
+<tr><td style="text-align: left"><code>BOARD</code></td><td style="text-align: left">For single board computers such as Raspberry Pi 3B+ (<code>raspi3bp</code>) that require special configuration. Defaults to empty.</td></tr>
+<tr><td style="text-align: left"><code>FILESYSTEM_CONFIG</code></td><td style="text-align: left">Determines the filesystem configuration file location. See the <a href="#filesystem-configuration">Filesystem Configuration</a> section below. The default value is <code>config/$ARCH/$BOARD/$CONFIG_NAME.toml</code> or <code>config/$ARCH/$CONFIG_NAME.toml</code> if <code>$BOARD</code> is empty, but this can be changed if the desired configuration file is in a different location.</td></tr>
+<tr><td style="text-align: left"><code>QEMU_MEM</code></td><td style="text-align: left">Sets the QEMU RAM memory quantity, e.g., <code>QEMU_MEM=2048</code>.</td></tr>
+<tr><td style="text-align: left"><code>QEMU_SMP</code></td><td style="text-align: left">Sets the QEMU CPU core quantity, e.g.,  <code>QEMU_SMP=4</code>.</td></tr>
+<tr><td style="text-align: left"><code>PREFIX_BINARY</code></td><td style="text-align: left">If set to 0 (<code>PREFIX_BINARY=0</code>), the build system will build the Redox toolchain from source and will not download the toolchain binaries from the Redox build server.</td></tr>
+<tr><td style="text-align: left"><code>PREFIX_USE_UPSTREAM_RUST_COMPILER</code></td><td style="text-align: left">If set to 1 (<code>PREFIX_BINARY=1</code>) the build system will download the Rust compiler from rustup (Rust upstream compiler binaries) instead of building it (only used with <code>PREFIX_BINARY=0</code>)</td></tr>
+<tr><td style="text-align: left"><code>REPO_BINARY</code></td><td style="text-align: left">If set to 1 (<code>REPO_BINARY=1</code>), the build system will download/install pre-compiled packages from the Redox package server by default, rather than build them from source (i.e., recipes).</td></tr>
+<tr><td style="text-align: left"><code>REPO_OFFLINE</code></td><td style="text-align: left">Enable the offline mode of Cookbook where recipe sources will not be updated and use less Internet connection as possible.</td></tr>
+<tr><td style="text-align: left"><code>REPO_NONSTOP</code></td><td style="text-align: left">Enable the nonstop mode of Cookbook where recipe build failure will not stop the compilation of other recipes.</td></tr>
+<tr><td style="text-align: left"><code>FILESYSTEM_SIZE</code></td><td style="text-align: left">The size in MB of the filesystem contained in the final Redox image. See the <a href="#filesystem-size">Filesystem Size</a> section before changing it.</td></tr>
+<tr><td style="text-align: left"><code>REDOXFS_MKFS_FLAGS</code></td><td style="text-align: left">Flags to the program that builds the Redox filesystem. The <code>--encrypt</code> option enables disk encryption.</td></tr>
+<tr><td style="text-align: left"><code>PODMAN_BUILD</code></td><td style="text-align: left">If set to 0 (<code>PODMAN_BUILD?=0</code>), the build system will use the build environment from your Linux distribution or Unix-like system instead of Podman. See the <a href="./building-redox.html">Native Build</a> page for more information.</td></tr>
+<tr><td style="text-align: left"><code>FSTOOLS_IN_PODMAN</code></td><td style="text-align: left">If set to 1 (<code>FSTOOLS_IN_PODMAN=1</code>), the build system will build the installer inside Podman to avoid FUSE in the host system. See the <a href="./advanced-podman-build.html#installing-without-fuse">Installing without FUSE</a> page for more information.</td></tr>
+<tr><td style="text-align: left"><code>FSTOOLS_NO_MOUNT</code></td><td style="text-align: left">If set to 1 (<code>FSTOOLS_NO_MOUNT=1</code>), the installer will not use FUSE to create images. See the <a href="./advanced-podman-build.html#installing-without-fuse">Installing without FUSE</a> section for more information.</td></tr>
+<tr><td style="text-align: left"><code>CONTAINERFILE</code></td><td style="text-align: left">The Podman container configuration file. See the <a href="./podman-build.html">Podman Build</a> page for more information.</td></tr>
+<tr><td style="text-align: left"><code>COOKBOOK_MAKE_JOBS</code></td><td style="text-align: left">The number of maximum CPU cores used when building recipes, default is using all CPU cores from <code>nproc</code>.</td></tr>
+<tr><td style="text-align: left"><code>CI</code></td><td style="text-align: left">If set to any value (<code>CI=1</code>), the build system will not activate TUI, and parallel execution of the build step is disabled .</td></tr>
+<tr><td style="text-align: left"><code>COOKBOOK_LOGS</code></td><td style="text-align: left">A boolean option (<code>true</code>/<code>false</code>) to let the build system save build logs in <code>build/logs/$TARGET</code> directory. The default value is <code>true</code> if TUI is enabled, <code>false</code> otherwise.</td></tr>
+<tr><td style="text-align: left"><code>COOKBOOK_VERBOSE</code></td><td style="text-align: left">A boolean option (<code>true</code>/<code>false</code>) to print more information about the build process. The default value is <code>true</code>.</td></tr>
+</tbody></table>
+</div>
+<p>The Redox image that is built is typically named <code>build/$ARCH/$CONFIG_NAME/harddrive.img</code> or <code>build/$ARCH/$CONFIG/livedisk.iso</code>.</p>
+<h3 id="config"><a class="header" href="#config">.config</a></h3>
+<p>The purpose of the <code>.config</code> file is to allow default configuration settings to be changed without explicitly setting those changes in every <code>make</code> command (or modifying the contents of the <code>mk</code> directory). The file is also included in the <code>.gitignore</code> list to ensure it won't be committed by accident.</p>
+<p>To permanently override the settings in the <a href="#mkconfigmk"><code>mk/config.mk</code></a> section, add a <code>.config</code> file to the <code>redox</code> base directory (i.e., where <code>make</code> commands are run) and set the overriding values in that file.</p>
+<p>For example, the following configuration specifies the <code>desktop-minimal</code> image variant will be built for the <code>i586</code> CPU architecture. These settings will be applied implicitly to all subsequent <code>make</code> commands:</p>
+<pre><code>ARCH?=i586
+CONFIG_NAME?=desktop-minimal
+</code></pre>
+<blockquote>
+<p>📝 <strong>Note:</strong> Comments are supported using the <code>#</code> character 📝 <strong>Note:</strong> Any QEMU option can be inserted 📝 <strong>Note:</strong> if <a href="./podman-build.html#new-working-directory"><code>podman_bootstrap.sh</code></a> was run previously, the <code>.config</code> file may already exist. 💡 <strong>Tip:</strong> when adding environment variables in the <code>.config</code> file, don't forget the <code>?</code> symbol at the end of variable names. This allows the variable to be overridden on the command line or in the environment. In particular, <code>PODMAN_BUILD?=1</code> <em>must</em> include the question mark to function correctly.</p>
+</blockquote>
+<h3 id="cookbook-configuration"><a class="header" href="#cookbook-configuration">Cookbook Configuration</a></h3>
+<p>In addition to <code>.config</code>, <code>cookbook.toml</code> is a configuration file that is used by Cookbook and has more customization. Any configuration in this file will override configuration from <code>.config</code> or environment variables. The <code>cookbook.toml</code> configuration below can be used as a template:</p>
+<pre><code class="language-toml"># These options have defaults set below
+#[cook]
+#jobs = &lt;nproc&gt;
+#nonstop = false
+#offline = false
+#tui = true
+#logs = true
+#verbose = true
+
+[mirrors]
+# The uncommented option below is the default if [mirrors] is not set
+# see the list of GNU FTP mirrors at: https://www.gnu.org/prep/ftp.en.html
+"ftp.gnu.org/gnu" = "mirrors.ocf.berkeley.edu/gnu"
+# "github.com/foo/bar" = "github.com/baz/bar" 
+</code></pre>
+<p>The <code>cookbook.toml</code> file mainly configures Cookbook options (<code>[cook]</code>) and mirrors (<code>[mirror]</code>). Mirrors are used to replace code and binary sources used across Cookbook, useful for a quick way to use alternative sources when the main server is offline or slow.</p>
+<p>Each Cookbook configuration defaults to environment variables which are:</p>
+<div class="table-wrapper"><table><thead><tr><th style="text-align: left">Environment Variable</th><th style="text-align: left">How to use the variable</th><th style="text-align: left">Definition in cookbook.toml</th></tr></thead><tbody>
+<tr><td style="text-align: left"><code>CI</code></td><td style="text-align: left"><code>CI=1</code>, <code>CI=</code></td><td style="text-align: left"><code>cook.tui</code> (disables TUI if variable is set)</td></tr>
+<tr><td style="text-align: left"><code>COOKBOOK_MAKE_JOBS</code></td><td style="text-align: left"><code>COOKBOOK_MAKE_JOBS=4</code></td><td style="text-align: left"><code>cook.jobs</code></td></tr>
+<tr><td style="text-align: left"><code>COOKBOOK_LOGS</code></td><td style="text-align: left"><code>COOKBOOK_LOGS=true</code></td><td style="text-align: left"><code>cook.logs</code></td></tr>
+<tr><td style="text-align: left"><code>COOKBOOK_OFFLINE</code></td><td style="text-align: left"><code>COOKBOOK_OFFLINE=true</code> (see notes)</td><td style="text-align: left"><code>cook.logs</code></td></tr>
+<tr><td style="text-align: left"><code>COOKBOOK_VERBOSE</code></td><td style="text-align: left"><code>COOKBOOK_VERBOSE=false</code> (see notes)</td><td style="text-align: left"><code>cook.verbose</code></td></tr>
+<tr><td style="text-align: left"><code>COOKBOOK_NONSTOP</code></td><td style="text-align: left"><code>COOKBOOK_NONSTOP=true</code></td><td style="text-align: left"><code>cook.nonstop</code></td></tr>
+</tbody></table>
+</div>
+<blockquote>
+<p>📝 <strong>Note:</strong> <code>REPO_OFFLINE=1</code> and <code>REPO_NONSTOP=1</code> are the recommended ways to set options instead of <code>COOKBOOK_OFFLINE=true</code> and <code>COOKBOOK_NONSTOP=true</code> 📝 <strong>Note:</strong> <code>.config</code> cannot be used to save <code>COOKBOOK_*</code> options as those are not Makefile variables, so you need to use <code>cookbook.toml</code> to make options persist 💡 <strong>Tip:</strong> Running Cookbook with <code>CI=1 COOKBOOK_LOGS=true COOKBOOK_NONSTOP=true COOKBOOK_VERBOSE=false</code> will hide successful build logs in the terminal 💡 <strong>Tip:</strong> Mirrors option can also be used to override <a href="#repo_binary">binary builds</a> source URL.</p>
+</blockquote>
+<h4 id="changing-the-qemu-cpu-core-and-memory-quantity"><a class="header" href="#changing-the-qemu-cpu-core-and-memory-quantity">Changing the QEMU CPU Core and Memory Quantity</a></h4>
+<p>For example, to change the CPU core and RAM memory quantities used when running the Redox image in QEMU, add the following environment variables to your <code>.config</code> file:</p>
+<pre><code>QEMU_SMP?=&lt;number-of-threads&gt;
+QEMU_MEM?=&lt;number-in-mb&gt;
+</code></pre>
+<h3 id="command-line"><a class="header" href="#command-line">Command Line</a></h3>
+<p>The default settings in <code>mk/config.mk</code> can be manually overridden by explicitly setting them on the <code>make</code> command line.</p>
+<p>For example, the following command builds the <code>demo</code> image variant and loads it into QEMU:</p>
+<pre><code class="language-sh">make CONFIG_NAME=demo qemu
+</code></pre>
+<p>Some environment variables can also be set for the lifetime of the current shell by setting them at the command line:</p>
+<pre><code class="language-sh">export ARCH=i586; make all
+</code></pre>
+<p>Overriding settings in this way is only temporary, however. Additionally, for those using the <a href="./podman-build.html">Podman Build</a>, some settings may be ignored when using this method. For best results, use <a href="#config"><code>.config</code></a>.</p>
+<h3 id="mkconfigmk"><a class="header" href="#mkconfigmk">mk/config.mk</a></h3>
+<p>The Redox build system uses several Makefiles, most of which are in the <code>mk</code> directory. Most settings of interest have have been grouped together in <code>mk/config.mk</code>.</p>
+<p>Feel free to open <code>mk/config.mk</code> in your favorite editor and have a look through it; just be sure not to apply any changes:</p>
+<pre><code class="language-sh">nano mk/config.mk
+</code></pre>
+<p>The <code>mk/config.mk</code> file should never be modified directly, especially if you are contributing to the Redox project, as doing so could create conflicts in the <code>make pull</code> command.</p>
+<p>To apply lasting changes to environment variables, please refer to the <a href="#config"><code>.config</code></a> section. To apply changes only <em>temporarily</em>, see the <a href="#command-line">Command Line</a> section.</p>
+<h4 id="buildsh"><a class="header" href="#buildsh">build.sh</a></h4>
+<p>The <code>build.sh</code> script allows you to easily set <code>ARCH</code>, <code>FILESYSTEM_CONFIG</code> and <code>CONFIG_NAME</code> when running <code>make</code>. If you are not changing the values very often, it is recommended that you set the values in <a href="#config"><code>.config</code></a> rather than use <code>build.sh</code>. But if you are testing against different CPU architectures or configurations, this script can help minimize effort, errors and confusion.</p>
+<pre><code class="language-sh">./build.sh [-a &lt;ARCH&gt;] [-c &lt;CONFIG_NAME&gt;] [-f &lt;FILESYSTEM_CONFIG&gt;] &lt;TARGET&gt; ...
+</code></pre>
+<p>The <code>TARGET</code> parameter may be any valid <code>make</code> target, although the recommended target is <code>qemu</code>. Additional variable settings may also be included, such as <code>gpu=no</code></p>
+<div class="table-wrapper"><table><thead><tr><th style="text-align: left">Option</th><th style="text-align: left">Description</th></tr></thead><tbody>
+<tr><td style="text-align: left"><code>-a &lt;ARCH&gt;</code></td><td style="text-align: left">The CPU architecture you are building for, <code>x86_64</code>, <code>i586</code>, <code>aarch64</code> or <code>riscv64gc</code>. Uppercase options <code>-X</code>, <code>-5</code>, <code>-A</code>, <code>-R</code> can be used as shorthands for <code>-a x86_64</code>, <code>-a i586</code>, <code>-a aarch64</code> and <code>riscv64gc</code>, respectively.</td></tr>
+<tr><td style="text-align: left"><code>-c &lt;CONFIG_NAME&gt;</code></td><td style="text-align: left">The name of the filesystem configuration which appears in the name of the image being built.</td></tr>
+<tr><td style="text-align: left"><code>-f &lt;FILESYSTEM_CONFIG&gt;</code></td><td style="text-align: left">Determines the filesystem configuration file location, which can be in any location but is normally in directory <code>config/$ARCH</code>.<br><br>📝 <strong>Note:</strong> If you <em>do</em> specify <code>-f &lt;FILESYSTEM_CONFIG&gt;</code>, but not <code>-a</code> or <code>-c</code>, the file path determines the other values. Normally the file would be located at e.g., <code>config/x86_64/desktop.toml</code>. <code>ARCH</code> is determined from the second-to-last element of the path. If the second last element is not a known <code>ARCH</code> value, you must specify <code>-a ARCH</code>. <code>CONFIG_NAME</code> is determined from the <em>basename</em> of the file.</td></tr>
+</tbody></table>
+</div>
+<p>The default value of <code>FILESYSTEM_CONFIG</code> is constructed from <code>ARCH</code> and <code>CONFIG_NAME</code>: <code>config/$ARCH/$CONFIG_NAME.toml</code>.</p>
+<p>The default values for <code>ARCH</code> and <code>CONFIG_NAME</code> are <code>x86_64</code> and <code>desktop</code>, respectively. These produce a default <code>FILESYSTEM_CONFIG</code> value of <code>config/x86_64/desktop.toml</code>.</p>
+<h2 id="檔案系統組態"><a class="header" href="#檔案系統組態">檔案系統組態</a></h2>
+<p>The packages to be included in the final Redox image are determined by the chosen <strong>filesystem configuration</strong> file, which is a <code>.toml</code> file (e.g., <code>config/x86_64/desktop.toml</code>). Open <code>desktop.toml</code> and have a look through it:</p>
+<pre><code class="language-sh">nano config/x86_64/desktop.toml
+</code></pre>
+<p>For each supported CPU architecture, there are some filesystem configurations to choose from. For <code>x86_64</code>, there are <code>desktop</code>, <code>demo</code> and <code>server</code> configurations, as well as a few others. For <code>i586</code>, there are also some stripped down configurations for embedded devices or legacy systems with minimal RAM. Feel free to browse the <code>config/x86_64</code> directory for more examples.</p>
+<p>For more details on the filesystem configuration, and how to add additional packages to the build image, please see the <a href="./including-programs.html">Including Programs in Redox</a> page.</p>
+<p>Feel free to create your own <strong>filesystem configuration</strong>.</p>
+<h3 id="cpu-architecture-codenames"><a class="header" href="#cpu-architecture-codenames">CPU Architecture Codenames</a></h3>
+<p>The Redox build system supports cross-compilation to other CPU architectures. The CPU architecture that Redox is built for (specified by the <code>ARCH</code> environment variable) usually determines the filesystem configuration file that will be used by the build system.</p>
+<p>See the currently supported CPU architectures by Redox below:</p>
+<div class="table-wrapper"><table><thead><tr><th style="text-align: left">CPU Architecture</th><th style="text-align: left">Other Aliases</th></tr></thead><tbody>
+<tr><td style="text-align: left"><code>i586</code></td><td style="text-align: left">x86 (32-bit), IA32 , <code>x86</code></td></tr>
+<tr><td style="text-align: left"><code>x86_64</code></td><td style="text-align: left">x86 (64-bit), <code>x86-64</code>, <code>amd64</code>, <code>x64</code></td></tr>
+<tr><td style="text-align: left"><code>aarch64</code></td><td style="text-align: left">ARM (64-bit), ARMv8, <code>ARM64</code></td></tr>
+<tr><td style="text-align: left"><code>riscv64gc</code></td><td style="text-align: left">RISC-V (64-bit)</td></tr>
+</tbody></table>
+</div>
+<p>The filesystem configurations for a given CPU architecture can be found in the <a href="https://gitlab.redox-os.org/redox-os/redox/-/tree/master/config"><code>config</code></a> folder's correspondingly named sub-directory (e.g. <code>config/x86_64</code>).</p>
+<h3 id="filesystem-size"><a class="header" href="#filesystem-size">Filesystem Size</a></h3>
+<p>The filesystem size is the total amount of storage space allocated for the filesystem that is built into the image, including all programs. It is specified in Megabytes (MB). The typical size is 512MB, although some configs (e.g., <code>demo</code>) are larger. The filesystem must be large enough to accommodate the packages included in the filesystem. For a <em>livedisk</em> system, the filesystem must not exceed the size of your system's RAM, and must also leave room for the package's installation and system execution.</p>
+<p>The filesystem size is normally set from the <strong>filesystem configuration</strong> file, e.g. <code>config/x86_64/demo.toml</code>.</p>
+<pre><code class="language-toml">[general]
+...
+filesystem_size = 768
+...
+</code></pre>
+<p>To change this, it is recommended that you create your own filesystem configuration and apply changes there. However, this can be temporarily overridden on the <code>make</code> command line, e.g.:</p>
+<pre><code class="language-sh">make FILESYSTEM_SIZE=512 image qemu
+</code></pre>
+<blockquote>
+<p>⚠️ <strong>Warning:</strong> setting the <code>filesystem_size</code> value too low will produce an error resembling the following:</p>
+<pre><code>thread 'main' panicked at src/lib.rs:94:53:
+called `Result::unwrap()` on an `Err` value: Error(Path("/tmp/redox_installer_759506/include/openssl/.pkgar.srtp.h"), State { next_error: Some(Os { code: 28, kind: StorageFull, message: "No space left on device" }), backtrace: InternalBacktrace { backtrace: None } })
+</code></pre>
+</blockquote>
+<h3 id="filesystem-customization"><a class="header" href="#filesystem-customization">Filesystem Customization</a></h3>
+<p>The Redox image can be customized by tweaking the configuration files at <code>config/your-cpu/*.toml</code>. However, it is recommended that you create your own configuration file and apply changes there. (The configuration files at <code>config/your-cpu</code> can override the data type values from the filesystem templates at <code>config</code>)</p>
+<h4 id="creating-a-custom-filesystem-configuration"><a class="header" href="#creating-a-custom-filesystem-configuration">Creating a custom filesystem configuration</a></h4>
+<p>The following items describe the process for creating a custom filesystem configuration file (<code>my-desktop.toml</code>):</p>
+<ol>
+<li>
+<p>Create the <code>my-desktop.toml</code> file from an existing filesystem configuration:</p>
+<pre><code class="language-sh">cp config/your-cpu-arch/desktop.toml config/your-cpu-arch/my_desktop.toml
+</code></pre>
+</li>
+<li>
+<p>Add the following to the <code>.config</code> file to set the new configuration as the build system's default:</p>
+<pre><code>CONFIG_NAME?=my_desktop
+</code></pre>
+</li>
+</ol>
+<p>Many filesystem configuration settings can be adjusted. See the templates in the <code>config</code> folder for reference.</p>
+<blockquote>
+<p>💡 <strong>Tip:</strong> files named with the prefix "<code>my-</code>" in the <code>redox</code> repo are git-ignored. Be sure to follow this convention for all custom filesystem configurations to avoid accidentally committing them to the Redox project.</p>
+</blockquote>
+<h4 id="adding-a-package-to-the-filesystem-configuration"><a class="header" href="#adding-a-package-to-the-filesystem-configuration">Adding a package to the filesystem configuration</a></h4>
+<p>In the following example, the <code>acid</code> package is added to the <code>my_desktop.toml</code> configuration:</p>
+<ol>
+<li>
+<p>Open the <code>my-desktop.toml</code> file:</p>
+<pre><code class="language-sh">nano config/your-cpu/my-desktop.toml
+</code></pre>
+</li>
+<li>
+<p>Add the <code>acid</code> package to the <code>[packages]</code> section:</p>
+<pre><code class="language-toml">[packages]
+acid = {}
+</code></pre>
+</li>
+<li>
+<p>Build the <code>acid</code> package and update the Redox image:</p>
+<pre><code class="language-sh">make rp.acid
+</code></pre>
+</li>
+</ol>
+<p>Done! The <code>acid</code> package is now included in your Redox image.</p>
+<h3 id="binary-packages"><a class="header" href="#binary-packages">Binary Packages</a></h3>
+<p>By default, the Redox build system builds all packages from source (i.e., recipes). If you want to use <a href="https://static.redox-os.org/pkg/">pre-compiled packages</a> from our build server, however, there's a TOML option for it.</p>
+<p>This is useful for some purposes, such as producing development builds, confirming package status from the Redox package server, and reducing image build time with large programs.</p>
+<ol>
+<li>
+<p>Open the <code>my-desktop.toml</code> file:</p>
+<pre><code class="language-sh">nano config/your-cpu/my-desktop.toml
+</code></pre>
+</li>
+<li>
+<p>Add the binary package below the <code>[packages]</code> section:</p>
+<pre><code class="language-toml">[packages]
+...
+new-package = "binary"
+...
+</code></pre>
+</li>
+<li>
+<p>Download and add the binary package on your Redox image:</p>
+<pre><code class="language-sh">make image
+</code></pre>
+</li>
+<li>
+<p>Open QEMU to verify your binary package:</p>
+<pre><code class="language-sh">make qemu
+</code></pre>
+</li>
+</ol>
+<h4 id="repo_binary"><a class="header" href="#repo_binary">REPO_BINARY</a></h4>
+<p>In the previous example, the build system's default behavior was overridden by explicitly setting a package to use a pre-built binary. To configure the build system to download pre-built packages by <em>default</em>, however, we can set the <code>REPO_BINARY</code> environment variable (<code>REPO_BINARY?=1</code>).</p>
+<p>When <code>REPO_BINARY</code> is enabled, the Redox image is made to use pre-built binaries for all packages assigned to <code>{}</code>; when <code>REPO_BINARY</code> is <em>disabled</em>, however, those same packages are compiled from source (i.e., recipes).</p>
+<p>For example:</p>
+<pre><code class="language-toml">[packages]
+...
+package-name1 = {} # use the REPO_BINARY setting ("source" if 0; "binary" if 1)
+package-name2 = "binary" # pre-built package
+package-name3 = "source" # source-based recipe
+...
+</code></pre>
+<h3 id="local-recipe-changes"><a class="header" href="#local-recipe-changes">Local Recipe Changes</a></h3>
+<p>By default every time a recipe build is triggered Cookbook will update the recipe source. Cookbook will check the tarball BLAKE3 hash from the recipe configuration (<code>recipe.toml</code>), or pull from the <code>origin</code> remote when the recipe source is a Git repository. This will also remove local changes that are not saved in a branch.</p>
+<p>To preserve and use local changes and skip updating the source for a specific recipe, change the recipe type to <code>"local"</code> in the filesystem configuration, for example:</p>
+<pre><code class="language-toml">[packages]
+...
+package-name = "local"
+...
+</code></pre>
+<p>An old way for preserving and using local changes by commenting out the <code>[source]</code> section at the top of the file of a <code>recipe.toml</code> is also working but less recommended as it's prone to merge conflicts when pulling Redox repository:</p>
+<pre><code class="language-toml"># [source]
+# git = "https://gitlab.redox-os.org/redox-os/games.git"
+</code></pre>
+<h3 id="cookbook-offline-mode"><a class="header" href="#cookbook-offline-mode">Cookbook Offline Mode</a></h3>
+<p>Cookbook also has a mode where it will reduce Internet activity by adding <code>REPO_OFFLINE=1</code> into <code>.config</code>. This mode is useful when you are in places where the Internet is slow or absent, or when you want a fixed build system state or faster incremental compilation.</p>
+<p>In this mode, Cookbook will not update the source of any recipe or a package binary if also set with <code>REPO_BINARY=1</code>. It also adds the <code>--offline</code> option to some Cargo build methods inside recipes where it is supported. When Cookbook or Cargo must access the Internet because sources do not exist locally it will throw an error instead.</p>
+<p>To temporarily allow Cookbook and Cargo to have Internet activity and update sources, run <code>make f.package-name</code> (single recipe source fetch) or <code>make fetch</code> (to fetch all enabled recipe sources), as these commands will ignore the <code>REPO_OFFLINE</code> environment variable.</p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="nothing-to-hello-world.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="build-system-reference.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="nothing-to-hello-world.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="build-system-reference.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="elasticlunr.min.js"></script>
+        <script src="mark.min.js"></script>
+        <script src="searcher.js"></script>
+
+        <script src="clipboard.min.js"></script>
+        <script src="highlight.js"></script>
+        <script src="book.js"></script>
+
+        <!-- Custom JS scripts -->
+
+
+
+    </div>
+    </body>
+</html>

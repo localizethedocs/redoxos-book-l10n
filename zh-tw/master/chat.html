@@ -1,0 +1,327 @@
+<!DOCTYPE HTML>
+<html lang="zh_TW" class="light sidebar-visible" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Chat - The Redox Operating System</title>
+
+
+        <!-- Custom HTML head -->
+        <style>
+        .light .redox-logo {
+            content: url("assets/redox_light_512.png");
+        }
+        .rust .redox-logo {
+            content: url("assets/redox_light_512.png");
+        }
+        .coal .redox-logo {
+            content: url("assets/redox_dark_512.png");
+        }
+        .navy .redox-logo {
+            content: url("assets/redox_dark_512.png");
+        }
+        .ayu .redox-logo {
+            content: url("assets/redox_dark_512.png");
+        }
+        </style>
+        <script type="text/javascript" src="ltd-provenance.js"></script>
+        <script type="text/javascript" src="ltd-current.js"></script>
+        <script type="text/javascript" src="../../ltd-config.js"></script>
+        <script type="text/javascript" src="../../ltd-flyout.js"></script>
+
+        <meta name="description" content="This book carefully describes the design, implementation, direction, and structure of Redox, the operating system.">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="shortcut icon" href="favicon.png">
+        <link rel="stylesheet" href="css/variables.css">
+        <link rel="stylesheet" href="css/general.css">
+        <link rel="stylesheet" href="css/chrome.css">
+        <link rel="stylesheet" href="css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" id="highlight-css" href="highlight.css">
+        <link rel="stylesheet" id="tomorrow-night-css" href="tomorrow-night.css">
+        <link rel="stylesheet" id="ayu-highlight-css" href="ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+
+        <!-- Provide site root and default themes to javascript -->
+        <script>
+            const path_to_root = "";
+            const default_light_theme = "light";
+            const default_dark_theme = "navy";
+            window.path_to_searchindex_js = "searchindex.js";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="toc.js"></script>
+    </head>
+    <body>
+    <div id="mdbook-help-container">
+        <div id="mdbook-help-popup">
+            <h2 class="mdbook-help-title">Keyboard shortcuts</h2>
+            <div>
+                <p>Press <kbd>←</kbd> or <kbd>→</kbd> to navigate between chapters</p>
+                <p>Press <kbd>S</kbd> or <kbd>/</kbd> to search in the book</p>
+                <p>Press <kbd>?</kbd> to show this help</p>
+                <p>Press <kbd>Esc</kbd> to hide this help</p>
+            </div>
+        </div>
+    </div>
+    <div id="body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                let theme = localStorage.getItem('mdbook-theme');
+                let sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            const default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? default_dark_theme : default_light_theme;
+            let theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            let sidebar = null;
+            const sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+                sidebar_toggle.checked = false;
+            }
+            if (sidebar === 'visible') {
+                sidebar_toggle.checked = true;
+            } else {
+                html.classList.remove('sidebar-visible');
+            }
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="default_theme">Auto</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search (`/`)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="/ s" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">The Redox Operating System</h1>
+
+                    <div class="right-buttons">
+                        <a href="print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <div class="search-wrapper">
+                            <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                            <div class="spinner-wrapper">
+                                <i class="fa fa-spinner fa-spin"></i>
+                            </div>
+                        </div>
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1 id="chat"><a class="header" href="#chat">Chat</a></h1>
+<p>The best way to communicate with the Redox team is on Matrix Chat, to join our chat, you must request an invitation in the <a href="https://matrix.to/#/#redox-join:matrix.org">Join Requests room</a> (this room acts as a guard against spam and bots)</p>
+<p>When your invitation is sent, you will receive a notification on Matrix.</p>
+<p>After you accept the invitation, you can open the <a href="https://matrix.to/#/#redox:matrix.org">Redox Matrix space</a> and see the rooms that are available.</p>
+<p>These rooms are English-only, we cannot offer support in other languages because the maintainers will not be able to verify the correctness of your responses. But if you post translator-generated messages, we will do our best to understand them.</p>
+<h2 id="關於-matrix"><a class="header" href="#關於-matrix">關於 Matrix</a></h2>
+<p><a href="https://en.wikipedia.org/wiki/Matrix_(protocol)">Matrix</a> is an open chat protocol and has several different <a href="https://matrix.org/ecosystem/clients/">clients</a>. <a href="https://element.io/">Element</a> is a commonly used choice, it works on web browsers, Linux, MacOSX, Windows, Android and iOS.</p>
+<h2 id="規則"><a class="header" href="#規則">規則</a></h2>
+<p>我們遵循 <a href="https://www.rust-lang.org/policies/code-of-conduct">Rust 行為守則</a>作為聊天室的規則。</p>
+<h3 id="討論串"><a class="header" href="#討論串">討論串</a></h3>
+<ul>
+<li>If you want to have a big discussion in our Matrix space you should use a thread.</li>
+<li>A thread is a list of messages, like a forum topic.</li>
+<li>A thread is linked to the original message, but displayed to the side to help improve the visibility of new questions in the main message area.</li>
+</ul>
+<p>Not all Matrix clients support threads, so if you are not able to see threads in your client, try a different client.</p>
+<p>If you are unable to use a client that supports threads, let us know when you ask a question, and we will try to accommodate you as best we can.</p>
+<ul>
+<li>To start a thread on Element, hover your mouse cursor over the desired message and click on the button with the message icon (a rectangular speech bubble).</li>
+<li>To see all threads in a room click on the top-right button with a message icon.</li>
+</ul>
+<p>We mostly use Element threads but there are other Matrix clients with threads support, like nheko.</p>
+<h2 id="the-redox-space"><a class="header" href="#the-redox-space">The Redox Space</a></h2>
+<p>All rooms available on the Redox space:</p>
+<ul>
+<li><a href="https://matrix.to/#/#redox-join:matrix.org">#redox-join:matrix.org</a> - A room to be invited to Redox space.</li>
+<li><a href="https://matrix.to/#/#redox-announcements:matrix.org">#redox-announcements:matrix.org</a> - A room for important announcements.</li>
+<li><a href="https://matrix.to/#/#redox-general:matrix.org">#redox-general:matrix.org</a> - A room for Redox-related discussions (questions, suggestions, porting, etc).</li>
+<li><a href="https://matrix.to/#/#redox-dev:matrix.org">#redox-dev:matrix.org</a> - A room for the development, here you can talk about anything development-related (code, proposals, achievements, styling, bugs, etc).</li>
+<li><a href="https://matrix.to/#/#redox-gitlab-updates:matrix.org">#redox-gitlab-updates:matrix.org</a> - GitLab activity notifications room</li>
+<li><a href="https://matrix.to/#/#redox-rfcs:matrix.org">#redox-rfcs:matrix.org</a> - A room for system architecture design discussions and brainstorming for RFCs.</li>
+<li><a href="https://matrix.to/#/#redox-support:matrix.org">#redox-support:matrix.org</a> - A room for testing and building support (problems, errors, questions).</li>
+<li><a href="https://matrix.to/#/#redox-mrs:matrix.org">#redox-mrs:matrix.org</a> - A room to send all ready merge requests without conflicts  (if you have a ready MR to merge, send there).</li>
+<li><a href="https://matrix.to/#/#redox-gitlab:matrix.org">#redox-gitlab:matrix.org</a> - A room to send new GitLab accounts for approval.</li>
+<li><a href="https://matrix.to/#/#redox-soc:matrix.org">#redox-soc:matrix.org</a> - A room for the Redox Summer Of Code program.</li>
+<li><a href="https://matrix.to/#/#redox-board:matrix.org">#redox-board:matrix.org</a> - A room for meetings of the Board of Directors.</li>
+<li><a href="https://matrix.to/#/#redox-voip:matrix.org">#redox-voip:matrix.org</a> - A room for voice chat discussions.</li>
+<li><a href="https://matrix.to/#/#redox-random:matrix.org">#redox-random:matrix.org</a> - A room for off-topic discussions.</li>
+<li><a href="https://matrix.to/#/#redox-memes:matrix.org">#redox-memes:matrix.org</a> - A room for memes.</li>
+</ul>
+<h3 id="疑難排解"><a class="header" href="#疑難排解">疑難排解</a></h3>
+<p>If you don't to deal with the Element problems, try <a href="https://nheko-reborn.github.io/">Nheko</a> or <a href="https://gitlab.gnome.org/World/fractal">Fractal</a>.</p>
+<p>If you have connection problems see <a href="https://status.matrix.org/">this</a> website to see if the <code>matrix.org</code> homeserver is normal.</p>
+<h4 id="element"><a class="header" href="#element">Element</a></h4>
+<ul>
+<li>
+<p>Threads on Element have some bugs, typically marking messages as still unread, even after you have read them.</p>
+</li>
+<li>
+<p>Element in the web browser does not show new messages in a thread as part of its new message count. It only shows a green or red dot over the Threads icon on the lower left of the display. A red dot means that the message is a reply to you. Click the Threads icon to see which rooms have new thread messages.</p>
+</li>
+<li>
+<p>To display all threads in a room on Element in the web browser, click on the Threads icon on the top right of the display.</p>
+</li>
+<li>
+<p>If the Threads button on the top right has a dot, you may have unread messages on some thread, but this could be wrong.</p>
+</li>
+<li>
+<p>If a thread has a dot to the right, you have unread messages in that thread. Click on the thread to read it.</p>
+</li>
+<li>
+<p>When entering a room where you have previously received replies in a thread, you may hear a notification bell, even though there is no new message.</p>
+</li>
+<li>
+<p>Due to bugs, a thread you have previously read can show a dot and possibly count as unread messages. Click on the thread and make sure you have read it, and  to clear it. If it is still not cleared, click on the "Thread options" <code>...</code> button on the top right and select "Show in room". This will often clear it.</p>
+</li>
+</ul>
+<p>You can also mark an entire room as "Read" by mousing over the room name and selecting "Mark as read" from the "Room options" <code>...</code> button.</p>
+<ul>
+<li>
+<p>After doing the steps above, if you still have problems, try reloading the page.</p>
+</li>
+<li>
+<p>Element uses a cache, but clearing the cache sometimes causes problems, if you have encrypted rooms, like DM rooms, save your encryption keys before clearing your cache or you may lose the room history.</p>
+</li>
+</ul>
+<p>Read the Element documentation to learn more about encryption keys.</p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="contributing.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="best-practices.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="contributing.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="best-practices.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="elasticlunr.min.js"></script>
+        <script src="mark.min.js"></script>
+        <script src="searcher.js"></script>
+
+        <script src="clipboard.min.js"></script>
+        <script src="highlight.js"></script>
+        <script src="book.js"></script>
+
+        <!-- Custom JS scripts -->
+
+
+
+    </div>
+    </body>
+</html>

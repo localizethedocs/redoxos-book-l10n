@@ -1,0 +1,466 @@
+<!DOCTYPE HTML>
+<html lang="zh_TW" class="light sidebar-visible" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Advanced Podman Build - The Redox Operating System</title>
+
+
+        <!-- Custom HTML head -->
+        <style>
+        .light .redox-logo {
+            content: url("assets/redox_light_512.png");
+        }
+        .rust .redox-logo {
+            content: url("assets/redox_light_512.png");
+        }
+        .coal .redox-logo {
+            content: url("assets/redox_dark_512.png");
+        }
+        .navy .redox-logo {
+            content: url("assets/redox_dark_512.png");
+        }
+        .ayu .redox-logo {
+            content: url("assets/redox_dark_512.png");
+        }
+        </style>
+        <script type="text/javascript" src="ltd-provenance.js"></script>
+        <script type="text/javascript" src="ltd-current.js"></script>
+        <script type="text/javascript" src="../../ltd-config.js"></script>
+        <script type="text/javascript" src="../../ltd-flyout.js"></script>
+
+        <meta name="description" content="This book carefully describes the design, implementation, direction, and structure of Redox, the operating system.">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="shortcut icon" href="favicon.png">
+        <link rel="stylesheet" href="css/variables.css">
+        <link rel="stylesheet" href="css/general.css">
+        <link rel="stylesheet" href="css/chrome.css">
+        <link rel="stylesheet" href="css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" id="highlight-css" href="highlight.css">
+        <link rel="stylesheet" id="tomorrow-night-css" href="tomorrow-night.css">
+        <link rel="stylesheet" id="ayu-highlight-css" href="ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+
+        <!-- Provide site root and default themes to javascript -->
+        <script>
+            const path_to_root = "";
+            const default_light_theme = "light";
+            const default_dark_theme = "navy";
+            window.path_to_searchindex_js = "searchindex.js";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="toc.js"></script>
+    </head>
+    <body>
+    <div id="mdbook-help-container">
+        <div id="mdbook-help-popup">
+            <h2 class="mdbook-help-title">Keyboard shortcuts</h2>
+            <div>
+                <p>Press <kbd>←</kbd> or <kbd>→</kbd> to navigate between chapters</p>
+                <p>Press <kbd>S</kbd> or <kbd>/</kbd> to search in the book</p>
+                <p>Press <kbd>?</kbd> to show this help</p>
+                <p>Press <kbd>Esc</kbd> to hide this help</p>
+            </div>
+        </div>
+    </div>
+    <div id="body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                let theme = localStorage.getItem('mdbook-theme');
+                let sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            const default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? default_dark_theme : default_light_theme;
+            let theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            let sidebar = null;
+            const sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+                sidebar_toggle.checked = false;
+            }
+            if (sidebar === 'visible') {
+                sidebar_toggle.checked = true;
+            } else {
+                html.classList.remove('sidebar-visible');
+            }
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="default_theme">Auto</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search (`/`)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="/ s" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">The Redox Operating System</h1>
+
+                    <div class="right-buttons">
+                        <a href="print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <div class="search-wrapper">
+                            <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                            <div class="spinner-wrapper">
+                                <i class="fa fa-spinner fa-spin"></i>
+                            </div>
+                        </div>
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1 id="advanced-podman-build"><a class="header" href="#advanced-podman-build">Advanced Podman Build</a></h1>
+<p>To make the Redox build process more consistent across platforms, we are using <strong>Rootless Podman</strong> for major parts of the build.</p>
+<p>Before reading through this section, make sure you have already read:</p>
+<ul>
+<li><a href="./podman-build.html">Podman Build</a></li>
+<li><a href="./build-system-reference.html">Build System Reference</a></li>
+</ul>
+<p>This chapter provides a detailed discussion, including tips, tricks and troubleshooting, as well as some extra detail for those who might want to leverage or improve Redox's use of Podman.</p>
+<h2 id="build-environment"><a class="header" href="#build-environment">Build Environment</a></h2>
+<ul>
+<li>
+<p>Environment and command line Variables, other than <code>ARCH</code>, <code>CONFIG_NAME</code> and <code>FILESYSTEM_CONFIG</code>, are not passed to the part of <code>make</code> that is done in <strong>Podman</strong>. You must set any other configuration variables, e.g. <code>REPO_BINARY</code>, in <a href="./configuration-settings.html#config">.config</a> and not on the command line or on your environment.</p>
+</li>
+<li>
+<p>If you are building your own software to add in Redox, and you need to install additional packages using <code>apt-get</code> for the build, follow the <a href="#adding-packages-to-the-build">Adding Packages to the Build</a> section.</p>
+</li>
+</ul>
+<h2 id="installation"><a class="header" href="#installation">Installation</a></h2>
+<p>Most of the packages required for the build are installed in the container as part of the build process. However, some packages need to be installed on the host operating system. You may also need to install an emulator such as <strong>QEMU</strong>. For most Linux distributions, this is done for you in the <code>podman_bootstrap.sh</code> script.</p>
+<p>If you can't use the <code>podman_bootstrap.sh</code> script, you need to install at least:</p>
+<ul>
+<li>Podman 4.0 or later</li>
+<li>Rust</li>
+<li>libfuse 3.x (to build an image)</li>
+<li>QEMU (to run the image)</li>
+</ul>
+<p>You can attempt to install the necessary packages below.</p>
+<h3 id="pop_osubuntudebian"><a class="header" href="#pop_osubuntudebian">Pop!_OS/Ubuntu/Debian</a></h3>
+<pre><code class="language-sh">sudo apt-get install git make curl podman fuse fuse-overlayfs slirp4netns qemu-system-x86 qemu-kvm qemu-system-arm qemu-system-riscv
+</code></pre>
+<blockquote>
+<p>⚠️ <strong>Warning:</strong> Ubuntu 22.04 ships with old Podman (3.x version), which will have issues. The official <a href="https://podman.io/docs/installation#ubuntu">Podman installation guide</a> requires Ubuntu 20.10 and newer to operate. If you do use the 22.04 version or older, please read <a href="#gory-details">Gory Details</a>.</p>
+</blockquote>
+<h3 id="arch-linux"><a class="header" href="#arch-linux">Arch Linux</a></h3>
+<pre><code class="language-sh">sudo pacman -S --needed git make curl podman fuse3 fuse-overlayfs slirp4netns qemu-system-x86 qemu-system-arm qemu-system-riscv
+</code></pre>
+<h3 id="fedora"><a class="header" href="#fedora">Fedora</a></h3>
+<pre><code class="language-sh">sudo dnf install git-all make curl podman fuse3 fuse-overlayfs slirp4netns qemu-system-x86 qemu-kvm qemu-system-arm qemu-system-riscv
+</code></pre>
+<h3 id="opensuse"><a class="header" href="#opensuse">OpenSUSE</a></h3>
+<pre><code class="language-sh">sudo zypper install git make curl podman fuse fuse-overlayfs slipr4netns
+</code></pre>
+<h3 id="freebsd"><a class="header" href="#freebsd">FreeBSD</a></h3>
+<pre><code class="language-sh">sudo pkg install git gmake curl fusefs-libs3 podman
+</code></pre>
+<h3 id="macos"><a class="header" href="#macos">MacOS</a></h3>
+<p>Building Redox using MacOS is experimental at the moment, even if using Podman you will experience <a href="https://github.com/containers/podman/issues/26185">clock skew</a> which breaks the Makefile caching mechanism.</p>
+<p>We recommend you to install QEMU, VirtualBox or <a href="https://mac.getutm.app/">UTM</a> and create ARM64 or x86-64 Linux distribution virtual machine to build Redox and follow Podman or Native Build using the Linux distribution of your choice.</p>
+<p>If you insist on using MacOS, please read <a href="#installing-without-fuse">Installing without FUSE</a>. Otherwise, you will have a problem installing FUSE which requires you to turn off <a href="https://en.wikipedia.org/wiki/System_Integrity_Protection">SIP</a> for Apple Silicon-based MacOS.</p>
+<ul>
+<li>Homebrew</li>
+</ul>
+<pre><code class="language-sh">sudo brew install git make curl osxfuse podman fuse-overlayfs slirp4netns
+</code></pre>
+<ul>
+<li>MacPorts</li>
+</ul>
+<pre><code class="language-sh">sudo port install git gmake curl osxfuse podman
+</code></pre>
+<h3 id="nixos"><a class="header" href="#nixos">NixOS</a></h3>
+<p>Before building Redox with NixOS, you must have configured Podman on your system. Just follow the instructions of the <a href="https://nixos.wiki/wiki/Podman">NixOS wiki</a>:</p>
+<pre><code class="language-nix">{ pkgs, ... }:
+{
+  # Enable common container config files in /etc/containers
+  virtualisation.containers.enable = true;
+  virtualisation = {
+    podman = {
+      enable = true;
+
+      # Create a `docker` alias for podman, to use it as a drop-in replacement
+      dockerCompat = true;
+
+      # Required for containers under podman-compose to be able to talk to each other.
+      defaultNetwork.settings.dns_enabled = true;
+    };
+  };
+
+  # Useful other development tools
+  environment.systemPackages = with pkgs; [
+    dive # look into docker image layers
+    podman-tui # status of containers in the terminal
+    docker-compose # start group of containers for dev
+    podman-compose # start group of containers for dev
+  ];
+}
+        
+</code></pre>
+<p>You will then have to configure your user to be able to use Podman:</p>
+<pre><code class="language-nix">users.extraUsers.${user-name} = {
+  subUidRanges = [{ startUid = 100000; count = 65536; }];
+  subGidRanges = [{ startGid = 100000; count = 65536; }];
+};
+</code></pre>
+<p>The last step is to activate the development shell:</p>
+<pre><code class="language-sh">nix develop --no-warn-dirty --command $SHELL
+</code></pre>
+<h2 id="buildcontainertag"><a class="header" href="#buildcontainertag"><code>build/container.tag</code></a></h2>
+<p>The building of the <strong>image</strong> is controlled by the <em>tag</em> file <code>build/container.tag</code>. If you run <code>make all</code> with <code>PODMAN_BUILD=1</code> in <code>.config</code>, the file <code>build/container.tag</code> will be created after the image is built. This file tells <code>make</code> that it can skip the image update after the first time.</p>
+<p>Many targets in the Makefiles <code>mk/*.mk</code> include <code>build/container.tag</code> as a dependency. If the <em>tag</em> file is missing, building any of those targets may trigger an image to be created, which can take some time.</p>
+<p>When you move to a new working directory, if you want to save a few minutes, and you are confident that your <strong>image</strong> is correct and your <code>poduser</code> home directory <code>build/podman/poduser</code> is valid, you can do</p>
+<pre><code class="language-sh">make container_touch
+</code></pre>
+<p>This will create the file <code>build/container.tag</code> without rebuilding the image. However, it will fail if the image does not exist. If it fails, just do a normal <code>make</code>, it will create the container when needed.</p>
+<h2 id="installing-without-fuse"><a class="header" href="#installing-without-fuse">Installing without FUSE</a></h2>
+<p>If installing FUSE is difficult for your operating system, you can avoid installing it by adding <code>FSTOOLS_IN_PODMAN=1</code> in the <code>.config</code> file. It makes the installer run inside Podman. If you do set it, then you can avoid installing FUSE and Rust altogether in your host system.</p>
+<p>An additional environment variable (<code>FSTOOLS_NO_MOUNT</code>) can also be set to not use FUSE during image creation, however image creation relies on correct files permission bit and ownership which means it only can be used within Podman. This configuration can be used as a last resort if FUSE is not working at all.</p>
+<h2 id="cleaning-up"><a class="header" href="#cleaning-up">Cleaning Up</a></h2>
+<p>To remove the <strong>base image</strong>, any lingering containers, <code>poduser</code>'s home directory, including the <strong>Rust</strong> installation, and <code>build/container.tag</code>, run:</p>
+<pre><code class="language-sh">make container_clean
+</code></pre>
+<ul>
+<li>To verify that everything has been removed</li>
+</ul>
+<pre><code class="language-sh">podman ps -a
+</code></pre>
+<ul>
+<li>Show any remaining images or containers</li>
+</ul>
+<pre><code class="language-sh">podman images
+</code></pre>
+<ul>
+<li>Remove <strong>all</strong> images and containers. You still may need to remove <code>build/container.tag</code> if you did not do <code>make container_clean</code>.</li>
+</ul>
+<pre><code class="language-sh">podman system reset
+</code></pre>
+<p><strong>Note:</strong></p>
+<ul>
+<li><code>make clean</code> does <strong>not</strong> run <code>make container_clean</code> and will <strong>not</strong> remove the container image.</li>
+<li>If you already did <code>make container_clean</code>, doing <code>make clean</code> will not work.</li>
+</ul>
+<h2 id="debugging-your-build-process"><a class="header" href="#debugging-your-build-process">Debugging Your Build Process</a></h2>
+<p>If you are developing your own components and wish to do one-time debugging to determine what library you are missing in the <strong>Podman Build</strong> environment, the following instructions can help. Note that your changes will not be persistent. After debugging, <strong>you must</strong> <a href="#adding-packages-to-the-build">Add your Libraries to the Build</a>. With <code>PODMAN_BUILD=1</code>, run the following command:</p>
+<pre><code class="language-sh">make container_shell
+</code></pre>
+<ul>
+<li>Within that environment, you can build the Redox components with:</li>
+</ul>
+<pre><code class="language-sh">make repo
+</code></pre>
+<ul>
+<li>If you need to change <code>ARCH</code> or <code>CONFIG_NAME</code>, run:</li>
+</ul>
+<pre><code class="language-sh">./build.sh -a ARCH -c CONFIG_NAME repo
+</code></pre>
+<p><strong>Note</strong>: Your changes will not persist once both shells have been exited.</p>
+<p>Type <code>exit</code> on both shells once you have determined how to solve your problem.</p>
+<h2 id="adding-packages-to-the-build"><a class="header" href="#adding-packages-to-the-build">Adding Packages to the Build</a></h2>
+<blockquote>
+<p>📝 <strong>Note:</strong> This section is no longer being recommended as the primary way to do development on new recipes. Any new dependencies should be compiled in a Cookbook recipe using the <code>host:recipe-name</code> syntax.</p>
+</blockquote>
+<p>This method can be used if you want to make changes/testing inside the Debian container with <code>make env</code>.</p>
+<p>The default <strong>Containerfile</strong>, <code>podman/redox-base-containerfile</code>, imports all required packages for a normal Redox build.</p>
+<p>However, you cannot easily add packages after the <strong>base image</strong> is created. You must add them to your own Containerfile and rebuild the container image.</p>
+<p>Copy <code>podman/redox-base-containerfile</code> and add to the list of packages in the initial <code>apt-get</code>.</p>
+<pre><code class="language-sh">cp podman/redox-base-containerfile podman/my-containerfile
+</code></pre>
+<pre><code class="language-sh">nano podman/my-containerfile
+</code></pre>
+<pre><code>...
+        xxd \
+        rsync \
+        MY_PACKAGE \
+...
+</code></pre>
+<p>Make sure you include the continuation character <code>\</code> at the end of each line except after the last package.</p>
+<p>Then, edit <a href="./configuration-settings.html#config">.config</a>, and change the variable <code>CONTAINERFILE</code> to point to your Containerfile, e.g.</p>
+<pre><code>CONTAINERFILE?=podman/my-containerfile
+</code></pre>
+<p>If your Containerfile is newer than <code>build/container.tag</code>, a new <strong>image</strong> will be created. You can force the image to be rebuilt with <code>make container_clean</code>.</p>
+<p>If you feel the need to have more than one image, you can change the variable <code>IMAGE_TAG</code> in <code>mk/podman.mk</code> to give the image a different name.</p>
+<p>If you just want to install the packages temporarily, run <code>make env</code>, open a new terminal tab/windows, run <code>make container_shell</code> and use <code>apt install</code> on this tab/window.</p>
+<h2 id="summary-of-podman-related-make-targets-variables-and-podman-commands"><a class="header" href="#summary-of-podman-related-make-targets-variables-and-podman-commands">Summary of Podman-related Make Targets, Variables and Podman Commands</a></h2>
+<ul>
+<li>
+<p><code>PODMAN_BUILD</code> - If set to 1 in <a href="./configuration-settings.html#config">.config</a>, or in the environment, or on the <code>make</code> command line, much of the build process takes place in <strong>Podman</strong>.</p>
+</li>
+<li>
+<p><code>CONTAINERFILE</code>-  The name of the containerfile used to build the image. This file includes the <code>apt-get</code> command that installs all the necessary packages into the image. If you need to add packages to the build, edit your own containerfile and change this variable to point to it.</p>
+</li>
+<li>
+<p><code>make build/container.tag</code> - If no container image has been built, build one. It's not necessary to do this, it will be done when needed.</p>
+</li>
+<li>
+<p><code>make container_touch</code> - If a container image already exists and <code>poduser</code>'s home directory is valid, but there is no <em>tag</em> file, create the <em>tag</em> file so a new image is not built.</p>
+</li>
+<li>
+<p><code>make container_clean</code> - Remove the container image, <code>poduser</code>'s home directory and the <em>tag</em> file.</p>
+</li>
+<li>
+<p><code>make container_shell</code> - Start an interactive Podman <code>bash</code> shell in the same environment used by <code>make</code>; for debugging the <code>apt-get</code> commands used during image build.</p>
+</li>
+<li>
+<p><code>make env</code> - Start an interactive <code>bash</code> shell with the <code>prefix</code> tools in your PATH. Automatically determines if this should be a Podman shell or a host shell, depending on the value of <code>PODMAN_BUILD</code>.</p>
+</li>
+<li>
+<p><code>make repo</code> or <code>./build.sh -a ARCH -c CONFIG repo</code> - Used while in a Podman shell to build all the Redox component packages. <code>make all</code> will not complete successfully, since part of the build process must take place on the host.</p>
+</li>
+<li>
+<p><code>podman system reset</code> - Use this command when <code>make container_clean</code> is not sufficient to solve problems caused by errors in the container image. It will remove all images, use with caution. If you are using <strong>Podman</strong> for any other purpose, those images will be deleted as well.</p>
+</li>
+</ul>
+<h2 id="gory-details"><a class="header" href="#gory-details">Gory Details</a></h2>
+<p>If you are interested in how we are able to use your working directory for builds in <strong>Podman</strong>, the following configuration details may be interesting.</p>
+<p>Historically, we've used <code>--userns keep-id</code> which the <em>container's</em> <code>root</code> user is actually mapped to your User ID on the host system. It was necessary in Podman 3.x and previous versions as Podman user mapping was not quite good and often broke with <a href="https://github.com/containers/podman/issues/14655">tar</a> and <a href="https://github.com/containers/buildah/issues/1818">buildah</a>. In Podman 4.x onwards that it no longer necessary and we can drop it.</p>
+<p>For Ubuntu 22.04 there's a temporary fix to it by <a href="https://github.com/microsoft/vscode-remote-release/issues/11042#issuecomment-3044713731">manually updating crun</a>.</p>
+<p>The working directory is made available in the container by <strong>mounting</strong> it as a <strong>volume</strong>. The <strong>Podman</strong> option:</p>
+<pre><code class="language-sh">--volume "`pwd`":$(CONTAINER_WORKDIR):Z
+</code></pre>
+<p>takes the directory that <code>make</code> was started in as the host working directory, and <strong>mounts</strong> it at the location <code>$CONTAINER_WORKDIR</code>, normally set to <code>/mnt/redox</code>. The <code>:Z</code> at the end of the name indicates that the mounted directory should not be shared between simultaneous container instances. It is optional on some Linux distros, and not optional on others.</p>
+<p>For our invocation of Podman, we set the PATH environment variable as an option to <code>podman run</code>. This is to avoid the need for our <code>make</code> command to run <code>.bashrc</code>, which would add extra complexity. The <code>ARCH</code>, <code>CONFIG_NAME</code> and <code>FILESYSTEM_CONFIG</code> variables are passed in the environment to allow you to override the values in <code>mk/config.mk</code> or <code>.config</code>, e.g. by setting them on your <code>make</code> command line or by using <code>build.sh</code>.</p>
+<p>We also set <code>PODMAN_BUILD=0</code> in the environment, to ensure that the instance of <code>make</code> running in the container knows not to invoke <strong>Podman</strong>. This overrides the value set in <code>.config</code>.</p>
+<p>In the <strong>Containerfile</strong>, we use as few <code>RUN</code> commands as possible, as <strong>Podman</strong> commits the image after each command. And we avoid using <code>ENTRYPOINT</code> to allow us to specify the <code>podman run</code> command as a list of arguments, rather than just a string to be processed by the entrypoint shell.</p>
+<p>Containers in our build process are run with <code>--rm</code> to ensure the container is discarded after each use. This prevents a proliferation of used containers. However, when you use <code>make container_clean</code>, you may notice multiple items being deleted. These are the partial images created as each <code>RUN</code> command is executed while building.</p>
+<p>Container images and container data is normally stored in the directory <code>$HOME/.local/share/containers/storage</code>. The following command removes that directory in its entirety. However, the contents of any <strong>volume</strong> are left alone:</p>
+<pre><code class="language-sh">podman system reset
+</code></pre>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="build-system-reference.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="advanced-build.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="build-system-reference.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="advanced-build.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="elasticlunr.min.js"></script>
+        <script src="mark.min.js"></script>
+        <script src="searcher.js"></script>
+
+        <script src="clipboard.min.js"></script>
+        <script src="highlight.js"></script>
+        <script src="book.js"></script>
+
+        <!-- Custom JS scripts -->
+
+
+
+    </div>
+    </body>
+</html>

@@ -1,0 +1,740 @@
+<!DOCTYPE HTML>
+<html lang="zh_CN" class="light sidebar-visible" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Troubleshooting the Build - The Redox Operating System</title>
+
+
+        <!-- Custom HTML head -->
+        <style>
+        .light .redox-logo {
+            content: url("assets/redox_light_512.png");
+        }
+        .rust .redox-logo {
+            content: url("assets/redox_light_512.png");
+        }
+        .coal .redox-logo {
+            content: url("assets/redox_dark_512.png");
+        }
+        .navy .redox-logo {
+            content: url("assets/redox_dark_512.png");
+        }
+        .ayu .redox-logo {
+            content: url("assets/redox_dark_512.png");
+        }
+        </style>
+        <script type="text/javascript" src="ltd-provenance.js"></script>
+        <script type="text/javascript" src="ltd-current.js"></script>
+        <script type="text/javascript" src="../../ltd-config.js"></script>
+        <script type="text/javascript" src="../../ltd-flyout.js"></script>
+
+        <meta name="description" content="This book carefully describes the design, implementation, direction, and structure of Redox, the operating system.">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="shortcut icon" href="favicon.png">
+        <link rel="stylesheet" href="css/variables.css">
+        <link rel="stylesheet" href="css/general.css">
+        <link rel="stylesheet" href="css/chrome.css">
+        <link rel="stylesheet" href="css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" id="highlight-css" href="highlight.css">
+        <link rel="stylesheet" id="tomorrow-night-css" href="tomorrow-night.css">
+        <link rel="stylesheet" id="ayu-highlight-css" href="ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+
+        <!-- Provide site root and default themes to javascript -->
+        <script>
+            const path_to_root = "";
+            const default_light_theme = "light";
+            const default_dark_theme = "navy";
+            window.path_to_searchindex_js = "searchindex.js";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="toc.js"></script>
+    </head>
+    <body>
+    <div id="mdbook-help-container">
+        <div id="mdbook-help-popup">
+            <h2 class="mdbook-help-title">Keyboard shortcuts</h2>
+            <div>
+                <p>Press <kbd>←</kbd> or <kbd>→</kbd> to navigate between chapters</p>
+                <p>Press <kbd>S</kbd> or <kbd>/</kbd> to search in the book</p>
+                <p>Press <kbd>?</kbd> to show this help</p>
+                <p>Press <kbd>Esc</kbd> to hide this help</p>
+            </div>
+        </div>
+    </div>
+    <div id="body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                let theme = localStorage.getItem('mdbook-theme');
+                let sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            const default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? default_dark_theme : default_light_theme;
+            let theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            let sidebar = null;
+            const sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+                sidebar_toggle.checked = false;
+            }
+            if (sidebar === 'visible') {
+                sidebar_toggle.checked = true;
+            } else {
+                html.classList.remove('sidebar-visible');
+            }
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="default_theme">Auto</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search (`/`)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="/ s" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">The Redox Operating System</h1>
+
+                    <div class="right-buttons">
+                        <a href="print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <div class="search-wrapper">
+                            <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                            <div class="spinner-wrapper">
+                                <i class="fa fa-spinner fa-spin"></i>
+                            </div>
+                        </div>
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1 id="troubleshooting-the-build"><a class="header" href="#troubleshooting-the-build">Troubleshooting the Build</a></h1>
+<p>This page covers all troubleshooting methods and tips for our build system.</p>
+<p>(You must read the <a href="./build-system-reference.html">Build System</a> page before)</p>
+<ul>
+<li><a href="#notes">Notes</a></li>
+<li><a href="#setup">Setup</a>
+<ul>
+<li><a href="#podman">Podman</a>
+<ul>
+<li><a href="#manual-configuration">Manual Configuration</a></li>
+</ul>
+</li>
+<li><a href="#native-build">Native Build</a></li>
+<li><a href="#git">Git</a></li>
+</ul>
+</li>
+<li><a href="#building-the-system">Building the System</a>
+<ul>
+<li><a href="#config-and-mkconfigmk">.config and mk/config.mk</a></li>
+<li><a href="#prefix">Prefix</a></li>
+<li><a href="#filesystem-configuration">Filesystem Configuration</a></li>
+<li><a href="#fetch">Fetch</a></li>
+<li><a href="#cookbook">Cookbook</a></li>
+<li><a href="#create-the-image-with-fuse">Create the Image with FUSE</a></li>
+</ul>
+</li>
+<li><a href="#solving-compilation-problems">Solving Compilation Problems</a>
+<ul>
+<li><a href="#environment-leakage">Environment Leakage</a></li>
+<li><a href="#update-your-build-system">Update Your Build System</a></li>
+<li><a href="#prevent-and-fix-breaking-changes">Prevent and Fix Breaking Changes</a></li>
+<li><a href="#update-your-branch">Update Your Branch</a></li>
+<li><a href="#update-crates">Update Crates</a></li>
+<li><a href="#verify-the-dependency-tree">Verify The Dependency Tree</a></li>
+</ul>
+</li>
+<li><a href="#debug-methods">Debug Methods</a>
+<ul>
+<li><a href="#boot">Boot</a></li>
+</ul>
+</li>
+<li><a href="#kill-a-frozen-redox-vm">Kill A Frozen Redox VM</a></li>
+<li><a href="#kernel-panic">Kernel Panic</a>
+<ul>
+<li><a href="#qemu">QEMU</a></li>
+<li><a href="#real-hardware">Real Hardware</a></li>
+</ul>
+</li>
+</ul>
+<h2 id="notes"><a class="header" href="#notes">Notes</a></h2>
+<p>This section contain details which apply to Redox problems on virtual machines and real hardware.</p>
+<h3 id="general"><a class="header" href="#general">General</a></h3>
+<ul>
+<li>If you aren't doing development and has a compilation or runtime problem be sure to verify if your build system/recipes sources and binaries are up-to-date or holding breaking changes, a build system update, single or complete recipe binary cleanup may fix your problems in most cases</li>
+</ul>
+<p>Read the <a href="#debug-methods">Debug Methods</a> and <a href="#boot">Boot</a> sections for more details.</p>
+<h3 id="real-hardware"><a class="header" href="#real-hardware">Real Hardware</a></h3>
+<ul>
+<li>Test if your boot problem happens with live mode enabled and disabled, press the <code>L</code> key in the boot screen resolution menu to toggle</li>
+<li>If possible verify if your boot problem happens in UEFI and BIOS (UEFI has BIOS emulation which is called "CSM mode" and can be enabled in the UEFI settings)</li>
+<li>Photos are safer and faster to send boot logs than boot log text written by hand, which is error-prone and time consuming</li>
+<li>Verify if your computer has enough RAM to load the whole Redox image because data streaming from USB is not supported yet, if it has 1GB or less of RAM we recommend the <code>server</code>, <code>desktop-minimal</code> or <code>desktop</code> image variants to avoid OOM panics</li>
+<li>If you have a very weak 64 bits Intel or AMD CPU (single core and L cache smaller than 1MB, like Intel Atom CPUs released before 2010) and 1GB or less of RAM we recommended the <a href="https://static.redox-os.org/img/i586/">Intel/AMD 32 bits Redox images</a> and the <code>server</code>, <code>desktop-minimal</code> or <code>desktop</code> variants to avoid OOM panics and have better performance</li>
+</ul>
+<p>Read the <a href="#debug-methods">Debug Methods</a> and <a href="#boot">Boot</a> sections for more details.</p>
+<h3 id="reporting"><a class="header" href="#reporting">Reporting</a></h3>
+<ul>
+<li>Use Markdown code blocks to send logs, avoiding syntax breakage on Matrix clients or GitLab</li>
+<li>Use the "fresh build" or "clean build" terms to easily/quickly explain that you rebuilt all build system and recipe binaries from scratch (<code>make clean all</code> command)</li>
+<li>Use the "fresh clone" or "fresh copy" terms to easily/quickly explain that you downloaded a new build system copy from Git or bootstrap scripts</li>
+</ul>
+<h2 id="setup"><a class="header" href="#setup">Setup</a></h2>
+<p>When you run <code>podman_bootstrap.sh</code> or <code>native_bootstrap.sh</code>, the Linux tools and libraries required to support the toolchain and build all recipes are installed. Then the <code>redox</code> project is downloaded from the Redox GitLab server. The <code>redox</code> project does not contain the system sources, it only contains the build system.</p>
+<h3 id="podman"><a class="header" href="#podman">Podman</a></h3>
+<p>If your build appears to be missing libraries, have a look at the <a href="./advanced-podman-build.html#debugging-your-build-process">Debugging Your Podman Build Process</a> section. If your Podman environment becomes broken, you can use <code>podman system reset</code> and <code>rm -rf build/podman</code>. In some cases, you may need to run the <code>sudo rm -rf build/podman</code> command.</p>
+<p>If any command ask your to choose an image repository (after the <code>make container_clean</code> command execution) select the first item, it will give an error and you need to run the <code>time make all</code> command again</p>
+<h4 id="manual-configuration"><a class="header" href="#manual-configuration">Manual Configuration</a></h4>
+<p>If you have problems setting Podman to rootless mode, do the following steps:</p>
+<p>(These commands were taken from the official <a href="https://github.com/containers/podman/blob/main/docs/tutorials/rootless_tutorial.md">Podman rootless wiki</a> and <a href="https://github.com/containers/podman/blob/main/rootless.md">Shortcomings of Rootless Podman</a>, thus it could be broken/wrong in the future, read the wiki to see if the commands match, we will try to update the method to work with everyone)</p>
+<ul>
+<li>Install the <code>podman</code>, <code>crun</code>, <code>slirp4netns</code> and <code>fuse-overlayfs</code> packages on your system.</li>
+<li><code>podman ps -a</code> - This command will show all your Podman containers, if you want to remove all of them, run <code>podman system reset</code></li>
+<li>Follow <a href="https://github.com/containers/podman/blob/main/docs/tutorials/rootless_tutorial.md#cgroup-v2-support">this step</a> if necessary (if the Podman of your distribution use cgroups V2), you will need to edit the <code>containers.conf</code> file at <code>/etc/containers</code> or your user folder at <code>~/.config/containers</code>, change the line <code>runtime = "runc"</code> to <code>runtime = "crun"</code></li>
+<li>Execute the <code>cat /etc/subuid</code> and <code>cat /etc/subgid</code> commands to see user/group IDs (UIDs/GIDs) available for Podman.</li>
+</ul>
+<p>If you don't want to edit the file, you can use this command:</p>
+<pre><code class="language-sh">sudo usermod --add-subuids 100000-165535 --add-subgids 100000-165535 your-user
+</code></pre>
+<p>You can use the values <code>100000-165535</code> for your user, just edit the two text files, we recommend <code>sudo nano /etc/subuid</code> and <code>sudo nano /etc/subgid</code>, when you finish, press Ctrl+X to save the changes.</p>
+<ul>
+<li>After the change on the UID/GID values, execute this command:</li>
+</ul>
+<pre><code class="language-sh">podman system migrate
+</code></pre>
+<ul>
+<li>If you have a network problem on the container, this command will allow connections on the port 443 (without root):</li>
+</ul>
+<pre><code class="language-sh">sudo sysctl net.ipv4.ip_unprivileged_port_start=443
+</code></pre>
+<ul>
+<li>Hopefully, you have a working Podman build now.</li>
+</ul>
+<p>(If you still have problems with Podman, read the <a href="./troubleshooting.html">Troubleshooting</a> chapter or join us on the <a href="./chat.html">chat</a>)</p>
+<p>Let us know if you have improvements for Podman troubleshooting on the <a href="./chat.html">chat</a>.</p>
+<h3 id="native-build"><a class="header" href="#native-build">Native Build</a></h3>
+<p>Not all Linux distributions are supported by <code>native_bootstrap.sh</code>, so if you have frequent compilation problems try the <code>podman_bootstrap.sh</code> script for <a href="https://podman.io/">Podman</a> builds.</p>
+<p>If you want to support your Unix-like system without Podman, you can try to install the Debian/Ubuntu package equivalents for your system from your package manager/software store, you can see them on the <code>ubuntu()</code> function of the <a href="https://gitlab.redox-os.org/redox-os/redox/-/blob/master/native_bootstrap.sh">native_bootstrap.sh</a> script.</p>
+<p>The <code>native_bootstrap.sh</code> script and <code>redox-base-containerfile</code> covers the build system packages needed by the recipes at the <a href="https://gitlab.redox-os.org/redox-os/redox/-/blob/master/config/x86_64/demo.toml">demo.toml</a> filesystem configuration.</p>
+<p>(Note that some systems may have build environment problems hard and time consuming to fix, on these systems Podman will fix most headaches)</p>
+<h3 id="git"><a class="header" href="#git">Git</a></h3>
+<p>If you did not use <code>podman_bootstrap.sh</code> or <code>native_bootstrap.sh</code> to setup your environment, you can download the sources with:</p>
+<pre><code class="language-sh">git clone https://gitlab.redox-os.org/redox-os/redox.git --origin upstream
+</code></pre>
+<ul>
+<li>Ensure that all the libraries and packages required by Redox are installed by running <code>./podman_bootstrap.sh -d</code> or, if you will be using the Podman build run the <code>./podman_bootstrap.sh -d</code> command.</li>
+</ul>
+<h2 id="building-the-system"><a class="header" href="#building-the-system">Building The System</a></h2>
+<p>When you run <code>make all</code>, the following steps occur.</p>
+<h3 id="config-and-mkconfigmk"><a class="header" href="#config-and-mkconfigmk">.config and mk/config.mk</a></h3>
+<ul>
+<li><code>make</code> scans <a href="./configuration-settings.html#config">.config</a> and <a href="./configuration-settings.html#mkconfigmk">mk/config.mk</a> for settings, such as the CPU architecture, configuration name, and whether to use <strong>Podman</strong> during the build process. Read through the <a href="./configuration-settings.html">Configuration Settings</a> page to make sure you have the settings that are best for you.</li>
+</ul>
+<h3 id="prefix"><a class="header" href="#prefix">Prefix</a></h3>
+<p>The Redox toolchain, referred to as <strong>prefix</strong> because it is prefixed with the CPU architecture name, is downloaded and/or built. Modified versions of <code>cargo</code>, <code>rustc</code>, <code>gcc</code> and many other tools are created. They are placed in the <code>prefix</code> directory.</p>
+<p>If you have a problem with the toolchain, try the <code>rm -rf prefix</code> and <code>make prefix</code> or <code>make clean all</code> (if <code>make prefix</code> is not enough) commands.</p>
+<h3 id="filesystem-configuration"><a class="header" href="#filesystem-configuration">Filesystem Configuration</a></h3>
+<p>The list of Redox recipes to be built is read from the <a href="./configuration-settings.html#filesystem-configuration">filesystem configuration</a> file, which is specified in <a href="./configuration-settings.html#config">.config</a> or <code>mk/config.mk</code>. If your recipe is not being included in the build, verify if you have set the <code>CONFIG_NAME</code> or <code>FILESYSTEM_CONFIG</code> in the <code>.config</code> file.</p>
+<h3 id="fetch"><a class="header" href="#fetch">Fetch</a></h3>
+<p>Each recipe source is downloaded using <code>git</code> or <code>curl</code>, according to the <code>[source]</code> section of the <code>recipe.toml</code> file. Source is placed at <code>recipes/recipe-name/source</code></p>
+<p>(Some recipes still use the old <code>recipe.sh</code> format, they need to be converted to TOML)</p>
+<p>If you are doing work on a recipe, you may want to comment out the <code>[source]</code> section of the recipe. To discard your changes to the source for a recipe, or to update to the latest version, uncomment the <code>[source]</code> section of the recipe, and use <code>make uc.recipe-name</code> in the recipe directory to remove both the source and any compiled code.</p>
+<p>After all recipes are fetched, a tag file is created as <code>build/$ARCH/$CONFIG_NAME/fetch.tag</code>, e.g. <code>build/x86_64/desktop/fetch.tag</code>. If this file is present, fetching is skipped. You can remove it manually, or use <code>make rebuild</code>, if you want to force refetching.</p>
+<h3 id="cookbook"><a class="header" href="#cookbook">Cookbook</a></h3>
+<p>Each recipe is built according to the <code>recipe.toml</code> file. The recipe binaries or library objects are placed in the <code>target</code> directory, in a subdirectory named based on the CPU architecture.</p>
+<p>If you have a problem with a recipe you are building, try the <code>make c.recipe-name</code> command. A common problem when building on unsupported systems is that certain recipes will fail to build due to missing dependencies. Try using the <a href="./podman-build.html">Podman Build</a> or manually installing the recipe dependencies.</p>
+<p>After all recipes are cooked, a tag file is created as <code>build/$ARCH/$CONFIG_NAME/repo.tag</code>. If this file is present, cooking is skipped. You can remove it manually, or use <code>make rebuild</code>, which will force refetching and rebuilding.</p>
+<h3 id="create-the-image-with-fuse"><a class="header" href="#create-the-image-with-fuse">Create the Image with FUSE</a></h3>
+<p>To build the final Redox image, <code>redox_installer</code> uses <a href="https://github.com/libfuse/libfuse">FUSE</a>, creating a virtual filesystem and copying the recipe packages into it. This is done outside of Podman, even if you are using Podman Build.</p>
+<p>On some Linux distributions, FUSE may not be permitted for some users, or <code>podman_bootstrap.sh</code> and <code>native_bootstrap.sh</code> might not install it correctly. Investigate whether you can address your FUSE issues, or join the <a href="./chat.html">chat</a> if you need advice.</p>
+<h2 id="solving-compilation-problems"><a class="header" href="#solving-compilation-problems">Solving Compilation Problems</a></h2>
+<ul>
+<li>
+<p>Verify your Rust version (run <code>make env</code> and <code>cargo --version</code>, then <code>exit</code>), make sure you have <strong>the latest version of Rust nightly!</strong>.</p>
+<ul>
+<li><a href="https://www.rustup.rs">rustup.rs</a> is recommended for managing Rust versions. If you already have it, run the <code>rustup</code> command.</li>
+</ul>
+</li>
+<li>
+<p>Verify if your <code>make</code> and <code>nasm</code> are up-to-date.</p>
+</li>
+<li>
+<p>Verify if the build system is using the latest commit by running the <code>git branch -v</code> command.</p>
+</li>
+<li>
+<p>Verify if the submodules are using the latest pinned commit, to do this run:</p>
+</li>
+</ul>
+<pre><code class="language-sh">cd submodule-name
+</code></pre>
+<pre><code class="language-sh">git branch -v
+</code></pre>
+<ul>
+<li>Verify if the recipe source is using the latest commit of the default branch, to do this run:</li>
+</ul>
+<pre><code class="language-sh">cd recipes/some-category/recipe-name/source
+</code></pre>
+<pre><code class="language-sh">git branch -v
+</code></pre>
+<ul>
+<li>Run <code>make clean pull fetch</code> to remove all your compiled binaries and update all sources.</li>
+<li>Sometimes there are merge requests that briefly break the build, so check the <a href="./chat.html">Chat</a> if anyone else is experiencing your problems.</li>
+<li>Sometimes both the source and the binary of some recipe is wrong, run <code>make ur.recipe-name</code> and verify if it fix the problem.</li>
+</ul>
+<h4 id="environment-leakage"><a class="header" href="#environment-leakage">Environment Leakage</a></h4>
+<p>Environment leakage is when some program or library is not fully cross-compiled to Redox, thus its dependency chain has Linux references that don't work on Redox.</p>
+<p>It usually happens when the program or library get objects from outside the Redox build system PATH.</p>
+<ul>
+<li>The Redox build system PATH only read at <code>/usr/bin</code> and <code>/bin</code> to use the host system build tools</li>
+<li>The program build system must use the host system build tools and the Cookbook recipe dependencies, not the host system libraries.</li>
+<li>The most common way to detect this is to install the <code>*-dev</code> dependency package equivalent to the program recipe dependency, for example:</li>
+</ul>
+<p>The program named "my-program" needs to use the OpenSSL library, thus you add the <code>openssl</code> recipe on the <code>recipe.toml</code> of the program, but the program don't detect the OpenSSL source code.</p>
+<p>Then you install the <code>libssl-dev</code> package on your Ubuntu system and rebuild the program with the <code>make cr.my-program</code> command, then it finish the build process successfully.</p>
+<p>But when you try to open the executable of the program inside of Redox, it doesn't work. Because it contain Linux references.</p>
+<p>To fix this problem you need to find where the program build system get the OpenSSL source code and patch it with <code>${COOKBOOK_SYSROOT}</code> environment variable (where the <code>openssl</code> recipe contents were copied)</p>
+<h3 id="update-your-build-system"><a class="header" href="#update-your-build-system">Update Your Build System</a></h3>
+<p>Sometimes your build system can be outdated because you forgot to run <code>make pull</code> before other commands, read <a href="./build-system-reference.html#update-the-build-system">this</a> section to learn the complete way to update the build system.</p>
+<h3 id="prevent-and-fix-breaking-changes"><a class="header" href="#prevent-and-fix-breaking-changes">Prevent and Fix Breaking Changes</a></h3>
+<p>Sometimes build system or recipe breaking changes are merged (you need to monitor the Dev room in our <a href="./chat.html">chat</a> to know if some commit or MR containing breaking changes were merged) and you need to cleanup your recipe or build system tooling binaries before the recipe or build system source updates to avoid conflicts with the new configuration.</p>
+<h4 id="build-system-breakage-prevention"><a class="header" href="#build-system-breakage-prevention">Build System Breakage Prevention</a></h4>
+<p>The following methods can prevent a build system breakage after updates that change file configuration behavior.</p>
+<ul>
+<li>Wipe all recipe binaries, update build system source and rebuild the system (most common prevention)</li>
+</ul>
+<pre><code class="language-sh">make clean pull all
+</code></pre>
+<ul>
+<li>Wipe all recipe binaries and Podman container, update build system source and rebuild the system</li>
+</ul>
+<pre><code class="language-sh">make clean container_clean pull all
+</code></pre>
+<ul>
+<li>Wipe all recipe binaries/sources, update build system source and rebuild the system (least common prevention)</li>
+</ul>
+<pre><code class="language-sh">make distclean pull all
+</code></pre>
+<h4 id="build-system-fixing"><a class="header" href="#build-system-fixing">Build System Fixing</a></h4>
+<p>If the breaking change affect multiple recipes or any recipe can't be built, read the following instructions:</p>
+<ul>
+<li>Wipe the build system binaries and build the system (most common fix)</li>
+</ul>
+<pre><code class="language-sh">make clean all
+</code></pre>
+<p>Check if the compilation or runtime error continues after this command, if the error continues run the command below:</p>
+<ul>
+<li>Wipe and rebuild the filesystem tooling</li>
+</ul>
+<pre><code class="language-sh">make fstools_clean fstools
+</code></pre>
+<p>Check if the compilation or runtime error continues after this command, if the error continues run the command below:</p>
+<ul>
+<li>Wipe the Podman container (not common fix)</li>
+</ul>
+<pre><code class="language-sh">make container_clean
+</code></pre>
+<p>Check if the compilation or runtime error continues after this command, if the error continues it doesn't happen because of breaking changes on the build system.</p>
+<h4 id="recipe-fixing"><a class="header" href="#recipe-fixing">Recipe Fixing</a></h4>
+<p>Some types of recipe errors can be backwards-incompatible build system, system component or relibc changes after the <code>make pull rebuild</code> command execution. Run the following tests to verify if the recipe error is an isolated problem or a breaking change:</p>
+<ul>
+<li>Rebuild the recipe binaries</li>
+</ul>
+<pre><code class="language-sh">make cr.recipe-name
+</code></pre>
+<p>Check if the compilation or runtime error continues after this command, if the error continues run the following command:</p>
+<ul>
+<li>Wipe the recipe sources and binaries and rebuild</li>
+</ul>
+<pre><code class="language-sh">make ur.recipe-name
+</code></pre>
+<p>Check if the compilation or runtime error continues after this command, if the error continues run the following command:</p>
+<ul>
+<li>Update relibc and rebuild the recipe</li>
+</ul>
+<pre><code class="language-sh">touch relibc
+</code></pre>
+<pre><code class="language-sh">make prefix cr.recipe-name
+</code></pre>
+<p>Check if the compilation or runtime error continues after this command, if the error continues run the following command:</p>
+<ul>
+<li>Reconfigure the Redox toolchain and rebuild the recipe</li>
+</ul>
+<pre><code class="language-sh">rm -rf prefix
+</code></pre>
+<pre><code class="language-sh">make prefix cr.recipe-name
+</code></pre>
+<p>Check if the compilation or runtime error continues after this command, if the error continues run the following command:</p>
+<ul>
+<li>Wipe all statically linked recipe binaries and rebuild the system (run this command if the binaries of multiple recipes are broken)</li>
+</ul>
+<pre><code class="language-sh">make static_clean rebuild
+</code></pre>
+<p>Check if the compilation or runtime error continues after this command, if the error continues run the following command:</p>
+<ul>
+<li>Wipe all recipe binaries and rebuild the system (run this command if the binaries of multiple recipes are broken)</li>
+</ul>
+<pre><code class="language-sh">make repo_clean all
+</code></pre>
+<p>Check if the compilation or runtime error continues after this command, if the error continues run the following command:</p>
+<ul>
+<li>Wipe all recipe sources and binaries and rebuild the system (run this command if the sources and binaries of multiple recipes are broken)</li>
+</ul>
+<pre><code class="language-sh">make fetch_clean all
+</code></pre>
+<p>Check if the compilation or runtime error continues after this command, if the error continues read the section below.</p>
+<h4 id="new-build-system-copy"><a class="header" href="#new-build-system-copy">New Build System Copy</a></h4>
+<p>If the methods above doesn't work you need to download a new copy of the build system by running the <code>podman_bootstrap.sh</code> or <code>native_bootstrap.sh</code> scripts or using the following commands:</p>
+<pre><code class="language-sh">git clone https://gitlab.redox-os.org/redox-os/redox.git --origin upstream
+</code></pre>
+<pre><code class="language-sh">cd redox
+</code></pre>
+<pre><code class="language-sh">make all
+</code></pre>
+<h3 id="update-your-branch"><a class="header" href="#update-your-branch">Update Your Branch</a></h3>
+<p>If you are doing local changes on the build system, probably you left your branch active on the folder (instead of <code>master</code> branch).</p>
+<p>New branches don't sync automatically with <code>master</code>, thus if the <code>master</code> branch receive new commits, you wouldn't use them because your branch is outdated.</p>
+<p>To fix this, run:</p>
+<pre><code class="language-sh">git checkout master
+</code></pre>
+<pre><code class="language-sh">git pull
+</code></pre>
+<pre><code class="language-sh">git checkout your-branch
+</code></pre>
+<pre><code class="language-sh">git merge master
+</code></pre>
+<p>Or</p>
+<pre><code class="language-sh">git checkout master
+</code></pre>
+<pre><code class="language-sh">git pull
+</code></pre>
+<pre><code class="language-sh">git merge your-branch master
+</code></pre>
+<p>If you want an anonymous merge, read the <a href="./coding-and-building.html#anonymous-commits">Anonymous Commits</a> section.</p>
+<h3 id="update-crates"><a class="header" href="#update-crates">Update Crates</a></h3>
+<p>Sometimes a Rust program use an old crate version lacking Redox support, read <a href="./porting-applications.html#update-crates">this</a> section to learn how to update them.</p>
+<h3 id="verify-the-dependency-tree"><a class="header" href="#verify-the-dependency-tree">Verify The Dependency Tree</a></h3>
+<p>Some crates take a long time to do a new release (years in some cases), thus these releases will hold old versions of other crates, versions where the Redox support is not available (causing errors during the program compilation).</p>
+<p>The <code>redox_syscall</code> crate is the most affected by this, some crates hold a very old version of it and will require patches (<code>cargo update -p</code> alone doesn't work).</p>
+<p>To identify which crates are using old versions of Redox crates you will need to verify the dependency tree of the program, inside the program source directory, run:</p>
+<pre><code class="language-sh">cargo tree --target=x86_64-unknown-redox
+</code></pre>
+<p>(If you aren't building Redox to x86_64 change <code>x86_64</code> in <code>x86_64-unknown-redox</code> to the CPU code that you are using)</p>
+<p>This command will draw the dependency tree and you will need to find the crate name on the tree.</p>
+<p>If you don't want to find it, you can use the <code>grep</code> tool with a pipe to see all crate versions used in the tree, sadly <code>grep</code> don't preserve the tree hierarchy, thus it's only useful to see versions and if some patched crate works (if the patched crate works all crate matches will report the most recent version).</p>
+<p>To do this, run:</p>
+<pre><code class="language-sh">cargo tree --target=x86_64-unknown-redox | grep crate-name
+</code></pre>
+<h2 id="debug-methods"><a class="header" href="#debug-methods">Debug Methods</a></h2>
+<ul>
+<li>
+<p>Read <a href="https://en.wikipedia.org/wiki/Debugging#Techniques">this</a> Wikipedia section to learn about debugging techniques</p>
+</li>
+<li>
+<p>Use the <code>dmesg</code> command to read the kernel and userspace daemons log</p>
+</li>
+<li>
+<p>If Orbital hangs you need to verify if the system also freezed by pressing Super+F1 to see the boot log or Super+F2 to switch to other <code>tty</code>, login as <code>root</code> and run <code>dmesg</code> to read the system log ("Super" is the key with Windows logo)</p>
+</li>
+<li>
+<p>You can start the QEMU with the <code>make qemu gpu=no</code> command to easily copy the terminal text</p>
+</li>
+<li>
+<p>You can write to the <code>debug:</code> scheme, which will output on the console, but you must be the <code>root</code> user. This is useful if you are debugging an program where you need to use Orbital but still want to capture messages</p>
+</li>
+<li>
+<p>Currently, the build system strips function names and other symbols from programs, as support for symbols is not implemented yet</p>
+</li>
+<li>
+<p>To use GDB add the <code>gdbserver</code> recipe in your filesystem configuration, run the <code>make qemu gdb=yes</code> command in one shell, start the <code>gdbserver</code> program on QEMU and run the <code>make gdb</code> command in another shell</p>
+</li>
+<li>
+<p>Use the following command for advanced logging:</p>
+</li>
+</ul>
+<pre><code class="language-sh">make some-command 2&gt;&amp;1 | tee file-name.log
+</code></pre>
+<h3 id="recipes"><a class="header" href="#recipes">Recipes</a></h3>
+<p>You will see the available debug methods for recipes on this section.</p>
+<ul>
+<li>If you change the recipe build mode (<code>release</code> to <code>debug</code> or the opposite) while debugging, don't forget to rebuild with <code>make cr.recipe-name</code> because the build system may not detect the changes.</li>
+</ul>
+<h4 id="rust"><a class="header" href="#rust">Rust</a></h4>
+<p>Rust programs can carry assertions, checking and symbols, but they are disabled by default.</p>
+<ul>
+<li><code>REPO_DEBUG</code> - This environment variable will build the Rust program with assertions, checking and symbols.</li>
+</ul>
+<p>(Debugging with symbols inside of Redox is not supported yet)</p>
+<p>To enable them you can use the following commands or scripts:</p>
+<ul>
+<li>Permanently enable <code>REPO_DEBUG</code> for all recipes by adding the following text to your <code>.config</code> file:</li>
+</ul>
+<pre><code>REPO_DEBUG?=1
+</code></pre>
+<ul>
+<li>Enable the <code>REPO_DEBUG</code> environment variable for one command, rebuild/package a recipe and add to the Redox image:</li>
+</ul>
+<pre><code class="language-sh">REPO_DEBUG=1 make cr.recipe-name image
+</code></pre>
+<ul>
+<li>Enable the <code>REPO_DEBUG</code> environment variable for multiple commands, rebuild/package a recipe and add to the Redox image:</li>
+</ul>
+<pre><code class="language-sh">export REPO_DEBUG=1
+</code></pre>
+<pre><code class="language-sh">make cr.recipe-name image
+</code></pre>
+<ul>
+<li>Enable the <code>COOKBOOK_DEBUG</code> and <code>COOKBOOK_NOSTRIP</code> (they are equivalent to <code>REPO_DEBUG</code> environment variable) inside the <code>recipe.toml</code> :</li>
+</ul>
+<pre><code class="language-toml">template = "custom"
+script = """
+COOKBOOK_DEBUG=true
+COOKBOOK_NOSTRIP=true
+cookbook_cargo
+"""
+</code></pre>
+<ul>
+<li>Backtrace</li>
+</ul>
+<p>A backtrace helps you to detect bugs that happen with not expected input parameters, you can trace back through the callers to see where the bad data is coming from.</p>
+<p>You can see how to use it below:</p>
+<ul>
+<li>Start QEMU with logging:</li>
+</ul>
+<pre><code class="language-sh">make qemu 2&gt;&amp;1 | tee file-name.log
+</code></pre>
+<ul>
+<li>Enable this environment variable globally (on Redox):</li>
+</ul>
+<pre><code class="language-sh">export RUST_BACKTRACE=full
+</code></pre>
+<ul>
+<li>
+<p>Run the program and repeat the bug (capturing a backtrace in the log file)</p>
+</li>
+<li>
+<p>Close QEMU</p>
+</li>
+<li>
+<p>Open the log file, copy the backtrace and paste in an empty text file</p>
+</li>
+<li>
+<p>Run the <code>backtrace.sh</code> script in the <code>redox</code> directory (on Linux):</p>
+</li>
+</ul>
+<pre><code class="language-sh">scripts/backtrace.sh -r recipe-name -b your-backtrace.txt
+</code></pre>
+<p>It will print the file and line number for each entry in the backtrace.</p>
+<p>(This is the most simple example command, use the <code>-h</code> option of the <code>backtrace.sh</code> script to see more combinations)</p>
+<h4 id="gdb-on-qemu"><a class="header" href="#gdb-on-qemu">GDB On QEMU</a></h4>
+<p>Use the following instructions to debug a recipe with GDB:</p>
+<ul>
+<li>Build or rebuild the recipe with assertions/checking/symbols and install into the Redox image:</li>
+</ul>
+<pre><code class="language-sh">make crp.recipe-name REPO_DEBUG=1
+</code></pre>
+<p>If you want to permanently enable debug binaries add the following environment variable to your <code>.config</code> file:</p>
+<pre><code>REPO_DEBUG?=1
+</code></pre>
+<ul>
+<li>Build and install the GDB server into the Redox image</li>
+</ul>
+<pre><code class="language-sh">make rp.gdbserver
+</code></pre>
+<ul>
+<li>Start QEMU with the GDB configuration enabled:</li>
+</ul>
+<pre><code class="language-sh">make qemu kvm=no QEMU_SMP=1 gdb=yes
+</code></pre>
+<p>If the recipe has one executable, run the following command:</p>
+<pre><code class="language-sh">make debug.recipe-name
+</code></pre>
+<p>If the recipe has multiple executables use the following command:</p>
+<pre><code class="language-sh">make debug.recipe-name DEBUG_BIN=executable-name
+</code></pre>
+<h3 id="boot"><a class="header" href="#boot">Boot</a></h3>
+<p>If your boot hangs and the log don't show the reason, you can use the following environment variables to help:</p>
+<ul>
+<li><code>BOOTSTRAP_LOG_LEVEL=value</code> : Bootstrap and process manager logging verbosity level</li>
+<li><code>INIT_LOG_LEVEL=value</code> : Init logging verbosity level</li>
+<li><code>DRIVER_LOG_LEVEL=value</code> : Logging verbosity level of all drivers</li>
+<li><code>DRIVER_*_LOG_LEVEL=value</code> : Driver-specific logging verbosity level, for example: <code>DRIVER_PS2_LOG_LEVEL=value</code> for PS/2 logging and <code>DRIVER_USB_LOG_LEVEL=value</code> for USB logging</li>
+<li><code>RELIBC_LOG_LEVEL=value</code> : Relibc logging verbosity level, you need to disable the <code>no_trace</code> feature flag by removing it from the <a href="https://gitlab.redox-os.org/redox-os/relibc/-/blob/7b9402783d6de31d3c749472027ce345aaff70fc/Cargo.toml#L82">default</a> feature group and run the <code>make static_clean rebuild</code> command to use it</li>
+<li><code>INIT_SKIP=executable-name</code> : Skip the execution of executables with hangs or errors, commas are supported if you want to skip multiple executables</li>
+</ul>
+<p>They accept the following values:</p>
+<ul>
+<li><code>ERROR</code> value: Known event that is a fatal error but recoverable.</li>
+<li><code>WARN</code> value: Unexpected event coming from unexpected condition.</li>
+<li><code>INFO</code> value: Significant event mostly useful for developer.</li>
+<li><code>DEBUG</code> value: Detailed event monitoring to show how the service is being used.</li>
+<li><code>TRACE</code> value: Very verbose information which is only useful when debugging.</li>
+</ul>
+<p>Once you determine what you need press the <code>E</code> key to open the boot environment editor and add in the last lines and boot, for example:</p>
+<pre><code>default environment variables here
+INIT_LOG_LEVEL=DEBUG
+DRIVER_LOG_LEVEL=DEBUG
+</code></pre>
+<p>You can see an example output below:</p>
+<pre><code>2026-01-12T22-27-51.758Z [@ps2d::controller:468 WARN] ps2d: post-test unexpected value: 9C
+2026-01-12T22-27-51.760Z [@ps2d::controller:337 ERROR] ps2d: keyboard failed to reset: 55
+</code></pre>
+<p>To disable the environment variables after boot run the <code>export *_LOG_LEVEL=OFF</code> command, for example: the <code>export RELIBC_LOG_LEVEL=OFF</code> command will disable relibc logging.</p>
+<h2 id="kill-a-frozen-redox-vm"><a class="header" href="#kill-a-frozen-redox-vm">Kill A Frozen Redox VM</a></h2>
+<p>Sometimes Redox can freeze or rarely get a kernel panic, to kill the QEMU process run this command:</p>
+<pre><code class="language-sh">pkill qemu-system
+</code></pre>
+<h2 id="kernel-panic"><a class="header" href="#kernel-panic">Kernel Panic</a></h2>
+<p>A kernel panic is when some bug avoid the safe execution of the kernel code, thus the system needs to be restarted to avoid memory corruption.</p>
+<p>We use the following kernel panic message format:</p>
+<pre><code>KERNEL PANIC: panicked at some-path/file-name.rs:line-number:character-position:
+the panic description goes here
+</code></pre>
+<ul>
+<li>You can use the following command to search it in a big log:</li>
+</ul>
+<pre><code class="language-sh">grep -nw "KERNEL PANIC" --include "file-name.log"
+</code></pre>
+<h3 id="qemu"><a class="header" href="#qemu">QEMU</a></h3>
+<p>If you get a kernel panic in QEMU, copy the terminal text or capture a screenshot and send to us on <a href="./chat.html">Matrix</a> or create an issue on <a href="https://gitlab.redox-os.org/redox-os/kernel/-/issues">GitLab</a>.</p>
+<h3 id="real-hardware-1"><a class="header" href="#real-hardware-1">Real Hardware</a></h3>
+<p>If you get a kernel panic in real hardware, capture a photo and send to us on <a href="./chat.html">Matrix</a> or create an issue on <a href="https://gitlab.redox-os.org/redox-os/kernel/-/issues">GitLab</a>.</p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="raspi.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="build-phases.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="raspi.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="build-phases.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="elasticlunr.min.js"></script>
+        <script src="mark.min.js"></script>
+        <script src="searcher.js"></script>
+
+        <script src="clipboard.min.js"></script>
+        <script src="highlight.js"></script>
+        <script src="book.js"></script>
+
+        <!-- Custom JS scripts -->
+
+
+
+    </div>
+    </body>
+</html>
