@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: The Redox Operating System\n"
-"POT-Creation-Date: 2026-02-09T03:19:51Z\n"
+"POT-Creation-Date: 2026-02-24T08:43:44Z\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -196,7 +196,7 @@ msgid ""
 msgstr ""
 
 #: src/coding-and-building.md:56
-msgid "\"$PATH:$HOME/.redoxer/toolchain/bin\""
+msgid "\"$PATH:$HOME/.redoxer/x86_64-unknown-redox/toolchain/bin\""
 msgstr ""
 
 #: src/coding-and-building.md:59
@@ -731,10 +731,10 @@ msgstr ""
 
 #: src/coding-and-building.md:343
 msgid ""
-"This command will create the file `build/your-cpu-arch/your-config/redox-"
-"live.iso`, you will write this image on your USB, SSD or HDD drives and CD "
-"or DVD disks (if you have an USB device, [Popsicle](https://github.com/pop-"
-"os/popsicle) is the recommended method to flash your device)."
+"This command will create the file `build/$ARCH/your-config/redox-live.iso`, "
+"you will write this image on your USB, SSD or HDD drives and CD or DVD disks "
+"(if you have an USB device, [Popsicle](https://github.com/pop-os/popsicle) "
+"is the recommended method to flash your device)."
 msgstr ""
 
 #: src/coding-and-building.md:345
@@ -1069,8 +1069,8 @@ msgstr ""
 #: src/coding-and-building.md:565
 msgid ""
 "Add the `myfiles` recipe below the `[packages]` section of your filesystem "
-"configuration at: `config/your-cpu-arch/your-config.toml` (if you want your "
-"files to be automatically added to new images):"
+"configuration at: `config/$ARCH/your-config.toml` (if you want your files to "
+"be automatically added to new images):"
 msgstr ""
 
 #: src/coding-and-building.md:574

@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: The Redox Operating System\n"
-"POT-Creation-Date: 2026-02-09T03:19:51Z\n"
+"POT-Creation-Date: 2026-02-24T08:43:44Z\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -2444,8 +2444,8 @@ msgstr ""
 msgid ""
 "When you add a library on your `recipe.toml` the Cookbook will copy the "
 "library source code to the `sysroot` folder at `recipes/your-category/recipe-"
-"name/target/your-target`, this folder has an environment variable that can "
-"be used inside the `script =` field on your `recipe.toml`."
+"name/target/$TARGET`, this folder has an environment variable that can be "
+"used inside the `script =` field on your `recipe.toml`."
 msgstr ""
 
 #: src/porting-applications.md:1067
@@ -2888,7 +2888,7 @@ msgstr ""
 msgid ""
 "To permanently install the recipe to your QEMU image add your recipe name "
 "(`recipe-name = {}`) below the last item in the `[packages]` section of your "
-"TOML config at `config/your-cpu-arch/your-config.toml` and run `make image`"
+"TOML config at `config/$ARCH/your-config.toml` and run `make image`"
 msgstr ""
 
 #: src/porting-applications.md:1230

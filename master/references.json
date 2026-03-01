@@ -16,9 +16,9 @@
       "branch" : "master",
       "commit" : 
       {
-        "date" : "2026-02-08 01:38:51 -0300",
-        "hash" : "1350c2afdc7abb443d05ae4aa612889080ad93d4",
-        "title" : "Improve the Quick Recipe Template usage speed"
+        "date" : "2026-02-20 19:28:55 -0300",
+        "hash" : "35b4d1b45987a210adc37b0e39c35f3a730143e2",
+        "title" : "Add \"Update Redox\" section in Build System Reference"
       }
     },
     "zh_TW" : 
@@ -26,9 +26,9 @@
       "branch" : "master",
       "commit" : 
       {
-        "date" : "2026-02-08 01:38:51 -0300",
-        "hash" : "1350c2afdc7abb443d05ae4aa612889080ad93d4",
-        "title" : "Improve the Quick Recipe Template usage speed"
+        "date" : "2026-02-20 19:28:55 -0300",
+        "hash" : "35b4d1b45987a210adc37b0e39c35f3a730143e2",
+        "title" : "Add \"Update Redox\" section in Build System Reference"
       }
     }
   },

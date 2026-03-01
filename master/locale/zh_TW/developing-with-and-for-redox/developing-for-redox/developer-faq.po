@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: The Redox Operating System\n"
-"POT-Creation-Date: 2026-02-09T03:19:51Z\n"
+"POT-Creation-Date: 2026-02-24T08:43:44Z\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -819,9 +819,9 @@ msgstr ""
 #: src/developer-faq.md:203
 msgid ""
 "Change the `filesystem_size` data type of your filesystem configuration at: "
-"`config/your-cpu-arch/your-config.toml` and run the `make image` command, "
-"read the [Filesystem Size](./configuration-settings.md#filesystem-size) "
-"section for more details."
+"`config/$ARCH/your-config.toml` and run the `make image` command, read the "
+"[Filesystem Size](./configuration-settings.md#filesystem-size) section for "
+"more details."
 msgstr ""
 
 #: src/developer-faq.md:205
@@ -836,9 +836,7 @@ msgid ""
 msgstr ""
 
 #: src/developer-faq.md:209
-msgid ""
-"If you want to do it temporarily run the `make all ARCH=your-cpu-arch` "
-"command."
+msgid "If you want to do it temporarily run the `make all ARCH=$ARCH` command."
 msgstr ""
 
 #: src/developer-faq.md:211
