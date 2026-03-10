@@ -1,0 +1,318 @@
+<!DOCTYPE HTML>
+<html lang="zh_TW" class="light sidebar-visible" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Scheme Operation - The Redox Operating System</title>
+
+
+        <!-- Custom HTML head -->
+        <style>
+        .light .redox-logo {
+            content: url("assets/redox_light_512.png");
+        }
+        .rust .redox-logo {
+            content: url("assets/redox_light_512.png");
+        }
+        .coal .redox-logo {
+            content: url("assets/redox_dark_512.png");
+        }
+        .navy .redox-logo {
+            content: url("assets/redox_dark_512.png");
+        }
+        .ayu .redox-logo {
+            content: url("assets/redox_dark_512.png");
+        }
+        </style>
+        <script type="text/javascript" src="ltd-provenance.js"></script>
+        <script type="text/javascript" src="ltd-current.js"></script>
+        <script type="text/javascript" src="../../ltd-config.js"></script>
+        <script type="text/javascript" src="../../ltd-flyout.js"></script>
+
+        <meta name="description" content="This book carefully describes the design, implementation, direction, and structure of Redox, the operating system.">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="shortcut icon" href="favicon.png">
+        <link rel="stylesheet" href="css/variables.css">
+        <link rel="stylesheet" href="css/general.css">
+        <link rel="stylesheet" href="css/chrome.css">
+        <link rel="stylesheet" href="css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" id="highlight-css" href="highlight.css">
+        <link rel="stylesheet" id="tomorrow-night-css" href="tomorrow-night.css">
+        <link rel="stylesheet" id="ayu-highlight-css" href="ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+
+        <!-- Provide site root and default themes to javascript -->
+        <script>
+            const path_to_root = "";
+            const default_light_theme = "light";
+            const default_dark_theme = "navy";
+            window.path_to_searchindex_js = "searchindex.js";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="toc.js"></script>
+    </head>
+    <body>
+    <div id="mdbook-help-container">
+        <div id="mdbook-help-popup">
+            <h2 class="mdbook-help-title">Keyboard shortcuts</h2>
+            <div>
+                <p>Press <kbd>←</kbd> or <kbd>→</kbd> to navigate between chapters</p>
+                <p>Press <kbd>S</kbd> or <kbd>/</kbd> to search in the book</p>
+                <p>Press <kbd>?</kbd> to show this help</p>
+                <p>Press <kbd>Esc</kbd> to hide this help</p>
+            </div>
+        </div>
+    </div>
+    <div id="body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                let theme = localStorage.getItem('mdbook-theme');
+                let sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            const default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? default_dark_theme : default_light_theme;
+            let theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            let sidebar = null;
+            const sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+                sidebar_toggle.checked = false;
+            }
+            if (sidebar === 'visible') {
+                sidebar_toggle.checked = true;
+            } else {
+                html.classList.remove('sidebar-visible');
+            }
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="default_theme">Auto</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search (`/`)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="/ s" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">The Redox Operating System</h1>
+
+                    <div class="right-buttons">
+                        <a href="print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <div class="search-wrapper">
+                            <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                            <div class="spinner-wrapper">
+                                <i class="fa fa-spinner fa-spin"></i>
+                            </div>
+                        </div>
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1 id="scheme-operation"><a class="header" href="#scheme-operation">Scheme Operation</a></h1>
+<p>A <a href="./schemes.html#kernel-vs-userspace-schemes">kernel scheme</a> is implemented directly in the kernel. A <a href="./schemes.html#kernel-vs-userspace-schemes">userspace scheme</a> is typically implemented by a daemon.</p>
+<p>A scheme is created in the <a href="#root-scheme">root scheme</a> and listens for requests using the <a href="#event-scheme">event scheme</a>.</p>
+<h2 id="root-scheme"><a class="header" href="#root-scheme">Root Scheme</a></h2>
+<p>The <code>root</code> scheme is a special scheme provided by the kernel. It acts as the container for all other scheme names. The root scheme is currently referenced as ":", so when creating a new scheme, the scheme provider calls <code>File::create(":myscheme")</code>. The file descriptor that is returned by this operation is a message passing channel between the scheme provider and the kernel. File operations performed by a regular program are translated by the kernel into message <strong>packets</strong> that the scheme provider reads and responds to, using this file descriptor.</p>
+<h2 id="event-方案"><a class="header" href="#event-方案">Event 方案</a></h2>
+<p>The <code>event</code> scheme is a special scheme provided by the kernel that allows a scheme provider or other program to listen for events occurring on a file descriptor. A more detailed explanation of the <code>event</code> scheme can be found on the <a href="./event-scheme.html">Event Scheme</a> page.</p>
+<p>Note that very simple scheme providers do not use the <code>event</code> scheme. However, if a scheme can receive requests or events from more than one source, the <code>event</code> scheme makes it easy for the daemon (scheme provider) to block until something (an event) happens, do some work, then block again until the next event.</p>
+<h2 id="daemons-and-userspace-scheme-providers"><a class="header" href="#daemons-and-userspace-scheme-providers">Daemons and Userspace Scheme Providers</a></h2>
+<p>A daemon is a program, normally started during system initialization. It runs with root permissions. It is intended to run continuously, handling requests and other relevant events. On some operating systems, daemons are automatically restarted if they exit unexpectedly. Redox does not currently do this but is likely to do so in the future.</p>
+<p>On Redox, a userspace scheme provider is a typically a daemon, although it doesn't have to be. The scheme provider informs the kernel that it will provide the scheme by creating it, e.g. <code>File::create(":myscheme")</code> will create the scheme <code>myscheme</code>. Notice that the name used to create the scheme starts with ":", indicating that it is a new entry in the root scheme. Since it is created in the root scheme, the kernel knows that it is a new scheme, as named schemes are the only thing that can exist in the root scheme. In future, the scheme will register in a namespace using a different path format.</p>
+<h2 id="namespaces"><a class="header" href="#namespaces">Namespaces</a></h2>
+<p>At the time a regular program is started, it becomes a <strong>process</strong>, and it exists in a <strong>namespace</strong>. The namespace is a container for all the schemes, files and directories that a process can access. When a process starts another program, the <code>namespace</code> is inherited, so a new process can only access the schemes, files and directories that its parent process had available. If a parent process wants to limit (<strong>sandbox</strong>) a child process, it would do so as part of creating the child process.</p>
+<p>Currently, Redox starts all processes in the "root" namespace. This will be changed in the future, sandboxing all user programs so most schemes and system resources are hidden.</p>
+<p>Redox also provides a <code>null</code> namespace. A process that exists in the <code>null</code> namespace cannot open files or schemes by name, and can only use file descriptors that are already open. This is a security mechanism, mostly used to by daemons running with <code>root</code> permission to prevent themselves from being hijacked into opening things they should not be accessing. A daemon will typically open its scheme and any resources it needs during its initialization, then it will ask the kernel to place it in the <code>null</code> namespace so no further resources can be opened.</p>
+<h2 id="providing-a-scheme"><a class="header" href="#providing-a-scheme">Providing a Scheme</a></h2>
+<p>To provide a scheme, a program performs the following steps:</p>
+<ol>
+<li>Create the scheme, obtaining a file descriptor - <code>File::create(":myscheme")</code></li>
+<li>Open a file descriptor for each resource that is required to provide the scheme's services, e.g. <code>File::open("/scheme/irq/{irq-name}")</code></li>
+<li>Open a file descriptor for a timer if needed - <code>File::open("/scheme/time/{timer_type}")</code></li>
+<li>Open a file descriptor for the event scheme (if needed) - <code>File::open("/scheme/event")</code></li>
+<li>Move to the null namespace to prevent any additional resources from being accessed - <code>setrens(0,0)</code></li>
+<li>Write to the <code>event</code> file descriptor to register each of the file descriptors the provider will listen to, including the scheme file descriptor - <code>event_fd.write(&amp;Event{fd, ...})</code></li>
+</ol>
+<p>Then, in a loop:</p>
+<ol>
+<li>
+<p>Block, waiting for an event to read. For simple schemes, the scheme provider would not use this mechanism, it would simply do a blocking read of its scheme file descriptor.</p>
+</li>
+<li>
+<p>Read the event to determine (based on the file descriptor included in the event) if it is a timer, a resource event, or a scheme request.</p>
+</li>
+<li>
+<p>If it's a resource event, e.g. indicating a device interrupt, perform the necessary actions such as reading from the device and queuing the data for the scheme.</p>
+</li>
+<li>
+<p>If it's a scheme event, read a request packet from the scheme file descriptor and call the "handler". The request packet will indicate if it's an <code>open</code>, <code>read</code>, <code>write</code>, etc. on the scheme:</p>
+<ul>
+<li>
+<p>An <code>open</code> will include the name of the item to be opened. This can be parsed by the scheme provider to determine the exact resource the requestor wants to access. The scheme will allocate a handle for the resource, with a numbered descriptor. Descriptor numbers are in the range 0 to usize::MAX - 4096, leaving the upper 4096 values as internal error codes. These descriptors are used by the scheme provider to look up the <code>handle</code> data structure it uses internally for the resource. The descriptors are typically allocated sequentially, but a scheme provider could return a pointer to the handle data structure if it so chooses.</p>
+<blockquote>
+<p>📝 <strong>Note:</strong> the descriptor returned from an <code>open</code> request is not the same as the file descriptor returned to the client program. The kernel maps between the client's (process id, <code>fd</code> number) and the scheme provider's (process id, <code>handle</code> number).</p>
+</blockquote>
+</li>
+<li>
+<p>A <code>read</code> or <code>write</code>, etc., will be handled by the scheme, using the <code>handle</code> number to look up the information associated with the resource. The operation will be performed, or queued to be performed. If the request can be handled immediately, a response is sent back on the scheme file descriptor, matched to the original request.</p>
+</li>
+</ul>
+</li>
+<li>
+<p>After all requests have been handled, loop through every <code>handle</code> to determine if any queued requests are now complete. A response is sent back on the scheme file descriptor for each completed request, matched to that request.</p>
+</li>
+<li>
+<p>Set a timer if appropriate, to enable handling of device timeouts, etc. This is performed as a <code>write</code> operation on the timer file descriptor.</p>
+</li>
+</ol>
+<h2 id="kernel-actions"><a class="header" href="#kernel-actions">Kernel Actions</a></h2>
+<p>The kernel performs the following actions in support of the scheme:</p>
+<ul>
+<li>Any special resources required by a scheme provider are accessed as file operations on some other scheme. The kernel handles access to resources as it would for any other scheme.</li>
+<li>Regular file operations from user programs are converted by the kernel to request messages to the schemes. The kernel maps the user program's file descriptor to a scheme and a handle id provided by the scheme during the open operation, and places them in a packet.</li>
+<li>If the user program is performing a blocking read or write, the user program is suspended.</li>
+<li>The kernel sends event packets on the scheme provider's <code>event</code> file descriptor, waking the blocked scheme provider. Each event packet indicates whether it is the scheme or some other resource, using the file descriptor obtained by the scheme provider during its initialization.</li>
+<li>When the scheme provider reads from its scheme file descriptor, it receives the packets the kernel created describing the client request and handles them as described above.</li>
+<li>When the scheme provider sends a response packet, the kernel maps the response to a return value from the user program's file operation.</li>
+<li>When a blocking read or write is completed, the user program is marked ready to run, and the kernel will place it in the run queue.</li>
+</ul>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="stitching-it-all-together.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="event-scheme.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="stitching-it-all-together.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="event-scheme.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="elasticlunr.min.js"></script>
+        <script src="mark.min.js"></script>
+        <script src="searcher.js"></script>
+
+        <script src="clipboard.min.js"></script>
+        <script src="highlight.js"></script>
+        <script src="book.js"></script>
+
+        <!-- Custom JS scripts -->
+
+
+
+    </div>
+    </body>
+</html>
