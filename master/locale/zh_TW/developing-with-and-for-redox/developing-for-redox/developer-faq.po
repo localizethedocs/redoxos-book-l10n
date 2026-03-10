@@ -432,7 +432,7 @@ msgstr ""
 
 #: src/developer-faq.md:78
 msgid "[QEMU](#qemu)"
-msgstr ""
+msgstr "[QEMU](#qemu)"
 
 #: src/developer-faq.md:79
 msgid ""
@@ -457,7 +457,7 @@ msgstr ""
 
 #: src/developer-faq.md:84
 msgid "General Questions"
-msgstr ""
+msgstr "一般問題"
 
 #: src/developer-faq.md:86
 msgid "Why does Redox have unsafe Rust code?"
@@ -555,7 +555,7 @@ msgstr ""
 
 #: src/developer-faq.md:117
 msgid "Optimizations"
-msgstr ""
+msgstr "最佳化"
 
 #: src/developer-faq.md:119
 msgid "Places where Assembly is used:"
@@ -704,7 +704,7 @@ msgstr ""
 
 #: src/developer-faq.md:165
 msgid "Build System Questions"
-msgstr ""
+msgstr "建置系統問題"
 
 #: src/developer-faq.md:167
 msgid "What is the correct way to update the build system?"
@@ -898,6 +898,12 @@ msgid ""
 "...\n"
 "```"
 msgstr ""
+"```toml\n"
+"[packages]\n"
+"...\n"
+"recipe-name = \"binary\"\n"
+"...\n"
+"```"
 
 #: src/developer-faq.md:261
 msgid "Build the recipe and install in a existing image"
@@ -1514,7 +1520,7 @@ msgstr ""
 
 #: src/developer-faq.md:557
 msgid "Build System"
-msgstr ""
+msgstr "建置系統"
 
 #: src/developer-faq.md:559
 msgid ""

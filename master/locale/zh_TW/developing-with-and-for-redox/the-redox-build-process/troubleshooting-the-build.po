@@ -123,7 +123,7 @@ msgstr ""
 
 #: src/troubleshooting.md:31
 msgid "[QEMU](#qemu)"
-msgstr ""
+msgstr "[QEMU](#qemu)"
 
 #: src/troubleshooting.md:32
 msgid "[Real Hardware](#real-hardware)"

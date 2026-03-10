@@ -194,7 +194,7 @@ msgstr ""
 
 #: src/system-tools.md:55
 msgid "`useradd` - Add a user"
-msgstr ""
+msgstr "`useradd` - 增添使用者"
 
 #: src/system-tools.md:56
 msgid "`usermod` - Modify user information"
@@ -206,7 +206,7 @@ msgstr "`userdel` - 刪除使用者"
 
 #: src/system-tools.md:58
 msgid "`groupadd` - Add a user group"
-msgstr ""
+msgstr "`groupadd` - 移除使用者群組"
 
 #: src/system-tools.md:59
 msgid "`groupmod` - Modify group information"

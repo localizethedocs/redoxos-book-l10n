@@ -468,7 +468,7 @@ msgstr ""
 
 #: src/build-system-reference.md:107
 msgid "Build System"
-msgstr ""
+msgstr "建置系統"
 
 #: src/build-system-reference.md:109
 msgid ""

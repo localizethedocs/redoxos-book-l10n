@@ -13,7 +13,7 @@ msgstr ""
 
 #: src/performance.md:1
 msgid "Performance"
-msgstr ""
+msgstr "效能"
 
 #: src/performance.md:3
 msgid "[Kernel Profiling](#kernel-profiling)"
@@ -70,7 +70,7 @@ msgstr ""
 
 #: src/performance.md:22
 msgid "Install tools:"
-msgstr ""
+msgstr "安裝工具："
 
 #: src/performance.md:32
 msgid "Make sure you have the kernel source by running `make f.kernel`."
@@ -305,7 +305,7 @@ msgstr ""
 
 #: src/performance.md:183
 msgid "Benchmarks"
-msgstr ""
+msgstr "基準測試"
 
 #: src/performance.md:185
 msgid "This section give some commands to benchmark Redox."

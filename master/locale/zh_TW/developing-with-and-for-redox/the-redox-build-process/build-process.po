@@ -43,7 +43,7 @@ msgstr ""
 
 #: src/build-phases.md:11
 msgid "[QEMU](#qemu)"
-msgstr ""
+msgstr "[QEMU](#qemu)"
 
 #: src/build-phases.md:13
 msgid "Bootstrap Scripts"
@@ -117,7 +117,7 @@ msgstr ""
 
 #: src/build-phases.md:39
 msgid "Build System"
-msgstr ""
+msgstr "建置系統"
 
 #: src/build-phases.md:41
 msgid "make pull"

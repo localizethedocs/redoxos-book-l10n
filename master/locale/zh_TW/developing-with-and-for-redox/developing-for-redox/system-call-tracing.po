@@ -68,6 +68,10 @@ msgid ""
 "# git = \"https://gitlab.redox-os.org/redox-os/kernel.git\"\n"
 "```"
 msgstr ""
+"```\n"
+"# [source]\n"
+"# git = \"https://gitlab.redox-os.org/redox-os/kernel.git\"\n"
+"```"
 
 #: src/syscall-debug.md:23
 msgid "feature \"syscall_debug\""

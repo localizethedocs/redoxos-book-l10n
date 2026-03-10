@@ -2097,7 +2097,7 @@ msgstr ""
 
 #: src/porting-applications.md:946
 msgid "Build System"
-msgstr ""
+msgstr "建置系統"
 
 #: src/porting-applications.md:948
 msgid ""

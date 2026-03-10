@@ -130,7 +130,7 @@ msgstr ""
 
 #: src/creating-proper-pull-requests.md:69
 msgid "Commit:"
-msgstr ""
+msgstr "送交："
 
 #: src/creating-proper-pull-requests.md:76
 msgid "\"COMMIT MESSAGE\""

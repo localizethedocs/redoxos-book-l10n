@@ -31,7 +31,7 @@ msgstr ""
 
 #: src/advanced-podman-build.md:7
 msgid "[Build System Reference](./build-system-reference.md)"
-msgstr ""
+msgstr "[建置系統參考](./build-system-reference.md)"
 
 #: src/advanced-podman-build.md:9
 msgid ""
@@ -183,7 +183,7 @@ msgstr ""
 
 #: src/advanced-podman-build.md:128
 msgid "`build/container.tag`"
-msgstr ""
+msgstr "`build/container.tag`"
 
 #: src/advanced-podman-build.md:130
 msgid ""

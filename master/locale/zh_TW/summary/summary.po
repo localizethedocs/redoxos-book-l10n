@@ -365,7 +365,7 @@ msgstr ""
 
 #: src/SUMMARY.md:107
 msgid "Performance"
-msgstr ""
+msgstr "效能"
 
 #: src/SUMMARY.md:108
 msgid "System Call Tracing"
