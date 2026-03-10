@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: The Redox Operating System\n"
-"POT-Creation-Date: 2026-02-24T08:43:44Z\n"
+"POT-Creation-Date: 2026-03-10T13:25:33Z\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -58,9 +58,7 @@ msgid "[Build the system](#build-the-system)"
 msgstr ""
 
 #: src/quick-workflow.md:13
-msgid ""
-"[Update the build system and its submodules](#update-the-build-system-and-"
-"its-submodules)"
+msgid "[Update the build system](#update-the-build-system)"
 msgstr ""
 
 #: src/quick-workflow.md:14
@@ -209,7 +207,7 @@ msgid "Use Case: Build the system from a clean build system copy."
 msgstr ""
 
 #: src/quick-workflow.md:91
-msgid "Update the build system and its submodules"
+msgid "Update the build system"
 msgstr ""
 
 #: src/quick-workflow.md:97
@@ -233,127 +231,147 @@ msgid "Use Case: Keep the Redox image up-to-date."
 msgstr ""
 
 #: src/quick-workflow.md:115
+msgid "Only update system recipes and install in Redox image"
+msgstr ""
+
+#: src/quick-workflow.md:121
+msgid "Or if incremental compilation can't be used:"
+msgstr ""
+
+#: src/quick-workflow.md:127
 msgid "Update everything"
 msgstr ""
 
-#: src/quick-workflow.md:117
+#: src/quick-workflow.md:129
 msgid ""
 "Install the `topgrade` tool to update your system packages (you can install "
 "it with `cargo install topgrade`)"
 msgstr ""
 
-#: src/quick-workflow.md:131
+#: src/quick-workflow.md:139
 msgid ""
 "Use Case: Try to fix most problems caused by outdated recipes, toolchain and "
 "build system configuration."
 msgstr ""
 
-#: src/quick-workflow.md:133
-msgid "Wipe the toolchain and download again"
+#: src/quick-workflow.md:141
+msgid "Wipe statically linked recipe binaries"
 msgstr ""
 
-#: src/quick-workflow.md:143
-msgid "Use Case: Commonly used to fix problems."
-msgstr ""
-
-#: src/quick-workflow.md:145
-msgid "Wipe the toolchain/recipe binaries and download/build them again"
-msgstr ""
-
-#: src/quick-workflow.md:151
-msgid "Use Case: Commonly used to fix breaking changes on recipes."
+#: src/quick-workflow.md:147
+msgid "Wipe and build all recipe binaries"
 msgstr ""
 
 #: src/quick-workflow.md:153
+msgid "Wipe the toolchain and download again"
+msgstr ""
+
+#: src/quick-workflow.md:163
+msgid "Use Case: Commonly used to fix problems."
+msgstr ""
+
+#: src/quick-workflow.md:165
+msgid "Wipe the toolchain/recipe binaries and download/build them again"
+msgstr ""
+
+#: src/quick-workflow.md:171
+msgid "Use Case: Commonly used to fix breaking changes on recipes."
+msgstr ""
+
+#: src/quick-workflow.md:173
 msgid ""
 "Wipe toolchain/recipe binaries and Podman container, update build system "
 "source and rebuild the system"
 msgstr ""
 
-#: src/quick-workflow.md:159
+#: src/quick-workflow.md:179
 msgid ""
 "Use Case: Full build system binary cleanup and update to avoid most "
 "configuration breaking changes"
 msgstr ""
 
-#: src/quick-workflow.md:161
+#: src/quick-workflow.md:181
 msgid "Wipe all recipe sources/binaries and download/build them again"
 msgstr ""
 
-#: src/quick-workflow.md:167
+#: src/quick-workflow.md:187
 msgid "Use Case: Fix source/binary breaking changes on recipes or save space."
 msgstr ""
 
-#: src/quick-workflow.md:169
+#: src/quick-workflow.md:189
 msgid "Use the \"myfiles\" recipe to insert your files on Redox image"
 msgstr ""
 
-#: src/quick-workflow.md:188
+#: src/quick-workflow.md:208
 msgid ""
 "Use Case: Quickly insert files on the Redox image or keep files between "
 "rebuilds."
 msgstr ""
 
-#: src/quick-workflow.md:190
+#: src/quick-workflow.md:210
 msgid "Disable a recipe on the filesystem configuration"
 msgstr ""
 
-#: src/quick-workflow.md:200
+#: src/quick-workflow.md:220
 msgid "Use Case: Mostly used if some default recipe is broken."
 msgstr ""
 
-#: src/quick-workflow.md:202
+#: src/quick-workflow.md:222
 msgid "Create logs"
 msgstr ""
 
-#: src/quick-workflow.md:208
+#: src/quick-workflow.md:228
 msgid "Use Case: Report errors."
 msgstr ""
 
-#: src/quick-workflow.md:210
+#: src/quick-workflow.md:230
 msgid "Temporarily build the toolchain from source"
 msgstr ""
 
-#: src/quick-workflow.md:216
+#: src/quick-workflow.md:236
 msgid "Use Case: Test toolchain fixes."
 msgstr ""
 
-#: src/quick-workflow.md:218
+#: src/quick-workflow.md:238
+msgid "Build and install a meta-package"
+msgstr ""
+
+#: src/quick-workflow.md:244
 msgid "Build some filesystem configuration for some CPU architecture"
 msgstr ""
 
-#: src/quick-workflow.md:224
+#: src/quick-workflow.md:250
 msgid ""
 "Use Case: Quickly build Redox variants without manual intervention on "
 "configuration files."
 msgstr ""
 
-#: src/quick-workflow.md:226
+#: src/quick-workflow.md:252
 msgid ""
 "Build some filesystem configuration for some CPU architecture (using pre-"
 "built packages from the build server)"
 msgstr ""
 
-#: src/quick-workflow.md:228
+#: src/quick-workflow.md:254
 msgid "(Much faster than the option above)"
 msgstr ""
 
-#: src/quick-workflow.md:234
+#: src/quick-workflow.md:260
 msgid ""
 "Use Case: Quickly build Redox variants without system compilation and manual "
 "intervention on configuration files."
 msgstr ""
 
-#: src/quick-workflow.md:236
+#: src/quick-workflow.md:262
 msgid "Boot Redox on QEMU from a NVMe device"
 msgstr ""
 
-#: src/quick-workflow.md:242
+#: src/quick-workflow.md:268
 msgid ""
 "Boot Redox on QEMU from a NVMe device with a custom number of CPU threads"
 msgstr ""
 
-#: src/quick-workflow.md:248
+#: src/quick-workflow.md:274
 msgid ""
 "Boot Redox on QEMU from a NVMe device, a custom number of CPU threads and "
 "memory"
