@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: The Redox Operating System\n"
-"POT-Creation-Date: 2026-02-24T08:43:44Z\n"
+"POT-Creation-Date: 2026-03-10T13:25:33Z\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -38,8 +38,8 @@ msgstr ""
 
 #: src/creating-proper-pull-requests.md:9
 msgid ""
-"The steps given below are for the main Redox project repository - submodules "
-"and other projects may vary, though most of the approach is the same."
+"The steps given below are for the main Redox project repository - other "
+"projects may vary, though most of the approach is the same."
 msgstr ""
 
 #: src/creating-proper-pull-requests.md:11
@@ -54,36 +54,40 @@ msgstr ""
 msgid "**If you need to add new commits mark the MR as draft again.**"
 msgstr ""
 
-#: src/creating-proper-pull-requests.md:16
+#: src/creating-proper-pull-requests.md:15
+msgid "Sometimes you need to rebase your MR to fix the CI testing"
+msgstr ""
+
+#: src/creating-proper-pull-requests.md:17
 msgid "Preparing your branch"
 msgstr ""
 
-#: src/creating-proper-pull-requests.md:18
+#: src/creating-proper-pull-requests.md:19
 msgid ""
 "In an appropriate directory, e.g. `~/tryredox`, clone the Redox repository "
 "to your computer using the following command:"
 msgstr ""
 
-#: src/creating-proper-pull-requests.md:24
+#: src/creating-proper-pull-requests.md:25
 msgid ""
 "If you used `podman_bootstrap.sh` or `native_bootstrap.sh` scripts (see the "
 "[Building Redox](./podman-build.md) page), the `git clone` was done for you "
 "and you can skip this step."
 msgstr ""
 
-#: src/creating-proper-pull-requests.md:25
+#: src/creating-proper-pull-requests.md:26
 msgid ""
 "You need to create a [Personal Access Token](./signing-in-to-gitlab."
 "md#setting-up-pat) for pushing your code into your repository fork later."
 msgstr ""
 
-#: src/creating-proper-pull-requests.md:27
+#: src/creating-proper-pull-requests.md:28
 msgid ""
 "Change to the newly created redox directory and rebase to ensure you're "
 "using the latest changes:"
 msgstr ""
 
-#: src/creating-proper-pull-requests.md:36
+#: src/creating-proper-pull-requests.md:37
 msgid ""
 "You should have a fork of the repository on GitLab and a local copy on your "
 "computer. The local copy should have two remotes; `upstream` and `origin`, "
@@ -92,31 +96,31 @@ msgid ""
 "gitlab.redox-os.org/redox-os/redox) - look for the button in the upper right."
 msgstr ""
 
-#: src/creating-proper-pull-requests.md:38
+#: src/creating-proper-pull-requests.md:39
 msgid "Add your fork to your list of Git remotes with:"
 msgstr ""
 
-#: src/creating-proper-pull-requests.md:44
+#: src/creating-proper-pull-requests.md:45
 msgid ""
 "Note: If you made an error in your `git remote` command, use `git remote "
 "remove origin` and try again."
 msgstr ""
 
-#: src/creating-proper-pull-requests.md:46
+#: src/creating-proper-pull-requests.md:47
 msgid ""
 "Alternatively, if you already have a fork and copy of the repo, you can "
 "simply check to make sure you're up-to-date. Fetch the upstream, rebase with "
 "local commits, and update the submodules:"
 msgstr ""
 
-#: src/creating-proper-pull-requests.md:60
+#: src/creating-proper-pull-requests.md:61
 msgid ""
 "Usually, when syncing your local copy with the master branch, you will want "
 "to rebase instead of merge. This is because it will create duplicate commits "
 "that don't actually do anything when merged into the master branch."
 msgstr ""
 
-#: src/creating-proper-pull-requests.md:62
+#: src/creating-proper-pull-requests.md:63
 msgid ""
 "Before you start to make changes, you will want to create a separate branch, "
 "and keep the `master` branch of your fork identical to the main repository, "
@@ -124,19 +128,19 @@ msgid ""
 "more stable build if you need to. Create a separate branch:"
 msgstr ""
 
-#: src/creating-proper-pull-requests.md:68
+#: src/creating-proper-pull-requests.md:69
 msgid "Make your changes and test them."
 msgstr ""
 
-#: src/creating-proper-pull-requests.md:69
+#: src/creating-proper-pull-requests.md:70
 msgid "Commit:"
 msgstr ""
 
-#: src/creating-proper-pull-requests.md:76
+#: src/creating-proper-pull-requests.md:77
 msgid "\"COMMIT MESSAGE\""
 msgstr ""
 
-#: src/creating-proper-pull-requests.md:79
+#: src/creating-proper-pull-requests.md:80
 msgid ""
 "Commit messages should describe their changes in present-tense, e.g. \"`Add "
 "stuff to file.ext`\" instead of \"`added stuff to file.ext`\". Try to remove "
@@ -144,40 +148,40 @@ msgid ""
 "it hard to read."
 msgstr ""
 
-#: src/creating-proper-pull-requests.md:81
+#: src/creating-proper-pull-requests.md:82
 msgid ""
 "Optionally run [rustfmt](https://github.com/rust-lang/rustfmt) on the files "
 "you changed and commit again if it did anything (check with `git diff` "
 "first)."
 msgstr ""
 
-#: src/creating-proper-pull-requests.md:83
+#: src/creating-proper-pull-requests.md:84
 msgid "Test your changes with `make qemu` or `make virtualbox`"
 msgstr ""
 
-#: src/creating-proper-pull-requests.md:84
+#: src/creating-proper-pull-requests.md:85
 msgid "Pull from upstream:"
 msgstr ""
 
-#: src/creating-proper-pull-requests.md:94
+#: src/creating-proper-pull-requests.md:95
 msgid ""
 "Note: try not to use `git pull`, it is equivalent to doing `git fetch "
 "upstream; git merge master upstream/master`"
 msgstr ""
 
-#: src/creating-proper-pull-requests.md:96
+#: src/creating-proper-pull-requests.md:97
 msgid "Repeat step 10 to make sure the rebase still builds and starts."
 msgstr ""
 
-#: src/creating-proper-pull-requests.md:97
+#: src/creating-proper-pull-requests.md:98
 msgid "Push your changes to your fork:"
 msgstr ""
 
-#: src/creating-proper-pull-requests.md:103
+#: src/creating-proper-pull-requests.md:104
 msgid "Submitting a merge request"
 msgstr ""
 
-#: src/creating-proper-pull-requests.md:105
+#: src/creating-proper-pull-requests.md:106
 msgid ""
 "On [Redox GitLab](https://gitlab.redox-os.org/), create a Merge Request, "
 "following the template. Explain your changes in the title in an easy way and "
@@ -185,118 +189,118 @@ msgid ""
 "**Submit!**"
 msgstr ""
 
-#: src/creating-proper-pull-requests.md:106
+#: src/creating-proper-pull-requests.md:107
 msgid ""
 "Once your merge request is ready, notify reviewers by sending the link to "
 "the [Redox Merge Requests](https://matrix.to/#/#redox-mrs:matrix.org) room."
 msgstr ""
 
-#: src/creating-proper-pull-requests.md:108
+#: src/creating-proper-pull-requests.md:109
 msgid "Incorporating feedback"
 msgstr ""
 
-#: src/creating-proper-pull-requests.md:110
+#: src/creating-proper-pull-requests.md:111
 msgid ""
 "Sometimes a reviewer will request modifications. If changes are required:"
 msgstr ""
 
-#: src/creating-proper-pull-requests.md:112
+#: src/creating-proper-pull-requests.md:113
 msgid ""
 "Reply or add a thread to the original merge request notification in the "
 "[Redox Merge Requests](https://matrix.to/#/#redox-mrs:matrix.org) room "
 "indicating that you intend to make additional changes."
 msgstr ""
 
-#: src/creating-proper-pull-requests.md:114
+#: src/creating-proper-pull-requests.md:115
 msgid ""
 "**Note**: It's best to avoid making large changes or additions to a merge "
 "request branch, but if necessary, please indicate in chat that you will be "
 "making significant changes."
 msgstr ""
 
-#: src/creating-proper-pull-requests.md:116
+#: src/creating-proper-pull-requests.md:117
 msgid ""
 "Mark the merge request as \"Draft\" before pushing any changes to the branch "
 "being reviewed."
 msgstr ""
 
-#: src/creating-proper-pull-requests.md:117
+#: src/creating-proper-pull-requests.md:118
 msgid "Make any necessary changes."
 msgstr ""
 
-#: src/creating-proper-pull-requests.md:118
+#: src/creating-proper-pull-requests.md:119
 msgid ""
 "Reply on the same thread in the [Redox Merge Requests](https://matrix.to/#/"
 "#redox-mrs:matrix.org) room that your merge request is now ready."
 msgstr ""
 
-#: src/creating-proper-pull-requests.md:119
+#: src/creating-proper-pull-requests.md:120
 msgid "Mark the merge request as \"Ready\""
 msgstr ""
 
-#: src/creating-proper-pull-requests.md:121
+#: src/creating-proper-pull-requests.md:122
 msgid ""
 "This process communicates that the branch may be changing, and prevents "
 "reviewers from expending time and effort reviewing changes that are still in "
 "progress."
 msgstr ""
 
-#: src/creating-proper-pull-requests.md:124
+#: src/creating-proper-pull-requests.md:125
 msgid "Using GitLab web interface"
 msgstr ""
 
-#: src/creating-proper-pull-requests.md:126
+#: src/creating-proper-pull-requests.md:127
 msgid ""
 "Update your fork before new changes (click on the button to update the "
 "branch in the fork page)"
 msgstr ""
 
-#: src/creating-proper-pull-requests.md:128
+#: src/creating-proper-pull-requests.md:129
 msgid ""
 "Fork the repository that you want and click in the \"Web IDE\" button inside "
 "the \"Code\" blue button."
 msgstr ""
 
-#: src/creating-proper-pull-requests.md:129
+#: src/creating-proper-pull-requests.md:130
 msgid ""
 "If you have many changes and prefer a faster review create a branch for each "
 "part of the changes by clicking in the button named as \"master\" or "
 "\"main\" in the bottom left position"
 msgstr ""
 
-#: src/creating-proper-pull-requests.md:130
+#: src/creating-proper-pull-requests.md:131
 msgid ""
 "Make your changes in the files and click in the \"Source Control\" button on "
 "the left side."
 msgstr ""
 
-#: src/creating-proper-pull-requests.md:131
+#: src/creating-proper-pull-requests.md:132
 msgid "Explain your commits and apply"
 msgstr ""
 
-#: src/creating-proper-pull-requests.md:132
+#: src/creating-proper-pull-requests.md:133
 msgid ""
 "After the first commit creation a pop-up window will appear suggesting to "
 "create a MR, if your changes are ready click on the \"Create MR\" button."
 msgstr ""
 
-#: src/creating-proper-pull-requests.md:133
+#: src/creating-proper-pull-requests.md:134
 msgid ""
 "If you want to make more changes continue in the IDE, once you finish to "
 "create commits return to the fork page and reload it"
 msgstr ""
 
-#: src/creating-proper-pull-requests.md:134
+#: src/creating-proper-pull-requests.md:135
 msgid "Click on the \"Create merge request\" button that will appear"
 msgstr ""
 
-#: src/creating-proper-pull-requests.md:135
+#: src/creating-proper-pull-requests.md:136
 msgid ""
 "Explain your changes and create the MR (you can squash your commits if their "
 "names don't contain relevant information)"
 msgstr ""
 
-#: src/creating-proper-pull-requests.md:136
+#: src/creating-proper-pull-requests.md:137
 msgid ""
 "If your merge request is ready send the link in the [Redox Merge Requests]"
 "(https://matrix.to/#/#redox-mrs:matrix.org) room."

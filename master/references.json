@@ -37,9 +37,9 @@
     "branch" : "master",
     "commit" : 
     {
-      "date" : "2026-02-20 19:28:55 -0300",
-      "hash" : "35b4d1b45987a210adc37b0e39c35f3a730143e2",
-      "title" : "Add \"Update Redox\" section in Build System Reference"
+      "date" : "2026-03-10 04:03:47 -0300",
+      "hash" : "9d66f41ff5c0be2791d9037eb3393a3e8be55833",
+      "title" : "Document the SCCACHE_BUILD envivar and mention formal verification in Rust type-safety"
     }
   },
   "type" : "branch",
