@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: The Redox Operating System\n"
-"POT-Creation-Date: 2026-02-24T08:43:44Z\n"
+"POT-Creation-Date: 2026-03-17T09:29:16Z\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -157,7 +157,7 @@ msgid ""
 "details."
 msgstr ""
 
-#: src/troubleshooting.md:44 src/troubleshooting.md:638
+#: src/troubleshooting.md:44 src/troubleshooting.md:666
 msgid "Real Hardware"
 msgstr ""
 
@@ -237,13 +237,11 @@ msgstr ""
 msgid "Podman"
 msgstr ""
 
-#: src/troubleshooting.md:66
+#: src/troubleshooting.md:67
 msgid ""
-"If your build appears to be missing libraries, have a look at the [Debugging "
-"Your Podman Build Process](./advanced-podman-build.md#debugging-your-build-"
-"process) section. If your Podman environment becomes broken, you can use "
-"`podman system reset` and `rm -rf build/podman`. In some cases, you may need "
-"to run the `sudo rm -rf build/podman` command."
+"If your Podman environment becomes broken, you can use `make container_clean "
+"all PODMAN_CACHE_PULL=0` (`podman system reset`) or `rm -rf build/podman`. "
+"In some cases, you may need to run the `sudo rm -rf build/podman` command."
 msgstr ""
 
 #: src/troubleshooting.md:69
@@ -254,15 +252,22 @@ msgid ""
 msgstr ""
 
 #: src/troubleshooting.md:71
-msgid "Manual Configuration"
+msgid ""
+"If your build appears to be missing libraries, have a look at the [Debugging "
+"Your Podman Build Process](./advanced-podman-build.md#debugging-your-build-"
+"process) section."
 msgstr ""
 
 #: src/troubleshooting.md:73
+msgid "Manual Configuration"
+msgstr ""
+
+#: src/troubleshooting.md:75
 msgid ""
 "If you have problems setting Podman to rootless mode, do the following steps:"
 msgstr ""
 
-#: src/troubleshooting.md:75
+#: src/troubleshooting.md:77
 msgid ""
 "(These commands were taken from the official [Podman rootless wiki](https://"
 "github.com/containers/podman/blob/main/docs/tutorials/rootless_tutorial.md) "
@@ -272,19 +277,19 @@ msgid ""
 "work with everyone)"
 msgstr ""
 
-#: src/troubleshooting.md:77
+#: src/troubleshooting.md:79
 msgid ""
 "Install the `podman`, `crun`, `slirp4netns` and `fuse-overlayfs` packages on "
 "your system."
 msgstr ""
 
-#: src/troubleshooting.md:78
+#: src/troubleshooting.md:80
 msgid ""
 "`podman ps -a` - This command will show all your Podman containers, if you "
 "want to remove all of them, run `podman system reset`"
 msgstr ""
 
-#: src/troubleshooting.md:79
+#: src/troubleshooting.md:81
 msgid ""
 "Follow [this step](https://github.com/containers/podman/blob/main/docs/"
 "tutorials/rootless_tutorial.md#cgroup-v2-support) if necessary (if the "
@@ -294,61 +299,61 @@ msgid ""
 "\"crun\"`"
 msgstr ""
 
-#: src/troubleshooting.md:80
+#: src/troubleshooting.md:82
 msgid ""
 "Execute the `cat /etc/subuid` and `cat /etc/subgid` commands to see user/"
 "group IDs (UIDs/GIDs) available for Podman."
 msgstr ""
 
-#: src/troubleshooting.md:82
+#: src/troubleshooting.md:84
 msgid "If you don't want to edit the file, you can use this command:"
 msgstr ""
 
-#: src/troubleshooting.md:88
+#: src/troubleshooting.md:90
 msgid ""
 "You can use the values `100000-165535` for your user, just edit the two text "
 "files, we recommend `sudo nano /etc/subuid` and `sudo nano /etc/subgid`, "
 "when you finish, press Ctrl+X to save the changes."
 msgstr ""
 
-#: src/troubleshooting.md:90
+#: src/troubleshooting.md:92
 msgid "After the change on the UID/GID values, execute this command:"
 msgstr ""
 
-#: src/troubleshooting.md:96
+#: src/troubleshooting.md:98
 msgid ""
 "If you have a network problem on the container, this command will allow "
 "connections on the port 443 (without root):"
 msgstr ""
 
-#: src/troubleshooting.md:102
+#: src/troubleshooting.md:104
 msgid "Hopefully, you have a working Podman build now."
 msgstr ""
 
-#: src/troubleshooting.md:104
+#: src/troubleshooting.md:106
 msgid ""
 "(If you still have problems with Podman, read the [Troubleshooting](./"
 "troubleshooting.md) chapter or join us on the [chat](./chat.md))"
 msgstr ""
 
-#: src/troubleshooting.md:106
+#: src/troubleshooting.md:108
 msgid ""
 "Let us know if you have improvements for Podman troubleshooting on the [chat]"
 "(./chat.md)."
 msgstr ""
 
-#: src/troubleshooting.md:108
+#: src/troubleshooting.md:110
 msgid "Native Build"
 msgstr ""
 
-#: src/troubleshooting.md:110
+#: src/troubleshooting.md:112
 msgid ""
 "Not all Linux distributions are supported by `native_bootstrap.sh`, so if "
 "you have frequent compilation problems try the `podman_bootstrap.sh` script "
 "for [Podman](https://podman.io/) builds."
 msgstr ""
 
-#: src/troubleshooting.md:112
+#: src/troubleshooting.md:114
 msgid ""
 "If you want to support your Unix-like system without Podman, you can try to "
 "install the Debian/Ubuntu package equivalents for your system from your "
@@ -357,7 +362,7 @@ msgid ""
 "blob/master/native_bootstrap.sh) script."
 msgstr ""
 
-#: src/troubleshooting.md:114
+#: src/troubleshooting.md:116
 msgid ""
 "The `native_bootstrap.sh` script and `redox-base-containerfile` covers the "
 "build system packages needed by the recipes at the [demo.toml](https://"
@@ -365,42 +370,42 @@ msgid ""
 "filesystem configuration."
 msgstr ""
 
-#: src/troubleshooting.md:116
+#: src/troubleshooting.md:118
 msgid ""
 "(Note that some systems may have build environment problems hard and time "
 "consuming to fix, on these systems Podman will fix most headaches)"
 msgstr ""
 
-#: src/troubleshooting.md:118
+#: src/troubleshooting.md:120
 msgid "Git"
 msgstr ""
 
-#: src/troubleshooting.md:120
+#: src/troubleshooting.md:122
 msgid ""
 "If you did not use `podman_bootstrap.sh` or `native_bootstrap.sh` to setup "
 "your environment, you can download the sources with:"
 msgstr ""
 
-#: src/troubleshooting.md:126
+#: src/troubleshooting.md:128
 msgid ""
 "Ensure that all the libraries and packages required by Redox are installed "
 "by running `./podman_bootstrap.sh -d` or, if you will be using the Podman "
 "build run the `./podman_bootstrap.sh -d` command."
 msgstr ""
 
-#: src/troubleshooting.md:128
+#: src/troubleshooting.md:130
 msgid "Building The System"
 msgstr ""
 
-#: src/troubleshooting.md:130
+#: src/troubleshooting.md:132
 msgid "When you run `make all`, the following steps occur."
 msgstr ""
 
-#: src/troubleshooting.md:132
+#: src/troubleshooting.md:134
 msgid ".config and mk/config.mk"
 msgstr ""
 
-#: src/troubleshooting.md:134
+#: src/troubleshooting.md:136
 msgid ""
 "`make` scans [.config](./configuration-settings.md#config) and [mk/config.mk]"
 "(./configuration-settings.md#mkconfigmk) for settings, such as the CPU "
@@ -409,11 +414,11 @@ msgid ""
 "settings.md) page to make sure you have the settings that are best for you."
 msgstr ""
 
-#: src/troubleshooting.md:136
+#: src/troubleshooting.md:138
 msgid "Prefix"
 msgstr ""
 
-#: src/troubleshooting.md:138
+#: src/troubleshooting.md:140
 msgid ""
 "The Redox toolchain, referred to as **prefix** because it is prefixed with "
 "the CPU architecture name, is downloaded and/or built. Modified versions of "
@@ -421,17 +426,17 @@ msgid ""
 "the `prefix` directory."
 msgstr ""
 
-#: src/troubleshooting.md:140
+#: src/troubleshooting.md:142
 msgid ""
 "If you have a problem with the toolchain, try the `rm -rf prefix` and `make "
 "prefix` or `make clean all` (if `make prefix` is not enough) commands."
 msgstr ""
 
-#: src/troubleshooting.md:142
+#: src/troubleshooting.md:144
 msgid "Filesystem Configuration"
 msgstr ""
 
-#: src/troubleshooting.md:144
+#: src/troubleshooting.md:146
 msgid ""
 "The list of Redox recipes to be built is read from the [filesystem "
 "configuration](./configuration-settings.md#filesystem-configuration) file, "
@@ -440,24 +445,24 @@ msgid ""
 "have set the `CONFIG_NAME` or `FILESYSTEM_CONFIG` in the `.config` file."
 msgstr ""
 
-#: src/troubleshooting.md:146
+#: src/troubleshooting.md:148
 msgid "Fetch"
 msgstr ""
 
-#: src/troubleshooting.md:148
+#: src/troubleshooting.md:150
 msgid ""
 "Each recipe source is downloaded using `git` or `curl`, according to the "
 "`[source]` section of the `recipe.toml` file. Source is placed at `recipes/"
 "recipe-name/source`"
 msgstr ""
 
-#: src/troubleshooting.md:150
+#: src/troubleshooting.md:152
 msgid ""
 "(Some recipes still use the old `recipe.sh` format, they need to be "
 "converted to TOML)"
 msgstr ""
 
-#: src/troubleshooting.md:152
+#: src/troubleshooting.md:154
 msgid ""
 "If you are doing work on a recipe, you may want to comment out the "
 "`[source]` section of the recipe. To discard your changes to the source for "
@@ -466,7 +471,7 @@ msgid ""
 "to remove both the source and any compiled code."
 msgstr ""
 
-#: src/troubleshooting.md:154
+#: src/troubleshooting.md:156
 msgid ""
 "After all recipes are fetched, a tag file is created as `build/$ARCH/"
 "$CONFIG_NAME/fetch.tag`, e.g. `build/x86_64/desktop/fetch.tag`. If this file "
@@ -474,18 +479,18 @@ msgid ""
 "rebuild`, if you want to force refetching."
 msgstr ""
 
-#: src/troubleshooting.md:156
+#: src/troubleshooting.md:158
 msgid "Cookbook"
 msgstr ""
 
-#: src/troubleshooting.md:158
+#: src/troubleshooting.md:160
 msgid ""
 "Each recipe is built according to the `recipe.toml` file. The recipe "
 "binaries or library objects are placed in the `target` directory, in a "
 "subdirectory named based on the CPU architecture."
 msgstr ""
 
-#: src/troubleshooting.md:160
+#: src/troubleshooting.md:162
 msgid ""
 "If you have a problem with a recipe you are building, try the `make c.recipe-"
 "name` command. A common problem when building on unsupported systems is that "
@@ -494,7 +499,7 @@ msgid ""
 "dependencies."
 msgstr ""
 
-#: src/troubleshooting.md:162
+#: src/troubleshooting.md:164
 msgid ""
 "After all recipes are cooked, a tag file is created as `build/$ARCH/"
 "$CONFIG_NAME/repo.tag`. If this file is present, cooking is skipped. You can "
@@ -502,11 +507,11 @@ msgid ""
 "rebuilding."
 msgstr ""
 
-#: src/troubleshooting.md:164
+#: src/troubleshooting.md:166
 msgid "Create the Image with FUSE"
 msgstr ""
 
-#: src/troubleshooting.md:166
+#: src/troubleshooting.md:168
 msgid ""
 "To build the final Redox image, `redox_installer` uses [FUSE](https://github."
 "com/libfuse/libfuse), creating a virtual filesystem and copying the recipe "
@@ -514,7 +519,7 @@ msgid ""
 "Podman Build."
 msgstr ""
 
-#: src/troubleshooting.md:168
+#: src/troubleshooting.md:170
 msgid ""
 "On some Linux distributions, FUSE may not be permitted for some users, or "
 "`podman_bootstrap.sh` and `native_bootstrap.sh` might not install it "
@@ -522,128 +527,128 @@ msgid ""
 "[chat](./chat.md) if you need advice."
 msgstr ""
 
-#: src/troubleshooting.md:170
+#: src/troubleshooting.md:172
 msgid "Solving Compilation Problems"
 msgstr ""
 
-#: src/troubleshooting.md:172
+#: src/troubleshooting.md:174
 msgid ""
 "Verify your Rust version (run `make env` and `cargo --version`, then "
 "`exit`), make sure you have **the latest version of Rust nightly!**."
 msgstr ""
 
-#: src/troubleshooting.md:174
+#: src/troubleshooting.md:176
 msgid ""
 "[rustup.rs](https://www.rustup.rs) is recommended for managing Rust "
 "versions. If you already have it, run the `rustup` command."
 msgstr ""
 
-#: src/troubleshooting.md:176
+#: src/troubleshooting.md:178
 msgid "Verify if your `make` and `nasm` are up-to-date."
 msgstr ""
 
-#: src/troubleshooting.md:177
+#: src/troubleshooting.md:179
 msgid ""
 "Verify if the build system is using the latest commit by running the `git "
 "branch -v` command."
 msgstr ""
 
-#: src/troubleshooting.md:178
+#: src/troubleshooting.md:180
 msgid ""
 "Verify if the submodules are using the latest pinned commit, to do this run:"
 msgstr ""
 
-#: src/troubleshooting.md:188
+#: src/troubleshooting.md:190
 msgid ""
 "Verify if the recipe source is using the latest commit of the default "
 "branch, to do this run:"
 msgstr ""
 
-#: src/troubleshooting.md:198
+#: src/troubleshooting.md:200
 msgid ""
 "Run `make clean pull fetch` to remove all your compiled binaries and update "
 "all sources."
 msgstr ""
 
-#: src/troubleshooting.md:199
+#: src/troubleshooting.md:201
 msgid ""
 "Sometimes there are merge requests that briefly break the build, so check "
 "the [Chat](./chat.md) if anyone else is experiencing your problems."
 msgstr ""
 
-#: src/troubleshooting.md:200
+#: src/troubleshooting.md:202
 msgid ""
 "Sometimes both the source and the binary of some recipe is wrong, run `make "
 "ur.recipe-name` and verify if it fix the problem."
 msgstr ""
 
-#: src/troubleshooting.md:202
+#: src/troubleshooting.md:204
 msgid "Environment Leakage"
 msgstr ""
 
-#: src/troubleshooting.md:204
+#: src/troubleshooting.md:206
 msgid ""
 "Environment leakage is when some program or library is not fully cross-"
 "compiled to Redox, thus its dependency chain has Linux references that don't "
 "work on Redox."
 msgstr ""
 
-#: src/troubleshooting.md:206
+#: src/troubleshooting.md:208
 msgid ""
 "It usually happens when the program or library get objects from outside the "
 "Redox build system PATH."
 msgstr ""
 
-#: src/troubleshooting.md:208
+#: src/troubleshooting.md:210
 msgid ""
 "The Redox build system PATH only read at `/usr/bin` and `/bin` to use the "
 "host system build tools"
 msgstr ""
 
-#: src/troubleshooting.md:209
+#: src/troubleshooting.md:211
 msgid ""
 "The program build system must use the host system build tools and the "
 "Cookbook recipe dependencies, not the host system libraries."
 msgstr ""
 
-#: src/troubleshooting.md:210
+#: src/troubleshooting.md:212
 msgid ""
 "The most common way to detect this is to install the `*-dev` dependency "
 "package equivalent to the program recipe dependency, for example:"
 msgstr ""
 
-#: src/troubleshooting.md:212
+#: src/troubleshooting.md:214
 msgid ""
 "The program named \"my-program\" needs to use the OpenSSL library, thus you "
 "add the `openssl` recipe on the `recipe.toml` of the program, but the "
 "program don't detect the OpenSSL source code."
 msgstr ""
 
-#: src/troubleshooting.md:214
+#: src/troubleshooting.md:216
 msgid ""
 "Then you install the `libssl-dev` package on your Ubuntu system and rebuild "
 "the program with the `make cr.my-program` command, then it finish the build "
 "process successfully."
 msgstr ""
 
-#: src/troubleshooting.md:216
+#: src/troubleshooting.md:218
 msgid ""
 "But when you try to open the executable of the program inside of Redox, it "
 "doesn't work. Because it contain Linux references."
 msgstr ""
 
-#: src/troubleshooting.md:218
+#: src/troubleshooting.md:220
 msgid ""
 "To fix this problem you need to find where the program build system get the "
 "OpenSSL source code and patch it with `${COOKBOOK_SYSROOT}` environment "
 "variable (where the `openssl` recipe contents were copied)"
 msgstr ""
 
-#: src/troubleshooting.md:220
+#: src/troubleshooting.md:222
 msgid "Update Your Build System"
 msgstr ""
 
-#: src/troubleshooting.md:222
+#: src/troubleshooting.md:224
 msgid ""
 "Sometimes your build system can be outdated because you forgot to run `make "
 "pull` before other commands, read [this](./build-system-reference.md#update-"
@@ -651,11 +656,11 @@ msgid ""
 "system."
 msgstr ""
 
-#: src/troubleshooting.md:224
+#: src/troubleshooting.md:226
 msgid "Prevent and Fix Breaking Changes"
 msgstr ""
 
-#: src/troubleshooting.md:226
+#: src/troubleshooting.md:228
 msgid ""
 "Sometimes build system or recipe breaking changes are merged (you need to "
 "monitor the Dev room in our [chat](./chat.md) to know if some commit or MR "
@@ -664,74 +669,85 @@ msgid ""
 "updates to avoid conflicts with the new configuration."
 msgstr ""
 
-#: src/troubleshooting.md:228
+#: src/troubleshooting.md:230
 msgid "Build System Breakage Prevention"
 msgstr ""
 
-#: src/troubleshooting.md:230
+#: src/troubleshooting.md:232
 msgid ""
 "The following methods can prevent a build system breakage after updates that "
 "change file configuration behavior."
 msgstr ""
 
-#: src/troubleshooting.md:232
+#: src/troubleshooting.md:234
+msgid ""
+"Wipe all statically linked recipe binaries, update build system source and "
+"rebuild the system (most common prevention)"
+msgstr ""
+
+#: src/troubleshooting.md:240 src/troubleshooting.md:252
+#: src/troubleshooting.md:336
+msgid "Or also clean the toolchain if needed:"
+msgstr ""
+
+#: src/troubleshooting.md:246
 msgid ""
 "Wipe all recipe binaries, update build system source and rebuild the system "
-"(most common prevention)"
+"(second most common prevention)"
 msgstr ""
 
-#: src/troubleshooting.md:238
+#: src/troubleshooting.md:258
 msgid ""
-"Wipe all recipe binaries and Podman container, update build system source "
-"and rebuild the system"
+"Wipe all recipe binaries, toolchain and Podman container, update build "
+"system source and rebuild the system"
 msgstr ""
 
-#: src/troubleshooting.md:244
+#: src/troubleshooting.md:264
 msgid ""
 "Wipe all recipe binaries/sources, update build system source and rebuild the "
 "system (least common prevention)"
 msgstr ""
 
-#: src/troubleshooting.md:250
+#: src/troubleshooting.md:270
 msgid "Build System Fixing"
 msgstr ""
 
-#: src/troubleshooting.md:252
+#: src/troubleshooting.md:272
 msgid ""
 "If the breaking change affect multiple recipes or any recipe can't be built, "
 "read the following instructions:"
 msgstr ""
 
-#: src/troubleshooting.md:254
+#: src/troubleshooting.md:274
 msgid "Wipe the build system binaries and build the system (most common fix)"
 msgstr ""
 
-#: src/troubleshooting.md:260 src/troubleshooting.md:268
+#: src/troubleshooting.md:280 src/troubleshooting.md:288
 msgid ""
 "Check if the compilation or runtime error continues after this command, if "
 "the error continues run the command below:"
 msgstr ""
 
-#: src/troubleshooting.md:262
+#: src/troubleshooting.md:282
 msgid "Wipe and rebuild the filesystem tooling"
 msgstr ""
 
-#: src/troubleshooting.md:270
+#: src/troubleshooting.md:290
 msgid "Wipe the Podman container (not common fix)"
 msgstr ""
 
-#: src/troubleshooting.md:276
+#: src/troubleshooting.md:296
 msgid ""
 "Check if the compilation or runtime error continues after this command, if "
 "the error continues it doesn't happen because of breaking changes on the "
 "build system."
 msgstr ""
 
-#: src/troubleshooting.md:278
+#: src/troubleshooting.md:298
 msgid "Recipe Fixing"
 msgstr ""
 
-#: src/troubleshooting.md:280
+#: src/troubleshooting.md:300
 msgid ""
 "Some types of recipe errors can be backwards-incompatible build system, "
 "system component or relibc changes after the `make pull rebuild` command "
@@ -739,112 +755,118 @@ msgid ""
 "isolated problem or a breaking change:"
 msgstr ""
 
-#: src/troubleshooting.md:282
+#: src/troubleshooting.md:302
 msgid "Rebuild the recipe binaries"
 msgstr ""
 
-#: src/troubleshooting.md:288 src/troubleshooting.md:296
-#: src/troubleshooting.md:308 src/troubleshooting.md:320
-#: src/troubleshooting.md:328 src/troubleshooting.md:336
+#: src/troubleshooting.md:308 src/troubleshooting.md:316
+#: src/troubleshooting.md:328 src/troubleshooting.md:342
+#: src/troubleshooting.md:350 src/troubleshooting.md:364
 msgid ""
 "Check if the compilation or runtime error continues after this command, if "
 "the error continues run the following command:"
 msgstr ""
 
-#: src/troubleshooting.md:290
+#: src/troubleshooting.md:310
 msgid "Wipe the recipe sources and binaries and rebuild"
 msgstr ""
 
-#: src/troubleshooting.md:298
-msgid "Update relibc and rebuild the recipe"
-msgstr ""
-
-#: src/troubleshooting.md:310
+#: src/troubleshooting.md:318
 msgid "Reconfigure the Redox toolchain and rebuild the recipe"
 msgstr ""
 
-#: src/troubleshooting.md:322
+#: src/troubleshooting.md:330
 msgid ""
 "Wipe all statically linked recipe binaries and rebuild the system (run this "
 "command if the binaries of multiple recipes are broken)"
 msgstr ""
 
-#: src/troubleshooting.md:330
+#: src/troubleshooting.md:344
 msgid ""
 "Wipe all recipe binaries and rebuild the system (run this command if the "
 "binaries of multiple recipes are broken)"
 msgstr ""
 
-#: src/troubleshooting.md:338
+#: src/troubleshooting.md:352
 msgid ""
-"Wipe all recipe sources and binaries and rebuild the system (run this "
-"command if the sources and binaries of multiple recipes are broken)"
+"Wipe all build system binaries and rebuild the system (run this command if "
+"the binaries of multiple recipes are broken)"
 msgstr ""
 
-#: src/troubleshooting.md:344
+#: src/troubleshooting.md:358
+msgid "Or clean the Podman container if needed:"
+msgstr ""
+
+#: src/troubleshooting.md:366
+msgid ""
+"Wipe all recipe sources and build system binaries and rebuild the system "
+"(run this command if the sources and binaries of multiple recipes are broken)"
+msgstr ""
+
+#: src/troubleshooting.md:372
 msgid ""
 "Check if the compilation or runtime error continues after this command, if "
 "the error continues read the section below."
 msgstr ""
 
-#: src/troubleshooting.md:346
+#: src/troubleshooting.md:374
 msgid "New Build System Copy"
 msgstr ""
 
-#: src/troubleshooting.md:348
+#: src/troubleshooting.md:376
 msgid ""
 "If the methods above doesn't work you need to download a new copy of the "
 "build system by running the `podman_bootstrap.sh` or `native_bootstrap.sh` "
 "scripts or using the following commands:"
 msgstr ""
 
-#: src/troubleshooting.md:362
+#: src/troubleshooting.md:390
 msgid "Update Your Branch"
 msgstr ""
 
-#: src/troubleshooting.md:364
+#: src/troubleshooting.md:392
 msgid ""
 "If you are doing local changes on the build system, probably you left your "
 "branch active on the folder (instead of `master` branch)."
 msgstr ""
 
-#: src/troubleshooting.md:366
+#: src/troubleshooting.md:394
 msgid ""
 "New branches don't sync automatically with `master`, thus if the `master` "
 "branch receive new commits, you wouldn't use them because your branch is "
 "outdated."
 msgstr ""
 
-#: src/troubleshooting.md:368
+#: src/troubleshooting.md:396
 msgid "To fix this, run:"
 msgstr ""
 
-#: src/troubleshooting.md:386
+#: src/troubleshooting.md:414
 msgid "Or"
 msgstr ""
 
-#: src/troubleshooting.md:400
+#: src/troubleshooting.md:428
 msgid ""
 "If you want an anonymous merge, read the [Anonymous Commits](./coding-and-"
 "building.md#anonymous-commits) section."
 msgstr ""
 
-#: src/troubleshooting.md:402
+#: src/troubleshooting.md:430
 msgid "Update Crates"
 msgstr ""
 
-#: src/troubleshooting.md:404
+#: src/troubleshooting.md:432
 msgid ""
 "Sometimes a Rust program use an old crate version lacking Redox support, "
 "read [this](./porting-applications.md#update-crates) section to learn how to "
 "update them."
 msgstr ""
 
-#: src/troubleshooting.md:406
+#: src/troubleshooting.md:434
 msgid "Verify The Dependency Tree"
 msgstr ""
 
-#: src/troubleshooting.md:408
+#: src/troubleshooting.md:436
 msgid ""
 "Some crates take a long time to do a new release (years in some cases), thus "
 "these releases will hold old versions of other crates, versions where the "
@@ -852,33 +874,33 @@ msgid ""
 "compilation)."
 msgstr ""
 
-#: src/troubleshooting.md:410
+#: src/troubleshooting.md:438
 msgid ""
 "The `redox_syscall` crate is the most affected by this, some crates hold a "
 "very old version of it and will require patches (`cargo update -p` alone "
 "doesn't work)."
 msgstr ""
 
-#: src/troubleshooting.md:412
+#: src/troubleshooting.md:440
 msgid ""
 "To identify which crates are using old versions of Redox crates you will "
 "need to verify the dependency tree of the program, inside the program source "
 "directory, run:"
 msgstr ""
 
-#: src/troubleshooting.md:418
+#: src/troubleshooting.md:446
 msgid ""
 "(If you aren't building Redox to x86_64 change `x86_64` in `x86_64-unknown-"
 "redox` to the CPU code that you are using)"
 msgstr ""
 
-#: src/troubleshooting.md:420
+#: src/troubleshooting.md:448
 msgid ""
 "This command will draw the dependency tree and you will need to find the "
 "crate name on the tree."
 msgstr ""
 
-#: src/troubleshooting.md:422
+#: src/troubleshooting.md:450
 msgid ""
 "If you don't want to find it, you can use the `grep` tool with a pipe to see "
 "all crate versions used in the tree, sadly `grep` don't preserve the tree "
@@ -887,25 +909,25 @@ msgid ""
 "recent version)."
 msgstr ""
 
-#: src/troubleshooting.md:424
+#: src/troubleshooting.md:452
 msgid "To do this, run:"
 msgstr ""
 
-#: src/troubleshooting.md:430
+#: src/troubleshooting.md:458
 msgid "Debug Methods"
 msgstr ""
 
-#: src/troubleshooting.md:432
+#: src/troubleshooting.md:460
 msgid ""
 "Read [this](https://en.wikipedia.org/wiki/Debugging#Techniques) Wikipedia "
 "section to learn about debugging techniques"
 msgstr ""
 
-#: src/troubleshooting.md:434
+#: src/troubleshooting.md:462
 msgid "Use the `dmesg` command to read the kernel and userspace daemons log"
 msgstr ""
 
-#: src/troubleshooting.md:436
+#: src/troubleshooting.md:464
 msgid ""
 "If Orbital hangs you need to verify if the system also freezed by pressing "
 "Super+F1 to see the boot log or Super+F2 to switch to other `tty`, login as "
@@ -913,104 +935,104 @@ msgid ""
 "Windows logo)"
 msgstr ""
 
-#: src/troubleshooting.md:438
+#: src/troubleshooting.md:466
 msgid ""
 "You can start the QEMU with the `make qemu gpu=no` command to easily copy "
 "the terminal text"
 msgstr ""
 
-#: src/troubleshooting.md:440
+#: src/troubleshooting.md:468
 msgid ""
 "You can write to the `debug:` scheme, which will output on the console, but "
 "you must be the `root` user. This is useful if you are debugging an program "
 "where you need to use Orbital but still want to capture messages"
 msgstr ""
 
-#: src/troubleshooting.md:442
+#: src/troubleshooting.md:470
 msgid ""
 "Currently, the build system strips function names and other symbols from "
 "programs, as support for symbols is not implemented yet"
 msgstr ""
 
-#: src/troubleshooting.md:444
+#: src/troubleshooting.md:472
 msgid ""
 "To use GDB add the `gdbserver` recipe in your filesystem configuration, run "
 "the `make qemu gdb=yes` command in one shell, start the `gdbserver` program "
 "on QEMU and run the `make gdb` command in another shell"
 msgstr ""
 
-#: src/troubleshooting.md:446
+#: src/troubleshooting.md:474
 msgid "Use the following command for advanced logging:"
 msgstr ""
 
-#: src/troubleshooting.md:452
+#: src/troubleshooting.md:480
 msgid "Recipes"
 msgstr ""
 
-#: src/troubleshooting.md:454
+#: src/troubleshooting.md:482
 msgid "You will see the available debug methods for recipes on this section."
 msgstr ""
 
-#: src/troubleshooting.md:456
+#: src/troubleshooting.md:484
 msgid ""
 "If you change the recipe build mode (`release` to `debug` or the opposite) "
 "while debugging, don't forget to rebuild with `make cr.recipe-name` because "
 "the build system may not detect the changes."
 msgstr ""
 
-#: src/troubleshooting.md:458
+#: src/troubleshooting.md:486
 msgid "Rust"
 msgstr ""
 
-#: src/troubleshooting.md:460
+#: src/troubleshooting.md:488
 msgid ""
 "Rust programs can carry assertions, checking and symbols, but they are "
 "disabled by default."
 msgstr ""
 
-#: src/troubleshooting.md:462
+#: src/troubleshooting.md:490
 msgid ""
 "`REPO_DEBUG` - This environment variable will build the Rust program with "
 "assertions, checking and symbols."
 msgstr ""
 
-#: src/troubleshooting.md:464
+#: src/troubleshooting.md:492
 msgid "(Debugging with symbols inside of Redox is not supported yet)"
 msgstr ""
 
-#: src/troubleshooting.md:466
+#: src/troubleshooting.md:494
 msgid "To enable them you can use the following commands or scripts:"
 msgstr ""
 
-#: src/troubleshooting.md:468
+#: src/troubleshooting.md:496
 msgid ""
 "Permanently enable `REPO_DEBUG` for all recipes by adding the following text "
 "to your `.config` file:"
 msgstr ""
 
-#: src/troubleshooting.md:474
+#: src/troubleshooting.md:502
 msgid ""
 "Enable the `REPO_DEBUG` environment variable for one command, rebuild/"
 "package a recipe and add to the Redox image:"
 msgstr ""
 
-#: src/troubleshooting.md:477 src/troubleshooting.md:483
+#: src/troubleshooting.md:505 src/troubleshooting.md:511
 msgid "1"
 msgstr ""
 
-#: src/troubleshooting.md:480
+#: src/troubleshooting.md:508
 msgid ""
 "Enable the `REPO_DEBUG` environment variable for multiple commands, rebuild/"
 "package a recipe and add to the Redox image:"
 msgstr ""
 
-#: src/troubleshooting.md:490
+#: src/troubleshooting.md:518
 msgid ""
 "Enable the `COOKBOOK_DEBUG` and `COOKBOOK_NOSTRIP` (they are equivalent to "
 "`REPO_DEBUG` environment variable) inside the `recipe.toml` :"
 msgstr ""
 
-#: src/troubleshooting.md:492
+#: src/troubleshooting.md:520
 msgid ""
 "```toml\n"
 "template = \"custom\"\n"
@@ -1022,128 +1044,128 @@ msgid ""
 "```"
 msgstr ""
 
-#: src/troubleshooting.md:501
+#: src/troubleshooting.md:529
 msgid "Backtrace"
 msgstr ""
 
-#: src/troubleshooting.md:503
+#: src/troubleshooting.md:531
 msgid ""
 "A backtrace helps you to detect bugs that happen with not expected input "
 "parameters, you can trace back through the callers to see where the bad data "
 "is coming from."
 msgstr ""
 
-#: src/troubleshooting.md:505
+#: src/troubleshooting.md:533
 msgid "You can see how to use it below:"
 msgstr ""
 
-#: src/troubleshooting.md:507
+#: src/troubleshooting.md:535
 msgid "Start QEMU with logging:"
 msgstr ""
 
-#: src/troubleshooting.md:513
+#: src/troubleshooting.md:541
 msgid "Enable this environment variable globally (on Redox):"
 msgstr ""
 
-#: src/troubleshooting.md:516
+#: src/troubleshooting.md:544
 msgid "full"
 msgstr ""
 
-#: src/troubleshooting.md:519
+#: src/troubleshooting.md:547
 msgid ""
 "Run the program and repeat the bug (capturing a backtrace in the log file)"
 msgstr ""
 
-#: src/troubleshooting.md:520
+#: src/troubleshooting.md:548
 msgid "Close QEMU"
 msgstr ""
 
-#: src/troubleshooting.md:521
+#: src/troubleshooting.md:549
 msgid "Open the log file, copy the backtrace and paste in an empty text file"
 msgstr ""
 
-#: src/troubleshooting.md:523
+#: src/troubleshooting.md:551
 msgid "Run the `backtrace.sh` script in the `redox` directory (on Linux):"
 msgstr ""
 
-#: src/troubleshooting.md:529
+#: src/troubleshooting.md:557
 msgid "It will print the file and line number for each entry in the backtrace."
 msgstr ""
 
-#: src/troubleshooting.md:531
+#: src/troubleshooting.md:559
 msgid ""
 "(This is the most simple example command, use the `-h` option of the "
 "`backtrace.sh` script to see more combinations)"
 msgstr ""
 
-#: src/troubleshooting.md:533
+#: src/troubleshooting.md:561
 msgid "GDB On QEMU"
 msgstr ""
 
-#: src/troubleshooting.md:535
+#: src/troubleshooting.md:563
 msgid "Use the following instructions to debug a recipe with GDB:"
 msgstr ""
 
-#: src/troubleshooting.md:537
+#: src/troubleshooting.md:565
 msgid ""
 "Build or rebuild the recipe with assertions/checking/symbols and install "
 "into the Redox image:"
 msgstr ""
 
-#: src/troubleshooting.md:543
+#: src/troubleshooting.md:571
 msgid ""
 "If you want to permanently enable debug binaries add the following "
 "environment variable to your `.config` file:"
 msgstr ""
 
-#: src/troubleshooting.md:549
+#: src/troubleshooting.md:577
 msgid "Build and install the GDB server into the Redox image"
 msgstr ""
 
-#: src/troubleshooting.md:555
+#: src/troubleshooting.md:583
 msgid "Start QEMU with the GDB configuration enabled:"
 msgstr ""
 
-#: src/troubleshooting.md:561
+#: src/troubleshooting.md:589
 msgid "If the recipe has one executable, run the following command:"
 msgstr ""
 
-#: src/troubleshooting.md:567
+#: src/troubleshooting.md:595
 msgid "If the recipe has multiple executables use the following command:"
 msgstr ""
 
-#: src/troubleshooting.md:573
+#: src/troubleshooting.md:601
 msgid "Boot"
 msgstr ""
 
-#: src/troubleshooting.md:575
+#: src/troubleshooting.md:603
 msgid ""
 "If your boot hangs and the log don't show the reason, you can use the "
 "following environment variables to help:"
 msgstr ""
 
-#: src/troubleshooting.md:577
+#: src/troubleshooting.md:605
 msgid ""
 "`BOOTSTRAP_LOG_LEVEL=value` : Bootstrap and process manager logging "
 "verbosity level"
 msgstr ""
 
-#: src/troubleshooting.md:578
+#: src/troubleshooting.md:606
 msgid "`INIT_LOG_LEVEL=value` : Init logging verbosity level"
 msgstr ""
 
-#: src/troubleshooting.md:579
+#: src/troubleshooting.md:607
 msgid "`DRIVER_LOG_LEVEL=value` : Logging verbosity level of all drivers"
 msgstr ""
 
-#: src/troubleshooting.md:580
+#: src/troubleshooting.md:608
 msgid ""
 "`DRIVER_*_LOG_LEVEL=value` : Driver-specific logging verbosity level, for "
 "example: `DRIVER_PS2_LOG_LEVEL=value` for PS/2 logging and "
 "`DRIVER_USB_LOG_LEVEL=value` for USB logging"
 msgstr ""
 
-#: src/troubleshooting.md:581
+#: src/troubleshooting.md:609
 msgid ""
 "`RELIBC_LOG_LEVEL=value` : Relibc logging verbosity level, you need to "
 "disable the `no_trace` feature flag by removing it from the [default]"
@@ -1152,104 +1174,104 @@ msgid ""
 "and run the `make static_clean rebuild` command to use it"
 msgstr ""
 
-#: src/troubleshooting.md:582
+#: src/troubleshooting.md:610
 msgid ""
 "`INIT_SKIP=executable-name` : Skip the execution of executables with hangs "
 "or errors, commas are supported if you want to skip multiple executables"
 msgstr ""
 
-#: src/troubleshooting.md:584
+#: src/troubleshooting.md:612
 msgid "They accept the following values:"
 msgstr ""
 
-#: src/troubleshooting.md:586
+#: src/troubleshooting.md:614
 msgid "`ERROR` value: Known event that is a fatal error but recoverable."
 msgstr ""
 
-#: src/troubleshooting.md:587
+#: src/troubleshooting.md:615
 msgid "`WARN` value: Unexpected event coming from unexpected condition."
 msgstr ""
 
-#: src/troubleshooting.md:588
+#: src/troubleshooting.md:616
 msgid "`INFO` value: Significant event mostly useful for developer."
 msgstr ""
 
-#: src/troubleshooting.md:589
+#: src/troubleshooting.md:617
 msgid ""
 "`DEBUG` value: Detailed event monitoring to show how the service is being "
 "used."
 msgstr ""
 
-#: src/troubleshooting.md:590
+#: src/troubleshooting.md:618
 msgid ""
 "`TRACE` value: Very verbose information which is only useful when debugging."
 msgstr ""
 
-#: src/troubleshooting.md:592
+#: src/troubleshooting.md:620
 msgid ""
 "Once you determine what you need press the `E` key to open the boot "
 "environment editor and add in the last lines and boot, for example:"
 msgstr ""
 
-#: src/troubleshooting.md:600
+#: src/troubleshooting.md:628
 msgid "You can see an example output below:"
 msgstr ""
 
-#: src/troubleshooting.md:607
+#: src/troubleshooting.md:635
 msgid ""
 "To disable the environment variables after boot run the `export "
 "*_LOG_LEVEL=OFF` command, for example: the `export RELIBC_LOG_LEVEL=OFF` "
 "command will disable relibc logging."
 msgstr ""
 
-#: src/troubleshooting.md:609
+#: src/troubleshooting.md:637
 msgid "Kill A Frozen Redox VM"
 msgstr ""
 
-#: src/troubleshooting.md:611
+#: src/troubleshooting.md:639
 msgid ""
 "Sometimes Redox can freeze or rarely get a kernel panic, to kill the QEMU "
 "process run this command:"
 msgstr ""
 
-#: src/troubleshooting.md:617
+#: src/troubleshooting.md:645
 msgid "Kernel Panic"
 msgstr ""
 
-#: src/troubleshooting.md:619
+#: src/troubleshooting.md:647
 msgid ""
 "A kernel panic is when some bug avoid the safe execution of the kernel code, "
 "thus the system needs to be restarted to avoid memory corruption."
 msgstr ""
 
-#: src/troubleshooting.md:621
+#: src/troubleshooting.md:649
 msgid "We use the following kernel panic message format:"
 msgstr ""
 
-#: src/troubleshooting.md:628
+#: src/troubleshooting.md:656
 msgid "You can use the following command to search it in a big log:"
 msgstr ""
 
-#: src/troubleshooting.md:631
+#: src/troubleshooting.md:659
 msgid "\"KERNEL PANIC\""
 msgstr ""
 
-#: src/troubleshooting.md:631
+#: src/troubleshooting.md:659
 msgid "\"file-name.log\""
 msgstr ""
 
-#: src/troubleshooting.md:634
+#: src/troubleshooting.md:662
 msgid "QEMU"
 msgstr ""
 
-#: src/troubleshooting.md:636
+#: src/troubleshooting.md:664
 msgid ""
 "If you get a kernel panic in QEMU, copy the terminal text or capture a "
 "screenshot and send to us on [Matrix](./chat.md) or create an issue on "
 "[GitLab](https://gitlab.redox-os.org/redox-os/kernel/-/issues)."
 msgstr ""
 
-#: src/troubleshooting.md:640
+#: src/troubleshooting.md:668
 msgid ""
 "If you get a kernel panic in real hardware, capture a photo and send to us "
 "on [Matrix](./chat.md) or create an issue on [GitLab](https://gitlab.redox-"
