@@ -133,6 +133,8 @@ msgid ""
 "[iOS built-in authenticator](https://support.apple.com/guide/iphone/"
 "automatically-fill-in-verification-codes-ipha6173c19f/ios)"
 msgstr ""
+"[iOS 內建的認證器](https://support.apple.com/guide/iphone/automatically-fill-"
+"in-verification-codes-ipha6173c19f/ios)"
 
 #: src/signing-in-to-gitlab.md:36
 msgid "Logging-In With An Android Phone"

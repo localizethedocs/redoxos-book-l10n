@@ -13,7 +13,7 @@ msgstr ""
 
 #: src/developer-faq.md:1
 msgid "Developer FAQ"
-msgstr ""
+msgstr "開發者常見問題"
 
 #: src/developer-faq.md:3
 msgid ""
@@ -911,7 +911,7 @@ msgstr ""
 
 #: src/developer-faq.md:273
 msgid "How to update initfs?"
-msgstr ""
+msgstr "如何更新 initfs？"
 
 #: src/developer-faq.md:275
 msgid ""
@@ -993,10 +993,16 @@ msgid ""
 "...\n"
 "```"
 msgstr ""
+"```toml\n"
+"[packages]\n"
+"...\n"
+"recipe-name = \"source\"\n"
+"...\n"
+"```"
 
 #: src/developer-faq.md:332
 msgid "Install the recipe package in the Redox image"
-msgstr ""
+msgstr "在 Redox 映像中安裝配方軟體包"
 
 #: src/developer-faq.md:338
 msgid "Or (if the above doesn't work)"
@@ -1063,7 +1069,7 @@ msgstr ""
 
 #: src/developer-faq.md:398
 msgid "Porting Questions"
-msgstr ""
+msgstr "移植問題"
 
 #: src/developer-faq.md:400
 msgid "How to determine if some program is portable to Redox?"
@@ -1295,7 +1301,7 @@ msgstr ""
 
 #: src/developer-faq.md:479
 msgid "GitLab Questions"
-msgstr ""
+msgstr "GitLab 問題"
 
 #: src/developer-faq.md:481
 msgid "How to properly request a review or review MRs?"

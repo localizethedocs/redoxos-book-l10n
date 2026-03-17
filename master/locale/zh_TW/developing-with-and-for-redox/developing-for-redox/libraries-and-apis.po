@@ -292,7 +292,7 @@ msgstr ""
 
 #: src/libraries-apis.md:91
 msgid "Crates"
-msgstr ""
+msgstr "軟體箱"
 
 #: src/libraries-apis.md:93
 msgid ""

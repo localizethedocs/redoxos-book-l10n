@@ -181,11 +181,11 @@ msgstr "系統工具"
 
 #: src/SUMMARY.md:52
 msgid "Getting Started"
-msgstr ""
+msgstr "開始使用"
 
 #: src/SUMMARY.md:54
 msgid "Getting started"
-msgstr ""
+msgstr "開始使用"
 
 #: src/SUMMARY.md:55
 msgid "Running Redox in a Virtual Machine"
@@ -333,7 +333,7 @@ msgstr ""
 
 #: src/SUMMARY.md:99
 msgid "Developer FAQ"
-msgstr ""
+msgstr "開發者常見問題"
 
 #: src/SUMMARY.md:100
 msgid "References"

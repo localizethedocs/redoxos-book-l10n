@@ -235,7 +235,7 @@ msgstr ""
 
 #: src/trying-out-redox.md:101
 msgid "Pull back"
-msgstr ""
+msgstr "拉回"
 
 #: src/trying-out-redox.md:102
 msgid "Slash (`/`)"

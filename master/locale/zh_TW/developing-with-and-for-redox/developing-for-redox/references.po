@@ -242,6 +242,8 @@ msgid ""
 "[Meson](https://mesonbuild.com/) - A build system used by many Linux/POSIX "
 "programs."
 msgstr ""
+"[Meson](https://mesonbuild.com/) - 一個被許多 Linux/POSIX 程式使用的建置系"
+"統。"
 
 #: src/references.md:53
 msgid ""
@@ -272,6 +274,8 @@ msgid ""
 "[Gentoo Packages](https://packages.gentoo.org/) - It contains advanced "
 "information about the port configuration."
 msgstr ""
+"[Gentoo 軟體包](https://packages.gentoo.org/) - 它包含關於移植組態的進階資"
+"訊。"
 
 #: src/references.md:58
 msgid "[Nix Packages](https://github.com/NixOS/nixpkgs)"
@@ -283,7 +287,7 @@ msgstr ""
 
 #: src/references.md:61
 msgid "Manual Pages"
-msgstr ""
+msgstr "手冊頁面"
 
 #: src/references.md:63
 msgid ""

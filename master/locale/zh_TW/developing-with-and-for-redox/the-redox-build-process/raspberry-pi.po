@@ -45,11 +45,11 @@ msgstr ""
 
 #: src/raspi.md:15
 msgid "Run `make all`"
-msgstr ""
+msgstr "執行 `make all`"
 
 #: src/raspi.md:16
 msgid "Download the firmware"
-msgstr ""
+msgstr "下載韌體"
 
 #: src/raspi.md:26
 msgid "Run in QEMU"

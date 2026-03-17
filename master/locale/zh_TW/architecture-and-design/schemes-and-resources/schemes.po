@@ -670,7 +670,7 @@ msgstr ""
 
 #: src/schemes.md:99
 msgid "Read the CPU configuration (number of cores, etc)"
-msgstr ""
+msgstr "讀取 CPU 組態（核心數量等）"
 
 #: src/schemes.md:100 src/schemes.md:152
 msgid "memory"
@@ -712,7 +712,7 @@ msgstr ""
 
 #: src/schemes.md:102
 msgid "Interval timer"
-msgstr ""
+msgstr "間隔計時器"
 
 #: src/schemes.md:103 src/schemes.md:155
 msgid "serio"

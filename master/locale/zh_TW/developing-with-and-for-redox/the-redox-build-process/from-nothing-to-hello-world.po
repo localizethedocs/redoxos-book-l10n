@@ -31,7 +31,7 @@ msgstr "建立 `tryredox` 資料夾。"
 
 #: src/nothing-to-hello-world.md:13
 msgid "Navigate to the `tryredox` folder."
-msgstr ""
+msgstr "導航至 `tryredox` 資料夾。"
 
 #: src/nothing-to-hello-world.md:19
 msgid ""
@@ -48,7 +48,7 @@ msgstr "在當前外殼中啟用 Rust 工具鏈。"
 
 #: src/nothing-to-hello-world.md:37
 msgid "Navigate to the Redox build system directory."
-msgstr ""
+msgstr "導航至 Redox 建置系統目錄。"
 
 #: src/nothing-to-hello-world.md:43
 msgid ""
@@ -82,7 +82,7 @@ msgstr ""
 
 #: src/nothing-to-hello-world.md:73
 msgid "Create the `hello-world` recipe configuration."
-msgstr ""
+msgstr "建立 `hello-world` 配方組態。"
 
 #: src/nothing-to-hello-world.md:83
 msgid "Add the following to the recipe configuration:"
