@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: The Redox Operating System\n"
-"POT-Creation-Date: 2026-02-24T08:43:44Z\n"
+"POT-Creation-Date: 2026-03-17T09:29:16Z\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -50,8 +50,8 @@ msgstr ""
 
 #: src/developer-faq.md:11
 msgid ""
-"[Does Redox support OpenGL and Vulkan?](#does-redox-support-opengl-and-"
-"vulkan)"
+"[What are the CPU requirements of Redox?](#what-are-the-cpu-requirements-of-"
+"redox)"
 msgstr ""
 
 #: src/developer-faq.md:12
@@ -73,108 +73,114 @@ msgid ""
 msgstr ""
 
 #: src/developer-faq.md:16
-msgid "[Build System Questions](#build-system-questions)"
+msgid ""
+"[Does Redox support OpenGL and Vulkan?](#does-redox-support-opengl-and-"
+"vulkan)"
 msgstr ""
 
 #: src/developer-faq.md:17
+msgid "[Build System Questions](#build-system-questions)"
+msgstr ""
+
+#: src/developer-faq.md:18
 msgid ""
 "[What is the correct way to update the build system?](#what-is-the-correct-"
 "way-to-update-the-build-system)"
 msgstr ""
 
-#: src/developer-faq.md:18
+#: src/developer-faq.md:19
 msgid ""
 "[How can I verify if my build system is up-to-date?](#how-can-i-verify-if-my-"
 "build-system-is-up-to-date)"
 msgstr ""
 
-#: src/developer-faq.md:19
+#: src/developer-faq.md:20
 msgid "[What is a recipe?](#what-is-a-recipe)"
 msgstr ""
 
-#: src/developer-faq.md:20
+#: src/developer-faq.md:21
 msgid ""
 "[When I should rebuild the build system or recipes from scratch?](#when-i-"
 "should-rebuild-the-build-system-or-recipes-from-scratch)"
 msgstr ""
 
-#: src/developer-faq.md:21
+#: src/developer-faq.md:22
 msgid ""
 "[How can I test my changes on real hardware?](#how-can-i-test-my-changes-on-"
 "real-hardware)"
 msgstr ""
 
-#: src/developer-faq.md:22
+#: src/developer-faq.md:23
 msgid ""
 "[How can I insert files to the Redox image?](#how-can-i-insert-files-to-the-"
 "redox-image)"
 msgstr ""
 
-#: src/developer-faq.md:23
+#: src/developer-faq.md:24
 msgid ""
 "[How can I change my Redox variant?](#how-can-i-change-my-redox-variant)"
 msgstr ""
 
-#: src/developer-faq.md:24
+#: src/developer-faq.md:25
 msgid ""
 "[How can I increase the filesystem size of my QEMU image?](#how-can-i-"
 "increase-the-filesystem-size-of-my-qemu-image)"
 msgstr ""
 
-#: src/developer-faq.md:25
+#: src/developer-faq.md:26
 msgid ""
 "[How can I change the CPU architecture of my build system?](#how-can-i-"
 "change-the-cpu-architecture-of-my-build-system)"
 msgstr ""
 
-#: src/developer-faq.md:26
+#: src/developer-faq.md:27
 msgid ""
 "[How can I cross-compile to ARM64 from a x86-64 computer?](#how-can-i-cross-"
 "compile-to-arm64-from-a-x86-64-computer)"
 msgstr ""
 
-#: src/developer-faq.md:27
+#: src/developer-faq.md:28
 msgid ""
 "[How can I use a recipe in my Redox image?](#how-can-i-use-a-recipe-in-my-"
 "redox-image)"
 msgstr ""
 
-#: src/developer-faq.md:28
+#: src/developer-faq.md:29
 msgid "[How to update initfs?](#how-to-update-initfs)"
 msgstr ""
 
-#: src/developer-faq.md:29
+#: src/developer-faq.md:30
 msgid ""
 "[I made changes to my recipe. What is the quickest way to test it in QEMU?]"
 "(#i-made-changes-to-my-recipe-what-is-the-quickest-way-to-test-it-in-qemu)"
 msgstr ""
 
-#: src/developer-faq.md:30
+#: src/developer-faq.md:31
 msgid ""
 "[I made changes to multiple recipes. What is the quickest way to test it in "
 "QEMU?](#i-made-changes-to-multiple-recipes-what-is-the-quickest-way-to-test-"
 "it-in-qemu)"
 msgstr ""
 
-#: src/developer-faq.md:31
+#: src/developer-faq.md:32
 msgid ""
 "[How can I disable recipe compilation?](#how-can-i-disable-recipe-"
 "compilation)"
 msgstr ""
 
-#: src/developer-faq.md:32
+#: src/developer-faq.md:33
 msgid ""
 "[How can I disable recipe compilation except for a specific recipe?](#how-"
 "can-i-disable-recipe-compilation-except-for-a-specific-recipe)"
 msgstr ""
 
-#: src/developer-faq.md:33
+#: src/developer-faq.md:34
 msgid ""
 "[How to disable the automatic recipe source update?](#how-to-disable-the-"
 "automatic-recipe-source-update)"
 msgstr ""
 
-#: src/developer-faq.md:34
+#: src/developer-faq.md:35
 msgid ""
 "[How can I install the packages needed by recipes (Native Build) or Podman "
 "without a new download of the build system?](#how-can-i-install-the-packages-"
@@ -182,179 +188,179 @@ msgid ""
 "system)"
 msgstr ""
 
-#: src/developer-faq.md:35
+#: src/developer-faq.md:36
 msgid ""
 "[How can I build the toolchain from source?](#how-can-i-build-the-toolchain-"
 "from-source)"
 msgstr ""
 
-#: src/developer-faq.md:36
+#: src/developer-faq.md:37
 msgid "[Porting Questions](#porting-questions)"
 msgstr ""
 
-#: src/developer-faq.md:37
+#: src/developer-faq.md:38
 msgid ""
 "[How to determine if some program is portable to Redox?](#how-to-determine-"
 "if-some-program-is-portable-to-redox)"
 msgstr ""
 
-#: src/developer-faq.md:38
+#: src/developer-faq.md:39
 msgid ""
 "[How to determine the dependencies of some program?](#how-to-determine-the-"
 "dependencies-of-some-program)"
 msgstr ""
 
-#: src/developer-faq.md:39
+#: src/developer-faq.md:40
 msgid ""
 "[How can I configure the build system of the recipe?](#how-can-i-configure-"
 "the-build-system-of-the-recipe)"
 msgstr ""
 
-#: src/developer-faq.md:40
+#: src/developer-faq.md:41
 msgid ""
 "[How can I search for functions on relibc?](#how-can-i-search-for-functions-"
 "on-relibc)"
 msgstr ""
 
-#: src/developer-faq.md:41
+#: src/developer-faq.md:42
 msgid ""
 "[Which are the upstream requirements to accept my recipe?](#which-are-the-"
 "upstream-requirements-to-accept-my-recipe)"
 msgstr ""
 
-#: src/developer-faq.md:42
+#: src/developer-faq.md:43
 msgid ""
 "[What are the possible problems when porting programs and libraries?](#what-"
 "are-the-possible-problems-when-porting-programs-and-libraries)"
 msgstr ""
 
-#: src/developer-faq.md:43
+#: src/developer-faq.md:44
 msgid ""
 "[Why C/C++ programs and libraries are hard and time consuming to port?](#why-"
 "cc-programs-and-libraries-are-hard-and-time-consuming-to-port)"
 msgstr ""
 
-#: src/developer-faq.md:44
+#: src/developer-faq.md:45
 msgid "[Scheme Questions](#scheme-questions)"
 msgstr ""
 
-#: src/developer-faq.md:45
+#: src/developer-faq.md:46
 msgid "[What is a scheme?](#what-is-a-scheme)"
 msgstr ""
 
-#: src/developer-faq.md:46
+#: src/developer-faq.md:47
 msgid ""
 "[When does a regular program need to use a scheme?](#when-does-a-regular-"
 "program-need-to-use-a-scheme)"
 msgstr ""
 
-#: src/developer-faq.md:47
+#: src/developer-faq.md:48
 msgid ""
 "[When would I write a program to implement a scheme?](#when-would-i-write-a-"
 "program-to-implement-a-scheme)"
 msgstr ""
 
-#: src/developer-faq.md:48
+#: src/developer-faq.md:49
 msgid ""
 "[How do I use a scheme for sandboxing a program?](#how-do-i-use-a-scheme-for-"
 "sandboxing-a-program)"
 msgstr ""
 
-#: src/developer-faq.md:49
+#: src/developer-faq.md:50
 msgid ""
 "[How can I see all userspace schemes?](#how-can-i-see-all-userspace-schemes)"
 msgstr ""
 
-#: src/developer-faq.md:50
+#: src/developer-faq.md:51
 msgid "[How can I see all kernel schemes?](#how-can-i-see-all-kernel-schemes)"
 msgstr ""
 
-#: src/developer-faq.md:51
+#: src/developer-faq.md:52
 msgid ""
 "[What is the difference between kernel and userspace schemes?](#what-is-the-"
 "difference-between-kernel-and-userspace-schemes)"
 msgstr ""
 
-#: src/developer-faq.md:52
+#: src/developer-faq.md:53
 msgid ""
 "[How does a userspace daemon provide file-like services?](#how-does-a-"
 "userspace-daemon-provide-file-like-services)"
 msgstr ""
 
-#: src/developer-faq.md:53
+#: src/developer-faq.md:54
 msgid ""
 "[How the system calls are used by userspace daemons?](#how-the-system-calls-"
 "are-used-by-userspace-daemons)"
 msgstr ""
 
-#: src/developer-faq.md:54
+#: src/developer-faq.md:55
 msgid "[GitLab Questions](#gitlab-questions)"
 msgstr ""
 
-#: src/developer-faq.md:55
+#: src/developer-faq.md:56
 msgid ""
 "[How to properly request a review or review MRs?](#how-to-properly-request-a-"
 "review-or-review-mrs)"
 msgstr ""
 
-#: src/developer-faq.md:56
+#: src/developer-faq.md:57
 msgid ""
 "[I have a merge request with many commits, should I squash them after merge?]"
 "(#i-have-a-merge-request-with-many-commits-should-i-squash-them-after-merge)"
 msgstr ""
 
-#: src/developer-faq.md:57
+#: src/developer-faq.md:58
 msgid ""
 "[Should I delete my branch after merge?](#should-i-delete-my-branch-after-"
 "merge)"
 msgstr ""
 
-#: src/developer-faq.md:58
+#: src/developer-faq.md:59
 msgid ""
 "[How can I have an anonymous account?](#how-can-i-have-an-anonymous-account)"
 msgstr ""
 
-#: src/developer-faq.md:59
+#: src/developer-faq.md:60
 msgid "[Documentation Questions](#documentation-questions)"
 msgstr ""
 
-#: src/developer-faq.md:60
+#: src/developer-faq.md:61
 msgid ""
 "[How can I write code documentation properly?](#how-can-i-write-code-"
 "documentation-properly)"
 msgstr ""
 
-#: src/developer-faq.md:61
+#: src/developer-faq.md:62
 msgid ""
 "[How can I write book documentation properly?](#how-can-i-write-book-"
 "documentation-properly)"
 msgstr ""
 
-#: src/developer-faq.md:62
+#: src/developer-faq.md:63
 msgid ""
 "[How can I insert commands or code correctly?](#how-can-i-insert-commands-or-"
 "code-correctly)"
 msgstr ""
 
-#: src/developer-faq.md:63
+#: src/developer-faq.md:64
 msgid "[How can I create diagrams?](#how-can-i-create-diagrams)"
 msgstr ""
 
-#: src/developer-faq.md:64
+#: src/developer-faq.md:65
 msgid "[Troubleshooting Questions](#troubleshooting-questions)"
 msgstr ""
 
-#: src/developer-faq.md:65
+#: src/developer-faq.md:66
 msgid "[Scripts](#scripts)"
 msgstr ""
 
-#: src/developer-faq.md:66
+#: src/developer-faq.md:67
 msgid ""
 "[I can't download the build system bootstrap scripts, how can I fix this?]"
 "(#i-cant-download-the-build-system-bootstrap-scripts-how-can-i-fix-this)"
 msgstr ""
 
-#: src/developer-faq.md:67
+#: src/developer-faq.md:68
 msgid ""
 "[I tried to run the \"podman_bootstrap.sh\" and \"native_bootstrap.sh\" "
 "scripts but got an error, how to fix this?](#i-tried-to-run-the-"
@@ -362,35 +368,35 @@ msgid ""
 "fix-this)"
 msgstr ""
 
-#: src/developer-faq.md:68
+#: src/developer-faq.md:69
 msgid "[Build System](#build-system)"
 msgstr ""
 
-#: src/developer-faq.md:69
+#: src/developer-faq.md:70
 msgid ""
 "[I ran \"make all\" but it show a \"rustup can't be found\" message, how can "
 "I fix this?](#i-ran-make-all-but-it-show-a-rustup-cant-be-found-message-how-"
 "can-i-fix-this)"
 msgstr ""
 
-#: src/developer-faq.md:70
+#: src/developer-faq.md:71
 msgid ""
 "[I tried all troubleshooting methods but my build system is still broken, "
 "how can I fix that?](#i-tried-all-troubleshooting-methods-but-my-build-"
 "system-is-still-broken-how-can-i-fix-that)"
 msgstr ""
 
-#: src/developer-faq.md:71
+#: src/developer-faq.md:72
 msgid "[Recipes](#recipes)"
 msgstr ""
 
-#: src/developer-faq.md:72
+#: src/developer-faq.md:73
 msgid ""
 "[I had an error with a recipe, how can I fix that?](#i-had-an-error-with-a-"
 "recipe-how-can-i-fix-that)"
 msgstr ""
 
-#: src/developer-faq.md:73
+#: src/developer-faq.md:74
 msgid ""
 "[I tried all methods of the \"Troubleshooting the Build\" page and my recipe "
 "still doesn't build, what can I do?](#i-tried-all-methods-of-the-"
@@ -398,13 +404,13 @@ msgid ""
 "do)"
 msgstr ""
 
-#: src/developer-faq.md:74
+#: src/developer-faq.md:75
 msgid ""
 "[When I run \"make r.recipe\" I get a syntax error, how can I fix that?]"
 "(#when-i-run-make-rrecipe-i-get-a-syntax-error-how-can-i-fix-that)"
 msgstr ""
 
-#: src/developer-faq.md:75
+#: src/developer-faq.md:76
 msgid ""
 "[When I run \"cargo update\" on some recipe source it call Rustup to install "
 "other Rust toolchain version, how can I fix that?](#when-i-run-cargo-update-"
@@ -412,7 +418,7 @@ msgid ""
 "how-can-i-fix-that)"
 msgstr ""
 
-#: src/developer-faq.md:76
+#: src/developer-faq.md:77
 msgid ""
 "[I added the dependency of my program in the \"recipe.toml\" file but the "
 "program build system doesn't detect it, then I installed the program "
@@ -422,7 +428,7 @@ msgid ""
 "distribution-and-it-detected-why)"
 msgstr ""
 
-#: src/developer-faq.md:77
+#: src/developer-faq.md:78
 msgid ""
 "[I made changes to system daemons, drivers and RedoxFS but they aren't "
 "applied in the Redox image, how can I fix that?](#i-made-changes-to-system-"
@@ -430,74 +436,74 @@ msgid ""
 "can-i-fix-that)"
 msgstr ""
 
-#: src/developer-faq.md:78
+#: src/developer-faq.md:79
 msgid "[QEMU](#qemu)"
 msgstr ""
 
-#: src/developer-faq.md:79
+#: src/developer-faq.md:80
 msgid ""
 "[How can I kill the QEMU process if Redox freezes or get a kernel panic?]"
 "(#how-can-i-kill-the-qemu-process-if-redox-freezes-or-get-a-kernel-panic)"
 msgstr ""
 
-#: src/developer-faq.md:80
+#: src/developer-faq.md:81
 msgid "[Real Hardware](#real-hardware)"
 msgstr ""
 
-#: src/developer-faq.md:81
+#: src/developer-faq.md:82
 msgid ""
 "[I got a kernel panic, what can I do?](#i-got-a-kernel-panic-what-can-i-do)"
 msgstr ""
 
-#: src/developer-faq.md:82
+#: src/developer-faq.md:83
 msgid ""
 "[Some driver is not working with my hardware, what can I do?](#some-driver-"
 "is-not-working-with-my-hardware-what-can-i-do)"
 msgstr ""
 
-#: src/developer-faq.md:84
+#: src/developer-faq.md:85
 msgid "General Questions"
 msgstr ""
 
-#: src/developer-faq.md:86
+#: src/developer-faq.md:87
 msgid "Why does Redox have unsafe Rust code?"
 msgstr ""
 
-#: src/developer-faq.md:88
+#: src/developer-faq.md:89
 msgid ""
 "In some cases we must use `unsafe` declarations to allow some low-level "
 "tasks, for example at certain parts in the kernel and drivers, these unsafe "
 "parts are generally wrapped with a safe interface."
 msgstr ""
 
-#: src/developer-faq.md:90
+#: src/developer-faq.md:91
 msgid "These are the cases where unsafe Rust is mandatory:"
 msgstr ""
 
-#: src/developer-faq.md:92
+#: src/developer-faq.md:93
 msgid ""
 "Implementing a foreign function interface (FFI) (for example the relibc API)"
 msgstr ""
 
-#: src/developer-faq.md:93
+#: src/developer-faq.md:94
 msgid ""
 "Working with system calls directly (you should use `libredox`, `relibc` or "
 "Rust `libstd` library instead of `redox_syscall`)"
 msgstr ""
 
-#: src/developer-faq.md:94
+#: src/developer-faq.md:95
 msgid "Creating or managing processes and threads"
 msgstr ""
 
-#: src/developer-faq.md:95
+#: src/developer-faq.md:96
 msgid "Working with memory mapping and stack allocation"
 msgstr ""
 
-#: src/developer-faq.md:96
+#: src/developer-faq.md:97
 msgid "Working with hardware devices"
 msgstr ""
 
-#: src/developer-faq.md:98
+#: src/developer-faq.md:99
 msgid ""
 "It is an important goal for Redox to minimize the amount of `unsafe` "
 "declared Rust code. If you want to use unsafe Rust code on Redox anywhere "
@@ -505,29 +511,29 @@ msgid ""
 "before."
 msgstr ""
 
-#: src/developer-faq.md:100
+#: src/developer-faq.md:101
 msgid ""
 "Unsafe Rust still has most of the compiler verification and allow some safe "
 "Rust syntax usage, thus still more safe than C and C++."
 msgstr ""
 
-#: src/developer-faq.md:102
+#: src/developer-faq.md:103
 msgid "Read the following pages to learn more about Unsafe Rust:"
 msgstr ""
 
-#: src/developer-faq.md:104
+#: src/developer-faq.md:105
 msgid "https://doc.rust-lang.org/book/ch20-01-unsafe-rust.html"
 msgstr ""
 
-#: src/developer-faq.md:105
+#: src/developer-faq.md:106
 msgid "https://doc.rust-lang.org/nomicon/meet-safe-and-unsafe.html"
 msgstr ""
 
-#: src/developer-faq.md:107
+#: src/developer-faq.md:108
 msgid "Why does Redox have Assembly code?"
 msgstr ""
 
-#: src/developer-faq.md:109
+#: src/developer-faq.md:110
 msgid ""
 "[Assembly](https://en.wikipedia.org/wiki/Assembly_language) is the core of "
 "low-level because it's a CPU-specific programming language and deal with "
@@ -535,51 +541,51 @@ msgid ""
 "Rust."
 msgstr ""
 
-#: src/developer-faq.md:111
+#: src/developer-faq.md:112
 msgid ""
 "Sometimes required or preferred for accessing hardware, or for carefully "
 "optimized hot spots."
 msgstr ""
 
-#: src/developer-faq.md:113
+#: src/developer-faq.md:114
 msgid "Reasons to use Assembly instead of Rust:"
 msgstr ""
 
-#: src/developer-faq.md:115
+#: src/developer-faq.md:116
 msgid "Deal with low-level things (those that can't be handled by Rust)"
 msgstr ""
 
-#: src/developer-faq.md:116
+#: src/developer-faq.md:117
 msgid "Writing constant time algorithms for cryptography"
 msgstr ""
 
-#: src/developer-faq.md:117
+#: src/developer-faq.md:118
 msgid "Optimizations"
 msgstr ""
 
-#: src/developer-faq.md:119
+#: src/developer-faq.md:120
 msgid "Places where Assembly is used:"
 msgstr ""
 
-#: src/developer-faq.md:121
+#: src/developer-faq.md:122
 msgid ""
 "`kernel` - Interrupt and system call entry routines, context switching, "
 "special CPU instructions and registers"
 msgstr ""
 
-#: src/developer-faq.md:122
+#: src/developer-faq.md:123
 msgid "`drivers` - Port IO need special instructions (x86_64)"
 msgstr ""
 
-#: src/developer-faq.md:123
+#: src/developer-faq.md:124
 msgid "`relibc` - Some parts of the C runtime"
 msgstr ""
 
-#: src/developer-faq.md:125
+#: src/developer-faq.md:126
 msgid "Why does Redox do cross-compilation?"
 msgstr ""
 
-#: src/developer-faq.md:127
+#: src/developer-faq.md:128
 msgid ""
 "[Cross-compilation](https://en.wikipedia.org/wiki/Cross_compiler) is when "
 "you build a program or library from one CPU architecture to another CPU "
@@ -587,11 +593,11 @@ msgid ""
 "require more configuration than native compilation."
 msgstr ""
 
-#: src/developer-faq.md:129
+#: src/developer-faq.md:130
 msgid "Read some of the reasons below:"
 msgstr ""
 
-#: src/developer-faq.md:131
+#: src/developer-faq.md:132
 msgid ""
 "When developing a new operating system you can't build programs inside of it "
 "because the system interfaces are premature. Thus you need to build the "
@@ -599,7 +605,7 @@ msgid ""
 "the filesystem of the new OS."
 msgstr ""
 
-#: src/developer-faq.md:132
+#: src/developer-faq.md:133
 msgid ""
 "Cross-compilation reduces the porting requirements because you don't need to "
 "support the compiler of the program's programming language, the program's "
@@ -608,7 +614,7 @@ msgid ""
 "(dependency-free)."
 msgstr ""
 
-#: src/developer-faq.md:133
+#: src/developer-faq.md:134
 msgid ""
 "Some developers prefer to develop from other operating systems like Linux, "
 "MacOS, FreeBSD or Windows, the same applies for Linux where some developers "
@@ -616,54 +622,62 @@ msgid ""
 "(mostly QEMU) or real hardware."
 msgstr ""
 
-#: src/developer-faq.md:135
+#: src/developer-faq.md:136
 msgid ""
 "(Interpreted programs and scripts don't need cross-compilation but the "
 "programming language's interpreter or possible compiled dependencies needs "
 "to be ported and cross-compiled to Redox)"
 msgstr ""
 
-#: src/developer-faq.md:137
-msgid "Does Redox support OpenGL and Vulkan?"
+#: src/developer-faq.md:138
+msgid "What are the CPU requirements of Redox?"
 msgstr ""
 
-#: src/developer-faq.md:139
-msgid ""
-"Read the [Software Rendering](./graphics-windowing.md#software-rendering) "
-"section."
+#: src/developer-faq.md:140
+msgid "Read [this](./hardware-support.md#cpu-requirements) section."
 msgstr ""
 
-#: src/developer-faq.md:141
+#: src/developer-faq.md:142
 msgid "How can I port a program?"
 msgstr ""
 
-#: src/developer-faq.md:143
+#: src/developer-faq.md:144
 msgid "Read the [Application Porting](./porting-applications.md) page."
 msgstr ""
 
-#: src/developer-faq.md:145
+#: src/developer-faq.md:146
 msgid "How can I write a driver?"
 msgstr ""
 
-#: src/developer-faq.md:147
+#: src/developer-faq.md:148
 msgid ""
 "Read the [drivers repository README](https://gitlab.redox-os.org/redox-os/"
 "drivers/-/blob/master/README.md)."
 msgstr ""
 
-#: src/developer-faq.md:149
+#: src/developer-faq.md:150
 msgid "How can I debug?"
 msgstr ""
 
-#: src/developer-faq.md:151
+#: src/developer-faq.md:152
 msgid "Read the [Debug Methods](./troubleshooting.md#debug-methods) section."
 msgstr ""
 
-#: src/developer-faq.md:153
+#: src/developer-faq.md:154
+msgid "Does Redox support OpenGL and Vulkan?"
+msgstr ""
+
+#: src/developer-faq.md:156
+msgid ""
+"Read the [Software Rendering](./graphics-windowing.md#software-rendering) "
+"section."
+msgstr ""
+
+#: src/developer-faq.md:158
 msgid "What is the software and hardware requirements for development?"
 msgstr ""
 
-#: src/developer-faq.md:155
+#: src/developer-faq.md:160
 msgid ""
 "If you are using the Podman Build you need any Linux or Unix-like "
 "distribution supporting Podman 4.0 or newer and FUSE 3.x (if you have "
@@ -672,81 +686,81 @@ msgid ""
 "container instead of host system)"
 msgstr ""
 
-#: src/developer-faq.md:156
+#: src/developer-faq.md:161
 msgid ""
 "If you are using the Native Build a recent Ubuntu, PopOS or Fedora version "
 "is recommended"
 msgstr ""
 
-#: src/developer-faq.md:158
+#: src/developer-faq.md:163
 msgid ""
 "The following hardware requirements are enough for fast compilation of the "
 "system and most programs, but some heavy programs may require more."
 msgstr ""
 
-#: src/developer-faq.md:160
+#: src/developer-faq.md:165
 msgid "An Intel or AMD CPU newer than 10 years with 4 cores/threads or more"
 msgstr ""
 
-#: src/developer-faq.md:161
+#: src/developer-faq.md:166
 msgid "4GB DDR4 or more (8GB or 16GB for heavy programs)"
 msgstr ""
 
-#: src/developer-faq.md:162
+#: src/developer-faq.md:167
 msgid ""
 "50GB of storage space or more (a high-performance HDD, SSD, and NVMe is "
 "recommended)"
 msgstr ""
 
-#: src/developer-faq.md:163
+#: src/developer-faq.md:168
 msgid "An Internet connection good enough to not cause timeouts"
 msgstr ""
 
-#: src/developer-faq.md:165
+#: src/developer-faq.md:170
 msgid "Build System Questions"
 msgstr ""
 
-#: src/developer-faq.md:167
+#: src/developer-faq.md:172
 msgid "What is the correct way to update the build system?"
 msgstr ""
 
-#: src/developer-faq.md:169
+#: src/developer-faq.md:174
 msgid ""
 "Read the [Update The Build System](./build-system-reference.md#update-the-"
 "build-system) section."
 msgstr ""
 
-#: src/developer-faq.md:171
+#: src/developer-faq.md:176
 msgid "How can I verify if my build system is up-to-date?"
 msgstr ""
 
-#: src/developer-faq.md:173
+#: src/developer-faq.md:178
 msgid ""
 "After the `make pull` command, run the `git rev-parse HEAD` command to "
 "verify if it match the latest commit hash on [GitLab](https://gitlab.redox-"
 "os.org/redox-os/redox/-/commits/master?ref_type=HEADS)."
 msgstr ""
 
-#: src/developer-faq.md:175
+#: src/developer-faq.md:180
 msgid "What is a recipe?"
 msgstr ""
 
-#: src/developer-faq.md:177
+#: src/developer-faq.md:182
 msgid "A software port to Redox"
 msgstr ""
 
-#: src/developer-faq.md:179
+#: src/developer-faq.md:184
 msgid "When I should rebuild the build system or recipes from scratch?"
 msgstr ""
 
-#: src/developer-faq.md:181
+#: src/developer-faq.md:186
 msgid ""
 "Sometimes the execution of the `make pull rebuild` command is not enough to "
 "update the build system and recipes because of breaking changes, learn what "
 "to do on the following changes:"
 msgstr ""
 
-#: src/developer-faq.md:183
+#: src/developer-faq.md:188
 msgid ""
 "New relibc functions and fixes: to allow a recipe to use the new relibc "
 "functions you need to rebuilt it with the `make cr.recipe-name` command, "
@@ -754,23 +768,23 @@ msgid ""
 "`make c.--all all` command"
 msgstr ""
 
-#: src/developer-faq.md:184
+#: src/developer-faq.md:189
 msgid ""
 "Dependency changes on recipes: if the shared objects had symbol changes or "
 "the recipe is statically linked, run the `make cr.recipe-name` command"
 msgstr ""
 
-#: src/developer-faq.md:185
+#: src/developer-faq.md:190
 msgid "Configuration changes on recipes: run the `make cr.recipe-name` command"
 msgstr ""
 
-#: src/developer-faq.md:186
+#: src/developer-faq.md:191
 msgid ""
 "Source code changes on recipes: if the shared objects had symbol changes or "
 "the recipe is statically linked, run the `make ucr.recipe-name` command"
 msgstr ""
 
-#: src/developer-faq.md:187
+#: src/developer-faq.md:192
 msgid ""
 "Changes on the location of the build system artifacts: run the `make clean "
 "pull all` command to not cause breakage with the previous artifacts "
@@ -779,21 +793,21 @@ msgid ""
 "confusion or fix difficult breakage"
 msgstr ""
 
-#: src/developer-faq.md:189
+#: src/developer-faq.md:194
 msgid "How can I test my changes on real hardware?"
 msgstr ""
 
-#: src/developer-faq.md:191
+#: src/developer-faq.md:196
 msgid ""
 "Read the [Testing on Real Hardware](./coding-and-building.md#testing-on-real-"
 "hardware) section."
 msgstr ""
 
-#: src/developer-faq.md:193
+#: src/developer-faq.md:198
 msgid "How can I insert files to the Redox image?"
 msgstr ""
 
-#: src/developer-faq.md:195
+#: src/developer-faq.md:200
 msgid ""
 "If you use a [recipe](./coding-and-building.md#insert-files-on-the-qemu-"
 "image-using-a-recipe) your changes will persist after the `make image` "
@@ -801,22 +815,22 @@ msgid ""
 "the-qemu-image) the Redox filesystem to insert them directly."
 msgstr ""
 
-#: src/developer-faq.md:197
+#: src/developer-faq.md:202
 msgid "How can I change my Redox variant?"
 msgstr ""
 
-#: src/developer-faq.md:199
+#: src/developer-faq.md:204
 msgid ""
 "Insert the `CONFIG_NAME?=your-config-name` environment variable to your `."
 "config` file, read the [config](./configuration-settings.md#config) section "
 "for more details."
 msgstr ""
 
-#: src/developer-faq.md:201
+#: src/developer-faq.md:206
 msgid "How can I increase the filesystem size of my QEMU image?"
 msgstr ""
 
-#: src/developer-faq.md:203
+#: src/developer-faq.md:208
 msgid ""
 "Change the `filesystem_size` data type of your filesystem configuration at: "
 "`config/$ARCH/your-config.toml` and run the `make image` command, read the "
@@ -824,72 +838,72 @@ msgid ""
 "more details."
 msgstr ""
 
-#: src/developer-faq.md:205
+#: src/developer-faq.md:210
 msgid "How can I change the CPU architecture of my build system?"
 msgstr ""
 
-#: src/developer-faq.md:207
+#: src/developer-faq.md:212
 msgid ""
 "Insert the `ARCH?=your-cpu-arch` environment variable on your `.config` file "
 "and run the `make all` command, read the [config](./configuration-settings."
 "md#config) section for more details."
 msgstr ""
 
-#: src/developer-faq.md:209
+#: src/developer-faq.md:214
 msgid "If you want to do it temporarily run the `make all ARCH=$ARCH` command."
 msgstr ""
 
-#: src/developer-faq.md:211
+#: src/developer-faq.md:216
 msgid ""
 "If you want to clean the binaries of the previous CPU architecture run the "
 "following command:"
 msgstr ""
 
-#: src/developer-faq.md:217
+#: src/developer-faq.md:222
 msgid "How can I cross-compile to ARM64 from a x86-64 computer?"
 msgstr ""
 
-#: src/developer-faq.md:219
+#: src/developer-faq.md:224
 msgid ""
 "Insert the `ARCH?=aarch64` environment variable on your `.config` file and "
 "run the `make all` command."
 msgstr ""
 
-#: src/developer-faq.md:221
+#: src/developer-faq.md:226
 msgid ""
 "If you want to do it temporarily run the `make all ARCH=aarch64` command."
 msgstr ""
 
-#: src/developer-faq.md:223
+#: src/developer-faq.md:228
 msgid "How can I use a recipe in my Redox image?"
 msgstr ""
 
-#: src/developer-faq.md:225
+#: src/developer-faq.md:230
 msgid ""
 "If you want to quickly install the recipe package until the next image "
 "creation, run the following command:"
 msgstr ""
 
-#: src/developer-faq.md:231
+#: src/developer-faq.md:236
 msgid ""
 "Or (if you want to use a remote package if you want to use it more quickly)"
 msgstr ""
 
-#: src/developer-faq.md:237
+#: src/developer-faq.md:242
 msgid ""
 "If you want to permanently install the recipe on your image, read the "
 "following steps."
 msgstr ""
 
-#: src/developer-faq.md:239
+#: src/developer-faq.md:244
 msgid "Go to your filesystem configuration and add the recipe:"
 msgstr ""
 
-#: src/developer-faq.md:252 src/developer-faq.md:267
+#: src/developer-faq.md:257 src/developer-faq.md:272
 msgid "Or (for a remote package)"
 msgstr ""
 
-#: src/developer-faq.md:254
+#: src/developer-faq.md:259
 msgid ""
 "```toml\n"
 "[packages]\n"
@@ -899,86 +913,86 @@ msgid ""
 "```"
 msgstr ""
 
-#: src/developer-faq.md:261
+#: src/developer-faq.md:266
 msgid "Build the recipe and install in a existing image"
 msgstr ""
 
-#: src/developer-faq.md:273
+#: src/developer-faq.md:278
 msgid "How to update initfs?"
 msgstr ""
 
-#: src/developer-faq.md:275
+#: src/developer-faq.md:280
 msgid ""
 "initfs don't automatically add your changes to system daemons, drivers or "
 "RedoxFS and need manual rebuild."
 msgstr ""
 
-#: src/developer-faq.md:277
+#: src/developer-faq.md:282
 msgid ""
 "Read [this](./coding-and-building.md#how-to-update-initfs) section to learn "
 "how to do it."
 msgstr ""
 
-#: src/developer-faq.md:279
+#: src/developer-faq.md:284
 msgid ""
 "I made changes to my recipe. What is the quickest way to test it in QEMU?"
 msgstr ""
 
-#: src/developer-faq.md:281
+#: src/developer-faq.md:286
 msgid ""
 "If you did incremental changes (which don't change the binary symbols), run "
 "the following command:"
 msgstr ""
 
-#: src/developer-faq.md:283 src/developer-faq.md:291
+#: src/developer-faq.md:288 src/developer-faq.md:296
 msgid "Rebuild the recipe, install to an existing image and launch QEMU"
 msgstr ""
 
-#: src/developer-faq.md:289
+#: src/developer-faq.md:294
 msgid ""
 "If you did breaking changes (which changed the binary symbols) run the "
 "following command:"
 msgstr ""
 
-#: src/developer-faq.md:297
+#: src/developer-faq.md:302
 msgid ""
 "I made changes to multiple recipes. What is the quickest way to test it in "
 "QEMU?"
 msgstr ""
 
-#: src/developer-faq.md:299 src/developer-faq.md:307
+#: src/developer-faq.md:304 src/developer-faq.md:312
 msgid ""
 "Rebuild the modified recipes, install to an existing image and launch QEMU:"
 msgstr ""
 
-#: src/developer-faq.md:305
+#: src/developer-faq.md:310
 msgid ""
 "If you don't want to specify all modified recipes run the following command:"
 msgstr ""
 
-#: src/developer-faq.md:313
+#: src/developer-faq.md:318
 msgid "How can I disable the recipe compilation?"
 msgstr ""
 
-#: src/developer-faq.md:315
+#: src/developer-faq.md:320
 msgid ""
 "Insert the `REPO_BINARY?=1` environment variable to your `.config` file, it "
 "will download pre-compiled recipe packages from the [build server](https://"
 "static.redox-os.org/pkg/) if available."
 msgstr ""
 
-#: src/developer-faq.md:317
+#: src/developer-faq.md:322
 msgid "How can I disable recipe compilation except for a specific recipe?"
 msgstr ""
 
-#: src/developer-faq.md:319
+#: src/developer-faq.md:324
 msgid ""
 "After inserting the `REPO_BINARY?=1` environment variable to your `.config` "
 "file, go to your filesystem configuration and add the source-based variant "
 "of the recipe:"
 msgstr ""
 
-#: src/developer-faq.md:325
+#: src/developer-faq.md:330
 msgid ""
 "```toml\n"
 "[packages]\n"
@@ -988,174 +1002,174 @@ msgid ""
 "```"
 msgstr ""
 
-#: src/developer-faq.md:332
+#: src/developer-faq.md:337
 msgid "Install the recipe package in the Redox image"
 msgstr ""
 
-#: src/developer-faq.md:338
+#: src/developer-faq.md:343
 msgid "Or (if the above doesn't work)"
 msgstr ""
 
-#: src/developer-faq.md:344
+#: src/developer-faq.md:349
 msgid "How to disable the automatic recipe source update?"
 msgstr ""
 
-#: src/developer-faq.md:346
+#: src/developer-faq.md:351
 msgid ""
 "The build system automatically update recipe sources if new upstream commits "
 "exist, which can break your local changes."
 msgstr ""
 
-#: src/developer-faq.md:348
+#: src/developer-faq.md:353
 msgid ""
 "To learn how to disable it for one or multiple recipes read [this](./"
 "configuration-settings.md#local-recipe-changes) section."
 msgstr ""
 
-#: src/developer-faq.md:350
+#: src/developer-faq.md:355
 msgid ""
 "To learn how to disable it for all recipes read [this](./configuration-"
 "settings.md#cookbook-offline-mode) section."
 msgstr ""
 
-#: src/developer-faq.md:352
+#: src/developer-faq.md:357
 msgid ""
 "How can I install the packages needed by recipes (Native Build) or Podman "
 "without a new download of the build system?"
 msgstr ""
 
-#: src/developer-faq.md:354 src/developer-faq.md:364
+#: src/developer-faq.md:359 src/developer-faq.md:369
 msgid "Run the following command from your build system:"
 msgstr ""
 
-#: src/developer-faq.md:360
+#: src/developer-faq.md:365
 msgid "(If you are using Podman this process is automatic)"
 msgstr ""
 
-#: src/developer-faq.md:362
+#: src/developer-faq.md:367
 msgid "Or (for Podman dependencies)"
 msgstr ""
 
-#: src/developer-faq.md:370
+#: src/developer-faq.md:375
 msgid "How can I build the toolchain from source?"
 msgstr ""
 
-#: src/developer-faq.md:372
+#: src/developer-faq.md:377
 msgid ""
 "Disable the `PREFIX_BINARY` environment variable inside of your `.config` "
 "file:"
 msgstr ""
 
-#: src/developer-faq.md:382
+#: src/developer-faq.md:387
 msgid "Clean the previous toolchain binaries and build new ones:"
 msgstr ""
 
-#: src/developer-faq.md:392
+#: src/developer-faq.md:397
 msgid ""
 "Clean the previous recipe binaries and build again with the new toolchain:"
 msgstr ""
 
-#: src/developer-faq.md:398
+#: src/developer-faq.md:403
 msgid "Porting Questions"
 msgstr ""
 
-#: src/developer-faq.md:400
+#: src/developer-faq.md:405
 msgid "How to determine if some program is portable to Redox?"
 msgstr ""
 
-#: src/developer-faq.md:402
+#: src/developer-faq.md:407
 msgid "The source code of the program must be available"
 msgstr ""
 
-#: src/developer-faq.md:403
+#: src/developer-faq.md:408
 msgid ""
 "The program should use cross-platform libraries (if not, more porting effort "
 "is required)"
 msgstr ""
 
-#: src/developer-faq.md:404
+#: src/developer-faq.md:409
 msgid ""
 "The program's build system should support cross-compilation (if not, more "
 "porting effort is required)"
 msgstr ""
 
-#: src/developer-faq.md:405
+#: src/developer-faq.md:410
 msgid ""
 "The program shouldn't directly use the Linux kernel API on its code (if not, "
 "more porting effort is required)"
 msgstr ""
 
-#: src/developer-faq.md:407
+#: src/developer-faq.md:412
 msgid ""
 "Some APIs of the Linux kernel can be ported while others not, because they "
 "require a complete Linux kernel."
 msgstr ""
 
-#: src/developer-faq.md:409
+#: src/developer-faq.md:414
 msgid "How to determine the dependencies of some program?"
 msgstr ""
 
-#: src/developer-faq.md:411
+#: src/developer-faq.md:416
 msgid ""
 "Read the [Dependencies](./porting-applications.md#dependencies) section."
 msgstr ""
 
-#: src/developer-faq.md:413
+#: src/developer-faq.md:418
 msgid "How can I configure the build system of the recipe?"
 msgstr ""
 
-#: src/developer-faq.md:415
+#: src/developer-faq.md:420
 msgid "Read the [Templates](./porting-applications.md#templates) section."
 msgstr ""
 
-#: src/developer-faq.md:417
+#: src/developer-faq.md:422
 msgid "How can I search for functions on relibc?"
 msgstr ""
 
-#: src/developer-faq.md:419
+#: src/developer-faq.md:424
 msgid ""
 "Read the [Search For Functions on Relibc](./porting-applications.md#search-"
 "for-functions-on-relibc) section."
 msgstr ""
 
-#: src/developer-faq.md:421
+#: src/developer-faq.md:426
 msgid "Which are the upstream requirements to accept my recipe?"
 msgstr ""
 
-#: src/developer-faq.md:423
+#: src/developer-faq.md:428
 msgid ""
 "Read the [Package Policy](./porting-applications.md#package-policy) section."
 msgstr ""
 
-#: src/developer-faq.md:425
+#: src/developer-faq.md:430
 msgid "What are the possible problems when porting programs and libraries?"
 msgstr ""
 
-#: src/developer-faq.md:427
+#: src/developer-faq.md:432
 msgid "Missing build tools"
 msgstr ""
 
-#: src/developer-faq.md:428
+#: src/developer-faq.md:433
 msgid "Cross-compilation configuration problems"
 msgstr ""
 
-#: src/developer-faq.md:429
+#: src/developer-faq.md:434
 msgid "Lack of Redox patches"
 msgstr ""
 
-#: src/developer-faq.md:430
+#: src/developer-faq.md:435
 msgid "Missing C, POSIX or Linux library functions in relibc"
 msgstr ""
 
-#: src/developer-faq.md:431
+#: src/developer-faq.md:436
 msgid "Runtime crashes or errors"
 msgstr ""
 
-#: src/developer-faq.md:433
+#: src/developer-faq.md:438
 msgid "Why C/C++ programs and libraries are hard and time consuming to port?"
 msgstr ""
 
-#: src/developer-faq.md:435
+#: src/developer-faq.md:440
 msgid ""
 "C/C++ don't have an official, advanced and automatic dependency manager and "
 "build system which force programs and libraries to select competing build "
@@ -1165,49 +1179,49 @@ msgid ""
 "libraries and lack many libraries"
 msgstr ""
 
-#: src/developer-faq.md:436
+#: src/developer-faq.md:441
 msgid ""
 "Programs and libraries need to manually manage the library versions, to "
 "workaround this some programs use bundled libraries which can difficult "
 "patching when needed"
 msgstr ""
 
-#: src/developer-faq.md:437
+#: src/developer-faq.md:442
 msgid ""
 "Some build systems lack a good cross-compilation support which require more "
 "tweaks and sometimes hacks"
 msgstr ""
 
-#: src/developer-faq.md:438
+#: src/developer-faq.md:443
 msgid ""
 "As libraries are manually managed programs with many dependencies can take "
 "hours to port depending on available library documentation/configuration and "
 "developer experience"
 msgstr ""
 
-#: src/developer-faq.md:439
+#: src/developer-faq.md:444
 msgid ""
 "Some programs and libraries have bad or lacking documentation about build "
 "instructions and configuration"
 msgstr ""
 
-#: src/developer-faq.md:441
+#: src/developer-faq.md:446
 msgid "Scheme Questions"
 msgstr ""
 
-#: src/developer-faq.md:443
+#: src/developer-faq.md:448
 msgid "What is a scheme?"
 msgstr ""
 
-#: src/developer-faq.md:445
+#: src/developer-faq.md:450
 msgid "Read the [Schemes and Resources](./schemes-resources.md) page."
 msgstr ""
 
-#: src/developer-faq.md:447
+#: src/developer-faq.md:452
 msgid "When does a regular program need to use a scheme?"
 msgstr ""
 
-#: src/developer-faq.md:449
+#: src/developer-faq.md:454
 msgid ""
 "Most schemes are used internally by system components or relibc, you don't "
 "need to access them directly. One exception is the pseudoterminal for your "
@@ -1217,57 +1231,57 @@ msgid ""
 "`display:3`"
 msgstr ""
 
-#: src/developer-faq.md:451
+#: src/developer-faq.md:456
 msgid "When would I write a program to implement a scheme?"
 msgstr ""
 
-#: src/developer-faq.md:453
+#: src/developer-faq.md:458
 msgid ""
 "If you are implementing a kernel service, userspace service or a device "
 "driver."
 msgstr ""
 
-#: src/developer-faq.md:455
+#: src/developer-faq.md:460
 msgid "How do I use a scheme for sandboxing a program?"
 msgstr ""
 
-#: src/developer-faq.md:457
+#: src/developer-faq.md:462
 msgid ""
 "The [contain](https://gitlab.redox-os.org/redox-os/contain) program provides "
 "a partial implementation of sandboxing using schemes and namespaces."
 msgstr ""
 
-#: src/developer-faq.md:459
+#: src/developer-faq.md:464
 msgid "How can I see all userspace schemes?"
 msgstr ""
 
-#: src/developer-faq.md:461
+#: src/developer-faq.md:466
 msgid "Read the [Userspace Schemes](./schemes.md#userspace-schemes) section."
 msgstr ""
 
-#: src/developer-faq.md:463
+#: src/developer-faq.md:468
 msgid "How can I see all kernel schemes?"
 msgstr ""
 
-#: src/developer-faq.md:465
+#: src/developer-faq.md:470
 msgid "Read the [Kernel Schemes](./schemes.md#kernel-schemes) section."
 msgstr ""
 
-#: src/developer-faq.md:467
+#: src/developer-faq.md:472
 msgid "What is the difference between kernel and userspace schemes?"
 msgstr ""
 
-#: src/developer-faq.md:469
+#: src/developer-faq.md:474
 msgid ""
 "Read the [Kernel vs Userspace Schemes](./schemes.md#kernel-vs-userspace-"
 "schemes) section."
 msgstr ""
 
-#: src/developer-faq.md:471
+#: src/developer-faq.md:476
 msgid "How does a userspace daemon provide file-like services?"
 msgstr ""
 
-#: src/developer-faq.md:473
+#: src/developer-faq.md:478
 msgid ""
 "When a regular program calls `open`, `read`, `write`, etc. on a file-like "
 "resource, the kernel translates that to a message of type `syscall::data::"
@@ -1277,35 +1291,35 @@ msgid ""
 "information."
 msgstr ""
 
-#: src/developer-faq.md:475
+#: src/developer-faq.md:480
 msgid "How the system calls are used by userspace daemons?"
 msgstr ""
 
-#: src/developer-faq.md:477
+#: src/developer-faq.md:482
 msgid ""
 "All userspace daemons use the system calls through [relibc](https://gitlab."
 "redox-os.org/redox-os/relibc) like any normal program."
 msgstr ""
 
-#: src/developer-faq.md:479
+#: src/developer-faq.md:484
 msgid "GitLab Questions"
 msgstr ""
 
-#: src/developer-faq.md:481
+#: src/developer-faq.md:486
 msgid "How to properly request a review or review MRs?"
 msgstr ""
 
-#: src/developer-faq.md:483
+#: src/developer-faq.md:488
 msgid "These rules prevent you from wasting time and stress."
 msgstr ""
 
-#: src/developer-faq.md:485
+#: src/developer-faq.md:490
 msgid ""
 "**Don't edit your code suggestions without a warning before to prevent merge "
 "errors and review disorganization**"
 msgstr ""
 
-#: src/developer-faq.md:486
+#: src/developer-faq.md:491
 msgid ""
 "If you are requesting a review it's recommended that it's done by one "
 "reviewer per time to avoid extra coordination effort with multiple reviewers "
@@ -1315,357 +1329,357 @@ msgid ""
 "due to possible different file states while you apply the code suggestions**"
 msgstr ""
 
-#: src/developer-faq.md:487
+#: src/developer-faq.md:492
 msgid ""
 "If you are requesting a review where code suggestions will not be used, you "
 "can accept multiple reviewers without coordination of when they started and "
 "finished their reviews"
 msgstr ""
 
-#: src/developer-faq.md:488
+#: src/developer-faq.md:493
 msgid ""
 "Once you finish your review warn to avoid conflicts with other reviewers"
 msgstr ""
 
-#: src/developer-faq.md:489
+#: src/developer-faq.md:494
 msgid ""
 "It's recommended to use code suggestions for normal text and code to help "
 "and save time for developers, that way they can quickly improve or apply the "
 "text or code."
 msgstr ""
 
-#: src/developer-faq.md:491
+#: src/developer-faq.md:496
 msgid ""
 "You can start a code suggestion by clicking on the file icon with the + "
 "symbol when you click to comment in some line of a file."
 msgstr ""
 
-#: src/developer-faq.md:493
+#: src/developer-faq.md:498
 msgid ""
 "I have a merge request with many commits, should I squash them after merge?"
 msgstr ""
 
-#: src/developer-faq.md:495
+#: src/developer-faq.md:500
 msgid "If they don't have relevant informaiton on titles, yes."
 msgstr ""
 
-#: src/developer-faq.md:497
+#: src/developer-faq.md:502
 msgid "Should I delete my branch after merge?"
 msgstr ""
 
-#: src/developer-faq.md:499
+#: src/developer-faq.md:504
 msgid "Yes."
 msgstr ""
 
-#: src/developer-faq.md:501
+#: src/developer-faq.md:506
 msgid "How can I have an anonymous account?"
 msgstr ""
 
-#: src/developer-faq.md:503
+#: src/developer-faq.md:508
 msgid ""
 "During the account creation process you can add a fake name on the \"First "
 "Name\" and \"Last Name\" fields and change it later after your account "
 "approval (single name field is supported)."
 msgstr ""
 
-#: src/developer-faq.md:505
+#: src/developer-faq.md:510
 msgid ""
 "Read the [Anonymous Commits](./coding-and-building.md#anonymous-commits) "
 "section if you need more anonymity."
 msgstr ""
 
-#: src/developer-faq.md:507
+#: src/developer-faq.md:512
 msgid "Documentation Questions"
 msgstr ""
 
-#: src/developer-faq.md:509
+#: src/developer-faq.md:514
 msgid "How can I write code documentation properly?"
 msgstr ""
 
-#: src/developer-faq.md:511
+#: src/developer-faq.md:516
 msgid "Read the following pages:"
 msgstr ""
 
-#: src/developer-faq.md:513
+#: src/developer-faq.md:518
 msgid "[Literate programming](./literate-programming.md)"
 msgstr ""
 
-#: src/developer-faq.md:514
+#: src/developer-faq.md:519
 msgid "[Writting Documentation Correctly](./writing-docs-correctly.md)"
 msgstr ""
 
-#: src/developer-faq.md:516
+#: src/developer-faq.md:521
 msgid "How can I write book documentation properly?"
 msgstr ""
 
-#: src/developer-faq.md:518
+#: src/developer-faq.md:523
 msgid ""
 "**Read the entire book before writing new documentation and submiting MRs to "
 "avoid information duplication**"
 msgstr ""
 
-#: src/developer-faq.md:520
+#: src/developer-faq.md:525
 msgid ""
 "Only add work-in-progress information if really necessary, as it may "
 "unnecessarily increases maintenance cost"
 msgstr ""
 
-#: src/developer-faq.md:521
+#: src/developer-faq.md:526
 msgid ""
 "Don't use informal grammar abbreviations such as \"config\" (except "
 "technical terms such as \"CPU\")"
 msgstr ""
 
-#: src/developer-faq.md:522
+#: src/developer-faq.md:527
 msgid ""
 "Use spaces instead of tabs to avoid formatting breakage with different text "
 "editor tab configurations"
 msgstr ""
 
-#: src/developer-faq.md:523
+#: src/developer-faq.md:528
 msgid "Use [Oxford commas](https://en.wikipedia.org/wiki/Serial_comma)"
 msgstr ""
 
-#: src/developer-faq.md:524
+#: src/developer-faq.md:529
 msgid ""
 "The documentation grammar is not strictly formal to allow better "
 "understanding and readability, the grammar is a mix of American, British and "
 "International English"
 msgstr ""
 
-#: src/developer-faq.md:526
+#: src/developer-faq.md:531
 msgid "How can I insert commands or code correctly?"
 msgstr ""
 
-#: src/developer-faq.md:528
+#: src/developer-faq.md:533
 msgid ""
 "Commands or code should be inserted inside Markdown code blocks (using 3 "
 "backticks above and below the line of the command), for example:"
 msgstr ""
 
-#: src/developer-faq.md:534
+#: src/developer-faq.md:539
 msgid ""
 "Multiple commands should use an unique code block for each command to allow "
 "them to be copied with one cursor click"
 msgstr ""
 
-#: src/developer-faq.md:535
+#: src/developer-faq.md:540
 msgid ""
 "If you can't use a code block due to incompatible wording in the "
 "explanation, you can use the simple code highlighting using 1 backtick "
 "before and after the command on the same line"
 msgstr ""
 
-#: src/developer-faq.md:537
+#: src/developer-faq.md:542
 msgid "How can I create diagrams?"
 msgstr ""
 
-#: src/developer-faq.md:539
+#: src/developer-faq.md:544
 msgid ""
 "For diagrams to this book read [this](https://gohugo.io/content-management/"
 "diagrams/) article."
 msgstr ""
 
-#: src/developer-faq.md:541
+#: src/developer-faq.md:546
 msgid ""
 "For diagrams to the GitLab web interface the GitLab Markdown has support for "
 "some diagram syntaxes, read [this](https://docs.gitlab.com/user/markdown/"
 "#diagrams-and-flowcharts) article to learn how to use them."
 msgstr ""
 
-#: src/developer-faq.md:543
+#: src/developer-faq.md:548
 msgid "Troubleshooting Questions"
 msgstr ""
 
-#: src/developer-faq.md:545
+#: src/developer-faq.md:550
 msgid "Scripts"
 msgstr ""
 
-#: src/developer-faq.md:547
+#: src/developer-faq.md:552
 msgid ""
 "I can't download the build system bootstrap scripts, how can I fix this?"
 msgstr ""
 
-#: src/developer-faq.md:549
+#: src/developer-faq.md:554
 msgid ""
 "Verify if you have `curl` installed or download the script from your web "
 "browser."
 msgstr ""
 
-#: src/developer-faq.md:551
+#: src/developer-faq.md:556
 msgid ""
 "I tried to run the \"podman_bootstrap.sh\" and \"native_bootstrap.sh\" "
 "scripts but got an error, how to fix this?"
 msgstr ""
 
-#: src/developer-faq.md:553
+#: src/developer-faq.md:558
 msgid "Verify if you have the GNU Bash shell installed on your system."
 msgstr ""
 
-#: src/developer-faq.md:554
+#: src/developer-faq.md:559
 msgid "Verify if Podman is supported on your operating system."
 msgstr ""
 
-#: src/developer-faq.md:555
+#: src/developer-faq.md:560
 msgid ""
 "Verify if your operating system is [supported](./building-redox.md#supported-"
 "unix-like-distributions-and-podman-build) on the `native_bootstrap.sh` script"
 msgstr ""
 
-#: src/developer-faq.md:557
+#: src/developer-faq.md:562
 msgid "Build System"
 msgstr ""
 
-#: src/developer-faq.md:559
+#: src/developer-faq.md:564
 msgid ""
 "I ran \"make all\" but it show a \"rustup can't be found\" message, how can "
 "I fix this?"
 msgstr ""
 
-#: src/developer-faq.md:561
+#: src/developer-faq.md:566
 msgid "Run the following command:"
 msgstr ""
 
-#: src/developer-faq.md:567
+#: src/developer-faq.md:572
 msgid ""
 "(If you installed rustup before the first `podman_bootstrap.sh` or "
 "`native_bootstrap.sh` execution, this error doesn't happen)"
 msgstr ""
 
-#: src/developer-faq.md:569
+#: src/developer-faq.md:574
 msgid ""
 "I tried all troubleshooting methods but my build system is still broken, how "
 "can I fix that?"
 msgstr ""
 
-#: src/developer-faq.md:571
+#: src/developer-faq.md:576
 msgid ""
 "If the `make clean pull container_clean all` command doesn't work download a "
 "new build system copy or wait for an upstream fix."
 msgstr ""
 
-#: src/developer-faq.md:573
+#: src/developer-faq.md:578
 msgid "Recipes"
 msgstr ""
 
-#: src/developer-faq.md:575
+#: src/developer-faq.md:580
 msgid "I had an error with a recipe, how can I fix that?"
 msgstr ""
 
-#: src/developer-faq.md:577
+#: src/developer-faq.md:582
 msgid ""
 "Read the [Solving Compilation Problems](./troubleshooting.md#solving-"
 "compilation-problems) section."
 msgstr ""
 
-#: src/developer-faq.md:579
+#: src/developer-faq.md:584
 msgid ""
 "I tried all methods of the \"Troubleshooting the Build\" page and my recipe "
 "still doesn't build, what it can be?"
 msgstr ""
 
-#: src/developer-faq.md:581
+#: src/developer-faq.md:586
 msgid "Missing dependencies"
 msgstr ""
 
-#: src/developer-faq.md:582
+#: src/developer-faq.md:587
 msgid ""
 "Environment leakage: when some part of the recipe build system does native "
 "Linux compilation instead of cross-compilation to Redox"
 msgstr ""
 
-#: src/developer-faq.md:583
+#: src/developer-faq.md:588
 msgid "Misconfigured cross-compilation"
 msgstr ""
 
-#: src/developer-faq.md:584
+#: src/developer-faq.md:589
 msgid "The recipe needs to be ported to Redox"
 msgstr ""
 
-#: src/developer-faq.md:586
+#: src/developer-faq.md:591
 msgid "When I run \"make r.recipe\" I get a syntax error, how can I fix that?"
 msgstr ""
 
-#: src/developer-faq.md:588
+#: src/developer-faq.md:593
 msgid ""
 "Verify if your `recipe.toml` file has some typo, missing data type or value."
 msgstr ""
 
-#: src/developer-faq.md:590
+#: src/developer-faq.md:595
 msgid ""
 "When I run \"cargo update\" on some recipe source it call rustup to install "
 "other Rust toolchain version, how can I fix that?"
 msgstr ""
 
-#: src/developer-faq.md:592
+#: src/developer-faq.md:597
 msgid ""
 "It happens because Cargo is not using the Redox fork of the Rust compiler, "
 "to fix that run `make env` from the Redox build system root."
 msgstr ""
 
-#: src/developer-faq.md:594
+#: src/developer-faq.md:599
 msgid ""
 "It will import the Redox Makefile environment variables to your active shell "
 "(it already does that when you run other `make` commands from the Redox "
 "build system root)."
 msgstr ""
 
-#: src/developer-faq.md:596
+#: src/developer-faq.md:601
 msgid ""
 "I added the dependency of my program in the \"recipe.toml\" file but the "
 "program build system doesn't detect it, then I installed the program "
 "dependency on my Linux distribution and it detected, why?"
 msgstr ""
 
-#: src/developer-faq.md:598
+#: src/developer-faq.md:603
 msgid ""
 "Read the [Environment Leakage](./troubleshooting.md#environment-leakage) "
 "section."
 msgstr ""
 
-#: src/developer-faq.md:600
+#: src/developer-faq.md:605
 msgid ""
 "I made changes to system daemons, drivers and RedoxFS but they aren't "
 "applied in the Redox image, how can I fix that?"
 msgstr ""
 
-#: src/developer-faq.md:602
+#: src/developer-faq.md:607
 msgid ""
 "You forgot to update initfs which is manual, read [this](./coding-and-"
 "building.md#how-to-update-initfs) section to learn how to do this."
 msgstr ""
 
-#: src/developer-faq.md:604
+#: src/developer-faq.md:609
 msgid "QEMU"
 msgstr ""
 
-#: src/developer-faq.md:606
+#: src/developer-faq.md:611
 msgid "How can I kill the QEMU process if Redox freezes or get a kernel panic?"
 msgstr ""
 
-#: src/developer-faq.md:608
+#: src/developer-faq.md:613
 msgid ""
 "Read the [Kill A Frozen Redox VM](./troubleshooting.md#kill-a-frozen-redox-"
 "vm) section."
 msgstr ""
 
-#: src/developer-faq.md:610
+#: src/developer-faq.md:615
 msgid "Real Hardware"
 msgstr ""
 
-#: src/developer-faq.md:612
+#: src/developer-faq.md:617
 msgid "I got a kernel panic, what can I do?"
 msgstr ""
 
-#: src/developer-faq.md:614
+#: src/developer-faq.md:619
 msgid "Read the [Kernel Panic](./troubleshooting.md#kernel-panic) section."
 msgstr ""
 
-#: src/developer-faq.md:616
+#: src/developer-faq.md:621
 msgid "Some driver is not working with my hardware, what can I do?"
 msgstr ""
 
-#: src/developer-faq.md:618
+#: src/developer-faq.md:623
 msgid ""
 "Read the [Debug Methods](./troubleshooting.md#debug-methods) section and ask "
 "us for instructions in the [Matrix chat](./chat.md)."

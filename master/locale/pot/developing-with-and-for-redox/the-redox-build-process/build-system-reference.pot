@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: The Redox Operating System\n"
-"POT-Creation-Date: 2026-02-24T08:43:44Z\n"
+"POT-Creation-Date: 2026-03-17T09:29:16Z\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -646,42 +646,53 @@ msgid "Recipe"
 msgstr ""
 
 #: src/build-system-reference.md:141
-msgid "`make f.recipe-name` - Download the recipe source"
+msgid ""
+"`make f.recipe-name` (abbreviation of `fetch`) - Download one or multiple "
+"recipe sources"
 msgstr ""
 
 #: src/build-system-reference.md:142
 msgid ""
-"`make r.recipe-name` - Build a single recipe, checking if the recipe source "
-"has changed, and creating the executable, etc. e.g. `make r.games` (you "
-"can't use this command to replace the `make all`, `make fstools` and `make "
-"prefix` commands because it don't trigger them, make sure to run them before "
-"to avoid errors)"
+"`make r.recipe-name` (abbreviation of `repo`) - Build one or multiple "
+"recipes, checking if the recipe source has changed, and creating the "
+"executable, etc. e.g. `make r.games` (you can't use this command to replace "
+"the `make all`, `make fstools` and `make prefix` commands because it don't "
+"trigger them, make sure to run them before to avoid errors)"
 msgstr ""
 
 #: src/build-system-reference.md:144
 msgid ""
-"The package is built even if it is not in your filesystem configuration."
+"Meta-packages need the `--with-package-deps` option, for example: `make r."
+"meta-package,--with-package-deps`"
+msgstr ""
+
+#: src/build-system-reference.md:145
+msgid "The recipe is built even if it's not in your filesystem configuration."
 msgstr ""
 
 #: src/build-system-reference.md:146
 msgid ""
-"(This command will continue where you stopped the build process, it's useful "
-"to save time if you had a compilation error and patched a crate)"
+"This command will continue where you stopped the build process, it's useful "
+"to save time if you had a compilation error and patched a crate"
 msgstr ""
 
 #: src/build-system-reference.md:148
 msgid ""
-"`make p.recipe-name` - Install the recipe binaries to an existing Redox image"
+"`make p.recipe-name` (abbreviation of `push`) - Install one or multiple "
+"recipe binaries to an existing Redox image"
 msgstr ""
 
 #: src/build-system-reference.md:149
-msgid "`make c.recipe-name` - Clean the recipe binaries."
+msgid ""
+"`make c.recipe-name` (abbreviation of `clean`) - Clean one or multiple "
+"recipe binaries."
 msgstr ""
 
 #: src/build-system-reference.md:150
 msgid ""
-"`make u.recipe-name` - Clean the recipe source code and binaries (**please "
-"backup or submit your source changes before the execution of this command**)."
+"`make u.recipe-name` (abbreviation of `unfetch`) - Clean one or multiple "
+"recipe source code and binaries (**please backup or submit your source "
+"changes before the execution of this command**)."
 msgstr ""
 
 #: src/build-system-reference.md:151
@@ -714,17 +725,23 @@ msgstr ""
 
 #: src/build-system-reference.md:157
 msgid ""
+"`make repo_clean_target` - Clean all recipe binaries compiled to the active "
+"CPU architecture (`ARCH=value` environment variable)"
+msgstr ""
+
+#: src/build-system-reference.md:158
+msgid ""
 "`make fetch_clean` - Clean all recipe binaries and sources (alternative to "
 "`make u.--all`)"
 msgstr ""
 
-#: src/build-system-reference.md:158
+#: src/build-system-reference.md:159
 msgid ""
 "`make x.--all` - Any recipe target (x) can be run in all recipes at "
 "`recipes` (like `make c.--all` which clean all recipe binaries, for example)"
 msgstr ""
 
-#: src/build-system-reference.md:159
+#: src/build-system-reference.md:160
 msgid ""
 "`make x.--category-folder-name` - Any recipe target (x) can be run in all "
 "recipes of some category folder at `recipes` (like `make u.--category-wip` "
@@ -733,18 +750,18 @@ msgid ""
 "subfolder`"
 msgstr ""
 
-#: src/build-system-reference.md:161
+#: src/build-system-reference.md:162
 msgid ""
 "All recipe targets also support multiple recipe entries by separating each "
 "recipe name with a comma. for example: `make f.recipe1,recipe2` will "
 "download the sources of `recipe1` and `recipe2`"
 msgstr ""
 
-#: src/build-system-reference.md:163
+#: src/build-system-reference.md:164
 msgid "QEMU/VirtualBox"
 msgstr ""
 
-#: src/build-system-reference.md:165
+#: src/build-system-reference.md:166
 msgid ""
 "`make qemu` - Boot Redox in QEMU, if a `build/harddrive.img` file exists "
 "QEMU will run using that image. If you want to force a rebuild first, run "
@@ -753,59 +770,59 @@ msgid ""
 "combination of QEMU command line options, have a look through `mk/qemu.mk`"
 msgstr ""
 
-#: src/build-system-reference.md:166
+#: src/build-system-reference.md:167
 msgid "`make qemu gpu=no` - Start QEMU without a GUI (disables Orbital)."
 msgstr ""
 
-#: src/build-system-reference.md:167
+#: src/build-system-reference.md:168
 msgid "`make qemu gpu=virtio` - Start QEMU with the VirtIO GPU driver."
 msgstr ""
 
-#: src/build-system-reference.md:168
+#: src/build-system-reference.md:169
 msgid "`make qemu audio=no` - Disable all sound drivers."
 msgstr ""
 
-#: src/build-system-reference.md:169
+#: src/build-system-reference.md:170
 msgid "`make qemu usb=no` - Disable all USB drivers."
 msgstr ""
 
-#: src/build-system-reference.md:170
+#: src/build-system-reference.md:171
 msgid ""
 "`make qemu uefi=yes` - Enable the UEFI boot loader (it supports more screen "
 "resolutions)."
 msgstr ""
 
-#: src/build-system-reference.md:171
+#: src/build-system-reference.md:172
 msgid "`make qemu live=yes` - Fully load the Redox image to RAM."
 msgstr ""
 
-#: src/build-system-reference.md:172
+#: src/build-system-reference.md:173
 msgid ""
 "`make qemu disk=nvme` - Boot Redox from a NVMe interface (high-performance "
 "SSD emulation)."
 msgstr ""
 
-#: src/build-system-reference.md:173
+#: src/build-system-reference.md:174
 msgid "`make qemu disk=usb` - Boot Redox from a virtual USB device."
 msgstr ""
 
-#: src/build-system-reference.md:174
+#: src/build-system-reference.md:175
 msgid "`make qemu disk=cdrom` - Boot Redox from a virtual CD-ROM disk."
 msgstr ""
 
-#: src/build-system-reference.md:175
+#: src/build-system-reference.md:176
 msgid ""
 "`make qemu kvm=no` - Start QEMU without the [Linux KVM](https://en.wikipedia."
 "org/wiki/Kernel-based_Virtual_Machine) acceleration if it's not supported."
 msgstr ""
 
-#: src/build-system-reference.md:176
+#: src/build-system-reference.md:177
 msgid ""
 "`make qemu iommu=yes` - Start QEMU with [IOMMU](https://en.wikipedia.org/"
 "wiki/Input-output_memory_management_unit) enabled."
 msgstr ""
 
-#: src/build-system-reference.md:177
+#: src/build-system-reference.md:178
 msgid ""
 "`make qemu gdb=yes` - Start QEMU with the GDB configuration enabled, you "
 "need to run the `make rp.gdbserver` command before to install the GDB server "
@@ -815,19 +832,19 @@ msgid ""
 "connect the GDB processes."
 msgstr ""
 
-#: src/build-system-reference.md:178
+#: src/build-system-reference.md:179
 msgid ""
 "`make gdb` - Connects the host system GDB to the GDB server (`gdbserver` "
 "recipe) running inside of Redox in QEMU."
 msgstr ""
 
-#: src/build-system-reference.md:179
+#: src/build-system-reference.md:180
 msgid ""
 "`make qemu option1=value option2=value` - Cumulative QEMU options are "
 "supported."
 msgstr ""
 
-#: src/build-system-reference.md:180
+#: src/build-system-reference.md:181
 msgid ""
 "`make virtualbox` - Boot Redox in VirtualBox, it requires the VirtualBox "
 "service to be running, run `systemctl status vboxdrv.service` to verify or "
@@ -835,138 +852,138 @@ msgid ""
 "systemd."
 msgstr ""
 
-#: src/build-system-reference.md:182
+#: src/build-system-reference.md:183
 msgid "Environment Variables"
 msgstr ""
 
-#: src/build-system-reference.md:184
+#: src/build-system-reference.md:185
 msgid "`$(BUILD)` - Represents the `build` folder."
 msgstr ""
 
-#: src/build-system-reference.md:185
+#: src/build-system-reference.md:186
 msgid "`$(ARCH)` - Represents the CPU architecture folder at `build`"
 msgstr ""
 
-#: src/build-system-reference.md:186
+#: src/build-system-reference.md:187
 msgid ""
 "`${TARGET}` - Represents the CPU architecture folder at the `recipes/recipe-"
 "name/target` folder"
 msgstr ""
 
-#: src/build-system-reference.md:187
+#: src/build-system-reference.md:188
 msgid ""
 "`$(CONFIG_NAME)` - Represents your filesystem configuration folder at `build/"
 "$ARCH`"
 msgstr ""
 
-#: src/build-system-reference.md:189
+#: src/build-system-reference.md:190
 msgid ""
 "We recommend that you use these variables with the `\"` symbol to clean any "
 "spaces on the path, spaces are interpreted as command separators and will "
 "break the commands."
 msgstr ""
 
-#: src/build-system-reference.md:191
+#: src/build-system-reference.md:192
 msgid "Example:"
 msgstr ""
 
-#: src/build-system-reference.md:193
+#: src/build-system-reference.md:194
 msgid ""
 "```\n"
 "\"${VARIABLE_NAME}\"\n"
 "```"
 msgstr ""
 
-#: src/build-system-reference.md:197
+#: src/build-system-reference.md:198
 msgid "If you have a folder inside the variable folder you can call it with:"
 msgstr ""
 
-#: src/build-system-reference.md:199
+#: src/build-system-reference.md:200
 msgid ""
 "```\n"
 "\"${VARIABLE_NAME}\"/folder-name\n"
 "```"
 msgstr ""
 
-#: src/build-system-reference.md:203
+#: src/build-system-reference.md:204
 msgid "Or"
 msgstr ""
 
-#: src/build-system-reference.md:205
+#: src/build-system-reference.md:206
 msgid ""
 "```\n"
 "\"${VARIABLE_NAME}/folder-name\"\n"
 "```"
 msgstr ""
 
-#: src/build-system-reference.md:209
+#: src/build-system-reference.md:210
 msgid "Scripts"
 msgstr ""
 
-#: src/build-system-reference.md:211
+#: src/build-system-reference.md:212
 msgid ""
 "You can use these scripts to perform actions not implemented as `make` "
 "commands in the build system."
 msgstr ""
 
-#: src/build-system-reference.md:213
+#: src/build-system-reference.md:214
 msgid "To run a script use the following command:"
 msgstr ""
 
-#: src/build-system-reference.md:219
+#: src/build-system-reference.md:220
 msgid "The \"input-text\" is the word used by the script."
 msgstr ""
 
-#: src/build-system-reference.md:221
+#: src/build-system-reference.md:222
 msgid "Changelog"
 msgstr ""
 
-#: src/build-system-reference.md:223
+#: src/build-system-reference.md:224
 msgid "`scripts/changelog.sh` - Show the changelog of all Redox components."
 msgstr ""
 
-#: src/build-system-reference.md:225
+#: src/build-system-reference.md:226
 msgid "Recipe Files"
 msgstr ""
 
-#: src/build-system-reference.md:227
+#: src/build-system-reference.md:228
 msgid "Show all files installed by a recipe."
 msgstr ""
 
-#: src/build-system-reference.md:233
+#: src/build-system-reference.md:234
 msgid "Recipe Categories"
 msgstr ""
 
-#: src/build-system-reference.md:235
+#: src/build-system-reference.md:236
 msgid "Run `make` options on some recipe category."
 msgstr ""
 
-#: src/build-system-reference.md:241
+#: src/build-system-reference.md:242
 msgid ""
 "Where `x` is your `make` option, it can be `f`, `r`, `c`, `u`, `cr`, `ur` or "
 "`uf`"
 msgstr ""
 
-#: src/build-system-reference.md:243
+#: src/build-system-reference.md:244
 msgid "Include Recipes"
 msgstr ""
 
-#: src/build-system-reference.md:245
+#: src/build-system-reference.md:246
 msgid ""
 "Create a list with `recipe-name = {} #TODO` for quick testing of WIP recipes."
 msgstr ""
 
-#: src/build-system-reference.md:248 src/build-system-reference.md:256
+#: src/build-system-reference.md:249 src/build-system-reference.md:257
 msgid "\"TODO.text\""
 msgstr ""
 
-#: src/build-system-reference.md:251
+#: src/build-system-reference.md:252
 msgid ""
 "You will insert the text after the `#TODO` in the `text` part, it can be "
 "found on the `recipe.toml` file of the recipe."
 msgstr ""
 
-#: src/build-system-reference.md:253
+#: src/build-system-reference.md:254
 msgid ""
 "If you want to add recipes to the `ci.toml` filesystem configuration to be "
 "available on the package build server, the recipe names must be sorted in "
@@ -974,151 +991,151 @@ msgid ""
 "following command:"
 msgstr ""
 
-#: src/build-system-reference.md:259
+#: src/build-system-reference.md:260
 msgid "Recipe Analysis"
 msgstr ""
 
-#: src/build-system-reference.md:261
+#: src/build-system-reference.md:262
 msgid ""
 "Show the folders and files on the `stage` and `sysroot` folders of some "
 "recipe (to identify packaging issues or violations)."
 msgstr ""
 
-#: src/build-system-reference.md:267
+#: src/build-system-reference.md:268
 msgid "Recipe Commit Hash"
 msgstr ""
 
-#: src/build-system-reference.md:269
+#: src/build-system-reference.md:270
 msgid "Show the current Git branch and commit of the recipe source."
 msgstr ""
 
-#: src/build-system-reference.md:275
+#: src/build-system-reference.md:276
 msgid "Package Size"
 msgstr ""
 
-#: src/build-system-reference.md:277
+#: src/build-system-reference.md:278
 msgid ""
 "Show the package size of the recipes (`stage.pkgar` and `stage.tar.gz`), it "
 "must be used by package maintainers to enforce the [library linking size "
 "policy](https://gitlab.redox-os.org/redox-os/cookbook#library-linking)."
 msgstr ""
 
-#: src/build-system-reference.md:283
+#: src/build-system-reference.md:284
 msgid "Recipe Location"
 msgstr ""
 
-#: src/build-system-reference.md:285
+#: src/build-system-reference.md:286
 msgid "Show the location of the written recipe."
 msgstr ""
 
-#: src/build-system-reference.md:291
+#: src/build-system-reference.md:292
 msgid "Recipe Match"
 msgstr ""
 
-#: src/build-system-reference.md:293
+#: src/build-system-reference.md:294
 msgid ""
 "Search some text inside the `recipe.toml` of all recipes and show their "
 "content."
 msgstr ""
 
-#: src/build-system-reference.md:295
+#: src/build-system-reference.md:296
 msgid ""
 "(Require `bat` and `ripgrep` installed, run `cargo install bat ripgrep` to "
 "install)"
 msgstr ""
 
-#: src/build-system-reference.md:298
+#: src/build-system-reference.md:299
 msgid "\"text\""
 msgstr ""
 
-#: src/build-system-reference.md:301
+#: src/build-system-reference.md:302
 msgid "Print Recipe"
 msgstr ""
 
-#: src/build-system-reference.md:303
+#: src/build-system-reference.md:304
 msgid "Show the content of the recipe configuration."
 msgstr ""
 
-#: src/build-system-reference.md:309
+#: src/build-system-reference.md:310
 msgid "Recipe Executables"
 msgstr ""
 
-#: src/build-system-reference.md:311
+#: src/build-system-reference.md:312
 msgid "List the recipe executables to find duplicates and conflicts."
 msgstr ""
 
-#: src/build-system-reference.md:313
+#: src/build-system-reference.md:314
 msgid ""
 "By default the script will only verify duplicates, if the `-a` option is "
 "used it will print the executable names of all compiled recipes"
 msgstr ""
 
-#: src/build-system-reference.md:314
+#: src/build-system-reference.md:315
 msgid "The `-arm64` option will show the ARM64 recipe executables"
 msgstr ""
 
-#: src/build-system-reference.md:315
+#: src/build-system-reference.md:316
 msgid "The `-i586` option will show the i586 recipe executables"
 msgstr ""
 
-#: src/build-system-reference.md:321
+#: src/build-system-reference.md:322
 msgid "Cargo Update"
 msgstr ""
 
-#: src/build-system-reference.md:323
+#: src/build-system-reference.md:324
 msgid "Download the recipe source and run `cargo update`"
 msgstr ""
 
-#: src/build-system-reference.md:329
+#: src/build-system-reference.md:330
 msgid "Dual Boot"
 msgstr ""
 
-#: src/build-system-reference.md:331
+#: src/build-system-reference.md:332
 msgid ""
 "`scripts/dual-boot.sh` - Install Redox in the free space of your storage "
 "device and add a boot entry (if you are using the [systemd-boot](https://www."
 "freedesktop.org/wiki/Software/systemd/systemd-boot/) boot loader)."
 msgstr ""
 
-#: src/build-system-reference.md:333
+#: src/build-system-reference.md:334
 msgid "Ventoy"
 msgstr ""
 
-#: src/build-system-reference.md:335
+#: src/build-system-reference.md:336
 msgid ""
 "`scripts/ventoy.sh` - Create and copy the Redox bootable image to an [Ventoy]"
 "(https://www.ventoy.net/en/index.html)\\-formatted device."
 msgstr ""
 
-#: src/build-system-reference.md:337
+#: src/build-system-reference.md:338
 msgid "Recipe Debugging (Rust)"
 msgstr ""
 
-#: src/build-system-reference.md:339
+#: src/build-system-reference.md:340
 msgid ""
 "`scripts/backtrace.sh` - Allow the user to copy a Rust backtrace from Redox "
 "and retrieve the symbols (use the `-h` option to show the \"Usage\" message)."
 msgstr ""
 
-#: src/build-system-reference.md:341
+#: src/build-system-reference.md:342
 msgid "Git Auto-checkout"
 msgstr ""
 
-#: src/build-system-reference.md:343
+#: src/build-system-reference.md:344
 msgid ""
 "The `make rebuild` and `make r.recipe` commands will Git checkout (change "
 "the active branch) of the recipe source to `master` (only recipes that fetch "
 "Git repositories are affected, thus all Redox components)."
 msgstr ""
 
-#: src/build-system-reference.md:345
+#: src/build-system-reference.md:346
 msgid ""
 "If you are working in a separated branch on the recipe source you can't "
 "build your changes, to avoid this comment out the `[source]` and `git =` "
 "fields from your `recipe.toml` :"
 msgstr ""
 
-#: src/build-system-reference.md:347
+#: src/build-system-reference.md:348
 msgid ""
 "```\n"
 "#[source]\n"
@@ -1126,71 +1143,71 @@ msgid ""
 "```"
 msgstr ""
 
-#: src/build-system-reference.md:352
+#: src/build-system-reference.md:353
 msgid "Update The Build System"
 msgstr ""
 
-#: src/build-system-reference.md:354
+#: src/build-system-reference.md:355
 msgid ""
 "This is the recommended way to update your build system/recipe sources and "
 "binaries."
 msgstr ""
 
-#: src/build-system-reference.md:360
+#: src/build-system-reference.md:361
 msgid "Update Redox"
 msgstr ""
 
-#: src/build-system-reference.md:362
+#: src/build-system-reference.md:363
 msgid ""
 "This is the recommended way to update the system and applications sources "
 "and binaries."
 msgstr ""
 
-#: src/build-system-reference.md:368
+#: src/build-system-reference.md:369
 msgid ""
 "If you want to just update the system without non-essential programs, run "
 "the following command:"
 msgstr ""
 
-#: src/build-system-reference.md:374
+#: src/build-system-reference.md:375 src/build-system-reference.md:389
 msgid "Or if you are using Orbital:"
 msgstr ""
 
-#: src/build-system-reference.md:380
+#: src/build-system-reference.md:381
 msgid ""
 "Sometimes you need to update the statically linked recipes manually with the "
 "`make static_clean rebuild` command or also rebuild all dynamically linked "
 "recipes with the `make repo_clean all` command."
 msgstr ""
 
-#: src/build-system-reference.md:382
+#: src/build-system-reference.md:383
 msgid ""
 "If you want to just rebuild the system without non-essential programs, run "
 "the following command:"
 msgstr ""
 
-#: src/build-system-reference.md:388
+#: src/build-system-reference.md:395
 msgid ""
 "(The Podman container is updated automatically if upstream add new packages "
 "to the Containerfile, but you can also force the container image to be "
 "updated with the `make container_clean` command)"
 msgstr ""
 
-#: src/build-system-reference.md:390
+#: src/build-system-reference.md:397
 msgid "Fix Breaking Changes"
 msgstr ""
 
-#: src/build-system-reference.md:392
+#: src/build-system-reference.md:399
 msgid ""
 "To learn how to fix breaking changes before and after build system updates "
 "read [this](./troubleshooting.md#fix-breaking-changes) section."
 msgstr ""
 
-#: src/build-system-reference.md:394
+#: src/build-system-reference.md:401
 msgid "All recipes"
 msgstr ""
 
-#: src/build-system-reference.md:396
+#: src/build-system-reference.md:403
 msgid ""
 "To pass the new relibc changes for all recipes (programs are the most common "
 "case) you will need to rebuild all recipes, unfortunately it's not possible "
@@ -1198,59 +1215,59 @@ msgid ""
 "a complete rebuild."
 msgstr ""
 
-#: src/build-system-reference.md:398
+#: src/build-system-reference.md:405
 msgid "To clean all recipe binaries and trigger a complete rebuild, run:"
 msgstr ""
 
-#: src/build-system-reference.md:404
+#: src/build-system-reference.md:411
 msgid "One Recipe"
 msgstr ""
 
-#: src/build-system-reference.md:406
+#: src/build-system-reference.md:413
 msgid "To pass the new relibc changes to one recipe, run:"
 msgstr ""
 
-#: src/build-system-reference.md:412
+#: src/build-system-reference.md:419
 msgid "Configuration"
 msgstr ""
 
-#: src/build-system-reference.md:414
+#: src/build-system-reference.md:421
 msgid ""
 "You can find the global settings on the [Configuration Settings](./"
 "configuration-settings.md) page."
 msgstr ""
 
-#: src/build-system-reference.md:416
+#: src/build-system-reference.md:423
 msgid "Format"
 msgstr ""
 
-#: src/build-system-reference.md:418
+#: src/build-system-reference.md:425
 msgid ""
 "The Redox configuration files use the [TOML](https://toml.io/en/) format, it "
 "has a very easy syntax and is very flexbile."
 msgstr ""
 
-#: src/build-system-reference.md:420
+#: src/build-system-reference.md:427
 msgid ""
 "You can see what the format supports on the [TOML](https://toml.io/en/"
 "v1.0.0) website."
 msgstr ""
 
-#: src/build-system-reference.md:422
+#: src/build-system-reference.md:429
 msgid "Filesystem Customization"
 msgstr ""
 
-#: src/build-system-reference.md:424
+#: src/build-system-reference.md:431
 msgid ""
 "Read the [Filesystem Customization](./configuration-settings.md#filesystem-"
 "customization) section."
 msgstr ""
 
-#: src/build-system-reference.md:426
+#: src/build-system-reference.md:433
 msgid "Cross-Compilation"
 msgstr ""
 
-#: src/build-system-reference.md:428
+#: src/build-system-reference.md:435
 msgid ""
 "The Redox build system is an example of [cross-compilation](https://en."
 "wikipedia.org/wiki/Cross_compiler). The Redox [toolchain](https://static."
@@ -1259,46 +1276,46 @@ msgid ""
 "toolchain and does not go on Redox."
 msgstr ""
 
-#: src/build-system-reference.md:430
+#: src/build-system-reference.md:437
 msgid ""
 "In the background, the `make all` command downloads the Redox toolchain to "
 "build all recipes (patched forks of rustc, GCC and LLVM)."
 msgstr ""
 
-#: src/build-system-reference.md:432
+#: src/build-system-reference.md:439
 msgid ""
 "If you are using Podman, the `podman_bootstrap.sh` script will download an "
 "Ubuntu container and `make all` will install the Redox toolchain, all "
 "recipes will be compiled in the container."
 msgstr ""
 
-#: src/build-system-reference.md:434
+#: src/build-system-reference.md:441
 msgid ""
 "The recipes produce Redox-specific executables. At the end of the build "
 "process, these executables are installed inside the QEMU image."
 msgstr ""
 
-#: src/build-system-reference.md:436
+#: src/build-system-reference.md:443
 msgid ""
 "The `relibc` (Redox C Library) provides the Redox [system calls](https://"
 "docs.rs/redox_syscall/latest/syscall/) to any software."
 msgstr ""
 
-#: src/build-system-reference.md:438
+#: src/build-system-reference.md:445
 msgid ""
 "[OSDev article about cross-compilation](https://wiki.osdev.org/"
 "Why_do_I_need_a_Cross_Compiler%3F)"
 msgstr ""
 
-#: src/build-system-reference.md:440
+#: src/build-system-reference.md:447
 msgid "Build Phases"
 msgstr ""
 
-#: src/build-system-reference.md:442
+#: src/build-system-reference.md:449
 msgid ""
 "Every build system command/script has phases, read this page to know them."
 msgstr ""
 
-#: src/build-system-reference.md:444
+#: src/build-system-reference.md:451
 msgid "[Build Phases](./build-phases.md)"
 msgstr ""
