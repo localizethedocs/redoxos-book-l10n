@@ -517,11 +517,11 @@ msgstr ""
 
 #: src/developer-faq.md:104
 msgid "https://doc.rust-lang.org/book/ch20-01-unsafe-rust.html"
-msgstr ""
+msgstr "https://doc.rust-lang.org/book/ch20-01-unsafe-rust.html"
 
 #: src/developer-faq.md:105
 msgid "https://doc.rust-lang.org/nomicon/meet-safe-and-unsafe.html"
-msgstr ""
+msgstr "https://doc.rust-lang.org/nomicon/meet-safe-and-unsafe.html"
 
 #: src/developer-faq.md:107
 msgid "Why does Redox have Assembly code?"
