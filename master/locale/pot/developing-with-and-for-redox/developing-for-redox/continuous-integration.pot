@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: The Redox Operating System\n"
-"POT-Creation-Date: 2026-02-24T08:43:44Z\n"
+"POT-Creation-Date: 2026-03-24T09:22:18Z\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -18,13 +18,13 @@ msgstr ""
 #: src/ci.md:3
 msgid ""
 "The [continuous integration](https://en.wikipedia.org/wiki/"
-"Continuous_integration) helps developers to automate the program testing as "
-"the code evolves, it detects broken things or regressions."
+"Continuous_integration) system helps developers to automate the program "
+"testing as the code evolves, as it detects broken things or regressions."
 msgstr ""
 
 #: src/ci.md:5
 msgid ""
-"The developer add a configuration file on the Git repository root with the "
+"The developer adds a configuration file on the Git repository root with the "
 "commands to test the things."
 msgstr ""
 

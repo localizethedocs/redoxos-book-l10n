@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: The Redox Operating System\n"
-"POT-Creation-Date: 2026-02-24T08:43:44Z\n"
+"POT-Creation-Date: 2026-03-24T09:22:18Z\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -32,7 +32,7 @@ msgstr ""
 #: src/raspi.md:9
 msgid ""
 "It is easy to port Raspberry Pi 3 Model B+ (raspi3b+) since the bootloader "
-"of Raspberry Pi family uses the similar filesystem (FAT32) for booting."
+"of Raspberry Pi family uses a similar filesystem (FAT32) for booting."
 msgstr ""
 
 #: src/raspi.md:12

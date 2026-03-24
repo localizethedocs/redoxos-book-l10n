@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: The Redox Operating System\n"
-"POT-Creation-Date: 2026-02-24T08:43:44Z\n"
+"POT-Creation-Date: 2026-03-24T09:22:18Z\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -280,7 +280,7 @@ msgstr ""
 
 #: src/libraries-apis.md:87
 msgid ""
-"[redox_syscall](https://gitlab.redox-os.org/redox-os/syscall) contain the "
+"[redox_syscall](https://gitlab.redox-os.org/redox-os/syscall) contains the "
 "system call numbers and Rust API wrappers for the inline Assembly code of "
 "system calls to be used with low-level components and libraries."
 msgstr ""
