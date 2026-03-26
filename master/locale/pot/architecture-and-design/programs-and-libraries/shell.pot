@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: The Redox Operating System\n"
-"POT-Creation-Date: 2026-02-24T08:43:44Z\n"
+"POT-Creation-Date: 2026-03-24T09:22:18Z\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -18,7 +18,7 @@ msgstr ""
 #: src/shell.md:3
 msgid ""
 "Ion is a terminal shell and library for shells/command execution in Redox, "
-"it's used by default. Ion has it's own manual, which you can find on the "
+"and it's used by default. Ion has it's own manual, which you can find on the "
 "[Ion Manual](https://doc.redox-os.org/ion-manual/)."
 msgstr ""
 
@@ -80,7 +80,7 @@ msgstr ""
 msgid ""
 "Of course these two groups are not exhaustive; it is worth mentioning at "
 "least the **fish** shell and **xonsh**. These shells are trying to abandon "
-"some features of old-school shell to make the language safer and more sane."
+"some features of old-school shells to make the language safer and more sane."
 msgstr ""
 
 #: src/shell.md:26

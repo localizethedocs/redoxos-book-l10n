@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: The Redox Operating System\n"
-"POT-Creation-Date: 2026-02-24T08:43:44Z\n"
+"POT-Creation-Date: 2026-03-24T09:22:18Z\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -81,7 +81,7 @@ msgid ""
 "In the case of our bootloader, the first code that is executed is `pub "
 "extern \"C\" fn main()` in `src/os/uefi/mod.rs`. At this point, the "
 "bootloader follows the same common boot process on all boot methods, which "
-"can be seen in a later section."
+"can be seen in the section below."
 msgstr ""
 
 #: src/boot-process.md:21
@@ -262,7 +262,7 @@ msgid "`fbbootlogd` forwards log from logd to VT"
 msgstr ""
 
 #: src/boot-process.md:74
-msgid "`fbcond` handles keyboard interaction to VT"
+msgid "`fbcond` handles keyboard interaction for VT"
 msgstr ""
 
 #: src/boot-process.md:75

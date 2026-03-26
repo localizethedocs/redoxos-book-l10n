@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: The Redox Operating System\n"
-"POT-Creation-Date: 2026-02-24T08:43:44Z\n"
+"POT-Creation-Date: 2026-03-24T09:22:18Z\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -28,7 +28,7 @@ msgstr ""
 
 #: src/system-tools.md:7
 msgid ""
-"Redox use the Rust implementation of the GNU Coreutils, [uutils](https://"
+"Redox uses the Rust implementation of the GNU Coreutils, [uutils](https://"
 "github.com/uutils/coreutils)."
 msgstr ""
 
@@ -38,23 +38,23 @@ msgid "Available programs:"
 msgstr ""
 
 #: src/system-tools.md:11
-msgid "`ls` - Show the files and folders of the current directory."
+msgid "`ls` - Shows the files and folders of the current directory."
 msgstr ""
 
 #: src/system-tools.md:12
-msgid "`cp` - Copy and paste some file or folder."
+msgid "`cp` - Copies and pastes some file or folder."
 msgstr ""
 
 #: src/system-tools.md:13
-msgid "`cat` - Show the output of some text file."
+msgid "`cat` - Shows the output of some text file."
 msgstr ""
 
 #: src/system-tools.md:14
-msgid "`chmod` - Change the permissions of some file or directory."
+msgid "`chmod` - Changes the permissions of some file or directory."
 msgstr ""
 
 #: src/system-tools.md:15
-msgid "`clear` - Clean the terminal output."
+msgid "`clear` - Cleans the terminal output."
 msgstr ""
 
 #: src/system-tools.md:16
@@ -62,7 +62,7 @@ msgid "`dd` - Copies and converts a file."
 msgstr ""
 
 #: src/system-tools.md:17
-msgid "`df` - Show the disk partitions information."
+msgid "`df` - Shows the disk partitions information."
 msgstr ""
 
 #: src/system-tools.md:18
@@ -74,11 +74,11 @@ msgid "`env` - Displays and modifies environment variables."
 msgstr ""
 
 #: src/system-tools.md:20
-msgid "`free` - Show the RAM usage."
+msgid "`free` - Shows the RAM usage."
 msgstr ""
 
 #: src/system-tools.md:21
-msgid "`kill` - Kill a process."
+msgid "`kill` - Kills a process."
 msgstr ""
 
 #: src/system-tools.md:22
@@ -86,23 +86,23 @@ msgid "`ln` - Creates a link to a file."
 msgstr ""
 
 #: src/system-tools.md:23
-msgid "`mkdir` - Create a directory."
+msgid "`mkdir` - Creates a directory."
 msgstr ""
 
 #: src/system-tools.md:24
-msgid "`ps` - Show all running processes."
+msgid "`ps` - Shows all running processes."
 msgstr ""
 
 #: src/system-tools.md:25
-msgid "`reset` - Restart the terminal to allow the command-line input."
+msgid "`reset` - Restarts the terminal to allow the command-line input."
 msgstr ""
 
 #: src/system-tools.md:26
-msgid "`shutdown` - Shutdown the system."
+msgid "`shutdown` - Shuts the system down."
 msgstr ""
 
 #: src/system-tools.md:27
-msgid "`sort` - Sort, merge, or sequence check text files."
+msgid "`sort` - Sorts, merges, or sequence checks text files."
 msgstr ""
 
 #: src/system-tools.md:28
@@ -110,38 +110,38 @@ msgid "`stat` - Returns data about an inode."
 msgstr ""
 
 #: src/system-tools.md:29
-msgid "`tail` - Copy the last part of a file."
+msgid "`tail` - Copies the last part of a file."
 msgstr ""
 
 #: src/system-tools.md:30
-msgid "`tee` - Duplicate the standard output."
+msgid "`tee` - Duplicates the standard output."
 msgstr ""
 
 #: src/system-tools.md:31
-msgid "`test` - Evaluate expression."
+msgid "`test` - Evaluates expression."
 msgstr ""
 
 #: src/system-tools.md:32
 msgid ""
-"`time` - Count the time that some command takes to finish it's operation."
+"`time` - Counts the time that some command takes to finish its operation."
 msgstr ""
 
 #: src/system-tools.md:33
-msgid "`touch` - Update the timestamp of some file or folder."
+msgid "`touch` - Updates the timestamp of some file or folder."
 msgstr ""
 
 #: src/system-tools.md:34
 msgid ""
-"`uname` - Show the system information, like kernel version and architecture "
+"`uname` - Shows the system information, like kernel version and architecture "
 "type."
 msgstr ""
 
 #: src/system-tools.md:35
-msgid "`uptime` - Show how much time your system is running."
+msgid "`uptime` - Shows how long your system has been running for."
 msgstr ""
 
 #: src/system-tools.md:36
-msgid "`which` - Show the path where some program is located."
+msgid "`which` - Shows the path where some program is located."
 msgstr ""
 
 #: src/system-tools.md:38
@@ -193,27 +193,27 @@ msgid "`sudo` - Enables users to execute a command as another user."
 msgstr ""
 
 #: src/system-tools.md:55
-msgid "`useradd` - Add a user"
+msgid "`useradd` - Adds a user"
 msgstr ""
 
 #: src/system-tools.md:56
-msgid "`usermod` - Modify user information"
+msgid "`usermod` - Modifies user information"
 msgstr ""
 
 #: src/system-tools.md:57
-msgid "`userdel` - Delete a user"
+msgid "`userdel` - Deletes a user"
 msgstr ""
 
 #: src/system-tools.md:58
-msgid "`groupadd` - Add a user group"
+msgid "`groupadd` - Adds a user group"
 msgstr ""
 
 #: src/system-tools.md:59
-msgid "`groupmod` - Modify group information"
+msgid "`groupmod` - Modifies group information"
 msgstr ""
 
 #: src/system-tools.md:60
-msgid "`groupdel` - Remove a user group"
+msgid "`groupdel` - Removes a user group"
 msgstr ""
 
 #: src/system-tools.md:62

@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: The Redox Operating System\n"
-"POT-Creation-Date: 2026-02-24T08:43:44Z\n"
+"POT-Creation-Date: 2026-03-24T09:22:18Z\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -48,7 +48,7 @@ msgid "drivers - Device drivers"
 msgstr ""
 
 #: src/components.md:13
-msgid "redoxfS - Filesystem"
+msgid "redoxfs - Filesystem"
 msgstr ""
 
 #: src/components.md:14

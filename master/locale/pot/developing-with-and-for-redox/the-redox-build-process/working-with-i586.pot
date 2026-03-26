@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: The Redox Operating System\n"
-"POT-Creation-Date: 2026-02-24T08:43:44Z\n"
+"POT-Creation-Date: 2026-03-24T09:22:18Z\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -48,8 +48,7 @@ msgstr ""
 #: src/i686.md:13
 msgid ""
 "The **i386** emulator is not installed by `bootstrap.sh`. You can add it "
-"like this:  \n"
-"(Pop!\\_OS/Ubuntu/Debian)"
+"like this: (Pop!\\_OS/Ubuntu/Debian)"
 msgstr ""
 
 #: src/i686.md:20
@@ -163,8 +162,8 @@ msgstr ""
 #: src/i686.md:86
 msgid ""
 "If you're only rebuilding a non-core package, you can partially clean the "
-"previous build cycle just enough to force the rebuilding of the Non-Core "
-"Package:"
+"previous build cycle just enough to force the rebuilding of the non-core "
+"package:"
 msgstr ""
 
 #: src/i686.md:96

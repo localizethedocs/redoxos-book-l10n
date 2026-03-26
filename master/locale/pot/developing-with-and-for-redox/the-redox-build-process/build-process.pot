@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: The Redox Operating System\n"
-"POT-Creation-Date: 2026-02-24T08:43:44Z\n"
+"POT-Creation-Date: 2026-03-24T09:22:18Z\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -16,7 +16,7 @@ msgid "Build Process"
 msgstr ""
 
 #: src/build-phases.md:3
-msgid "This page explain what each build system command does in detail."
+msgid "This page explains what each build system command does in detail."
 msgstr ""
 
 #: src/build-phases.md:5
@@ -314,5 +314,5 @@ msgid ""
 msgstr ""
 
 #: src/build-phases.md:101
-msgid "The Orbital login screen appear."
+msgid "The Orbital login screen appears."
 msgstr ""
