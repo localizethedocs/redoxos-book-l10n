@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: The Redox Operating System\n"
-"POT-Creation-Date: 2026-02-24T08:43:44Z\n"
+"POT-Creation-Date: 2026-03-24T09:22:18Z\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -156,10 +156,10 @@ msgstr ""
 
 #: src/redoxfs.md:87
 msgid ""
-"It's not possible to create a bootable UEFI using this option because it "
-"creates a GPT-partitioned disk, which currently is only implemented in "
+"It's not possible to create a UEFI-bootable disk using this option because "
+"it creates a GPT-partitioned disk, which currently is only implemented in "
 "[redox-installer](https://gitlab.redox-os.org/redox-os/installer/). A dual "
-"boot option in the same disk is also impossible if booting from a BIOS "
+"boot option in the same disk is also impossible if booting from BIOS "
 "firmware."
 msgstr ""
 
@@ -204,7 +204,7 @@ msgid "Extend the disk"
 msgstr "擴充磁碟"
 
 #: src/redoxfs.md:117 src/redoxfs.md:145
-msgid "⚠️ **Warning:** Experimental, please backup before"
+msgid "⚠️ **Warning:** Experimental, please backup first."
 msgstr ""
 
 #: src/redoxfs.md:119

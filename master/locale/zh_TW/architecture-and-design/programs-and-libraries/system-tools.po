@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: The Redox Operating System\n"
-"POT-Creation-Date: 2026-02-24T08:43:44Z\n"
+"POT-Creation-Date: 2026-03-24T09:22:18Z\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -28,7 +28,7 @@ msgstr ""
 
 #: src/system-tools.md:7
 msgid ""
-"Redox use the Rust implementation of the GNU Coreutils, [uutils](https://"
+"Redox uses the Rust implementation of the GNU Coreutils, [uutils](https://"
 "github.com/uutils/coreutils)."
 msgstr ""
 
@@ -38,31 +38,31 @@ msgid "Available programs:"
 msgstr ""
 
 #: src/system-tools.md:11
-msgid "`ls` - Show the files and folders of the current directory."
-msgstr "`ls` - 顯示當前目錄的檔案與資料夾。"
+msgid "`ls` - Shows the files and folders of the current directory."
+msgstr ""
 
 #: src/system-tools.md:12
-msgid "`cp` - Copy and paste some file or folder."
-msgstr "`cp` - 複製並貼上檔案或資料夾。"
+msgid "`cp` - Copies and pastes some file or folder."
+msgstr ""
 
 #: src/system-tools.md:13
-msgid "`cat` - Show the output of some text file."
-msgstr "`cat` - 顯示文字檔的輸出。"
+msgid "`cat` - Shows the output of some text file."
+msgstr ""
 
 #: src/system-tools.md:14
-msgid "`chmod` - Change the permissions of some file or directory."
+msgid "`chmod` - Changes the permissions of some file or directory."
 msgstr ""
 
 #: src/system-tools.md:15
-msgid "`clear` - Clean the terminal output."
-msgstr "`clear` - 清理終端機輸出。"
+msgid "`clear` - Cleans the terminal output."
+msgstr ""
 
 #: src/system-tools.md:16
 msgid "`dd` - Copies and converts a file."
 msgstr ""
 
 #: src/system-tools.md:17
-msgid "`df` - Show the disk partitions information."
+msgid "`df` - Shows the disk partitions information."
 msgstr ""
 
 #: src/system-tools.md:18
@@ -74,35 +74,35 @@ msgid "`env` - Displays and modifies environment variables."
 msgstr ""
 
 #: src/system-tools.md:20
-msgid "`free` - Show the RAM usage."
+msgid "`free` - Shows the RAM usage."
 msgstr ""
 
 #: src/system-tools.md:21
-msgid "`kill` - Kill a process."
-msgstr "`kill` - 殺死進程。"
+msgid "`kill` - Kills a process."
+msgstr ""
 
 #: src/system-tools.md:22
 msgid "`ln` - Creates a link to a file."
 msgstr "`ln` - 建立檔案連結。"
 
 #: src/system-tools.md:23
-msgid "`mkdir` - Create a directory."
-msgstr "`mkdir` - 建立目錄。"
+msgid "`mkdir` - Creates a directory."
+msgstr ""
 
 #: src/system-tools.md:24
-msgid "`ps` - Show all running processes."
-msgstr "`ps` - 顯示所有執行中的進程。"
+msgid "`ps` - Shows all running processes."
+msgstr ""
 
 #: src/system-tools.md:25
-msgid "`reset` - Restart the terminal to allow the command-line input."
+msgid "`reset` - Restarts the terminal to allow the command-line input."
 msgstr ""
 
 #: src/system-tools.md:26
-msgid "`shutdown` - Shutdown the system."
+msgid "`shutdown` - Shuts the system down."
 msgstr ""
 
 #: src/system-tools.md:27
-msgid "`sort` - Sort, merge, or sequence check text files."
+msgid "`sort` - Sorts, merges, or sequence checks text files."
 msgstr ""
 
 #: src/system-tools.md:28
@@ -110,38 +110,38 @@ msgid "`stat` - Returns data about an inode."
 msgstr ""
 
 #: src/system-tools.md:29
-msgid "`tail` - Copy the last part of a file."
+msgid "`tail` - Copies the last part of a file."
 msgstr ""
 
 #: src/system-tools.md:30
-msgid "`tee` - Duplicate the standard output."
+msgid "`tee` - Duplicates the standard output."
 msgstr ""
 
 #: src/system-tools.md:31
-msgid "`test` - Evaluate expression."
+msgid "`test` - Evaluates expression."
 msgstr ""
 
 #: src/system-tools.md:32
 msgid ""
-"`time` - Count the time that some command takes to finish it's operation."
+"`time` - Counts the time that some command takes to finish its operation."
 msgstr ""
 
 #: src/system-tools.md:33
-msgid "`touch` - Update the timestamp of some file or folder."
+msgid "`touch` - Updates the timestamp of some file or folder."
 msgstr ""
 
 #: src/system-tools.md:34
 msgid ""
-"`uname` - Show the system information, like kernel version and architecture "
+"`uname` - Shows the system information, like kernel version and architecture "
 "type."
 msgstr ""
 
 #: src/system-tools.md:35
-msgid "`uptime` - Show how much time your system is running."
+msgid "`uptime` - Shows how long your system has been running for."
 msgstr ""
 
 #: src/system-tools.md:36
-msgid "`which` - Show the path where some program is located."
+msgid "`which` - Shows the path where some program is located."
 msgstr ""
 
 #: src/system-tools.md:38
@@ -193,28 +193,28 @@ msgid "`sudo` - Enables users to execute a command as another user."
 msgstr ""
 
 #: src/system-tools.md:55
-msgid "`useradd` - Add a user"
-msgstr "`useradd` - 增添使用者"
+msgid "`useradd` - Adds a user"
+msgstr ""
 
 #: src/system-tools.md:56
-msgid "`usermod` - Modify user information"
-msgstr "`usermod` - 修改使用者資訊"
+msgid "`usermod` - Modifies user information"
+msgstr ""
 
 #: src/system-tools.md:57
-msgid "`userdel` - Delete a user"
-msgstr "`userdel` - 刪除使用者"
+msgid "`userdel` - Deletes a user"
+msgstr ""
 
 #: src/system-tools.md:58
-msgid "`groupadd` - Add a user group"
-msgstr "`groupadd` - 移除使用者群組"
+msgid "`groupadd` - Adds a user group"
+msgstr ""
 
 #: src/system-tools.md:59
-msgid "`groupmod` - Modify group information"
-msgstr "`groupmod` - 修改群組資訊"
+msgid "`groupmod` - Modifies group information"
+msgstr ""
 
 #: src/system-tools.md:60
-msgid "`groupdel` - Remove a user group"
-msgstr "`groupdel` - 移除使用者群組"
+msgid "`groupdel` - Removes a user group"
+msgstr ""
 
 #: src/system-tools.md:62
 msgid "extrautils"
@@ -362,3 +362,42 @@ msgstr ""
 #: src/system-tools.md:113
 msgid "[Repository](https://gitlab.redox-os.org/redox-os/resist)"
 msgstr "[儲存庫](https://gitlab.redox-os.org/redox-os/resist)"
+
+#~ msgid "`ls` - Show the files and folders of the current directory."
+#~ msgstr "`ls` - 顯示當前目錄的檔案與資料夾。"
+
+#~ msgid "`cp` - Copy and paste some file or folder."
+#~ msgstr "`cp` - 複製並貼上檔案或資料夾。"
+
+#~ msgid "`cat` - Show the output of some text file."
+#~ msgstr "`cat` - 顯示文字檔的輸出。"
+
+#~ msgid "`clear` - Clean the terminal output."
+#~ msgstr "`clear` - 清理終端機輸出。"
+
+#~ msgid "`kill` - Kill a process."
+#~ msgstr "`kill` - 殺死進程。"
+
+#~ msgid "`mkdir` - Create a directory."
+#~ msgstr "`mkdir` - 建立目錄。"
+
+#~ msgid "`ps` - Show all running processes."
+#~ msgstr "`ps` - 顯示所有執行中的進程。"
+
+#~ msgid "`useradd` - Add a user"
+#~ msgstr "`useradd` - 增添使用者"
+
+#~ msgid "`usermod` - Modify user information"
+#~ msgstr "`usermod` - 修改使用者資訊"
+
+#~ msgid "`userdel` - Delete a user"
+#~ msgstr "`userdel` - 刪除使用者"
+
+#~ msgid "`groupadd` - Add a user group"
+#~ msgstr "`groupadd` - 移除使用者群組"
+
+#~ msgid "`groupmod` - Modify group information"
+#~ msgstr "`groupmod` - 修改群組資訊"
+
+#~ msgid "`groupdel` - Remove a user group"
+#~ msgstr "`groupdel` - 移除使用者群組"

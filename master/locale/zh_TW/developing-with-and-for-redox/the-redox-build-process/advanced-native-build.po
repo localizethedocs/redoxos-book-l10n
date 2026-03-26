@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: The Redox Operating System\n"
-"POT-Creation-Date: 2026-02-24T08:43:44Z\n"
+"POT-Creation-Date: 2026-03-24T09:22:18Z\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -207,7 +207,7 @@ msgstr ""
 #: src/advanced-build.md:185
 msgid ""
 "Rust nightly isn't packaged in Guix currently, so you need a FHS-enabled "
-"container to use rustup:"
+"(Filesystem Hierarchy Standard) container to use rustup:"
 msgstr ""
 
 #: src/advanced-build.md:191
@@ -382,7 +382,7 @@ msgstr ""
 #: src/advanced-build.md:384
 msgid ""
 "📝 **Note:** FreeBSD and MacOS default compiler is Clang, so their support "
-"is experimental as also using a GCC version other than 14.x (i.e. the GCC "
+"is experimental, as is using a GCC version other than 14.x (i.e. the GCC "
 "version in Debian 13). Try to set these environment variables if you find "
 "any issues in any recipe compilation."
 msgstr ""
@@ -482,7 +482,7 @@ msgstr ""
 #: src/advanced-build.md:414
 msgid ""
 "Building Rust takes about 2 hours or more (if your hardware is relatively "
-"powerful) as it's also needed to compile LLVM. If you are building for the "
+"powerful) and it's also needed to compile LLVM. If you are building for the "
 "x86_64 target, downloading Rust from rustup (the official Rust binaries) "
 "might be preferable. When it's completed it generates the `rust-install` "
 "directory containing both GCC and Rust compiler."
@@ -508,10 +508,11 @@ msgstr ""
 
 #: src/advanced-build.md:422
 msgid ""
-"Relibc is very active in development even with `PREFIX_BINARY=1` it will be "
-"compiled anyway so we always have the updated libc. Fortunately, compiling "
-"it is very quick. When it's completed it generates the `relibc-install` "
-"directory containing GCC and Rust bundled with updated relibc."
+"Relibc is very active in development, so even with `PREFIX_BINARY=1` it will "
+"be compiled anyway to make sure we always have the updated libc. "
+"Fortunately, compiling it is very quick. When it's completed it generates "
+"the `relibc-install` directory containing GCC and Rust bundled with updated "
+"relibc."
 msgstr ""
 
 #: src/advanced-build.md:424

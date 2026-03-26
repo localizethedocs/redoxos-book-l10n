@@ -16,9 +16,9 @@
       "branch" : "master",
       "commit" : 
       {
-        "date" : "2026-02-20 19:28:55 -0300",
-        "hash" : "35b4d1b45987a210adc37b0e39c35f3a730143e2",
-        "title" : "Add \"Update Redox\" section in Build System Reference"
+        "date" : "2026-03-20 13:59:41 -0300",
+        "hash" : "c12a6f7a0aba8e3bb5d270ad03ca3669547748cb",
+        "title" : "Merge branch 'fix-english-and-grammar' into 'master'"
       }
     },
     "zh_TW" : 
@@ -26,9 +26,9 @@
       "branch" : "master",
       "commit" : 
       {
-        "date" : "2026-02-20 19:28:55 -0300",
-        "hash" : "35b4d1b45987a210adc37b0e39c35f3a730143e2",
-        "title" : "Add \"Update Redox\" section in Build System Reference"
+        "date" : "2026-03-20 13:59:41 -0300",
+        "hash" : "c12a6f7a0aba8e3bb5d270ad03ca3669547748cb",
+        "title" : "Merge branch 'fix-english-and-grammar' into 'master'"
       }
     }
   },

@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: The Redox Operating System\n"
-"POT-Creation-Date: 2026-02-24T08:43:44Z\n"
+"POT-Creation-Date: 2026-03-24T09:22:18Z\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -125,9 +125,9 @@ msgid ""
 "the Redox games (e.g. `/usr/bin/minesweeper`) have been included yet."
 msgstr ""
 
-#: src/including-programs.md:42 src/including-programs.md:99
+#: src/including-programs.md:42
 msgid ""
-"On your Redox emulation, log into the system as user `user` with an empty "
+"On your Redox VM, log into the system as the user: `user`, with an empty "
 "password."
 msgstr ""
 
@@ -196,6 +196,12 @@ msgstr ""
 msgid ""
 "In your base `redox` folder, e.g. `~/tryredox/redox`, build the system and "
 "run it in **QEMU**."
+msgstr ""
+
+#: src/including-programs.md:99
+msgid ""
+"On your Redox emulation, log into the system as user `user` with an empty "
+"password."
 msgstr ""
 
 #: src/including-programs.md:100

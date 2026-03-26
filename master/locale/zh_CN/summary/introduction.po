@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: The Redox Operating System\n"
-"POT-Creation-Date: 2026-02-24T08:43:44Z\n"
+"POT-Creation-Date: 2026-03-24T09:22:18Z\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -123,8 +123,8 @@ msgstr ""
 
 #: src/introduction.md:34
 msgid ""
-"This book is written in a way that you doesn't require any prior knowledge "
-"of Rust or OS development."
+"This book is written in such a way that you don't require any prior "
+"knowledge of Rust or OS development."
 msgstr ""
 
 #: src/introduction.md:36

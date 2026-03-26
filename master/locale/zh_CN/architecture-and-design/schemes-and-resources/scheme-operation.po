@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: The Redox Operating System\n"
-"POT-Creation-Date: 2026-02-24T08:43:44Z\n"
+"POT-Creation-Date: 2026-03-24T09:22:18Z\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -196,7 +196,7 @@ msgstr ""
 
 #: src/scheme-operation.md:67
 msgid ""
-"If it's a scheme event, read a request packet from the scheme file "
+"If it's a scheme request, read a request packet from the scheme file "
 "descriptor and call the \"handler\". The request packet will indicate if "
 "it's an `open`, `read`, `write`, etc. on the scheme:"
 msgstr ""

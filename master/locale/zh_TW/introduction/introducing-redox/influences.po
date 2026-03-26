@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: The Redox Operating System\n"
-"POT-Creation-Date: 2026-02-24T08:43:44Z\n"
+"POT-Creation-Date: 2026-03-24T09:22:18Z\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -56,7 +56,7 @@ msgstr ""
 
 #: src/influences.md:19
 msgid ""
-"Redox follow the same principle, trying to make the kernel-space small as "
+"Redox follows the same principles, trying to make the kernel-space small as "
 "possible (moving components to user-space and reducing the number of system "
 "calls, passing the complexity to user-space) and keeping the overall "
 "performance good (reducing the context switch cost)."

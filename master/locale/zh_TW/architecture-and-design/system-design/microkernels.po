@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: The Redox Operating System\n"
-"POT-Creation-Date: 2026-02-24T08:43:44Z\n"
+"POT-Creation-Date: 2026-03-24T09:22:18Z\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -47,7 +47,7 @@ msgid ""
 msgstr ""
 
 #: src/microkernels.md:11
-msgid "As anything else, microkernels do also have disadvantages."
+msgid "As with anything else, microkernels do also have disadvantages."
 msgstr ""
 
 #: src/microkernels.md:13
@@ -66,13 +66,14 @@ msgstr ""
 
 #: src/microkernels.md:19
 msgid ""
-"When compared to microkernels, Monolithic kernels tend to be prone to "
-"crashes and driver bugs. A buggy driver in a Monolithic kernel can crash the "
+"When compared to microkernels, monolithic kernels tend to be prone to "
+"crashes and driver bugs. A buggy driver in a monolithic kernel can crash the "
 "whole system because the driver code is running on the same memory address "
 "space of the kernel, thus the kernel process can't continue to run (to avoid "
-"memory corruption) and crash (kernel panic). Or the bugs in a driver can "
-"spread to other drivers without causing crashes, which is hard to ensure "
-"stability and a headache to investigate the root of the problems."
+"memory corruption) and crashes (kernel panic). Or the bugs in a driver can "
+"spread to other drivers without causing crashes, which makes it hard to "
+"ensure stability and also makes it a headache to investigate the root cause "
+"of the problems."
 msgstr ""
 
 #: src/microkernels.md:21
@@ -236,15 +237,15 @@ msgstr ""
 #: src/microkernels.md:70
 msgid ""
 "These are not inherently slower on microkernels, but microkernels need to "
-"perform these operations more frequently. Many of the system functionality "
+"perform these operations more frequently. Much of the system functionality "
 "is performed by user-space processes, requiring additional context switches."
 msgstr ""
 
 #: src/microkernels.md:72
 msgid ""
-"The performance difference between monolithic and microkernels has been "
-"marginalized over time, making their performance comparable. This is partly "
-"due to a smaller surface area which can be easier to optimize."
+"The performance difference between monolithic and microkernels has shrunk "
+"over time, making their performance comparable. This is partly due to a "
+"smaller surface area which can be easier to optimize."
 msgstr ""
 
 #: src/microkernels.md:74

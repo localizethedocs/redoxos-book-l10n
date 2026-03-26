@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: The Redox Operating System\n"
-"POT-Creation-Date: 2026-02-24T08:43:44Z\n"
+"POT-Creation-Date: 2026-03-24T09:22:18Z\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -42,14 +42,14 @@ msgstr ""
 msgid ""
 "On Linux/BSDs, the GPU communication with the kernel is done by the DRM "
 "system (Direct Rendering Manager, `libdrm` library), that Mesa3D drivers use "
-"to work (Mesa3D implement OpenGL/Vulkan drivers, DRM expose the hardware "
+"to work (Mesa3D implements OpenGL/Vulkan drivers, DRM exposes the hardware "
 "interfaces)."
 msgstr ""
 
 #: src/graphics-windowing.md:15
 msgid ""
-"Said this, in Redox a \"DRM driver\" needs to be an user-space driver which "
-"use the system calls/schemes to communicate with the hardware."
+"That said, in Redox a \"DRM driver\" needs to be a user-space driver daemon "
+"which uses the system calls/schemes to communicate with the hardware."
 msgstr ""
 
 #: src/graphics-windowing.md:17
@@ -93,8 +93,10 @@ msgstr ""
 
 #: src/graphics-windowing.md:31
 msgid ""
-"Compared to Wayland, Orbital has one server implementation, while Wayland "
-"provide protocols for compositors."
+"Compared to Wayland, Orbital has one protocol server implementation (like "
+"X11 for a long time), while Wayland provides protocols for compositors "
+"(servers and window managers) and clients (applications if the compositor is "
+"not bundled)."
 msgstr ""
 
 #: src/graphics-windowing.md:33
@@ -136,7 +138,7 @@ msgid "Libraries"
 msgstr "程式庫"
 
 #: src/graphics-windowing.md:46
-msgid "The programs using these libraries can work on Orbital."
+msgid "Programs using the following libraries can work on Orbital."
 msgstr ""
 
 #: src/graphics-windowing.md:48
@@ -214,15 +216,15 @@ msgstr ""
 
 #: src/graphics-windowing.md:76
 msgid ""
-"If the program is written in Rust probably it works on Orbital because the "
+"If the program is written in Rust it probably works on Orbital because the "
 "`winit` crate is used in most places, but there are programs that access X11 "
-"or Wayland directly. You need to port these programs to `winit` and merge on "
+"or Wayland directly. You need to port these programs to `winit` and merge to "
 "upstream."
 msgstr ""
 
 #: src/graphics-windowing.md:78
 msgid ""
-"If the program is written in C or C++ and access X11 or Wayland directly, it "
-"must be ported to the [Orbital library](https://gitlab.redox-os.org/redox-os/"
-"liborbital)."
+"If the program is written in C or C++ and accesses X11 or Wayland directly, "
+"it must be ported to the [Orbital library](https://gitlab.redox-os.org/redox-"
+"os/liborbital)."
 msgstr ""

@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: The Redox Operating System\n"
-"POT-Creation-Date: 2026-02-24T08:43:44Z\n"
+"POT-Creation-Date: 2026-03-24T09:22:18Z\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -345,30 +345,30 @@ msgid ""
 "to install Redox from a USB device."
 msgstr ""
 
-#: src/podman-build.md:187
+#: src/podman-build.md:186
 msgid "Example 2"
 msgstr ""
 
-#: src/podman-build.md:189
+#: src/podman-build.md:188
 msgid ""
 "The following builds the `desktop` variant of Redox for the `aarch64` (64-"
 "bit ARM) CPU architecture (defined in `config/aarch64/desktop.toml`)."
 msgstr ""
 
-#: src/podman-build.md:195
+#: src/podman-build.md:194
 msgid ""
 "The resulting image is `build/aarch64/desktop/harddrive.img`, which is then "
 "run in the QEMU emulator upon completion of the build."
 msgstr ""
 
-#: src/podman-build.md:197
+#: src/podman-build.md:196
 msgid ""
 "💡 **Tip:** if you are going to use `build.sh` repeatedly, it's recommended "
 "that you do so _consistently_. The script's underlying `make` command "
 "doesn't keep any record of the build settings used between `build.sh` runs."
 msgstr ""
 
-#: src/podman-build.md:199
+#: src/podman-build.md:198
 msgid ""
 "Details of `build.sh` and other settings are described in the [Configuration "
 "Settings](./configuration-settings.md) page."
