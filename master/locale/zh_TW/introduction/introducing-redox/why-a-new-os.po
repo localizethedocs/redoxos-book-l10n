@@ -282,9 +282,3 @@ msgid ""
 "an easy migration path for systems and programs previously developed for a "
 "Unix-like platform."
 msgstr ""
-
-#~ msgid "NULL-Safety"
-#~ msgstr "NULL 安全性"
-
-#~ msgid "NULLs can't cause undefined behavior."
-#~ msgstr "NULL 不會導致未定義行為。"
