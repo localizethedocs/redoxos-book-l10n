@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: The Redox Operating System\n"
-"POT-Creation-Date: 2026-03-24T09:22:18Z\n"
+"POT-Creation-Date: 2026-04-07T09:21:21Z\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -230,14 +230,14 @@ msgstr ""
 
 #: src/developer-faq.md:43
 msgid ""
-"[What are the possible problems when porting programs and libraries?](#what-"
-"are-the-possible-problems-when-porting-programs-and-libraries)"
+"[What are the possible problems when porting applications and libraries?]"
+"(#what-are-the-possible-problems-when-porting-applications-and-libraries)"
 msgstr ""
 
 #: src/developer-faq.md:44
 msgid ""
-"[Why are C/C++ programs and libraries hard and time consuming to port?](#why-"
-"are-cc-programs-and-libraries-hard-and-time-consuming-to-port)"
+"[Why are C/C++ applications and libraries hard and time consuming to port?]"
+"(#why-are-cc-applications-and-libraries-hard-and-time-consuming-to-port)"
 msgstr ""
 
 #: src/developer-faq.md:45
@@ -599,10 +599,10 @@ msgstr ""
 
 #: src/developer-faq.md:132
 msgid ""
-"When developing a new operating system you can't build programs inside of it "
-"because the system interfaces are premature. Thus you need to build the "
-"programs from your host system to the new OS and transfer the binaries to "
-"the filesystem of the new OS."
+"When developing a new operating system you can't build applications inside "
+"of it because the system interfaces are premature. Thus you need to build "
+"the applications from your host system to the new OS and transfer the "
+"binaries to the filesystem of the new OS."
 msgstr ""
 
 #: src/developer-faq.md:133
@@ -624,7 +624,7 @@ msgstr ""
 
 #: src/developer-faq.md:136
 msgid ""
-"(Interpreted programs and scripts don't need cross-compilation but the "
+"(Interpreted applications and scripts don't need cross-compilation but the "
 "programming language's interpreter or possible compiled dependencies needs "
 "to be ported and cross-compiled to Redox)"
 msgstr ""
@@ -695,7 +695,7 @@ msgstr ""
 #: src/developer-faq.md:163
 msgid ""
 "The following hardware requirements are enough for fast compilation of the "
-"system and most programs, but some heavy programs may require more."
+"system and most applications, but some heavy applications may require more."
 msgstr ""
 
 #: src/developer-faq.md:165
@@ -703,7 +703,7 @@ msgid "An Intel or AMD CPU newer than 10 years with 4 cores/threads or more"
 msgstr ""
 
 #: src/developer-faq.md:166
-msgid "4GB DDR4 RAM or more (8GB or 16GB for heavy programs)"
+msgid "4GB DDR4 RAM or more (8GB or 16GB for heavy applications)"
 msgstr ""
 
 #: src/developer-faq.md:167
@@ -1142,7 +1142,7 @@ msgid ""
 msgstr ""
 
 #: src/developer-faq.md:430
-msgid "What are the possible problems when porting programs and libraries?"
+msgid "What are the possible problems when porting applications and libraries?"
 msgstr ""
 
 #: src/developer-faq.md:432
@@ -1166,23 +1166,24 @@ msgid "Runtime crashes or errors"
 msgstr ""
 
 #: src/developer-faq.md:438
-msgid "Why are C/C++ programs and libraries hard and time consuming to port?"
+msgid ""
+"Why are C/C++ applications and libraries hard and time consuming to port?"
 msgstr ""
 
 #: src/developer-faq.md:440
 msgid ""
 "C/C++ don't have an official, advanced and automatic dependency manager and "
-"build system which force programs and libraries to select competing build "
-"systems with different configurations (GNU Make, GNU Autotools, CMake, Meson "
-"and others), projects like [Conan](https://conan.io/) and [vcpkg](https://"
-"vcpkg.io/) tried to solve this problem but weren't adopted by most programs/"
-"libraries and lack many libraries"
+"build system which force applications and libraries to select competing "
+"build systems with different configurations (GNU Make, GNU Autotools, CMake, "
+"Meson and others), projects like [Conan](https://conan.io/) and [vcpkg]"
+"(https://vcpkg.io/) tried to solve this problem but weren't adopted by most "
+"applications/libraries and lack many libraries"
 msgstr ""
 
 #: src/developer-faq.md:441
 msgid ""
-"Programs and libraries need to manually manage the library versions, to "
-"workaround this some programs use bundled libraries which can difficult "
+"applications and libraries need to manually manage the library versions, to "
+"workaround this some applications use bundled libraries which can difficult "
 "patching when needed"
 msgstr ""
 
@@ -1194,15 +1195,15 @@ msgstr ""
 
 #: src/developer-faq.md:443
 msgid ""
-"As libraries are manually managed programs with many dependencies, they can "
-"take hours to port depending on available library documentation/"
+"As libraries are manually managed applications with many dependencies, they "
+"can take hours to port depending on available library documentation/"
 "configuration and developer experience"
 msgstr ""
 
 #: src/developer-faq.md:444
 msgid ""
-"Some programs and libraries have bad or lacking documentation about build "
-"instructions and configuration"
+"Some applications and libraries have bad or lacking documentation about "
+"build instructions and configuration"
 msgstr ""
 
 #: src/developer-faq.md:446
