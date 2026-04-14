@@ -1372,6 +1372,3 @@ msgstr ""
 #: src/build-system-reference.md:464
 msgid "[Build Phases](./build-phases.md)"
 msgstr ""
-
-#~ msgid "[Root Folder](#root-folder)"
-#~ msgstr "[根目錄資料夾](#root-folder)"
