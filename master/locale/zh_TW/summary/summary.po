@@ -209,7 +209,7 @@ msgstr ""
 
 #: src/SUMMARY.md:60
 msgid "Downloading Packages with pkg"
-msgstr ""
+msgstr "使用 pkg 下載軟體包"
 
 #: src/SUMMARY.md:62 src/SUMMARY.md:64
 msgid "Contributing"
@@ -357,7 +357,7 @@ msgstr ""
 
 #: src/SUMMARY.md:105
 msgid "Porting Case Study"
-msgstr ""
+msgstr "移植案例研究"
 
 #: src/SUMMARY.md:106
 msgid "Continuous Integration"

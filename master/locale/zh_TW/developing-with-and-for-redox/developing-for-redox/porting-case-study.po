@@ -13,7 +13,7 @@ msgstr ""
 
 #: src/porting-case-study.md:1
 msgid "Porting Case Study"
-msgstr ""
+msgstr "移植案例研究"
 
 #: src/porting-case-study.md:3
 msgid ""
@@ -104,6 +104,12 @@ msgid ""
 "template = \"cargo\"\n"
 "```"
 msgstr ""
+"```toml\n"
+"[source]\n"
+"git = \"https://github.com/Byron/gitoxide\"\n"
+"[build]\n"
+"template = \"cargo\"\n"
+"```"
 
 #: src/porting-case-study.md:95
 msgid "First Attempt"
@@ -221,6 +227,10 @@ msgid ""
 "libc = { path = \"../libc\" }\n"
 "```"
 msgstr ""
+"```toml\n"
+"[patch.crates-io]\n"
+"libc = { path = \"../libc\" }\n"
+"```"
 
 #: src/porting-case-study.md:212
 msgid "Bump the version number on our `libc`, so it will take priority."
@@ -232,10 +242,13 @@ msgid ""
 "version = \"0.2.143\"\n"
 "```"
 msgstr ""
+"```toml\n"
+"version = \"0.2.143\"\n"
+"```"
 
 #: src/porting-case-study.md:222
 msgid "Update `gitoxide`'s `Cargo.lock`."
-msgstr ""
+msgstr "更新 `gitoxide` 的 `Cargo.lock`。"
 
 #: src/porting-case-study.md:232
 msgid ""
@@ -282,6 +295,15 @@ msgid ""
 "\"\"\"\n"
 "```"
 msgstr ""
+"```toml\n"
+"#[source]\n"
+"#git = \"https://github.com/Byron/gitoxide.git\"\n"
+"[build]\n"
+"template = \"custom\"\n"
+"script = \"\"\"\n"
+"printenv\n"
+"\"\"\"\n"
+"```"
 
 #: src/porting-case-study.md:263
 msgid ""
@@ -388,6 +410,10 @@ msgid ""
 "extern \"C\" fn tzset() ...\n"
 "```"
 msgstr ""
+"```\n"
+"#[no_mangle]\n"
+"extern \"C\" fn tzset() ...\n"
+"```"
 
 #: src/porting-case-study.md:338
 msgid "Now let's update the relibc/gitoxide and update the Redox image:"
@@ -424,7 +450,7 @@ msgstr ""
 
 #: src/porting-case-study.md:391
 msgid "\"CONFIG_NAME?=my_desktop\""
-msgstr ""
+msgstr "\"CONFIG_NAME?=my_desktop\""
 
 #: src/porting-case-study.md:398
 msgid "Log in to Redox as `user` with no password, and type:"
@@ -436,7 +462,7 @@ msgstr ""
 
 #: src/porting-case-study.md:406
 msgid "Submitting the MRs"
-msgstr ""
+msgstr "提交合併請求"
 
 #: src/porting-case-study.md:408
 msgid ""

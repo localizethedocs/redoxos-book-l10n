@@ -42,7 +42,7 @@ msgstr ""
 
 #: src/advanced-podman-build.md:11
 msgid "Build Environment"
-msgstr ""
+msgstr "建置環境"
 
 #: src/advanced-podman-build.md:13
 msgid ""

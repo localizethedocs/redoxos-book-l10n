@@ -39,7 +39,7 @@ msgstr "[建置系統參考](./build-system-reference.md)"
 
 #: src/advanced-build.md:10
 msgid "Setup Your Environment"
-msgstr ""
+msgstr "設定您的環境"
 
 #: src/advanced-build.md:12
 msgid ""
