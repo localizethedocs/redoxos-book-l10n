@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: The Redox Operating System\n"
-"POT-Creation-Date: 2026-04-07T09:21:21Z\n"
+"POT-Creation-Date: 2026-05-19T11:02:12Z\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -46,293 +46,297 @@ msgid "[Recipe](#recipe)"
 msgstr ""
 
 #: src/porting-applications.md:11
-msgid "[Recipe Configuration Example](#recipe-configuration-example)"
+msgid "[Configuration Example](#configuration-example)"
 msgstr ""
 
 #: src/porting-applications.md:12
-msgid "[Quick Recipe Template](#quick-recipe-template)"
+msgid "[Sections and Data Types](#sections-and-data-types)"
 msgstr ""
 
 #: src/porting-applications.md:13
-msgid "[Cookbook](#cookbook)"
+msgid "[Quick Recipe Template](#quick-recipe-template)"
 msgstr ""
 
 #: src/porting-applications.md:14
-msgid "[Cross Compiler](#cross-compiler)"
+msgid "[Cookbook](#cookbook)"
 msgstr ""
 
 #: src/porting-applications.md:15
-msgid "[Cross Compilation](#cross-compilation)"
+msgid "[Cross Compiler](#cross-compiler)"
 msgstr ""
 
 #: src/porting-applications.md:16
-msgid "[Templates](#templates)"
+msgid "[Cross Compilation](#cross-compilation)"
 msgstr ""
 
 #: src/porting-applications.md:17
-msgid "[Metapackages](#metapackages)"
+msgid "[Templates](#templates)"
 msgstr ""
 
 #: src/porting-applications.md:18
-msgid "[Cookbook - Custom Template](#cookbook-custom-template)"
+msgid "[Metapackages](#metapackages)"
 msgstr ""
 
 #: src/porting-applications.md:19
-msgid "[Functions](#functions)"
+msgid "[Cookbook - Custom Template](#cookbook-custom-template)"
 msgstr ""
 
 #: src/porting-applications.md:20
-msgid "[Environment Variables](#environment-variables)"
+msgid "[Functions](#functions)"
 msgstr ""
 
 #: src/porting-applications.md:21
-msgid "[Quick Template](#quick-template)"
+msgid "[Environment Variables](#environment-variables)"
 msgstr ""
 
 #: src/porting-applications.md:22
-msgid "[Packaging Behavior](#packaging-behavior)"
+msgid "[Quick Template](#quick-template)"
 msgstr ""
 
 #: src/porting-applications.md:23
-msgid "[GNU Autotools script](#gnu-autotools-script)"
+msgid "[Packaging Behavior](#packaging-behavior)"
 msgstr ""
 
 #: src/porting-applications.md:24
+msgid "[GNU Autotools script](#gnu-autotools-script)"
+msgstr ""
+
+#: src/porting-applications.md:25
 msgid ""
 "[GNU Autotools configuration script](#gnu-autotools-configuration-script)"
 msgstr ""
 
-#: src/porting-applications.md:25
+#: src/porting-applications.md:26
 msgid "[CMake script](#cmake-script)"
 msgstr ""
 
-#: src/porting-applications.md:26
+#: src/porting-applications.md:27
 msgid "[Meson script](#meson-script)"
 msgstr ""
 
-#: src/porting-applications.md:27
+#: src/porting-applications.md:28
 msgid "[Cargo script](#cargo-script)"
 msgstr ""
 
-#: src/porting-applications.md:28
+#: src/porting-applications.md:29
 msgid ""
 "[Analyze the source code of a Rust application](#analyze-the-source-code-of-"
 "a-rust-application)"
 msgstr ""
 
-#: src/porting-applications.md:29
+#: src/porting-applications.md:30
 msgid "[Cargo packages command example](#cargo-packages-command-example)"
 msgstr ""
 
-#: src/porting-applications.md:30
+#: src/porting-applications.md:31
 msgid "[Cargo package with flags](#cargo-package-with-flags)"
 msgstr ""
 
-#: src/porting-applications.md:31
+#: src/porting-applications.md:32
 msgid "[Cargo bins script example](#cargo-bins-script-example)"
 msgstr ""
 
-#: src/porting-applications.md:32
+#: src/porting-applications.md:33
 msgid "[Cargo flags command example](#cargo-flags-command-example)"
 msgstr ""
 
-#: src/porting-applications.md:33
+#: src/porting-applications.md:34
 msgid "[Disable the default Cargo flags](#disable-the-default-cargo-flags)"
 msgstr ""
 
-#: src/porting-applications.md:34
+#: src/porting-applications.md:35
 msgid "[Enable all Cargo flags](#enable-all-cargo-flags)"
 msgstr ""
 
-#: src/porting-applications.md:35
+#: src/porting-applications.md:36
 msgid "[Cargo profiles command example](#cargo-profiles-command-example)"
 msgstr ""
 
-#: src/porting-applications.md:36
+#: src/porting-applications.md:37
 msgid "[Cargo examples command example](#cargo-examples-command-example)"
 msgstr ""
 
-#: src/porting-applications.md:37
+#: src/porting-applications.md:38
 msgid "[Cargo examples with flags](#cargo-examples-with-flags)"
 msgstr ""
 
-#: src/porting-applications.md:38
+#: src/porting-applications.md:39
 msgid "[Rename binaries](#rename-binaries)"
 msgstr ""
 
-#: src/porting-applications.md:39
+#: src/porting-applications.md:40
 msgid ""
 "[Change the active source code folder](#change-the-active-source-code-folder)"
 msgstr ""
 
-#: src/porting-applications.md:40
+#: src/porting-applications.md:41
 msgid "[Configuration files](#configuration-files)"
 msgstr ""
 
-#: src/porting-applications.md:41
+#: src/porting-applications.md:42
 msgid "[Script-based applications](#script-based-applications)"
 msgstr ""
 
-#: src/porting-applications.md:42
+#: src/porting-applications.md:43
 msgid "[Adapted scripts](#adapted-scripts)"
 msgstr ""
 
-#: src/porting-applications.md:43
+#: src/porting-applications.md:44
 msgid "[Non-adapted scripts](#non-adapted-scripts)"
 msgstr ""
 
-#: src/porting-applications.md:44
+#: src/porting-applications.md:45
 msgid "[Dynamically Linked applications](#dynamically-linked-applications)"
 msgstr ""
 
-#: src/porting-applications.md:45
+#: src/porting-applications.md:46
 msgid "[Debugging](#debugging)"
 msgstr ""
 
-#: src/porting-applications.md:46
+#: src/porting-applications.md:47
 msgid "[Sources](#sources)"
 msgstr ""
 
-#: src/porting-applications.md:47
+#: src/porting-applications.md:48
 msgid "[Tarballs](#tarballs)"
 msgstr ""
 
-#: src/porting-applications.md:48
+#: src/porting-applications.md:49
 msgid "[Build System](#build-system)"
 msgstr ""
 
-#: src/porting-applications.md:49
+#: src/porting-applications.md:50
 msgid "[Links](#links)"
 msgstr ""
 
-#: src/porting-applications.md:50
+#: src/porting-applications.md:51
 msgid "[Git Repositories](#git-repositories)"
 msgstr ""
 
-#: src/porting-applications.md:51
+#: src/porting-applications.md:52
 msgid "[GitHub release commit hash](#github-release-commit-hash)"
 msgstr ""
 
-#: src/porting-applications.md:52
+#: src/porting-applications.md:53
 msgid "[GitLab release commit hash](#gitlab-release-commit-hash)"
 msgstr ""
 
-#: src/porting-applications.md:53
+#: src/porting-applications.md:54
 msgid "[Dependencies](#dependencies)"
 msgstr ""
 
-#: src/porting-applications.md:54
+#: src/porting-applications.md:55
 msgid "[Bundled Libraries](#bundled-libraries)"
 msgstr ""
 
-#: src/porting-applications.md:55
+#: src/porting-applications.md:56
 msgid "[Submodules](#submodules)"
 msgstr ""
 
-#: src/porting-applications.md:56
+#: src/porting-applications.md:57
 msgid "[Environment Variables](#environment-variables-1)"
 msgstr ""
 
-#: src/porting-applications.md:57
+#: src/porting-applications.md:58
 msgid "[Configuration](#configuration)"
 msgstr ""
 
-#: src/porting-applications.md:58
+#: src/porting-applications.md:59
 msgid "[Arch Linux and AUR](#arch-linux-and-aur)"
 msgstr ""
 
-#: src/porting-applications.md:59
+#: src/porting-applications.md:60
 msgid "[Gentoo](#gentoo)"
 msgstr ""
 
-#: src/porting-applications.md:60
+#: src/porting-applications.md:61
 msgid "[Build Tools](#build-tools)"
 msgstr ""
 
-#: src/porting-applications.md:61
+#: src/porting-applications.md:62
 msgid "[Feature Flags](#feature-flags)"
 msgstr ""
 
-#: src/porting-applications.md:62
+#: src/porting-applications.md:63
 msgid "[Building/Testing The application](#buildingtesting-the-application)"
 msgstr ""
 
-#: src/porting-applications.md:63
+#: src/porting-applications.md:64
 msgid "[Update crates](#update-crates)"
 msgstr ""
 
-#: src/porting-applications.md:64
+#: src/porting-applications.md:65
 msgid "[One or more crates](#one-or-more-crates)"
 msgstr ""
 
-#: src/porting-applications.md:65
+#: src/porting-applications.md:66
 msgid "[All crates](#all-crates)"
 msgstr ""
 
-#: src/porting-applications.md:66
+#: src/porting-applications.md:67
 msgid "[Verify the dependency tree](#verify-the-dependency-tree)"
 msgstr ""
 
-#: src/porting-applications.md:67
+#: src/porting-applications.md:68
 msgid "[Patch crates](#patch-crates)"
 msgstr ""
 
-#: src/porting-applications.md:68
+#: src/porting-applications.md:69
 msgid "[Redox forks](#redox-forks)"
 msgstr ""
 
-#: src/porting-applications.md:69
+#: src/porting-applications.md:70
 msgid "[Local patches](#local-patches)"
 msgstr ""
 
-#: src/porting-applications.md:70
+#: src/porting-applications.md:71
 msgid "[Cleanup](#cleanup)"
 msgstr ""
 
-#: src/porting-applications.md:71
+#: src/porting-applications.md:72
 msgid "[Search Text On Recipes](#search-text-on-recipes)"
 msgstr ""
 
-#: src/porting-applications.md:72
+#: src/porting-applications.md:73
 msgid "[Search for functions on relibc](#search-for-functions-on-relibc)"
 msgstr ""
 
-#: src/porting-applications.md:73
+#: src/porting-applications.md:74
 msgid ""
 "[Create a BLAKE3 hash for your recipe](#create-a-blake3-hash-for-your-recipe)"
 msgstr ""
 
-#: src/porting-applications.md:74
+#: src/porting-applications.md:75
 msgid "[Verify the size of your package](#verify-the-size-of-your-package)"
 msgstr ""
 
-#: src/porting-applications.md:75
+#: src/porting-applications.md:76
 msgid "[Submitting MRs](#submitting-mrs)"
 msgstr ""
 
-#: src/porting-applications.md:77
+#: src/porting-applications.md:78
 msgid "Notes"
 msgstr ""
 
-#: src/porting-applications.md:79
+#: src/porting-applications.md:80
 msgid "This section contains quick important information for porting."
 msgstr ""
 
-#: src/porting-applications.md:81
+#: src/porting-applications.md:82
 msgid ""
 "The Redox build system does cross-compilation and the application or library "
 "need to be configured for that, read [this](./developer-faq.md#why-does-"
 "redox-do-cross-compilation) section to learn why it's needed"
 msgstr ""
 
-#: src/porting-applications.md:82
+#: src/porting-applications.md:83
 msgid ""
 "Meson and CMake configurations have better cross-compilation support than "
 "GNU Autotools and GNU Make configurations, in case the application or "
 "library allows you to choose them"
 msgstr ""
 
-#: src/porting-applications.md:83
+#: src/porting-applications.md:84
 msgid ""
 "The cross-compilation configuration of GNU Make configuration may require "
 "extensive and time-consuming patching, thus it's recommend to search if a "
@@ -340,26 +344,42 @@ msgid ""
 "exist"
 msgstr ""
 
-#: src/porting-applications.md:84
+#: src/porting-applications.md:85
+msgid ""
+"Some Rust programs use CMake or Meson to find C/C++ libraries instead of `-"
+"sys` crates"
+msgstr ""
+
+#: src/porting-applications.md:86
 msgid ""
 "Most or all build instructions were made for native compilation and not "
 "cross-compilation, with some poor documentation exceptions"
 msgstr ""
 
-#: src/porting-applications.md:85
+#: src/porting-applications.md:87
 msgid ""
 "If the application or library build tests in compilation you need to disable "
 "them for cross-compilation"
 msgstr ""
 
-#: src/porting-applications.md:86
+#: src/porting-applications.md:88
 msgid ""
 "If you are using dynamic linking and the `custom` recipe template, the "
 "`DYNAMIC_INIT` command need to be added in the first line of the `script` "
 "data type"
 msgstr ""
 
-#: src/porting-applications.md:87
+#: src/porting-applications.md:89
+msgid ""
+"If you don't know if some application or library can be ported to Redox, "
+"check if a package for it exist in the [FreeBSD ports](https://github.com/"
+"freebsd/freebsd-ports) or other BSD ports to have a reference, but it may "
+"give false-positives like the portable application or library is just not "
+"packaged to FreeBSD. Read [this](./developer-faq.md#how-to-determine-if-some-"
+"program-is-portable-to-redox) question to learn more about this."
+msgstr ""
+
+#: src/porting-applications.md:90
 msgid ""
 "We recommend to use the FreeBSD dependencies of the application if available "
 "because Linux dependencies tend to contain Linux-specific kernel features "
@@ -369,20 +389,20 @@ msgid ""
 "interpreter or build tool)"
 msgstr ""
 
-#: src/porting-applications.md:88
+#: src/porting-applications.md:91
 msgid ""
 "Debian packages are the most easy way to find dependencies because they are "
 "the most used by software developers to describe \"Build Instructions\" "
 "dependencies."
 msgstr ""
 
-#: src/porting-applications.md:89
+#: src/porting-applications.md:92
 msgid ""
 "Don't use the `.deb` packages to create recipes, they are adapted for the "
 "Debian environment."
 msgstr ""
 
-#: src/porting-applications.md:90
+#: src/porting-applications.md:93
 msgid ""
 "The Debian naming policy use dashes as separators in packages with optional "
 "features: `application-name` (default application variant with compiled "
@@ -390,7 +410,7 @@ msgid ""
 "for compilation linking), also check the source package to be sure"
 msgstr ""
 
-#: src/porting-applications.md:91
+#: src/porting-applications.md:94
 msgid ""
 "The recipe `PATH` environment variable only read build tool recipes declared "
 "in the `build.dev-dependencies` data type or the host system's `/usr/bin` "
@@ -398,13 +418,13 @@ msgid ""
 "Linux library objects don't work on Redox."
 msgstr ""
 
-#: src/porting-applications.md:92
+#: src/porting-applications.md:95
 msgid ""
 "The recipe support recursive dependencies, thus you don't need to specify a "
 "dependency two times if some dependency already provides it"
 msgstr ""
 
-#: src/porting-applications.md:93
+#: src/porting-applications.md:96
 msgid ""
 "Don't add build tools in the `build.dependencies` data type, check the "
 "[Debian](https://packages.debian.org/stable/build-essential) and [Arch Linux]"
@@ -412,7 +432,7 @@ msgid ""
 "common reference of build tools."
 msgstr ""
 
-#: src/porting-applications.md:94
+#: src/porting-applications.md:97
 msgid ""
 "The compiler can build recipe dependency libraries as `.so` files (objects "
 "for dynamic linking) or `.a` files (objects for static linking): The `.so` "
@@ -420,56 +440,56 @@ msgid ""
 "the system) while the `.a` files will be mixed in the final binary."
 msgstr ""
 
-#: src/porting-applications.md:95
+#: src/porting-applications.md:98
 msgid ""
 "Linux distributions add a number after the `.so` files to avoid conflicts in "
 "the `/usr/lib` folder when applications use different API versions of the "
 "same library, for example: `library-name.so.6`"
 msgstr ""
 
-#: src/porting-applications.md:96
+#: src/porting-applications.md:99
 msgid ""
 "Sometimes the releases of Git repositories are abandoned, verify if the tags "
 "have newer versions"
 msgstr ""
 
-#: src/porting-applications.md:97
+#: src/porting-applications.md:100
 msgid ""
 "Sometimes tarballs of the official application or library website are "
 "abandoned in favor of Git repository tarballs, verify if the Git repository "
 "tarballs are more recent"
 msgstr ""
 
-#: src/porting-applications.md:99
+#: src/porting-applications.md:102
 msgid ""
 "You need to know the above information because each software is different, "
 "the major reason is the \"Build Instructions\" organization and context of "
 "each application or library."
 msgstr ""
 
-#: src/porting-applications.md:101
+#: src/porting-applications.md:104
 msgid "Packaging Policy"
 msgstr ""
 
-#: src/porting-applications.md:103
+#: src/porting-applications.md:106
 msgid ""
 "Before sending your recipe to upstream (to become a public package), you "
 "must follow the following rules:"
 msgstr ""
 
-#: src/porting-applications.md:105
+#: src/porting-applications.md:108
 msgid "Naming"
 msgstr ""
 
-#: src/porting-applications.md:107
+#: src/porting-applications.md:110
 msgid "The recipe name can't have dots, backslashes, and NULLs"
 msgstr ""
 
-#: src/porting-applications.md:109
+#: src/porting-applications.md:112
 msgid "Cross-Compilation"
 msgstr ""
 
-#: src/porting-applications.md:111
+#: src/porting-applications.md:114
 msgid ""
 "All recipes must use our cross-compilers, a Cookbook [template](#templates) "
 "does cross-compilation automatically but it's not always possible, study the "
@@ -477,37 +497,37 @@ msgid ""
 "patch the configuration files."
 msgstr ""
 
-#: src/porting-applications.md:112
+#: src/porting-applications.md:115
 msgid ""
 "Don't hardcode the CPU architecture in the recipe script (this would break "
 "the multi-arch support)."
 msgstr ""
 
-#: src/porting-applications.md:114 src/porting-applications.md:1026
+#: src/porting-applications.md:117 src/porting-applications.md:1045
 msgid "Tarballs"
 msgstr ""
 
-#: src/porting-applications.md:116
+#: src/porting-applications.md:119
 msgid ""
 "Don't use the auto-generated tarballs from GitHub, they aren't static and "
 "don't verify the archive integrity."
 msgstr ""
 
-#: src/porting-applications.md:118
+#: src/porting-applications.md:121
 msgid "Versioning"
 msgstr ""
 
-#: src/porting-applications.md:120
+#: src/porting-applications.md:123
 msgid ""
 "Stable versions with point releases are prefered if possible for more "
 "stability"
 msgstr ""
 
-#: src/porting-applications.md:122
+#: src/porting-applications.md:125
 msgid "API Compatibility"
 msgstr ""
 
-#: src/porting-applications.md:124
+#: src/porting-applications.md:127
 msgid ""
 "Respect the API compatibility of C/C++ libraries in case of major version "
 "changes, for example: if the `openssl1` recipe is available and some "
@@ -515,102 +535,102 @@ msgid ""
 "rename the `openssl1` recipe, because it may break some dependent recipes."
 msgstr ""
 
-#: src/porting-applications.md:126
+#: src/porting-applications.md:129
 msgid ""
 "The exception for this rule is if some recipe don't need the previous major "
 "version of the library."
 msgstr ""
 
-#: src/porting-applications.md:128
+#: src/porting-applications.md:131
 msgid ""
 "Read [this](./developer-faq.md#why-are-cc-applications-and-libraries-hard-"
 "and-time-consuming-to-port) section to know why it's needed"
 msgstr ""
 
-#: src/porting-applications.md:130
+#: src/porting-applications.md:133
 msgid "Checksum"
 msgstr ""
 
-#: src/porting-applications.md:132
+#: src/porting-applications.md:135
 msgid ""
 "If your recipe download a tarball, you will need to create a BLAKE3 hash for "
 "it. You can learn how to do it [here](#create-a-blake3-hash-for-your-recipe)."
 msgstr ""
 
-#: src/porting-applications.md:134
+#: src/porting-applications.md:137
 msgid "License"
 msgstr ""
 
-#: src/porting-applications.md:136
+#: src/porting-applications.md:139
 msgid "Don't package applications or libraries lacking a license."
 msgstr ""
 
-#: src/porting-applications.md:137
+#: src/porting-applications.md:140
 msgid ""
 "Verify if the application has a known license violation, in case of doubt "
 "ask us on the [chat](https://doc.redox-os.org/book/chat.html)."
 msgstr ""
 
-#: src/porting-applications.md:138
+#: src/porting-applications.md:141
 msgid ""
 "Non-free applications and assets should be approved by Jeremy Soller before "
 "and added to a subcategory of the `nonfree` category."
 msgstr ""
 
-#: src/porting-applications.md:140
+#: src/porting-applications.md:143
 msgid "Testing Area"
 msgstr ""
 
-#: src/porting-applications.md:142
+#: src/porting-applications.md:145
 msgid ""
 "Work-in-progress software ports goes to the `wip` category, be aware of the "
 "following conditions during your packaging process:"
 msgstr ""
 
-#: src/porting-applications.md:144
+#: src/porting-applications.md:147
 msgid "A recipe is considered ready if it's mostly working inside of Redox."
 msgstr ""
 
-#: src/porting-applications.md:145
+#: src/porting-applications.md:148
 msgid ""
 "All WIP recipes must have a `#TODO:` on the beginning of the `recipe.toml` "
 "and explain what is missing."
 msgstr ""
 
-#: src/porting-applications.md:146
+#: src/porting-applications.md:149
 msgid ""
 "BLAKE3 hashes for tarballs are optional in the `wip` category (quick testing "
 "workflow)"
 msgstr ""
 
-#: src/porting-applications.md:147
+#: src/porting-applications.md:150
 msgid ""
 "Try to keep the recipe with the latest stable version of the application, "
 "but not if the latest stable version is too recent (the porting process can "
 "take months)."
 msgstr ""
 
-#: src/porting-applications.md:148
+#: src/porting-applications.md:151
 msgid ""
 "Once the recipe is ready, add the BLAKE3 hash if needed and move the folder "
 "to the appropriate category."
 msgstr ""
 
-#: src/porting-applications.md:150
+#: src/porting-applications.md:153
 msgid "Suggestions for TODOs"
 msgstr ""
 
-#: src/porting-applications.md:152
+#: src/porting-applications.md:155
 msgid "These TODOs improve the packagers cooperation and understanding."
 msgstr ""
 
-#: src/porting-applications.md:154
+#: src/porting-applications.md:157
 msgid ""
-"`not compiled or tested` - It means that your recipe may be fully or "
-"partially configured and with necessary dependencies."
+"`compile and test` - It means that your recipe may be fully or partially "
+"configured and with necessary dependencies."
 msgstr ""
 
-#: src/porting-applications.md:155
+#: src/porting-applications.md:158
 msgid ""
 "`missing script for x: insert-the-link-for-build-instructions-here` - It "
 "means that your recipe is lacking the cross-compilation script for some "
@@ -619,81 +639,81 @@ msgid ""
 "help other packagers to create the script for you."
 msgstr ""
 
-#: src/porting-applications.md:156
+#: src/porting-applications.md:159
 msgid ""
 "`missing dependencies: insert-the-link-for-required-dependencies-here` - It "
 "means that the `build.dependencies` or `package.dependencies` data types are "
 "incomplete."
 msgstr ""
 
-#: src/porting-applications.md:157
+#: src/porting-applications.md:160
 msgid ""
 "`probably wrong script: insert-the-link-for-build-instructions-here` - It "
 "means that you don't know yet if your script is working."
 msgstr ""
 
-#: src/porting-applications.md:158
+#: src/porting-applications.md:161
 msgid ""
 "`probably wrong template: insert-the-link-for-build-instructions-here` - It "
 "means that you don't know yet if the Cookbook template is working."
 msgstr ""
 
-#: src/porting-applications.md:159
+#: src/porting-applications.md:162
 msgid ""
 "`probably missing dependencies: insert-the-link-for-required-dependencies-"
 "here` - It means that you don't know yet if the required dependencies are "
 "satisfied."
 msgstr ""
 
-#: src/porting-applications.md:160
+#: src/porting-applications.md:163
 msgid ""
 "`promote` - It means that the recipe is working and should be moved to the "
 "equivalent category at `recipes/*`"
 msgstr ""
 
-#: src/porting-applications.md:162
+#: src/porting-applications.md:165
 msgid "Other TODOs are specific and won't be covered on this list."
 msgstr ""
 
-#: src/porting-applications.md:164
+#: src/porting-applications.md:167
 msgid "Recipe"
 msgstr ""
 
-#: src/porting-applications.md:166
+#: src/porting-applications.md:169
 msgid ""
 "A recipe is how we call a software port on Redox, this section explains the "
 "recipe configuration and details to consider."
 msgstr ""
 
-#: src/porting-applications.md:168
+#: src/porting-applications.md:171
 msgid ""
 "Create a folder at `recipes/application-category` with a file named as "
 "`recipe.toml` inside, we will modify this file to fit the application's "
 "needs."
 msgstr ""
 
-#: src/porting-applications.md:170
+#: src/porting-applications.md:173
 msgid "Recipe creation from terminal with GNU Nano:"
 msgstr ""
 
-#: src/porting-applications.md:184
-msgid "Recipe Configuration Example"
+#: src/porting-applications.md:187
+msgid "Configuration Example"
 msgstr ""
 
-#: src/porting-applications.md:186
+#: src/porting-applications.md:189
 msgid ""
 "The recipe configuration (`recipe.toml`) example below contains all "
 "supported recipe options. Adapt for your script, application, library or "
 "data files."
 msgstr ""
 
-#: src/porting-applications.md:188
+#: src/porting-applications.md:191
 msgid ""
 "TOML sections and data types can also be mentioned using the `section-name."
 "data-type-name` format for easier explanation and better explanation writing."
 msgstr ""
 
-#: src/porting-applications.md:190
+#: src/porting-applications.md:193
 msgid ""
 "```toml\n"
 "[source]\n"
@@ -754,16 +774,30 @@ msgid ""
 "    \"runtime-dependency1\",\n"
 "    \"runtime-dependency2\",\n"
 "]\n"
+"[[optional-packages]]\n"
+"name = \"option-name\"\n"
+"files = [\n"
+"    \"path1\",\n"
+"    \"path2\",\n"
+"]\n"
+"dependencies = [\n"
+"    \".option1\",\n"
+"    \".option2\",\n"
+"]\n"
 "```"
 msgstr ""
 
-#: src/porting-applications.md:251
+#: src/porting-applications.md:264
+msgid "Sections and Data Types"
+msgstr ""
+
+#: src/porting-applications.md:266
 msgid ""
 "`[source]` : Section for data types that manage the application source (only "
 "remove it if you have a `source` folder)"
 msgstr ""
 
-#: src/porting-applications.md:252
+#: src/porting-applications.md:267
 msgid ""
 "`source.git` : Git repository of the application (can be removed if a Git "
 "repository is not used), you can comment out it to not allow Cookbook to "
@@ -771,28 +805,28 @@ msgid ""
 "the [Git Repositories](#git-repositories) section for more details."
 msgstr ""
 
-#: src/porting-applications.md:253
+#: src/porting-applications.md:268
 msgid ""
 "`source.upstream` : If you are using a fork of the application source with "
 "patches add the application upstream source here (can be removed if the "
 "upstream source is being used on the `git` data type)"
 msgstr ""
 
-#: src/porting-applications.md:254
+#: src/porting-applications.md:269
 msgid ""
 "`source.branch` : application version Git branch or patched Git branch (can "
 "be removed if using a tarball or the `master` or `main` Git branches are "
 "being used)"
 msgstr ""
 
-#: src/porting-applications.md:255
+#: src/porting-applications.md:270
 msgid ""
 "`source.rev` : Git tag or commit hash of the latest stable version or last "
 "working commit of the application (can be removed if you are using a tarball "
 "or waiting Rust library version updates)"
 msgstr ""
 
-#: src/porting-applications.md:256
+#: src/porting-applications.md:271
 msgid ""
 "`source.shallow_clone` : Boolean data type to only download the current "
 "commit of source files (Git [shallow clone](https://github.blog/open-source/"
@@ -802,149 +836,172 @@ msgid ""
 "(#git-repositories) section if you are doing heavy development in a fork"
 msgstr ""
 
-#: src/porting-applications.md:257
+#: src/porting-applications.md:272
 msgid ""
 "`source.tar` : application source tarball (can be removed if a tarball is "
 "not used), read the [Tarballs](#tarballs) section for more details."
 msgstr ""
 
-#: src/porting-applications.md:258
+#: src/porting-applications.md:273
 msgid ""
 "`source.blake3` : application source tarball BLAKE3 hash, can be generated "
 "using the `b3sum` tool, install with the `cargo install b3sum` command (can "
 "be removed if using a Git repository or under porting)"
 msgstr ""
 
-#: src/porting-applications.md:259
+#: src/porting-applications.md:274
 msgid ""
 "`source.patches` : Data type to load `.patch` files (can be removed if patch "
 "files aren't used)"
 msgstr ""
 
-#: src/porting-applications.md:260
+#: src/porting-applications.md:275
 msgid ""
 "`\"patch1.patch\",` : The patch file name (can be removed if the `patches` "
 "data type above is not present)"
 msgstr ""
 
-#: src/porting-applications.md:261
+#: src/porting-applications.md:276
 msgid ""
 "`source.same_as` : Insert the folder of other recipe to make a symbolic link "
 "to the `source` folder of other recipe, useful if you want modularity with "
 "synchronization"
 msgstr ""
 
-#: src/porting-applications.md:262
+#: src/porting-applications.md:277
 msgid ""
 "`source.script` : Data type used when you need to change the build system "
 "configuration (to regenerate the GNU Autotools configuration, for example)"
 msgstr ""
 
-#: src/porting-applications.md:263
+#: src/porting-applications.md:278
 msgid ""
 "`[build]` : Section for data types that manage the application compilation "
 "and packaging"
 msgstr ""
 
-#: src/porting-applications.md:264
+#: src/porting-applications.md:279
 msgid ""
 "`build.template` : Insert the application build system, read the [Templates]"
 "(#templates) section for more details."
 msgstr ""
 
-#: src/porting-applications.md:265
+#: src/porting-applications.md:280
 msgid ""
 "`build.cargopath` : Data type for Cargo package directory path (when `Cargo."
 "toml` is missing in repository/tarball root directory or when package is not "
 "declared in the root directory workspace)"
 msgstr ""
 
-#: src/porting-applications.md:266
+#: src/porting-applications.md:281
 msgid "`build.cargopackages` : Data type for Cargo packages"
 msgstr ""
 
-#: src/porting-applications.md:267
+#: src/porting-applications.md:282
 msgid "`build.cargoexamples` : Data type for Cargo examples"
 msgstr ""
 
-#: src/porting-applications.md:268
+#: src/porting-applications.md:283
 msgid "`build.cargoflags` : Data type for Cargo flags (array)"
 msgstr ""
 
-#: src/porting-applications.md:269
+#: src/porting-applications.md:284
 msgid "`build.configureflags` : Data type for GNU Autotools flags (array)"
 msgstr ""
 
-#: src/porting-applications.md:270
+#: src/porting-applications.md:285
 msgid "`build.cmakeflags` : Data type for CMake flags (array)"
 msgstr ""
 
-#: src/porting-applications.md:271
+#: src/porting-applications.md:286
 msgid "`build.mesonflags` : Data type for Meson flags (array)"
 msgstr ""
 
-#: src/porting-applications.md:272
+#: src/porting-applications.md:287
 msgid ""
 "`build.dev-dependencies` : Data type to add the build tools needed by the "
 "application or library"
 msgstr ""
 
-#: src/porting-applications.md:273
+#: src/porting-applications.md:288
 msgid ""
 "`build.dev-dependencies = [\"host:tool1\",]` : Build tool recipe name (can "
 "be removed if the `build.dev-dependencies` data type is not present)"
 msgstr ""
 
-#: src/porting-applications.md:274
+#: src/porting-applications.md:289
 msgid ""
 "`build.dependencies` : Data type to add dynamically or statically linked "
 "library dependencies, read the [Dependencies](#dependencies) section for "
 "more details."
 msgstr ""
 
-#: src/porting-applications.md:275
+#: src/porting-applications.md:290
 msgid ""
 "`build.dependencies = [\"library1\",]` : Library recipe name (can be removed "
 "if the `build.dependencies` data type is not present)"
 msgstr ""
 
-#: src/porting-applications.md:276
+#: src/porting-applications.md:291
 msgid ""
 "`build.script` : Data type to load the custom commands for compilation and "
 "packaging"
 msgstr ""
 
-#: src/porting-applications.md:277
+#: src/porting-applications.md:292
 msgid ""
 "`[package]` : Section for data types that manage the application package"
 msgstr ""
 
-#: src/porting-applications.md:278
+#: src/porting-applications.md:293
 msgid ""
 "`package.dependencies` : Data type to add tools, interpreters or \"data "
 "files\" recipes to be installed by the package manager or build system "
 "installer"
 msgstr ""
 
-#: src/porting-applications.md:279
+#: src/porting-applications.md:294
 msgid ""
 "`package.dependencies = [\"runtime-dependency1\",]` : Tool, interpreter or "
 "data recipe names (can be removed if the `package.dependencies` data type "
 "above is not present)"
 msgstr ""
 
-#: src/porting-applications.md:281
+#: src/porting-applications.md:295
+msgid "`[[optional-packages]]` : Section for optional package configuration"
+msgstr ""
+
+#: src/porting-applications.md:296
+msgid ""
+"`optional-packages.name` : Data type with the name of the optional package "
+"option, for example: `recipe-name.option-name`"
+msgstr ""
+
+#: src/porting-applications.md:297
+msgid ""
+"`optional-packages.files` : Data type with directories or file paths (`\"/"
+"home/user\"`, for example) to be included in the optional package, glob "
+"patterns are supported (`\"/home/user/file*\"`, for example)"
+msgstr ""
+
+#: src/porting-applications.md:298
+msgid ""
+"`optional-packages.dependencies` : Data type with the optional package "
+"option dependencies in the same recipe"
+msgstr ""
+
+#: src/porting-applications.md:300
 msgid "Quick Recipe Template"
 msgstr ""
 
-#: src/porting-applications.md:283
+#: src/porting-applications.md:302
 msgid "This is a recipe template for a quick porting workflow."
 msgstr ""
 
-#: src/porting-applications.md:285
+#: src/porting-applications.md:304
 msgid ""
 "```toml\n"
-"#TODO not compiled or tested\n"
+"#TODO compile and test\n"
 "[source]\n"
 "git = \"repository-link\"\n"
 "rev = \"version-tag\"\n"
@@ -959,52 +1016,52 @@ msgid ""
 "```"
 msgstr ""
 
-#: src/porting-applications.md:300
+#: src/porting-applications.md:319
 msgid ""
 "You can quickly copy and paste this template on each `recipe.toml`, that way "
 "you spent less time writting and has less chances for typos."
 msgstr ""
 
-#: src/porting-applications.md:302
+#: src/porting-applications.md:321
 msgid ""
 "If your application uses a tarball, you can quickly remove the `git` and "
 "`rev` data types."
 msgstr ""
 
-#: src/porting-applications.md:303
+#: src/porting-applications.md:322
 msgid ""
 "If your application uses a Git repository, you can quickly remove the `tar` "
 "data type."
 msgstr ""
 
-#: src/porting-applications.md:304
+#: src/porting-applications.md:323
 msgid ""
 "If you don't need to pin a Git tag or commit hash for the latest stable "
 "release or last working commit, you can quickly remove the `rev` data type."
 msgstr ""
 
-#: src/porting-applications.md:305
+#: src/porting-applications.md:324
 msgid ""
 "If the application doesn't need C, C++ or patched Rust dependencies, you can "
 "quickly remove the `dependencies = []` section."
 msgstr ""
 
-#: src/porting-applications.md:307
+#: src/porting-applications.md:326
 msgid "After the `#TODO` comment you will write your current porting status."
 msgstr ""
 
-#: src/porting-applications.md:309
+#: src/porting-applications.md:328
 msgid "Cookbook"
 msgstr ""
 
-#: src/porting-applications.md:311
+#: src/porting-applications.md:330
 msgid ""
 "The GCC and LLVM compiler frontends on Linux use the Linux target triplet by "
 "default, it will create Linux ELF binaries that don't work on Redox because "
 "it can't undertstand them."
 msgstr ""
 
-#: src/porting-applications.md:313
+#: src/porting-applications.md:332
 msgid ""
 "Part of this process is to use `glibc` (GNU C Standard Library) which "
 "doesn't support Redox system calls. To make the compiler use `relibc` (Redox "
@@ -1013,25 +1070,25 @@ msgid ""
 "variables and target/platform flags for the Redox target."
 msgstr ""
 
-#: src/porting-applications.md:315
+#: src/porting-applications.md:334
 msgid ""
 "Cookbook have build system templates to avoid custom commands for cross-"
 "compilation, but it's not always possible because some build systems or "
 "applications aren't standardized or adapted for cross-compilation."
 msgstr ""
 
-#: src/porting-applications.md:317
+#: src/porting-applications.md:336
 msgid ""
 "(Build systems have different methods to enable cross-compilation and pass a "
 "different C standard library to the compiler, you will need to read their "
 "documentation, application/library specific configuration or hack them)"
 msgstr ""
 
-#: src/porting-applications.md:319
+#: src/porting-applications.md:338
 msgid "Cross Compiler"
 msgstr ""
 
-#: src/porting-applications.md:321
+#: src/porting-applications.md:340
 msgid ""
 "Cookbook uses Rust/GCC forks to do cross-compilation of recipes "
 "(applications) with `relibc` to any supported CPU architecture, you can "
@@ -1041,31 +1098,31 @@ msgid ""
 "(https://static.redox-os.org/toolchain/))."
 msgstr ""
 
-#: src/porting-applications.md:323
+#: src/porting-applications.md:342
 msgid "Cross Compilation"
 msgstr ""
 
-#: src/porting-applications.md:325
+#: src/porting-applications.md:344
 msgid ""
 "The Cookbook default compilation type is cross-compilation because it "
 "reduces the requirements to run applications on Redox and allow us to do "
 "Redox development from Linux and other Unix-like systems."
 msgstr ""
 
-#: src/porting-applications.md:327
+#: src/porting-applications.md:346
 msgid ""
 "By default Cookbook use the CPU architecture of your host system but you can "
 "change it easily on your `.config` file (`ARCH?` environment variable)."
 msgstr ""
 
-#: src/porting-applications.md:329
+#: src/porting-applications.md:348
 msgid ""
 "Don't use a hardcoded CPU architecture in the `script` data types of your "
 "`recipe.toml`, it breaks cross-compilation when a different CPU architecture "
 "is used by the build system."
 msgstr ""
 
-#: src/porting-applications.md:330
+#: src/porting-applications.md:349
 msgid ""
 "All recipes must use our cross-compilers, a Cookbook template does this "
 "automatically but it's not always possible, read the build system "
@@ -1073,53 +1130,53 @@ msgid ""
 "configuration files."
 msgstr ""
 
-#: src/porting-applications.md:332
+#: src/porting-applications.md:351
 msgid "Templates"
 msgstr ""
 
-#: src/porting-applications.md:334
+#: src/porting-applications.md:353
 msgid ""
 "A recipe template is the build system of the application or library "
 "supported by Cookbook."
 msgstr ""
 
-#: src/porting-applications.md:336
+#: src/porting-applications.md:355
 msgid ""
 "`template = \"cargo\"` - Build with Cargo using cross-compilation and static "
 "linking (Rust applications with one package in the Cargo workspace)."
 msgstr ""
 
-#: src/porting-applications.md:337
+#: src/porting-applications.md:356
 msgid ""
 "`template = \"configure\"` - Build with GNU Autotools/GNU Make using cross-"
 "compilation and dynamic linking."
 msgstr ""
 
-#: src/porting-applications.md:338
+#: src/porting-applications.md:357
 msgid ""
 "`template = \"cmake\"` - Build with CMake using cross-compilation and "
 "dynamic linking."
 msgstr ""
 
-#: src/porting-applications.md:339
+#: src/porting-applications.md:358
 msgid ""
 "`template = \"meson\"` - Build with Meson using cross-compilation and "
 "dynamic linking."
 msgstr ""
 
-#: src/porting-applications.md:340
+#: src/porting-applications.md:359
 msgid ""
 "`template = \"remote\"` - Download the remote Redox package of the recipe if "
 "available in the [package server](https://static.redox-os.org/pkg/)"
 msgstr ""
 
-#: src/porting-applications.md:341
+#: src/porting-applications.md:360
 msgid ""
 "`template = \"custom\"` - Run your commands on the `script =` field and "
 "build (Any build system or installation process)."
 msgstr ""
 
-#: src/porting-applications.md:343
+#: src/porting-applications.md:362
 msgid ""
 "Keep in mind that some recipes may need build tools that aren't provided by "
 "the build system templates or not installed in the Podman container or your "
@@ -1128,7 +1185,7 @@ msgid ""
 "the templates."
 msgstr ""
 
-#: src/porting-applications.md:345
+#: src/porting-applications.md:364
 msgid ""
 "The `script =` field runs any terminal command supported by GNU Bash, it's "
 "important if the build system of the application doesn't support cross-"
@@ -1136,73 +1193,73 @@ msgid ""
 "`build.script` data type if the `custom` template is not used)."
 msgstr ""
 
-#: src/porting-applications.md:347
+#: src/porting-applications.md:366
 msgid ""
 "Each template (except `custom`) script supports build flags, you can add "
 "flags as an array of strings:"
 msgstr ""
 
-#: src/porting-applications.md:349
+#: src/porting-applications.md:368
 msgid "`cargoflags = \"foo\"`"
 msgstr ""
 
-#: src/porting-applications.md:350
+#: src/porting-applications.md:369
 msgid "`configureflags = [ \"foo\" ]`"
 msgstr ""
 
-#: src/porting-applications.md:351
+#: src/porting-applications.md:370
 msgid "`cmakeflags = [ \"foo\" ]`"
 msgstr ""
 
-#: src/porting-applications.md:352
+#: src/porting-applications.md:371
 msgid "`mesonflags = [ \"foo\" ]`"
 msgstr ""
 
-#: src/porting-applications.md:354
+#: src/porting-applications.md:373
 msgid ""
 "To find the supported Cookbook Bash functions, look the recipes using a "
 "`script =` field on their `recipe.toml` or read the [source code](https://"
 "gitlab.redox-os.org/redox-os/redox/-/tree/master/src)."
 msgstr ""
 
-#: src/porting-applications.md:356
+#: src/porting-applications.md:375
 msgid ""
 "[Recipes](https://gitlab.redox-os.org/redox-os/redox/-/tree/master/recipes)"
 msgstr ""
 
-#: src/porting-applications.md:358
+#: src/porting-applications.md:377
 msgid "Cases"
 msgstr ""
 
-#: src/porting-applications.md:360
+#: src/porting-applications.md:379
 msgid "applications using the Cargo build system have a `Cargo.toml` file"
 msgstr ""
 
-#: src/porting-applications.md:361
+#: src/porting-applications.md:380
 msgid ""
 "applications using the GNU Autotools build system have a `configure` or "
 "`autogen.sh` file in the source tarball"
 msgstr ""
 
-#: src/porting-applications.md:362
+#: src/porting-applications.md:381
 msgid "applications using the CMake build system have a `CMakeLists.txt` file"
 msgstr ""
 
-#: src/porting-applications.md:363
+#: src/porting-applications.md:382
 msgid "applications using the Meson build system have a `meson.build` file"
 msgstr ""
 
-#: src/porting-applications.md:365
+#: src/porting-applications.md:384
 msgid "Metapackages"
 msgstr ""
 
-#: src/porting-applications.md:367
+#: src/porting-applications.md:386
 msgid ""
 "Metapackages are packages without any files, just dependencies. Use the "
 "following recipe example to create a metapackage:"
 msgstr ""
 
-#: src/porting-applications.md:369
+#: src/porting-applications.md:388
 msgid ""
 "```toml\n"
 "[package]\n"
@@ -1213,11 +1270,11 @@ msgid ""
 "```"
 msgstr ""
 
-#: src/porting-applications.md:377
+#: src/porting-applications.md:396
 msgid "Cookbook - Custom Template"
 msgstr ""
 
-#: src/porting-applications.md:379
+#: src/porting-applications.md:398
 msgid ""
 "The `custom` template enable the `build.script =` data type to be used, this "
 "data type will run any command supported by the [GNU Bash](https://www.gnu."
@@ -1227,11 +1284,11 @@ msgid ""
 "master/src/bin/cook.rs)."
 msgstr ""
 
-#: src/porting-applications.md:382
+#: src/porting-applications.md:401
 msgid "Script example"
 msgstr ""
 
-#: src/porting-applications.md:384
+#: src/porting-applications.md:403
 msgid ""
 "```toml\n"
 "[build]\n"
@@ -1242,7 +1299,7 @@ msgid ""
 "```"
 msgstr ""
 
-#: src/porting-applications.md:392
+#: src/porting-applications.md:411
 msgid ""
 "The script section starts at the location of the `${COOKBOOK_BUILD}` "
 "environment variable (`recipe-name/target/$TARGET/build`). This "
@@ -1252,173 +1309,173 @@ msgid ""
 "` data type."
 msgstr ""
 
-#: src/porting-applications.md:394
+#: src/porting-applications.md:413
 msgid "Functions"
 msgstr ""
 
-#: src/porting-applications.md:396
+#: src/porting-applications.md:415
 msgid ""
 "Each template has a Bash function to be used in the `script` data type when "
 "you need to customize the template configuration to fix the application "
 "compilation or enable/disable features."
 msgstr ""
 
-#: src/porting-applications.md:398
+#: src/porting-applications.md:417
 msgid "`cookbook_cargo` - Bash function of the `cargo` template"
 msgstr ""
 
-#: src/porting-applications.md:399
+#: src/porting-applications.md:418
 msgid "`cookbook_configure` - Bash function of the `configure` template"
 msgstr ""
 
-#: src/porting-applications.md:400
+#: src/porting-applications.md:419
 msgid "`cookbook_cmake` - Bash function of the `cmake` template"
 msgstr ""
 
-#: src/porting-applications.md:401
+#: src/porting-applications.md:420
 msgid "`cookbook_meson` - Bash function of the `meson` template"
 msgstr ""
 
-#: src/porting-applications.md:402
+#: src/porting-applications.md:421
 msgid ""
 "`DYNAMIC_INIT` - Bash function to configure the recipe to be dynamically "
 "linked"
 msgstr ""
 
-#: src/porting-applications.md:403
+#: src/porting-applications.md:422
 msgid ""
 "`DYNAMIC_STATIC_INIT` - Bash function to configure the recipe to be both "
 "statically and dynamically linked (library recipe only)"
 msgstr ""
 
-#: src/porting-applications.md:405 src/porting-applications.md:1150
+#: src/porting-applications.md:424 src/porting-applications.md:1169
 msgid "Environment Variables"
 msgstr ""
 
-#: src/porting-applications.md:407
+#: src/porting-applications.md:426
 msgid "These variables available in the script:"
 msgstr ""
 
-#: src/porting-applications.md:409
+#: src/porting-applications.md:428
 msgid "`${TARGET}` - Redox compiler triple target (`$ARCH-unknown-redox`)"
 msgstr ""
 
-#: src/porting-applications.md:410
+#: src/porting-applications.md:429
 msgid "`${GNU_TARGET}` - Redox compiler triple target (GNU variant)"
 msgstr ""
 
-#: src/porting-applications.md:411
+#: src/porting-applications.md:430
 msgid "`${COOKBOOK_MAKE_JOBS}` - Total CPU threads available"
 msgstr ""
 
-#: src/porting-applications.md:412
+#: src/porting-applications.md:431
 msgid "`${COOKBOOK_RECIPE}` - Recipe folder."
 msgstr ""
 
-#: src/porting-applications.md:413
+#: src/porting-applications.md:432
 msgid "`${COOKBOOK_ROOT}` - The Cookbook directory."
 msgstr ""
 
-#: src/porting-applications.md:414
+#: src/porting-applications.md:433
 msgid ""
 "`${COOKBOOK_SOURCE}` - The `source` folder at `recipe-name/source` "
 "(application source)."
 msgstr ""
 
-#: src/porting-applications.md:415
+#: src/porting-applications.md:434
 msgid ""
 "`${COOKBOOK_SYSROOT}` - The `sysroot` folder at `recipe-name/target/$TARGET/"
 "sysroot` (library sources)."
 msgstr ""
 
-#: src/porting-applications.md:416
+#: src/porting-applications.md:435
 msgid ""
 "`${COOKBOOK_BUILD}` - The `build` folder at `recipe-name/target/$TARGET/"
 "build` (recipe build system)."
 msgstr ""
 
-#: src/porting-applications.md:417
+#: src/porting-applications.md:436
 msgid ""
 "`${COOKBOOK_STAGE}` - The `stage` folder at `recipe-name/target/$TARGET/"
 "stage` (recipe binaries)."
 msgstr ""
 
-#: src/porting-applications.md:419
+#: src/porting-applications.md:438
 msgid ""
 "For RISC-V, `${TARGET}` and `${GNU_TARGET}` is `riscv64gc-unknown-redox` and "
 "`riscv64-unknown-redox`, usually you want `${TARGET}` unless the script "
 "requires a GNU target triple."
 msgstr ""
 
-#: src/porting-applications.md:420
+#: src/porting-applications.md:439
 msgid ""
 "To get `$ARCH`, you need to add `ARCH=\"${TARGET%%-*}\"` to the beginning of "
 "the script."
 msgstr ""
 
-#: src/porting-applications.md:422
+#: src/porting-applications.md:441
 msgid ""
 "There are more variables depending on the build script that you are using."
 msgstr ""
 
-#: src/porting-applications.md:424
+#: src/porting-applications.md:443
 msgid ""
 "We recommend that you use path environment variables with the `\"` symbol to "
 "clean any invalid characters (like spaces) on the path, spaces are "
 "interpreted as command separators and will break the path."
 msgstr ""
 
-#: src/porting-applications.md:426 src/porting-applications.md:1094
-#: src/porting-applications.md:1103 src/porting-applications.md:1114
-#: src/porting-applications.md:1156
+#: src/porting-applications.md:445 src/porting-applications.md:1113
+#: src/porting-applications.md:1122 src/porting-applications.md:1133
+#: src/porting-applications.md:1175
 msgid "Example:"
 msgstr ""
 
-#: src/porting-applications.md:429 src/porting-applications.md:435
+#: src/porting-applications.md:448 src/porting-applications.md:454
 msgid "\"${VARIABLE_NAME}\""
 msgstr ""
 
-#: src/porting-applications.md:432
+#: src/porting-applications.md:451
 msgid "If you have a folder inside the variable folder you can call it with:"
 msgstr ""
 
-#: src/porting-applications.md:437 src/porting-applications.md:1446
+#: src/porting-applications.md:456 src/porting-applications.md:1465
 msgid "Or"
 msgstr ""
 
-#: src/porting-applications.md:439
+#: src/porting-applications.md:458
 msgid "\"${VARIABLE_NAME}/folder-name\""
 msgstr ""
 
-#: src/porting-applications.md:442
+#: src/porting-applications.md:461
 msgid "Quick Template"
 msgstr ""
 
-#: src/porting-applications.md:444
+#: src/porting-applications.md:463
 msgid "You can quickly copy these environment variables from this section."
 msgstr ""
 
-#: src/porting-applications.md:447
+#: src/porting-applications.md:466
 msgid "\"${COOKBOOK_SOURCE}/\""
 msgstr ""
 
-#: src/porting-applications.md:451
+#: src/porting-applications.md:470
 msgid "\"${COOKBOOK_BUILD}/\""
 msgstr ""
 
-#: src/porting-applications.md:455
+#: src/porting-applications.md:474
 msgid "\"${COOKBOOK_SYSROOT}/\""
 msgstr ""
 
-#: src/porting-applications.md:459
+#: src/porting-applications.md:478
 msgid "\"${COOKBOOK_STAGE}/\""
 msgstr ""
 
-#: src/porting-applications.md:462
+#: src/porting-applications.md:481
 msgid "Packaging Behavior"
 msgstr ""
 
-#: src/porting-applications.md:464
+#: src/porting-applications.md:483
 msgid ""
 "Cookbook downloads the recipe sources on the `source` folder (`recipe-name/"
 "source`), copies the contents of this folder to the `build` folder (`recipe-"
@@ -1426,74 +1483,74 @@ msgid ""
 "the `stage` folder (`recipe-name/target/$TARGET/stage`)."
 msgstr ""
 
-#: src/porting-applications.md:466
+#: src/porting-applications.md:485
 msgid ""
 "If your recipe has library dependencies, it will copy the library source and "
 "linker objects to the `sysroot` folder to be used by the `build` folder."
 msgstr ""
 
-#: src/porting-applications.md:468
+#: src/porting-applications.md:487
 msgid "Moving the application files to the Redox filesystem"
 msgstr ""
 
-#: src/porting-applications.md:470
+#: src/porting-applications.md:489
 msgid ""
 "The `\"${COOKBOOK_STAGE}\"/` path is used to specify where the recipe files "
 "will be stored in the Redox filesystem, in most cases `/usr/bin` and `/usr/"
 "lib`."
 msgstr ""
 
-#: src/porting-applications.md:472
+#: src/porting-applications.md:491
 msgid "You can see path examples for most customized recipes below:"
 msgstr ""
 
-#: src/porting-applications.md:475 src/porting-applications.md:521
+#: src/porting-applications.md:494 src/porting-applications.md:540
 msgid "\"${COOKBOOK_STAGE}\""
 msgstr ""
 
-#: src/porting-applications.md:475
+#: src/porting-applications.md:494
 msgid ""
 "# The root of the Redox build system\n"
 "\"${COOKBOOK_STAGE}\""
 msgstr ""
 
-#: src/porting-applications.md:476
+#: src/porting-applications.md:495
 msgid ""
 "# System-wide executables directory\n"
 "\"${COOKBOOK_STAGE}\""
 msgstr ""
 
-#: src/porting-applications.md:477
+#: src/porting-applications.md:496
 msgid ""
 "# System-wide shared and static library objects directory\n"
 "\"${COOKBOOK_STAGE}\""
 msgstr ""
 
-#: src/porting-applications.md:478
+#: src/porting-applications.md:497
 msgid ""
 "# System-wide application static data files\n"
 "\"${COOKBOOK_STAGE}\""
 msgstr ""
 
-#: src/porting-applications.md:479
+#: src/porting-applications.md:498
 msgid "# System-wide application static configuration files\n"
 msgstr ""
 
-#: src/porting-applications.md:482
+#: src/porting-applications.md:501
 msgid "GNU Autotools script"
 msgstr ""
 
-#: src/porting-applications.md:484
+#: src/porting-applications.md:503
 msgid ""
 "Use this script if the application or library needs to be compiled with "
 "custom options"
 msgstr ""
 
-#: src/porting-applications.md:486
+#: src/porting-applications.md:505
 msgid "Configure with dynamic linking"
 msgstr ""
 
-#: src/porting-applications.md:488
+#: src/porting-applications.md:507
 msgid ""
 "```toml\n"
 "script = \"\"\"\n"
@@ -1507,11 +1564,11 @@ msgid ""
 "```"
 msgstr ""
 
-#: src/porting-applications.md:499
+#: src/porting-applications.md:518
 msgid "GNU Make without Configure"
 msgstr ""
 
-#: src/porting-applications.md:501
+#: src/porting-applications.md:520
 msgid ""
 "```toml\n"
 "script = \"\"\"\n"
@@ -1528,39 +1585,39 @@ msgid ""
 "```"
 msgstr ""
 
-#: src/porting-applications.md:515
+#: src/porting-applications.md:534
 msgid "Definition of `cookbook_configure` is roughly:"
 msgstr ""
 
-#: src/porting-applications.md:519
+#: src/porting-applications.md:538
 msgid "\"${COOKBOOK_CONFIGURE}\" \"${COOKBOOK_CONFIGURE_FLAGS[@]}\" \"$@\""
 msgstr ""
 
-#: src/porting-applications.md:520 src/porting-applications.md:521
+#: src/porting-applications.md:539 src/porting-applications.md:540
 msgid "\"${COOKBOOK_MAKE}\""
 msgstr ""
 
-#: src/porting-applications.md:520 src/porting-applications.md:575
-#: src/porting-applications.md:576
+#: src/porting-applications.md:539 src/porting-applications.md:594
+#: src/porting-applications.md:595
 msgid "\"${COOKBOOK_MAKE_JOBS}\""
 msgstr ""
 
-#: src/porting-applications.md:525
+#: src/porting-applications.md:544
 msgid "GNU Autotools configuration script"
 msgstr ""
 
-#: src/porting-applications.md:527
+#: src/porting-applications.md:546
 msgid ""
 "Sometimes the application tarball or repository is lacking the `configure` "
 "script or it needs to be recreated for dynamic linking, so you will need to "
 "generate this script."
 msgstr ""
 
-#: src/porting-applications.md:529
+#: src/porting-applications.md:548
 msgid "Add the following code below the `[source]` section"
 msgstr ""
 
-#: src/porting-applications.md:531
+#: src/porting-applications.md:550
 msgid ""
 "```toml\n"
 "script = \"\"\"\n"
@@ -1569,22 +1626,22 @@ msgid ""
 "```"
 msgstr ""
 
-#: src/porting-applications.md:537
+#: src/porting-applications.md:556
 msgid "CMake script"
 msgstr ""
 
-#: src/porting-applications.md:539
+#: src/porting-applications.md:558
 msgid ""
 "Use this script for applications using the CMake build system, more CMake "
 "options can be added with a `-D` before them, the customization of CMake "
 "compilation is very easy."
 msgstr ""
 
-#: src/porting-applications.md:541
+#: src/porting-applications.md:560
 msgid "CMake using dynamic linking"
 msgstr ""
 
-#: src/porting-applications.md:543
+#: src/porting-applications.md:562
 msgid ""
 "```toml\n"
 "script = \"\"\"\n"
@@ -1598,11 +1655,11 @@ msgid ""
 "```"
 msgstr ""
 
-#: src/porting-applications.md:554
+#: src/porting-applications.md:573
 msgid "CMake inside a subfolder"
 msgstr ""
 
-#: src/porting-applications.md:556
+#: src/porting-applications.md:575
 msgid ""
 "```toml\n"
 "script = \"\"\"\n"
@@ -1616,52 +1673,52 @@ msgid ""
 "```"
 msgstr ""
 
-#: src/porting-applications.md:567
+#: src/porting-applications.md:586
 msgid "Definition of `cookbook_cmake` is roughly:"
 msgstr ""
 
-#: src/porting-applications.md:571
+#: src/porting-applications.md:590
 msgid "\"${COOKBOOK_CMAKE}\" \"${COOKBOOK_SOURCE}\""
 msgstr ""
 
-#: src/porting-applications.md:572
+#: src/porting-applications.md:591
 msgid "\"${COOKBOOK_CMAKE_FLAGS[@]}\""
 msgstr ""
 
-#: src/porting-applications.md:573
+#: src/porting-applications.md:592
 msgid "\"$@\""
 msgstr ""
 
-#: src/porting-applications.md:575
+#: src/porting-applications.md:594
 msgid "\"${COOKBOOK_NINJA}\""
 msgstr ""
 
-#: src/porting-applications.md:576
+#: src/porting-applications.md:595
 msgid "\"${COOKBOOK_STAGE}\" \"${COOKBOOK_NINJA}\""
 msgstr ""
 
-#: src/porting-applications.md:581
+#: src/porting-applications.md:600
 msgid "Meson script"
 msgstr ""
 
-#: src/porting-applications.md:583
+#: src/porting-applications.md:602
 msgid ""
 "Use this script for applications using the Meson build system, more Meson "
 "options can be added with a `-D` before them, the customization of Meson "
 "compilation is very easy."
 msgstr ""
 
-#: src/porting-applications.md:585
+#: src/porting-applications.md:604
 msgid ""
 "Keep in mind that some applications and libraries need more configuration to "
 "work."
 msgstr ""
 
-#: src/porting-applications.md:587
+#: src/porting-applications.md:606
 msgid "Meson using dynamic linking"
 msgstr ""
 
-#: src/porting-applications.md:589
+#: src/porting-applications.md:608
 msgid ""
 "```toml\n"
 "script = \"\"\"\n"
@@ -1675,11 +1732,11 @@ msgid ""
 "```"
 msgstr ""
 
-#: src/porting-applications.md:600
+#: src/porting-applications.md:619
 msgid "Meson inside a subfolder"
 msgstr ""
 
-#: src/porting-applications.md:602
+#: src/porting-applications.md:621
 msgid ""
 "```toml\n"
 "script = \"\"\"\n"
@@ -1693,15 +1750,15 @@ msgid ""
 "```"
 msgstr ""
 
-#: src/porting-applications.md:613
+#: src/porting-applications.md:632
 msgid "Cargo script"
 msgstr ""
 
-#: src/porting-applications.md:615
+#: src/porting-applications.md:634
 msgid "Use this script if you need to customize the `cookbook_cargo` function."
 msgstr ""
 
-#: src/porting-applications.md:617
+#: src/porting-applications.md:636
 msgid ""
 "```toml\n"
 "script = \"\"\"\n"
@@ -1714,13 +1771,13 @@ msgid ""
 "```"
 msgstr ""
 
-#: src/porting-applications.md:627
+#: src/porting-applications.md:646
 msgid ""
 "If the project is roughly a simple Cargo project then `cookbook_cargo` is "
 "all that you need."
 msgstr ""
 
-#: src/porting-applications.md:629
+#: src/porting-applications.md:648
 msgid ""
 "```toml\n"
 "script = \"\"\"\n"
@@ -1730,52 +1787,52 @@ msgid ""
 "```"
 msgstr ""
 
-#: src/porting-applications.md:637
+#: src/porting-applications.md:656
 msgid "Analyze the source code of a Rust application"
 msgstr ""
 
-#: src/porting-applications.md:639
+#: src/porting-applications.md:658
 msgid ""
 "Rust applications and libraries use the `Cargo.toml` configuration file to "
 "configure the build system and source code."
 msgstr ""
 
-#: src/porting-applications.md:641
+#: src/porting-applications.md:660
 msgid ""
 "While packaging Rust applications you need to know where the main executable "
 "is located in the Cargo project, to do this you need to verify the `Cargo."
 "toml` files of the project."
 msgstr ""
 
-#: src/porting-applications.md:643
+#: src/porting-applications.md:662
 msgid ""
 "A Rust application can have one or more Cargo packages to build, read the "
 "common assumptions below:"
 msgstr ""
 
-#: src/porting-applications.md:645
+#: src/porting-applications.md:664
 msgid ""
 "Most Rust applications with a `src` folder use one Cargo package, thus you "
 "can use the `cargo` template."
 msgstr ""
 
-#: src/porting-applications.md:646
+#: src/porting-applications.md:665
 msgid ""
 "Most Rust applications with multiple Cargo packages name the main package "
 "with the name of the application."
 msgstr ""
 
-#: src/porting-applications.md:648
+#: src/porting-applications.md:667
 msgid "Beyond these common source code organization, there are special cases."
 msgstr ""
 
-#: src/porting-applications.md:650
+#: src/porting-applications.md:669
 msgid ""
 "In some Rust applications the `Cargo.toml` file contains one of these data "
 "types:"
 msgstr ""
 
-#: src/porting-applications.md:652
+#: src/porting-applications.md:671
 msgid ""
 "```toml\n"
 "[[bin]]\n"
@@ -1785,39 +1842,39 @@ msgid ""
 "```"
 msgstr ""
 
-#: src/porting-applications.md:659
+#: src/porting-applications.md:678
 msgid ""
 "The `[[bin]]` is what you need, the application executable is built by this "
 "Cargo package."
 msgstr ""
 
-#: src/porting-applications.md:661
+#: src/porting-applications.md:680
 msgid ""
 "But some applications don't have the `[[bin]]` and `[[lib]]` data types, for "
 "these cases you need to see the source code files, in most cases at the "
 "`src` folder."
 msgstr ""
 
-#: src/porting-applications.md:663
+#: src/porting-applications.md:682
 msgid "The file named `main.rs` contains the application executable code."
 msgstr ""
 
-#: src/porting-applications.md:664
+#: src/porting-applications.md:683
 msgid "The file named `lib.rs` contains the library object code (ignore it)."
 msgstr ""
 
-#: src/porting-applications.md:666
+#: src/porting-applications.md:685
 msgid ""
 "(Some Rust applications use packages instead of example files for examples, "
 "to discover that see if the \"examples\" folder has `.rs` files (examples "
 "files) or folders with `Cargo.toml` files inside (packages) )"
 msgstr ""
 
-#: src/porting-applications.md:668
+#: src/porting-applications.md:687
 msgid "Cargo packages command example"
 msgstr ""
 
-#: src/porting-applications.md:670
+#: src/porting-applications.md:689
 msgid ""
 "This command is used for Rust applications that use package folders inside "
 "the repository for compilation, you need to use the name on the `name` field "
@@ -1825,13 +1882,13 @@ msgid ""
 "folder (generally using the same name of the application)."
 msgstr ""
 
-#: src/porting-applications.md:672
+#: src/porting-applications.md:691
 msgid ""
 "(This will fix the \"found virtual manifest instead of package manifest\" "
 "error)"
 msgstr ""
 
-#: src/porting-applications.md:674
+#: src/porting-applications.md:693
 msgid ""
 "```toml\n"
 "script = \"\"\"\n"
@@ -1841,23 +1898,23 @@ msgid ""
 "```"
 msgstr ""
 
-#: src/porting-applications.md:681
+#: src/porting-applications.md:700
 msgid ""
 "(You can use `cookbook_cargo_packages application1 application2` if it's "
 "more than one package)"
 msgstr ""
 
-#: src/porting-applications.md:683
+#: src/porting-applications.md:702
 msgid "Cargo package with flags"
 msgstr ""
 
-#: src/porting-applications.md:685
+#: src/porting-applications.md:704
 msgid ""
 "If you need a script for a package with flags (customization), you can use "
 "this script:"
 msgstr ""
 
-#: src/porting-applications.md:687
+#: src/porting-applications.md:706
 msgid ""
 "```toml\n"
 "script = \"\"\"\n"
@@ -1876,27 +1933,27 @@ msgid ""
 "```"
 msgstr ""
 
-#: src/porting-applications.md:703
+#: src/porting-applications.md:722
 msgid ""
 "The `package-name` after `package=` is where you will insert the Cargo "
 "package name of your application."
 msgstr ""
 
-#: src/porting-applications.md:704
+#: src/porting-applications.md:723
 msgid "The `--add-your-flag-here` will be replaced by the application flag."
 msgstr ""
 
-#: src/porting-applications.md:706
+#: src/porting-applications.md:725
 msgid "Cargo bins script example"
 msgstr ""
 
-#: src/porting-applications.md:708
+#: src/porting-applications.md:727
 msgid ""
 "Some Rust applications use bins instead of packages to build, to build them "
 "you can use this script:"
 msgstr ""
 
-#: src/porting-applications.md:710
+#: src/porting-applications.md:729
 msgid ""
 "```toml\n"
 "script = \"\"\"\n"
@@ -1915,27 +1972,27 @@ msgid ""
 "```"
 msgstr ""
 
-#: src/porting-applications.md:726
+#: src/porting-applications.md:745
 msgid ""
 "The `bin-name` after `binary=` is where you will insert the Cargo package "
 "name of your application."
 msgstr ""
 
-#: src/porting-applications.md:727
+#: src/porting-applications.md:746
 msgid "The `--add-your-flag-here` will be replaced by the application flags."
 msgstr ""
 
-#: src/porting-applications.md:729
+#: src/porting-applications.md:748
 msgid "Cargo flags command example"
 msgstr ""
 
-#: src/porting-applications.md:731
+#: src/porting-applications.md:750
 msgid ""
 "Some Rust applications have flags for customization, you can find them below "
 "the `[features]` section in the `Cargo.toml` file."
 msgstr ""
 
-#: src/porting-applications.md:733
+#: src/porting-applications.md:752
 msgid ""
 "```toml\n"
 "script = \"\"\"\n"
@@ -1945,11 +2002,11 @@ msgid ""
 "```"
 msgstr ""
 
-#: src/porting-applications.md:740
+#: src/porting-applications.md:759
 msgid "Disable the default Cargo flags"
 msgstr ""
 
-#: src/porting-applications.md:742
+#: src/porting-applications.md:761
 msgid ""
 "It's common that some flag of the application doesn't work on Redox, if you "
 "don't want to spend much time testing flags that work and don't work, you "
@@ -1957,7 +2014,7 @@ msgid ""
 "application works with this script:"
 msgstr ""
 
-#: src/porting-applications.md:744
+#: src/porting-applications.md:763
 msgid ""
 "```toml\n"
 "script = \"\"\"\n"
@@ -1967,15 +2024,15 @@ msgid ""
 "```"
 msgstr ""
 
-#: src/porting-applications.md:751
+#: src/porting-applications.md:770
 msgid "Enable all Cargo flags"
 msgstr ""
 
-#: src/porting-applications.md:753
+#: src/porting-applications.md:772
 msgid "If you want to enable all flags of the application, use:"
 msgstr ""
 
-#: src/porting-applications.md:755
+#: src/porting-applications.md:774
 msgid ""
 "```toml\n"
 "script = \"\"\"\n"
@@ -1985,15 +2042,15 @@ msgid ""
 "```"
 msgstr ""
 
-#: src/porting-applications.md:762
+#: src/porting-applications.md:781
 msgid "Cargo profiles command example"
 msgstr ""
 
-#: src/porting-applications.md:764
+#: src/porting-applications.md:783
 msgid "This script is used for Rust applications using Cargo profiles."
 msgstr ""
 
-#: src/porting-applications.md:766
+#: src/porting-applications.md:785
 msgid ""
 "```toml\n"
 "script = \"\"\"\n"
@@ -2003,15 +2060,15 @@ msgid ""
 "```"
 msgstr ""
 
-#: src/porting-applications.md:773
+#: src/porting-applications.md:792
 msgid "Cargo examples command example"
 msgstr ""
 
-#: src/porting-applications.md:775
+#: src/porting-applications.md:794
 msgid "This script is used for examples on Rust applications."
 msgstr ""
 
-#: src/porting-applications.md:777
+#: src/porting-applications.md:796
 msgid ""
 "```toml\n"
 "script = \"\"\"\n"
@@ -2021,21 +2078,21 @@ msgid ""
 "```"
 msgstr ""
 
-#: src/porting-applications.md:784
+#: src/porting-applications.md:803
 msgid ""
 "(You can use `cookbook_cargo_examples example1 example2` if it's more than "
 "one example)"
 msgstr ""
 
-#: src/porting-applications.md:786
+#: src/porting-applications.md:805
 msgid "Cargo examples with flags"
 msgstr ""
 
-#: src/porting-applications.md:788
+#: src/porting-applications.md:807
 msgid "This script is used for Cargo examples with flags."
 msgstr ""
 
-#: src/porting-applications.md:790
+#: src/porting-applications.md:809
 msgid ""
 "```toml\n"
 "script = \"\"\"\n"
@@ -2058,17 +2115,17 @@ msgid ""
 "```"
 msgstr ""
 
-#: src/porting-applications.md:809
+#: src/porting-applications.md:828
 msgid ""
 "(Replace the `example1` item and others with the example names, if the "
 "application has only one example you can remove the `example2` item)"
 msgstr ""
 
-#: src/porting-applications.md:811
+#: src/porting-applications.md:830
 msgid "Rename binaries"
 msgstr ""
 
-#: src/porting-applications.md:813
+#: src/porting-applications.md:832
 msgid ""
 "Some applications or examples use generic names for their executable files "
 "which could cause conflicts in the package installation process, to avoid "
@@ -2076,49 +2133,49 @@ msgid ""
 "commands:"
 msgstr ""
 
-#: src/porting-applications.md:816
+#: src/porting-applications.md:835
 msgid ""
 "\"${COOKBOOK_STAGE}/usr/bin/binary-name\" \"${COOKBOOK_STAGE}/usr/bin/new-"
 "binary-name\""
 msgstr ""
 
-#: src/porting-applications.md:819
+#: src/porting-applications.md:838
 msgid "Duplicated names"
 msgstr ""
 
-#: src/porting-applications.md:821
+#: src/porting-applications.md:840
 msgid ""
 "Some recipes for Rust applications can duplicate the application name in the "
 "executable (`name_name`), you can also use the command above to fix these "
 "cases."
 msgstr ""
 
-#: src/porting-applications.md:823
+#: src/porting-applications.md:842
 msgid "Change the active source code folder"
 msgstr ""
 
-#: src/porting-applications.md:825
+#: src/porting-applications.md:844
 msgid ""
 "Sometimes a application don't store the source code on the root of the Git "
 "repository, but in a subfolder."
 msgstr ""
 
-#: src/porting-applications.md:827
+#: src/porting-applications.md:846
 msgid ""
 "For these cases you need to change the directory of the `${COOKBOOK_SOURCE}` "
 "environment variable in the beginning of the `build.script` data type, to do "
 "this add the following command on your recipe script:"
 msgstr ""
 
-#: src/porting-applications.md:830
+#: src/porting-applications.md:849
 msgid "\"${COOKBOOK_SOURCE}/subfolder-name\""
 msgstr ""
 
-#: src/porting-applications.md:833
+#: src/porting-applications.md:852
 msgid "An example for a Rust application:"
 msgstr ""
 
-#: src/porting-applications.md:835
+#: src/porting-applications.md:854
 msgid ""
 "```toml\n"
 "script = \"\"\"\n"
@@ -2129,17 +2186,17 @@ msgid ""
 "```"
 msgstr ""
 
-#: src/porting-applications.md:843
+#: src/porting-applications.md:862
 msgid "Configuration Files"
 msgstr ""
 
-#: src/porting-applications.md:845
+#: src/porting-applications.md:864
 msgid ""
 "Some applications require to setup configuration files from the source code "
 "or tarball, to set them up use the following script example:"
 msgstr ""
 
-#: src/porting-applications.md:847
+#: src/porting-applications.md:866
 msgid ""
 "```toml\n"
 "[build]\n"
@@ -2156,37 +2213,37 @@ msgid ""
 "```"
 msgstr ""
 
-#: src/porting-applications.md:858
+#: src/porting-applications.md:877
 msgid "Modify the script above to your needs."
 msgstr ""
 
-#: src/porting-applications.md:860
+#: src/porting-applications.md:879
 msgid "Script-based applications"
 msgstr ""
 
-#: src/porting-applications.md:862
+#: src/porting-applications.md:881
 msgid "Read the following scripts to package interpreted applications."
 msgstr ""
 
-#: src/porting-applications.md:864
+#: src/porting-applications.md:883
 msgid "Adapted scripts"
 msgstr ""
 
-#: src/porting-applications.md:866
+#: src/porting-applications.md:885
 msgid ""
 "This script is for scripts adapted to be packaged, they contain shebangs and "
 "renamed the file to remove the script extension."
 msgstr ""
 
-#: src/porting-applications.md:868 src/porting-applications.md:900
+#: src/porting-applications.md:887 src/porting-applications.md:919
 msgid "(Some applications and libraries need more configuration to work)"
 msgstr ""
 
-#: src/porting-applications.md:870
+#: src/porting-applications.md:889
 msgid "One script"
 msgstr ""
 
-#: src/porting-applications.md:872
+#: src/porting-applications.md:891
 msgid ""
 "```toml\n"
 "script = \"\"\"\n"
@@ -2198,23 +2255,23 @@ msgid ""
 "```"
 msgstr ""
 
-#: src/porting-applications.md:880
+#: src/porting-applications.md:899
 msgid ""
 "This script will move the script from the `source` folder to the `stage` "
 "folder and mark it as executable to be packaged."
 msgstr ""
 
-#: src/porting-applications.md:882
+#: src/porting-applications.md:901
 msgid ""
 "(Probably you need to mark it as executable, we don't know if all scripts "
 "carry executable permission)"
 msgstr ""
 
-#: src/porting-applications.md:884 src/porting-applications.md:916
+#: src/porting-applications.md:903 src/porting-applications.md:935
 msgid "Multiple scripts"
 msgstr ""
 
-#: src/porting-applications.md:886
+#: src/porting-applications.md:905
 msgid ""
 "```toml\n"
 "script = \"\"\"\n"
@@ -2225,28 +2282,28 @@ msgid ""
 "```"
 msgstr ""
 
-#: src/porting-applications.md:894
+#: src/porting-applications.md:913
 msgid ""
 "This script will move the scripts from the `source` folder to the `stage` "
 "folder and mark them as executable to be packaged."
 msgstr ""
 
-#: src/porting-applications.md:896
+#: src/porting-applications.md:915
 msgid "Non-adapted scripts"
 msgstr ""
 
-#: src/porting-applications.md:898
+#: src/porting-applications.md:917
 msgid ""
 "You need to use the following script examples for scripts not adapted for "
 "packaging, you need to add shebangs, rename the file to remove the script "
 "extension (`.py`) and mark as executable (`chmod a+x`)."
 msgstr ""
 
-#: src/porting-applications.md:902
+#: src/porting-applications.md:921
 msgid "Python script example"
 msgstr ""
 
-#: src/porting-applications.md:904
+#: src/porting-applications.md:923
 msgid ""
 "```toml\n"
 "script = \"\"\"\n"
@@ -2258,18 +2315,18 @@ msgid ""
 "```"
 msgstr ""
 
-#: src/porting-applications.md:912
+#: src/porting-applications.md:931
 msgid ""
 "(Rename the \"script-name\" parts with your script name and the `.py` "
 "extension for your script programming language extension if needed)"
 msgstr ""
 
-#: src/porting-applications.md:914
+#: src/porting-applications.md:933
 msgid ""
 "This script will rename your script name, make it executable and package."
 msgstr ""
 
-#: src/porting-applications.md:918
+#: src/porting-applications.md:937
 msgid ""
 "```toml\n"
 "script = \"\"\"\n"
@@ -2284,17 +2341,17 @@ msgid ""
 "```"
 msgstr ""
 
-#: src/porting-applications.md:930
+#: src/porting-applications.md:949
 msgid ""
 "This script will rename all scripts to remove the `.py` extension, mark all "
 "scripts as executable and package."
 msgstr ""
 
-#: src/porting-applications.md:932
+#: src/porting-applications.md:951
 msgid "Shebang"
 msgstr ""
 
-#: src/porting-applications.md:934
+#: src/porting-applications.md:953
 msgid ""
 "It's the magic behind executable scripts as it make the system interpret the "
 "script as a common executable, if your script doesn't have a shebang on the "
@@ -2302,11 +2359,11 @@ msgid ""
 "executable."
 msgstr ""
 
-#: src/porting-applications.md:936
+#: src/porting-applications.md:955
 msgid "To allow this use the following script:"
 msgstr ""
 
-#: src/porting-applications.md:938
+#: src/porting-applications.md:957
 msgid ""
 "```toml\n"
 "script = \"\"\"\n"
@@ -2320,53 +2377,53 @@ msgid ""
 "```"
 msgstr ""
 
-#: src/porting-applications.md:947
+#: src/porting-applications.md:966
 msgid ""
 "The `sed -i '1 i\\#!/usr/bin/env python3' \"${COOKBOOK_STAGE}\"/usr/bin/"
 "script-name` command will add the shebang on the beginning of your script."
 msgstr ""
 
-#: src/porting-applications.md:949
+#: src/porting-applications.md:968
 msgid ""
 "`python3` is the script interpreter in this case, use `bash` or `lua` or "
 "whatever interpreter is appropriate for your case."
 msgstr ""
 
-#: src/porting-applications.md:951
+#: src/porting-applications.md:970
 msgid ""
 "There are many combinations for these script examples: you can download "
 "scripts without the `[source]` section, make customized installations, etc."
 msgstr ""
 
-#: src/porting-applications.md:953
+#: src/porting-applications.md:972
 msgid "Dynamically Linked Applications"
 msgstr ""
 
-#: src/porting-applications.md:955
+#: src/porting-applications.md:974
 msgid ""
 "The `DYNAMIC_INIT` acts as a marker that indicates the recipe can be "
 "dynamically linked, it does the following things:"
 msgstr ""
 
-#: src/porting-applications.md:958
+#: src/porting-applications.md:977
 msgid ""
 "Automatically sets `LDFLAGS` and `RUSTFLAGS` based on the preferred linkage"
 msgstr ""
 
-#: src/porting-applications.md:959
+#: src/porting-applications.md:978
 msgid ""
 "Change GNU Autotools defaults to emit `*.so` files and do not create `*.a` "
 "files. For executables it setup the appropriate `rpath` link so `*.so` files "
 "can be discovered and linked."
 msgstr ""
 
-#: src/porting-applications.md:961
+#: src/porting-applications.md:980
 msgid ""
 "See the environment variables section under configuration settings for more "
 "information."
 msgstr ""
 
-#: src/porting-applications.md:963
+#: src/porting-applications.md:982
 msgid ""
 "In most cases if you want to use dynamic linking for a recipe just prepend "
 "`DYNAMIC_INIT` in the recipe script. Depending on the recipe, this _should_ "
@@ -2377,18 +2434,18 @@ msgid ""
 "cases, more recipe-specific modification may be required."
 msgstr ""
 
-#: src/porting-applications.md:970 src/porting-applications.md:1001
+#: src/porting-applications.md:989 src/porting-applications.md:1020
 msgid "Example"
 msgstr ""
 
-#: src/porting-applications.md:998
+#: src/porting-applications.md:1017
 msgid ""
 "Dynamically linked applications depend on shared libraries at runtime. To "
 "include these libraries, you must add them in the `build.dependencies` data "
 "type."
 msgstr ""
 
-#: src/porting-applications.md:1003
+#: src/porting-applications.md:1022
 msgid ""
 "```toml\n"
 "# <...snip...>\n"
@@ -2401,15 +2458,15 @@ msgid ""
 "```"
 msgstr ""
 
-#: src/porting-applications.md:1013
+#: src/porting-applications.md:1032
 msgid "Troubleshooting"
 msgstr ""
 
-#: src/porting-applications.md:1015
+#: src/porting-applications.md:1034
 msgid "Why is the dynamic linker (`ld.so`) not finding my library?"
 msgstr ""
 
-#: src/porting-applications.md:1017
+#: src/porting-applications.md:1036
 msgid ""
 "Set `LD_DEBUG=all` and re-run the application. It will show you where "
 "library objects are being found and loaded, as well as the library search "
@@ -2419,11 +2476,11 @@ msgid ""
 "available by default in the `desktop` variant."
 msgstr ""
 
-#: src/porting-applications.md:1024
+#: src/porting-applications.md:1043
 msgid "Sources"
 msgstr ""
 
-#: src/porting-applications.md:1028
+#: src/porting-applications.md:1047
 msgid ""
 "Tarballs are the most easy way to build a C/C++ application or library "
 "because the build system is already configured (GNU Autotools is the most "
@@ -2432,11 +2489,11 @@ msgid ""
 "process many Git deltas)."
 msgstr ""
 
-#: src/porting-applications.md:1030 src/porting-applications.md:1074
+#: src/porting-applications.md:1049 src/porting-applications.md:1093
 msgid "Your `recipe.toml` will have the following content:"
 msgstr ""
 
-#: src/porting-applications.md:1032
+#: src/porting-applications.md:1051
 msgid ""
 "```toml\n"
 "[source]\n"
@@ -2444,11 +2501,11 @@ msgid ""
 "```"
 msgstr ""
 
-#: src/porting-applications.md:1037
+#: src/porting-applications.md:1056
 msgid "Copy the tarball link and paste in the `tarball-link` field."
 msgstr ""
 
-#: src/porting-applications.md:1039
+#: src/porting-applications.md:1058
 msgid ""
 "**Only use official tarballs**, GitHub auto-generates tarballs for each new "
 "release or tag of the application, but they [aren't static](https://github."
@@ -2458,7 +2515,7 @@ msgid ""
 "hashes/)."
 msgstr ""
 
-#: src/porting-applications.md:1041
+#: src/porting-applications.md:1060
 msgid ""
 "You can find the official tarballs in the release announcement assets with "
 "the application name and ending with `tar.gz` or `tar.xz` (their URLs "
@@ -2466,53 +2523,53 @@ msgid ""
 "found on the \"Source code\" buttons (their URLs contain \"archive\")."
 msgstr ""
 
-#: src/porting-applications.md:1043
+#: src/porting-applications.md:1062
 msgid ""
 "In most cases they are created using the [GNU Tar](https://www.gnu.org/"
 "software/tar/) tool."
 msgstr ""
 
-#: src/porting-applications.md:1044
+#: src/porting-applications.md:1063
 msgid ""
 "Avoid files containing the names \"linux\" and \"x86_64\" on GitHub, they "
 "are pre-built binaries for some operating system and CPU architecture, not "
 "source code."
 msgstr ""
 
-#: src/porting-applications.md:1045
+#: src/porting-applications.md:1064
 msgid ""
 "Some applications require Git submodules to work, you can't use tarballs if "
 "the official tarball doesn't bundle the submodules."
 msgstr ""
 
-#: src/porting-applications.md:1046
+#: src/porting-applications.md:1065
 msgid ""
 "Archives with `tar.xz` and `tar.bz2` are preferred as they tend to have a "
 "higher compression level, thus smaller file size."
 msgstr ""
 
-#: src/porting-applications.md:1048
+#: src/porting-applications.md:1067
 msgid "Build System"
 msgstr ""
 
-#: src/porting-applications.md:1050
+#: src/porting-applications.md:1069
 msgid ""
 "In most cases the tarballs use GNU Autotools to build, it's common that the "
 "tarball method of compilation is not well documented, causing confusion for "
 "new packagers."
 msgstr ""
 
-#: src/porting-applications.md:1052
+#: src/porting-applications.md:1071
 msgid "To investigate, you can do the following things:"
 msgstr ""
 
-#: src/porting-applications.md:1054
+#: src/porting-applications.md:1073
 msgid ""
 "Build with the `configure` template and see if it works (sometimes you need "
 "to use some flags or customize)"
 msgstr ""
 
-#: src/porting-applications.md:1055
+#: src/porting-applications.md:1074
 msgid ""
 "Search the Git repository of the application or library for `autogen.sh` and "
 "`configure.ac` files, it means that support for GNU Autotools is available, "
@@ -2521,31 +2578,31 @@ msgid ""
 "running the `autogen.sh` script."
 msgstr ""
 
-#: src/porting-applications.md:1056
+#: src/porting-applications.md:1075
 msgid ""
 "Sometimes these files are available but GNU Autotools is deprecated (because "
 "it's old), we recommend that you use the supported build system (CMake or "
 "Meson in most cases)."
 msgstr ""
 
-#: src/porting-applications.md:1058
+#: src/porting-applications.md:1077
 msgid "Links"
 msgstr ""
 
-#: src/porting-applications.md:1060
+#: src/porting-applications.md:1079
 msgid ""
 "Sometimes it's hard to find the official tarball of some software, as each "
 "project website's organization is different."
 msgstr ""
 
-#: src/porting-applications.md:1062
+#: src/porting-applications.md:1081
 msgid ""
 "To help on this process, the [Arch Linux packages](https://archlinux.org/"
 "packages/) and [AUR](https://aur.archlinux.org/) are the most easy "
 "repositories to find tarball links in the configuration of packages."
 msgstr ""
 
-#: src/porting-applications.md:1064
+#: src/porting-applications.md:1083
 msgid ""
 "Arch Linux packages: Search for your application, open the application page, "
 "see the \"Package Actions\" category on the top right position and click on "
@@ -2553,23 +2610,23 @@ msgid ""
 "and search for the tarball link on the \"source\" fields of the file."
 msgstr ""
 
-#: src/porting-applications.md:1066
+#: src/porting-applications.md:1085
 msgid ""
 "See the [nano package](https://gitlab.archlinux.org/archlinux/packaging/"
 "packages/nano/-/blob/main/.SRCINFO?ref_type=heads#L12) example."
 msgstr ""
 
-#: src/porting-applications.md:1068
+#: src/porting-applications.md:1087
 msgid ""
 "AUR: Search for your application, open the application page, go to the "
 "\"Sources\" section on the end of the package details."
 msgstr ""
 
-#: src/porting-applications.md:1070
+#: src/porting-applications.md:1089
 msgid "Git Repositories"
 msgstr ""
 
-#: src/porting-applications.md:1072
+#: src/porting-applications.md:1091
 msgid ""
 "Some applications don't offer official tarballs for releases, thus you need "
 "to use their Git repository and the branch of the latest stable version (if "
@@ -2577,7 +2634,7 @@ msgid ""
 "last working commit."
 msgstr ""
 
-#: src/porting-applications.md:1076
+#: src/porting-applications.md:1095
 msgid ""
 "```toml\n"
 "[source]\n"
@@ -2588,7 +2645,7 @@ msgid ""
 "```"
 msgstr ""
 
-#: src/porting-applications.md:1084
+#: src/porting-applications.md:1103
 msgid ""
 "Shallow clone is not recommended if you forked the repository and is doing "
 "heavy development to port, if you don't want to change the recipe "
@@ -2596,55 +2653,55 @@ msgid ""
 "shallow clone temporarily:"
 msgstr ""
 
-#: src/porting-applications.md:1090
+#: src/porting-applications.md:1109
 msgid "GitHub release"
 msgstr ""
 
-#: src/porting-applications.md:1092
+#: src/porting-applications.md:1111
 msgid ""
 "Each GitHub release has a tag or commit hash, you will use it to pin the "
 "lastest stable version of the application to keep code stability."
 msgstr ""
 
-#: src/porting-applications.md:1096
+#: src/porting-applications.md:1115
 msgid ""
 "Open the [Rust 1.74 release announcement](https://github.com/rust-lang/rust/"
 "releases/tag/1.74.0)"
 msgstr ""
 
-#: src/porting-applications.md:1097
+#: src/porting-applications.md:1116
 msgid ""
 "The tag is `1.74.0` and the commit hash is "
 "`79e9716c980570bfd1f666e3b16ac583f0168962` and is shortened as `79e9716`"
 msgstr ""
 
-#: src/porting-applications.md:1099
+#: src/porting-applications.md:1118
 msgid "GitLab release commit hash"
 msgstr ""
 
-#: src/porting-applications.md:1101
+#: src/porting-applications.md:1120
 msgid ""
 "Each GitLab release has a tag or commit hash, you will use it to pin the "
 "lastest stable version of the application to keep code stability."
 msgstr ""
 
-#: src/porting-applications.md:1105
+#: src/porting-applications.md:1124
 msgid ""
 "Open the [Redox 0.8.0 release announcement](https://gitlab.redox-os.org/"
 "redox-os/redox/-/releases/0.8.0)"
 msgstr ""
 
-#: src/porting-applications.md:1106
+#: src/porting-applications.md:1125
 msgid ""
 "The tag is `0.8.0` and the commit hash is "
 "`c8634bd9890afdac4438d1ff99631d600d469264` and is shortened as `c8634bd9`"
 msgstr ""
 
-#: src/porting-applications.md:1108
+#: src/porting-applications.md:1127
 msgid "Dependencies"
 msgstr ""
 
-#: src/porting-applications.md:1110
+#: src/porting-applications.md:1129
 msgid ""
 "A application dependency can be a library (a application that offer "
 "functions to some application), a runtime (a application that satisfy some "
@@ -2652,14 +2709,14 @@ msgid ""
 "configure/build some application)."
 msgstr ""
 
-#: src/porting-applications.md:1112
+#: src/porting-applications.md:1131
 msgid ""
 "Most C, C++ and Rust applications place build tools/runtime together with "
 "development libraries (packages with `-dev` suffix) in their build "
 "instructions documentation."
 msgstr ""
 
-#: src/porting-applications.md:1120
+#: src/porting-applications.md:1139
 msgid ""
 "The `cmake` package is the build system (build tool) while the `libssl-dev` "
 "package is the library (OpenSSL) linker objects (`.a` and `.so` files), the "
@@ -2667,14 +2724,14 @@ msgid ""
 "(other Linux distributions just bundle shared objects)."
 msgstr ""
 
-#: src/porting-applications.md:1122
+#: src/porting-applications.md:1141
 msgid ""
 "You would need to create a recipe of the `libssl-dev` package and add in the "
 "`build.dependencies` data type of your `recipe.toml` file, while the `cmake` "
 "package would need the `cmake` Cookbook template."
 msgstr ""
 
-#: src/porting-applications.md:1124
+#: src/porting-applications.md:1143
 msgid ""
 "Dependencies added in the `build.dependencies` data type can be dynamically "
 "linked (if the `DYNAMIC_INIT` function is used) or statically linked (if the "
@@ -2683,66 +2740,66 @@ msgid ""
 "installer or package manager."
 msgstr ""
 
-#: src/porting-applications.md:1126
+#: src/porting-applications.md:1145
 msgid ""
 "Mixed Rust applications have crates ending with `-sys` to use bundled or "
 "system C/C++ libraries."
 msgstr ""
 
-#: src/porting-applications.md:1128
+#: src/porting-applications.md:1147
 msgid ""
 "If you want an easy way to find dependencies, see the Debian stable "
 "[packages list](https://packages.debian.org/stable/allpackages)."
 msgstr ""
 
-#: src/porting-applications.md:1130
+#: src/porting-applications.md:1149
 msgid ""
 "You can search them with Ctrl+F, all package names are clickable and their "
 "websites is available on the right-side of the package description/details."
 msgstr ""
 
-#: src/porting-applications.md:1132
+#: src/porting-applications.md:1151
 msgid ""
 "If you have questions about application dependencies, feel free to ask us on "
 "the [Chat](./chat.md)."
 msgstr ""
 
-#: src/porting-applications.md:1134
+#: src/porting-applications.md:1153
 msgid "Bundled Libraries"
 msgstr ""
 
-#: src/porting-applications.md:1136
+#: src/porting-applications.md:1155
 msgid ""
 "Some applications have bundled libraries, using CMake or a Python script, "
 "the most common case is using CMake (emulators do this in most cases)."
 msgstr ""
 
-#: src/porting-applications.md:1138
+#: src/porting-applications.md:1157
 msgid ""
 "The reason for this can be control over library versions to avoid "
 "compilation/runtime errors or a patched library with optimizations for "
 "specific tasks of the application."
 msgstr ""
 
-#: src/porting-applications.md:1140
+#: src/porting-applications.md:1159
 msgid ""
 "In some cases some bundled library needs a Redox patch, if not it will give "
 "a compilation or runtime error."
 msgstr ""
 
-#: src/porting-applications.md:1142
+#: src/porting-applications.md:1161
 msgid ""
 "Most applications using CMake will try to detect the system libraries on the "
 "build environment, if not they will use the bundled libraries."
 msgstr ""
 
-#: src/porting-applications.md:1144
+#: src/porting-applications.md:1163
 msgid ""
 "The \"system libraries\" on this case is the recipes specified on the `build."
 "dependencies = []` section of your `recipe.toml`."
 msgstr ""
 
-#: src/porting-applications.md:1146
+#: src/porting-applications.md:1165
 msgid ""
 "To determine if you need to use a Redox recipe as dependency check if you "
 "find a `.patch` file on the recipe folder or if the `recipe.toml` has a `git "
@@ -2750,20 +2807,20 @@ msgid ""
 "bundled libraries without problems."
 msgstr ""
 
-#: src/porting-applications.md:1148
+#: src/porting-applications.md:1167
 msgid ""
 "Generally applications with CMake use a `-DUSE_SYSTEM` flag to enable the "
 "\"system libraries\" behavior."
 msgstr ""
 
-#: src/porting-applications.md:1152
+#: src/porting-applications.md:1171
 msgid ""
 "Sometimes specify the library recipe on the `dependencies = []` section is "
 "not enough, some build systems have environment variables to receive a "
 "custom path for external libraries."
 msgstr ""
 
-#: src/porting-applications.md:1154
+#: src/porting-applications.md:1173
 msgid ""
 "When you add a library on your `recipe.toml` the Cookbook will copy the "
 "library source code to the `sysroot` folder at `recipes/your-category/recipe-"
@@ -2771,7 +2828,7 @@ msgid ""
 "used inside the `script =` field on your `recipe.toml`."
 msgstr ""
 
-#: src/porting-applications.md:1158
+#: src/porting-applications.md:1177
 msgid ""
 "```toml\n"
 "script = \"\"\"\n"
@@ -2781,7 +2838,7 @@ msgid ""
 "```"
 msgstr ""
 
-#: src/porting-applications.md:1165
+#: src/porting-applications.md:1184
 msgid ""
 "The `export` will activate the `OPENSSL_DIR` variable in the environment, "
 "this variable is implemented by the application build system. It's a way to "
@@ -2790,19 +2847,19 @@ msgid ""
 "section its sources go to the `sysroot` folder."
 msgstr ""
 
-#: src/porting-applications.md:1167
+#: src/porting-applications.md:1186
 msgid ""
 "Now the application build system is satisfied with the OpenSSL sources, the "
 "`cookbook_cargo` function calls Cargo to build it."
 msgstr ""
 
-#: src/porting-applications.md:1169
+#: src/porting-applications.md:1188
 msgid ""
 "applications using CMake don't use environment variables but an option, see "
 "this example:"
 msgstr ""
 
-#: src/porting-applications.md:1171
+#: src/porting-applications.md:1190
 msgid ""
 "```toml\n"
 "script = \"\"\"\n"
@@ -2814,17 +2871,17 @@ msgid ""
 "```"
 msgstr ""
 
-#: src/porting-applications.md:1180
+#: src/porting-applications.md:1199
 msgid ""
 "On this example the `-DOPENSSL_ROOT_DIR` option will have the custom OpenSSL "
 "path."
 msgstr ""
 
-#: src/porting-applications.md:1182
+#: src/porting-applications.md:1201
 msgid "Submodules"
 msgstr ""
 
-#: src/porting-applications.md:1184
+#: src/porting-applications.md:1203
 msgid ""
 "In some applications or libraries you can't use tarballs because they don't "
 "carry the necessary Git submodules of the application (most common in GitHub "
@@ -2833,42 +2890,42 @@ msgid ""
 "automatically)."
 msgstr ""
 
-#: src/porting-applications.md:1186
+#: src/porting-applications.md:1205
 msgid ""
 "To identify if the application uses Git submodules, check if it has external "
 "folders to other repositories (they appear with a commit hash on the right "
 "side) or the existence of a `.gitmodules` file."
 msgstr ""
 
-#: src/porting-applications.md:1188
+#: src/porting-applications.md:1207
 msgid ""
 "Follow these steps to use the last stable version of the application when "
 "Git submodules are necessary:"
 msgstr ""
 
-#: src/porting-applications.md:1190
+#: src/porting-applications.md:1209
 msgid "Open the application/library Git repository."
 msgstr ""
 
-#: src/porting-applications.md:1191
+#: src/porting-applications.md:1210
 msgid ""
 "Check the \"Releases\" or \"Tags\" buttons, in most cases the application "
 "have a stable release at \"Releases\"."
 msgstr ""
 
-#: src/porting-applications.md:1192
+#: src/porting-applications.md:1211
 msgid ""
 "In both pages the commit hash of the stable release will be the first item "
 "of the announcement below the version number."
 msgstr ""
 
-#: src/porting-applications.md:1193
+#: src/porting-applications.md:1212
 msgid ""
 "Copy the repository link/version branch or tag and paste on your `recipe."
 "toml`, for example:"
 msgstr ""
 
-#: src/porting-applications.md:1195
+#: src/porting-applications.md:1214
 msgid ""
 "```toml\n"
 "git = \"repository-link\"\n"
@@ -2877,7 +2934,7 @@ msgid ""
 "```"
 msgstr ""
 
-#: src/porting-applications.md:1201
+#: src/porting-applications.md:1220
 msgid ""
 "If the last stable release is too old or lacks important fixes due to low "
 "maintenance we recommend that you ignore it and use the Git repository to "
@@ -2886,165 +2943,165 @@ msgid ""
 "of the last successful CI test."
 msgstr ""
 
-#: src/porting-applications.md:1203
+#: src/porting-applications.md:1222
 msgid "Configuration"
 msgstr ""
 
-#: src/porting-applications.md:1205
+#: src/porting-applications.md:1224
 msgid ""
 "The determine the application dependencies you can use Arch Linux and Gentoo "
 "as reference."
 msgstr ""
 
-#: src/porting-applications.md:1207
+#: src/porting-applications.md:1226
 msgid ""
 "The build instructions of C/C++ applications tend to mix necessary and "
 "optional dependencies together."
 msgstr ""
 
-#: src/porting-applications.md:1208
+#: src/porting-applications.md:1227
 msgid ""
 "Most Rust applications have build instructions focused on Linux and force "
 "some dependencies, some crates could not need them to work, so investigate "
 "which crates the application is using."
 msgstr ""
 
-#: src/porting-applications.md:1209
+#: src/porting-applications.md:1228
 msgid ""
 "Some applications and libraries have bad documentation, lack build "
 "instructions or don't explain the dependencies, for these cases you will "
 "need to read third-party sources or examine the build system."
 msgstr ""
 
-#: src/porting-applications.md:1211
+#: src/porting-applications.md:1230
 msgid ""
 "Arch Linux and AUR are the most simple references because they separate the "
 "build tools from runtimes and build dependencies, thus you make fewer "
 "mistakes."
 msgstr ""
 
-#: src/porting-applications.md:1213
+#: src/porting-applications.md:1232
 msgid ""
 "They also have less expanded packages, while on Debian is common to have "
 "highly expanded applications and libraries, sometimes causing confusion."
 msgstr ""
 
-#: src/porting-applications.md:1215
+#: src/porting-applications.md:1234
 msgid ""
 "(An expanded package is when most or all optional dependencies are enabled)"
 msgstr ""
 
-#: src/porting-applications.md:1217
+#: src/porting-applications.md:1236
 msgid ""
 "But Arch Linux is not clear about the optional feature flags and minimum "
 "dependencies to build and execute a application."
 msgstr ""
 
-#: src/porting-applications.md:1219
+#: src/porting-applications.md:1238
 msgid ""
 "Using Gentoo as reference you can learn how to make the most minimum Redox "
 "port and increase your chances to make it work on Redox."
 msgstr ""
 
-#: src/porting-applications.md:1221
+#: src/porting-applications.md:1240
 msgid ""
 "But Gentoo modify the feature flags of their packages to be used by their "
 "package system, thus you should use the FreeBSD Ports."
 msgstr ""
 
-#: src/porting-applications.md:1223
+#: src/porting-applications.md:1242
 msgid "Arch Linux and AUR"
 msgstr ""
 
-#: src/porting-applications.md:1225
+#: src/porting-applications.md:1244
 msgid ""
 "Each package page of some application has a \"Dependencies\" section on the "
 "package details, see the items below:"
 msgstr ""
 
-#: src/porting-applications.md:1227
+#: src/porting-applications.md:1246
 msgid ""
 "`dependency-name` - Build or runtime dependencies, they lack the `()` symbol "
 "(required to make the application build and execute)"
 msgstr ""
 
-#: src/porting-applications.md:1228
+#: src/porting-applications.md:1247
 msgid ""
 "`dependency-name (make)` - Build tools (required to build the application)"
 msgstr ""
 
-#: src/porting-applications.md:1229
+#: src/porting-applications.md:1248
 msgid ""
 "`dependency-name (optional)` - applications or libraries to expand the "
 "application functionality"
 msgstr ""
 
-#: src/porting-applications.md:1231
+#: src/porting-applications.md:1250
 msgid ""
 "See the [firefox package](https://archlinux.org/packages/extra/x86_64/"
 "firefox/), for example."
 msgstr ""
 
-#: src/porting-applications.md:1233
+#: src/porting-applications.md:1252
 msgid "[Arch Linux Packages](https://archlinux.org/packages/)"
 msgstr ""
 
-#: src/porting-applications.md:1234
+#: src/porting-applications.md:1253
 msgid "[AUR](https://aur.archlinux.org/)"
 msgstr ""
 
-#: src/porting-applications.md:1236
+#: src/porting-applications.md:1255
 msgid "Gentoo"
 msgstr ""
 
-#: src/porting-applications.md:1238
+#: src/porting-applications.md:1257
 msgid ""
 "The [Gentoo](https://gentoo.org) distribution does a wonderful job to "
 "document many applications and libraries, like source code location, "
 "dependencies, feature flags, cross-compilation and context."
 msgstr ""
 
-#: src/porting-applications.md:1240
+#: src/porting-applications.md:1259
 msgid ""
 "It's the most complete reference for advanced packaging of applications, you "
 "can search the Gentoo packages on the [Gentoo Packages](https://packages."
 "gentoo.org/) website."
 msgstr ""
 
-#: src/porting-applications.md:1242
+#: src/porting-applications.md:1261
 msgid ""
 "To start you need to read the [Gentoo documentation](https://devmanual."
 "gentoo.org/general-concepts/dependencies/) page to learn advanced packaging "
 "and some problems."
 msgstr ""
 
-#: src/porting-applications.md:1244
+#: src/porting-applications.md:1263
 msgid ""
 "The \"Dependencies\" section of a Gentoo package will show a table with the "
 "following categories:"
 msgstr ""
 
-#: src/porting-applications.md:1246
+#: src/porting-applications.md:1265
 msgid ""
 "`BDEPEND` - Host build tools (don't add them on the `dependencies = []` "
 "section of your `recipe.toml`)"
 msgstr ""
 
-#: src/porting-applications.md:1247
+#: src/porting-applications.md:1266
 msgid "`DEPEND` - These dependencies are necessary to build the application"
 msgstr ""
 
-#: src/porting-applications.md:1248
+#: src/porting-applications.md:1267
 msgid ""
 "`RDEPEND` - These dependencies are necessary to execute the application, can "
 "be mandatory or optional"
 msgstr ""
 
-#: src/porting-applications.md:1249
+#: src/porting-applications.md:1268
 msgid "`PDEPEND` - Optional dependencies (customization)"
 msgstr ""
 
-#: src/porting-applications.md:1251
+#: src/porting-applications.md:1270
 msgid ""
 "The complex classification of Gentoo allow the packager to easily make a "
 "minimum build of a application on Redox, it's important because some "
@@ -3052,17 +3109,17 @@ msgid ""
 "Redox."
 msgstr ""
 
-#: src/porting-applications.md:1253
+#: src/porting-applications.md:1272
 msgid ""
 "Thus the best approach is to know the minimum necessary to make the "
 "application work on Redox and expand from that."
 msgstr ""
 
-#: src/porting-applications.md:1255
+#: src/porting-applications.md:1274
 msgid "Build Tools"
 msgstr ""
 
-#: src/porting-applications.md:1257
+#: src/porting-applications.md:1276
 msgid ""
 "Add missing recipe build tools in the [podman/redox-base-containerfile]"
 "(https://gitlab.redox-os.org/redox-os/redox/-/blob/master/podman/redox-base-"
@@ -3070,7 +3127,7 @@ msgid ""
 "Native builds)."
 msgstr ""
 
-#: src/porting-applications.md:1259
+#: src/porting-applications.md:1278
 msgid ""
 "The `podman/redox-base-containerfile` file and `native_bootstrap.sh` script "
 "covers the build tools required by recipes on the [demo.toml](https://gitlab."
@@ -3078,64 +3135,64 @@ msgid ""
 "filesystem configuration."
 msgstr ""
 
-#: src/porting-applications.md:1261
+#: src/porting-applications.md:1280
 msgid "Feature Flags"
 msgstr ""
 
-#: src/porting-applications.md:1263
+#: src/porting-applications.md:1282
 msgid ""
 "The application/library build systems offer flags to enable/disable "
 "features, it will increase the chance to make them work on Redox by "
 "disabling Linux-specific or unsupported features/libraries."
 msgstr ""
 
-#: src/porting-applications.md:1265
+#: src/porting-applications.md:1284
 msgid ""
 "Sometimes you need to read the build system configuration to find important "
 "or all flags that weren't documented by the application."
 msgstr ""
 
-#: src/porting-applications.md:1267
+#: src/porting-applications.md:1286
 msgid "Cargo"
 msgstr ""
 
-#: src/porting-applications.md:1269
+#: src/porting-applications.md:1288
 msgid ""
 "You can find the feature flags below the `[features]` section in the `Cargo."
 "toml` file."
 msgstr ""
 
-#: src/porting-applications.md:1271
+#: src/porting-applications.md:1290
 msgid "GNU Autotools"
 msgstr ""
 
-#: src/porting-applications.md:1273
+#: src/porting-applications.md:1292
 msgid ""
 "You can find the feature flags in the `INSTALL`, `README` or `configure` "
 "files."
 msgstr ""
 
-#: src/porting-applications.md:1275
+#: src/porting-applications.md:1294
 msgid "CMake"
 msgstr ""
 
-#: src/porting-applications.md:1277
+#: src/porting-applications.md:1296
 msgid "You can find the feature flags in the `CMakeLists.txt` file."
 msgstr ""
 
-#: src/porting-applications.md:1279
+#: src/porting-applications.md:1298
 msgid "Meson"
 msgstr ""
 
-#: src/porting-applications.md:1281
+#: src/porting-applications.md:1300
 msgid "You can find the feature flags in the `meson_options` file."
 msgstr ""
 
-#: src/porting-applications.md:1283
+#: src/porting-applications.md:1302
 msgid "FreeBSD Reference"
 msgstr ""
 
-#: src/porting-applications.md:1285
+#: src/porting-applications.md:1304
 msgid ""
 "If you can't find the application build system flags the FreeBSD port "
 "Makefiles are the best reference for feature flags to Redox as they tend to "
@@ -3143,25 +3200,25 @@ msgid ""
 "increasing the application/library compatiblity with non-Linux systems."
 msgstr ""
 
-#: src/porting-applications.md:1287
+#: src/porting-applications.md:1306
 msgid ""
 "(You need to disable the application/library's build system tests to make "
 "cross-compilation work)"
 msgstr ""
 
-#: src/porting-applications.md:1289
+#: src/porting-applications.md:1308
 msgid "[FreeBSD Ports GitHub Mirror](https://github.com/freebsd/freebsd-ports)"
 msgstr ""
 
-#: src/porting-applications.md:1291
+#: src/porting-applications.md:1310
 msgid "(Use the \"Go to file\" button to search for the software name)"
 msgstr ""
 
-#: src/porting-applications.md:1293
+#: src/porting-applications.md:1312
 msgid "Building/Testing The application"
 msgstr ""
 
-#: src/porting-applications.md:1295
+#: src/porting-applications.md:1314
 msgid ""
 "Tip: If you want to avoid problems not related to Redox install the "
 "application dependencies and build to your system first (if packages for "
@@ -3169,67 +3226,67 @@ msgid ""
 "equivalents)."
 msgstr ""
 
-#: src/porting-applications.md:1297
+#: src/porting-applications.md:1316
 msgid "To build your recipe, run:"
 msgstr ""
 
-#: src/porting-applications.md:1303
+#: src/porting-applications.md:1322
 msgid ""
 "If you get an error read the log and determine if it is one of the following "
 "problems:"
 msgstr ""
 
-#: src/porting-applications.md:1305
+#: src/porting-applications.md:1324
 msgid "Missing build tools"
 msgstr ""
 
-#: src/porting-applications.md:1306
+#: src/porting-applications.md:1325
 msgid "Cross-compilation configuration problem"
 msgstr ""
 
-#: src/porting-applications.md:1307
+#: src/porting-applications.md:1326
 msgid "Lack of Redox patches"
 msgstr ""
 
-#: src/porting-applications.md:1308
+#: src/porting-applications.md:1327
 msgid "Missing C, POSIX or Linux library functions in relibc"
 msgstr ""
 
-#: src/porting-applications.md:1310
+#: src/porting-applications.md:1329
 msgid "Use this command to log any possible errors on your terminal output:"
 msgstr ""
 
-#: src/porting-applications.md:1316
+#: src/porting-applications.md:1335
 msgid ""
 "If the compilation was successful the recipe can be installed in the QEMU "
 "image and tested inside of Redox to find possible runtime errors or crashes."
 msgstr ""
 
-#: src/porting-applications.md:1318
+#: src/porting-applications.md:1337
 msgid ""
 "To temporarily install the recipe to your QEMU image run `make p.recipe-name`"
 msgstr ""
 
-#: src/porting-applications.md:1319
+#: src/porting-applications.md:1338
 msgid ""
 "To permanently install the recipe to your QEMU image add your recipe name "
 "(`recipe-name = {}`) below the last item in the `[packages]` section of your "
 "TOML config at `config/$ARCH/your-config.toml` and run `make image`"
 msgstr ""
 
-#: src/porting-applications.md:1321
+#: src/porting-applications.md:1340
 msgid "To test your recipe inside of Redox with Orbital, run:"
 msgstr ""
 
-#: src/porting-applications.md:1327
+#: src/porting-applications.md:1346
 msgid "If you only want to test in the Redox terminal interface, run:"
 msgstr ""
 
-#: src/porting-applications.md:1333
+#: src/porting-applications.md:1352
 msgid "Update crates"
 msgstr ""
 
-#: src/porting-applications.md:1335
+#: src/porting-applications.md:1354
 msgid ""
 "Sometimes the `Cargo.toml` and `Cargo.lock` of some Rust applications can "
 "hold a crate versions lacking Redox support or a broken Redox code path "
@@ -3237,31 +3294,31 @@ msgid ""
 "during the recipe compilation."
 msgstr ""
 
-#: src/porting-applications.md:1337
+#: src/porting-applications.md:1356
 msgid ""
 "The reason of fixed crate versions is explained on the [Cargo FAQ](https://"
 "doc.rust-lang.org/cargo/faq.html#why-do-binaries-have-cargolock-in-version-"
 "control-but-not-libraries)."
 msgstr ""
 
-#: src/porting-applications.md:1339
+#: src/porting-applications.md:1358
 msgid ""
 "To fix this you will need to update the crates of your recipe after the "
 "first compilation and build it again, see the ways to do it below."
 msgstr ""
 
-#: src/porting-applications.md:1341
+#: src/porting-applications.md:1360
 msgid ""
 "(Bump a crate version on `Cargo.toml` can break some part of the source "
 "code, on this case the application needs a source code patch to use the "
 "updated API of the crate)"
 msgstr ""
 
-#: src/porting-applications.md:1343
+#: src/porting-applications.md:1362
 msgid "One or more crates"
 msgstr ""
 
-#: src/porting-applications.md:1345
+#: src/porting-applications.md:1364
 msgid ""
 "In maintained Rust applications you just need to update some crates to have "
 "Redox support (because they frequently update the crate versions), this will "
@@ -3270,28 +3327,28 @@ msgid ""
 "breaks."
 msgstr ""
 
-#: src/porting-applications.md:1347
+#: src/porting-applications.md:1366
 msgid ""
 "We recommend that you do this based on the errors you get during the "
 "compilation, this method is recommended for maintained applications."
 msgstr ""
 
-#: src/porting-applications.md:1349 src/porting-applications.md:1387
+#: src/porting-applications.md:1368 src/porting-applications.md:1406
 msgid ""
 "Expose the Redox build system environment variables to the current shell, go "
 "to the `source` folder of your recipe and update the crates, example:"
 msgstr ""
 
-#: src/porting-applications.md:1371 src/porting-applications.md:1409
-#: src/porting-applications.md:1468
+#: src/porting-applications.md:1390 src/porting-applications.md:1428
+#: src/porting-applications.md:1487
 msgid "If you still get the error, run:"
 msgstr ""
 
-#: src/porting-applications.md:1377
+#: src/porting-applications.md:1396
 msgid "All crates"
 msgstr ""
 
-#: src/porting-applications.md:1379
+#: src/porting-applications.md:1398
 msgid ""
 "Most unmaintained Rust applications carry very old crate versions with "
 "lacking/broken Redox support, this method will update all crates of the "
@@ -3299,14 +3356,14 @@ msgid ""
 "configuration."
 msgstr ""
 
-#: src/porting-applications.md:1381
+#: src/porting-applications.md:1400
 msgid ""
 "Be aware that some crates break the API stability frequently and make the "
 "applications stop working - that's why you must try the \"One crate\" method "
 "first."
 msgstr ""
 
-#: src/porting-applications.md:1383
+#: src/porting-applications.md:1402
 msgid ""
 "This method can fix locked crate versions on the dependency tree, if these "
 "locked crate versions don't change you need to bump the version of the "
@@ -3314,34 +3371,34 @@ msgid ""
 "run `cargo update` again (API breaks are expected)."
 msgstr ""
 
-#: src/porting-applications.md:1385
+#: src/porting-applications.md:1404
 msgid "(Also good to test the latest improvements of the libraries)"
 msgstr ""
 
-#: src/porting-applications.md:1415
+#: src/porting-applications.md:1434
 msgid "Verify the dependency tree"
 msgstr ""
 
-#: src/porting-applications.md:1417
+#: src/porting-applications.md:1436
 msgid ""
 "If you use the above methods but the application is still using old crate "
 "versions, see this section:"
 msgstr ""
 
-#: src/porting-applications.md:1419
+#: src/porting-applications.md:1438
 msgid ""
 "[Verify the dependency tree](./troubleshooting.md#verify-the-dependency-tree)"
 msgstr ""
 
-#: src/porting-applications.md:1421
+#: src/porting-applications.md:1440
 msgid "Patch crates"
 msgstr ""
 
-#: src/porting-applications.md:1423
+#: src/porting-applications.md:1442
 msgid "Redox forks"
 msgstr ""
 
-#: src/porting-applications.md:1425
+#: src/porting-applications.md:1444
 msgid ""
 "It's possible that some not ported crate has a Redox fork with patches, you "
 "can search the crate name on the [Redox GitLab](https://gitlab.redox-os."
@@ -3349,13 +3406,13 @@ msgid ""
 "version` branch that follow the crate version."
 msgstr ""
 
-#: src/porting-applications.md:1427
+#: src/porting-applications.md:1446
 msgid ""
 "To use this Redox fork on your Rust application, add this text on the end of "
 "the `Cargo.toml` in the application source code:"
 msgstr ""
 
-#: src/porting-applications.md:1429
+#: src/porting-applications.md:1448
 msgid ""
 "```toml\n"
 "[patch.crates-io]\n"
@@ -3363,27 +3420,27 @@ msgid ""
 "```"
 msgstr ""
 
-#: src/porting-applications.md:1434
+#: src/porting-applications.md:1453
 msgid ""
 "It will make Cargo replace the patched crate in the entire dependency chain, "
 "after that, run:"
 msgstr ""
 
-#: src/porting-applications.md:1440
+#: src/porting-applications.md:1459
 msgid "Or (if the above doesn't work)"
 msgstr ""
 
-#: src/porting-applications.md:1474
+#: src/porting-applications.md:1493
 msgid "Local patches"
 msgstr ""
 
-#: src/porting-applications.md:1476
+#: src/porting-applications.md:1495
 msgid ""
 "If you want to patch some crate offline with your patches, add this text on "
 "the `Cargo.toml` of the application:"
 msgstr ""
 
-#: src/porting-applications.md:1478
+#: src/porting-applications.md:1497
 msgid ""
 "```toml\n"
 "[patch.crates-io]\n"
@@ -3391,7 +3448,7 @@ msgid ""
 "```"
 msgstr ""
 
-#: src/porting-applications.md:1483
+#: src/porting-applications.md:1502
 msgid ""
 "It will make Cargo replace the crate based on this folder in the application "
 "source code - `recipes/your-category/your-recipe/source/patched-crate-"
@@ -3399,121 +3456,121 @@ msgid ""
 "the crate source code on the application source directory)"
 msgstr ""
 
-#: src/porting-applications.md:1485
+#: src/porting-applications.md:1504
 msgid ""
 "Inside this folder you will apply the patches on the crate source and "
 "rebuild the recipe."
 msgstr ""
 
-#: src/porting-applications.md:1487
+#: src/porting-applications.md:1506
 msgid "Cleanup"
 msgstr ""
 
-#: src/porting-applications.md:1489
+#: src/porting-applications.md:1508
 msgid "If you have some problems (outdated recipe), try to run these commands:"
 msgstr ""
 
-#: src/porting-applications.md:1491
+#: src/porting-applications.md:1510
 msgid "This command will delete your old recipe source/binary."
 msgstr ""
 
-#: src/porting-applications.md:1497
+#: src/porting-applications.md:1516
 msgid ""
 "This command will delete your recipe binary/source and build (fresh build)."
 msgstr ""
 
-#: src/porting-applications.md:1503
+#: src/porting-applications.md:1522
 msgid "Search Text on Recipes"
 msgstr ""
 
-#: src/porting-applications.md:1505
+#: src/porting-applications.md:1524
 msgid ""
 "To speed up your porting workflow you can use the `grep` tool to search the "
 "recipe configuration:"
 msgstr ""
 
-#: src/porting-applications.md:1512
+#: src/porting-applications.md:1531
 msgid "\"text\""
 msgstr ""
 
-#: src/porting-applications.md:1512
+#: src/porting-applications.md:1531
 msgid "\"recipe.toml\""
 msgstr ""
 
-#: src/porting-applications.md:1515
+#: src/porting-applications.md:1534
 msgid ""
 "This command will search all match texts in the `recipe.toml` files of each "
 "recipe folder."
 msgstr ""
 
-#: src/porting-applications.md:1517
+#: src/porting-applications.md:1536
 msgid "Search for functions on relibc"
 msgstr ""
 
-#: src/porting-applications.md:1519
+#: src/porting-applications.md:1538
 msgid ""
 "Sometimes your application is not building because relibc lack the necessary "
 "functions, to verify if they are implemented run the following commands:"
 msgstr ""
 
-#: src/porting-applications.md:1526
+#: src/porting-applications.md:1545
 msgid "\"function-name\""
 msgstr ""
 
-#: src/porting-applications.md:1526
+#: src/porting-applications.md:1545
 msgid "\"*.rs\""
 msgstr ""
 
-#: src/porting-applications.md:1529
+#: src/porting-applications.md:1548
 msgid "You will insert the function name in `function-name`"
 msgstr ""
 
-#: src/porting-applications.md:1531
+#: src/porting-applications.md:1550
 msgid "Create a BLAKE3 hash for your recipe"
 msgstr ""
 
-#: src/porting-applications.md:1533
+#: src/porting-applications.md:1552
 msgid ""
 "You need to create a BLAKE3 hash of your recipe tarball if you want to merge "
 "it on upstream, to do this you can use the `b3sum` tool that can be "
 "installed from `crates.io` with the `cargo install b3sum` command."
 msgstr ""
 
-#: src/porting-applications.md:1535
+#: src/porting-applications.md:1554
 msgid ""
 "After the first run of the `make r.recipe-name` command, run these commands:"
 msgstr ""
 
-#: src/porting-applications.md:1541
+#: src/porting-applications.md:1560
 msgid ""
 "It will print the generated BLAKE3 hash, copy and paste on the `blake3 =` "
 "field of your `recipe.toml`"
 msgstr ""
 
-#: src/porting-applications.md:1543
+#: src/porting-applications.md:1562
 msgid "Verify the size of your package"
 msgstr ""
 
-#: src/porting-applications.md:1545
+#: src/porting-applications.md:1564
 msgid "To verify the size of your package use this command:"
 msgstr ""
 
-#: src/porting-applications.md:1551
+#: src/porting-applications.md:1570
 msgid "See the size of the `stage.pkgar` and `stage.tar.gz` files."
 msgstr ""
 
-#: src/porting-applications.md:1553
+#: src/porting-applications.md:1572
 msgid "Submitting MRs"
 msgstr ""
 
-#: src/porting-applications.md:1555
+#: src/porting-applications.md:1574
 msgid ""
 "If you want to add your recipe on the [build system](https://gitlab.redox-os."
 "org/redox-os/redox) to become a Redox package on the [build server](https://"
 "static.redox-os.org/pkg/), read the [package policy](#package-policy) below."
 msgstr ""
 
-#: src/porting-applications.md:1557
+#: src/porting-applications.md:1576
 msgid ""
 "After this you can submit your merge request with proper category, "
 "dependencies and comments."
