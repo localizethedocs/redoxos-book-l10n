@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: The Redox Operating System\n"
-"POT-Creation-Date: 2026-03-24T09:22:18Z\n"
+"POT-Creation-Date: 2026-05-19T11:02:12Z\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -151,7 +151,7 @@ msgid ""
 msgstr ""
 
 #: src/coding-and-building.md:35
-msgid "[How to update initfs](#how-to-update-initfs)"
+msgid "[How to update RedoxFS](#how-to-update-redoxfs)"
 msgstr ""
 
 #: src/coding-and-building.md:37
@@ -1144,34 +1144,13 @@ msgid ""
 msgstr ""
 
 #: src/coding-and-building.md:619
-msgid "How to update initfs"
+msgid "How to update RedoxFS"
 msgstr ""
 
 #: src/coding-and-building.md:621
 msgid ""
-"The `base` and `base-initfs` recipes share the `source` folder, thus your "
-"changes on the `base` recipe source code will be added on the `base-initfs` "
-"recipe automatically."
-msgstr ""
-
-#: src/coding-and-building.md:623
-msgid ""
-"(The `recipe.toml` of the `base-initfs` recipe use the `same_as` data type "
-"to symlink the source, you can read the second line of the [base-initfs "
-"recipe](https://gitlab.redox-os.org/redox-os/redox/-/blob/master/recipes/"
-"core/base-initfs/recipe.toml#L2))"
-msgstr ""
-
-#: src/coding-and-building.md:625
-msgid ""
-"When you are about to test a change on the `base` recipe, double check if "
-"you're applying for daemons in `base-initfs` by checking its recipe file in "
-"the former link. If you do, you need to trigger build changes for `base-"
-"initfs` manually so it can save `initfs` daemons into `base-initfs`:"
-msgstr ""
-
-#: src/coding-and-building.md:631
-msgid ""
-"RedoxFS is also included in the `base-initfs` recipe, to update them with "
-"your changes run the following command:"
+"if you make changes in the RedoxFS recipe source you also need to manually "
+"update the `base` recipe to include your changes in `initfs`, to update the "
+"`base` recipe with your changes and install in the existing Redox image, run "
+"the following command:"
 msgstr ""

@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: The Redox Operating System\n"
-"POT-Creation-Date: 2026-03-24T09:22:18Z\n"
+"POT-Creation-Date: 2026-05-19T11:02:12Z\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -382,7 +382,7 @@ msgstr ""
 
 #: src/advanced-podman-build.md:248
 msgid ""
-"`PODMAN_BUILD` - If set to 1 in [.config](./configuration-settings."
+"`PODMAN_BUILD?` - If set to 1 in [.config](./configuration-settings."
 "md#config), or in the environment, or on the `make` command line, much of "
 "the build process takes place in **Podman**."
 msgstr ""
