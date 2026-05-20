@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: The Redox Operating System\n"
-"POT-Creation-Date: 2026-02-24T08:43:44Z\n"
+"POT-Creation-Date: 2026-05-19T11:02:12Z\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -40,8 +40,8 @@ msgid "Why Rust?"
 msgstr "為什麼使用 Rust？"
 
 #: src/SUMMARY.md:12
-msgid "Redox Use Cases"
-msgstr "Redox 使用案例"
+msgid "Use Cases"
+msgstr ""
 
 #: src/SUMMARY.md:13
 msgid "Comparing Redox to Other OSes"
@@ -288,27 +288,27 @@ msgid "Native Build"
 msgstr ""
 
 #: src/SUMMARY.md:87
-msgid "From Nothing To Hello World"
+msgid "Self-hosted Development"
 msgstr ""
 
 #: src/SUMMARY.md:88
+msgid "From Nothing To Hello World"
+msgstr ""
+
+#: src/SUMMARY.md:89
 msgid "Configuration Settings"
 msgstr "組態設定"
 
-#: src/SUMMARY.md:89
+#: src/SUMMARY.md:90
 msgid "Build System Reference"
 msgstr "建置系統參考"
 
-#: src/SUMMARY.md:90
+#: src/SUMMARY.md:91
 msgid "Advanced Podman Build"
 msgstr ""
 
-#: src/SUMMARY.md:91
-msgid "Advanced Native Build"
-msgstr ""
-
 #: src/SUMMARY.md:92
-msgid "Working with i586"
+msgid "Advanced Native Build"
 msgstr ""
 
 #: src/SUMMARY.md:93
@@ -316,65 +316,64 @@ msgid "Working with ARM64"
 msgstr ""
 
 #: src/SUMMARY.md:94
-msgid "Raspberry Pi"
-msgstr ""
-
-#: src/SUMMARY.md:95
 msgid "Troubleshooting the Build"
 msgstr ""
 
-#: src/SUMMARY.md:96
+#: src/SUMMARY.md:95
 msgid "Build Process"
 msgstr ""
 
-#: src/SUMMARY.md:98
+#: src/SUMMARY.md:97
 msgid "Developing for Redox"
 msgstr ""
 
-#: src/SUMMARY.md:99
+#: src/SUMMARY.md:98
 msgid "Developer FAQ"
 msgstr "開發者常見問題"
 
-#: src/SUMMARY.md:100
+#: src/SUMMARY.md:99
 msgid "References"
 msgstr ""
 
-#: src/SUMMARY.md:101
+#: src/SUMMARY.md:100
 msgid "Libraries and APIs"
 msgstr ""
 
-#: src/SUMMARY.md:102
+#: src/SUMMARY.md:101
 msgid "Coding and Building"
 msgstr ""
 
-#: src/SUMMARY.md:103
+#: src/SUMMARY.md:102
 msgid "Including Programs in Redox"
 msgstr ""
 
-#: src/SUMMARY.md:104
+#: src/SUMMARY.md:103
 msgid "Application Porting"
 msgstr ""
 
-#: src/SUMMARY.md:105
+#: src/SUMMARY.md:104
 msgid "Porting Case Study"
 msgstr "移植案例研究"
 
-#: src/SUMMARY.md:106
+#: src/SUMMARY.md:105
 msgid "Continuous Integration"
 msgstr ""
 
-#: src/SUMMARY.md:107
+#: src/SUMMARY.md:106
 msgid "Performance"
 msgstr "效能"
 
-#: src/SUMMARY.md:108
+#: src/SUMMARY.md:107
 msgid "System Call Tracing"
 msgstr ""
 
-#: src/SUMMARY.md:109
+#: src/SUMMARY.md:108
 msgid "Quick Workflow"
 msgstr ""
 
-#: src/SUMMARY.md:110
+#: src/SUMMARY.md:109
 msgid "Questions and Feedback"
 msgstr ""
+
+#~ msgid "Redox Use Cases"
+#~ msgstr "Redox 使用案例"

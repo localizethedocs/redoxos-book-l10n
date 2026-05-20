@@ -1,0 +1,63 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: The Redox Operating System\n"
+"POT-Creation-Date: 2026-05-19T11:02:12Z\n"
+"PO-Revision-Date: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: zh_TW\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+#: src/self-hosted.md:1
+msgid "Self-hosted Development"
+msgstr ""
+
+#: src/self-hosted.md:3
+msgid ""
+"This page explain how to configure the build system or Redox for development "
+"from Redox."
+msgstr ""
+
+#: src/self-hosted.md:5
+msgid "QEMU in Linux"
+msgstr ""
+
+#: src/self-hosted.md:7
+msgid ""
+"This method is used if you are doing self-hosted development in QEMU from "
+"Linux."
+msgstr ""
+
+#: src/self-hosted.md:9
+msgid ""
+"Add the `cookbook` recipe to your Redox image and go to the `cookbook` "
+"directory:"
+msgstr ""
+
+#: src/self-hosted.md:19
+msgid "Build Redox from source"
+msgstr ""
+
+#: src/self-hosted.md:25
+msgid "Build and install your system changes"
+msgstr ""
+
+#: src/self-hosted.md:31
+msgid "Or (if you changed multiple recipes)"
+msgstr ""
+
+#: src/self-hosted.md:37
+msgid ""
+"If the process is successful you can reboot the system to load your changes:"
+msgstr ""
+
+#: src/self-hosted.md:43
+msgid "Real Hardware"
+msgstr ""
+
+#: src/self-hosted.md:45
+msgid "TODO"
+msgstr ""

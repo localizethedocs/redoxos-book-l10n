@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: The Redox Operating System\n"
-"POT-Creation-Date: 2026-03-24T09:22:18Z\n"
+"POT-Creation-Date: 2026-05-19T11:02:12Z\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -81,7 +81,7 @@ msgstr ""
 
 #: src/podman-build.md:21
 msgid ""
-"Setting `PODMAN_BUILD` to 1 in [.config](./configuration-settings."
+"Setting `PODMAN_BUILD?` to 1 in [.config](./configuration-settings."
 "md#config), on the `make` command line (e.g., `make PODMAN_BUILD=1 all`) or "
 "in the environment (e.g., `export PODMAN_BUILD=1; make all`) will enable "
 "Podman."
@@ -268,9 +268,9 @@ msgstr ""
 
 #: src/podman-build.md:156
 msgid ""
-"Expose Redox to other computers within a LAN. Configure QEMU with a \"TAP\" "
-"which will allow other computers to test Redox client/server/networking "
-"capabilities."
+"Expose Redox to other computers in the same local network. Configure QEMU "
+"with a \"TAP\" which will allow other computers to test Redox client/server/"
+"networking capabilities."
 msgstr ""
 
 #: src/podman-build.md:158

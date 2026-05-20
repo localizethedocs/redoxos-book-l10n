@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: The Redox Operating System\n"
-"POT-Creation-Date: 2026-03-24T09:22:18Z\n"
+"POT-Creation-Date: 2026-05-19T11:02:12Z\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -16,12 +16,20 @@ msgid "Testing"
 msgstr ""
 
 #: src/testing-practices.md:3
+msgid "[Manual Test Suite Execution](#manual-test-suite-execution)"
+msgstr ""
+
+#: src/testing-practices.md:4
+msgid "[Test Images](#test-images)"
+msgstr ""
+
+#: src/testing-practices.md:6
 msgid ""
 "It's always better to test boot every time you make a system change, because "
 "it is important to see how the OS boots and works after it compiles."
 msgstr ""
 
-#: src/testing-practices.md:5
+#: src/testing-practices.md:8
 msgid ""
 "Even though Rust is a safety-oriented language, something as unstable and "
 "low-level as a work-in-progress operating system will almost certainly have "
@@ -29,57 +37,156 @@ msgid ""
 "critical change."
 msgstr ""
 
-#: src/testing-practices.md:7
+#: src/testing-practices.md:10
 msgid ""
 "Also, make sure you verified how the unmodified version runs on your machine "
 "before making any changes. Else, you won't have anything to compare to, and "
 "it will generally just lead to confusion. TLDR: rebuild and test boot often."
 msgstr ""
 
-#: src/testing-practices.md:9
+#: src/testing-practices.md:12
 msgid ""
 "The real hardware testing is bigger than QEMU testing and thus detect more "
 "bugs."
 msgstr ""
 
-#: src/testing-practices.md:11
+#: src/testing-practices.md:14
 msgid ""
 "The test suites can be executed in an automated way by running the `make rp."
-"auto-test,--with-package-deps` command from the build system and running the "
-"`auto-test` command inside of Redox (testing on real hardware is more rich "
-"and thus can have different results compared to QEMU)."
+"auto-test,--with-package-deps qemu` command from the build system and "
+"running the `auto-test` command inside of Redox (testing on real hardware is "
+"more rich and thus can have different results compared to QEMU)."
 msgstr ""
 
-#: src/testing-practices.md:13
+#: src/testing-practices.md:16
 msgid "Manual Test Suite Execution"
 msgstr ""
 
-#: src/testing-practices.md:15
-msgid ""
-"[acid](https://gitlab.redox-os.org/redox-os/acid) is the smallest test suite "
-"on Redox (quickest way to test), to use it run the `make rp.acid` command "
-"from the build system to install the suite in the Redox image, run the `cd "
-"acid` command to go to the `acid` directory and use the `cargo test` command "
-"to run correctness tests and `cargo bench` command to run stress tests."
+#: src/testing-practices.md:18
+msgid "acid"
 msgstr ""
 
-#: src/testing-practices.md:17
+#: src/testing-practices.md:20
+msgid ""
+"[acid](https://gitlab.redox-os.org/redox-os/acid) is the smallest test suite "
+"on Redox (quickest way to test), to use it run the following commands:"
+msgstr ""
+
+#: src/testing-practices.md:22
+msgid ""
+"Install the `acid` source to the Redox image, launch QEMU and go to `acid` "
+"directory"
+msgstr ""
+
+#: src/testing-practices.md:32
+msgid "Run correctness tests"
+msgstr ""
+
+#: src/testing-practices.md:38 src/testing-practices.md:50
+#: src/testing-practices.md:90 src/testing-practices.md:108
+msgid "Or a single test:"
+msgstr ""
+
+#: src/testing-practices.md:44
+msgid "Run stress tests"
+msgstr ""
+
+#: src/testing-practices.md:56
+msgid "Or if you don't want to install Cargo:"
+msgstr ""
+
+#: src/testing-practices.md:58
+msgid "Install the `acid` binary to the Redox image and launch QEMU"
+msgstr ""
+
+#: src/testing-practices.md:64
+msgid "Run some test"
+msgstr ""
+
+#: src/testing-practices.md:70
+msgid "relibc-tests"
+msgstr ""
+
+#: src/testing-practices.md:72
 msgid ""
 "[relibc-tests](https://gitlab.redox-os.org/redox-os/relibc/-/tree/master/"
 "tests) is the second most rich test suite in Redox and is used to complement "
-"the `acid` test suite (test faster than the `os-test` test suite), use the "
-"`make r.relibc-tests-bins` command from the build system to run it or the "
-"`make rp.relibc-tests` command to add the source in the Redox image, build "
-"(`cd relibc-tests` and `make run` commands) and run it (`make test` command) "
-"later inside of Redox for more testing."
+"the `acid` test suite (test faster than the `os-test` test suite), to use it "
+"run the following commands:"
 msgstr ""
 
-#: src/testing-practices.md:19
+#: src/testing-practices.md:74 src/testing-practices.md:98
+msgid ""
+"Install the `relibc-tests` binaries to the Redox image, launch QEMU and go "
+"to `relibc-tests` directory"
+msgstr ""
+
+#: src/testing-practices.md:84
+msgid "Run all tests"
+msgstr ""
+
+#: src/testing-practices.md:96 src/testing-practices.md:142
+msgid "Or if you also want to build from source for more testing:"
+msgstr ""
+
+#: src/testing-practices.md:114
+msgid "os-test"
+msgstr ""
+
+#: src/testing-practices.md:116
 msgid ""
 "The [os-test](https://sortix.org/os-test/) test suite has the largest number "
 "of tests and is the recommended method to test the system (but take more "
-"time to test), use the `make r.os-test-bins` command from the build system "
-"to run it or the `make rp.os-test` command to add the source in the Redox "
-"image, build (`cd os-test` and `make all` commands) and run it (`make test` "
-"command) later inside of Redox for more testing."
+"time to test), to use it run the following commands:"
+msgstr ""
+
+#: src/testing-practices.md:118
+msgid ""
+"Install the `os-test` binaries to the Redox image, launch QEMU and go to `os-"
+"test` directory"
+msgstr ""
+
+#: src/testing-practices.md:132 src/testing-practices.md:162
+msgid "Or to run a single suite:"
+msgstr ""
+
+#: src/testing-practices.md:144
+msgid ""
+"Install the `os-test` sources to the Redox image, launch QEMU and go to `os-"
+"test` directory"
+msgstr ""
+
+#: src/testing-practices.md:176
+msgid "Test Images"
+msgstr ""
+
+#: src/testing-practices.md:178
+msgid ""
+"There are Redox filesystem configurations for automated testing which "
+"shutdown the system if successful, to use these images run one of the "
+"following commands from the build system:"
+msgstr ""
+
+#: src/testing-practices.md:180
+msgid "Automated test suite execution"
+msgstr ""
+
+#: src/testing-practices.md:182
+msgid "This image run the `acid`, `relibc-tests`, and `os-test` test suites."
+msgstr ""
+
+#: src/testing-practices.md:188
+msgid "Automated `os-test` test suite execution"
+msgstr ""
+
+#: src/testing-practices.md:190
+msgid "This image run the `os-test` test suite."
+msgstr ""
+
+#: src/testing-practices.md:196
+msgid "Automated system compilation"
+msgstr ""
+
+#: src/testing-practices.md:198
+msgid "This image build Redox."
 msgstr ""

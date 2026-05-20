@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: The Redox Operating System\n"
-"POT-Creation-Date: 2026-03-24T09:22:18Z\n"
+"POT-Creation-Date: 2026-05-19T11:02:12Z\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -157,7 +157,7 @@ msgid ""
 "details."
 msgstr ""
 
-#: src/troubleshooting.md:44 src/troubleshooting.md:666
+#: src/troubleshooting.md:44 src/troubleshooting.md:668
 msgid "Real Hardware"
 msgstr ""
 
@@ -1219,59 +1219,65 @@ msgstr ""
 
 #: src/troubleshooting.md:635
 msgid ""
+"Press Shift+Up or Shift+Down to scroll the log, if nothing happens probably "
+"the input is not working."
+msgstr ""
+
+#: src/troubleshooting.md:637
+msgid ""
 "To disable the environment variables after boot run the `export "
 "*_LOG_LEVEL=OFF` command, for example: the `export RELIBC_LOG_LEVEL=OFF` "
 "command will disable relibc logging."
 msgstr ""
 
-#: src/troubleshooting.md:637
+#: src/troubleshooting.md:639
 msgid "Kill A Frozen Redox VM"
 msgstr ""
 
-#: src/troubleshooting.md:639
+#: src/troubleshooting.md:641
 msgid ""
 "Sometimes Redox can freeze or rarely get a kernel panic, to kill the QEMU "
 "process run this command:"
 msgstr ""
 
-#: src/troubleshooting.md:645
+#: src/troubleshooting.md:647
 msgid "Kernel Panic"
 msgstr ""
 
-#: src/troubleshooting.md:647
+#: src/troubleshooting.md:649
 msgid ""
 "A kernel panic is when some bug prevents the safe execution of the kernel "
 "code, thus the system needs to be restarted to avoid memory corruption."
 msgstr ""
 
-#: src/troubleshooting.md:649
+#: src/troubleshooting.md:651
 msgid "We use the following kernel panic message format:"
 msgstr ""
 
-#: src/troubleshooting.md:656
+#: src/troubleshooting.md:658
 msgid "You can use the following command to search it in a big log:"
 msgstr ""
 
-#: src/troubleshooting.md:659
+#: src/troubleshooting.md:661
 msgid "\"KERNEL PANIC\""
 msgstr ""
 
-#: src/troubleshooting.md:659
+#: src/troubleshooting.md:661
 msgid "\"file-name.log\""
 msgstr ""
 
-#: src/troubleshooting.md:662
+#: src/troubleshooting.md:664
 msgid "QEMU"
 msgstr ""
 
-#: src/troubleshooting.md:664
+#: src/troubleshooting.md:666
 msgid ""
 "If you get a kernel panic in QEMU, copy the terminal text or capture a "
 "screenshot and send to us on [Matrix](./chat.md) or create an issue on "
 "[GitLab](https://gitlab.redox-os.org/redox-os/kernel/-/issues)."
 msgstr ""
 
-#: src/troubleshooting.md:668
+#: src/troubleshooting.md:670
 msgid ""
 "If you get a kernel panic in real hardware, capture a photo and send to us "
 "on [Matrix](./chat.md) or create an issue on [GitLab](https://gitlab.redox-"
