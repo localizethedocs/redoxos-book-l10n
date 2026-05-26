@@ -1080,6 +1080,12 @@ msgid ""
 "...\n"
 "```"
 msgstr ""
+"```toml\n"
+"[packages]\n"
+"...\n"
+"recipe-name = \"binary\"\n"
+"...\n"
+"```"
 
 #: src/configuration-settings.md:359
 msgid "Download and add the binary package on your Redox image:"

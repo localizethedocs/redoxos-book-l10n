@@ -297,6 +297,3 @@ msgid ""
 "Boot the system, and when you're done profiling, kill `profiled` and extract "
 "`/root/profiling.txt` (Details TBD)"
 msgstr ""
-
-#~ msgid "Install tools:"
-#~ msgstr "安裝工具："

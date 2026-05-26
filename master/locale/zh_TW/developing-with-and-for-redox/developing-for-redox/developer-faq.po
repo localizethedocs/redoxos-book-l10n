@@ -1708,6 +1708,3 @@ msgid ""
 "Read the [Debug Methods](./troubleshooting.md#debug-methods) section and ask "
 "us for instructions in the [Matrix chat](./chat.md)."
 msgstr ""
-
-#~ msgid "How to update initfs?"
-#~ msgstr "如何更新 initfs？"

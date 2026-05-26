@@ -84,11 +84,11 @@ msgstr ""
 
 #: src/aarch64.md:30
 msgid "Run `make all`"
-msgstr ""
+msgstr "執行 `make all`"
 
 #: src/aarch64.md:31
 msgid "Download the firmware"
-msgstr ""
+msgstr "下載韌體"
 
 #: src/aarch64.md:41
 msgid "Run in QEMU"
