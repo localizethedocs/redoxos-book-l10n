@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: The Redox Operating System\n"
-"POT-Creation-Date: 2026-03-24T09:22:18Z\n"
+"POT-Creation-Date: 2026-08-04T10:44:13Z\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -219,4 +219,16 @@ msgstr ""
 msgid ""
 "Drivers written in Rust reduces the probability of bugs, which increases "
 "their stability and security."
+msgstr ""
+
+#: src/why-rust.md:71
+msgid "Better code quality with much less effort"
+msgstr ""
+
+#: src/why-rust.md:73
+msgid ""
+"The combination of more compiler verification and official testing (`cargo "
+"test`), linting (Clippy) and formatting (`cargo fmt`) tooling enabled/"
+"installed by default reduces the effort to improve code quality and testing "
+"coverage."
 msgstr ""

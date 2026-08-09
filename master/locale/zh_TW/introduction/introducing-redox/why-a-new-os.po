@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: The Redox Operating System\n"
-"POT-Creation-Date: 2026-03-24T09:22:18Z\n"
+"POT-Creation-Date: 2026-08-04T10:44:13Z\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -213,13 +213,13 @@ msgid ""
 msgstr ""
 
 #: src/why-a-new-os.md:65
-msgid "Easy to develop and debug"
+msgid "Easier to develop and test"
 msgstr ""
 
 #: src/why-a-new-os.md:67
 msgid ""
-"Most system components run in userspace, simplifying the testing and "
-"debugging."
+"As most system components are separated daemons in userspace and the kernel "
+"is small, they can be developed and tested independently before integration."
 msgstr ""
 
 #: src/why-a-new-os.md:69
@@ -228,8 +228,8 @@ msgstr ""
 
 #: src/why-a-new-os.md:71
 msgid ""
-"New system components and drivers are easily and quickly added as userspace "
-"daemons."
+"New drivers or system components can be easily and quickly added as "
+"userspace daemons using the scheme protocol."
 msgstr ""
 
 #: src/why-a-new-os.md:73
@@ -244,32 +244,43 @@ msgid ""
 msgstr ""
 
 #: src/why-a-new-os.md:77
+msgid "Less maintenance cost"
+msgstr ""
+
+#: src/why-a-new-os.md:79
+msgid ""
+"Subsystems, system components and drivers can use different versions of the "
+"scheme protocol to stay working without source code modification after "
+"possible system API/ABI changes on updates"
+msgstr ""
+
+#: src/why-a-new-os.md:81
 msgid ""
 "You can read more about the above benefits on the [Microkernels](./"
 "microkernels.md) page."
 msgstr ""
 
-#: src/why-a-new-os.md:79
+#: src/why-a-new-os.md:83
 msgid "Advanced Filesystem"
 msgstr "進階檔案系統"
 
-#: src/why-a-new-os.md:81
+#: src/why-a-new-os.md:85
 msgid ""
 "Redox provides an advanced filesystem, [RedoxFS](https://gitlab.redox-os.org/"
 "redox-os/redoxfs). It includes many of the features in [ZFS](https://en."
 "wikipedia.org/wiki/OpenZFS), but in a more modular design."
 msgstr ""
 
-#: src/why-a-new-os.md:83
+#: src/why-a-new-os.md:87
 msgid ""
 "More details on RedoxFS can be found on the [RedoxFS](./redoxfs.md) page."
 msgstr ""
 
-#: src/why-a-new-os.md:85
+#: src/why-a-new-os.md:89
 msgid "Unix-like Tools and API"
 msgstr "類 Unix 工具與 API"
 
-#: src/why-a-new-os.md:87
+#: src/why-a-new-os.md:91
 msgid ""
 "Redox provides a Unix-like command interface, with many everyday tools "
 "written in Rust but with familiar names and options. As well, Redox system "

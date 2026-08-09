@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: The Redox Operating System\n"
-"POT-Creation-Date: 2026-05-19T11:02:12Z\n"
+"POT-Creation-Date: 2026-08-04T10:44:13Z\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -68,7 +68,7 @@ msgstr ""
 msgid "Userspace IPC performance"
 msgstr ""
 
-#: src/performance.md:45 src/performance.md:139
+#: src/performance.md:45 src/performance.md:133
 msgid "Profiling"
 msgstr ""
 
@@ -107,9 +107,8 @@ msgstr ""
 
 #: src/performance.md:59
 msgid ""
-"The profiling code is written primarily for QEMU, but for real hardware, "
-"consider commenting out the `serio_command` code in the `src/profiling.rs` "
-"file."
+"If you use PS/2 input devices in real hardware you need to disable the "
+"`serio_command` code in the `src/profiling.rs` file."
 msgstr ""
 
 #: src/performance.md:61
@@ -124,20 +123,34 @@ msgstr ""
 msgid "Install the tools:"
 msgstr ""
 
-#: src/performance.md:75
+#: src/performance.md:71
 msgid ""
 "Rename the `kernel = {}` item at `config/base.toml` to `profiling-kernel = {}"
 "`"
 msgstr ""
 
-#: src/performance.md:77
+#: src/performance.md:73
 msgid ""
-"In your first terminal window, from the `redox` directory, create the "
-"filesystem configuration (`config/my_profiler.toml`, for example) or adapt "
-"your existing configuration with the following content:"
+"Temporarily install the `profiled` recipe with the `make rp.profiled` "
+"command or permanently install by adding it in the `[packages]` section of "
+"your filesystem configuration and run `make rp.profiled` :"
 msgstr ""
 
-#: src/performance.md:79
+#: src/performance.md:80
+msgid ""
+"Boot QEMU and use the `sudo kprof_record <app-command> [APP-ARGS...]` "
+"command to profile the kernel when running the specified application (can't "
+"be used with multiple applications in the same command)."
+msgstr ""
+
+#: src/performance.md:82
+msgid ""
+"(Optional) The following filesystem configuration is used for automated "
+"profiling: create the filesystem configuration (`config/my_profiler.toml`, "
+"for example) or adapt your existing configuration with the following content:"
+msgstr ""
+
+#: src/performance.md:84
 msgid ""
 "```toml\n"
 "include = [ \"minimal.toml\" ]\n"
@@ -149,24 +162,14 @@ msgid ""
 "\n"
 "# Package settings\n"
 "[packages]\n"
-"# The kernel recipe with profiling code enabled\n"
-"profiling-kernel = {}\n"
-"# This is the profiling daemon\n"
-"profiled = {}\n"
+"bash = {}\n"
+"profiled = {} # Profiling daemon\n"
 "# Add any other recipes you need for testing here\n"
-"\n"
-"# Init script to start the profile daemon\n"
-"# The sequence number \"01\" ensures it will be started right after the "
-"drivers\n"
-"[[files]]\n"
-"path = \"/usr/lib/init.d/01_profile\"\n"
-"data = \"\"\"\n"
-"profiled\n"
-"\"\"\"\n"
 "\n"
 "[[files]]\n"
 "path = \"/usr/bin/perf_tests.sh\"\n"
 "data = \"\"\"\n"
+"#!/usr/bin/env bash\n"
 "dd bs=4k count=100000 < /scheme/zero > /scheme/null\n"
 "\"\"\"\n"
 "\n"
@@ -179,121 +182,94 @@ msgid ""
 "sleep 5\n"
 "echo\n"
 "echo Running tests...\n"
-"ion -x /usr/bin/perf_tests.sh\n"
+"kprof_record /usr/bin/perf_tests.sh\n"
 "echo Shutting down...\n"
 "shutdown\n"
 "\"\"\"\n"
 "```"
 msgstr ""
 
-#: src/performance.md:124
+#: src/performance.md:120
 msgid ""
-"If you don't want to use the `99_tests` file configuration, you can use the "
-"`kprof_record` command (can't be used in multiple commands) from `profiled` "
-"recipe."
+"(Optional) In the `redox` directory, create the file `.config` with the "
+"following content:"
 msgstr ""
 
-#: src/performance.md:126
-msgid ""
-"In the `redox` directory, create the file `.config` with the following "
-"content:"
-msgstr ""
-
-#: src/performance.md:129
+#: src/performance.md:123
 msgid "# This needs to match the name of your filesystem configuration file"
 msgstr ""
 
-#: src/performance.md:130
+#: src/performance.md:124
 msgid "my_profiler"
 msgstr ""
 
-#: src/performance.md:132
+#: src/performance.md:126
 msgid "5"
 msgstr ""
 
-#: src/performance.md:134
+#: src/performance.md:128
 msgid "no"
+msgstr ""
+
+#: src/performance.md:131
+msgid ""
+"In the `redox` terminal window, run the `make r.profiling-kernel,profiled "
+"image` command."
+msgstr ""
+
+#: src/performance.md:135
+msgid ""
+"**QEMU can't be running during this step, verify if it's closed beforehand "
+"to prevent data corruption**"
 msgstr ""
 
 #: src/performance.md:137
 msgid ""
-"In the `redox` terminal window, run the `make r.profiling-kernel image` "
-"command."
+"The `make flamegraph` command will create a SVG of profiling data collected "
+"inside of Redox, the SVG location is: `build/flamegraph/$(TARGET)-"
+"$(CONFIG_NAME)-kflamegraph.svg`"
+msgstr ""
+
+#: src/performance.md:139
+msgid ""
+"Use the `KPROF_OPTIONS=option-value` environment variable to determine what "
+"formatting options you want for your flamegraph:"
 msgstr ""
 
 #: src/performance.md:141
-msgid ""
-"In your `redox` terminal window, run `make qemu` or your preferred QEMU "
-"command, and perform your testing. You will see console messages indicating "
-"that profile data is being logged. **Exit QEMU** before proceeding, if it "
-"did not exit automatically."
+msgid "'i' for relaxed checking of function length"
+msgstr ""
+
+#: src/performance.md:142
+msgid "'o' for reporting function plus offset rather than just function"
 msgstr ""
 
 #: src/performance.md:143
-msgid "In the `redox` directory, run the following commands."
+msgid "'x' for both grouping by function and with offset"
 msgstr ""
 
-#: src/performance.md:146
-msgid "# Create a directory for your data\n"
+#: src/performance.md:145
+msgid "Replace the \"option-value\" with your preferred formatting options."
 msgstr ""
 
-#: src/performance.md:151
-msgid ""
-"# Make the Redox filesystem accessible at the path based on CONFIG_NAME\n"
+#: src/performance.md:147
+msgid "Example:"
 msgstr ""
 
-#: src/performance.md:156
-msgid "# Copy the profiling data from the Redox image to your directory\n"
+#: src/performance.md:153
+msgid "View your flamegraph SVG in a web browser."
 msgstr ""
 
-#: src/performance.md:161
-msgid "# Important - unmount the Redox filesystem\n"
-msgstr ""
-
-#: src/performance.md:165
-msgid "`cd` into the new directory and generate a symbol table for the kernel."
-msgstr ""
-
-#: src/performance.md:175
-msgid ""
-"The next step is to determine the TSC frequency. TL;DR - just use your CPU "
-"clock rate in GHz. The TSC is a counter that tracks the clock cycles since "
-"the system was powered on. The TSC frequency can vary based when power "
-"saving is enabled, but Redox does not implement this yet, so CPU GHz should "
-"work fine."
-msgstr ""
-
-#: src/performance.md:177
-msgid ""
-"Determine what formatting options you want for your flamegraph - 'i' for "
-"relaxed checking of function length, 'o' for reporting function plus offset "
-"rather than just function, 'x' for both grouping by function and with offset."
-msgstr ""
-
-#: src/performance.md:179
-msgid "In the directory `my_profiler_data`, generate the flamegraph."
-msgstr ""
-
-#: src/performance.md:185
-msgid ""
-"Replace the `x` with your preferred formatting options. Replace the `y.z` "
-"with your TSC/CPU clock frequency in GHz (`2.2`, for example)."
-msgstr ""
-
-#: src/performance.md:187
-msgid "Then view your flamegraph in a web browser."
-msgstr ""
-
-#: src/performance.md:193
+#: src/performance.md:159
 msgid "Real Hardware"
 msgstr ""
 
-#: src/performance.md:195
+#: src/performance.md:161
 msgid "TODO: test"
 msgstr ""
 
-#: src/performance.md:197
+#: src/performance.md:163
 msgid ""
 "Boot the system, and when you're done profiling, kill `profiled` and extract "
-"`/root/profiling.txt` (Details TBD)"
+"the `/root/profiling.txt` file (Details TBD)"
 msgstr ""

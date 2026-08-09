@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: The Redox Operating System\n"
-"POT-Creation-Date: 2026-02-24T08:43:44Z\n"
+"POT-Creation-Date: 2026-08-04T10:44:13Z\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -16,54 +16,107 @@ msgid "Security"
 msgstr ""
 
 #: src/security.md:3
-msgid "This page covers the current Redox security design."
+msgid "This page covers the security design."
 msgstr ""
 
 #: src/security.md:5
+msgid "Unsafe Rust"
+msgstr ""
+
+#: src/security.md:7
+msgid ""
+"Some parts of the system code use unsafe Rust code which has less compiler "
+"verification than safe Rust, thus still safer than C or C++"
+msgstr ""
+
+#: src/security.md:9
+msgid ""
+"Unsafe Rust code is replaced with safe Rust code where possible, where it's "
+"not possible the security focus relies on boundaries."
+msgstr ""
+
+#: src/security.md:11
+msgid ""
+"Some unsafe Rust code is using safe Rust code in some parts, we are looking "
+"more unsafe Rust code than can use safe Rust code."
+msgstr ""
+
+#: src/security.md:13
+msgid "Applications and Libraries"
+msgstr ""
+
+#: src/security.md:15
+msgid ""
+"The POSIX and Linux source code compatibility don't reduce the system "
+"security, `relibc` translate POSIX APIs and try to improve the compatibility "
+"security where possible:"
+msgstr ""
+
+#: src/security.md:17
+msgid ""
+"The microkernel architecture greatly reduce the potential to use system bugs "
+"to get application or library sensitive data or inject malicious code"
+msgstr ""
+
+#: src/security.md:18
+msgid "POSIX and Linux functions are written in Rust, which prevent many bugs"
+msgstr ""
+
+#: src/security.md:19
+msgid "Input sanitization is done where possible, like strings"
+msgstr ""
+
+#: src/security.md:21
+msgid ""
+"The POSIX/Linux applications or libraries is who decide if they use safer "
+"APIs, while Redox provide the compatibility."
+msgstr ""
+
+#: src/security.md:23
+msgid "Capabilities and Sandbox"
+msgstr ""
+
+#: src/security.md:25
 msgid ""
 "The namespaces and [capability-based](https://en.wikipedia.org/wiki/"
 "Capability-based_security) system are implemented by the kernel but some "
 "parts can be moved to user-space."
 msgstr ""
 
-#: src/security.md:6
+#: src/security.md:26
 msgid ""
 "A namespace is a list of schemes, if you run `ls :`, it will show the "
 "schemes on the current namespace."
 msgstr ""
 
-#: src/security.md:7
+#: src/security.md:27
 msgid "Each process has a namespace."
 msgstr ""
 
-#: src/security.md:8
+#: src/security.md:28
 msgid ""
 "[Capabilities](https://en.wikipedia.org/wiki/"
 "File_descriptor#File_descriptors_as_capabilities) are customized file "
 "descriptors that carry specific actions."
 msgstr ""
 
-#: src/security.md:10
-msgid "Sandbox"
-msgstr ""
-
-#: src/security.md:12
+#: src/security.md:30
 msgid ""
 "The sandbox system duplicates the system resources for each program, it "
 "allows them to be completely isolated from the main system. Flatpak and Snap "
 "use a sandbox security system on Linux, Redox will do the same."
 msgstr ""
 
-#: src/security.md:14
+#: src/security.md:32
 msgid "Redox allows sandbox by limiting a program's capabilities:"
 msgstr ""
 
-#: src/security.md:16
+#: src/security.md:34
 msgid ""
 "Only a certain number of schemes in the program's namespace is allowed, or "
 "no scheme at all. That way new file descriptors can't be opened."
 msgstr ""
 
-#: src/security.md:17
+#: src/security.md:35
 msgid "All functionality is forced to occur via file descriptors (WIP)."
 msgstr ""

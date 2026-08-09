@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: The Redox Operating System\n"
-"POT-Creation-Date: 2026-03-24T09:22:18Z\n"
+"POT-Creation-Date: 2026-08-04T10:44:13Z\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -159,49 +159,67 @@ msgid ""
 msgstr ""
 
 #: src/microkernels.md:47
-msgid "Sane Debugging"
+msgid "Less Maintenance Cost"
 msgstr ""
 
 #: src/microkernels.md:49
+msgid ""
+"In monolithic kernels many subsystems and drivers need to be updated after "
+"API changes, which increase the effort to improve and maintain the system if "
+"it has many subsystems or drivers and increases."
+msgstr ""
+
+#: src/microkernels.md:51
+msgid ""
+"While in microkernels the subsystems and drivers can use different protocol "
+"versions to keep backwards compatibility on API/ABI changes."
+msgstr ""
+
+#: src/microkernels.md:53
+msgid "Better and Cheaper Debugging On Real Hardware"
+msgstr ""
+
+#: src/microkernels.md:55
 msgid ""
 "In microkernels most kernel components (drivers, filesystems, etc) are moved "
 "to user-space, thus bugs on them can't crash the kernel (kernel panic)."
 msgstr ""
 
-#: src/microkernels.md:51
-msgid ""
-"The \"component panics\" (where \"component\" is the name of the system "
-"component) are more common in microkernels than kernel panics because the "
-"kernel code size is very small, the log of a component panic can be saved "
-"which ease debugging a lot."
-msgstr ""
-
-#: src/microkernels.md:53
-msgid ""
-"This is very important to debug in real hardware, because if a kernel panic "
-"happens the log can't be saved to find the cause of the bug."
-msgstr ""
-
-#: src/microkernels.md:55
-msgid ""
-"While in monolithic kernels a bug in a system component or driver can cause "
-"a kernel panic and freeze the system (if it happens in real hardware, you "
-"can't debug without serial output support)"
-msgstr ""
-
 #: src/microkernels.md:57
-msgid "(Buggy drivers are the main cause of kernel panics)"
+msgid ""
+"The \"system component panics\" (where each system component has a separated "
+"panic log) are more common in microkernels than kernel panics because the "
+"kernel code size is very small. The log of a component panic can be saved "
+"without expensive dedicated hardware, which ease debugging."
 msgstr ""
 
 #: src/microkernels.md:59
-msgid "Disadvantages of microkernels"
+msgid ""
+"This is very important to debug in real hardware, because if a kernel panic "
+"happens the log can't be easily saved to help the search of the cause of the "
+"bug."
 msgstr ""
 
 #: src/microkernels.md:61
-msgid "Small Performance Overhead"
+msgid ""
+"While in monolithic kernels a bug in a system component or driver can cause "
+"a kernel panic and freeze the system (if it happens in real hardware you "
+"can't debug without serial output support, which is expensive)"
 msgstr ""
 
 #: src/microkernels.md:63
+msgid "(Buggy drivers are the main cause of kernel panics)"
+msgstr ""
+
+#: src/microkernels.md:65
+msgid "Disadvantages of microkernels"
+msgstr ""
+
+#: src/microkernels.md:67
+msgid "Small Performance Overhead"
+msgstr ""
+
+#: src/microkernels.md:69
 msgid ""
 "Any modern operating system needs basic security mechanisms such as memory "
 "isolation and virtualization. Furthermore any process (including the kernel) "
@@ -211,167 +229,167 @@ msgid ""
 "tasks have to be done, including:"
 msgstr ""
 
-#: src/microkernels.md:65
+#: src/microkernels.md:71
 msgid ""
 "Saving caller registers, especially the program counter (caller: process "
 "invoking syscall or IPC)"
 msgstr ""
 
-#: src/microkernels.md:66
+#: src/microkernels.md:72
 msgid ""
 "Reprogramming the [MMU](https://en.wikipedia.org/wiki/"
 "Memory_management_unit)'s page table (aka [TLB](https://en.wikipedia.org/"
 "wiki/Translation_lookaside_buffer))"
 msgstr ""
 
-#: src/microkernels.md:67
+#: src/microkernels.md:73
 msgid ""
 "Putting CPU in another mode (kernel mode and user mode, also known as ring 0 "
 "and ring 3)"
 msgstr ""
 
-#: src/microkernels.md:68
+#: src/microkernels.md:74
 msgid "Restoring callee registers (callee: process invoked by syscall or IPC)"
 msgstr ""
 
-#: src/microkernels.md:70
+#: src/microkernels.md:76
 msgid ""
 "These are not inherently slower on microkernels, but microkernels need to "
 "perform these operations more frequently. Much of the system functionality "
 "is performed by user-space processes, requiring additional context switches."
 msgstr ""
 
-#: src/microkernels.md:72
+#: src/microkernels.md:78
 msgid ""
 "The performance difference between monolithic and microkernels has shrunk "
 "over time, making their performance comparable. This is partly due to a "
 "smaller surface area which can be easier to optimize."
 msgstr ""
 
-#: src/microkernels.md:74
+#: src/microkernels.md:80
 msgid ""
 "[Context Switch Documentation](https://wiki.osdev.org/Context_Switching)"
 msgstr ""
 
-#: src/microkernels.md:75
+#: src/microkernels.md:81
 msgid ""
 "[Microkernels Performance Paper](https://os.inf.tu-dresden.de/pubs/sosp97/)"
 msgstr ""
 
-#: src/microkernels.md:77
+#: src/microkernels.md:83
 msgid ""
 "We are working on exciting performance optimizations to minimize the "
 "overhead of extra context switches."
 msgstr ""
 
-#: src/microkernels.md:79
+#: src/microkernels.md:85
 msgid "Versus monolithic kernels"
 msgstr ""
 
-#: src/microkernels.md:81
+#: src/microkernels.md:87
 msgid "Monolithic kernels provide a lot more abstractions than microkernels."
 msgstr ""
 
-#: src/microkernels.md:83
+#: src/microkernels.md:89
 msgid ""
 "![An illustration](https://upload.wikimedia.org/wikipedia/commons/6/67/OS-"
 "structure.svg)"
 msgstr ""
 
-#: src/microkernels.md:85
+#: src/microkernels.md:91
 msgid ""
 "The above illustration from [Wikimedia](https://commons.wikimedia.org/wiki/"
 "File:OS-structure.svg), by Wooptoo, License: Public domain) shows how they "
 "differ."
 msgstr ""
 
-#: src/microkernels.md:87
+#: src/microkernels.md:93
 msgid "Documentation about the kernel/user-space separation"
 msgstr ""
 
-#: src/microkernels.md:89
+#: src/microkernels.md:95
 msgid ""
 "[Dual Mode Operations in OS](https://www.geeksforgeeks.org/dual-mode-"
 "operations-os/)"
 msgstr ""
 
-#: src/microkernels.md:90
+#: src/microkernels.md:96
 msgid ""
 "[User Mode and Kernel Mode Switching](https://www.geeksforgeeks.org/user-"
 "mode-and-kernel-mode-switching/)"
 msgstr ""
 
-#: src/microkernels.md:92
+#: src/microkernels.md:98
 msgid "Documentation about microkernels"
 msgstr ""
 
-#: src/microkernels.md:94
+#: src/microkernels.md:100
 msgid "[OSDev Technical Wiki](https://wiki.osdev.org/Microkernel)"
 msgstr ""
 
-#: src/microkernels.md:95
+#: src/microkernels.md:101
 msgid "[Message Passing Documentation](https://wiki.osdev.org/Message_Passing)"
 msgstr ""
 
-#: src/microkernels.md:96
+#: src/microkernels.md:102
 msgid ""
 "[Minix Documentation](https://wiki.minix3.org/doku.php?id=www:documentation:"
 "start)"
 msgstr ""
 
-#: src/microkernels.md:97
+#: src/microkernels.md:103
 msgid ""
 "[Minix Features](https://wiki.minix3.org/doku.php?id=www:documentation:"
 "features)"
 msgstr ""
 
-#: src/microkernels.md:98
+#: src/microkernels.md:104
 msgid ""
 "[Minix Reliability](https://wiki.minix3.org/doku.php?id=www:documentation:"
 "reliability)"
 msgstr ""
 
-#: src/microkernels.md:99
+#: src/microkernels.md:105
 msgid ""
 "[GNU Hurd Documentation](https://www.gnu.org/software/hurd/hurd/"
 "documentation.html)"
 msgstr ""
 
-#: src/microkernels.md:100
+#: src/microkernels.md:106
 msgid ""
 "[Fuchsia Documentation](https://fuchsia.dev/fuchsia-src/get-started/learn/"
 "intro)"
 msgstr ""
 
-#: src/microkernels.md:101
+#: src/microkernels.md:107
 msgid "[HelenOS FAQ](http://www.helenos.org/wiki/FAQ)"
 msgstr ""
 
-#: src/microkernels.md:102
+#: src/microkernels.md:108
 msgid "[Minix Paper](http://www.minix3.org/docs/jorrit-herder/osr-jul06.pdf)"
 msgstr ""
 
-#: src/microkernels.md:103
+#: src/microkernels.md:109
 msgid "[seL4 Whitepaper](https://sel4.systems/About/seL4-whitepaper.pdf)"
 msgstr ""
 
-#: src/microkernels.md:104
+#: src/microkernels.md:110
 msgid ""
 "[Tanenbaum-Torvalds Debate](https://en.wikipedia.org/wiki/"
 "Tanenbaum%E2%80%93Torvalds_debate)"
 msgstr ""
 
-#: src/microkernels.md:106
+#: src/microkernels.md:112
 msgid "A Note On The Current State"
 msgstr ""
 
-#: src/microkernels.md:108
+#: src/microkernels.md:114
 msgid ""
 "Redox has less than 40,000 Rust lines of kernel code. For comparison Minix "
 "has around 6,000 C lines of kernel code."
 msgstr ""
 
-#: src/microkernels.md:110
+#: src/microkernels.md:116
 msgid ""
 "(The above comparison can't be used to argue that Minix is more stable or "
 "safe than Redox due to a less amount of source code lines, because Redox is "
@@ -379,7 +397,7 @@ msgid ""
 "and a 1:1 comparison can't be made)"
 msgstr ""
 
-#: src/microkernels.md:112
+#: src/microkernels.md:118
 msgid ""
 "We would like to move more parts of Redox to user-space to get an even more "
 "stable and secure kernel."

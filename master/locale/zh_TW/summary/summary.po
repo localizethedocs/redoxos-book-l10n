@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: The Redox Operating System\n"
-"POT-Creation-Date: 2026-05-19T11:02:12Z\n"
+"POT-Creation-Date: 2026-08-04T10:44:13Z\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -208,8 +208,8 @@ msgid "Tasks"
 msgstr ""
 
 #: src/SUMMARY.md:60
-msgid "Downloading Packages with pkg"
-msgstr "使用 pkg 下載軟體包"
+msgid "Package Manager"
+msgstr ""
 
 #: src/SUMMARY.md:62 src/SUMMARY.md:64
 msgid "Contributing"
@@ -374,3 +374,6 @@ msgstr ""
 #: src/SUMMARY.md:109
 msgid "Questions and Feedback"
 msgstr ""
+
+#~ msgid "Downloading Packages with pkg"
+#~ msgstr "使用 pkg 下載軟體包"
