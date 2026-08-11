@@ -5,10 +5,10 @@ msgstr ""
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
+"Language: zh_TW\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: zh_TW\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 
 #: src/pkg.md:1
@@ -22,6 +22,9 @@ msgid ""
 "packages, or include binary packages during the build, please see the "
 "[Including Programs in Redox](./including-programs.md) page."
 msgstr ""
+"[pkg](https://gitlab.redox-os.org/redox-os/pkgutils) 是 Redox 的軟體包管理"
+"器，用於在運行的系統中安裝二進位軟體包。如果您想建置軟體包，或在建置時引入二"
+"進位軟體包，請參見[在 Redox 中引入程式](./including-programs.md)頁面。"
 
 #: src/pkg.md:5
 msgid ""
@@ -35,11 +38,11 @@ msgstr ""
 
 #: src/pkg.md:9
 msgid "Install a package:"
-msgstr ""
+msgstr "安裝軟體包："
 
 #: src/pkg.md:15
 msgid "Upgrade all installed packages:"
-msgstr ""
+msgstr "升級所有已安裝的軟體包："
 
 #: src/pkg.md:21
 msgid "List package contents:"
@@ -51,7 +54,7 @@ msgstr ""
 
 #: src/pkg.md:33
 msgid "Download a package:"
-msgstr ""
+msgstr "下載軟體包："
 
 #: src/pkg.md:39
 msgid "Clean an extracted package:"

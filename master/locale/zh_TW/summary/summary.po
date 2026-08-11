@@ -374,6 +374,3 @@ msgstr ""
 #: src/SUMMARY.md:109
 msgid "Questions and Feedback"
 msgstr ""
-
-#~ msgid "Downloading Packages with pkg"
-#~ msgstr "使用 pkg 下載軟體包"
