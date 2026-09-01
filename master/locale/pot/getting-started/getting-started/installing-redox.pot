@@ -1,0 +1,426 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: The Redox Operating System\n"
+"POT-Creation-Date: 2026-09-01T13:03:01Z\n"
+"PO-Revision-Date: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: en\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+#: src/installing.md:1
+msgid "Installing Redox"
+msgstr ""
+
+#: src/installing.md:3
+msgid ""
+"Redox OS provides an installer to facilitate installation from Redox OS "
+"itself or Linux. **Please back up your system** before attempting to "
+"install. Note that at this time (Release 0.9.0), you can't install onto a "
+"USB device or use a USB device for your Redox filesystem, but you can "
+"install from it."
+msgstr ""
+
+#: src/installing.md:5
+msgid "Starting the Installer from Redox OS Livedisk"
+msgstr ""
+
+#: src/installing.md:7
+msgid ""
+"The installer is usually pre-installed on Redox OS. After starting your "
+"Redox OS _livedisk_ system from a USB device or CD/DVD, log in as the user "
+"named `user` with an empty password, click on the Redox OS icon in the "
+"Orbital bottom bar to open the app menu, then open the \"System\" app "
+"category and click on the \"Redox Installer\" app."
+msgstr ""
+
+#: src/installing.md:9
+msgid ""
+"Or, if you want to launch it from the terminal, run the following command:"
+msgstr ""
+
+#: src/installing.md:15
+msgid ""
+"If you are using the `server` variant or want to use the TUI interface, open "
+"a terminal window and type:"
+msgstr ""
+
+#: src/installing.md:21
+msgid ""
+"At the moment, the GUI installer is more capable than the TUI version, but "
+"the TUI one will be updated."
+msgstr ""
+
+#: src/installing.md:23
+msgid ""
+"In the TUI version, if Redox recognizes your device, it will prompt you to "
+"select a device to install on. Choose carefully, as it will erase all the "
+"data on that device. Note that if your device is not recognized, it may "
+"offer you the option to install on `disk/live` (the in-memory _livedisk_). "
+"Don't do this, as it will crash Redox."
+msgstr ""
+
+#: src/installing.md:25
+msgid ""
+"The TUI version also prompts for a `redoxfs password`. This is for an "
+"encrypted filesystem. Leave the password empty and press Enter if you don't "
+"need filesystem encryption."
+msgstr ""
+
+#: src/installing.md:27
+msgid "Starting the Installer from Linux"
+msgstr ""
+
+#: src/installing.md:29
+msgid ""
+"At the moment, the GUI installer is capable of installation from Linux. "
+"However, the binary is not distributed; you need to compile and install it "
+"using `cargo`:"
+msgstr ""
+
+#: src/installing.md:35
+msgid ""
+"The GUI installer is using `libcosmic`, so it will only work using Wayland. "
+"After compiling it, launch it from terminal:"
+msgstr ""
+
+#: src/installing.md:41
+msgid ""
+"Depending on how you will install Redox OS, you might want to run it with "
+"`sudo`."
+msgstr ""
+
+#: src/installing.md:43
+msgid "GUI Installer Options"
+msgstr ""
+
+#: src/installing.md:45
+msgid ""
+"The GUI installer is capable of many installation modes. This section "
+"explains each step option and its implications in detail:"
+msgstr ""
+
+#: src/installing.md:47
+msgid "1. Where do you want to install Redox OS?"
+msgstr ""
+
+#: src/installing.md:49
+msgid ""
+"This section asks about the general scenario where you want to install Redox "
+"OS:"
+msgstr ""
+
+#: src/installing.md:51
+msgid "**Whole Drive**"
+msgstr ""
+
+#: src/installing.md:53
+msgid ""
+"Use the whole storage device for Redox OS. It will erase all data on that "
+"device. The next section is [\\#2](#2-choose-a-drive)."
+msgstr ""
+
+#: src/installing.md:55
+msgid "**Specific Partition**"
+msgstr ""
+
+#: src/installing.md:57
+msgid ""
+"Use a storage device partition for Redox OS. It will erase all data in that "
+"partition, but leave every other partition intact. It is the option that you "
+"should use if you want to dual-boot with your current Linux installation. "
+"The next section is [\\#3](#3-choose-a-main-partition)."
+msgstr ""
+
+#: src/installing.md:59
+msgid "**Image File**"
+msgstr ""
+
+#: src/installing.md:61
+msgid ""
+"Write to a new image file. This option will create an image disk file "
+"similar to the one that's hosted on the Redox OS download page. The next "
+"section is [\\#4](#4-configure-image-file)."
+msgstr ""
+
+#: src/installing.md:64
+msgid "2. Choose a drive"
+msgstr ""
+
+#: src/installing.md:66
+msgid ""
+"This section lets you choose which storage device you want to install into. "
+"When chosen, the disk will be erased, then formatted as GPT with three "
+"partitions:"
+msgstr ""
+
+#: src/installing.md:68
+msgid "First, a BIOS boot partition for boot using legacy BIOS."
+msgstr ""
+
+#: src/installing.md:69
+msgid "Second, a 2MB FAT filesystem for UEFI bootloader."
+msgstr ""
+
+#: src/installing.md:70
+msgid "Last, a RedoxFS partition that occupies the rest of the disk."
+msgstr ""
+
+#: src/installing.md:72
+msgid ""
+"This layout is not configurable. If you wish to do so, format your disk "
+"using `GParted` or a similar tool, then go back and choose **Specific "
+"Partition**."
+msgstr ""
+
+#: src/installing.md:74
+msgid "_Never choose the disk that's currently active_."
+msgstr ""
+
+#: src/installing.md:76
+msgid "3. Choose a main partition"
+msgstr ""
+
+#: src/installing.md:78
+msgid ""
+"This section lets you choose which partition you want to use as the main "
+"RedoxFS partition for Redox OS. This will erase the data for that partition "
+"but leave everything else untouched."
+msgstr ""
+
+#: src/installing.md:80
+msgid ""
+"The installer is not capable of doing partitioning. If you want to do so, "
+"use another tool such as `GParted` and set up an empty partition for "
+"RedoxFS, then click **Reload** on this page after you're done partitioning."
+msgstr ""
+
+#: src/installing.md:82
+msgid ""
+"Note that installing just for RedoxFS partition will not make it bootable; "
+"hence, there's a second option to choose where to install the bootloader:"
+msgstr ""
+
+#: src/installing.md:84
+msgid "**Do not write**"
+msgstr ""
+
+#: src/installing.md:86
+msgid ""
+"This will not write any bootloader and leave the installed Redox OS in that "
+"partition unbootable, because Redox OS requires a custom bootloader and "
+"cannot be loaded by common bootloaders such as `GRUB`, `systemd-boot`, etc."
+msgstr ""
+
+#: src/installing.md:88
+msgid "**Dual-boot (systemd-boot)**"
+msgstr ""
+
+#: src/installing.md:90
+msgid ""
+"If `/boot/efi` is detected to contain `systemd-boot`, this option will be "
+"visible. This option is not visible for Linux that boots using other than "
+"`systemd-boot` such as `GRUB`."
+msgstr ""
+
+#: src/installing.md:92
+msgid "When chosen, it will write the UEFI bootloader to these paths:"
+msgstr ""
+
+#: src/installing.md:94
+msgid "`/boot/efi/EFI/redox/*.efi` : The bootloader EFI file"
+msgstr ""
+
+#: src/installing.md:95
+msgid ""
+"`/boot/efi/loader/entries/redox.conf` : The bootloader entry in \\`systemd-"
+"boot menu"
+msgstr ""
+
+#: src/installing.md:97
+msgid ""
+"In some Linux distributions, the `systemd-boot` menu is not visible, and to "
+"make it appear, the `timeout` option in `/boot/efi/loader/loader.conf` file. "
+"See [systemd-boot loader.conf man page](https://man.archlinux.org/man/loader."
+"conf.5#OPTIONS) for more information."
+msgstr ""
+
+#: src/installing.md:99
+msgid ""
+"If you choose any partition, make sure it's not mounted. **Never choose the "
+"partition that's currently mounted**."
+msgstr ""
+
+#: src/installing.md:101
+msgid "**Any partition in /dev/\\***"
+msgstr ""
+
+#: src/installing.md:103
+msgid ""
+"This option will format the partition with the FAT filesystem containing "
+"UEFI bootloader for Redox OS. The bootloader does not have to be on the same "
+"disk as RedoxFS, as the bootloader will look to all drives that contain a "
+"RedoxFS partition with the help of UEFI services."
+msgstr ""
+
+#: src/installing.md:105
+msgid ""
+"This option is meant for installation to an external storage device, or for "
+"chainloading to any bootloader that supports it, such as `GRUB`. In some "
+"machines, the bootloader can also be directly bootable from BIOS boot device "
+"menu or boot priority on firmware setup."
+msgstr ""
+
+#: src/installing.md:107
+msgid ""
+"Note that this option only installs the UEFI bootloader. If your machine "
+"only supports booting via BIOS, then your only option is to go back and "
+"choose the **Whole Drive** option."
+msgstr ""
+
+#: src/installing.md:111
+msgid "If you do not see the `Next` button, try to maximize the window."
+msgstr ""
+
+#: src/installing.md:113
+msgid "4. Configure Image File"
+msgstr ""
+
+#: src/installing.md:115
+msgid ""
+"This section contain options for installing Redox OS into a image file. This "
+"section is particularly useful for emulating Redox in a virtual machine, or "
+"for advanced installation methods later on."
+msgstr ""
+
+#: src/installing.md:117
+msgid "**Image Path**"
+msgstr ""
+
+#: src/installing.md:119
+msgid ""
+"This asks where to install the image file. In Linux, the `Browse` button is "
+"visible to open a file dialog where the file will be saved."
+msgstr ""
+
+#: src/installing.md:121
+msgid ""
+"You can also specify a path to a directory, and it will just install Redox "
+"OS files in that directory, but this behavior is not recommended to be used."
+msgstr ""
+
+#: src/installing.md:123
+msgid "**Image Size**"
+msgstr ""
+
+#: src/installing.md:125
+msgid ""
+"Specify the image file size, which will also be the size of the main RedoxFS "
+"partition for Redox OS."
+msgstr ""
+
+#: src/installing.md:127
+msgid "**Skip Partition?**"
+msgstr ""
+
+#: src/installing.md:129
+msgid ""
+"Checking this box will prevent the image file from being formatted as GPT "
+"device; rather, it will become a raw RedoxFS partition (written directly to "
+"storage device sectors). This is useful if you wanted only the RedoxFS "
+"format, which can then be used for `dd` into `/dev/partition` for example, "
+"or boot via the `-cdrom` option in `QEMU`."
+msgstr ""
+
+#: src/installing.md:131
+msgid "**Write Bootloader EFI**"
+msgstr ""
+
+#: src/installing.md:133
+msgid ""
+"This asks where to install the bootloader file. The EFI file is needed to "
+"boot the Redox OS disk later on. It is a PE executable that is usually "
+"placed in `/EFI/BOOT/*.EFI` of a boot partition."
+msgstr ""
+
+#: src/installing.md:136
+msgid "5. Select System Profile"
+msgstr ""
+
+#: src/installing.md:138
+msgid ""
+"After entering options from either Section 2, 3, or 4, this is the last "
+"section before the actual install is performed."
+msgstr ""
+
+#: src/installing.md:140
+msgid "**Desktop**"
+msgstr ""
+
+#: src/installing.md:142
+msgid ""
+"This option chooses the Redox OS to be installed with desktop and server "
+"components. The installation usually takes around 3 minutes (200 seconds)."
+msgstr ""
+
+#: src/installing.md:144
+msgid "**Server**"
+msgstr ""
+
+#: src/installing.md:146
+msgid ""
+"This option chooses the Redox OS to be installed with only server "
+"components. Its installation usually takes around 1 minute and half (90 "
+"seconds)."
+msgstr ""
+
+#: src/installing.md:148
+msgid "**Clone**"
+msgstr ""
+
+#: src/installing.md:150
+msgid ""
+"This option is only visible if you boot Redox OS to a live disk. It will "
+"install an identical copy from the current Redox OS live disk memory."
+msgstr ""
+
+#: src/installing.md:152
+msgid "**Install as Live Disk**"
+msgstr ""
+
+#: src/installing.md:154
+msgid ""
+"This option will make the bootloader install with live disk mode being "
+"chosen as the default."
+msgstr ""
+
+#: src/installing.md:156
+msgid "**Enable disk encryption password**"
+msgstr ""
+
+#: src/installing.md:158
+msgid ""
+"You can enter a password for main RedoxFS partition encryption. It is whole-"
+"disk encryption; the bootloader will ask for the password later to boot "
+"Redox."
+msgstr ""
+
+#: src/installing.md:161
+msgid "6. Installation Progress"
+msgstr ""
+
+#: src/installing.md:163
+msgid ""
+"The installation is then performed and usually will finish within minutes. "
+"Unfortunately, for the GUI installer, the progress is in the terminal where "
+"it was launched, instead of being reported in the GUI."
+msgstr ""
+
+#: src/installing.md:165
+msgid ""
+"Once the installation completes, you can restart your computer to boot into "
+"Redox!"
+msgstr ""

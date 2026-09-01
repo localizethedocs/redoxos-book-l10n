@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: The Redox Operating System\n"
-"POT-Creation-Date: 2026-02-24T08:43:44Z\n"
+"POT-Creation-Date: 2026-09-01T13:03:01Z\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -15,13 +15,19 @@ msgstr ""
 msgid "Scheduling on Redox"
 msgstr ""
 
-#: src/scheduling.md:4
+#: src/scheduling.md:3
+msgid ""
+"TODO: update to EEVDF scheduler and write a short explanation of how it "
+"works on Redox"
+msgstr ""
+
+#: src/scheduling.md:5
 msgid ""
 "The Redox kernel uses a scheduling algorithm called [Round Robin](https://"
 "wiki.osdev.org/Scheduling_Algorithms#Round_Robin)."
 msgstr ""
 
-#: src/scheduling.md:6
+#: src/scheduling.md:7
 msgid ""
 "The kernel registers a function called an [interrupt handler](https://wiki."
 "osdev.org/Interrupts) that the CPU calls periodically. This function keeps "
@@ -29,7 +35,7 @@ msgid ""
 "ready for scheduling every 10 \"ticks\"."
 msgstr ""
 
-#: src/scheduling.md:8
+#: src/scheduling.md:9
 msgid ""
 "[Scheduling documentation](https://wiki.osdev.org/Scheduling_Algorithms)"
 msgstr ""
