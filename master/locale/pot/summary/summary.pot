@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: The Redox Operating System\n"
-"POT-Creation-Date: 2026-08-04T10:44:13Z\n"
+"POT-Creation-Date: 2026-09-01T13:03:01Z\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -196,7 +196,7 @@ msgid "Running Redox on Real Hardware"
 msgstr ""
 
 #: src/SUMMARY.md:57
-msgid "Installing Redox on a Drive"
+msgid "Installing Redox"
 msgstr ""
 
 #: src/SUMMARY.md:58
@@ -264,7 +264,7 @@ msgid "Creating Proper Bug Reports"
 msgstr ""
 
 #: src/SUMMARY.md:79
-msgid "Creating Proper Pull Requests"
+msgid "Creating Proper Merge Requests"
 msgstr ""
 
 #: src/SUMMARY.md:80

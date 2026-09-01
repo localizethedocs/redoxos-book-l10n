@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: The Redox Operating System\n"
-"POT-Creation-Date: 2026-02-24T08:43:44Z\n"
+"POT-Creation-Date: 2026-09-01T13:03:01Z\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -16,26 +16,30 @@ msgid "Schemes and Resources"
 msgstr ""
 
 #: src/schemes-resources.md:3
+msgid "TODO: update outdated information on this chapter pages"
+msgstr ""
+
+#: src/schemes-resources.md:5
 msgid ""
 "An essential design choice made for Redox is to refer to resources using "
 "scheme-rooted paths. This gives Redox the ability to:"
 msgstr ""
 
-#: src/schemes-resources.md:6
+#: src/schemes-resources.md:8
 msgid "Treat resources (files, devices, etc.) in a consistent manner"
 msgstr ""
 
-#: src/schemes-resources.md:7
+#: src/schemes-resources.md:9
 msgid "Provide resource-specific behaviors with a common interface"
 msgstr ""
 
-#: src/schemes-resources.md:8
+#: src/schemes-resources.md:10
 msgid ""
 "Allow management of names and namespaces to provide sandboxing and other "
 "security features"
 msgstr ""
 
-#: src/schemes-resources.md:9
+#: src/schemes-resources.md:11
 msgid ""
 "Enable device drivers and other system resource management to communicate "
 "with each other using the same mechanisms available to user programs"
