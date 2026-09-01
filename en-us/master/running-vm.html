@@ -1,0 +1,491 @@
+<!DOCTYPE HTML>
+<html lang="en_US" class="light sidebar-visible" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Running Redox in a Virtual Machine - The Redox Operating System</title>
+
+
+        <!-- Custom HTML head -->
+        <style>
+        .light .redox-logo {
+            content: url("assets/redox_light_512.png");
+        }
+        .rust .redox-logo {
+            content: url("assets/redox_light_512.png");
+        }
+        .coal .redox-logo {
+            content: url("assets/redox_dark_512.png");
+        }
+        .navy .redox-logo {
+            content: url("assets/redox_dark_512.png");
+        }
+        .ayu .redox-logo {
+            content: url("assets/redox_dark_512.png");
+        }
+        </style>
+        <script type="text/javascript" src="ltd-provenance.js"></script>
+        <script type="text/javascript" src="ltd-current.js"></script>
+        <script type="text/javascript" src="../../ltd-config.js"></script>
+        <script type="text/javascript" src="../../ltd-flyout.js"></script>
+
+        <meta name="description" content="This book carefully describes the design, implementation, direction, and structure of Redox, the operating system.">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="shortcut icon" href="favicon.png">
+        <link rel="stylesheet" href="css/variables.css">
+        <link rel="stylesheet" href="css/general.css">
+        <link rel="stylesheet" href="css/chrome.css">
+        <link rel="stylesheet" href="css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" id="highlight-css" href="highlight.css">
+        <link rel="stylesheet" id="tomorrow-night-css" href="tomorrow-night.css">
+        <link rel="stylesheet" id="ayu-highlight-css" href="ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+
+        <!-- Provide site root and default themes to javascript -->
+        <script>
+            const path_to_root = "";
+            const default_light_theme = "light";
+            const default_dark_theme = "navy";
+            window.path_to_searchindex_js = "searchindex.js";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="toc.js"></script>
+    </head>
+    <body>
+    <div id="mdbook-help-container">
+        <div id="mdbook-help-popup">
+            <h2 class="mdbook-help-title">Keyboard shortcuts</h2>
+            <div>
+                <p>Press <kbd>←</kbd> or <kbd>→</kbd> to navigate between chapters</p>
+                <p>Press <kbd>S</kbd> or <kbd>/</kbd> to search in the book</p>
+                <p>Press <kbd>?</kbd> to show this help</p>
+                <p>Press <kbd>Esc</kbd> to hide this help</p>
+            </div>
+        </div>
+    </div>
+    <div id="body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                let theme = localStorage.getItem('mdbook-theme');
+                let sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            const default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? default_dark_theme : default_light_theme;
+            let theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            let sidebar = null;
+            const sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+                sidebar_toggle.checked = false;
+            }
+            if (sidebar === 'visible') {
+                sidebar_toggle.checked = true;
+            } else {
+                html.classList.remove('sidebar-visible');
+            }
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="default_theme">Auto</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search (`/`)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="/ s" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">The Redox Operating System</h1>
+
+                    <div class="right-buttons">
+                        <a href="print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <div class="search-wrapper">
+                            <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                            <div class="spinner-wrapper">
+                                <i class="fa fa-spinner fa-spin"></i>
+                            </div>
+                        </div>
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1 id="running-redox-in-a-virtual-machine"><a class="header" href="#running-redox-in-a-virtual-machine">Running Redox in a Virtual Machine</a></h1>
+<ul>
+<li><a href="#virtualbox-instructions">VirtualBox Instructions</a></li>
+<li><a href="#qemu-instructions">QEMU Instructions</a></li>
+</ul>
+<h2 id="download-the-bootable-images"><a class="header" href="#download-the-bootable-images">Download the bootable images</a></h2>
+<p>This section will guide you to download the Redox images.</p>
+<p>(You need to use the <code>harddrive.img</code> image variant for QEMU or VirtualBox)</p>
+<h3 id="stable-releases"><a class="header" href="#stable-releases">Stable Releases</a></h3>
+<p>The bootable images for the 0.9.0 release are located on the <a href="https://static.redox-os.org/releases/0.9.0/x86_64/">build server release folder</a>. To try Redox using a virtual machine such as QEMU or VirtualBox, download the <a href="https://static.redox-os.org/releases/0.9.0/x86_64/redox_demo_x86_64_2024-09-07_1225_harddrive.img.zst">demo</a> variant, check the <a href="https://static.redox-os.org/releases/0.9.0/x86_64/SHA256SUM">SHA256 sum</a> to ensure it has downloaded correctly.</p>
+<pre><code class="language-sh">sha256sum $HOME/Downloads/redox_demo_x86_64_*_harddrive.img.zst
+</code></pre>
+<p>If you have more than one demo image in the <code>Downloads</code> directory, you may need to replace the <code>*</code> symbol with the date of your file.</p>
+<p>If the demo variant doesn't boot on your computer, try the <a href="https://static.redox-os.org/releases/0.9.0/x86_64/redox_desktop_x86_64_2024-09-07_1225_harddrive.img.zst">desktop</a> and <a href="https://static.redox-os.org/releases/0.9.0/x86_64/redox_server_x86_64_2024-09-07_1225_harddrive.img.zst">server</a> variants.</p>
+<p>Even if the <code>desktop</code> and <code>server</code> variants doesn't work, use the daily images below.</p>
+<h3 id="daily-images"><a class="header" href="#daily-images">Daily Images</a></h3>
+<p>If you want to test the latest Redox changes you can use our bootable images created each day by opening the <a href="https://static.redox-os.org/img">build server images</a> and downloading your preferred variant.
+Once the download is complete, check the <a href="https://static.redox-os.org/img/x86_64/SHA256SUM">SHA256 sum</a>.</p>
+<p>(Sometimes our daily images can be one week old or more because of breaking changes)</p>
+<h2 id="decompression"><a class="header" href="#decompression">Decompression</a></h2>
+<p>The Redox images are compressed using the <a href="https://github.com/facebook/zstd">Zstd</a> algorithm, to decompress follow the steps below:</p>
+<h3 id="linux"><a class="header" href="#linux">Linux</a></h3>
+<h4 id="gui"><a class="header" href="#gui">GUI</a></h4>
+<ol>
+<li>Install <a href="https://gitlab.gnome.org/GNOME/file-roller">GNOME File Roller</a> or <a href="https://apps.kde.org/ark/">KDE Ark</a> (both can be installed from <a href="https://flathub.org/">Flathub</a>)</li>
+<li>Open the Redox image and click on the "Extract" button</li>
+</ol>
+<p>If you are using the GNOME Nautilus or KDE Dolphin file manager, right-click the file and select the option to extract the file.</p>
+<h4 id="terminal"><a class="header" href="#terminal">Terminal</a></h4>
+<p>Install the Zstd tool and run:</p>
+<pre><code class="language-sh">zstd -d $HOME/Downloads/redox_*_x86_64_*_harddrive.img.zst
+</code></pre>
+<h3 id="windows"><a class="header" href="#windows">Windows</a></h3>
+<h4 id="gui-1"><a class="header" href="#gui-1">GUI</a></h4>
+<ol>
+<li>Install <a href="https://www.7-zip.org/">7-Zip</a></li>
+<li>Right-click the Redox image, hover the 7-Zip section and click on the option to extract the file or open the file on 7-Zip and extract</li>
+</ol>
+<h2 id="virtualbox-instructions"><a class="header" href="#virtualbox-instructions">VirtualBox Instructions</a></h2>
+<p>To run Redox in a VirtualBox virtual machine you need to do the following steps:</p>
+<ol>
+<li>Create a VM with 2048 MB of RAM memory (or less if using a simpler Redox image variant) and 32MB of VRAM (video memory)</li>
+<li>Enable Nested Paging</li>
+<li>Change the keyboard and mouse interface to PS/2</li>
+<li>Change the audio controller to Intel HDA</li>
+<li>Disable USB support</li>
+<li>Go to the network settings of the VM and change the NIC model to 82540EM</li>
+<li>Go to the storage settings of the VM, create an IDE controller and add the Redox bootable image on it</li>
+<li>Start the VM!</li>
+</ol>
+<p>If you want to install Redox on the VM create a VDI disk of 5GB (or less if you are using a simplier Redox image variant).</p>
+<h3 id="command-for-the-pre-installed-image"><a class="header" href="#command-for-the-pre-installed-image">Command for the pre-installed image</a></h3>
+<p>If you want to do this using the command-line, run the following commands:</p>
+<ol>
+<li>
+<pre><code class="language-sh">VBoxManage createvm --name Redox --register
+</code></pre>
+</li>
+<li>
+<pre><code class="language-sh">VBoxManage modifyvm Redox --memory 2048 --vram 32 --nic1 nat --nictype1 82540EM \
+--cableconnected1 on --usb off --keyboard ps2 --mouse ps2 --audiocontroller hda \
+--audioout on --nestedpaging on
+</code></pre>
+</li>
+<li>
+<pre><code class="language-sh">VBoxManage convertfromraw $HOME/Downloads/redox_demo_x86_64_*_harddrive.img harddrive.vdi
+</code></pre>
+</li>
+<li>
+<pre><code class="language-sh">VBoxManage storagectl Redox --name SATA --add sata --bootable on --portcount 1
+</code></pre>
+</li>
+<li>
+<pre><code class="language-sh">VBoxManage storageattach Redox --storagectl SATA --port 0 --device 0 --type hdd --medium harddrive.vdi
+</code></pre>
+</li>
+<li>
+<pre><code class="language-sh">VBoxManage startvm Redox
+</code></pre>
+</li>
+</ol>
+<h3 id="command-for-the-live-iso-image"><a class="header" href="#command-for-the-live-iso-image">Command for the Live ISO image</a></h3>
+<p>If you want to use the <a href="https://static.redox-os.org/releases/0.9.0/x86_64/redox_demo_x86_64_2024-09-07_1225_livedisk.iso.zst">Live ISO</a> run the following commands:</p>
+<ol>
+<li>
+<pre><code class="language-sh">VBoxManage createvm --name Redox --register
+</code></pre>
+</li>
+<li>
+<pre><code class="language-sh">VBoxManage modifyvm Redox --memory 2048 --vram 32 --nic1 nat --nictype1 82540EM \
+--cableconnected1 on --usb off --keyboard ps2 --mouse ps2 --audiocontroller hda \
+--audioout on --nestedpaging on
+</code></pre>
+</li>
+<li>
+<pre><code class="language-sh">VBoxManage storagectl Redox --name SATA --add sata --bootable on --portcount 1
+</code></pre>
+</li>
+<li>
+<pre><code class="language-sh">VBoxManage storageattach Redox --storagectl SATA --port 0 --device 0 --type dvddrive --medium $HOME/Downloads/redox_demo_x86_64_*_livedisk.iso
+</code></pre>
+</li>
+<li>
+<pre><code class="language-sh">VBoxManage startvm Redox
+</code></pre>
+</li>
+</ol>
+<h2 id="qemu-instructions"><a class="header" href="#qemu-instructions">QEMU Instructions</a></h2>
+<h3 id="linux-1"><a class="header" href="#linux-1">Linux</a></h3>
+<p>If you don't have QEMU installed use one of the following commands on Ubuntu, Debian or PopOS based on the image that you want:</p>
+<ul>
+<li>x86-32 (i586) and x86-64 images</li>
+</ul>
+<pre><code class="language-sh">sudo apt-get install qemu-system-x86 qemu-kvm
+</code></pre>
+<ul>
+<li>ARM64 images</li>
+</ul>
+<pre><code class="language-sh">sudo apt-get install qemu-system-arm qemu-kvm
+</code></pre>
+<ul>
+<li>RISC-V images</li>
+</ul>
+<pre><code class="language-sh">sudo apt-get install qemu-system-riscv
+</code></pre>
+<p>Use one of the following commands to run QEMU with a Redox-compatible configuration:</p>
+<blockquote>
+<p>💡 <strong>Tip:</strong> if you encounter an error with the file name, verify that the name passed into the previous command (i.e., <code>$HOME/Downloads/redox_demo_x86_64_*_harddrive.img</code>) matches the file you downloaded.</p>
+</blockquote>
+<h4 id="x86-32-i586-image"><a class="header" href="#x86-32-i586-image">x86-32 (i586) image</a></h4>
+<ul>
+<li>Run QEMU</li>
+</ul>
+<pre><code>SDL_VIDEO_X11_DGAMOUSE=0 qemu-system-i386 -d cpu_reset,guest_errors -smp 1 -m 2048 \
+    -chardev stdio,id=debug,signal=off,mux=on,"" -serial chardev:debug -mon chardev=debug \
+    -machine pc -cpu pentium2 -device AC97 -netdev user,id=net0 \
+    -device e1000,netdev=net0 -device nec-usb-xhci,id=xhci \
+    -drive file=`echo $HOME/Downloads/redox_demo_i586_*_harddrive.img`,format=raw
+</code></pre>
+<h4 id="x86-64-image"><a class="header" href="#x86-64-image">x86-64 image</a></h4>
+<ul>
+<li>Run QEMU</li>
+</ul>
+<pre><code>SDL_VIDEO_X11_DGAMOUSE=0 qemu-system-x86_64 -d cpu_reset,guest_errors -enable-kvm -smp 4 -m 2048 \
+    -chardev stdio,id=debug,signal=off,mux=on,"" -serial chardev:debug -mon chardev=debug \
+    -machine q35 -cpu host -device ich9-intel-hda -device hda-duplex -netdev user,id=net0 \
+    -device e1000,netdev=net0 -device nec-usb-xhci,id=xhci \
+    -drive file=`echo $HOME/Downloads/redox_demo_x86_64_*_harddrive.img`,format=raw
+</code></pre>
+<h4 id="arm64-image"><a class="header" href="#arm64-image">ARM64 image</a></h4>
+<ul>
+<li>Run QEMU</li>
+</ul>
+<pre><code>SDL_VIDEO_X11_DGAMOUSE=0 qemu-system-aarch64 -d cpu_reset,guest_errors -smp 4 -m 2048 \
+    -chardev stdio,id=debug,signal=off,mux=on,"" -serial chardev:debug -mon chardev=debug \
+    -bios /usr/share/AAVMF/AAVMF_CODE.fd -machine virt -cpu max -vga none -device ramfb -netdev user,id=net0 \
+    -device e1000,netdev=net0 -device nec-usb-xhci,id=xhci \
+    -drive file=`echo $HOME/Downloads/redox_demo_aarch64_*_harddrive.img`,format=raw
+</code></pre>
+<h4 id="risc-v-image"><a class="header" href="#risc-v-image">RISC-V image</a></h4>
+<p>Verify if the QEMU UEFI firmware is installed</p>
+<ul>
+<li>PFLASH0</li>
+</ul>
+<pre><code>ls -1 /usr/share/qemu-efi-riscv64/RISCV_VIRT_CODE.fd /usr/share/edk2/riscv/RISCV_VIRT_CODE.fd /usr/share/qemu/edk2-riscv-code.fd /usr/share/qemu-efi-riscv64/RISCV_VIRT_VARS.fd /usr/share/qemu/edk2-riscv-vars.fd
+</code></pre>
+<ul>
+<li>PFLASH1</li>
+</ul>
+<pre><code>ls -1 /usr/share/qemu-efi-riscv64/RISCV_VIRT_VARS.fd /usr/share/edk2/riscv/RISCV_VIRT_VARS.fd /usr/share/qemu/edk2-riscv-vars.fd
+</code></pre>
+<p>At least one of each <code>PFLASH</code> command must be present, if the file location present on your system is different from the one used in the command you need to change it.</p>
+<ul>
+<li>Run QEMU</li>
+</ul>
+<p>TODO: fix not enough space for firmware error</p>
+<pre><code>SDL_VIDEO_X11_DGAMOUSE=0 qemu-system-riscv64 -d cpu_reset,guest_errors -smp 4 -m 2048 \
+    -chardev stdio,id=debug,signal=off,mux=on,"" -serial chardev:debug -mon chardev=debug \
+    -drive if=pflash,format=raw,unit=0,file=/usr/share/qemu-efi-riscv64/RISCV_VIRT_CODE.fd,readonly=on -drive if=pflash,format=raw,unit=1,file=/usr/share/qemu-efi-riscv64/RISCV_VIRT_VARS.fd -machine virt,acpi=off -cpu max -vga none -device ramfb -audio none -netdev user,id=net0 \
+    -device e1000,netdev=net0 -device nec-usb-xhci,id=xhci \
+    -drive file=`echo $HOME/Downloads/redox_demo_riscv64gc_*_harddrive.img`,format=raw
+</code></pre>
+<h3 id="windows-1"><a class="header" href="#windows-1">Windows</a></h3>
+<p>To install <strong>QEMU</strong> on Windows, follow the instructions <a href="https://www.qemu.org/download/#windows">here</a>. The installation of <strong>QEMU</strong> will probably not update your command path, so the necessary QEMU command needs to be specified using its full path. Or, you can add the installation folder to your <code>PATH</code> environment variable if you will be using it regularly.</p>
+<p>Use one of the following commands to run QEMU with a Redox-compatible configuration:</p>
+<h4 id="x86-32-i586-image-1"><a class="header" href="#x86-32-i586-image-1">x86-32 (i586) image</a></h4>
+<ul>
+<li>Run QEMU</li>
+</ul>
+<p>TODO: test</p>
+<pre><code>"C:\Program Files\qemu\qemu-system-x86.exe" -d cpu_reset,guest_errors -smp 1 -m 2048
+-chardev stdio,id=debug,signal=off,mux=on,"" -serial chardev:debug -mon chardev=debug
+-machine pc -cpu pentium2 -device AC97 -netdev user,id=net0
+-device e1000,netdev=net0 -device nec-usb-xhci,id=xhci -device usb-tablet
+-drive file=redox_demo_i586_*_harddrive.img,format=raw
+</code></pre>
+<h4 id="x86-64-image-1"><a class="header" href="#x86-64-image-1">x86-64 image</a></h4>
+<ul>
+<li>Run QEMU</li>
+</ul>
+<p>TODO: test</p>
+<pre><code>"C:\Program Files\qemu\qemu-system-x86_64.exe" -d cpu_reset,guest_errors -smp 4 -m 2048
+-chardev stdio,id=debug,signal=off,mux=on,"" -serial chardev:debug -mon chardev=debug
+-machine pc -cpu host -device ich9-intel-hda -device hda-duplex -netdev user,id=net0
+-device e1000,netdev=net0 -device nec-usb-xhci,id=xhci -device usb-tablet
+-drive file=redox_demo_x86_64_2024-09-07_1225_harddrive.img,format=raw
+</code></pre>
+<h4 id="arm64-image-1"><a class="header" href="#arm64-image-1">ARM64 image</a></h4>
+<ul>
+<li>Run QEMU</li>
+</ul>
+<p>TODO: test</p>
+<pre><code>"C:\Program Files\qemu\qemu-system-aarch64.exe" -d cpu_reset,guest_errors -smp 4 -m 2048
+-chardev stdio,id=debug,signal=off,mux=on,"" -serial chardev:debug -mon chardev=debug
+-drive -bios "C:\Program Files\qemu\share\edk2-aarch64-code.fd" 
+-machine virt -cpu max -vga none -device ramfb -netdev user,id=net0
+-device e1000,netdev=net0 -device nec-usb-xhci,id=xhci -device usb-tablet
+-drive file=redox_demo_aarch64_*_harddrive.img,format=raw
+</code></pre>
+<h4 id="risc-v-image-1"><a class="header" href="#risc-v-image-1">RISC-V image</a></h4>
+<ul>
+<li>Run QEMU</li>
+</ul>
+<p>TODO: test</p>
+<pre><code>"C:\Program Files\qemu\qemu-system-riscv64.exe" -d cpu_reset,guest_errors -smp 4 -m 2048
+-chardev stdio,id=debug,signal=off,mux=on,"" -serial chardev:debug -mon chardev=debug
+-drive -bios "C:\Program Files\qemu\share\edk2-riscv-code.fd"
+-machine virt,acpi=off -cpu max -vga none -device ramfb -audio none -netdev riscv,id=net0
+-device e1000,netdev=net0 -device nec-usb-xhci,id=xhci -device usb-tablet
+-drive file=redox_demo_riscv64gc_*_harddrive.img,format=raw
+</code></pre>
+<blockquote>
+<p>💡 <strong>Tip:</strong> if you get a filename error, change <code>redox_demo_x86_64_*_harddrive.img</code> to the name of the file you downloaded.</p>
+</blockquote>
+<blockquote>
+<p>💡 <strong>Tip:</strong> if necessary, change <code>"C:\Program Files\qemu\qemu-system-x86_64.exe"</code> to reflect where <strong>QEMU</strong> was installed. The quotes are needed if the path contains spaces.</p>
+</blockquote>
+<h3 id="using-the-qemu-emulation"><a class="header" href="#using-the-qemu-emulation">Using the QEMU emulation</a></h3>
+<p>As the system boots, it will ask you for a screen resolution to use, for example <code>1024x768</code>. After selecting a screen size, the system will complete the boot, start the <strong>Orbital</strong> GUI, and display a Redox login screen. Login as user <code>user</code> with no password. The password for <code>root</code> is <code>password</code>. Use <strong>Ctrl+Alt+G</strong> to toggle the mouse behavior if you need to zoom out or exit the emulation. If your emulated cursor is out of alignment with your mouse position, type <strong>Ctrl+Alt+G</strong> to regain full cursor control, then click on your emulated cursor. <strong>Ctrl+Alt+F</strong> toggles between full screen and window views.</p>
+<p>See <a href="./trying-out-redox.html">Trying Out Redox</a> for things to try.</p>
+<p>If you want to try Redox in <strong>server</strong> mode, add <code>-nographic -vga none</code> to the command line above. You may wish to switch to the <code>redox_server</code> edition. There are also i586 editions available, although these are not part of the release.</p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="getting-started.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="real-hardware.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="getting-started.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="real-hardware.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="elasticlunr.min.js"></script>
+        <script src="mark.min.js"></script>
+        <script src="searcher.js"></script>
+
+        <script src="clipboard.min.js"></script>
+        <script src="highlight.js"></script>
+        <script src="book.js"></script>
+
+        <!-- Custom JS scripts -->
+
+
+
+    </div>
+    </body>
+</html>
