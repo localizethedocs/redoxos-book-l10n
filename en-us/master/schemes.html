@@ -1,0 +1,392 @@
+<!DOCTYPE HTML>
+<html lang="en_US" class="light sidebar-visible" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Schemes - The Redox Operating System</title>
+
+
+        <!-- Custom HTML head -->
+        <style>
+        .light .redox-logo {
+            content: url("assets/redox_light_512.png");
+        }
+        .rust .redox-logo {
+            content: url("assets/redox_light_512.png");
+        }
+        .coal .redox-logo {
+            content: url("assets/redox_dark_512.png");
+        }
+        .navy .redox-logo {
+            content: url("assets/redox_dark_512.png");
+        }
+        .ayu .redox-logo {
+            content: url("assets/redox_dark_512.png");
+        }
+        </style>
+        <script type="text/javascript" src="ltd-provenance.js"></script>
+        <script type="text/javascript" src="ltd-current.js"></script>
+        <script type="text/javascript" src="../../ltd-config.js"></script>
+        <script type="text/javascript" src="../../ltd-flyout.js"></script>
+
+        <meta name="description" content="This book carefully describes the design, implementation, direction, and structure of Redox, the operating system.">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="shortcut icon" href="favicon.png">
+        <link rel="stylesheet" href="css/variables.css">
+        <link rel="stylesheet" href="css/general.css">
+        <link rel="stylesheet" href="css/chrome.css">
+        <link rel="stylesheet" href="css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" id="highlight-css" href="highlight.css">
+        <link rel="stylesheet" id="tomorrow-night-css" href="tomorrow-night.css">
+        <link rel="stylesheet" id="ayu-highlight-css" href="ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+
+        <!-- Provide site root and default themes to javascript -->
+        <script>
+            const path_to_root = "";
+            const default_light_theme = "light";
+            const default_dark_theme = "navy";
+            window.path_to_searchindex_js = "searchindex.js";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="toc.js"></script>
+    </head>
+    <body>
+    <div id="mdbook-help-container">
+        <div id="mdbook-help-popup">
+            <h2 class="mdbook-help-title">Keyboard shortcuts</h2>
+            <div>
+                <p>Press <kbd>←</kbd> or <kbd>→</kbd> to navigate between chapters</p>
+                <p>Press <kbd>S</kbd> or <kbd>/</kbd> to search in the book</p>
+                <p>Press <kbd>?</kbd> to show this help</p>
+                <p>Press <kbd>Esc</kbd> to hide this help</p>
+            </div>
+        </div>
+    </div>
+    <div id="body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                let theme = localStorage.getItem('mdbook-theme');
+                let sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            const default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? default_dark_theme : default_light_theme;
+            let theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            let sidebar = null;
+            const sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+                sidebar_toggle.checked = false;
+            }
+            if (sidebar === 'visible') {
+                sidebar_toggle.checked = true;
+            } else {
+                html.classList.remove('sidebar-visible');
+            }
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="default_theme">Auto</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search (`/`)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="/ s" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">The Redox Operating System</h1>
+
+                    <div class="right-buttons">
+                        <a href="print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <div class="search-wrapper">
+                            <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                            <div class="spinner-wrapper">
+                                <i class="fa fa-spinner fa-spin"></i>
+                            </div>
+                        </div>
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1 id="schemes"><a class="header" href="#schemes">Schemes</a></h1>
+<p>The <strong>scheme</strong>, which takes its name from <a href="https://en.wikipedia.org/wiki/List_of_URI_schemes">URI schemes</a>, identifies the type of resource,
+and identifies the manager daemon responsible for that resource.</p>
+<p>Within Redox, a scheme may be thought of in a few ways. It is all of these things:</p>
+<ul>
+<li>The <strong>type</strong> of a resource, such as "file", "NVMe drive", "TCP connection", etc. (Note that these are not valid scheme names, they are just given by way of example.)</li>
+<li>The starting point for locating the resource, i.e. it is the root of the path to the resource, which the system can then use in establishing a connection to the resource.</li>
+<li>A <strong>uniquely named service</strong> that is provided by some driver or daemon program, with the full path identifying a specific resource accessed via that service.</li>
+</ul>
+<h2 id="scheme-daemons"><a class="header" href="#scheme-daemons">Scheme Daemons</a></h2>
+<p>A scheme is typically provided by a <strong>daemon</strong>.
+A daemon is a program that runs as a process in userspace;
+it is typically started by the system during boot.
+When the process starts, it registers with kernel using the name of the scheme that it manages.</p>
+<h2 id="kernel-vs-userspace-schemes"><a class="header" href="#kernel-vs-userspace-schemes">Kernel vs. Userspace Schemes</a></h2>
+<p>A <a href="#userspace-schemes">userspace scheme</a> is implemented by a scheme daemon,
+described above.
+A <a href="#kernel-schemes">kernel scheme</a> is implemented within the kernel,
+and manages critical resources not easily managed with a userspace daemon.
+When possible, schemes should be implemented in userspace.</p>
+<h2 id="accessing-resources"><a class="header" href="#accessing-resources">Accessing Resources</a></h2>
+<p>In order to provide "virtual file" behavior, schemes generally implement file-like operations.
+However, it is up to the scheme provider to determine what each file-like operation means.
+For example, <code>seek</code> to an SSD driver scheme might simply add to a file offset, but to a floppy disk controller scheme,
+it might cause the physical movement of disk read-write heads.</p>
+<p>Typical scheme operations include:</p>
+<ul>
+<li><code>open</code> - Create a <strong>handle</strong> (file descriptor) to a resource provided by the scheme. e.g. <code>File::create("/scheme/tcp/127.0.0.1/3000")</code> in a regular program would be converted by the kernel into <code>open("127.0.0.1/3000")</code> and sent to the "tcp" scheme provider. The "tcp" scheme provider would parse the name, establish a connection to Internet address "127.0.0.1", port "3000", and return a handle that represents that connection.</li>
+<li><code>read</code> - get some data from the thing represented by the handle, normally consuming that data so the next <code>read</code> will return new data.</li>
+<li><code>write</code> - send some data to the thing represented by the handle to be saved, sent or written.</li>
+<li><code>seek</code> - change the logical location where the next <code>read</code> or <code>write</code> will occur. This may or may not cause some action by the scheme provider.</li>
+</ul>
+<p>Schemes may choose to provide other standard operations, such as <code>mkdir</code>, but the meaning of the operation is up to the scheme. <code>mkdir</code> might create a directory entry, or it might create some type of substructure or container relevant to that particular scheme.</p>
+<p>Some schemes implement <code>fmap</code>, which creates a memory-mapped area that is shared between the scheme resource and the scheme user. It allows direct memory operations on the resource, rather than reading and writing to a file descriptor. The most common use case for <code>fmap</code> is for a device driver to access the physical addresses of a memory-mapped device, using the <code>memory:</code> kernel scheme. It is also used for frame buffers in the graphics subsystem.</p>
+<blockquote>
+<p>TODO: add F-operations.</p>
+</blockquote>
+<blockquote>
+<p>TODO: explain file-like vs. socket-like schemes.</p>
+</blockquote>
+<h2 id="userspace-schemes"><a class="header" href="#userspace-schemes">Userspace Schemes</a></h2>
+<p>Redox creates user-space schemes during initialization, starting various daemon-style programs, each of which can provide one or more schemes.</p>
+<div class="table-wrapper"><table><thead><tr><th><strong>Scheme</strong></th><th><strong>Daemon</strong></th><th><strong>Description</strong></th></tr></thead><tbody>
+<tr><td>disk.*</td><td>ided, ahcid, nvmed</td><td>Storage drivers</td></tr>
+<tr><td>disk.live</td><td>lived</td><td>RAM-disk driver that loads the bootable USB data into RAM</td></tr>
+<tr><td>disk.usb-{id}+{port}-scsi</td><td>usbscsid</td><td>USB SCSI driver</td></tr>
+<tr><td>logging</td><td><a href="https://gitlab.redox-os.org/redox-os/base/-/tree/main/ramfs?ref_type=heads">ramfs</a></td><td>Error logging scheme, using an in-memory temporary filesystem</td></tr>
+<tr><td>initfs</td><td><a href="https://gitlab.redox-os.org/redox-os/base/-/tree/main/bootstrap?ref_type=heads">bootstrap</a></td><td>Startup filesystem</td></tr>
+<tr><td>file</td><td><a href="https://gitlab.redox-os.org/redox-os/redoxfs">redoxfs</a></td><td>Main filesystem</td></tr>
+<tr><td>network</td><td>e1000d, rtl8168d</td><td>Link-level network send/receive</td></tr>
+<tr><td>ip</td><td><a href="https://gitlab.redox-os.org/redox-os/base/-/blob/master/netstack/src/smolnetd/scheme/ip.rs?ref_type=heads">smolnetd</a></td><td>Raw IP packet send/receive</td></tr>
+<tr><td>tcp</td><td><a href="https://gitlab.redox-os.org/redox-os/base/-/blob/master/netstack/src/smolnetd/scheme/tcp.rs?ref_type=heads">smolnetd</a></td><td>TCP sockets</td></tr>
+<tr><td>udp</td><td><a href="https://gitlab.redox-os.org/redox-os/base/-/blob/master/netstack/src/smolnetd/scheme/udp.rs?ref_type=heads">smolnetd</a></td><td>UDP sockets</td></tr>
+<tr><td>icmp</td><td><a href="https://gitlab.redox-os.org/redox-os/base/-/blob/master/netstack/src/smolnetd/scheme/icmp.rs?ref_type=heads">smolnetd</a></td><td>ICMP protocol</td></tr>
+<tr><td>netcfg</td><td><a href="https://gitlab.redox-os.org/redox-os/base/-/tree/master/netstack/src/smolnetd/scheme/netcfg?ref_type=heads">smolnetd</a></td><td>Network configuration</td></tr>
+<tr><td>display.vesa</td><td>vesad</td><td>VESA driver</td></tr>
+<tr><td>display.virtio-gpu</td><td>virtio-gpud</td><td>VirtIO GPU driver</td></tr>
+<tr><td>orbital</td><td><a href="https://gitlab.redox-os.org/redox-os/orbital">orbital</a></td><td>Windowing system (window manager and virtual driver)</td></tr>
+<tr><td>pty</td><td><a href="https://gitlab.redox-os.org/redox-os/base/-/tree/main/ptyd?ref_type=heads">ptyd</a></td><td>Pseudoterminals, used by terminal emulators</td></tr>
+<tr><td>audiorw</td><td>sb16d, ac97d, ihdad</td><td>Sound drivers</td></tr>
+<tr><td>audio</td><td><a href="https://gitlab.redox-os.org/redox-os/base/-/tree/main/audiod?ref_type=heads">audiod</a></td><td>Audio manager and virtual device</td></tr>
+<tr><td>usb.*</td><td>usb*d</td><td>USB drivers</td></tr>
+<tr><td>acpi</td><td>acpid</td><td>ACPI driver</td></tr>
+<tr><td>input</td><td>inputd</td><td>Virtual device</td></tr>
+<tr><td>sudo</td><td>sudo</td><td>Privilege manager</td></tr>
+<tr><td>chan</td><td><a href="https://gitlab.redox-os.org/redox-os/base/-/tree/main/ipcd?ref_type=heads">ipcd</a></td><td>Inter-process communication</td></tr>
+<tr><td>shm</td><td><a href="https://gitlab.redox-os.org/redox-os/base/-/tree/main/ipcd?ref_type=heads">ipcd</a></td><td>Shared memory manager</td></tr>
+<tr><td>log</td><td><a href="https://gitlab.redox-os.org/redox-os/base/-/tree/main/logd?ref_type=heads">logd</a></td><td>Logging</td></tr>
+<tr><td>rand</td><td><a href="https://gitlab.redox-os.org/redox-os/base/-/tree/main/randd?ref_type=heads">randd</a></td><td>Pseudo-random number generator</td></tr>
+<tr><td>zero</td><td><a href="https://gitlab.redox-os.org/redox-os/base/-/tree/main/zerod?ref_type=heads">zerod</a></td><td>Discard all writes, and always fill read buffers with zeroes</td></tr>
+<tr><td>null</td><td><a href="https://gitlab.redox-os.org/redox-os/base/-/tree/main/nulld?ref_type=heads">nulld</a></td><td>Discard all writes, and read no bytes</td></tr>
+</tbody></table>
+</div>
+<h2 id="kernel-schemes"><a class="header" href="#kernel-schemes">Kernel Schemes</a></h2>
+<p>The kernel provides a small number of schemes in order to support userspace.</p>
+<div class="table-wrapper"><table><thead><tr><th><strong>Name</strong></th><th><strong>Documentation</strong></th><th><strong>Description</strong></th></tr></thead><tbody>
+<tr><td>namespace</td><td><a href="https://gitlab.redox-os.org/redox-os/kernel/-/blob/master/src/scheme/root.rs">root.rs</a></td><td>Namespace manager</td></tr>
+<tr><td>user</td><td><a href="https://gitlab.redox-os.org/redox-os/kernel/-/blob/master/src/scheme/user.rs">user.rs</a></td><td>Dispatch for user-space schemes</td></tr>
+<tr><td>debug</td><td><a href="https://gitlab.redox-os.org/redox-os/kernel/-/blob/master/src/scheme/debug.rs">debug.rs</a></td><td>Debug messages that can't use the <code>log:</code> scheme</td></tr>
+<tr><td>event</td><td><a href="https://gitlab.redox-os.org/redox-os/kernel/-/blob/master/src/scheme/event.rs">event.rs</a></td><td>epoll-like file descriptor read/write "ready" events</td></tr>
+<tr><td>irq</td><td><a href="https://gitlab.redox-os.org/redox-os/kernel/-/blob/master/src/scheme/irq.rs">irq.rs</a></td><td>Interrupt manager (converts interrupts to messages)</td></tr>
+<tr><td>pipe</td><td><a href="https://gitlab.redox-os.org/redox-os/kernel/-/blob/master/src/scheme/pipe.rs">pipe.rs</a></td><td>Kernel manager for pipes</td></tr>
+<tr><td>proc</td><td><a href="https://gitlab.redox-os.org/redox-os/kernel/-/blob/master/src/scheme/proc.rs">proc.rs</a></td><td>Process context manager</td></tr>
+<tr><td>thisproc</td><td><a href="https://gitlab.redox-os.org/redox-os/kernel/-/blob/master/src/scheme/proc.rs">proc.rs</a></td><td>Process context manager</td></tr>
+<tr><td>sys</td><td><a href="https://gitlab.redox-os.org/redox-os/kernel/-/blob/master/src/scheme/sys/mod.rs">mod.rs</a></td><td>System hardware resources information</td></tr>
+<tr><td>kernel.acpi</td><td><a href="https://gitlab.redox-os.org/redox-os/kernel/-/blob/master/src/scheme/acpi.rs">acpi.rs</a></td><td>Read the CPU configuration (number of cores, etc)</td></tr>
+<tr><td>memory</td><td><a href="https://gitlab.redox-os.org/redox-os/kernel/-/blob/master/src/scheme/memory.rs">memory.rs</a></td><td>Physical memory mapping manager</td></tr>
+<tr><td>time</td><td><a href="https://gitlab.redox-os.org/redox-os/kernel/-/blob/master/src/scheme/time.rs">time.rs</a></td><td>Real-time clock timer</td></tr>
+<tr><td>itimer</td><td><a href="https://gitlab.redox-os.org/redox-os/kernel/-/blob/master/src/scheme/itimer.rs">time.rs</a></td><td>Interval timer</td></tr>
+<tr><td>serio</td><td><a href="https://gitlab.redox-os.org/redox-os/kernel/-/blob/master/src/scheme/serio.rs">serio.rs</a></td><td>Serial I/O (PS/2) driver (must stay in the kernel due to PS/2 protocol issues)</td></tr>
+</tbody></table>
+</div>
+<h2 id="scheme-list"><a class="header" href="#scheme-list">Scheme List</a></h2>
+<p>This section has all Redox schemes in a list format to improve organization, coordination and focus.</p>
+<h3 id="userspace"><a class="header" href="#userspace">Userspace</a></h3>
+<ul>
+<li>disk.*</li>
+<li>disk.live</li>
+<li>disk.usb-{id}+{port}-scsi</li>
+<li>logging</li>
+<li>initfs</li>
+<li>file</li>
+<li>network</li>
+<li>ip</li>
+<li>tcp</li>
+<li>udp</li>
+<li>icmp</li>
+<li>netcfg</li>
+<li>display.vesa</li>
+<li>display.virtio-gpu</li>
+<li>orbital</li>
+<li>pty</li>
+<li>audiorw</li>
+<li>audio</li>
+<li>usb.*</li>
+<li>sudo</li>
+<li>acpi</li>
+<li>input</li>
+<li>chan</li>
+<li>shm</li>
+<li>log</li>
+<li>rand</li>
+<li>zero</li>
+<li>null</li>
+</ul>
+<h3 id="kernel"><a class="header" href="#kernel">Kernel</a></h3>
+<ul>
+<li>namespace</li>
+<li>user</li>
+<li>debug</li>
+<li>event</li>
+<li>irq</li>
+<li>pipe</li>
+<li>proc</li>
+<li>thisproc</li>
+<li>sys</li>
+<li>kernel.acpi</li>
+<li>memory</li>
+<li>time</li>
+<li>itimer</li>
+<li>serio</li>
+</ul>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="resources.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="everything-is-a-file.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="resources.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="everything-is-a-file.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="elasticlunr.min.js"></script>
+        <script src="mark.min.js"></script>
+        <script src="searcher.js"></script>
+
+        <script src="clipboard.min.js"></script>
+        <script src="highlight.js"></script>
+        <script src="book.js"></script>
+
+        <!-- Custom JS scripts -->
+
+
+
+    </div>
+    </body>
+</html>
