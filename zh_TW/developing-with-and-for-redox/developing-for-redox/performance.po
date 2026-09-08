@@ -1,0 +1,275 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: The Redox Operating System\n"
+"POT-Creation-Date: 2026-08-04T10:44:13Z\n"
+"PO-Revision-Date: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: zh_TW\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+#: src/performance.md:1
+msgid "Performance"
+msgstr "效能"
+
+#: src/performance.md:3
+msgid "[Benchmarks](#benchmarks)"
+msgstr ""
+
+#: src/performance.md:4
+msgid "[Profiling](#profiling)"
+msgstr ""
+
+#: src/performance.md:5
+msgid "[Kernel](#kernel)"
+msgstr ""
+
+#: src/performance.md:7
+msgid "Benchmarks"
+msgstr "基準測試"
+
+#: src/performance.md:9
+msgid "This section contain commands for system benchmark."
+msgstr ""
+
+#: src/performance.md:11
+msgid "CPU performance"
+msgstr ""
+
+#: src/performance.md:17
+msgid "RAM performance"
+msgstr ""
+
+#: src/performance.md:23
+msgid "Filesystem read performance"
+msgstr ""
+
+#: src/performance.md:25
+msgid ""
+"(Add the `neverball` recipe on your filesystem image, by using the `make rp."
+"neverball` or `sudo pkg install neverball` commands, or permanently adding "
+"using `neverball = {}` on your filesystem configuration)"
+msgstr ""
+
+#: src/performance.md:31
+msgid "Filesystem write performance"
+msgstr ""
+
+#: src/performance.md:33
+msgid ""
+"(Add the `neverball` recipe on your filesystem image, you can also install "
+"it with the `sudo pkg install neverball` command)"
+msgstr ""
+
+#: src/performance.md:39
+msgid "Userspace IPC performance"
+msgstr ""
+
+#: src/performance.md:45 src/performance.md:133
+msgid "Profiling"
+msgstr ""
+
+#: src/performance.md:47
+msgid ""
+"This section explain how to configure and do system performance profiling."
+msgstr ""
+
+#: src/performance.md:49
+msgid "Kernel"
+msgstr ""
+
+#: src/performance.md:51
+msgid ""
+"You can create a flamegraph showing the kernel's most frequent operations, "
+"using time-based sampling."
+msgstr ""
+
+#: src/performance.md:53
+msgid ""
+"This is an example flamegraph. If you open the image in a new tab, there is "
+"useful mouse hover behavior."
+msgstr ""
+
+#: src/performance.md:55
+msgid ""
+"![Kernel Flamegraph](./assets/kernel_flamegraph.svg \"Kernel Flamegraph\")"
+msgstr ""
+
+#: src/performance.md:57
+msgid ""
+"The steps below are for profiling on `x86_64`, running in `QEMU`. It is "
+"possible to run the tests on real hardware, although retrieving the data "
+"require additional effort."
+msgstr ""
+
+#: src/performance.md:59
+msgid ""
+"If you use PS/2 input devices in real hardware you need to disable the "
+"`serio_command` code in the `src/profiling.rs` file."
+msgstr ""
+
+#: src/performance.md:61
+msgid "Setup"
+msgstr ""
+
+#: src/performance.md:63
+msgid "Open a terminal window in the `redox` directory."
+msgstr ""
+
+#: src/performance.md:65
+msgid "Install the tools:"
+msgstr ""
+
+#: src/performance.md:71
+msgid ""
+"Rename the `kernel = {}` item at `config/base.toml` to `profiling-kernel = {}"
+"`"
+msgstr ""
+
+#: src/performance.md:73
+msgid ""
+"Temporarily install the `profiled` recipe with the `make rp.profiled` "
+"command or permanently install by adding it in the `[packages]` section of "
+"your filesystem configuration and run `make rp.profiled` :"
+msgstr ""
+
+#: src/performance.md:80
+msgid ""
+"Boot QEMU and use the `sudo kprof_record <app-command> [APP-ARGS...]` "
+"command to profile the kernel when running the specified application (can't "
+"be used with multiple applications in the same command)."
+msgstr ""
+
+#: src/performance.md:82
+msgid ""
+"(Optional) The following filesystem configuration is used for automated "
+"profiling: create the filesystem configuration (`config/my_profiler.toml`, "
+"for example) or adapt your existing configuration with the following content:"
+msgstr ""
+
+#: src/performance.md:84
+msgid ""
+"```toml\n"
+"include = [ \"minimal.toml\" ]\n"
+"\n"
+"# General settings\n"
+"[general]\n"
+"# Filesystem size in MiB\n"
+"filesystem_size = 256\n"
+"\n"
+"# Package settings\n"
+"[packages]\n"
+"bash = {}\n"
+"profiled = {} # Profiling daemon\n"
+"# Add any other recipes you need for testing here\n"
+"\n"
+"[[files]]\n"
+"path = \"/usr/bin/perf_tests.sh\"\n"
+"data = \"\"\"\n"
+"#!/usr/bin/env bash\n"
+"dd bs=4k count=100000 < /scheme/zero > /scheme/null\n"
+"\"\"\"\n"
+"\n"
+"# Script to perform performance tests - add your tests here\n"
+"# If you will be testing manually, you don't need this section\n"
+"[[files]]\n"
+"path = \"/usr/lib/init.d/99_tests\"\n"
+"data = \"\"\"\n"
+"echo Waiting for startup to complete...\n"
+"sleep 5\n"
+"echo\n"
+"echo Running tests...\n"
+"kprof_record /usr/bin/perf_tests.sh\n"
+"echo Shutting down...\n"
+"shutdown\n"
+"\"\"\"\n"
+"```"
+msgstr ""
+
+#: src/performance.md:120
+msgid ""
+"(Optional) In the `redox` directory, create the file `.config` with the "
+"following content:"
+msgstr ""
+
+#: src/performance.md:123
+msgid "# This needs to match the name of your filesystem configuration file"
+msgstr ""
+
+#: src/performance.md:124
+msgid "my_profiler"
+msgstr ""
+
+#: src/performance.md:126
+msgid "5"
+msgstr ""
+
+#: src/performance.md:128
+msgid "no"
+msgstr ""
+
+#: src/performance.md:131
+msgid ""
+"In the `redox` terminal window, run the `make r.profiling-kernel,profiled "
+"image` command."
+msgstr ""
+
+#: src/performance.md:135
+msgid ""
+"**QEMU can't be running during this step, verify if it's closed beforehand "
+"to prevent data corruption**"
+msgstr ""
+
+#: src/performance.md:137
+msgid ""
+"The `make flamegraph` command will create a SVG of profiling data collected "
+"inside of Redox, the SVG location is: `build/flamegraph/$(TARGET)-"
+"$(CONFIG_NAME)-kflamegraph.svg`"
+msgstr ""
+
+#: src/performance.md:139
+msgid ""
+"Use the `KPROF_OPTIONS=option-value` environment variable to determine what "
+"formatting options you want for your flamegraph:"
+msgstr ""
+
+#: src/performance.md:141
+msgid "'i' for relaxed checking of function length"
+msgstr ""
+
+#: src/performance.md:142
+msgid "'o' for reporting function plus offset rather than just function"
+msgstr ""
+
+#: src/performance.md:143
+msgid "'x' for both grouping by function and with offset"
+msgstr ""
+
+#: src/performance.md:145
+msgid "Replace the \"option-value\" with your preferred formatting options."
+msgstr ""
+
+#: src/performance.md:147
+msgid "Example:"
+msgstr ""
+
+#: src/performance.md:153
+msgid "View your flamegraph SVG in a web browser."
+msgstr ""
+
+#: src/performance.md:159
+msgid "Real Hardware"
+msgstr ""
+
+#: src/performance.md:161
+msgid "TODO: test"
+msgstr ""
+
+#: src/performance.md:163
+msgid ""
+"Boot the system, and when you're done profiling, kill `profiled` and extract "
+"the `/root/profiling.txt` file (Details TBD)"
+msgstr ""

@@ -1,0 +1,310 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: The Redox Operating System\n"
+"POT-Creation-Date: 2026-04-07T09:21:21Z\n"
+"PO-Revision-Date: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: zh_CN\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+#: src/ci.md:1
+msgid "Continuous Integration"
+msgstr ""
+
+#: src/ci.md:3
+msgid ""
+"The [Continuous Integration](https://en.wikipedia.org/wiki/"
+"Continuous_integration) helps developers to automate the software testing as "
+"the code evolves, it detects build failures, bugs and regressions."
+msgstr ""
+
+#: src/ci.md:5
+msgid ""
+"In Redox, we use the [Redoxer](https://gitlab.redox-os.org/redox-os/redoxer) "
+"program to set up our GitLab CI configuration file. It downloads our "
+"toolchain, builds the program or library for the Redox target using Cargo, "
+"and runs the program inside a Redox virtual machine. Redoxer helps "
+"developers to test software for Redox OS without having to bootstrap the "
+"full build system."
+msgstr ""
+
+#: src/ci.md:7
+msgid ""
+"Refer to the repository [README](https://gitlab.redox-os.org/redox-os/"
+"redoxer#user-content-redoxer) for command line instructions. This page "
+"assumes you have read them."
+msgstr ""
+
+#: src/ci.md:9
+msgid "Installing Redoxer"
+msgstr ""
+
+#: src/ci.md:11
+msgid ""
+"We provide two options to install Redoxer: Docker container or Cargo. To "
+"install via `redoxer` crate in `crates.io` :"
+msgstr ""
+
+#: src/ci.md:17
+msgid ""
+"Then download the toolchain, QEMU image and test if installation works with "
+"`true` from `uutils` :"
+msgstr ""
+
+#: src/ci.md:23
+msgid ""
+"To install and run Redoxer via [the official Docker container](https://hub."
+"docker.com/r/redoxos/redoxer):"
+msgstr ""
+
+#: src/ci.md:29
+msgid ""
+"Compared to Redoxer via Cargo,  the Docker variant is very recommended for "
+"use in CI since it's **guaranteed to boot**, because the Redox toolchain and "
+"QEMU image for testing is already inside it and tested before being "
+"published. The Docker variant is only available for `x86_64` Linux at this "
+"time."
+msgstr ""
+
+#: src/ci.md:31
+msgid ""
+"All commands below will refer `redoxer` as the command to run Redoxer. For "
+"installations via Docker you need to prefix it using the `docker run` "
+"command or alias it in `.bashrc`:"
+msgstr ""
+
+#: src/ci.md:34
+msgid ""
+"'docker run -ti --rm -v \".:/mnt\" -w /mnt -e REDOXER_SYSROOT --device /dev/"
+"kvm docker.io/redoxos/redoxer redoxer'"
+msgstr ""
+
+#: src/ci.md:37
+msgid "Build and test a Rust project with Redoxer"
+msgstr ""
+
+#: src/ci.md:39
+msgid ""
+"Redoxer has a first-class integration with Cargo. Here's how to check and "
+"build a Rust project targeting Redox OS:"
+msgstr ""
+
+#: src/ci.md:49
+msgid ""
+"Here's how to test a Rust project in Redox OS, which will run an actual test "
+"inside QEMU:"
+msgstr ""
+
+#: src/ci.md:55
+msgid ""
+"All Cargo commands are shorthanded; the complete list can be seen in the "
+"README or just run `redoxer`."
+msgstr ""
+
+#: src/ci.md:57
+msgid "Build and test a C or C++ project with Redoxer"
+msgstr ""
+
+#: src/ci.md:59
+msgid ""
+"Redoxer has a shorthand for `ar`, `cc`, `cxx` for the AR/GCC/G++ compiler. "
+"Here's how to build a single `main.c` file targeting Redox OS:"
+msgstr ""
+
+#: src/ci.md:65
+msgid ""
+"Here's how to test that single executable on Redox OS, which will run an "
+"actual test inside QEMU:"
+msgstr ""
+
+#: src/ci.md:71
+msgid ""
+"You can wrap Redoxer to the C and C++ compiler, which you can then use to "
+"compile larger C or C++ projects using GNU Make, CMake, Meson and so on:"
+msgstr ""
+
+#: src/ci.md:74
+msgid "\"redoxer ar\""
+msgstr ""
+
+#: src/ci.md:75
+msgid "\"redoxer cc\""
+msgstr ""
+
+#: src/ci.md:76
+msgid "\"redoxer cxx\""
+msgstr ""
+
+#: src/ci.md:79
+msgid "Building with native libraries"
+msgstr ""
+
+#: src/ci.md:81
+msgid ""
+"Sometimes a project needs native libraries such as OpenSSL or zlib. To have "
+"them included for compilation, run:"
+msgstr ""
+
+#: src/ci.md:87
+msgid ""
+"It will download and extract the compiled library to `target/$TARGET/"
+"sysroot` or configured from `REDOXER_SYSROOT`. After it does, all subsequent "
+"Redoxer calls will automatically be linked to them via `RUSTFLAGS`, "
+"`LDFLAGS`, etc."
+msgstr ""
+
+#: src/ci.md:89
+msgid ""
+"To verify how the build works run the `redoxer env` command and examine how "
+"environment variables are produced. You can also debug it with a interactive "
+"GNU Bash using `redoxer env bash` :"
+msgstr ""
+
+#: src/ci.md:100
+msgid "Testing with additional files"
+msgstr ""
+
+#: src/ci.md:102
+msgid ""
+"To add files inside Redoxer use the `--folder` option, which will copy the "
+"contents of the specified directory path into `/root`:"
+msgstr ""
+
+#: src/ci.md:104
+msgid "Add the contents of the current directory"
+msgstr ""
+
+#: src/ci.md:110
+msgid ""
+"You can also install more packages with `redoxer pkg`, then add those in a "
+"different folder other than the root:"
+msgstr ""
+
+#: src/ci.md:113
+msgid "sysroot"
+msgstr ""
+
+#: src/ci.md:117
+msgid ""
+"# note that the ending \"/\" in ./sysroot/usr/ matters (rsync behavior)\n"
+msgstr ""
+
+#: src/ci.md:121
+msgid ""
+"You can copy files from the QEMU image to the specified directory path with "
+"the `--artifact` option when execution is successful. It also can be "
+"combined with `--folder` :"
+msgstr ""
+
+#: src/ci.md:123
+msgid "Add and copy the current directory back"
+msgstr ""
+
+#: src/ci.md:129
+msgid "CI templates"
+msgstr ""
+
+#: src/ci.md:131
+msgid "GitHub CI template:"
+msgstr ""
+
+#: src/ci.md:134
+msgid "jobs"
+msgstr ""
+
+#: src/ci.md:135
+msgid "redox"
+msgstr ""
+
+#: src/ci.md:136
+msgid "runs-on"
+msgstr ""
+
+#: src/ci.md:136
+msgid "ubuntu-latest"
+msgstr ""
+
+#: src/ci.md:137
+msgid "container"
+msgstr ""
+
+#: src/ci.md:137 src/ci.md:150
+msgid "redoxos/redoxer"
+msgstr ""
+
+#: src/ci.md:138
+msgid "env"
+msgstr ""
+
+#: src/ci.md:139 src/ci.md:152
+msgid "REDOXER_QEMU_ARGS"
+msgstr ""
+
+#: src/ci.md:139 src/ci.md:152
+msgid "\"-smp 1\""
+msgstr ""
+
+#: src/ci.md:140
+msgid "steps"
+msgstr ""
+
+#: src/ci.md:141 src/ci.md:143
+msgid "run"
+msgstr ""
+
+#: src/ci.md:141
+msgid "ln -sf /root/.redoxer ~/.redoxer"
+msgstr ""
+
+#: src/ci.md:142
+msgid "uses"
+msgstr ""
+
+#: src/ci.md:142
+msgid "actions/checkout@v6"
+msgstr ""
+
+#: src/ci.md:143 src/ci.md:154
+msgid "redoxer test"
+msgstr ""
+
+#: src/ci.md:146
+msgid "GitLab CI template:"
+msgstr ""
+
+#: src/ci.md:149
+msgid "redox_test"
+msgstr ""
+
+#: src/ci.md:150
+msgid "image"
+msgstr ""
+
+#: src/ci.md:151
+msgid "variables"
+msgstr ""
+
+#: src/ci.md:153
+msgid "script"
+msgstr ""
+
+#: src/ci.md:157
+msgid "This solve two issues:"
+msgstr ""
+
+#: src/ci.md:159
+msgid ""
+"`REDOXER_QEMU_ARGS: \"-smp 1\"` ensures there's no flaky test caused by high "
+"contention in kernel multi-threading, which is an open issue to this day."
+msgstr ""
+
+#: src/ci.md:160
+msgid ""
+"`ln -sf /root/.redoxer ~/.redoxer` fixes a missing toolchain and image "
+"problem because GitHub does not run as `/root`, but as `/github/home`. "
+"GitLab does not have this problem."
+msgstr ""
