@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: The Redox Operating System\n"
-"POT-Creation-Date: 2026-02-24T08:43:44Z\n"
+"POT-Creation-Date: 2026-09-08T12:37:45Z\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -260,8 +260,8 @@ msgstr ""
 
 #: src/schemes.md:62
 msgid ""
-"[smolnetd](https://gitlab.redox-os.org/redox-os/base/-/blob/master/netstack/"
-"src/smolnetd/scheme/ip.rs?ref_type=heads)"
+"[smolnetd](https://gitlab.redox-os.org/redox-os/base/-/blob/main/netstack/"
+"src/scheme/ip.rs?ref_type=heads)"
 msgstr ""
 
 #: src/schemes.md:62
@@ -274,8 +274,8 @@ msgstr ""
 
 #: src/schemes.md:63
 msgid ""
-"[smolnetd](https://gitlab.redox-os.org/redox-os/base/-/blob/master/netstack/"
-"src/smolnetd/scheme/tcp.rs?ref_type=heads)"
+"[smolnetd](https://gitlab.redox-os.org/redox-os/base/-/blob/main/netstack/"
+"src/scheme/tcp.rs?ref_type=heads)"
 msgstr ""
 
 #: src/schemes.md:63
@@ -288,8 +288,8 @@ msgstr ""
 
 #: src/schemes.md:64
 msgid ""
-"[smolnetd](https://gitlab.redox-os.org/redox-os/base/-/blob/master/netstack/"
-"src/smolnetd/scheme/udp.rs?ref_type=heads)"
+"[smolnetd](https://gitlab.redox-os.org/redox-os/base/-/blob/main/netstack/"
+"src/scheme/udp.rs?ref_type=heads)"
 msgstr ""
 
 #: src/schemes.md:64
@@ -302,8 +302,8 @@ msgstr ""
 
 #: src/schemes.md:65
 msgid ""
-"[smolnetd](https://gitlab.redox-os.org/redox-os/base/-/blob/master/netstack/"
-"src/smolnetd/scheme/icmp.rs?ref_type=heads)"
+"[smolnetd](https://gitlab.redox-os.org/redox-os/base/-/blob/main/netstack/"
+"src/scheme/icmp.rs?ref_type=heads)"
 msgstr ""
 
 #: src/schemes.md:65
@@ -316,8 +316,8 @@ msgstr ""
 
 #: src/schemes.md:66
 msgid ""
-"[smolnetd](https://gitlab.redox-os.org/redox-os/base/-/tree/master/netstack/"
-"src/smolnetd/scheme/netcfg?ref_type=heads)"
+"[smolnetd](https://gitlab.redox-os.org/redox-os/base/-/tree/main/netstack/"
+"src/scheme/netcfg?ref_type=heads)"
 msgstr ""
 
 #: src/schemes.md:66
