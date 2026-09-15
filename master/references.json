@@ -37,9 +37,9 @@
     "branch" : "master",
     "commit" : 
     {
-      "date" : "2026-07-26 10:19:20 -0300",
-      "hash" : "ff2fdd7e5105ce305b809127bb3020feb35e7c33",
-      "title" : "Some improvements"
+      "date" : "2026-09-08 22:51:48 -0300",
+      "hash" : "c0578b91b6133719485f5dc8d94a9409c327d5f9",
+      "title" : "Document QEMU usage on Redox"
     }
   },
   "type" : "branch",
