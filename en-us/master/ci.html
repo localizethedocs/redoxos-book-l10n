@@ -1,0 +1,352 @@
+<!DOCTYPE HTML>
+<html lang="en_US" class="light sidebar-visible" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Continuous Integration - The Redox Operating System</title>
+
+
+        <!-- Custom HTML head -->
+        <style>
+        .light .redox-logo {
+            content: url("assets/redox_light_512.png");
+        }
+        .rust .redox-logo {
+            content: url("assets/redox_light_512.png");
+        }
+        .coal .redox-logo {
+            content: url("assets/redox_dark_512.png");
+        }
+        .navy .redox-logo {
+            content: url("assets/redox_dark_512.png");
+        }
+        .ayu .redox-logo {
+            content: url("assets/redox_dark_512.png");
+        }
+        </style>
+        <script type="text/javascript" src="ltd-provenance.js"></script>
+        <script type="text/javascript" src="ltd-current.js"></script>
+        <script type="text/javascript" src="../../ltd-config.js"></script>
+        <script type="text/javascript" src="../../ltd-flyout.js"></script>
+
+        <meta name="description" content="This book carefully describes the design, implementation, direction, and structure of Redox, the operating system.">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="shortcut icon" href="favicon.png">
+        <link rel="stylesheet" href="css/variables.css">
+        <link rel="stylesheet" href="css/general.css">
+        <link rel="stylesheet" href="css/chrome.css">
+        <link rel="stylesheet" href="css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" id="highlight-css" href="highlight.css">
+        <link rel="stylesheet" id="tomorrow-night-css" href="tomorrow-night.css">
+        <link rel="stylesheet" id="ayu-highlight-css" href="ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+
+        <!-- Provide site root and default themes to javascript -->
+        <script>
+            const path_to_root = "";
+            const default_light_theme = "light";
+            const default_dark_theme = "navy";
+            window.path_to_searchindex_js = "searchindex.js";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="toc.js"></script>
+    </head>
+    <body>
+    <div id="mdbook-help-container">
+        <div id="mdbook-help-popup">
+            <h2 class="mdbook-help-title">Keyboard shortcuts</h2>
+            <div>
+                <p>Press <kbd>←</kbd> or <kbd>→</kbd> to navigate between chapters</p>
+                <p>Press <kbd>S</kbd> or <kbd>/</kbd> to search in the book</p>
+                <p>Press <kbd>?</kbd> to show this help</p>
+                <p>Press <kbd>Esc</kbd> to hide this help</p>
+            </div>
+        </div>
+    </div>
+    <div id="body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                let theme = localStorage.getItem('mdbook-theme');
+                let sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            const default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? default_dark_theme : default_light_theme;
+            let theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            let sidebar = null;
+            const sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+                sidebar_toggle.checked = false;
+            }
+            if (sidebar === 'visible') {
+                sidebar_toggle.checked = true;
+            } else {
+                html.classList.remove('sidebar-visible');
+            }
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="default_theme">Auto</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search (`/`)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="/ s" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">The Redox Operating System</h1>
+
+                    <div class="right-buttons">
+                        <a href="print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <div class="search-wrapper">
+                            <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                            <div class="spinner-wrapper">
+                                <i class="fa fa-spinner fa-spin"></i>
+                            </div>
+                        </div>
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1 id="continuous-integration"><a class="header" href="#continuous-integration">Continuous Integration</a></h1>
+<p>The <a href="https://en.wikipedia.org/wiki/Continuous_integration">Continuous Integration</a> helps developers to automate the software testing as the code evolves, it detects build failures, bugs and regressions.</p>
+<p>In Redox, we use the <a href="https://gitlab.redox-os.org/redox-os/redoxer">Redoxer</a> program to set up our GitLab CI configuration file. It downloads our toolchain, builds the program or library for the Redox target using Cargo, and runs the program inside a Redox virtual machine. Redoxer helps developers to test software for Redox OS without having to bootstrap the full build system.</p>
+<p>Refer to the repository <a href="https://gitlab.redox-os.org/redox-os/redoxer#user-content-redoxer">README</a> for command line instructions. This page assumes you have read them.</p>
+<h2 id="installing-redoxer"><a class="header" href="#installing-redoxer">Installing Redoxer</a></h2>
+<p>We provide two options to install Redoxer: Docker container or Cargo. To install via <code>redoxer</code> crate in <code>crates.io</code> :</p>
+<pre><code class="language-sh">cargo install redoxer
+</code></pre>
+<p>Then download the toolchain, QEMU image and test if installation works with <code>true</code> from <code>uutils</code> :</p>
+<pre><code class="language-sh">redoxer exec true
+</code></pre>
+<p>To install and run Redoxer via <a href="https://hub.docker.com/r/redoxos/redoxer">the official Docker container</a>:</p>
+<pre><code class="language-sh">docker run -ti --rm docker.io/redoxos/redoxer redoxer exec true
+</code></pre>
+<p>Compared to Redoxer via Cargo,  the Docker variant is very recommended for use in CI since it's <strong>guaranteed to boot</strong>, because the Redox toolchain and QEMU image for testing is already inside it and tested before being published. The Docker variant is only available for <code>x86_64</code> Linux at this time.</p>
+<p>All commands below will refer <code>redoxer</code> as the command to run Redoxer. For installations via Docker you need to prefix it using the <code>docker run</code> command or alias it in <code>.bashrc</code>:</p>
+<pre><code class="language-sh">alias redoxer='docker run -ti --rm -v ".:/mnt" -w /mnt -e REDOXER_SYSROOT --device /dev/kvm docker.io/redoxos/redoxer redoxer'
+</code></pre>
+<h2 id="build-and-test-a-rust-project-with-redoxer"><a class="header" href="#build-and-test-a-rust-project-with-redoxer">Build and test a Rust project with Redoxer</a></h2>
+<p>Redoxer has a first-class integration with Cargo. Here's how to check and build a Rust project targeting Redox OS:</p>
+<pre><code class="language-sh">redoxer check
+</code></pre>
+<pre><code class="language-sh">redoxer build
+</code></pre>
+<p>Here's how to test a Rust project in Redox OS, which will run an actual test inside QEMU:</p>
+<pre><code class="language-sh">redoxer test
+</code></pre>
+<p>All Cargo commands are shorthanded; the complete list can be seen in the README or just run <code>redoxer</code>.</p>
+<h2 id="build-and-test-a-c-or-c-project-with-redoxer"><a class="header" href="#build-and-test-a-c-or-c-project-with-redoxer">Build and test a C or C++ project with Redoxer</a></h2>
+<p>Redoxer has a shorthand for <code>ar</code>, <code>cc</code>, <code>cxx</code> for the AR/GCC/G++ compiler. Here's how to build a single <code>main.c</code> file targeting Redox OS:</p>
+<pre><code class="language-sh">redoxer cc main.c -o main
+</code></pre>
+<p>Here's how to test that single executable on Redox OS, which will run an actual test inside QEMU:</p>
+<pre><code class="language-sh">redoxer exec ./main
+</code></pre>
+<p>You can wrap Redoxer to the C and C++ compiler, which you can then use to compile larger C or C++ projects using GNU Make, CMake, Meson and so on:</p>
+<pre><code class="language-sh">export AR="redoxer ar"
+export CC="redoxer cc"
+export CXX="redoxer cxx"
+</code></pre>
+<h2 id="building-with-native-libraries"><a class="header" href="#building-with-native-libraries">Building with native libraries</a></h2>
+<p>Sometimes a project needs native libraries such as OpenSSL or zlib. To have them included for compilation, run:</p>
+<pre><code class="language-sh">redoxer pkg openssl3 zlib
+</code></pre>
+<p>It will download and extract the compiled library to <code>target/$TARGET/sysroot</code> or configured from <code>REDOXER_SYSROOT</code>. After it does, all subsequent Redoxer calls will automatically be linked to them via <code>RUSTFLAGS</code>, <code>LDFLAGS</code>, etc.</p>
+<p>To verify how the build works run the <code>redoxer env</code> command and examine how environment variables are produced. You can also debug it with a interactive GNU Bash using <code>redoxer env bash</code> :</p>
+<pre><code class="language-sh">[user@local ~]$ docker run -ti --rm docker.io/redoxos/redoxer redoxer env bash
+root@20111589c5b4:/# $CC --version
+x86_64-unknown-redox-gcc (GCC) 13.2.0
+Copyright (C) 2023 Free Software Foundation, Inc.
+This is free software; see the source for copying conditions.  There is NO
+warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+</code></pre>
+<h2 id="testing-with-additional-files"><a class="header" href="#testing-with-additional-files">Testing with additional files</a></h2>
+<p>To add files inside Redoxer use the <code>--folder</code> option, which will copy the contents of the specified directory path into <code>/root</code>:</p>
+<ul>
+<li>Add the contents of the current directory</li>
+</ul>
+<pre><code class="language-sh">redoxer exec --folder . true
+</code></pre>
+<p>You can also install more packages with <code>redoxer pkg</code>, then add those in a different folder other than the root:</p>
+<pre><code class="language-sh">REDOXER_SYSROOT=sysroot redoxer pkg curl
+</code></pre>
+<pre><code class="language-sh"># note that the ending "/" in ./sysroot/usr/ matters (rsync behavior)
+redoxer exec --folder ./sysroot/usr/:/usr curl --version
+</code></pre>
+<p>You can copy files from the QEMU image to the specified directory path with the <code>--artifact</code> option when execution is successful. It also can be combined with <code>--folder</code> :</p>
+<ul>
+<li>Add and copy the current directory back</li>
+</ul>
+<pre><code class="language-sh">redoxer exec --folder . --artifact . touch file
+</code></pre>
+<h2 id="ci-templates"><a class="header" href="#ci-templates">CI templates</a></h2>
+<ul>
+<li>GitHub CI template:</li>
+</ul>
+<pre><code class="language-yml">jobs:
+  redox:
+    runs-on: ubuntu-latest
+    container: redoxos/redoxer
+    env:
+      REDOXER_QEMU_ARGS: "-smp 1"
+    steps:
+      - run: ln -sf /root/.redoxer ~/.redoxer
+      - uses: actions/checkout@v6
+      - run: redoxer test
+</code></pre>
+<ul>
+<li>GitLab CI template:</li>
+</ul>
+<pre><code class="language-yml">redox_test:
+  image: redoxos/redoxer
+  variables:
+    REDOXER_QEMU_ARGS: "-smp 1"
+  script:
+    - redoxer test
+</code></pre>
+<p>This solve two issues:</p>
+<ul>
+<li><code>REDOXER_QEMU_ARGS: "-smp 1"</code> ensures there's no flaky test caused by high contention in kernel multi-threading, which is an open issue to this day.</li>
+<li><code>ln -sf /root/.redoxer ~/.redoxer</code> fixes a missing toolchain and image problem because GitHub does not run as <code>/root</code>, but as <code>/github/home</code>. GitLab does not have this problem.</li>
+</ul>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="porting-case-study.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="performance.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="porting-case-study.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="performance.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="elasticlunr.min.js"></script>
+        <script src="mark.min.js"></script>
+        <script src="searcher.js"></script>
+
+        <script src="clipboard.min.js"></script>
+        <script src="highlight.js"></script>
+        <script src="book.js"></script>
+
+        <!-- Custom JS scripts -->
+
+
+
+    </div>
+    </body>
+</html>
