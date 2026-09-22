@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: The Redox Operating System\n"
-"POT-Creation-Date: 2026-02-24T08:43:44Z\n"
+"POT-Creation-Date: 2026-09-22T13:07:57Z\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -23,24 +23,36 @@ msgstr ""
 msgid "[QEMU Instructions](#qemu-instructions)"
 msgstr ""
 
+#: src/running-vm.md:5
+msgid "[Linux](#linux-1)"
+msgstr ""
+
 #: src/running-vm.md:6
+msgid "[Redox](#redox)"
+msgstr ""
+
+#: src/running-vm.md:7
+msgid "[Windows](#windows-1)"
+msgstr ""
+
+#: src/running-vm.md:9
 msgid "Download the bootable images"
 msgstr ""
 
-#: src/running-vm.md:8
+#: src/running-vm.md:11
 msgid "This section will guide you to download the Redox images."
 msgstr ""
 
-#: src/running-vm.md:10
+#: src/running-vm.md:13
 msgid ""
 "(You need to use the `harddrive.img` image variant for QEMU or VirtualBox)"
 msgstr ""
 
-#: src/running-vm.md:12
+#: src/running-vm.md:15
 msgid "Stable Releases"
 msgstr ""
 
-#: src/running-vm.md:14
+#: src/running-vm.md:17
 msgid ""
 "The bootable images for the 0.9.0 release are located on the [build server "
 "release folder](https://static.redox-os.org/releases/0.9.0/x86_64/). To try "
@@ -51,13 +63,13 @@ msgid ""
 "ensure it has downloaded correctly."
 msgstr ""
 
-#: src/running-vm.md:20
+#: src/running-vm.md:23
 msgid ""
 "If you have more than one demo image in the `Downloads` directory, you may "
 "need to replace the `*` symbol with the date of your file."
 msgstr ""
 
-#: src/running-vm.md:22
+#: src/running-vm.md:25
 msgid ""
 "If the demo variant doesn't boot on your computer, try the [desktop](https://"
 "static.redox-os.org/releases/0.9.0/x86_64/"
@@ -66,17 +78,17 @@ msgid ""
 "redox_server_x86_64_2024-09-07_1225_harddrive.img.zst) variants."
 msgstr ""
 
-#: src/running-vm.md:24
+#: src/running-vm.md:27
 msgid ""
 "Even if the `desktop` and `server` variants doesn't work, use the daily "
 "images below."
 msgstr ""
 
-#: src/running-vm.md:26
+#: src/running-vm.md:29
 msgid "Daily Images"
 msgstr ""
 
-#: src/running-vm.md:28
+#: src/running-vm.md:31
 msgid ""
 "If you want to test the latest Redox changes you can use our bootable images "
 "created each day by opening the [build server images](https://static.redox-"
@@ -85,188 +97,188 @@ msgid ""
 "SHA256SUM)."
 msgstr ""
 
-#: src/running-vm.md:31
+#: src/running-vm.md:34
 msgid ""
 "(Sometimes our daily images can be one week old or more because of breaking "
 "changes)"
 msgstr ""
 
-#: src/running-vm.md:33
+#: src/running-vm.md:36
 msgid "Decompression"
 msgstr ""
 
-#: src/running-vm.md:35
+#: src/running-vm.md:38
 msgid ""
 "The Redox images are compressed using the [Zstd](https://github.com/facebook/"
 "zstd) algorithm, to decompress follow the steps below:"
 msgstr ""
 
-#: src/running-vm.md:37 src/running-vm.md:134
+#: src/running-vm.md:40 src/running-vm.md:137
 msgid "Linux"
 msgstr ""
 
-#: src/running-vm.md:39 src/running-vm.md:56
+#: src/running-vm.md:42 src/running-vm.md:59
 msgid "GUI"
 msgstr ""
 
-#: src/running-vm.md:41
+#: src/running-vm.md:44
 msgid ""
 "Install [GNOME File Roller](https://gitlab.gnome.org/GNOME/file-roller) or "
 "[KDE Ark](https://apps.kde.org/ark/) (both can be installed from [Flathub]"
 "(https://flathub.org/))"
 msgstr ""
 
-#: src/running-vm.md:42
+#: src/running-vm.md:45
 msgid "Open the Redox image and click on the \"Extract\" button"
 msgstr ""
 
-#: src/running-vm.md:44
+#: src/running-vm.md:47
 msgid ""
 "If you are using the GNOME Nautilus or KDE Dolphin file manager, right-click "
 "the file and select the option to extract the file."
 msgstr ""
 
-#: src/running-vm.md:46
+#: src/running-vm.md:49
 msgid "Terminal"
 msgstr ""
 
-#: src/running-vm.md:48
+#: src/running-vm.md:51
 msgid "Install the Zstd tool and run:"
 msgstr ""
 
-#: src/running-vm.md:54 src/running-vm.md:226
+#: src/running-vm.md:57 src/running-vm.md:245
 msgid "Windows"
 msgstr ""
 
-#: src/running-vm.md:58
+#: src/running-vm.md:61
 msgid "Install [7-Zip](https://www.7-zip.org/)"
 msgstr ""
 
-#: src/running-vm.md:59
+#: src/running-vm.md:62
 msgid ""
 "Right-click the Redox image, hover the 7-Zip section and click on the option "
 "to extract the file or open the file on 7-Zip and extract"
 msgstr ""
 
-#: src/running-vm.md:61
+#: src/running-vm.md:64
 msgid "VirtualBox Instructions"
 msgstr ""
 
-#: src/running-vm.md:63
+#: src/running-vm.md:66
 msgid ""
 "To run Redox in a VirtualBox virtual machine you need to do the following "
 "steps:"
 msgstr ""
 
-#: src/running-vm.md:65
+#: src/running-vm.md:68
 msgid ""
 "Create a VM with 2048 MB of RAM memory (or less if using a simpler Redox "
 "image variant) and 32MB of VRAM (video memory)"
 msgstr ""
 
-#: src/running-vm.md:66
+#: src/running-vm.md:69
 msgid "Enable Nested Paging"
 msgstr ""
 
-#: src/running-vm.md:67
+#: src/running-vm.md:70
 msgid "Change the keyboard and mouse interface to PS/2"
 msgstr ""
 
-#: src/running-vm.md:68
+#: src/running-vm.md:71
 msgid "Change the audio controller to Intel HDA"
 msgstr ""
 
-#: src/running-vm.md:69
+#: src/running-vm.md:72
 msgid "Disable USB support"
 msgstr ""
 
-#: src/running-vm.md:70
+#: src/running-vm.md:73
 msgid ""
 "Go to the network settings of the VM and change the NIC model to 82540EM"
 msgstr ""
 
-#: src/running-vm.md:71
+#: src/running-vm.md:74
 msgid ""
 "Go to the storage settings of the VM, create an IDE controller and add the "
 "Redox bootable image on it"
 msgstr ""
 
-#: src/running-vm.md:72
+#: src/running-vm.md:75
 msgid "Start the VM!"
 msgstr ""
 
-#: src/running-vm.md:74
+#: src/running-vm.md:77
 msgid ""
 "If you want to install Redox on the VM create a VDI disk of 5GB (or less if "
-"you are using a simplier Redox image variant)."
+"you are using a simpler Redox image variant)."
 msgstr ""
 
-#: src/running-vm.md:76
+#: src/running-vm.md:79
 msgid "Command for the pre-installed image"
 msgstr ""
 
-#: src/running-vm.md:78
+#: src/running-vm.md:81
 msgid ""
 "If you want to do this using the command-line, run the following commands:"
 msgstr ""
 
-#: src/running-vm.md:106
+#: src/running-vm.md:109
 msgid "Command for the Live ISO image"
 msgstr ""
 
-#: src/running-vm.md:108
+#: src/running-vm.md:111
 msgid ""
 "If you want to use the [Live ISO](https://static.redox-os.org/releases/0.9.0/"
 "x86_64/redox_demo_x86_64_2024-09-07_1225_livedisk.iso.zst) run the following "
 "commands:"
 msgstr ""
 
-#: src/running-vm.md:132
+#: src/running-vm.md:135
 msgid "QEMU Instructions"
 msgstr ""
 
-#: src/running-vm.md:136
+#: src/running-vm.md:139
 msgid ""
 "If you don't have QEMU installed use one of the following commands on "
 "Ubuntu, Debian or PopOS based on the image that you want:"
 msgstr ""
 
-#: src/running-vm.md:138
+#: src/running-vm.md:141
 msgid "x86-32 (i586) and x86-64 images"
 msgstr ""
 
-#: src/running-vm.md:144
+#: src/running-vm.md:147
 msgid "ARM64 images"
 msgstr ""
 
-#: src/running-vm.md:150
+#: src/running-vm.md:153
 msgid "RISC-V images"
 msgstr ""
 
-#: src/running-vm.md:156 src/running-vm.md:230
+#: src/running-vm.md:159 src/running-vm.md:249
 msgid ""
 "Use one of the following commands to run QEMU with a Redox-compatible "
 "configuration:"
 msgstr ""
 
-#: src/running-vm.md:158
+#: src/running-vm.md:161
 msgid ""
 "💡 **Tip:** if you encounter an error with the file name, verify that the "
 "name passed into the previous command (i.e., `$HOME/Downloads/"
 "redox_demo_x86_64_*_harddrive.img`) matches the file you downloaded."
 msgstr ""
 
-#: src/running-vm.md:160 src/running-vm.md:232
+#: src/running-vm.md:163 src/running-vm.md:251
 msgid "x86-32 (i586) image"
 msgstr ""
 
-#: src/running-vm.md:162 src/running-vm.md:174 src/running-vm.md:186
-#: src/running-vm.md:214 src/running-vm.md:234 src/running-vm.md:248
-#: src/running-vm.md:262 src/running-vm.md:277
+#: src/running-vm.md:165 src/running-vm.md:177 src/running-vm.md:189
+#: src/running-vm.md:217 src/running-vm.md:239 src/running-vm.md:253
+#: src/running-vm.md:267 src/running-vm.md:281 src/running-vm.md:296
 msgid "Run QEMU"
 msgstr ""
 
-#: src/running-vm.md:164
+#: src/running-vm.md:167
 msgid ""
 "```\n"
 "SDL_VIDEO_X11_DGAMOUSE=0 qemu-system-i386 -d cpu_reset,guest_errors -smp 1 -"
@@ -280,11 +292,11 @@ msgid ""
 "```"
 msgstr ""
 
-#: src/running-vm.md:172 src/running-vm.md:246
+#: src/running-vm.md:175 src/running-vm.md:265
 msgid "x86-64 image"
 msgstr ""
 
-#: src/running-vm.md:176
+#: src/running-vm.md:179
 msgid ""
 "```\n"
 "SDL_VIDEO_X11_DGAMOUSE=0 qemu-system-x86_64 -d cpu_reset,guest_errors -"
@@ -299,11 +311,11 @@ msgid ""
 "```"
 msgstr ""
 
-#: src/running-vm.md:184 src/running-vm.md:260
+#: src/running-vm.md:187 src/running-vm.md:279
 msgid "ARM64 image"
 msgstr ""
 
-#: src/running-vm.md:188
+#: src/running-vm.md:191
 msgid ""
 "```\n"
 "SDL_VIDEO_X11_DGAMOUSE=0 qemu-system-aarch64 -d cpu_reset,guest_errors -smp "
@@ -318,34 +330,34 @@ msgid ""
 "```"
 msgstr ""
 
-#: src/running-vm.md:196 src/running-vm.md:275
+#: src/running-vm.md:199 src/running-vm.md:294
 msgid "RISC-V image"
 msgstr ""
 
-#: src/running-vm.md:198
+#: src/running-vm.md:201
 msgid "Verify if the QEMU UEFI firmware is installed"
 msgstr ""
 
-#: src/running-vm.md:200
+#: src/running-vm.md:203
 msgid "PFLASH0"
 msgstr ""
 
-#: src/running-vm.md:206
+#: src/running-vm.md:209
 msgid "PFLASH1"
 msgstr ""
 
-#: src/running-vm.md:212
+#: src/running-vm.md:215
 msgid ""
 "At least one of each `PFLASH` command must be present, if the file location "
 "present on your system is different from the one used in the command you "
 "need to change it."
 msgstr ""
 
-#: src/running-vm.md:216
+#: src/running-vm.md:219
 msgid "TODO: fix not enough space for firmware error"
 msgstr ""
 
-#: src/running-vm.md:218
+#: src/running-vm.md:221
 msgid ""
 "```\n"
 "SDL_VIDEO_X11_DGAMOUSE=0 qemu-system-riscv64 -d cpu_reset,guest_errors -smp "
@@ -362,7 +374,19 @@ msgid ""
 "```"
 msgstr ""
 
-#: src/running-vm.md:228
+#: src/running-vm.md:229
+msgid "Redox"
+msgstr ""
+
+#: src/running-vm.md:231
+msgid "Install QEMU"
+msgstr ""
+
+#: src/running-vm.md:237
+msgid "x86-64 Image"
+msgstr ""
+
+#: src/running-vm.md:247
 msgid ""
 "To install **QEMU** on Windows, follow the instructions [here](https://www."
 "qemu.org/download/#windows). The installation of **QEMU** will probably not "
@@ -371,12 +395,12 @@ msgid ""
 "your `PATH` environment variable if you will be using it regularly."
 msgstr ""
 
-#: src/running-vm.md:236 src/running-vm.md:250 src/running-vm.md:264
-#: src/running-vm.md:279
+#: src/running-vm.md:255 src/running-vm.md:269 src/running-vm.md:283
+#: src/running-vm.md:298
 msgid "TODO: test"
 msgstr ""
 
-#: src/running-vm.md:238
+#: src/running-vm.md:257
 msgid ""
 "```\n"
 "\"C:\\Program Files\\qemu\\qemu-system-x86.exe\" -d cpu_reset,guest_errors -"
@@ -389,7 +413,7 @@ msgid ""
 "```"
 msgstr ""
 
-#: src/running-vm.md:252
+#: src/running-vm.md:271
 msgid ""
 "```\n"
 "\"C:\\Program Files\\qemu\\qemu-system-x86_64.exe\" -d cpu_reset,"
@@ -403,7 +427,7 @@ msgid ""
 "```"
 msgstr ""
 
-#: src/running-vm.md:266
+#: src/running-vm.md:285
 msgid ""
 "```\n"
 "\"C:\\Program Files\\qemu\\qemu-system-aarch64.exe\" -d cpu_reset,"
@@ -417,7 +441,7 @@ msgid ""
 "```"
 msgstr ""
 
-#: src/running-vm.md:281
+#: src/running-vm.md:300
 msgid ""
 "```\n"
 "\"C:\\Program Files\\qemu\\qemu-system-riscv64.exe\" -d cpu_reset,"
@@ -432,24 +456,24 @@ msgid ""
 "```"
 msgstr ""
 
-#: src/running-vm.md:290
+#: src/running-vm.md:309
 msgid ""
 "💡 **Tip:** if you get a filename error, change "
 "`redox_demo_x86_64_*_harddrive.img` to the name of the file you downloaded."
 msgstr ""
 
-#: src/running-vm.md:292
+#: src/running-vm.md:311
 msgid ""
 "💡 **Tip:** if necessary, change `\"C:\\Program Files\\qemu\\qemu-system-"
 "x86_64.exe\"` to reflect where **QEMU** was installed. The quotes are needed "
 "if the path contains spaces."
 msgstr ""
 
-#: src/running-vm.md:294
+#: src/running-vm.md:313
 msgid "Using the QEMU emulation"
 msgstr ""
 
-#: src/running-vm.md:296
+#: src/running-vm.md:315
 msgid ""
 "As the system boots, it will ask you for a screen resolution to use, for "
 "example `1024x768`. After selecting a screen size, the system will complete "
@@ -462,11 +486,11 @@ msgid ""
 "views."
 msgstr ""
 
-#: src/running-vm.md:298
+#: src/running-vm.md:317
 msgid "See [Trying Out Redox](./trying-out-redox.md) for things to try."
 msgstr ""
 
-#: src/running-vm.md:300
+#: src/running-vm.md:319
 msgid ""
 "If you want to try Redox in **server** mode, add `-nographic -vga none` to "
 "the command line above. You may wish to switch to the `redox_server` "

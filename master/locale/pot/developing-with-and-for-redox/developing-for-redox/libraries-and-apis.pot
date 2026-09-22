@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: The Redox Operating System\n"
-"POT-Creation-Date: 2026-08-04T10:44:13Z\n"
+"POT-Creation-Date: 2026-09-22T13:07:57Z\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -119,7 +119,7 @@ msgstr ""
 #: src/libraries-apis.md:37
 msgid ""
 "`x` is ABI version, `y` is API updates with backward compatibility and `z` "
-"is fixes with backward compatiblity."
+"is fixes with backward compatibility."
 msgstr ""
 
 #: src/libraries-apis.md:39

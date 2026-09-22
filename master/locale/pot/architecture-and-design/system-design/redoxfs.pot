@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: The Redox Operating System\n"
-"POT-Creation-Date: 2026-03-24T09:22:18Z\n"
+"POT-Creation-Date: 2026-09-22T13:07:57Z\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -227,6 +227,6 @@ msgstr ""
 
 #: src/redoxfs.md:165
 msgid ""
-"You can use the value from \"shrinking by ...\" to accurately tell how much "
+"You can use the value from \"shrinking by ...\" to accurately tell how many "
 "bytes can be shrinked:"
 msgstr ""

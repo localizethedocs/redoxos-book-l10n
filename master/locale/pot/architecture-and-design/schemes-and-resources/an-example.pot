@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: The Redox Operating System\n"
-"POT-Creation-Date: 2026-03-24T09:22:18Z\n"
+"POT-Creation-Date: 2026-09-22T13:07:57Z\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -112,7 +112,7 @@ msgid ""
 "briefly discuss the way that this struct will be used. Our program "
 "(`vec_scheme`) will create the `vec` scheme by opening the corresponding "
 "scheme handler in the root scheme (`:vec`).  Let's implement a `main()` "
-"function that intializes our scheme struct and registers the new scheme:"
+"function that initializes our scheme struct and registers the new scheme:"
 msgstr ""
 
 #: src/example.md:88

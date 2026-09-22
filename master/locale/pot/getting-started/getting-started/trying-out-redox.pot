@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: The Redox Operating System\n"
-"POT-Creation-Date: 2026-03-24T09:22:18Z\n"
+"POT-Creation-Date: 2026-09-22T13:07:57Z\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -142,7 +142,7 @@ msgstr ""
 
 #: src/trying-out-redox.md:71
 msgid ""
-"Kibi is the default terminal text editor inpisred on GNU Nano but with more "
+"Kibi is the default terminal text editor inspired on GNU Nano but with more "
 "features, run the `kibi` command to use it."
 msgstr ""
 

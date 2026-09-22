@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: The Redox Operating System\n"
-"POT-Creation-Date: 2026-02-24T08:43:44Z\n"
+"POT-Creation-Date: 2026-09-22T13:07:57Z\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -17,4 +17,48 @@ msgstr ""
 
 #: src/build-process.md:3
 msgid "This chapter will cover the advanced build process of Redox."
+msgstr ""
+
+#: src/build-process.md:5
+msgid "[Building Redox](./podman-build.md)"
+msgstr ""
+
+#: src/build-process.md:6
+msgid "[Native Build](./building-redox.md)"
+msgstr ""
+
+#: src/build-process.md:7
+msgid "[Self-hosted Development](./self-hosted.md)"
+msgstr ""
+
+#: src/build-process.md:8
+msgid "[From Nothing To Hello World](./nothing-to-hello-world.md)"
+msgstr ""
+
+#: src/build-process.md:9
+msgid "[Configuration Settings](./configuration-settings.md)"
+msgstr ""
+
+#: src/build-process.md:10
+msgid "[Build System Reference](./build-system-reference.md)"
+msgstr ""
+
+#: src/build-process.md:11
+msgid "[Advanced Podman Build](./advanced-podman-build.md)"
+msgstr ""
+
+#: src/build-process.md:12
+msgid "[Advanced Native Build](./advanced-build.md)"
+msgstr ""
+
+#: src/build-process.md:13
+msgid "[Working with ARM64](./aarch64.md)"
+msgstr ""
+
+#: src/build-process.md:14
+msgid "[Troubleshooting the Build](./troubleshooting.md)"
+msgstr ""
+
+#: src/build-process.md:15
+msgid "[Build Process](./build-phases.md)"
 msgstr ""

@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: The Redox Operating System\n"
-"POT-Creation-Date: 2026-03-24T09:22:18Z\n"
+"POT-Creation-Date: 2026-09-22T13:07:57Z\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -18,7 +18,7 @@ msgstr ""
 #: src/our-goals.md:3
 msgid ""
 "Redox is an attempt to make a complete, fully-functioning, general-purpose "
-"operating system with a focus on safety, freedom, stabillity, correctness, "
+"operating system with a focus on safety, freedom, stability, correctness, "
 "and pragmatism."
 msgstr ""
 
