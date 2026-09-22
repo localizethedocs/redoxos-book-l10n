@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: The Redox Operating System\n"
-"POT-Creation-Date: 2026-05-19T11:02:12Z\n"
+"POT-Creation-Date: 2026-09-22T13:07:57Z\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -456,6 +456,43 @@ msgstr ""
 
 #: src/advanced-podman-build.md:270
 msgid ""
+"The build process is performed in your normal working directory, e.g., `~/"
+"tryredox/redox`. Compilation of the Redox components is performed in the "
+"container, but the final Redox image (`build/$ARCH/$CONFIG/harddrive.img` or "
+"`build/$ARCH/$CONFIG/livedisk.iso`) is constructed using [FUSE](https://"
+"github.com/libfuse/libfuse) running directly on your host machine."
+msgstr ""
+
+#: src/advanced-podman-build.md:272
+msgid ""
+"Setting `PODMAN_BUILD?` to 1 in [.config](./configuration-settings."
+"md#config), on the `make` command line (e.g., `make PODMAN_BUILD=1 all`) or "
+"in the environment (e.g., `export PODMAN_BUILD=1; make all`) will enable "
+"Podman."
+msgstr ""
+
+#: src/advanced-podman-build.md:274
+msgid ""
+"First, a **base image** called `redox_base` will be constructed, with all "
+"the necessary packages for the build system. A \"home\" directory will also "
+"be created in `build/podman`. This is the home directory of your container "
+"alter ego, `poduser`. It will contain the `rustup` install, and the `."
+"bashrc`. This takes some time, but is only done when necessary. The _tag_ "
+"file [build/container.tag](./advanced-podman-build.md#buildcontainertag) is "
+"also created at this time to prevent unnecessary image builds."
+msgstr ""
+
+#: src/advanced-podman-build.md:276
+msgid ""
+"Then, various `make` commands are executed in **containers** built from the "
+"**base image**. The files are constructed in your working directory tree, "
+"just as they would for a non-Podman build. In fact, if all necessary "
+"packages are installed on your host system, you can switch Podman on and off "
+"relatively seamlessly, although there is no benefit of doing so."
+msgstr ""
+
+#: src/advanced-podman-build.md:278
+msgid ""
 "Historically, we've used `--userns keep-id` which means the _container's_ "
 "`root` user is actually mapped to your User ID on the host system. It was "
 "necessary in Podman 3.x and previous versions as Podman user mapping was not "
@@ -465,24 +502,24 @@ msgid ""
 "and we can drop it."
 msgstr ""
 
-#: src/advanced-podman-build.md:272
+#: src/advanced-podman-build.md:280
 msgid ""
 "For Ubuntu 22.04 there's a temporary fix by [manually updating crun](https://"
 "github.com/microsoft/vscode-remote-release/"
 "issues/11042#issuecomment-3044713731)."
 msgstr ""
 
-#: src/advanced-podman-build.md:274
+#: src/advanced-podman-build.md:282
 msgid ""
 "The working directory is made available in the container by **mounting** it "
 "as a **volume**. The **Podman** option:"
 msgstr ""
 
-#: src/advanced-podman-build.md:277
+#: src/advanced-podman-build.md:285
 msgid "\"`pwd`\""
 msgstr ""
 
-#: src/advanced-podman-build.md:280
+#: src/advanced-podman-build.md:288
 msgid ""
 "takes the directory that `make` was started in as the host working "
 "directory, and **mounts** it at the location `$CONTAINER_WORKDIR`, normally "
@@ -491,7 +528,7 @@ msgid ""
 "instances. It is optional on some Linux distros, and not optional on others."
 msgstr ""
 
-#: src/advanced-podman-build.md:282
+#: src/advanced-podman-build.md:290
 msgid ""
 "For our invocation of Podman, we set the PATH environment variable as an "
 "option to `podman run`. This is to avoid the need for our `make` command to "
@@ -501,14 +538,14 @@ msgid ""
 "on your `make` command line or by using `build.sh`."
 msgstr ""
 
-#: src/advanced-podman-build.md:284
+#: src/advanced-podman-build.md:292
 msgid ""
 "We also set `PODMAN_BUILD=0` in the environment, to ensure that the instance "
 "of `make` running in the container knows not to invoke **Podman**. This "
 "overrides the value set in `.config`."
 msgstr ""
 
-#: src/advanced-podman-build.md:286
+#: src/advanced-podman-build.md:294
 msgid ""
 "In the **Containerfile**, we use as few `RUN` commands as possible, as "
 "**Podman** commits the image after each command. We also avoid using "
@@ -516,7 +553,7 @@ msgid ""
 "arguments, rather than just a string to be processed by the entrypoint shell."
 msgstr ""
 
-#: src/advanced-podman-build.md:288
+#: src/advanced-podman-build.md:296
 msgid ""
 "Containers in our build process are run with `--rm` to ensure the container "
 "is discarded after each use. This prevents a proliferation of used "
@@ -525,7 +562,7 @@ msgid ""
 "`RUN` command is executed while building."
 msgstr ""
 
-#: src/advanced-podman-build.md:290
+#: src/advanced-podman-build.md:298
 msgid ""
 "Container images and container data is normally stored in the directory "
 "`$HOME/.local/share/containers/storage`. The following command removes that "

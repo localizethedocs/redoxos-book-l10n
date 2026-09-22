@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: The Redox Operating System\n"
-"POT-Creation-Date: 2026-02-24T08:43:44Z\n"
+"POT-Creation-Date: 2026-09-22T13:07:57Z\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -116,7 +116,7 @@ msgid ""
 msgstr ""
 
 #: src/nothing-to-hello-world.md:104
-msgid "Build the Hello World program and updae the Redox image."
+msgid "Build the Hello World program and update the Redox image."
 msgstr ""
 
 #: src/nothing-to-hello-world.md:110
