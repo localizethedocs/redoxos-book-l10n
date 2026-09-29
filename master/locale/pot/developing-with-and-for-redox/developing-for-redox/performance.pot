@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: The Redox Operating System\n"
-"POT-Creation-Date: 2026-08-04T10:44:13Z\n"
+"POT-Creation-Date: 2026-09-29T14:35:55Z\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -27,130 +27,164 @@ msgstr ""
 msgid "[Kernel](#kernel)"
 msgstr ""
 
-#: src/performance.md:7
+#: src/performance.md:6
+msgid ""
+"[Compare Performance Difference Between Commits](#compare-performance-"
+"difference-between-commits)"
+msgstr ""
+
+#: src/performance.md:8
 msgid "Benchmarks"
 msgstr ""
 
-#: src/performance.md:9
+#: src/performance.md:10
 msgid "This section contain commands for system benchmark."
 msgstr ""
 
-#: src/performance.md:11
+#: src/performance.md:12
 msgid "CPU performance"
 msgstr ""
 
-#: src/performance.md:17
+#: src/performance.md:18
 msgid "RAM performance"
 msgstr ""
 
-#: src/performance.md:23
+#: src/performance.md:24
 msgid "Filesystem read performance"
 msgstr ""
 
-#: src/performance.md:25
+#: src/performance.md:26
 msgid ""
 "(Add the `neverball` recipe on your filesystem image, by using the `make rp."
 "neverball` or `sudo pkg install neverball` commands, or permanently adding "
 "using `neverball = {}` on your filesystem configuration)"
 msgstr ""
 
-#: src/performance.md:31
+#: src/performance.md:32
 msgid "Filesystem write performance"
 msgstr ""
 
-#: src/performance.md:33
+#: src/performance.md:34
 msgid ""
 "(Add the `neverball` recipe on your filesystem image, you can also install "
 "it with the `sudo pkg install neverball` command)"
 msgstr ""
 
-#: src/performance.md:39
+#: src/performance.md:40
 msgid "Userspace IPC performance"
 msgstr ""
 
-#: src/performance.md:45 src/performance.md:133
+#: src/performance.md:46
+msgid "Targets"
+msgstr ""
+
+#: src/performance.md:48
+msgid "`make flamegraph` : TODO"
+msgstr ""
+
+#: src/performance.md:49
+msgid "`make rotate-flamegraph` : TODO"
+msgstr ""
+
+#: src/performance.md:50
+msgid "`make differential-flamegraph` : TODO"
+msgstr ""
+
+#: src/performance.md:51
+msgid "`make acid-output` : TODO"
+msgstr ""
+
+#: src/performance.md:52
+msgid "`make rotate-acid-output` : TODO"
+msgstr ""
+
+#: src/performance.md:53
+msgid "`make compare-acid-output` : TODO"
+msgstr ""
+
+#: src/performance.md:55 src/performance.md:143
 msgid "Profiling"
 msgstr ""
 
-#: src/performance.md:47
+#: src/performance.md:57
 msgid ""
 "This section explain how to configure and do system performance profiling."
 msgstr ""
 
-#: src/performance.md:49
+#: src/performance.md:59 src/performance.md:179
 msgid "Kernel"
 msgstr ""
 
-#: src/performance.md:51
+#: src/performance.md:61
 msgid ""
 "You can create a flamegraph showing the kernel's most frequent operations, "
 "using time-based sampling."
 msgstr ""
 
-#: src/performance.md:53
+#: src/performance.md:63
 msgid ""
 "This is an example flamegraph. If you open the image in a new tab, there is "
 "useful mouse hover behavior."
 msgstr ""
 
-#: src/performance.md:55
+#: src/performance.md:65
 msgid ""
 "![Kernel Flamegraph](./assets/kernel_flamegraph.svg \"Kernel Flamegraph\")"
 msgstr ""
 
-#: src/performance.md:57
+#: src/performance.md:67
 msgid ""
 "The steps below are for profiling on `x86_64`, running in `QEMU`. It is "
 "possible to run the tests on real hardware, although retrieving the data "
 "require additional effort."
 msgstr ""
 
-#: src/performance.md:59
+#: src/performance.md:69
 msgid ""
 "If you use PS/2 input devices in real hardware you need to disable the "
 "`serio_command` code in the `src/profiling.rs` file."
 msgstr ""
 
-#: src/performance.md:61
+#: src/performance.md:71
 msgid "Setup"
 msgstr ""
 
-#: src/performance.md:63
+#: src/performance.md:73
 msgid "Open a terminal window in the `redox` directory."
 msgstr ""
 
-#: src/performance.md:65
+#: src/performance.md:75
 msgid "Install the tools:"
 msgstr ""
 
-#: src/performance.md:71
+#: src/performance.md:81
 msgid ""
 "Rename the `kernel = {}` item at `config/base.toml` to `profiling-kernel = {}"
 "`"
 msgstr ""
 
-#: src/performance.md:73
+#: src/performance.md:83
 msgid ""
 "Temporarily install the `profiled` recipe with the `make rp.profiled` "
 "command or permanently install by adding it in the `[packages]` section of "
 "your filesystem configuration and run `make rp.profiled` :"
 msgstr ""
 
-#: src/performance.md:80
+#: src/performance.md:90
 msgid ""
 "Boot QEMU and use the `sudo kprof_record <app-command> [APP-ARGS...]` "
 "command to profile the kernel when running the specified application (can't "
 "be used with multiple applications in the same command)."
 msgstr ""
 
-#: src/performance.md:82
+#: src/performance.md:92
 msgid ""
 "(Optional) The following filesystem configuration is used for automated "
 "profiling: create the filesystem configuration (`config/my_profiler.toml`, "
 "for example) or adapt your existing configuration with the following content:"
 msgstr ""
 
-#: src/performance.md:84
+#: src/performance.md:94
 msgid ""
 "```toml\n"
 "include = [ \"minimal.toml\" ]\n"
@@ -189,87 +223,131 @@ msgid ""
 "```"
 msgstr ""
 
-#: src/performance.md:120
+#: src/performance.md:130
 msgid ""
 "(Optional) In the `redox` directory, create the file `.config` with the "
 "following content:"
 msgstr ""
 
-#: src/performance.md:123
+#: src/performance.md:133
 msgid "# This needs to match the name of your filesystem configuration file"
 msgstr ""
 
-#: src/performance.md:124
+#: src/performance.md:134
 msgid "my_profiler"
 msgstr ""
 
-#: src/performance.md:126
+#: src/performance.md:136
 msgid "5"
 msgstr ""
 
-#: src/performance.md:128
+#: src/performance.md:138
 msgid "no"
 msgstr ""
 
-#: src/performance.md:131
+#: src/performance.md:141
 msgid ""
 "In the `redox` terminal window, run the `make r.profiling-kernel,profiled "
 "image` command."
 msgstr ""
 
-#: src/performance.md:135
+#: src/performance.md:145
 msgid ""
 "**QEMU can't be running during this step, verify if it's closed beforehand "
 "to prevent data corruption**"
 msgstr ""
 
-#: src/performance.md:137
+#: src/performance.md:147
 msgid ""
 "The `make flamegraph` command will create a SVG of profiling data collected "
 "inside of Redox, the SVG location is: `build/flamegraph/$(TARGET)-"
 "$(CONFIG_NAME)-kflamegraph.svg`"
 msgstr ""
 
-#: src/performance.md:139
+#: src/performance.md:149
 msgid ""
 "Use the `KPROF_OPTIONS=option-value` environment variable to determine what "
 "formatting options you want for your flamegraph:"
 msgstr ""
 
-#: src/performance.md:141
+#: src/performance.md:151
 msgid "'i' for relaxed checking of function length"
 msgstr ""
 
-#: src/performance.md:142
+#: src/performance.md:152
 msgid "'o' for reporting function plus offset rather than just function"
 msgstr ""
 
-#: src/performance.md:143
+#: src/performance.md:153
 msgid "'x' for both grouping by function and with offset"
 msgstr ""
 
-#: src/performance.md:145
+#: src/performance.md:155
 msgid "Replace the \"option-value\" with your preferred formatting options."
 msgstr ""
 
-#: src/performance.md:147
+#: src/performance.md:157
 msgid "Example:"
 msgstr ""
 
-#: src/performance.md:153
+#: src/performance.md:163
 msgid "View your flamegraph SVG in a web browser."
 msgstr ""
 
-#: src/performance.md:159
+#: src/performance.md:169
 msgid "Real Hardware"
 msgstr ""
 
-#: src/performance.md:161
+#: src/performance.md:171
 msgid "TODO: test"
 msgstr ""
 
-#: src/performance.md:163
+#: src/performance.md:173
 msgid ""
 "Boot the system, and when you're done profiling, kill `profiled` and extract "
 "the `/root/profiling.txt` file (Details TBD)"
+msgstr ""
+
+#: src/performance.md:175
+msgid "Compare Performance Difference Between Commits"
+msgstr ""
+
+#: src/performance.md:177
+msgid "To measure improvements or detect regressions."
+msgstr ""
+
+#: src/performance.md:181
+msgid ""
+"This section explain how to measure performance difference between kernel "
+"commit A and B."
+msgstr ""
+
+#: src/performance.md:183
+msgid ""
+"Checkout commit A, rebuild recipe (`make cr.kernel`), and login as `root` "
+"user"
+msgstr ""
+
+#: src/performance.md:185
+msgid "Run one of the following commands and shutdown once finished:"
+msgstr ""
+
+#: src/performance.md:195
+msgid "Run `make acid-output` and `make rotate-acid-output`"
+msgstr ""
+
+#: src/performance.md:197
+msgid ""
+"Checkout commit B, rebuild recipe (`make cr.kernel`), login as `root` user, "
+"and repeat step 2"
+msgstr ""
+
+#: src/performance.md:199
+msgid "Run `make acid-output` and `make compare-acid-output`"
+msgstr ""
+
+#: src/performance.md:201
+msgid ""
+"The comparison data is stored at: `build/$ARCH/$CONFIG_NAME/acid-output` "
+"(newer) and `build/$ARCH/$CONFIG_NAME/acid-output.old` (older)"
 msgstr ""
