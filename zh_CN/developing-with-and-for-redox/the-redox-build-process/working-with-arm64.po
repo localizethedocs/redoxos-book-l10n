@@ -1,0 +1,167 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: The Redox Operating System\n"
+"POT-Creation-Date: 2026-05-19T11:02:12Z\n"
+"PO-Revision-Date: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: zh_CN\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+#: src/aarch64.md:1
+msgid "ARM64"
+msgstr ""
+
+#: src/aarch64.md:3
+msgid "[Boards](#boards)"
+msgstr ""
+
+#: src/aarch64.md:4
+msgid "[Raspberry Pi](#raspberry-pi)"
+msgstr ""
+
+#: src/aarch64.md:6
+msgid ""
+"The build system support cross-compilation for multiple CPU architectures in "
+"the same directory. Building for `aarch64` only requires that you set the "
+"`ARCH` environment variable to the correct value. Normally, you would do "
+"this in [.config](./configuration-settings.md#config), but you can also do "
+"this temporarily with the `make ARCH=aarch64` command, in the shell "
+"environment (`export ARCH=aarch64`) or with the [build.sh](./configuration-"
+"settings.md#buildsh) script."
+msgstr ""
+
+#: src/aarch64.md:8
+msgid "(ARM64 has limited support)"
+msgstr ""
+
+#: src/aarch64.md:10
+msgid "Boards"
+msgstr ""
+
+#: src/aarch64.md:12
+msgid "Raspberry Pi"
+msgstr ""
+
+#: src/aarch64.md:14
+msgid "QEMU"
+msgstr ""
+
+#: src/aarch64.md:16
+msgid "TODO: update outdated information"
+msgstr ""
+
+#: src/aarch64.md:18
+msgid "Build and run device-specific images"
+msgstr ""
+
+#: src/aarch64.md:20
+msgid ""
+"Most ARM motherboards do not use the default image for booting, which "
+"requires us to do some extra steps with building images."
+msgstr ""
+
+#: src/aarch64.md:22
+msgid "Raspberry Pi 3 Model B+"
+msgstr ""
+
+#: src/aarch64.md:24
+msgid ""
+"It is easy to port Raspberry Pi 3 Model B+ (raspi3b+) since the bootloader "
+"of Raspberry Pi family uses a similar filesystem (FAT32) for booting."
+msgstr ""
+
+#: src/aarch64.md:27
+msgid "In order to build a RasPi3B+ image:"
+msgstr ""
+
+#: src/aarch64.md:29
+msgid "Add `BOARD?=raspi3bp` and `CONFIG_NAME?=minimal` to `.config`"
+msgstr ""
+
+#: src/aarch64.md:30
+msgid "Run `make all`"
+msgstr ""
+
+#: src/aarch64.md:31
+msgid "Download the firmware"
+msgstr ""
+
+#: src/aarch64.md:41
+msgid "Run in QEMU"
+msgstr ""
+
+#: src/aarch64.md:43
+msgid ""
+"Assume that we are using the `server-minimal` configuration and built the "
+"image successfully, run:"
+msgstr ""
+
+#: src/aarch64.md:45
+msgid "Add two additional dtb files to EFI system partition:"
+msgstr ""
+
+#: src/aarch64.md:83
+msgid "Run `make qemu_raspi live=no`"
+msgstr ""
+
+#: src/aarch64.md:85
+msgid "Real Hardware"
+msgstr ""
+
+#: src/aarch64.md:87
+msgid "Booting from USB"
+msgstr ""
+
+#: src/aarch64.md:89
+msgid ""
+"Assume that we are using the `server-minimal` configuration and access "
+"serial console using GPIOs 14 and 15 (pins 8 and 10 on the 40-pin header). "
+"Do the following:"
+msgstr ""
+
+#: src/aarch64.md:91
+msgid "Run `make live`"
+msgstr ""
+
+#: src/aarch64.md:92
+msgid ""
+"Download the firmware from [official repository](https://github.com/"
+"raspberrypi/firmware/tree/master/boot)"
+msgstr ""
+
+#: src/aarch64.md:102
+msgid "Copy all required firmware to EFI system partition"
+msgstr ""
+
+#: src/aarch64.md:155
+msgid "Run:"
+msgstr ""
+
+#: src/aarch64.md:161
+msgid "(`/dev/sdX` is your USB device.)"
+msgstr ""
+
+#: src/aarch64.md:163
+msgid "Booting from SD Card"
+msgstr ""
+
+#: src/aarch64.md:165
+msgid ""
+"This process is similar to that of \"Booting from USB\", but has some "
+"differences:"
+msgstr ""
+
+#: src/aarch64.md:167
+msgid "Use `harddrive.img` instead of `livedisk.iso`"
+msgstr ""
+
+#: src/aarch64.md:168
+msgid ""
+"After `dd` command, try to make the EFI system partition of the SD card "
+"become a hybrid MBR. See [this post](https://www.eisfunke.com/posts/2023/"
+"uefi-boot-on-raspberry-pi-3.html) for more details"
+msgstr ""
