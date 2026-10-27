@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: The Redox Operating System\n"
-"POT-Creation-Date: 2026-04-07T09:21:21Z\n"
+"POT-Creation-Date: 2026-10-27T14:00:25Z\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -44,8 +44,8 @@ msgstr ""
 #: src/advanced-build.md:12
 msgid ""
 "Advanced users may accomplish the same as the [**native_bootstrap.sh**]"
-"(https://gitlab.redox-os.org/redox-os/redox/-/blob/master/native_bootstrap."
-"sh) script with the following steps:"
+"(https://gitlab.redox-os.org/redox-os/redox/-/blob/master/"
+"native_bootstrap.sh) script with the following steps:"
 msgstr ""
 
 #: src/advanced-build.md:14
@@ -316,16 +316,16 @@ msgstr ""
 msgid ""
 "Redox requires a GCC-compatible compiler for the operating system to build "
 "additional host tools. GCC for the host system is searched automatically "
-"from `PATH` environment variable with a binary named as `$GNU_TARGET-gcc` (e."
-"g. `x86_64-linux-gnu-gcc`)."
+"from `PATH` environment variable with a binary named as `$GNU_TARGET-gcc` "
+"(e.g. `x86_64-linux-gnu-gcc`)."
 msgstr ""
 
 #: src/advanced-build.md:366
 msgid ""
 "If you have to use a different compiler because GCC is not installed or is "
-"incompatible, you can export [more environment variables](https://gitlab."
-"redox-os.org/redox-os/redoxer#host-specific-customizations) in the `.config` "
-"file:"
+"incompatible, you can export [more environment variables](https://"
+"gitlab.redox-os.org/redox-os/redoxer#host-specific-customizations) in the "
+"`.config` file:"
 msgstr ""
 
 #: src/advanced-build.md:369
@@ -403,18 +403,26 @@ msgid "GNU Binutils"
 msgstr ""
 
 #: src/advanced-build.md:391
-msgid "libtool"
+msgid "Libtool"
 msgstr ""
 
 #: src/advanced-build.md:392
-msgid "Rust"
+msgid "LLVM"
 msgstr ""
 
 #: src/advanced-build.md:393
-msgid "Relibc"
+msgid "Rust"
+msgstr ""
+
+#: src/advanced-build.md:394
+msgid "Clang"
 msgstr ""
 
 #: src/advanced-build.md:395
+msgid "Relibc"
+msgstr ""
+
+#: src/advanced-build.md:397
 msgid ""
 "The tools that build Redox are specific to each CPU architecture. These "
 "tools are located in the directory `prefix`, in a subdirectory named for the "
@@ -425,11 +433,11 @@ msgid ""
 "downloaded or built."
 msgstr ""
 
-#: src/advanced-build.md:397
+#: src/advanced-build.md:399
 msgid "Prebuilt Prefix"
 msgstr ""
 
-#: src/advanced-build.md:399
+#: src/advanced-build.md:401
 msgid ""
 "Redox provides a [prebuilt prefix toolchain](https://static.redox-os.org/"
 "toolchain/) to make building fast. The prebuilt prefix is only suitable for "
@@ -438,17 +446,17 @@ msgid ""
 "available for ARM-based Linux."
 msgstr ""
 
-#: src/advanced-build.md:401
+#: src/advanced-build.md:403
 msgid ""
 "If your Linux distribution is not using glibc or its version is older than "
 "2.41, you need to set `PREFIX_BINARY=0` and build your own prefix toolchain."
 msgstr ""
 
-#: src/advanced-build.md:403
+#: src/advanced-build.md:405
 msgid "Prefix: GCC"
 msgstr ""
 
-#: src/advanced-build.md:405
+#: src/advanced-build.md:407
 msgid ""
 "Redox compiles its own GCC, GNU Binutils and Libtool to create a cross-"
 "compilation target to Redox. The whole build takes about a half hour or less "
@@ -456,19 +464,19 @@ msgid ""
 "the `gcc-install` directory containing these cross-compilers."
 msgstr ""
 
-#: src/advanced-build.md:407
+#: src/advanced-build.md:409
 msgid "Prefix: Rust"
 msgstr ""
 
-#: src/advanced-build.md:409
+#: src/advanced-build.md:411
 msgid ""
-"Redox OS is listed as both Tier 2 and Tier 3 [platform support](https://doc."
-"rust-lang.org/nightly/rustc/platform-support/redox.html) on Rust. The x86_64 "
-"architecture is listed as Tier 2 target which means that Rust's libstd is "
-"available for this target."
+"Redox OS is listed as both Tier 2 and Tier 3 [platform support](https://"
+"doc.rust-lang.org/nightly/rustc/platform-support/redox.html) on Rust. The "
+"x86_64 architecture is listed as Tier 2 target which means that Rust's "
+"libstd is available for this target."
 msgstr ""
 
-#: src/advanced-build.md:411
+#: src/advanced-build.md:413
 msgid ""
 "Redox compiles its own Rust compiler to be able to build Tier 3 libstd. "
 "Fortunately, we can choose to download from rustup instead of building the "
@@ -476,7 +484,7 @@ msgid ""
 "`PREFIX_USE_UPSTREAM_RUST_COMPILER` in `mk/config.mk`."
 msgstr ""
 
-#: src/advanced-build.md:413
+#: src/advanced-build.md:415
 msgid ""
 "Building Rust takes about 2 hours or more (if your hardware is relatively "
 "powerful) and it's also needed to compile LLVM. If you are building for the "
@@ -485,25 +493,52 @@ msgid ""
 "directory containing both GCC and Rust compiler."
 msgstr ""
 
-#: src/advanced-build.md:415
+#: src/advanced-build.md:417
 msgid ""
 "Note that there maybe some patches in [Redox Rust fork](https://gitlab.redox-"
 "os.org/redox-os/rust/) that has not been upstreamed, so your experience with "
 "using Rust from rustup might be different than building it."
 msgstr ""
 
-#: src/advanced-build.md:417
+#: src/advanced-build.md:419
+msgid "Prefix: Clang"
+msgstr ""
+
+#: src/advanced-build.md:421
+msgid ""
+"Redox OS provides Clang as an additional C/C++ compiler that's known to work "
+"better with Rust. The use of Clang is currently experimental but already "
+"being used for additional compilation stages, such as compiling to WASI or "
+"compiling components that are only known to work using Clang by some recipes."
+msgstr ""
+
+#: src/advanced-build.md:423
+msgid ""
+"The Clang contained in this toolchain also provides LLD, `compiler-rt`, and "
+"`libcxx` for Redox OS so that the compilation is independent of GCC. "
+"However, the use of that is currently experimental: Using Clang as the "
+"default compiler requires the `export REDOXER_USE_CLANG=true` command in "
+"`.config`."
+msgstr ""
+
+#: src/advanced-build.md:425
+msgid ""
+"When completed, it generates the `clang-install` directory containing Clang "
+"and its components."
+msgstr ""
+
+#: src/advanced-build.md:427
 msgid "Prefix: Relibc"
 msgstr ""
 
-#: src/advanced-build.md:419
+#: src/advanced-build.md:429
 msgid ""
 "[Relibc](https://gitlab.redox-os.org/redox-os/relibc) is the [C standard "
 "library](https://en.wikipedia.org/wiki/C_standard_library) written for "
 "Redox. Relibc is needed for both GCC and Rust to compile programs."
 msgstr ""
 
-#: src/advanced-build.md:421
+#: src/advanced-build.md:431
 msgid ""
 "Relibc is very active in development, so even with `PREFIX_BINARY=1` it will "
 "be compiled anyway to make sure we always have the updated libc. "
@@ -512,11 +547,11 @@ msgid ""
 "relibc."
 msgstr ""
 
-#: src/advanced-build.md:423
+#: src/advanced-build.md:433
 msgid "Cookbook"
 msgstr ""
 
-#: src/advanced-build.md:425
+#: src/advanced-build.md:435
 msgid ""
 "The **Cookbook** system is an essential part of the Redox build system. Each "
 "Redox component package  is built and managed by the Cookbook toolset. The "
@@ -528,11 +563,11 @@ msgid ""
 "recipes to include in Redox."
 msgstr ""
 
-#: src/advanced-build.md:427
+#: src/advanced-build.md:437
 msgid "sccache"
 msgstr ""
 
-#: src/advanced-build.md:429
+#: src/advanced-build.md:439
 msgid ""
 "[sccache](https://github.com/mozilla/sccache/) is an important object "
 "compilation cache optimization to make rebuilds fast. It is automatically "
@@ -540,15 +575,15 @@ msgid ""
 "Build, as it has some caveats."
 msgstr ""
 
-#: src/advanced-build.md:431
+#: src/advanced-build.md:441
 msgid ""
 "To enable it, download the prebuilt binaries in their [releases page]"
 "(https://github.com/mozilla/sccache/releases) to a directory read by the "
-"`PATH` environment variable (typically `~/.cargo/bin`) and add this to `."
-"config`:"
+"`PATH` environment variable (typically `~/.cargo/bin`) and add this to "
+"`.config`:"
 msgstr ""
 
-#: src/advanced-build.md:437
+#: src/advanced-build.md:447
 msgid ""
 "`sccache` will run automatically in the background after the first time it "
 "runs. See [their configuration file](https://github.com/mozilla/sccache/blob/"
@@ -558,7 +593,7 @@ msgid ""
 "causes port conflicts:"
 msgstr ""
 
-#: src/advanced-build.md:443
+#: src/advanced-build.md:453
 msgid ""
 "There is a very rare occasion where `sccache` won't pick up build cache, "
 "such as when [platform ABI changed](https://gitlab.redox-os.org/redox-os/"
@@ -567,11 +602,11 @@ msgid ""
 "as `sccache` cache is contained in the Podman container."
 msgstr ""
 
-#: src/advanced-build.md:445
+#: src/advanced-build.md:455
 msgid "Creating a Build Environment Shell"
 msgstr ""
 
-#: src/advanced-build.md:447
+#: src/advanced-build.md:457
 msgid ""
 "If you are working on specific components of the system, and will be using "
 "some of the tools in the `redox` directory and bypassing `make`, you may "
@@ -579,45 +614,45 @@ msgid ""
 "tools in your `PATH`. You can do this with:"
 msgstr ""
 
-#: src/advanced-build.md:453
+#: src/advanced-build.md:463
 msgid ""
 "This command also works with a Podman Build, creating a shell in Podman and "
 "setting `PATH` to include the necessary build tools."
 msgstr ""
 
-#: src/advanced-build.md:455
+#: src/advanced-build.md:465
 msgid "Updating The Sources"
 msgstr ""
 
-#: src/advanced-build.md:457
+#: src/advanced-build.md:467
 msgid ""
 "If you want to update the build system or if some of the recipes have "
 "changed, you can update those parts of the system with `make pull`. However, "
 "this will not update the sources of the recipes."
 msgstr ""
 
-#: src/advanced-build.md:467
+#: src/advanced-build.md:477
 msgid ""
 "If you want to update the source for the recipes, use `make rebuild`, or "
 "remove the file `$(BUILD)/fetch.tag` and run `make fetch`"
 msgstr ""
 
-#: src/advanced-build.md:469
+#: src/advanced-build.md:479
 msgid "Changing the Filesystem Size and Contents"
 msgstr ""
 
-#: src/advanced-build.md:471
+#: src/advanced-build.md:481
 msgid ""
 "You can modify the size and contents of the filesystem for emulation and "
 "_livedisk_ as described in the [Configuration Settings](./configuration-"
 "settings.md) page."
 msgstr ""
 
-#: src/advanced-build.md:473
+#: src/advanced-build.md:483
 msgid "Next Steps"
 msgstr ""
 
-#: src/advanced-build.md:475
+#: src/advanced-build.md:485
 msgid ""
 "Once this is all set up, we can finally build! See the [Compiling Redox](./"
 "building-redox.md#compiling-redox) section."
