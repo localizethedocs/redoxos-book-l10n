@@ -98,9 +98,9 @@ msgstr ""
 
 #: src/build-phases.md:32
 msgid ""
-"Download our Rust and GCC forks from the [Redox build server](https://static."
-"redox-os.org/toolchain/) (if it's not present or you if you executed `rm -rf "
-"prefix` to fix issues)."
+"Download our Rust and GCC forks from the [Redox build server](https://"
+"static.redox-os.org/toolchain/) (if it's not present or you if you executed "
+"`rm -rf prefix` to fix issues)."
 msgstr ""
 
 #: src/build-phases.md:33

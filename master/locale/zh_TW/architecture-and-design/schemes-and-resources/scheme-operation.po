@@ -135,8 +135,8 @@ msgstr ""
 
 #: src/scheme-operation.md:55
 msgid ""
-"Create the scheme, obtaining a file descriptor - `File::create(\":"
-"myscheme\")`"
+"Create the scheme, obtaining a file descriptor - "
+"`File::create(\":myscheme\")`"
 msgstr ""
 
 #: src/scheme-operation.md:56

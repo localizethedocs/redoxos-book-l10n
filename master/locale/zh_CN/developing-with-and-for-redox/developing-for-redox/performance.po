@@ -55,9 +55,9 @@ msgstr ""
 
 #: src/performance.md:26
 msgid ""
-"(Add the `neverball` recipe on your filesystem image, by using the `make rp."
-"neverball` or `sudo pkg install neverball` commands, or permanently adding "
-"using `neverball = {}` on your filesystem configuration)"
+"(Add the `neverball` recipe on your filesystem image, by using the `make "
+"rp.neverball` or `sudo pkg install neverball` commands, or permanently "
+"adding using `neverball = {}` on your filesystem configuration)"
 msgstr ""
 
 #: src/performance.md:32
@@ -260,8 +260,8 @@ msgstr ""
 #: src/performance.md:147
 msgid ""
 "The `make flamegraph` command will create a SVG of profiling data collected "
-"inside of Redox, the SVG location is: `build/flamegraph/$(TARGET)-"
-"$(CONFIG_NAME)-kflamegraph.svg`"
+"inside of Redox, the SVG location is: `build/flamegraph/$(TARGET)-$"
+"(CONFIG_NAME)-kflamegraph.svg`"
 msgstr ""
 
 #: src/performance.md:149

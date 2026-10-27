@@ -508,8 +508,8 @@ msgid ""
 "dependency information (build tool, mandatory and optional dependency "
 "category separation), determine the build system configuration on their "
 "tarball or Git repository and use the build system log to discover or "
-"determine the minimum/mandatory dependencies (not using the `build."
-"dependencies` and `package.dependencies` data types)"
+"determine the minimum/mandatory dependencies (not using the "
+"`build.dependencies` and `package.dependencies` data types)"
 msgstr ""
 
 #: src/porting-applications.md:119
@@ -807,8 +807,9 @@ msgstr ""
 
 #: src/porting-applications.md:218
 msgid ""
-"TOML sections and data types can also be mentioned using the `section-name."
-"data-type-name` format for easier explanation and better explanation writing."
+"TOML sections and data types can also be mentioned using the `section-"
+"name.data-type-name` format for easier explanation and better explanation "
+"writing."
 msgstr ""
 
 #: src/porting-applications.md:220
@@ -1423,11 +1424,11 @@ msgstr ""
 #: src/porting-applications.md:441
 msgid ""
 "The `custom` template enable the `build.script =` data type to be used, this "
-"data type will run any command supported by the [GNU Bash](https://www.gnu."
-"org/software/bash/) shell. The shell script will be wrapped with Bash "
-"functions and variables to aid the build script. The wrapper can be found in "
-"[this Cookbook source file](https://gitlab.redox-os.org/redox-os/-/blob/"
-"master/src/bin/cook.rs)."
+"data type will run any command supported by the [GNU Bash](https://"
+"www.gnu.org/software/bash/) shell. The shell script will be wrapped with "
+"Bash functions and variables to aid the build script. The wrapper can be "
+"found in [this Cookbook source file](https://gitlab.redox-os.org/redox-os/-/"
+"blob/master/src/bin/cook.rs)."
 msgstr ""
 
 #: src/porting-applications.md:443
@@ -1461,9 +1462,9 @@ msgstr ""
 #: src/porting-applications.md:457
 msgid ""
 "The script section starts at the location of the `${COOKBOOK_BUILD}` "
-"environment variable (`recipe-name/target/$TARGET/build`). This "
-"`${COOKBOOK_BUILD}` will be an empty directory, while recipe sources are in "
-"`${COOKBOOK_SOURCE}`. It is expected that the build script will not modify "
+"environment variable (`recipe-name/target/$TARGET/build`). This `$"
+"{COOKBOOK_BUILD}` will be an empty directory, while recipe sources are in `$"
+"{COOKBOOK_SOURCE}`. It is expected that the build script will not modify "
 "anything in `${COOKBOOK_SOURCE}`, otherwise, please use the `source.script = "
 "` data type."
 msgstr ""
@@ -2104,8 +2105,8 @@ msgstr ""
 #: src/porting-applications.md:838
 msgid ""
 "While packaging Rust applications you need to know where the main executable "
-"is located in the Cargo project, to do this you need to verify the `Cargo."
-"toml` files of the project."
+"is located in the Cargo project, to do this you need to verify the "
+"`Cargo.toml` files of the project."
 msgstr ""
 
 #: src/porting-applications.md:840
@@ -2422,8 +2423,8 @@ msgid ""
 "    for example in example1 example2\n"
 "    do\n"
 "        \"${COOKBOOK_CARGO}\" build \\\n"
-"            --manifest-path \"${COOKBOOK_SOURCE}/${PACKAGE_PATH}/Cargo."
-"toml\" \\\n"
+"            --manifest-path \"${COOKBOOK_SOURCE}/${PACKAGE_PATH}/"
+"Cargo.toml\" \\\n"
 "            --example \"${example}\" \\\n"
 "            --release \\\n"
 "            --add-your-flag-here\n"
@@ -2748,10 +2749,10 @@ msgstr ""
 #: src/porting-applications.md:1175
 msgid ""
 "**Only use official tarballs**, GitHub auto-generates tarballs for each new "
-"release or tag of the application, but they [aren't static](https://github."
-"blog/changelog/2023-01-30-git-archive-checksums-may-change/) (break the "
-"checksum) and [don't verify the archive integrity](https://github."
-"blog/2023-02-21-update-on-the-future-stability-of-source-code-archives-and-"
+"release or tag of the application, but they [aren't static](https://"
+"github.blog/changelog/2023-01-30-git-archive-checksums-may-change/) (break "
+"the checksum) and [don't verify the archive integrity](https://github.blog/"
+"2023-02-21-update-on-the-future-stability-of-source-code-archives-and-"
 "hashes/)."
 msgstr ""
 
@@ -3031,8 +3032,8 @@ msgstr ""
 
 #: src/porting-applications.md:1280
 msgid ""
-"The \"system libraries\" on this case is the recipes specified on the `build."
-"dependencies = []` section of your `recipe.toml`."
+"The \"system libraries\" on this case is the recipes specified on the "
+"`build.dependencies = []` section of your `recipe.toml`."
 msgstr ""
 
 #: src/porting-applications.md:1282
@@ -3157,8 +3158,8 @@ msgstr ""
 
 #: src/porting-applications.md:1329
 msgid ""
-"Copy the repository link/version branch or tag and paste on your `recipe."
-"toml`, for example:"
+"Copy the repository link/version branch or tag and paste on your "
+"`recipe.toml`, for example:"
 msgstr ""
 
 #: src/porting-applications.md:1331
@@ -3300,15 +3301,15 @@ msgstr ""
 #: src/porting-applications.md:1376
 msgid ""
 "It's the most complete reference for advanced packaging of applications, you "
-"can search the Gentoo packages on the [Gentoo Packages](https://packages."
-"gentoo.org/) website."
+"can search the Gentoo packages on the [Gentoo Packages](https://"
+"packages.gentoo.org/) website."
 msgstr ""
 
 #: src/porting-applications.md:1378
 msgid ""
-"To start you need to read the [Gentoo documentation](https://devmanual."
-"gentoo.org/general-concepts/dependencies/) page to learn advanced packaging "
-"and some problems."
+"To start you need to read the [Gentoo documentation](https://"
+"devmanual.gentoo.org/general-concepts/dependencies/) page to learn advanced "
+"packaging and some problems."
 msgstr ""
 
 #: src/porting-applications.md:1380
@@ -3366,8 +3367,8 @@ msgstr ""
 #: src/porting-applications.md:1395
 msgid ""
 "The `podman/redox-base-containerfile` file and `native_bootstrap.sh` script "
-"covers the build tools required by recipes on the [demo.toml](https://gitlab."
-"redox-os.org/redox-os/redox/-/blob/master/config/x86_64/demo.toml) "
+"covers the build tools required by recipes on the [demo.toml](https://"
+"gitlab.redox-os.org/redox-os/redox/-/blob/master/config/x86_64/demo.toml) "
 "filesystem configuration."
 msgstr ""
 
@@ -3394,8 +3395,8 @@ msgstr ""
 
 #: src/porting-applications.md:1405
 msgid ""
-"You can find the feature flags below the `[features]` section in the `Cargo."
-"toml` file."
+"You can find the feature flags below the `[features]` section in the "
+"`Cargo.toml` file."
 msgstr ""
 
 #: src/porting-applications.md:1407
@@ -3637,8 +3638,8 @@ msgstr ""
 #: src/porting-applications.md:1561
 msgid ""
 "It's possible that some not ported crate has a Redox fork with patches, you "
-"can search the crate name on the [Redox GitLab](https://gitlab.redox-os."
-"org/), generally the Redox patches stay in the `redox` branch or `redox-"
+"can search the crate name on the [Redox GitLab](https://gitlab.redox-"
+"os.org/), generally the Redox patches stay in the `redox` branch or `redox-"
 "version` branch that follow the crate version."
 msgstr ""
 
@@ -3807,9 +3808,10 @@ msgstr ""
 
 #: src/porting-applications.md:1685
 msgid ""
-"If you want to add your recipe on the [build system](https://gitlab.redox-os."
-"org/redox-os/redox) to become a Redox package on the [build server](https://"
-"static.redox-os.org/pkg/), read the [package policy](#package-policy) below."
+"If you want to add your recipe on the [build system](https://gitlab.redox-"
+"os.org/redox-os/redox) to become a Redox package on the [build server]"
+"(https://static.redox-os.org/pkg/), read the [package policy](#package-"
+"policy) below."
 msgstr ""
 
 #: src/porting-applications.md:1687

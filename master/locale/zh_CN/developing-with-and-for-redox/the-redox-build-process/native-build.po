@@ -182,8 +182,8 @@ msgstr ""
 
 #: src/building-redox.md:80
 msgid ""
-"`PREFIX_BINARY=0` to disable [prebuilt prefix binary](./advanced-build."
-"md#prefix)"
+"`PREFIX_BINARY=0` to disable [prebuilt prefix binary](./advanced-"
+"build.md#prefix)"
 msgstr ""
 
 #: src/building-redox.md:81
@@ -252,8 +252,8 @@ msgstr ""
 #: src/building-redox.md:111
 msgid ""
 "💡 **Tip:** the filesystem parts are merged into the final system image "
-"using the [FUSE](https://github.com/libfuse/libfuse) library. The `bootstrap."
-"sh` script installs `libfuse` automatically. If you encounter problems with "
-"the final Redox image, verify `libfuse` is installed and that you are able "
-"to use it."
+"using the [FUSE](https://github.com/libfuse/libfuse) library. The "
+"`bootstrap.sh` script installs `libfuse` automatically. If you encounter "
+"problems with the final Redox image, verify `libfuse` is installed and that "
+"you are able to use it."
 msgstr ""

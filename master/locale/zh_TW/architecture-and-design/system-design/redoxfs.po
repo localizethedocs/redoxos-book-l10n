@@ -96,8 +96,8 @@ msgstr ""
 
 #: src/redoxfs.md:31
 msgid ""
-"If you found errors while installing it make sure to install the `libfuse` 3."
-"x package for your Unix-like distribution."
+"If you found errors while installing it make sure to install the `libfuse` "
+"3.x package for your Unix-like distribution."
 msgstr ""
 
 #: src/redoxfs.md:33

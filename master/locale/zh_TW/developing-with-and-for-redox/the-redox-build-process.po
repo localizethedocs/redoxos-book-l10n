@@ -41,7 +41,7 @@ msgstr ""
 
 #: src/build-process.md:10
 msgid "[Build System Reference](./build-system-reference.md)"
-msgstr ""
+msgstr "[建置系統參考](./build-system-reference.md)"
 
 #: src/build-process.md:11
 msgid "[Advanced Podman Build](./advanced-podman-build.md)"

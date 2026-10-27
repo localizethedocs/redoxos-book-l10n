@@ -44,8 +44,8 @@ msgstr ""
 
 #: src/syscall-debug.md:12
 msgid ""
-"If the directory is missing, go to your `redox` directory and run `make f."
-"kernel`"
+"If the directory is missing, go to your `redox` directory and run `make "
+"f.kernel`"
 msgstr ""
 
 #: src/syscall-debug.md:14
@@ -129,8 +129,8 @@ msgstr ""
 msgid ""
 "```\n"
 "pub fn debug_start([a, b, c, d, e, f]: [usize; 6]) {\n"
-"    let do_debug = if false && crate::context::current().read().name."
-"contains(\"acpid\") {\n"
+"    let do_debug = if false && "
+"crate::context::current().read().name.contains(\"acpid\") {\n"
 "        if a == SYS_CLOCK_GETTIME || a == SYS_YIELD || a == SYS_FUTEX {\n"
 "            false\n"
 "        } else if (a == SYS_WRITE || a == SYS_FSYNC) && (b == 1 || b == 2) "

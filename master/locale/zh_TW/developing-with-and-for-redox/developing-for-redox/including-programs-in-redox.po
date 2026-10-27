@@ -286,8 +286,8 @@ msgstr ""
 msgid ""
 "The Cookbook will only build programs that have a recipe defined in "
 "`recipes`. To create a recipe for the Hello World program, first create the "
-"directory `recipes/hello-world`. Inside this directory create the \"recipe."
-"toml\" file and add these lines to it:"
+"directory `recipes/hello-world`. Inside this directory create the "
+"\"recipe.toml\" file and add these lines to it:"
 msgstr ""
 
 #: src/including-programs.md:134

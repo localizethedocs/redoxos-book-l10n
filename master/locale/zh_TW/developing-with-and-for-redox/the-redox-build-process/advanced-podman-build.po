@@ -140,10 +140,10 @@ msgstr ""
 
 #: src/advanced-podman-build.md:66
 msgid ""
-"We recommend you to install QEMU, VirtualBox or [UTM](https://mac.getutm."
-"app/) and create ARM64 or x86-64 Linux distribution virtual machine to build "
-"Redox and follow Podman or Native Build using the Linux distribution of your "
-"choice."
+"We recommend you to install QEMU, VirtualBox or [UTM](https://"
+"mac.getutm.app/) and create ARM64 or x86-64 Linux distribution virtual "
+"machine to build Redox and follow Podman or Native Build using the Linux "
+"distribution of your choice."
 msgstr ""
 
 #: src/advanced-podman-build.md:68
@@ -382,9 +382,9 @@ msgstr ""
 
 #: src/advanced-podman-build.md:248
 msgid ""
-"`PODMAN_BUILD?` - If set to 1 in [.config](./configuration-settings."
-"md#config), or in the environment, or on the `make` command line, much of "
-"the build process takes place in **Podman**."
+"`PODMAN_BUILD?` - If set to 1 in [.config](./configuration-"
+"settings.md#config), or in the environment, or on the `make` command line, "
+"much of the build process takes place in **Podman**."
 msgstr ""
 
 #: src/advanced-podman-build.md:250
@@ -465,10 +465,10 @@ msgstr ""
 
 #: src/advanced-podman-build.md:272
 msgid ""
-"Setting `PODMAN_BUILD?` to 1 in [.config](./configuration-settings."
-"md#config), on the `make` command line (e.g., `make PODMAN_BUILD=1 all`) or "
-"in the environment (e.g., `export PODMAN_BUILD=1; make all`) will enable "
-"Podman."
+"Setting `PODMAN_BUILD?` to 1 in [.config](./configuration-"
+"settings.md#config), on the `make` command line (e.g., `make PODMAN_BUILD=1 "
+"all`) or in the environment (e.g., `export PODMAN_BUILD=1; make all`) will "
+"enable Podman."
 msgstr ""
 
 #: src/advanced-podman-build.md:274
@@ -476,8 +476,8 @@ msgid ""
 "First, a **base image** called `redox_base` will be constructed, with all "
 "the necessary packages for the build system. A \"home\" directory will also "
 "be created in `build/podman`. This is the home directory of your container "
-"alter ego, `poduser`. It will contain the `rustup` install, and the `."
-"bashrc`. This takes some time, but is only done when necessary. The _tag_ "
+"alter ego, `poduser`. It will contain the `rustup` install, and the "
+"`.bashrc`. This takes some time, but is only done when necessary. The _tag_ "
 "file [build/container.tag](./advanced-podman-build.md#buildcontainertag) is "
 "also created at this time to prevent unnecessary image builds."
 msgstr ""
@@ -505,8 +505,8 @@ msgstr ""
 #: src/advanced-podman-build.md:280
 msgid ""
 "For Ubuntu 22.04 there's a temporary fix by [manually updating crun](https://"
-"github.com/microsoft/vscode-remote-release/"
-"issues/11042#issuecomment-3044713731)."
+"github.com/microsoft/vscode-remote-release/issues/"
+"11042#issuecomment-3044713731)."
 msgstr ""
 
 #: src/advanced-podman-build.md:282

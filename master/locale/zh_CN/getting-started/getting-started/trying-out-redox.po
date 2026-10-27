@@ -152,10 +152,10 @@ msgstr ""
 
 #: src/trying-out-redox.md:75
 msgid ""
-"Rusthello is an advanced Reversi AI, made by [HenryTheCat](https://github."
-"com/HenryTheCat). It is highly concurrent, so this acts as a demonstration "
-"of Redox's multithreading capabilities. It supports various AIs, such as "
-"brute force, minimax, local optimizations, and hybrid AIs."
+"Rusthello is an advanced Reversi AI, made by [HenryTheCat](https://"
+"github.com/HenryTheCat). It is highly concurrent, so this acts as a "
+"demonstration of Redox's multithreading capabilities. It supports various "
+"AIs, such as brute force, minimax, local optimizations, and hybrid AIs."
 msgstr ""
 
 #: src/trying-out-redox.md:77

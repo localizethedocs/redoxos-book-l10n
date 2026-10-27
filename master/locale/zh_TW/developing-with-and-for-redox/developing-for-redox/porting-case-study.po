@@ -87,8 +87,8 @@ msgstr ""
 #: src/porting-case-study.md:76
 msgid ""
 "To create a recipe, we need to make a new directory in `recipes` with the "
-"name the package will have, in this case `gitoxide`, and create a `recipe."
-"toml` file with a first-draft recipe."
+"name the package will have, in this case `gitoxide`, and create a "
+"`recipe.toml` file with a first-draft recipe."
 msgstr ""
 
 #: src/porting-case-study.md:86
@@ -259,8 +259,8 @@ msgstr ""
 msgid ""
 "Our `libc` errors are solved! Remember, these changes will need to "
 "upstreamed by someone with the authority to make changes to `libc`. Post a "
-"request on the chat's [Redox OS/MRs](https://matrix.to/#/#redox-mrs:matrix."
-"org) room to add the constants to `libc`."
+"request on the chat's [Redox OS/MRs](https://matrix.to/#/#redox-"
+"mrs:matrix.org) room to add the constants to `libc`."
 msgstr ""
 
 #: src/porting-case-study.md:245

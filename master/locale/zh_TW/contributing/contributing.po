@@ -24,14 +24,14 @@ msgstr ""
 
 #: src/contributing.md:5
 msgid ""
-"Please follow our guidelines for [Using Redox GitLab](./using-redox-gitlab."
-"md) and our [Best Practices](./best-practices.md)."
+"Please follow our guidelines for [Using Redox GitLab](./using-redox-"
+"gitlab.md) and our [Best Practices](./best-practices.md)."
 msgstr ""
 
 #: src/contributing.md:7
 msgid ""
-"If you are contributing to Redox, it's important to join us on [Chat](./chat."
-"md). Merge Requests are only reviewed if you post a link in the MRs room on "
-"Chat. It's also important to join so you can align with our current efforts "
-"and avoid unnecessary work."
+"If you are contributing to Redox, it's important to join us on [Chat](./"
+"chat.md). Merge Requests are only reviewed if you post a link in the MRs "
+"room on Chat. It's also important to join so you can align with our current "
+"efforts and avoid unnecessary work."
 msgstr ""

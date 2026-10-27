@@ -167,6 +167,3 @@ msgstr ""
 #: src/communication.md:42
 msgid "![File access diagram](./assets/file-access-design.svg)"
 msgstr ""
-
-#~ msgid "Example"
-#~ msgstr "範例"

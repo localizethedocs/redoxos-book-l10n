@@ -119,8 +119,8 @@ msgstr ""
 
 #: src/signing-in-to-gitlab.md:37
 msgid ""
-"[Google Authenticator](https://play.google.com/store/apps/details?id=com."
-"google.android.apps.authenticator2&hl=en_CA&gl=US)"
+"[Google Authenticator](https://play.google.com/store/apps/details?"
+"id=com.google.android.apps.authenticator2&hl=en_CA&gl=US)"
 msgstr ""
 
 #: src/signing-in-to-gitlab.md:39

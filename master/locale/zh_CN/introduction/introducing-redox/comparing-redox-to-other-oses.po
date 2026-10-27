@@ -36,8 +36,8 @@ msgstr ""
 #: src/how-redox-compares.md:9
 msgid ""
 "However, Redox does not necessarily implement them as system calls directly. "
-"Much of the machinery for these functions (typically the [man(2)](https://en."
-"wikipedia.org/wiki/Man_page#Manual_sections) functions) is provided in "
+"Much of the machinery for these functions (typically the [man(2)](https://"
+"en.wikipedia.org/wiki/Man_page#Manual_sections) functions) is provided in "
 "userspace through an interface library, `relibc`."
 msgstr ""
 

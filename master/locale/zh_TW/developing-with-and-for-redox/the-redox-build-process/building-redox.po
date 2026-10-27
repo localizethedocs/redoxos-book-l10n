@@ -26,8 +26,8 @@ msgstr ""
 msgid ""
 "Redox build system is using **Rootless Podman**. **Podman** is used to avoid "
 "bugs from different build environments (operating systems). You can find out "
-"more about Podman on the [Official Podman documentation](https://docs.podman."
-"io/en/latest/Introduction.html)."
+"more about Podman on the [Official Podman documentation](https://"
+"docs.podman.io/en/latest/Introduction.html)."
 msgstr ""
 
 #: src/podman-build.md:7

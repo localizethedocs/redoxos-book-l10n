@@ -17,9 +17,9 @@ msgstr ""
 
 #: src/schemes.md:3
 msgid ""
-"The **scheme**, which takes its name from [URI schemes](https://en.wikipedia."
-"org/wiki/List_of_URI_schemes), identifies the type of resource, and "
-"identifies the manager daemon responsible for that resource."
+"The **scheme**, which takes its name from [URI schemes](https://"
+"en.wikipedia.org/wiki/List_of_URI_schemes), identifies the type of resource, "
+"and identifies the manager daemon responsible for that resource."
 msgstr ""
 
 #: src/schemes.md:6

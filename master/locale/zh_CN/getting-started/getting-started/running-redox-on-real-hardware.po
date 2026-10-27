@@ -67,10 +67,11 @@ msgstr ""
 msgid ""
 "You can obtain a _livedisk_ ISO image either by downloading the [latest "
 "release](https://static.redox-os.org/releases/0.9.0/x86_64/), or by "
-"[building one](./building-redox.md). The [demo ISO](https://static.redox-os."
-"org/releases/0.9.0/x86_64/redox_demo_x86_64_2024-09-07_1225_livedisk.iso."
-"zst) is recommended for most laptops. After downloading completes, check the "
-"[SHA256 sum](https://static.redox-os.org/releases/0.9.0/x86_64/SHA256SUM):"
+"[building one](./building-redox.md). The [demo ISO](https://static.redox-"
+"os.org/releases/0.9.0/x86_64/"
+"redox_demo_x86_64_2024-09-07_1225_livedisk.iso.zst) is recommended for most "
+"laptops. After downloading completes, check the [SHA256 sum](https://"
+"static.redox-os.org/releases/0.9.0/x86_64/SHA256SUM):"
 msgstr ""
 
 #: src/real-hardware.md:23
@@ -189,9 +190,9 @@ msgstr ""
 
 #: src/real-hardware.md:67
 msgid ""
-"Open your file manager, click with the right-button of your mouse on the `."
-"AppImage` file and open the \"Properties\", find the \"Permissions\" section "
-"and mark it as executable."
+"Open your file manager, click with the right-button of your mouse on the "
+"`.AppImage` file and open the \"Properties\", find the \"Permissions\" "
+"section and mark it as executable."
 msgstr ""
 
 #: src/real-hardware.md:68

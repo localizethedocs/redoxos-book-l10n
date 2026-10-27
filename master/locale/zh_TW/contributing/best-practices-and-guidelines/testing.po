@@ -52,8 +52,8 @@ msgstr ""
 
 #: src/testing-practices.md:14
 msgid ""
-"The test suites can be executed in an automated way by running the `make rp."
-"auto-test,--with-package-deps qemu` command from the build system and "
+"The test suites can be executed in an automated way by running the `make "
+"rp.auto-test,--with-package-deps qemu` command from the build system and "
 "running the `auto-test` command inside of Redox (testing on real hardware is "
 "more rich and thus can have different results compared to QEMU)."
 msgstr ""

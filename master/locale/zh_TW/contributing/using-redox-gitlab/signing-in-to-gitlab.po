@@ -121,8 +121,8 @@ msgstr ""
 
 #: src/signing-in-to-gitlab.md:37
 msgid ""
-"[Google Authenticator](https://play.google.com/store/apps/details?id=com."
-"google.android.apps.authenticator2&hl=en_CA&gl=US)"
+"[Google Authenticator](https://play.google.com/store/apps/details?"
+"id=com.google.android.apps.authenticator2&hl=en_CA&gl=US)"
 msgstr ""
 
 #: src/signing-in-to-gitlab.md:39
@@ -280,12 +280,3 @@ msgstr ""
 #: src/signing-in-to-gitlab.md:91
 msgid "If you have lost your PAT, it's OK to create another one."
 msgstr ""
-
-#~ msgid "Before logging-in, you'll need:"
-#~ msgstr "在登入之前，您需要："
-
-#~ msgid "your 2FA App installed on your phone."
-#~ msgstr "您手機上安裝的 2FA 應用程式。"
-
-#~ msgid "Logging-In With An iPhone"
-#~ msgstr "使用 iPhone 登入"

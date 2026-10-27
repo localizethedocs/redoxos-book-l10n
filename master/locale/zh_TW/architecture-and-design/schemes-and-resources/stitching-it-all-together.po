@@ -28,6 +28,6 @@ msgstr ""
 
 #: src/stitching-it-all-together.md:8
 msgid ""
-"![Diagram illustrating scheme resolution](./assets/scheme_resolution_diagram."
-"png)"
+"![Diagram illustrating scheme resolution](./assets/"
+"scheme_resolution_diagram.png)"
 msgstr ""

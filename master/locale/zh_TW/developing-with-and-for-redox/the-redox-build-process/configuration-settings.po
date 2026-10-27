@@ -144,9 +144,9 @@ msgstr ""
 msgid ""
 "The default values for the build system's Makefile variables are mostly "
 "defined in the `mk` directory—particularly in [`mk/config.mk`](#mkconfigmk). "
-"Local changes from the default values, however, should be applied in the [`."
-"config`](#config) file, or temporarily on the `make` [command line](#command-"
-"line)."
+"Local changes from the default values, however, should be applied in the "
+"[`.config`](#config) file, or temporarily on the `make` [command line]"
+"(#command-line)."
 msgstr ""
 
 #: src/configuration-settings.md:37
@@ -218,9 +218,9 @@ msgstr ""
 msgid ""
 "Determines the filesystem configuration file location. See the [Filesystem "
 "Configuration](#filesystem-configuration) section below. The default value "
-"is `config/$ARCH/$BOARD/$CONFIG_NAME.toml` or `config/$ARCH/$CONFIG_NAME."
-"toml` if `$BOARD` is empty, but this can be changed if the desired "
-"configuration file is in a different location."
+"is `config/$ARCH/$BOARD/$CONFIG_NAME.toml` or `config/$ARCH/"
+"$CONFIG_NAME.toml` if `$BOARD` is empty, but this can be changed if the "
+"desired configuration file is in a different location."
 msgstr ""
 
 #: src/configuration-settings.md:49
@@ -375,8 +375,8 @@ msgstr ""
 #: src/configuration-settings.md:63
 msgid ""
 "If set to 1 (`FSTOOLS_NO_MOUNT=1`), the installer will not use FUSE to "
-"create images. See the [Installing without FUSE](./advanced-podman-build."
-"md#installing-without-fuse) section for more information."
+"create images. See the [Installing without FUSE](./advanced-podman-"
+"build.md#installing-without-fuse) section for more information."
 msgstr ""
 
 #: src/configuration-settings.md:64
@@ -446,12 +446,12 @@ msgstr ""
 msgid ""
 "📝 **Note:** `PODMAN_BUILD?=1` _must_ include the question mark to work "
 "correctly 📝 **Note:** Comments are supported using the `#` character 📝 "
-"**Note:** Any QEMU option can be inserted 📝 **Note:** if [`podman_bootstrap."
-"sh`](./podman-build.md#new-working-directory) was run previously, the `."
-"config` file may already exist. 💡 **Tip:** When adding environment "
-"variables in the `.config` file you can add the `?` symbol at the end of "
-"variable names to allow the variable value to be overridden on the command "
-"line shell environment."
+"**Note:** Any QEMU option can be inserted 📝 **Note:** if "
+"[`podman_bootstrap.sh`](./podman-build.md#new-working-directory) was run "
+"previously, the `.config` file may already exist. 💡 **Tip:** When adding "
+"environment variables in the `.config` file you can add the `?` symbol at "
+"the end of variable names to allow the variable value to be overridden on "
+"the command line shell environment."
 msgstr ""
 
 #: src/configuration-settings.md:89
@@ -621,8 +621,8 @@ msgstr ""
 
 #: src/configuration-settings.md:114
 msgid ""
-"Cookbook also has a configuration file. This file is rarely used because `."
-"config` should be sufficient. Any configuration in this file will override "
+"Cookbook also has a configuration file. This file is rarely used because "
+"`.config` should be sufficient. Any configuration in this file will override "
 "configuration from `.config` or environment variables. The `cookbook.toml` "
 "configuration below can be used as a template:"
 msgstr ""
@@ -683,8 +683,8 @@ msgstr ""
 
 #: src/configuration-settings.md:156
 msgid ""
-"There is more options that can be customized, these are defined in `mk/qemu."
-"mk`:"
+"There is more options that can be customized, these are defined in `mk/"
+"qemu.mk`:"
 msgstr ""
 
 #: src/configuration-settings.md:170
@@ -746,8 +746,8 @@ msgstr ""
 
 #: src/configuration-settings.md:200
 msgid ""
-"To apply lasting changes to environment variables, please refer to the [`."
-"config`](#config) section. To apply changes only _temporarily_, see the "
+"To apply lasting changes to environment variables, please refer to the "
+"[`.config`](#config) section. To apply changes only _temporarily_, see the "
 "[Command Line](#command-line) section."
 msgstr ""
 
@@ -807,8 +807,8 @@ msgid ""
 "Determines the filesystem configuration file location, which can be in any "
 "location but is normally in directory `config/$ARCH`.<br><br>📝 **Note:** If "
 "you _do_ specify `-f <FILESYSTEM_CONFIG>`, but not `-a` or `-c`, the file "
-"path determines the other values. Normally the file would be located at e."
-"g., `config/x86_64/desktop.toml`. `ARCH` is determined from the second-to-"
+"path determines the other values. Normally the file would be located at "
+"e.g., `config/x86_64/desktop.toml`. `ARCH` is determined from the second-to-"
 "last element of the path. If the second last element is not a known `ARCH` "
 "value, you must specify `-a ARCH`. `CONFIG_NAME` is determined from the "
 "_basename_ of the file."
@@ -1021,8 +1021,8 @@ msgstr ""
 
 #: src/configuration-settings.md:304
 msgid ""
-"In the following example, the `acid` package is added to the `my_desktop."
-"toml` configuration:"
+"In the following example, the `acid` package is added to the "
+"`my_desktop.toml` configuration:"
 msgstr ""
 
 #: src/configuration-settings.md:306
@@ -1048,8 +1048,8 @@ msgstr ""
 #: src/configuration-settings.md:329
 msgid ""
 "By default, the Redox build system builds all packages from source (i.e., "
-"recipes). If you want to use [pre-built packages](https://static.redox-os."
-"org/pkg/) from our build server, however, there's a recipe rule and "
+"recipes). If you want to use [pre-built packages](https://static.redox-"
+"os.org/pkg/) from our build server, however, there's a recipe rule and "
 "filesystem configuration option for it."
 msgstr ""
 
@@ -1410,8 +1410,9 @@ msgstr ""
 msgid ""
 "Unlike `COOKBOOK_CLEAN_BUILD`, it allows inspection of `build` directory and "
 "allows incremental compilation if build is failing. It does not allow "
-"visualization of the `build` and `stage` directories but creates `stage."
-"files` which contains tree of files in the `stage` directory before deletion."
+"visualization of the `build` and `stage` directories but creates "
+"`stage.files` which contains tree of files in the `stage` directory before "
+"deletion."
 msgstr ""
 
 #: src/configuration-settings.md:497

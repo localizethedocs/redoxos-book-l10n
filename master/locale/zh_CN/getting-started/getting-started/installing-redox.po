@@ -5,10 +5,10 @@ msgstr ""
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
+"Language: zh_CN\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: zh_CN\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 
 #: src/installing.md:1
@@ -244,8 +244,8 @@ msgstr ""
 msgid ""
 "In some Linux distributions, the `systemd-boot` menu is not visible, and to "
 "make it appear, the `timeout` option in `/boot/efi/loader/loader.conf` file. "
-"See [systemd-boot loader.conf man page](https://man.archlinux.org/man/loader."
-"conf.5#OPTIONS) for more information."
+"See [systemd-boot loader.conf man page](https://man.archlinux.org/man/"
+"loader.conf.5#OPTIONS) for more information."
 msgstr ""
 
 #: src/installing.md:99

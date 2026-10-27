@@ -161,9 +161,9 @@ msgstr ""
 
 #: src/example.md:126
 msgid ""
-"Now let's deal with the specific operations on our scheme. The `scheme."
-"handle(...)` call dispatches requests to these methods, so that we don't "
-"need to worry about the gory details of the `Packet` struct."
+"Now let's deal with the specific operations on our scheme. The "
+"`scheme.handle(...)` call dispatches requests to these methods, so that we "
+"don't need to worry about the gory details of the `Packet` struct."
 msgstr ""
 
 #: src/example.md:130

@@ -78,8 +78,8 @@ msgstr ""
 
 #: src/references.md:17
 msgid ""
-"[The Coded Message - Computing/Programming articles](https://www."
-"thecodedmessage.com/tags/computers)"
+"[The Coded Message - Computing/Programming articles](https://"
+"www.thecodedmessage.com/tags/computers)"
 msgstr ""
 
 #: src/references.md:19
@@ -134,14 +134,15 @@ msgstr ""
 
 #: src/references.md:31
 msgid ""
-"[Learn Rust With Entirely Too Many Linked Lists](https://rust-unofficial."
-"github.io/too-many-lists/) - How to implement a linked list in Rust."
+"[Learn Rust With Entirely Too Many Linked Lists](https://rust-"
+"unofficial.github.io/too-many-lists/) - How to implement a linked list in "
+"Rust."
 msgstr ""
 
 #: src/references.md:32
 msgid ""
-"[Rust Design Patterns](https://rust-unofficial.github.io/patterns/intro."
-"html) - About idioms, design patterns, and anti-pattern in Rust."
+"[Rust Design Patterns](https://rust-unofficial.github.io/patterns/"
+"intro.html) - About idioms, design patterns, and anti-pattern in Rust."
 msgstr ""
 
 #: src/references.md:33
@@ -294,8 +295,8 @@ msgstr ""
 
 #: src/references.md:64
 msgid ""
-"[OpenGroup Specification (POSIX and C Standard Library)](https://pubs."
-"opengroup.org/onlinepubs/9699919799/basedefs/contents.html) - This is "
+"[OpenGroup Specification (POSIX and C Standard Library)](https://"
+"pubs.opengroup.org/onlinepubs/9699919799/basedefs/contents.html) - This is "
 "important to improve the support for Linux/BSD programs written in C/C++."
 msgstr ""
 

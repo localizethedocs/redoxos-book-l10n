@@ -32,13 +32,13 @@ msgstr ""
 
 #: src/boot-process.md:9
 msgid ""
-"BIOS Boot is a boot process that dates back to the [IBM PC](https://dosdays."
-"co.uk/topics/pc_bios.php). Because of its lengthy history, BIOS starts up in "
-"16-bit mode (Real Mode), and the boot loader needs to load in multiple "
-"stages to move into higher bit environments. The firmware will execute the "
-"boot sector located in the first sector of the main storage device, which is "
-"known as the stage 1 bootloader ([OSDev Wiki](https://wiki.osdev.org/"
-"Boot_Sequence#Master_Boot_Record))."
+"BIOS Boot is a boot process that dates back to the [IBM PC](https://"
+"dosdays.co.uk/topics/pc_bios.php). Because of its lengthy history, BIOS "
+"starts up in 16-bit mode (Real Mode), and the boot loader needs to load in "
+"multiple stages to move into higher bit environments. The firmware will "
+"execute the boot sector located in the first sector of the main storage "
+"device, which is known as the stage 1 bootloader ([OSDev Wiki](https://"
+"wiki.osdev.org/Boot_Sequence#Master_Boot_Record))."
 msgstr ""
 
 #: src/boot-process.md:11

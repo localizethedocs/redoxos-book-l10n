@@ -77,8 +77,9 @@ msgstr ""
 
 #: src/creating-proper-pull-requests.md:26
 msgid ""
-"You need to create a [Personal Access Token](./signing-in-to-gitlab."
-"md#setting-up-pat) for pushing your code into your repository fork later."
+"You need to create a [Personal Access Token](./signing-in-to-"
+"gitlab.md#setting-up-pat) for pushing your code into your repository fork "
+"later."
 msgstr ""
 
 #: src/creating-proper-pull-requests.md:28

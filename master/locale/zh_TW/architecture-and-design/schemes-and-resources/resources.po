@@ -67,6 +67,6 @@ msgstr ""
 
 #: src/resources.md:21
 msgid ""
-"Networking - `/scheme/udp/a.b.c.d/p` is the UDP socket with IPv4 address `a."
-"b.c.d`, port number `p`."
+"Networking - `/scheme/udp/a.b.c.d/p` is the UDP socket with IPv4 address "
+"`a.b.c.d`, port number `p`."
 msgstr ""

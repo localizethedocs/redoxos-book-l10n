@@ -132,9 +132,9 @@ msgstr ""
 
 #: src/i686.md:62
 msgid ""
-"The following command will create the file `build/i586/desktop/livedisk."
-"iso`, which can be copied to a USB device or CD for testing or installation. "
-"See [Running Redox on real hardware](./real-hardware.md)."
+"The following command will create the file `build/i586/desktop/"
+"livedisk.iso`, which can be copied to a USB device or CD for testing or "
+"installation. See [Running Redox on real hardware](./real-hardware.md)."
 msgstr ""
 
 #: src/i686.md:68

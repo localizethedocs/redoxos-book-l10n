@@ -57,8 +57,8 @@ msgstr ""
 
 #: src/ci.md:23
 msgid ""
-"To install and run Redoxer via [the official Docker container](https://hub."
-"docker.com/r/redoxos/redoxer):"
+"To install and run Redoxer via [the official Docker container](https://"
+"hub.docker.com/r/redoxos/redoxer):"
 msgstr ""
 
 #: src/ci.md:29

@@ -29,10 +29,10 @@ msgstr ""
 
 #: src/scheduling.md:7
 msgid ""
-"The kernel registers a function called an [interrupt handler](https://wiki."
-"osdev.org/Interrupts) that the CPU calls periodically. This function keeps "
-"track of how many times it is called, and will schedule the next process "
-"ready for scheduling every 10 \"ticks\"."
+"The kernel registers a function called an [interrupt handler](https://"
+"wiki.osdev.org/Interrupts) that the CPU calls periodically. This function "
+"keeps track of how many times it is called, and will schedule the next "
+"process ready for scheduling every 10 \"ticks\"."
 msgstr ""
 
 #: src/scheduling.md:9

@@ -139,6 +139,3 @@ msgstr "執行「Hello World」程式。"
 #: src/nothing-to-hello-world.md:124
 msgid "Shut down the Redox virtual machine."
 msgstr "關閉 Redox 虛擬機。"
-
-#~ msgid "Build the Hello World program and updae the Redox image."
-#~ msgstr "編譯 Hello World 程式並更新 Redox 映像檔。"

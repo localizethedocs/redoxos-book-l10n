@@ -179,16 +179,16 @@ msgstr ""
 
 #: src/shell.md:113
 msgid ""
-"First, `on_command` adds the commands to the shell history with  `self."
-"history.add(command_string.to_string(), &self.variables);`."
+"First, `on_command` adds the commands to the shell history with  "
+"`self.history.add(command_string.to_string(), &self.variables);`."
 msgstr ""
 
 #: src/shell.md:115
 msgid ""
-"Then the script will be parsed. The parser code is in `crates/ion/src/peg."
-"rs`. The parse will return a set of pipelines, with each pipeline containing "
-"a set of jobs. Each job represents a single command with its arguments. You "
-"can take a look in `crates/ion/src/peg.rs`."
+"Then the script will be parsed. The parser code is in `crates/ion/src/"
+"peg.rs`. The parse will return a set of pipelines, with each pipeline "
+"containing a set of jobs. Each job represents a single command with its "
+"arguments. You can take a look in `crates/ion/src/peg.rs`."
 msgstr ""
 
 #: src/shell.md:133
@@ -252,7 +252,7 @@ msgstr ""
 #: src/shell.md:166
 msgid ""
 "`cd` is described by  `\"Change the current directory\\n    cd <path>\"`, "
-"and when called the method `shell.directory_stack.cd(args, &shell."
-"variables)` will be used. You can see its code in `crates/ion/src/"
+"and when called the method `shell.directory_stack.cd(args, "
+"&shell.variables)` will be used. You can see its code in `crates/ion/src/"
 "directory_stack.rs`."
 msgstr ""

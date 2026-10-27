@@ -219,9 +219,9 @@ msgstr ""
 
 #: src/coding-and-building.md:65
 msgid ""
-"If you have not used VS Code with Rust, here's an [overview](https://code."
-"visualstudio.com/docs/languages/rust). VS Code installation instructions are "
-"[here](https://code.visualstudio.com/docs/setup/linux)."
+"If you have not used VS Code with Rust, here's an [overview](https://"
+"code.visualstudio.com/docs/languages/rust). VS Code installation "
+"instructions are [here](https://code.visualstudio.com/docs/setup/linux)."
 msgstr ""
 
 #: src/coding-and-building.md:67
@@ -939,8 +939,8 @@ msgstr ""
 
 #: src/coding-and-building.md:468
 msgid ""
-"Once your Redox recipe has been successfully built, you can run the `make p."
-"redox-games` command to install the recipe in the existing Redox image."
+"Once your Redox recipe has been successfully built, you can run the `make "
+"p.redox-games` command to install the recipe in the existing Redox image."
 msgstr ""
 
 #: src/coding-and-building.md:470

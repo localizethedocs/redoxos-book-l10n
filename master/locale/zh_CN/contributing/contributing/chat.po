@@ -131,8 +131,8 @@ msgstr ""
 
 #: src/chat.md:39
 msgid ""
-"[\\#redox-announcements:matrix.org](https://matrix.to/#/#redox-announcements:"
-"matrix.org) - A room for important announcements."
+"[\\#redox-announcements:matrix.org](https://matrix.to/#/#redox-"
+"announcements:matrix.org) - A room for important announcements."
 msgstr ""
 
 #: src/chat.md:40

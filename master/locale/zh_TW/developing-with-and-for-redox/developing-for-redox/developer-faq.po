@@ -821,8 +821,8 @@ msgstr ""
 msgid ""
 "If you are using the Podman Build you need any Linux or Unix-like "
 "distribution supporting Podman 4.0 or newer and FUSE 3.x (if you have "
-"problems with FUSE in the host system there's [this](./advanced-podman-build."
-"md#installing-without-fuse) workaround to run FUSE inside the Podman "
+"problems with FUSE in the host system there's [this](./advanced-podman-"
+"build.md#installing-without-fuse) workaround to run FUSE inside the Podman "
 "container instead of host system)"
 msgstr ""
 
@@ -963,9 +963,9 @@ msgstr ""
 
 #: src/developer-faq.md:245
 msgid ""
-"Insert the `CONFIG_NAME?=your-config-name` environment variable to your `."
-"config` file, read the [config](./configuration-settings.md#config) section "
-"for more details."
+"Insert the `CONFIG_NAME?=your-config-name` environment variable to your "
+"`.config` file, read the [config](./configuration-settings.md#config) "
+"section for more details."
 msgstr ""
 
 #: src/developer-faq.md:247
@@ -987,8 +987,8 @@ msgstr ""
 #: src/developer-faq.md:253
 msgid ""
 "Insert the `ARCH?=your-cpu-arch` environment variable on your `.config` file "
-"and run the `make all` command, read the [config](./configuration-settings."
-"md#config) section for more details."
+"and run the `make all` command, read the [config](./configuration-"
+"settings.md#config) section for more details."
 msgstr ""
 
 #: src/developer-faq.md:255
@@ -1446,11 +1446,11 @@ msgstr ""
 #: src/developer-faq.md:521
 msgid ""
 "When a regular program calls `open`, `read`, `write`, etc. on a file-like "
-"resource, the kernel translates that to a message of type `syscall::data::"
-"Packet`, describing the file operation, and makes it available for reading "
-"on the appropriate daemon's scheme file descriptor. See the [Providing A "
-"Scheme](./scheme-operation.md#providing-a-scheme) section for more "
-"information."
+"resource, the kernel translates that to a message of type "
+"`syscall::data::Packet`, describing the file operation, and makes it "
+"available for reading on the appropriate daemon's scheme file descriptor. "
+"See the [Providing A Scheme](./scheme-operation.md#providing-a-scheme) "
+"section for more information."
 msgstr ""
 
 #: src/developer-faq.md:523
@@ -1459,8 +1459,8 @@ msgstr ""
 
 #: src/developer-faq.md:525
 msgid ""
-"All userspace daemons use the system calls through [relibc](https://gitlab."
-"redox-os.org/redox-os/relibc) like any normal program."
+"All userspace daemons use the system calls through [relibc](https://"
+"gitlab.redox-os.org/redox-os/relibc) like any normal program."
 msgstr ""
 
 #: src/developer-faq.md:527

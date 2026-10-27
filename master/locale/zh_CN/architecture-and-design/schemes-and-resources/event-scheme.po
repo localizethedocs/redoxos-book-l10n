@@ -146,8 +146,8 @@ msgstr ""
 
 #: src/event-scheme.md:52
 msgid ""
-"Perform a blocking read on the `event` file descriptor. `event_file."
-"read(&mut event_buf);`"
+"Perform a blocking read on the `event` file descriptor. "
+"`event_file.read(&mut event_buf);`"
 msgstr ""
 
 #: src/event-scheme.md:53
@@ -205,8 +205,8 @@ msgstr ""
 
 #: src/event-scheme.md:68
 msgid ""
-"Wait for an event that indicates activity on your scheme. `event_file."
-"read(&mut event_buf);`"
+"Wait for an event that indicates activity on your scheme. "
+"`event_file.read(&mut event_buf);`"
 msgstr ""
 
 #: src/event-scheme.md:69

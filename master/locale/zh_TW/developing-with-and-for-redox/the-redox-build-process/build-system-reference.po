@@ -187,8 +187,8 @@ msgstr "Podman 組態"
 msgid ""
 "`podman/redox-base-containerfile` - The file used to create the image used "
 "by the Podman build. The installation of packages needed for the build is "
-"done here. See the [Adding Packages to the Build](./advanced-podman-build."
-"md#adding-packages-to-the-build) section if you need to add additional "
+"done here. See the [Adding Packages to the Build](./advanced-podman-"
+"build.md#adding-packages-to-the-build) section if you need to add additional "
 "packages."
 msgstr ""
 
@@ -572,9 +572,9 @@ msgstr ""
 #: src/build-system-reference.md:130
 msgid ""
 "`make fetch` - Update recipe sources, according to each recipe, without "
-"building them. Only the recipes that are included in your `(CONFIG_NAME)."
-"toml` are downloaded. Does nothing if `$(BUILD)/fetch.tag` is present. You "
-"won't need this."
+"building them. Only the recipes that are included in your "
+"`(CONFIG_NAME).toml` are downloaded. Does nothing if `$(BUILD)/fetch.tag` is "
+"present. You won't need this."
 msgstr ""
 
 #: src/build-system-reference.md:131
@@ -744,8 +744,8 @@ msgstr ""
 #: src/build-system-reference.md:160
 msgid ""
 "`make container_touch` - If you have removed the file `build/container.tag`, "
-"but the container image is still usable, this will recreate the `container."
-"tag` file and avoid rebuilding the container image."
+"but the container image is still usable, this will recreate the "
+"`container.tag` file and avoid rebuilding the container image."
 msgstr ""
 
 #: src/build-system-reference.md:161
@@ -814,8 +814,8 @@ msgstr ""
 
 #: src/build-system-reference.md:179
 msgid ""
-"Meta-packages need the `--with-package-deps` option, for example: `make r."
-"meta-package,--with-package-deps`"
+"Meta-packages need the `--with-package-deps` option, for example: `make "
+"r.meta-package,--with-package-deps`"
 msgstr ""
 
 #: src/build-system-reference.md:180
@@ -835,8 +835,8 @@ msgstr ""
 #: src/build-system-reference.md:184
 msgid ""
 "`make p.recipe` (abbreviation of `push`) - Install one or multiple recipe "
-"packages to an existing Redox image (it can still be used after `make c."
-"recipe` or `make u.recipe` execution)"
+"packages to an existing Redox image (it can still be used after `make "
+"c.recipe` or `make u.recipe` execution)"
 msgstr ""
 
 #: src/build-system-reference.md:185
@@ -939,14 +939,14 @@ msgstr ""
 
 #: src/build-system-reference.md:203
 msgid ""
-"`make ucrp.recipe` - A shortcut for `make u.recipe c.recipe r.recipe p."
-"recipe`"
+"`make ucrp.recipe` - A shortcut for `make u.recipe c.recipe r.recipe "
+"p.recipe`"
 msgstr ""
 
 #: src/build-system-reference.md:204
 msgid ""
-"`make ucri.recipe` - A shortcut for `make u.recipe c.recipe r.recipe i."
-"recipe`"
+"`make ucri.recipe` - A shortcut for `make u.recipe c.recipe r.recipe "
+"i.recipe`"
 msgstr ""
 
 #: src/build-system-reference.md:205
@@ -1048,8 +1048,9 @@ msgstr ""
 
 #: src/build-system-reference.md:228
 msgid ""
-"`make qemu kvm=no` - Start QEMU without the [Linux KVM](https://en.wikipedia."
-"org/wiki/Kernel-based_Virtual_Machine) acceleration if it's not supported."
+"`make qemu kvm=no` - Start QEMU without the [Linux KVM](https://"
+"en.wikipedia.org/wiki/Kernel-based_Virtual_Machine) acceleration if it's not "
+"supported."
 msgstr ""
 
 #: src/build-system-reference.md:229
@@ -1320,11 +1321,11 @@ msgstr ""
 
 #: src/build-system-reference.md:367
 msgid ""
-"The Redox build system is an example of [cross-compilation](https://en."
-"wikipedia.org/wiki/Cross_compiler). The Redox [toolchain](https://static."
-"redox-os.org/toolchain/) runs on Linux, and produces Redox executables. "
-"Anything that is installed with your package manager is just part of the "
-"toolchain and does not go on Redox."
+"The Redox build system is an example of [cross-compilation](https://"
+"en.wikipedia.org/wiki/Cross_compiler). The Redox [toolchain](https://"
+"static.redox-os.org/toolchain/) runs on Linux, and produces Redox "
+"executables. Anything that is installed with your package manager is just "
+"part of the toolchain and does not go on Redox."
 msgstr ""
 
 #: src/build-system-reference.md:369
@@ -1548,8 +1549,8 @@ msgstr ""
 #: src/build-system-reference.md:507
 msgid ""
 "`scripts/dual-boot.sh` - Install Redox in the free space of your storage "
-"device and add a boot entry (if you are using the [systemd-boot](https://www."
-"freedesktop.org/wiki/Software/systemd/systemd-boot/) boot loader)."
+"device and add a boot entry (if you are using the [systemd-boot](https://"
+"www.freedesktop.org/wiki/Software/systemd/systemd-boot/) boot loader)."
 msgstr ""
 
 #: src/build-system-reference.md:509

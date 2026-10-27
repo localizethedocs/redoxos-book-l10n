@@ -374,6 +374,3 @@ msgstr ""
 #: src/SUMMARY.md:109
 msgid "Questions and Feedback"
 msgstr ""
-
-#~ msgid "Creating Proper Pull Requests"
-#~ msgstr "建立合適的拉取請求"

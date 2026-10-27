@@ -101,8 +101,8 @@ msgstr ""
 
 #: src/introduction.md:28
 msgid ""
-"Redox OS is a general-purpose operating system written in [Rust](https://www."
-"rust-lang.org). Our aim is to provide a fully functioning Unix-like "
+"Redox OS is a general-purpose operating system written in [Rust](https://"
+"www.rust-lang.org). Our aim is to provide a fully functioning Unix-like "
 "microkernel-based operating system, that is secure, reliable and free."
 msgstr ""
 

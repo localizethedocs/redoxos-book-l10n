@@ -91,9 +91,9 @@ msgstr ""
 
 #: src/microkernels.md:25
 msgid ""
-"There is very good documentation in the [MINIX documentation](http://wiki."
-"minix3.org/doku.php?id=www:documentation:reliability) about how this can be "
-"addressed by a microkernel."
+"There is very good documentation in the [MINIX documentation](http://"
+"wiki.minix3.org/doku.php?id=www:documentation:reliability) about how this "
+"can be addressed by a microkernel."
 msgstr ""
 
 #: src/microkernels.md:27
@@ -331,20 +331,20 @@ msgstr ""
 
 #: src/microkernels.md:102
 msgid ""
-"[Minix Documentation](https://wiki.minix3.org/doku.php?id=www:documentation:"
-"start)"
+"[Minix Documentation](https://wiki.minix3.org/doku.php?"
+"id=www:documentation:start)"
 msgstr ""
 
 #: src/microkernels.md:103
 msgid ""
-"[Minix Features](https://wiki.minix3.org/doku.php?id=www:documentation:"
-"features)"
+"[Minix Features](https://wiki.minix3.org/doku.php?"
+"id=www:documentation:features)"
 msgstr ""
 
 #: src/microkernels.md:104
 msgid ""
-"[Minix Reliability](https://wiki.minix3.org/doku.php?id=www:documentation:"
-"reliability)"
+"[Minix Reliability](https://wiki.minix3.org/doku.php?"
+"id=www:documentation:reliability)"
 msgstr ""
 
 #: src/microkernels.md:105

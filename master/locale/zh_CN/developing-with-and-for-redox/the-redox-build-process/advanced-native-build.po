@@ -44,8 +44,8 @@ msgstr ""
 #: src/advanced-build.md:12
 msgid ""
 "Advanced users may accomplish the same as the [**native_bootstrap.sh**]"
-"(https://gitlab.redox-os.org/redox-os/redox/-/blob/master/native_bootstrap."
-"sh) script with the following steps:"
+"(https://gitlab.redox-os.org/redox-os/redox/-/blob/master/"
+"native_bootstrap.sh) script with the following steps:"
 msgstr ""
 
 #: src/advanced-build.md:14
@@ -316,16 +316,16 @@ msgstr ""
 msgid ""
 "Redox requires a GCC-compatible compiler for the operating system to build "
 "additional host tools. GCC for the host system is searched automatically "
-"from `PATH` environment variable with a binary named as `$GNU_TARGET-gcc` (e."
-"g. `x86_64-linux-gnu-gcc`)."
+"from `PATH` environment variable with a binary named as `$GNU_TARGET-gcc` "
+"(e.g. `x86_64-linux-gnu-gcc`)."
 msgstr ""
 
 #: src/advanced-build.md:366
 msgid ""
 "If you have to use a different compiler because GCC is not installed or is "
-"incompatible, you can export [more environment variables](https://gitlab."
-"redox-os.org/redox-os/redoxer#host-specific-customizations) in the `.config` "
-"file:"
+"incompatible, you can export [more environment variables](https://"
+"gitlab.redox-os.org/redox-os/redoxer#host-specific-customizations) in the "
+"`.config` file:"
 msgstr ""
 
 #: src/advanced-build.md:369
@@ -462,10 +462,10 @@ msgstr ""
 
 #: src/advanced-build.md:409
 msgid ""
-"Redox OS is listed as both Tier 2 and Tier 3 [platform support](https://doc."
-"rust-lang.org/nightly/rustc/platform-support/redox.html) on Rust. The x86_64 "
-"architecture is listed as Tier 2 target which means that Rust's libstd is "
-"available for this target."
+"Redox OS is listed as both Tier 2 and Tier 3 [platform support](https://"
+"doc.rust-lang.org/nightly/rustc/platform-support/redox.html) on Rust. The "
+"x86_64 architecture is listed as Tier 2 target which means that Rust's "
+"libstd is available for this target."
 msgstr ""
 
 #: src/advanced-build.md:411
@@ -544,8 +544,8 @@ msgstr ""
 msgid ""
 "To enable it, download the prebuilt binaries in their [releases page]"
 "(https://github.com/mozilla/sccache/releases) to a directory read by the "
-"`PATH` environment variable (typically `~/.cargo/bin`) and add this to `."
-"config`:"
+"`PATH` environment variable (typically `~/.cargo/bin`) and add this to "
+"`.config`:"
 msgstr ""
 
 #: src/advanced-build.md:437

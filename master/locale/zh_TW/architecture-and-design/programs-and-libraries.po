@@ -44,8 +44,8 @@ msgstr ""
 
 #: src/programs-libraries.md:11
 msgid ""
-"Most C/C++ programs call functions in a [C Standard Library](https://en."
-"wikipedia.org/wiki/C_standard_library) (libc) such as `fopen()`"
+"Most C/C++ programs call functions in a [C Standard Library](https://"
+"en.wikipedia.org/wiki/C_standard_library) (libc) such as `fopen()`"
 msgstr ""
 
 #: src/programs-libraries.md:12
@@ -93,8 +93,8 @@ msgstr ""
 
 #: src/programs-libraries.md:21
 msgid ""
-"[OS Internals Documentation](https://wiki.osdev.org/How_kernel,_compiler,"
-"_and_C_library_work_together)"
+"[OS Internals Documentation](https://wiki.osdev.org/"
+"How_kernel,_compiler,_and_C_library_work_together)"
 msgstr ""
 
 #: src/programs-libraries.md:22
