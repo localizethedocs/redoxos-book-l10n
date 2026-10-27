@@ -1,14 +1,14 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: The Redox Operating System\n"
-"POT-Creation-Date: 2026-10-20T13:23:13Z\n"
+"POT-Creation-Date: 2026-10-27T14:00:25Z\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
+"Language: en\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: en\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 
 #: src/creating-proper-pull-requests.md:1
@@ -77,8 +77,9 @@ msgstr ""
 
 #: src/creating-proper-pull-requests.md:26
 msgid ""
-"You need to create a [Personal Access Token](./signing-in-to-gitlab."
-"md#setting-up-pat) for pushing your code into your repository fork later."
+"You need to create a [Personal Access Token](./signing-in-to-"
+"gitlab.md#setting-up-pat) for pushing your code into your repository fork "
+"later."
 msgstr ""
 
 #: src/creating-proper-pull-requests.md:28

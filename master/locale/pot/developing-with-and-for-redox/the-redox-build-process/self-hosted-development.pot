@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: The Redox Operating System\n"
-"POT-Creation-Date: 2026-08-04T10:44:13Z\n"
+"POT-Creation-Date: 2026-10-27T14:00:25Z\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -17,47 +17,134 @@ msgstr ""
 
 #: src/self-hosted.md:3
 msgid ""
-"This page explain how to configure the build system or Redox for development "
-"from Redox."
+"This page explains how to configure the build system or Redox for "
+"development with Redox."
 msgstr ""
 
 #: src/self-hosted.md:5
-msgid "QEMU in Linux"
+msgid ""
+"📝 **Note:** This section is incomplete, as developers still need to figure "
+"out issues within the toolchain."
 msgstr ""
 
 #: src/self-hosted.md:7
-msgid ""
-"This method is used if you are doing self-hosted development in QEMU from "
-"Linux."
+msgid "Bootstrapping with QEMU"
 msgstr ""
 
 #: src/self-hosted.md:9
+msgid ""
+"This method is used if you are doing self-hosted development in QEMU from an "
+"existing build system outside of Redox OS (e.g., Linux)."
+msgstr ""
+
+#: src/self-hosted.md:11
+msgid ""
+"The build system is contained in a recipe called `cookbook`. This recipe "
+"contains dependencies similar to what is shown in [Native build](./building-"
+"redox.md)."
+msgstr ""
+
+#: src/self-hosted.md:13
 msgid ""
 "Add the `cookbook` recipe to your Redox image and go to the `cookbook` "
 "directory:"
 msgstr ""
 
 #: src/self-hosted.md:19
-msgid "Build Redox from source"
+msgid "Inside Redox OS QEMU"
 msgstr ""
 
-#: src/self-hosted.md:25
-msgid "Build and install your system changes"
+#: src/self-hosted.md:21
+msgid "Inside QEMU, open a terminal, then go to the cookbook directory:"
 msgstr ""
 
-#: src/self-hosted.md:31
+#: src/self-hosted.md:27
+msgid ""
+"Build the toolchain. This toolchain will be downloaded from the package "
+"archive:"
+msgstr ""
+
+#: src/self-hosted.md:33
+msgid "Build Redox core packages from source:"
+msgstr ""
+
+#: src/self-hosted.md:39
+msgid "Build and install your system changes:"
+msgstr ""
+
+#: src/self-hosted.md:50
 msgid "Or (if you changed multiple recipes)"
 msgstr ""
 
-#: src/self-hosted.md:37
+#: src/self-hosted.md:60
+msgid "Or install all packages defined from config:"
+msgstr ""
+
+#: src/self-hosted.md:66
 msgid ""
-"If the process is successful you can reboot the system to load your changes:"
+"If the process is successful, you can reboot the system to load your changes:"
 msgstr ""
 
-#: src/self-hosted.md:43
-msgid "Real Hardware"
+#: src/self-hosted.md:72
+msgid "Bootstrapping from Real Hardware"
 msgstr ""
 
-#: src/self-hosted.md:45
-msgid "TODO"
+#: src/self-hosted.md:74
+msgid ""
+"You can follow the [Native Build](./building-redox.md#bootstrap-"
+"prerequisites-and-fetch-sources) instructions to start a self-hosted build "
+"system."
+msgstr ""
+
+#: src/self-hosted.md:76
+msgid "Caveats"
+msgstr ""
+
+#: src/self-hosted.md:78
+msgid ""
+"In this section, we explain existing problems of using self-hosted "
+"development and a possible workaround for it."
+msgstr ""
+
+#: src/self-hosted.md:80
+msgid "No recovery point"
+msgstr ""
+
+#: src/self-hosted.md:82
+msgid ""
+"Redox OS currently has no mechanism for recovering itself if a build broke "
+"the system. Before that happens, it's a good idea to have a backup or "
+"prepare a clean image from the daily build."
+msgstr ""
+
+#: src/self-hosted.md:84
+msgid ""
+"Having a secondary Linux OS in the same system can ease recovering the "
+"system from an unbootable position. See [RedoxFS: Working with Linux "
+"Partition](./redoxfs.md#working-with-linux-partition) for more details."
+msgstr ""
+
+#: src/self-hosted.md:86
+msgid "No GCC \"Cross compiler\" mode"
+msgstr ""
+
+#: src/self-hosted.md:88
+msgid ""
+"GCC that's built for Linux is configured as \"Cross compiler\" mode, whereas "
+"GCC that's built for Redox is configured as \"Hosted compiler\". The "
+"difference between these two modes affects which `relibc` variant is used "
+"during compilation, and in this case the GCC uses the `relibc` from the "
+"system installed at `/usr` to do the compilation, instead of the expected "
+"place in the `prefix` directory."
+msgstr ""
+
+#: src/self-hosted.md:90
+msgid ""
+"There is no way to change the mode to \"Cross compiler\" without rebuilding, "
+"so the easiest way to fix it is by using Clang as the default compiler. Add "
+"this config to `.config` to change that:"
+msgstr ""
+
+#: src/self-hosted.md:93
+msgid "1"
 msgstr ""

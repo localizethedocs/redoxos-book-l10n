@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: The Redox Operating System\n"
-"POT-Creation-Date: 2026-10-20T13:23:13Z\n"
+"POT-Creation-Date: 2026-10-27T14:00:24Z\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -95,8 +95,8 @@ msgstr ""
 
 #: src/redoxfs.md:31
 msgid ""
-"If you found errors while installing it make sure to install the `libfuse` 3."
-"x package for your Unix-like distribution."
+"If you found errors while installing it make sure to install the `libfuse` "
+"3.x package for your Unix-like distribution."
 msgstr ""
 
 #: src/redoxfs.md:33
@@ -229,4 +229,108 @@ msgstr ""
 msgid ""
 "You can use the value from \"shrinking by ...\" to accurately tell how many "
 "bytes can be shrinked:"
+msgstr ""
+
+#: src/redoxfs.md:171
+msgid "Working with Linux Partition"
+msgstr ""
+
+#: src/redoxfs.md:173
+msgid ""
+"⚠️ **Warning:** Experimental and dangerous; always double-check your command "
+"before executing it."
+msgstr ""
+
+#: src/redoxfs.md:175
+msgid ""
+"On Linux, RedoxFS supports formatting and mounting directly from `/dev` "
+"partition. [Redox OS GUI installer](./installing.md) also supports "
+"formatting and installing into a whole disk or specific partition. This "
+"guide only covers the manual process using `redoxfs` CLI tools."
+msgstr ""
+
+#: src/redoxfs.md:177
+msgid "Creating an empty partition for RedoxFS"
+msgstr ""
+
+#: src/redoxfs.md:179
+msgid ""
+"First thing you need to do is that you need to create an empty space for "
+"RedoxFS partition to fit in. Use [GParted](https://gparted.org/), [GNOME "
+"Disks](https://apps.gnome.org/DiskUtility/) or [KDE Partition Manager]"
+"(https://apps.kde.org/partitionmanager/) to create an empty partition, then "
+"identify the partition using `lsblk`"
+msgstr ""
+
+#: src/redoxfs.md:195
+msgid ""
+"For example, we want to format a partition with RedoxFS in `/dev/vdb2`. "
+"Format it using redoxfs-mkfs:"
+msgstr ""
+
+#: src/redoxfs.md:201
+msgid ""
+"After the format is complete, the partition managers should detect the new "
+"partition type as `Unknown`."
+msgstr ""
+
+#: src/redoxfs.md:203
+msgid "Mounting RedoxFS partition"
+msgstr ""
+
+#: src/redoxfs.md:205
+msgid "Before mounting, you can create an empty directory:"
+msgstr ""
+
+#: src/redoxfs.md:211
+msgid ""
+"There are two ways to mount the RedoxFS partition to the directory based on "
+"your preference:"
+msgstr ""
+
+#: src/redoxfs.md:213
+msgid "Rootless mount"
+msgstr ""
+
+#: src/redoxfs.md:215
+msgid ""
+"A rootless mount grants full access to a partition to a specific user. It "
+"can be configured using `setfacl`:"
+msgstr ""
+
+#: src/redoxfs.md:221
+msgid "Then mount the disk without sudo:"
+msgstr ""
+
+#: src/redoxfs.md:227
+msgid ""
+"This way you can gain full access to the files partition, ignoring standard "
+"file permissions (i.e., allow writing files as a root user), but the mounted "
+"device is not shared with other users in your operating system."
+msgstr ""
+
+#: src/redoxfs.md:229
+msgid "To unmount from the partition, use `fusermount3`:"
+msgstr ""
+
+#: src/redoxfs.md:235
+msgid "Rootful mount"
+msgstr ""
+
+#: src/redoxfs.md:237
+msgid ""
+"A rootful mount allows sharing the mounted device with other users, and "
+"standard file permissions apply. It can be mounted using `sudo`:"
+msgstr ""
+
+#: src/redoxfs.md:243
+msgid ""
+"The environment variable `REDOXFS_FUSE_SHARE=1` is used to share a FUSE "
+"mount from root with other non-root users. The FUSE options applied are "
+"`default_permission` and `allow_other`. See [FUSE man page](https://"
+"man.archlinux.org/man/mount.fuse.8.en#default_permissions) for details."
+msgstr ""
+
+#: src/redoxfs.md:245
+msgid "To unmount from the shared partition, use a similar command with sudo."
 msgstr ""

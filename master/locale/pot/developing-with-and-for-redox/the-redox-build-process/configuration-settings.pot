@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: The Redox Operating System\n"
-"POT-Creation-Date: 2026-10-20T13:23:13Z\n"
+"POT-Creation-Date: 2026-10-27T14:00:25Z\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -144,9 +144,9 @@ msgstr ""
 msgid ""
 "The default values for the build system's Makefile variables are mostly "
 "defined in the `mk` directory—particularly in [`mk/config.mk`](#mkconfigmk). "
-"Local changes from the default values, however, should be applied in the [`."
-"config`](#config) file, or temporarily on the `make` [command line](#command-"
-"line)."
+"Local changes from the default values, however, should be applied in the "
+"[`.config`](#config) file, or temporarily on the `make` [command line]"
+"(#command-line)."
 msgstr ""
 
 #: src/configuration-settings.md:37
@@ -218,9 +218,9 @@ msgstr ""
 msgid ""
 "Determines the filesystem configuration file location. See the [Filesystem "
 "Configuration](#filesystem-configuration) section below. The default value "
-"is `config/$ARCH/$BOARD/$CONFIG_NAME.toml` or `config/$ARCH/$CONFIG_NAME."
-"toml` if `$BOARD` is empty, but this can be changed if the desired "
-"configuration file is in a different location."
+"is `config/$ARCH/$BOARD/$CONFIG_NAME.toml` or `config/$ARCH/"
+"$CONFIG_NAME.toml` if `$BOARD` is empty, but this can be changed if the "
+"desired configuration file is in a different location."
 msgstr ""
 
 #: src/configuration-settings.md:49
@@ -375,8 +375,8 @@ msgstr ""
 #: src/configuration-settings.md:63
 msgid ""
 "If set to 1 (`FSTOOLS_NO_MOUNT=1`), the installer will not use FUSE to "
-"create images. See the [Installing without FUSE](./advanced-podman-build."
-"md#installing-without-fuse) section for more information."
+"create images. See the [Installing without FUSE](./advanced-podman-"
+"build.md#installing-without-fuse) section for more information."
 msgstr ""
 
 #: src/configuration-settings.md:64
@@ -446,12 +446,12 @@ msgstr ""
 msgid ""
 "📝 **Note:** `PODMAN_BUILD?=1` _must_ include the question mark to work "
 "correctly 📝 **Note:** Comments are supported using the `#` character 📝 "
-"**Note:** Any QEMU option can be inserted 📝 **Note:** if [`podman_bootstrap."
-"sh`](./podman-build.md#new-working-directory) was run previously, the `."
-"config` file may already exist. 💡 **Tip:** When adding environment "
-"variables in the `.config` file you can add the `?` symbol at the end of "
-"variable names to allow the variable value to be overridden on the command "
-"line shell environment."
+"**Note:** Any QEMU option can be inserted 📝 **Note:** if "
+"[`podman_bootstrap.sh`](./podman-build.md#new-working-directory) was run "
+"previously, the `.config` file may already exist. 💡 **Tip:** When adding "
+"environment variables in the `.config` file you can add the `?` symbol at "
+"the end of variable names to allow the variable value to be overridden on "
+"the command line shell environment."
 msgstr ""
 
 #: src/configuration-settings.md:89
@@ -478,7 +478,7 @@ msgstr ""
 msgid "How to use the variable"
 msgstr ""
 
-#: src/configuration-settings.md:95 src/configuration-settings.md:212
+#: src/configuration-settings.md:95 src/configuration-settings.md:214
 msgid "Description"
 msgstr ""
 
@@ -606,7 +606,31 @@ msgstr ""
 msgid "Override web content generation"
 msgstr ""
 
+#: src/configuration-settings.md:108
+msgid "`REDOXER_USE_CLANG`"
+msgstr ""
+
+#: src/configuration-settings.md:108
+msgid "`REDOXER_USE_CLANG=true`"
+msgstr ""
+
+#: src/configuration-settings.md:108
+msgid "Use Clang as the default compiler"
+msgstr ""
+
 #: src/configuration-settings.md:109
+msgid "`REDOXER_USE_LTO`"
+msgstr ""
+
+#: src/configuration-settings.md:109
+msgid "`REDOXER_USE_LTO=true`"
+msgstr ""
+
+#: src/configuration-settings.md:109
+msgid "Enable LTO compilation by default"
+msgstr ""
+
+#: src/configuration-settings.md:111
 msgid ""
 "📝 **Note:** `REPO_OFFLINE=1` and `REPO_NONSTOP=1` are the recommended ways "
 "to set options instead of `export COOKBOOK_OFFLINE=true` and `export "
@@ -615,19 +639,19 @@ msgid ""
 "in the terminal"
 msgstr ""
 
-#: src/configuration-settings.md:112
+#: src/configuration-settings.md:114
 msgid "`cookbook.toml`"
 msgstr ""
 
-#: src/configuration-settings.md:114
+#: src/configuration-settings.md:116
 msgid ""
-"Cookbook also has a configuration file. This file is rarely used because `."
-"config` should be sufficient. Any configuration in this file will override "
+"Cookbook also has a configuration file. This file is rarely used because "
+"`.config` should be sufficient. Any configuration in this file will override "
 "configuration from `.config` or environment variables. The `cookbook.toml` "
 "configuration below can be used as a template:"
 msgstr ""
 
-#: src/configuration-settings.md:116
+#: src/configuration-settings.md:118
 msgid ""
 "The `cookbook.toml` file mainly configures Cookbook options (`[cook]`) and "
 "mirrors (`[mirror]`). Mirrors are used to replace the main code and binary "
@@ -635,7 +659,7 @@ msgid ""
 "alternative sources when the main server is offline or slow."
 msgstr ""
 
-#: src/configuration-settings.md:119
+#: src/configuration-settings.md:121
 msgid ""
 "```toml\n"
 "# These options have defaults set below\n"
@@ -657,105 +681,105 @@ msgid ""
 "```"
 msgstr ""
 
-#: src/configuration-settings.md:138
+#: src/configuration-settings.md:140
 msgid ""
 "💡 **Tip:** Mirrors option can also be used to override [precompiled Redox "
 "packages](#repo_binary) source URL."
 msgstr ""
 
-#: src/configuration-settings.md:140
+#: src/configuration-settings.md:142
 msgid "Changing the QEMU Properties"
 msgstr ""
 
-#: src/configuration-settings.md:142
+#: src/configuration-settings.md:144
 msgid ""
 "To change the CPU core and RAM memory quantities used when running the Redox "
 "image in QEMU, add the following environment variables to your `.config` "
 "file:"
 msgstr ""
 
-#: src/configuration-settings.md:149
+#: src/configuration-settings.md:151
 msgid ""
 "There's also an option to customize the QEMU machine and CPU type, which is "
 "influenced by how `ARCH` and `BOARD` is set. Read the QEMU documentation for "
 "more information:"
 msgstr ""
 
-#: src/configuration-settings.md:156
+#: src/configuration-settings.md:158
 msgid ""
-"There is more options that can be customized, these are defined in `mk/qemu."
-"mk`:"
-msgstr ""
-
-#: src/configuration-settings.md:170
-msgid "Command Line"
+"There is more options that can be customized, these are defined in `mk/"
+"qemu.mk`:"
 msgstr ""
 
 #: src/configuration-settings.md:172
+msgid "Command Line"
+msgstr ""
+
+#: src/configuration-settings.md:174
 msgid ""
 "The default settings in `mk/config.mk` can be overridden by explicitly "
 "setting them on the `make` command line."
 msgstr ""
 
-#: src/configuration-settings.md:174
+#: src/configuration-settings.md:176
 msgid ""
 "For example, the following command builds the `demo` image variant and loads "
 "it into QEMU:"
 msgstr ""
 
-#: src/configuration-settings.md:180
+#: src/configuration-settings.md:182
 msgid ""
 "Some environment variables can also be set for the lifetime of the current "
 "shell by setting them at the command line:"
 msgstr ""
 
-#: src/configuration-settings.md:183
+#: src/configuration-settings.md:185
 msgid "i586"
 msgstr ""
 
-#: src/configuration-settings.md:186
+#: src/configuration-settings.md:188
 msgid ""
 "Overriding settings in this way is only temporary, however. Additionally, "
 "for those using the [Podman Build](./podman-build.md), some settings may be "
 "ignored when using this method. For best results, use [`.config`](#config)."
 msgstr ""
 
-#: src/configuration-settings.md:188
+#: src/configuration-settings.md:190
 msgid "mk/config.mk"
 msgstr ""
 
-#: src/configuration-settings.md:190
+#: src/configuration-settings.md:192
 msgid ""
 "The Redox build system uses several Makefiles, most of which are in the `mk` "
 "directory. Most settings of interest have have been grouped together in `mk/"
 "config.mk`."
 msgstr ""
 
-#: src/configuration-settings.md:192
+#: src/configuration-settings.md:194
 msgid ""
 "Feel free to open `mk/config.mk` in your favorite editor and have a look "
 "through it; just be sure not to apply any changes:"
 msgstr ""
 
-#: src/configuration-settings.md:198
+#: src/configuration-settings.md:200
 msgid ""
 "The `mk/config.mk` file should never be modified directly, especially if you "
 "are contributing to the Redox project, as doing so could create conflicts in "
 "the `make pull` command."
 msgstr ""
 
-#: src/configuration-settings.md:200
+#: src/configuration-settings.md:202
 msgid ""
-"To apply lasting changes to environment variables, please refer to the [`."
-"config`](#config) section. To apply changes only _temporarily_, see the "
+"To apply lasting changes to environment variables, please refer to the "
+"[`.config`](#config) section. To apply changes only _temporarily_, see the "
 "[Command Line](#command-line) section."
 msgstr ""
 
-#: src/configuration-settings.md:202
+#: src/configuration-settings.md:204
 msgid "build.sh"
 msgstr ""
 
-#: src/configuration-settings.md:204
+#: src/configuration-settings.md:206
 msgid ""
 "The `build.sh` script allows you to easily set `ARCH`, `FILESYSTEM_CONFIG` "
 "and `CONFIG_NAME` when running `make`. If you are not changing the values "
@@ -765,22 +789,22 @@ msgid ""
 "effort, errors and confusion."
 msgstr ""
 
-#: src/configuration-settings.md:210
+#: src/configuration-settings.md:212
 msgid ""
 "The `TARGET` parameter may be any valid `make` target, although the "
 "recommended target is `qemu`. Additional variable settings may also be "
 "included, such as `gpu=no`"
 msgstr ""
 
-#: src/configuration-settings.md:212
+#: src/configuration-settings.md:214
 msgid "Option"
 msgstr ""
 
-#: src/configuration-settings.md:214
+#: src/configuration-settings.md:216
 msgid "`-a <ARCH>`"
 msgstr ""
 
-#: src/configuration-settings.md:214
+#: src/configuration-settings.md:216
 msgid ""
 "The CPU architecture you are building for, `x86_64`, `i586`, `aarch64` or "
 "`riscv64gc`. Uppercase options `-X`, `-5`, `-A`, `-R` can be used as "
@@ -788,50 +812,50 @@ msgid ""
 "respectively."
 msgstr ""
 
-#: src/configuration-settings.md:215
+#: src/configuration-settings.md:217
 msgid "`-c <CONFIG_NAME>`"
 msgstr ""
 
-#: src/configuration-settings.md:215
+#: src/configuration-settings.md:217
 msgid ""
 "The name of the filesystem configuration which appears in the name of the "
 "image being built."
 msgstr ""
 
-#: src/configuration-settings.md:216
+#: src/configuration-settings.md:218
 msgid "`-f <FILESYSTEM_CONFIG>`"
 msgstr ""
 
-#: src/configuration-settings.md:216
+#: src/configuration-settings.md:218
 msgid ""
 "Determines the filesystem configuration file location, which can be in any "
 "location but is normally in directory `config/$ARCH`.<br><br>📝 **Note:** If "
 "you _do_ specify `-f <FILESYSTEM_CONFIG>`, but not `-a` or `-c`, the file "
-"path determines the other values. Normally the file would be located at e."
-"g., `config/x86_64/desktop.toml`. `ARCH` is determined from the second-to-"
+"path determines the other values. Normally the file would be located at "
+"e.g., `config/x86_64/desktop.toml`. `ARCH` is determined from the second-to-"
 "last element of the path. If the second last element is not a known `ARCH` "
 "value, you must specify `-a ARCH`. `CONFIG_NAME` is determined from the "
 "_basename_ of the file."
 msgstr ""
 
-#: src/configuration-settings.md:218
+#: src/configuration-settings.md:220
 msgid ""
 "The default value of `FILESYSTEM_CONFIG` is constructed from `ARCH` and "
 "`CONFIG_NAME`: `config/$ARCH/$CONFIG_NAME.toml`."
 msgstr ""
 
-#: src/configuration-settings.md:220
+#: src/configuration-settings.md:222
 msgid ""
 "The default values for `ARCH` and `CONFIG_NAME` are `x86_64` and `desktop`, "
 "respectively. These produce a default `FILESYSTEM_CONFIG` value of `config/"
 "x86_64/desktop.toml`."
 msgstr ""
 
-#: src/configuration-settings.md:222
+#: src/configuration-settings.md:224
 msgid "Filesystem Configuration"
 msgstr ""
 
-#: src/configuration-settings.md:224
+#: src/configuration-settings.md:226
 msgid ""
 "The packages to be included in the final Redox image are determined by the "
 "chosen **filesystem configuration** file, which is a `.toml` file (e.g., "
@@ -839,7 +863,7 @@ msgid ""
 "it:"
 msgstr ""
 
-#: src/configuration-settings.md:230
+#: src/configuration-settings.md:232
 msgid ""
 "For each supported CPU architecture, there are some filesystem "
 "configurations to choose from. For `x86_64`, there are `desktop`, `demo` and "
@@ -849,22 +873,22 @@ msgid ""
 "examples."
 msgstr ""
 
-#: src/configuration-settings.md:232
+#: src/configuration-settings.md:234
 msgid ""
 "For more details on the filesystem configuration, and how to add additional "
 "packages to the build image, please see the [Including Programs in Redox](./"
 "including-programs.md) page."
 msgstr ""
 
-#: src/configuration-settings.md:234
+#: src/configuration-settings.md:236
 msgid "Feel free to create your own **filesystem configuration**."
 msgstr ""
 
-#: src/configuration-settings.md:236
+#: src/configuration-settings.md:238
 msgid "CPU Architecture Codenames"
 msgstr ""
 
-#: src/configuration-settings.md:238
+#: src/configuration-settings.md:240
 msgid ""
 "The Redox build system supports cross-compilation to other CPU "
 "architectures. The CPU architecture that Redox is built for (specified by "
@@ -872,62 +896,62 @@ msgid ""
 "configuration file that will be used by the build system."
 msgstr ""
 
-#: src/configuration-settings.md:240
+#: src/configuration-settings.md:242
 msgid "See the currently supported CPU architectures by Redox below:"
 msgstr ""
 
-#: src/configuration-settings.md:242
+#: src/configuration-settings.md:244
 msgid "CPU Architecture"
 msgstr ""
 
-#: src/configuration-settings.md:242
+#: src/configuration-settings.md:244
 msgid "Other Aliases"
 msgstr ""
 
-#: src/configuration-settings.md:244
+#: src/configuration-settings.md:246
 msgid "`i586`"
 msgstr ""
 
-#: src/configuration-settings.md:244
+#: src/configuration-settings.md:246
 msgid "x86 (32-bit), IA32 , `x86`"
 msgstr ""
 
-#: src/configuration-settings.md:245
+#: src/configuration-settings.md:247
 msgid "`x86_64`"
 msgstr ""
 
-#: src/configuration-settings.md:245
+#: src/configuration-settings.md:247
 msgid "x86 (64-bit), `x86-64`, `amd64`, `x64`"
 msgstr ""
 
-#: src/configuration-settings.md:246
+#: src/configuration-settings.md:248
 msgid "`aarch64`"
 msgstr ""
 
-#: src/configuration-settings.md:246
+#: src/configuration-settings.md:248
 msgid "ARM (64-bit), ARMv8, `ARM64`"
 msgstr ""
 
-#: src/configuration-settings.md:247
+#: src/configuration-settings.md:249
 msgid "`riscv64gc`"
 msgstr ""
 
-#: src/configuration-settings.md:247
+#: src/configuration-settings.md:249
 msgid "RISC-V (64-bit)"
 msgstr ""
 
-#: src/configuration-settings.md:249
+#: src/configuration-settings.md:251
 msgid ""
 "The filesystem configurations for a given CPU architecture can be found in "
 "the [`config`](https://gitlab.redox-os.org/redox-os/redox/-/tree/master/"
 "config) folder's correspondingly named sub-directory (e.g. `config/x86_64`)."
 msgstr ""
 
-#: src/configuration-settings.md:251
+#: src/configuration-settings.md:253
 msgid "Filesystem Size"
 msgstr ""
 
-#: src/configuration-settings.md:253
+#: src/configuration-settings.md:255
 msgid ""
 "The filesystem size is the total amount of storage space allocated for the "
 "filesystem that is built into the image, including all programs. It is "
@@ -938,26 +962,26 @@ msgid ""
 "must also leave room for the package's installation and system execution."
 msgstr ""
 
-#: src/configuration-settings.md:255
+#: src/configuration-settings.md:257
 msgid ""
 "The filesystem size is normally set from the **filesystem configuration** "
 "file, e.g. `config/x86_64/demo.toml`."
 msgstr ""
 
-#: src/configuration-settings.md:264
+#: src/configuration-settings.md:266
 msgid ""
 "To change this, it is recommended that you create your own filesystem "
 "configuration and apply changes there. However, this can be temporarily "
 "overridden on the `make` command line, e.g.:"
 msgstr ""
 
-#: src/configuration-settings.md:270
+#: src/configuration-settings.md:272
 msgid ""
 "⚠️ **Warning:** setting the `filesystem_size` value too low will produce an "
 "error resembling the following:"
 msgstr ""
 
-#: src/configuration-settings.md:272
+#: src/configuration-settings.md:274
 msgid ""
 "```\n"
 "thread 'main' panicked at src/lib.rs:94:53:\n"
@@ -968,11 +992,11 @@ msgid ""
 "```"
 msgstr ""
 
-#: src/configuration-settings.md:277
+#: src/configuration-settings.md:279
 msgid "Filesystem Customization"
 msgstr ""
 
-#: src/configuration-settings.md:279
+#: src/configuration-settings.md:281
 msgid ""
 "The Redox image can be customized by tweaking the configuration files at "
 "`config/$ARCH/*.toml`. However, it is recommended that you create your own "
@@ -981,125 +1005,125 @@ msgid ""
 "templates at `config`)"
 msgstr ""
 
-#: src/configuration-settings.md:282
+#: src/configuration-settings.md:284
 msgid "Creating a custom filesystem configuration"
 msgstr ""
 
-#: src/configuration-settings.md:284
+#: src/configuration-settings.md:286
 msgid ""
 "The following items describe the process for creating a custom filesystem "
 "configuration file (`my-desktop.toml`):"
 msgstr ""
 
-#: src/configuration-settings.md:286
+#: src/configuration-settings.md:288
 msgid ""
 "Create the `my-desktop.toml` file from an existing filesystem configuration:"
 msgstr ""
 
-#: src/configuration-settings.md:292
+#: src/configuration-settings.md:294
 msgid ""
 "Add the following to the `.config` file to set the new configuration as the "
 "build system's default:"
 msgstr ""
 
-#: src/configuration-settings.md:298
+#: src/configuration-settings.md:300
 msgid ""
 "Many filesystem configuration settings can be adjusted. See the templates in "
 "the `config` folder for reference."
 msgstr ""
 
-#: src/configuration-settings.md:300
+#: src/configuration-settings.md:302
 msgid ""
 "💡 **Tip:** files named with the prefix \"`my-`\" in the `redox` repo are "
 "git-ignored. Be sure to follow this convention for all custom filesystem "
 "configurations to avoid accidentally committing them to the Redox project."
 msgstr ""
 
-#: src/configuration-settings.md:302
+#: src/configuration-settings.md:304
 msgid "Adding a package to the filesystem configuration"
 msgstr ""
 
-#: src/configuration-settings.md:304
+#: src/configuration-settings.md:306
 msgid ""
-"In the following example, the `acid` package is added to the `my_desktop."
-"toml` configuration:"
+"In the following example, the `acid` package is added to the "
+"`my_desktop.toml` configuration:"
 msgstr ""
 
-#: src/configuration-settings.md:306
+#: src/configuration-settings.md:308
 msgid "Open the `my-desktop.toml` file:"
 msgstr ""
 
-#: src/configuration-settings.md:312
+#: src/configuration-settings.md:314
 msgid "Add the `acid` package to the `[packages]` section:"
 msgstr ""
 
-#: src/configuration-settings.md:319
+#: src/configuration-settings.md:321
 msgid "Build the `acid` package and update the Redox image:"
 msgstr ""
 
-#: src/configuration-settings.md:325
+#: src/configuration-settings.md:327
 msgid "Done! The `acid` package is now included in your Redox image."
 msgstr ""
 
-#: src/configuration-settings.md:327
+#: src/configuration-settings.md:329
 msgid "Binary Recipe Mode"
 msgstr ""
 
-#: src/configuration-settings.md:329
+#: src/configuration-settings.md:331
 msgid ""
 "By default, the Redox build system builds all packages from source (i.e., "
-"recipes). If you want to use [pre-built packages](https://static.redox-os."
-"org/pkg/) from our build server, however, there's a recipe rule and "
+"recipes). If you want to use [pre-built packages](https://static.redox-"
+"os.org/pkg/) from our build server, however, there's a recipe rule and "
 "filesystem configuration option for it."
 msgstr ""
 
-#: src/configuration-settings.md:331
+#: src/configuration-settings.md:333
 msgid ""
 "This is useful for some purposes, such as producing development builds, "
 "confirming package status from the package server, and reducing image build "
 "time with large programs."
 msgstr ""
 
-#: src/configuration-settings.md:333
+#: src/configuration-settings.md:335
 msgid ""
 "This mode will use the pre-built packages of recipe dependencies if "
 "compilation is needed"
 msgstr ""
 
-#: src/configuration-settings.md:334
+#: src/configuration-settings.md:336
 msgid ""
 "If a pre-built package of the recipe is not available, it will fallback to "
 "source compilation"
 msgstr ""
 
-#: src/configuration-settings.md:336
+#: src/configuration-settings.md:338
 msgid "You can learn how to enable this mode in one recipe below:"
 msgstr ""
 
-#: src/configuration-settings.md:338
+#: src/configuration-settings.md:340
 msgid "Temporary pre-built recipe package"
 msgstr ""
 
-#: src/configuration-settings.md:340
+#: src/configuration-settings.md:342
 msgid ""
 "The following command will change the recipe rule to `binary` and install to "
 "a existing Redox image, the package will be removed once a new Redox image "
 "is created."
 msgstr ""
 
-#: src/configuration-settings.md:346
+#: src/configuration-settings.md:348
 msgid "Permanent pre-built recipe package"
 msgstr ""
 
-#: src/configuration-settings.md:348
+#: src/configuration-settings.md:350
 msgid "Open the `my-config.toml` file:"
 msgstr ""
 
-#: src/configuration-settings.md:354
+#: src/configuration-settings.md:356
 msgid "Add the binary package below the `[packages]` section:"
 msgstr ""
 
-#: src/configuration-settings.md:356
+#: src/configuration-settings.md:358
 msgid ""
 "```toml\n"
 "[packages]\n"
@@ -1109,19 +1133,19 @@ msgid ""
 "```"
 msgstr ""
 
-#: src/configuration-settings.md:363
+#: src/configuration-settings.md:365
 msgid "Download and add the binary package on your Redox image:"
 msgstr ""
 
-#: src/configuration-settings.md:369
+#: src/configuration-settings.md:371
 msgid "Open QEMU to verify your package:"
 msgstr ""
 
-#: src/configuration-settings.md:375
+#: src/configuration-settings.md:377
 msgid "REPO_BINARY"
 msgstr ""
 
-#: src/configuration-settings.md:377
+#: src/configuration-settings.md:379
 msgid ""
 "In the previous example, the build system's default behavior was overridden "
 "by explicitly setting a package to use a pre-built binary. To configure the "
@@ -1129,7 +1153,7 @@ msgid ""
 "set the `REPO_BINARY` environment variable (`REPO_BINARY?=1`)."
 msgstr ""
 
-#: src/configuration-settings.md:379
+#: src/configuration-settings.md:381
 msgid ""
 "When `REPO_BINARY` is enabled, the Redox image is made to use pre-built "
 "binaries for all packages assigned to `{}`; when `REPO_BINARY` is "
@@ -1137,17 +1161,17 @@ msgid ""
 "recipes)."
 msgstr ""
 
-#: src/configuration-settings.md:381
+#: src/configuration-settings.md:383
 msgid ""
 "(This environment variable has the same source compilation behavior of "
 "`recipe = \"binary\"` seen above)"
 msgstr ""
 
-#: src/configuration-settings.md:383
+#: src/configuration-settings.md:385
 msgid "For example:"
 msgstr ""
 
-#: src/configuration-settings.md:385
+#: src/configuration-settings.md:387
 msgid ""
 "```toml\n"
 "[packages]\n"
@@ -1160,24 +1184,24 @@ msgid ""
 "```"
 msgstr ""
 
-#: src/configuration-settings.md:394
+#: src/configuration-settings.md:396
 msgid ""
 "If you just want to use pre-built packages in one filesystem configuration "
 "you can add the `repo_binary = true` data type below the `[general]` section "
 "on it."
 msgstr ""
 
-#: src/configuration-settings.md:396
+#: src/configuration-settings.md:398
 msgid ""
 "You can also use the following command to quickly enable source compilation "
 "in one recipe:"
 msgstr ""
 
-#: src/configuration-settings.md:402
+#: src/configuration-settings.md:404
 msgid "Local Recipe Changes"
 msgstr ""
 
-#: src/configuration-settings.md:404
+#: src/configuration-settings.md:406
 msgid ""
 "By default every time a recipe build is triggered, Cookbook will update the "
 "recipe source. Cookbook will check the tarball BLAKE3 hash from the recipe "
@@ -1186,26 +1210,26 @@ msgid ""
 "are not saved in a branch."
 msgstr ""
 
-#: src/configuration-settings.md:406
+#: src/configuration-settings.md:408
 msgid ""
 "To preserve and use local changes and skip updating the source for a "
 "specific recipe, change the recipe rule or type to `\"local\"`. Use one of "
 "the following methods:"
 msgstr ""
 
-#: src/configuration-settings.md:408
+#: src/configuration-settings.md:410
 msgid "Command line"
 msgstr ""
 
-#: src/configuration-settings.md:414
+#: src/configuration-settings.md:416
 msgid "Filesystem configuration"
 msgstr ""
 
-#: src/configuration-settings.md:416
+#: src/configuration-settings.md:418
 msgid "You can also use this method to prevent accidents."
 msgstr ""
 
-#: src/configuration-settings.md:418
+#: src/configuration-settings.md:420
 msgid ""
 "```toml\n"
 "[packages]\n"
@@ -1215,7 +1239,7 @@ msgid ""
 "```"
 msgstr ""
 
-#: src/configuration-settings.md:425
+#: src/configuration-settings.md:427
 msgid ""
 "The old way for preserving and using local changes is by commenting out the "
 "`[source]` section at the top of the file of a `recipe.toml` is also working "
@@ -1223,15 +1247,15 @@ msgid ""
 "repository."
 msgstr ""
 
-#: src/configuration-settings.md:427
+#: src/configuration-settings.md:429
 msgid "Use this if you want to prevent accidents."
 msgstr ""
 
-#: src/configuration-settings.md:429
+#: src/configuration-settings.md:431
 msgid "Example:"
 msgstr ""
 
-#: src/configuration-settings.md:431
+#: src/configuration-settings.md:433
 msgid ""
 "```toml\n"
 "# [source]\n"
@@ -1239,26 +1263,26 @@ msgid ""
 "```"
 msgstr ""
 
-#: src/configuration-settings.md:436
+#: src/configuration-settings.md:438
 msgid "Ignored Recipes"
 msgstr ""
 
-#: src/configuration-settings.md:438
+#: src/configuration-settings.md:440
 msgid ""
 "You can disable the installation of some recipes in the Redox image by "
 "ignoring, this is commonly used to disable recipes imported from other "
 "filesystem configurations to yours using the `include` data type."
 msgstr ""
 
-#: src/configuration-settings.md:440
+#: src/configuration-settings.md:442
 msgid "To quickly ignore them use the following command:"
 msgstr ""
 
-#: src/configuration-settings.md:446
+#: src/configuration-settings.md:448
 msgid "You can also do this on your filesystem configuration:"
 msgstr ""
 
-#: src/configuration-settings.md:448
+#: src/configuration-settings.md:450
 msgid ""
 "```toml\n"
 "[packages]\n"
@@ -1266,21 +1290,21 @@ msgid ""
 "```"
 msgstr ""
 
-#: src/configuration-settings.md:453
+#: src/configuration-settings.md:455
 msgid "Advanced Cookbook Options"
 msgstr ""
 
-#: src/configuration-settings.md:455
+#: src/configuration-settings.md:457
 msgid ""
 "This section has details of the [Cookbook Environment Variables](#cookbook-"
 "environment-variables) options."
 msgstr ""
 
-#: src/configuration-settings.md:457
+#: src/configuration-settings.md:459
 msgid "Cookbook TUI Mode"
 msgstr ""
 
-#: src/configuration-settings.md:459
+#: src/configuration-settings.md:461
 msgid ""
 "Cookbook has a TUI mode which is enabled by default. This mode speedup the "
 "build process because it allows the source fetch and compilation to be done "
@@ -1288,11 +1312,11 @@ msgid ""
 "disabled, which is desired for builds under Continuous Integration (CI)."
 msgstr ""
 
-#: src/configuration-settings.md:461
+#: src/configuration-settings.md:463
 msgid "Cookbook Offline Mode"
 msgstr ""
 
-#: src/configuration-settings.md:463
+#: src/configuration-settings.md:465
 msgid ""
 "Cookbook also has a mode where it will reduce Internet activity by adding "
 "`REPO_OFFLINE=1` into `.config`. This mode is useful when you are in places "
@@ -1300,7 +1324,7 @@ msgid ""
 "build system state or faster incremental compilation."
 msgstr ""
 
-#: src/configuration-settings.md:465
+#: src/configuration-settings.md:467
 msgid ""
 "In this mode, Cookbook will not update the source of any recipe or a package "
 "binary if also set with `REPO_BINARY=1`. It also adds the `--offline` option "
@@ -1309,7 +1333,7 @@ msgid ""
 "locally it will throw an error instead."
 msgstr ""
 
-#: src/configuration-settings.md:467
+#: src/configuration-settings.md:469
 msgid ""
 "To temporarily allow Cookbook and Cargo to have Internet activity and update "
 "sources, run `make f.package-name` (single recipe source fetch) or `make "
@@ -1317,11 +1341,11 @@ msgid ""
 "the `REPO_OFFLINE` environment variable."
 msgstr ""
 
-#: src/configuration-settings.md:469
+#: src/configuration-settings.md:471
 msgid "Cookbook Logs"
 msgstr ""
 
-#: src/configuration-settings.md:471
+#: src/configuration-settings.md:473
 msgid ""
 "When `export COOKBOOK_LOGS=true` is set, all build logs will be written into "
 "the `build/logs/$TARGET` directory. This is enabled by default when TUI mode "
@@ -1330,36 +1354,36 @@ msgid ""
 "is why when `CI=1`, logs are disabled."
 msgstr ""
 
-#: src/configuration-settings.md:473
+#: src/configuration-settings.md:475
 msgid ""
 "Under the hood when the TUI mode or log capture is enabled, Cookbook will "
 "try to provide pseudo-terminal support and pipe them as-is to the terminal, "
 "then strip colors before saving them to logs."
 msgstr ""
 
-#: src/configuration-settings.md:475
+#: src/configuration-settings.md:477
 msgid "Cookbook Verbosity"
 msgstr ""
 
-#: src/configuration-settings.md:477
+#: src/configuration-settings.md:479
 msgid ""
 "When `export COOKBOOK_VERBOSE=false` is set, it disables certain debug logs "
 "and disables the GNU Bash's `set -x` command, if combined with `CI=1 "
 "COOKBOOK_LOGS=true`, it will hide success build logs to the terminal."
 msgstr ""
 
-#: src/configuration-settings.md:479
+#: src/configuration-settings.md:481
 msgid ""
 "Usually you want to combine `CI=1 COOKBOOK_LOGS=true COOKBOOK_VERBOSE=false` "
 "because it will not replace build logs that are doing the build instead of "
 "caching it and creating a minimally distracting build output on terminal."
 msgstr ""
 
-#: src/configuration-settings.md:481
+#: src/configuration-settings.md:483
 msgid "Cookbook Compressed Packages"
 msgstr ""
 
-#: src/configuration-settings.md:483
+#: src/configuration-settings.md:485
 msgid ""
 "When `export COOKBOOK_COMPRESSED=true` is set, it will package software with "
 "compression turned on. Under the hood it's compressing with the [LZMA2]"
@@ -1367,18 +1391,18 @@ msgid ""
 "but slow to compress."
 msgstr ""
 
-#: src/configuration-settings.md:485
+#: src/configuration-settings.md:487
 msgid ""
 "It is not enabled by default because it uses considerable CPU time to "
 "compress and storage saving is negligible compared to [Cookbook Clean Target]"
 "(#cookbook-clean-target)."
 msgstr ""
 
-#: src/configuration-settings.md:487
+#: src/configuration-settings.md:489
 msgid "Cookbook Clean Build"
 msgstr ""
 
-#: src/configuration-settings.md:489
+#: src/configuration-settings.md:491
 msgid ""
 "When `export COOKBOOK_CLEAN_BUILD=true` is set, it will always remove [the "
 "build directory](./build-system-reference.md#cookbook) before building. This "
@@ -1388,11 +1412,11 @@ msgid ""
 "development."
 msgstr ""
 
-#: src/configuration-settings.md:491
+#: src/configuration-settings.md:493
 msgid "Cookbook Clean Target"
 msgstr ""
 
-#: src/configuration-settings.md:493
+#: src/configuration-settings.md:495
 msgid ""
 "When `export COOKBOOK_CLEAN_TARGET=true` is set, it will remove [the build, "
 "stage, and sysroot directories](./build-system-reference.md#cookbook) after "
@@ -1400,19 +1424,20 @@ msgid ""
 "development that frequently jumps between recipes."
 msgstr ""
 
-#: src/configuration-settings.md:495
+#: src/configuration-settings.md:497
 msgid ""
 "Unlike `COOKBOOK_CLEAN_BUILD`, it allows inspection of `build` directory and "
 "allows incremental compilation if build is failing. It does not allow "
-"visualization of the `build` and `stage` directories but creates `stage."
-"files` which contains tree of files in the `stage` directory before deletion."
-msgstr ""
-
-#: src/configuration-settings.md:497
-msgid "Cookbook Web Generator"
+"visualization of the `build` and `stage` directories but creates "
+"`stage.files` which contains tree of files in the `stage` directory before "
+"deletion."
 msgstr ""
 
 #: src/configuration-settings.md:499
+msgid "Cookbook Web Generator"
+msgstr ""
+
+#: src/configuration-settings.md:501
 msgid ""
 "When `export COOKBOOK_WEB=true` is set, it will create a `web` directory "
 "containing HTML files for published `repo`. It contains much more "
