@@ -1,0 +1,373 @@
+<!DOCTYPE HTML>
+<html lang="zh_TW" class="light sidebar-visible" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Installing Redox - The Redox Operating System</title>
+
+
+        <!-- Custom HTML head -->
+        <style>
+        .light .redox-logo {
+            content: url("assets/redox_light_512.png");
+        }
+        .rust .redox-logo {
+            content: url("assets/redox_light_512.png");
+        }
+        .coal .redox-logo {
+            content: url("assets/redox_dark_512.png");
+        }
+        .navy .redox-logo {
+            content: url("assets/redox_dark_512.png");
+        }
+        .ayu .redox-logo {
+            content: url("assets/redox_dark_512.png");
+        }
+        </style>
+        <script type="text/javascript" src="ltd-provenance.js"></script>
+        <script type="text/javascript" src="ltd-current.js"></script>
+        <script type="text/javascript" src="../../ltd-config.js"></script>
+        <script type="text/javascript" src="../../ltd-flyout.js"></script>
+
+        <meta name="description" content="This book carefully describes the design, implementation, direction, and structure of Redox, the operating system.">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="shortcut icon" href="favicon.png">
+        <link rel="stylesheet" href="css/variables.css">
+        <link rel="stylesheet" href="css/general.css">
+        <link rel="stylesheet" href="css/chrome.css">
+        <link rel="stylesheet" href="css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" id="highlight-css" href="highlight.css">
+        <link rel="stylesheet" id="tomorrow-night-css" href="tomorrow-night.css">
+        <link rel="stylesheet" id="ayu-highlight-css" href="ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+
+        <!-- Provide site root and default themes to javascript -->
+        <script>
+            const path_to_root = "";
+            const default_light_theme = "light";
+            const default_dark_theme = "navy";
+            window.path_to_searchindex_js = "searchindex.js";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="toc.js"></script>
+    </head>
+    <body>
+    <div id="mdbook-help-container">
+        <div id="mdbook-help-popup">
+            <h2 class="mdbook-help-title">Keyboard shortcuts</h2>
+            <div>
+                <p>Press <kbd>←</kbd> or <kbd>→</kbd> to navigate between chapters</p>
+                <p>Press <kbd>S</kbd> or <kbd>/</kbd> to search in the book</p>
+                <p>Press <kbd>?</kbd> to show this help</p>
+                <p>Press <kbd>Esc</kbd> to hide this help</p>
+            </div>
+        </div>
+    </div>
+    <div id="body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                let theme = localStorage.getItem('mdbook-theme');
+                let sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            const default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? default_dark_theme : default_light_theme;
+            let theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            let sidebar = null;
+            const sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+                sidebar_toggle.checked = false;
+            }
+            if (sidebar === 'visible') {
+                sidebar_toggle.checked = true;
+            } else {
+                html.classList.remove('sidebar-visible');
+            }
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="default_theme">Auto</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search (`/`)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="/ s" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">The Redox Operating System</h1>
+
+                    <div class="right-buttons">
+                        <a href="print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <div class="search-wrapper">
+                            <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                            <div class="spinner-wrapper">
+                                <i class="fa fa-spinner fa-spin"></i>
+                            </div>
+                        </div>
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1 id="installing-redox"><a class="header" href="#installing-redox">Installing Redox</a></h1>
+<p>Redox OS provides an installer to facilitate installation from Redox OS itself or Linux. <strong>Please back up your system</strong> before attempting to install. Note that at this time (Release 0.9.0), you can't install onto a USB device or use a USB device for your Redox filesystem, but you can install from it.</p>
+<h2 id="starting-the-installer-from-redox-os-livedisk"><a class="header" href="#starting-the-installer-from-redox-os-livedisk">Starting the Installer from Redox OS Livedisk</a></h2>
+<p>The installer is usually pre-installed on Redox OS. After starting your Redox OS <em>livedisk</em> system from a USB device or CD/DVD, log in as the user named <code>user</code> with an empty password, click on the Redox OS icon in the Orbital bottom bar to open the app menu, then open the "System" app category and click on the "Redox Installer" app.</p>
+<p>Or, if you want to launch it from the terminal, run the following command:</p>
+<pre><code class="language-sh">sudo redox_installer_gui
+</code></pre>
+<p>If you are using the <code>server</code> variant or want to use the TUI interface, open a terminal window and type:</p>
+<pre><code class="language-sh">sudo redox_installer_tui
+</code></pre>
+<p>At the moment, the GUI installer is more capable than the TUI version, but the TUI one will be updated.</p>
+<p>In the TUI version, if Redox recognizes your device, it will prompt you to select a device to install on. Choose carefully, as it will erase all the data on that device. Note that if your device is not recognized, it may offer you the option to install on <code>disk/live</code> (the in-memory <em>livedisk</em>). Don't do this, as it will crash Redox.</p>
+<p>The TUI version also prompts for a <code>redoxfs password</code>. This is for an encrypted filesystem. Leave the password empty and press Enter if you don't need filesystem encryption.</p>
+<h2 id="starting-the-installer-from-linux"><a class="header" href="#starting-the-installer-from-linux">Starting the Installer from Linux</a></h2>
+<p>At the moment, the GUI installer is capable of installation from Linux. However, the binary is not distributed; you need to compile and install it using <code>cargo</code>:</p>
+<pre><code class="language-sh">cargo install --git https://gitlab.redox-os.org/redox-os/installer redox_installer_gui --locked
+</code></pre>
+<p>The GUI installer is using <code>libcosmic</code>, so it will only work using Wayland. After compiling it, launch it from terminal:</p>
+<pre><code class="language-sh">redox_installer_gui
+</code></pre>
+<p>Depending on how you will install Redox OS, you might want to run it with <code>sudo</code>.</p>
+<h3 id="gui-installer-options"><a class="header" href="#gui-installer-options">GUI Installer Options</a></h3>
+<p>The GUI installer is capable of many installation modes. This section explains each step option and its implications in detail:</p>
+<h4 id="1-where-do-you-want-to-install-redox-os"><a class="header" href="#1-where-do-you-want-to-install-redox-os">1. Where do you want to install Redox OS?</a></h4>
+<p>This section asks about the general scenario where you want to install Redox OS:</p>
+<ul>
+<li>
+<p><strong>Whole Drive</strong></p>
+<p>Use the whole storage device for Redox OS. It will erase all data on that device. The next section is <a href="#2-choose-a-drive">#2</a>.</p>
+</li>
+<li>
+<p><strong>Specific Partition</strong></p>
+<p>Use a storage device partition for Redox OS. It will erase all data in that partition, but leave every other partition intact. It is the option that you should use if you want to dual-boot with your current Linux installation. The next section is <a href="#3-choose-a-main-partition">#3</a>.</p>
+</li>
+<li>
+<p><strong>Image File</strong></p>
+<p>Write to a new image file. This option will create an image disk file similar to the one that's hosted on the Redox OS download page. The next section is <a href="#4-configure-image-file">#4</a>.</p>
+</li>
+</ul>
+<h4 id="2-choose-a-drive"><a class="header" href="#2-choose-a-drive">2. Choose a drive</a></h4>
+<p>This section lets you choose which storage device you want to install into. When chosen, the disk will be erased, then formatted as GPT with three partitions:</p>
+<ul>
+<li>First, a BIOS boot partition for boot using legacy BIOS.</li>
+<li>Second, a 2MB FAT filesystem for UEFI bootloader.</li>
+<li>Last, a RedoxFS partition that occupies the rest of the disk.</li>
+</ul>
+<p>This layout is not configurable. If you wish to do so, format your disk using <code>GParted</code> or a similar tool, then go back and choose <strong>Specific Partition</strong>.</p>
+<p><em>Never choose the disk that's currently active</em>.</p>
+<h4 id="3-choose-a-main-partition"><a class="header" href="#3-choose-a-main-partition">3. Choose a main partition</a></h4>
+<p>This section lets you choose which partition you want to use as the main RedoxFS partition for Redox OS. This will erase the data for that partition but leave everything else untouched.</p>
+<p>The installer is not capable of doing partitioning. If you want to do so, use another tool such as <code>GParted</code> and set up an empty partition for RedoxFS, then click <strong>Reload</strong> on this page after you're done partitioning.</p>
+<p>Note that installing just for RedoxFS partition will not make it bootable; hence, there's a second option to choose where to install the bootloader:</p>
+<ul>
+<li>
+<p><strong>Do not write</strong></p>
+<p>This will not write any bootloader and leave the installed Redox OS in that partition unbootable, because Redox OS requires a custom bootloader and cannot be loaded by common bootloaders such as <code>GRUB</code>, <code>systemd-boot</code>, etc.</p>
+</li>
+<li>
+<p><strong>Dual-boot (systemd-boot)</strong></p>
+<p>If <code>/boot/efi</code> is detected to contain <code>systemd-boot</code>, this option will be visible. This option is not visible for Linux that boots using other than <code>systemd-boot</code> such as <code>GRUB</code>.</p>
+</li>
+</ul>
+<p>When chosen, it will write the UEFI bootloader to these paths:</p>
+<ul>
+<li><code>/boot/efi/EFI/redox/*.efi</code> : The bootloader EFI file</li>
+<li><code>/boot/efi/loader/entries/redox.conf</code> : The bootloader entry in `systemd-boot menu</li>
+</ul>
+<p>In some Linux distributions, the <code>systemd-boot</code> menu is not visible, and to make it appear, the <code>timeout</code> option in <code>/boot/efi/loader/loader.conf</code> file. See <a href="https://man.archlinux.org/man/loader.conf.5#OPTIONS">systemd-boot loader.conf man page</a> for more information.</p>
+<p>If you choose any partition, make sure it's not mounted. <strong>Never choose the partition that's currently mounted</strong>.</p>
+<ul>
+<li><strong>Any partition in /dev/*</strong></li>
+</ul>
+<p>This option will format the partition with the FAT filesystem containing UEFI bootloader for Redox OS. The bootloader does not have to be on the same disk as RedoxFS, as the bootloader will look to all drives that contain a RedoxFS partition with the help of UEFI services.</p>
+<p>This option is meant for installation to an external storage device, or for chainloading to any bootloader that supports it, such as <code>GRUB</code>. In some machines, the bootloader can also be directly bootable from BIOS boot device menu or boot priority on firmware setup.</p>
+<p>Note that this option only installs the UEFI bootloader. If your machine only supports booting via BIOS, then your only option is to go back and choose the <strong>Whole Drive</strong> option.</p>
+<hr />
+<p>If you do not see the <code>Next</code> button, try to maximize the window.</p>
+<h4 id="4-configure-image-file"><a class="header" href="#4-configure-image-file">4. Configure Image File</a></h4>
+<p>This section contain options for installing Redox OS into a image file. This section is particularly useful for emulating Redox in a virtual machine, or for advanced installation methods later on.</p>
+<ul>
+<li><strong>Image Path</strong></li>
+</ul>
+<p>This asks where to install the image file. In Linux, the <code>Browse</code> button is visible to open a file dialog where the file will be saved.</p>
+<p>You can also specify a path to a directory, and it will just install Redox OS files in that directory, but this behavior is not recommended to be used.</p>
+<ul>
+<li><strong>Image Size</strong></li>
+</ul>
+<p>Specify the image file size, which will also be the size of the main RedoxFS partition for Redox OS.</p>
+<ul>
+<li><strong>Skip Partition?</strong></li>
+</ul>
+<p>Checking this box will prevent the image file from being formatted as GPT device; rather, it will become a raw RedoxFS partition (written directly to storage device sectors). This is useful if you wanted only the RedoxFS format, which can then be used for <code>dd</code> into <code>/dev/partition</code> for example, or boot via the <code>-cdrom</code> option in <code>QEMU</code>.</p>
+<ul>
+<li><strong>Write Bootloader EFI</strong></li>
+</ul>
+<p>This asks where to install the bootloader file. The EFI file is needed to boot the Redox OS disk later on. It is a PE executable that is usually placed in <code>/EFI/BOOT/*.EFI</code> of a boot partition.</p>
+<h4 id="5-select-system-profile"><a class="header" href="#5-select-system-profile">5. Select System Profile</a></h4>
+<p>After entering options from either Section 2, 3, or 4, this is the last section before the actual install is performed.</p>
+<ul>
+<li>
+<p><strong>Desktop</strong></p>
+<p>This option chooses the Redox OS to be installed with desktop and server components. The installation usually takes around 3 minutes (200 seconds).</p>
+</li>
+<li>
+<p><strong>Server</strong></p>
+<p>This option chooses the Redox OS to be installed with only server components. Its installation usually takes around 1 minute and half (90 seconds).</p>
+</li>
+<li>
+<p><strong>Clone</strong></p>
+<p>This option is only visible if you boot Redox OS to a live disk. It will install an identical copy from the current Redox OS live disk memory.</p>
+</li>
+<li>
+<p><strong>Install as Live Disk</strong></p>
+</li>
+</ul>
+<p>This option will make the bootloader install with live disk mode being chosen as the default.</p>
+<ul>
+<li><strong>Enable disk encryption password</strong></li>
+</ul>
+<p>You can enter a password for main RedoxFS partition encryption. It is whole-disk encryption; the bootloader will ask for the password later to boot Redox.</p>
+<h4 id="6-installation-progress"><a class="header" href="#6-installation-progress">6. Installation Progress</a></h4>
+<p>The installation is then performed and usually will finish within minutes. Unfortunately, for the GUI installer, the progress is in the terminal where it was launched, instead of being reported in the GUI.</p>
+<p>Once the installation completes, you can restart your computer to boot into Redox!</p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="real-hardware.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="trying-out-redox.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="real-hardware.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="trying-out-redox.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="elasticlunr.min.js"></script>
+        <script src="mark.min.js"></script>
+        <script src="searcher.js"></script>
+
+        <script src="clipboard.min.js"></script>
+        <script src="highlight.js"></script>
+        <script src="book.js"></script>
+
+        <!-- Custom JS scripts -->
+
+
+
+    </div>
+    </body>
+</html>
